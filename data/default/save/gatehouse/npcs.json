@@ -2,7 +2,7 @@
   {
     "template": "Imogen",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "36:3",
     "zone": "Ichiba City",
@@ -14,7 +14,7 @@
   {
     "template": "Tower Guardian NPC",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:30",
     "zone": "Ichiba City",
@@ -26,7 +26,7 @@
   {
     "template": "C.O.C. Sergeant",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:19",
     "zone": "Ichiba City",
@@ -38,7 +38,7 @@
   {
     "template": "Lorelei",
     "attitude": "NEUTRAL",
-    "currentInventory": [
+    "tradingInventory": [
       {
         "template": "Potion Of Cure Poison",
         "cursedState": "0",
@@ -67,7 +67,7 @@
   {
     "template": "Tao",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "25:10",
     "zone": "Dalen",
@@ -79,7 +79,7 @@
   {
     "template": "Mentes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
+    "tradingInventory": [
       {
         "template": "Silk Shirt",
         "cursedState": "0",
@@ -148,7 +148,7 @@
   {
     "template": "Diomedes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
+    "tradingInventory": [
       {
         "template": "Potion Of Barkskin",
         "cursedState": "0",
@@ -193,7 +193,7 @@
   {
     "template": "Nhapukom Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:15",
     "zone": "Temple Of The Gate",
@@ -205,7 +205,7 @@
   {
     "template": "Stenelaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Danaos Village",
@@ -217,7 +217,7 @@
   {
     "template": "Saropon Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:9",
     "zone": "Tornado Mountain",
@@ -229,7 +229,7 @@
   {
     "template": "Sarpedon",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "12:26",
     "zone": "Aenen City",
@@ -241,7 +241,7 @@
   {
     "template": "Clockwork Sentinel",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:20",
     "zone": "Aenen City",
@@ -253,7 +253,7 @@
   {
     "template": "Agenor",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "2",
     "tile": "14:6",
     "zone": "Danaos Castle",
@@ -265,7 +265,7 @@
   {
     "template": "Rhys",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "8:14",
     "zone": "Ichiba City Depths",
@@ -277,7 +277,7 @@
   {
     "template": "Kepnasha Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "0:0",
     "zone": "Ichiba City",
@@ -289,7 +289,7 @@
   {
     "template": "Three Eyes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
+    "tradingInventory": [
       {
         "template": "Bottled Mephits",
         "cursedState": "0",

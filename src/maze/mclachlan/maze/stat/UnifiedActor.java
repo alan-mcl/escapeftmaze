@@ -226,7 +226,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 	/*-------------------------------------------------------------------------*/
 	public List<EquipableSlot> getAllEquipableSlots()
 	{
-		List<EquipableSlot> result = new ArrayList<EquipableSlot>();
+		List<EquipableSlot> result = new ArrayList<>();
 
 		for (List<EquipableSlot> i : this.getEquipableSlots().values())
 		{
@@ -314,7 +314,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 
 		if (list == null)
 		{
-			list = new ArrayList<EquipableSlot>();
+			list = new ArrayList<>();
 			map.put(es.getType(), list);
 		}
 
@@ -753,7 +753,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 	 */
 	public List<Item> getEquippedItems()
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
 		for (List<EquipableSlot> slots : equipableSlots.values())
 		{

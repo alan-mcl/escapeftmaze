@@ -73,7 +73,7 @@ public class PlayerSpeechEvent extends MazeEvent
 				speech,
 				Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(pc),
 				null,
-				2000,
+				5000,
 				pc.getPersonality().getColour()));
 
 			result.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));

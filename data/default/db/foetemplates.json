@@ -124,7 +124,7 @@
         "DEFAULT_TAIL",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -141,7 +141,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.dragon.1"
@@ -173,6 +173,7 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "boulder dragon claw"
@@ -2930,7 +2931,7 @@
         "DEFAULT_ARM",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -2947,7 +2948,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.block.golem"
@@ -2979,6 +2980,7 @@
     "appearanceScript": {
       "NAME": "sound - golem"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "block golem punch"
@@ -2986,6 +2988,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -4571,7 +4574,7 @@
       "ITEMS": [
         "swarm"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -4588,7 +4591,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.swarm.1"
@@ -4620,6 +4623,7 @@
     "appearanceScript": {
       "NAME": "sound - buzz"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "angry swarm attack"
@@ -4627,6 +4631,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -9262,6 +9267,7 @@
     "pluralName": "C.O.C. Sheriffs",
     "unidentifiedName": "?human",
     "unidentifiedPluralName": "?humans",
+    "types": [],
     "race": "Human",
     "hitPointsRange": "10d4+6",
     "actionPointsRange": "0d1",
@@ -9284,7 +9290,7 @@
         "human hand",
         "human foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -9301,7 +9307,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.human.1"
@@ -9333,10 +9339,13 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -11916,7 +11925,7 @@
         "DEFAULT_HEAD",
         "DEFAULT_TAIL"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -11933,7 +11942,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.wyrm"
@@ -11965,6 +11974,7 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bloodwyrm bite",
@@ -12409,7 +12419,7 @@
         "human foot",
         "human hand"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -12426,7 +12436,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.stick.man"
@@ -12455,7 +12465,9 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": [
         "Magic Screen",
@@ -12464,6 +12476,7 @@
         "Heal All"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -12473,6 +12486,7 @@
     "pluralName": "Asius",
     "unidentifiedName": "?gnome",
     "unidentifiedPluralName": "?gnomes",
+    "types": [],
     "race": "Gnome",
     "characterClass": "Enchanter",
     "hitPointsRange": "8d5+7",
@@ -12496,7 +12510,7 @@
         "human head",
         "buskins foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -12513,7 +12527,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.gnome.warrior.1"
@@ -12546,7 +12560,9 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": [
         "Darkness",
@@ -12559,6 +12575,7 @@
         "Flare"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "MAGIC",
     "defaultAttitude": "ATTACKING"
   },
@@ -13764,7 +13781,7 @@
     "magicPointsRange": "15d10+150",
     "levelRange": "15d1",
     "experience": "1500",
-    "stats": "100007e00000000000001ff,0202020f0e05040d0c323232321e5a1e",
+    "stats": "800000000100007e000034480723ffff,0202020f0e05040d0c0f0f0f0f0f0f0f0f0f0f0f0a0a0f0f0f0f0f323232321e5a1e01",
     "bodyParts": {
       "PERCENTAGES": [
         20,
@@ -17605,7 +17622,7 @@
         "DEFAULT_TAIL",
         "DEFAULT_HEAD"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -17622,7 +17639,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.panther"
@@ -17654,6 +17671,7 @@
     "appearanceScript": {
       "NAME": "sound - panther"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "black panther bite",
@@ -17670,6 +17688,7 @@
         "Thorns"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -18828,7 +18847,7 @@
         "DEFAULT_LEG",
         "DEFAULT_TAIL"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -18845,7 +18864,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.ovoraptor.1"
@@ -18877,6 +18896,7 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "antidiluvomorph bite",
@@ -18889,6 +18909,7 @@
         "Mental Blast"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -19346,7 +19367,7 @@
     "bodyParts": {
       "PERCENTAGES": [
         15,
-        31,
+        32,
         10,
         29,
         8,
@@ -19360,7 +19381,7 @@
         "human foot",
         "human hand"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -19377,24 +19398,24 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.stick.man"
+      "NAME": "foe.angel.1"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.stick.man"
+      "NAME": "foe.angel.1"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.stick.man"
+      "NAME": "foe.angel.1"
     },
     "castSpellTexture": {
-      "NAME": "foe.stick.man"
+      "NAME": "foe.angel.1"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.stick.man"
+      "NAME": "foe.angel.1"
     },
-    "verticalAlignment": "BOTTOM",
+    "verticalAlignment": "CENTER",
     "loot": {
       "NAME": "Avenging.Angel.loot"
     },
@@ -19406,7 +19427,23 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-50",
+        "maxOffset": "0",
+        "minSpeed": "25",
+        "maxSpeed": "25",
+        "minPause": "0",
+        "maxPause": "0",
+        "pauseTop": "false",
+        "pauseBottom": "false",
+        "homeTop": "false",
+        "homeBottom": "false"
+      }
+    ],
+    "appearanceDirection": "FROM_TOP",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": [
         "Magic Screen",
@@ -19415,6 +19452,7 @@
         "Heal All"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },

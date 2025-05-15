@@ -20,14 +20,16 @@
 package mclachlan.maze.stat.npc;
 
 import java.awt.Color;
-import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
+import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.ui.diygui.animation.SpeechBubble;
+import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
 import mclachlan.maze.ui.diygui.animation.SpeechBubbleDialog;
 import mclachlan.maze.util.MazeException;
 
@@ -59,8 +61,6 @@ public class NpcSpeechEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Rectangle origination = Maze.getInstance().getUi().getObjectBounds(npc.getSprite());
-
 		SpeechBubble.Orientation orientation = switch (npc.getSprite().getVerticalAlignment())
 			{
 				case TOP -> SpeechBubble.Orientation.BELOW;
@@ -69,14 +69,25 @@ public class NpcSpeechEvent extends MazeEvent
 					throw new MazeException("Invalid vertical alignment: " + npc.getSprite().getVerticalAlignment());
 			};
 
-		Color speechColour = ((Npc)npc).getSpeechColour();
-		SpeechBubbleDialog dialog = new SpeechBubbleDialog(
-			speechColour == null ? Constants.Colour.STEALTH_GREEN : speechColour,
-			text,
-			origination,
-			orientation);
+		Color colour = ((Npc)npc).getSpeechColour();
 
-		Maze.getInstance().getUi().showDialog(dialog);
+		if (delay == Delay.WAIT_ON_CLICK)
+		{
+			SpeechBubbleDialog dialog = new SpeechBubbleDialog(
+				colour == null ? Constants.Colour.STEALTH_GREEN : colour,
+				text,
+				npc.getSprite(),
+				orientation);
+
+			Maze.getInstance().getUi().showDialog(dialog);
+		}
+		else
+		{
+			Animation a = new SpeechBubbleAnimation(colour, text,
+				Maze.getInstance().getUi().getObjectBounds(npc.getSprite()), orientation, delay);
+
+			Maze.getInstance().startAnimation(a, null, new AnimationContext(null));
+		}
 
 		Maze.getInstance().journalInContext(
 			StringUtil.getUiLabel("j.npc.speech",

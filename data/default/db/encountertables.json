@@ -1415,12 +1415,10 @@
     "name": "eva.wingfield.allies.on.call",
     "encounterTable": {
       "PERCENTAGES": [
-        90,
-        10
+        100
       ],
       "ITEMS": [
-        "einherjar.berserkers.1",
-        "avenging.angel.1"
+        "avenging.angel.3"
       ],
       "SHOULD_SUM_TO_100": "true"
     }
@@ -2040,7 +2038,7 @@
       "ITEMS": [
         "bloodwyrm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2747,7 +2745,7 @@
       "ITEMS": [
         "einherjar.berserkers.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   }
 ]

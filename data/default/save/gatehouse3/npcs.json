@@ -2,7 +2,7 @@
   {
     "template": "Imogen",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "36:3",
     "zone": "Ichiba City",
@@ -14,7 +14,7 @@
   {
     "template": "Tower Guardian NPC",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:30",
     "zone": "Ichiba City",
@@ -26,7 +26,7 @@
   {
     "template": "C.O.C. Sergeant",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:19",
     "zone": "Ichiba City",
@@ -38,7 +38,7 @@
   {
     "template": "Lorelei",
     "attitude": "NEUTRAL",
-    "currentInventory": [
+    "tradingInventory": [
       {
         "template": "Potion Of Cure Poison",
         "cursedState": "0",

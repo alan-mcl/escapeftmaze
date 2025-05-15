@@ -37,7 +37,7 @@ public class ActorIntentionResolver
 		ActorActionIntention intention)
 	{
 		Maze maze = Maze.getInstance();
-		List<CombatAction> result = new ArrayList<CombatAction>();
+		List<CombatAction> result = new ArrayList<>();
 
 		if (actor.getHitPoints().getCurrent() <= 0)
 		{
@@ -176,12 +176,10 @@ public class ActorIntentionResolver
 	public static List<CombatAction> resolveAttackIntention(UnifiedActor actor,
 		AttackIntention intention)
 	{
-		List<CombatAction> result = new ArrayList<CombatAction>();
+		List<CombatAction> result = new ArrayList<>();
 
-		AttackIntention atkInt = (AttackIntention)intention;
-
-		ActorGroup targetGroup = atkInt.getActorGroup();
-		AttackWith attackWith = atkInt.getAttackWith();
+		ActorGroup targetGroup = ((AttackIntention)intention).getActorGroup();
+		AttackWith attackWith = ((AttackIntention)intention).getAttackWith();
 
 		if (attackWith == null || attackWith instanceof Item || attackWith instanceof BackstabSnipeAttack)
 		{
@@ -283,10 +281,9 @@ public class ActorIntentionResolver
 			// basic attack with primary weapon, no modifiers
 			int nrAttacks = GameSys.getInstance().getNrAttacks(actor, true);
 
-			if (primaryAttackWith.getAmmoRequired() == null
+			if (!requiresAmmo(primaryAttackWith)
 				|| primaryAttackWith.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
-				|| actor.getSecondaryWeapon() != null &&
-				primaryAttackWith.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
+				|| (actor.getSecondaryWeapon() != null && primaryAttackWith.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType())))
 			{
 				MazeScript missileScript;
 				if (primaryAttackWith.isRanged() && actor.getSecondaryWeapon() != null)
@@ -368,6 +365,11 @@ public class ActorIntentionResolver
 		}
 	}
 
+	private static boolean requiresAmmo(AttackWith aw)
+	{
+		return aw.getAmmoRequired() != null && aw.getAmmoRequired().size() > 0;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public static boolean canAttackWithSecondary(UnifiedActor actor)
 	{
@@ -410,7 +412,7 @@ public class ActorIntentionResolver
 			// needs to be a weapon
 			if (primaryWeapon.isWeapon())
 			{
-				if (primaryWeapon.getAmmoRequired() == null)
+				if (!requiresAmmo(primaryWeapon))
 				{
 					// no ammo requires - can attack
 					return true;
@@ -418,8 +420,8 @@ public class ActorIntentionResolver
 				else
 				{
 					// check if secondary is compatible ammo
-					if (actor.getSecondaryWeapon() != null &&
-						primaryWeapon.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
+					if (primaryWeapon.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF) ||
+						(actor.getSecondaryWeapon() != null && primaryWeapon.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType())))
 					{
 						return true;
 					}

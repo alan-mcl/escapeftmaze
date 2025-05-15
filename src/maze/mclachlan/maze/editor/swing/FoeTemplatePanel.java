@@ -35,6 +35,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.CombatStatistics;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.FoeXpCalculator;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -119,10 +120,53 @@ public class FoeTemplatePanel extends EditorPanel
 		mockCombat6v6.addActionListener(e -> mockCombat(6));
 		buttons.add(mockCombat6v6);
 
+		JButton equip = new JButton("Equip");
+		equip.addActionListener(e-> equip());
+		buttons.add(equip);
+
 		result.add(buttons, BorderLayout.NORTH);
 		result.add(analysisOutput, BorderLayout.CENTER);
 
 		return result;
+	}
+
+	private void equip()
+	{
+		try
+		{
+			MockCombat mc = new MockCombat();
+			Database db = Database.getInstance();
+			Maze maze = MockCombat.getMockMaze(db);
+
+			FoeTemplate ft = (FoeTemplate)commit(getCurrentName());
+			Foe foe = new Foe(ft);
+
+			StringBuilder sb = new StringBuilder();
+
+			sb.append("Inventory:\n");
+
+			for (Item item : foe.getAllItems())
+			{
+				sb.append(item.getName()).append(", ");
+			}
+
+			sb.append("\n\nEquipped:\n");
+
+			for (EquipableSlot slot : foe.getAllEquipableSlots())
+			{
+				sb.append(slot.getType()).append("(").append(slot.getName()).append(")").append(" - ").append(slot.getItem()).append("\n");
+			}
+
+			analysisOutput.setText(sb.toString());
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
+		finally
+		{
+			Maze.destroy();
+		}
 	}
 
 	private void mockCombat(int size)
@@ -155,6 +199,10 @@ public class FoeTemplatePanel extends EditorPanel
 		catch (Exception ex)
 		{
 			throw new RuntimeException(ex);
+		}
+		finally
+		{
+			Maze.destroy();
 		}
 	}
 

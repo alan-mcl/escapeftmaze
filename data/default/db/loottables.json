@@ -6910,6 +6910,8 @@
         100,
         100,
         100,
+        100,
+        100,
         100
       ],
       "POSSIBILITIES": [
@@ -6926,20 +6928,28 @@
           "name": "Chain Chausses"
         },
         {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Mystic Spear"
+          "name": "Singing Sword"
         },
         {
-          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-          "NAME": "batch.1.magic.trinkets"
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
         },
         {
-          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-          "NAME": "batch.1.magic.trinkets"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-          "NAME": "batch.1.magic.trinkets"
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
         }
       ]
     }

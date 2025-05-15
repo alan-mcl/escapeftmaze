@@ -37,7 +37,7 @@ public class EvaWingfield extends NpcScript
 			new NpcSpeechEvent("Yes, it is clear. Your feats in the face of adversity to reach this point are admirable.", npc),
 			new NpcSpeechEvent("Yet be warned that admiration is worth little here.", npc),
 			new FlavourTextEvent("She pauses, and her face sets angrily."),
-			new NpcSpeechEvent("I should know, for bitter have the years been since I too walked the path that have started.", npc),
+			new NpcSpeechEvent("I should know, for bitter have the years been since I too walked the path that you have followed.", npc),
 			new NpcSpeechEvent("Yea, we were a merry band who came here, sure of our destiny. Sure that soon we would pass through this Realm and continue our escape!", npc),
 			new NpcSpeechEvent("Yet now... well, here I am. I walk the ways and do my part to keep them open.", npc),
 			new NpcSpeechEvent("Of the others I know not, and care less.", npc));

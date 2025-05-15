@@ -30,6 +30,7 @@ public class DefendIntention extends ActorActionIntention
 {
 	public DefendIntention()
 	{
+		super("defend");
 		StatModifier statModifier = new StatModifier();
 		statModifier.setModifier(Stats.Modifier.DEFENCE, 2);
 		this.setStatModifier(statModifier);

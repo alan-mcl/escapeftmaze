@@ -26,4 +26,8 @@ import mclachlan.maze.stat.ActorActionIntention;
  */
 public class RunAwayIntention extends ActorActionIntention
 {
+	public RunAwayIntention()
+	{
+		super("run away");
+	}
 }

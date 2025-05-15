@@ -30,5 +30,6 @@ public class TradeIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public TradeIntention()
 	{
+		super("trade");
 	}
 }

@@ -30,9 +30,9 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class GiveItemEvent extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
-	private Item item;
+	private final PlayerCharacter pc;
+	private final Foe npc;
+	private final Item item;
 
 	/*-------------------------------------------------------------------------*/
 	public GiveItemEvent(

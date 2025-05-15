@@ -24,10 +24,17 @@ package mclachlan.maze.stat;
  */
 public class ActorActionIntention
 {
-	public static final ActorActionIntention INTEND_NOTHING = new ActorActionIntention();
+	public static final ActorActionIntention INTEND_NOTHING = new ActorActionIntention("intend nothing");
 
 	private UnifiedActor actor;
 	private StatModifier statModifier;
+
+	private final String name;
+
+	public ActorActionIntention(String name)
+	{
+		this.name = name;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public void setStatModifier(StatModifier statModifier)
@@ -49,5 +56,11 @@ public class ActorActionIntention
 	public void setActor(UnifiedActor actor)
 	{
 		this.actor = actor;
+	}
+
+	@Override
+	public String toString()
+	{
+		return name;
 	}
 }

@@ -30,5 +30,6 @@ public class OpenChestIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public OpenChestIntention()
 	{
+		super("open chest");
 	}
 }

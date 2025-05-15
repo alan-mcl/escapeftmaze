@@ -218,7 +218,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * This default implementation returns some flavout text and deducts from
+	 * This default implementation returns some flavour text and deducts from
 	 * the NPCs attitude
 	 * @param total
 	 */
@@ -345,7 +345,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> givenItemByParty(PlayerCharacter owner, Item item)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		Maze maze = Maze.getInstance();
 		ActorEncounter actorEncounter = maze.getCurrentActorEncounter();
@@ -373,20 +373,23 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 			GameSys.getInstance().giveItemToActors(actorEncounter, item);
 		switch (attitudeChange)
 		{
-			case BETTER:
+			case BETTER ->
+			{
 				result.add(new FlavourTextEvent(
 					StringUtil.getEventText("msg.actor.is.pleased", leader.getDisplayName())));
 				result.add(new ChangeNpcAttitudeEvent(leader, attitudeChange));
-				break;
-			case NO_CHANGE:
+			}
+			case NO_CHANGE ->
+			{
 				result.add(new FlavourTextEvent(
 					StringUtil.getEventText("msg.actor.is.not.impressed", leader.getDisplayName())));
 				result.add(new ActorsTurnToAct(
 					actorEncounter,
 					maze,
 					maze.getUi().getMessageDestination()));
-				break;
-			case WORSE:
+			}
+			case WORSE ->
+			{
 				result.add(new FlavourTextEvent(
 					StringUtil.getEventText("msg.actor.is.angered", leader.getDisplayName())));
 				result.add(new ChangeNpcAttitudeEvent(leader, attitudeChange));
@@ -394,7 +397,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 					actorEncounter,
 					maze,
 					maze.getUi().getMessageDestination()));
-				break;
+			}
 		}
 
 		return result;
@@ -429,8 +432,8 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 				response = StringUtil.getEventText("msg.npc.doesnt.know", speech);
 			}
 
-			List<MazeEvent> result = new ArrayList<MazeEvent>();
-			result.add(new NpcSpeechEvent(npc, response, 500));
+			List<MazeEvent> result = new ArrayList<>();
+			result.add(new NpcSpeechEvent(npc, response, MazeEvent.Delay.WAIT_ON_CLICK));
 
 			// check if the player wants to end the conversation
 			if (!NpcSpeech.sentenceContainsKeywords(speech, "bye", "goodbye", "farewell"))

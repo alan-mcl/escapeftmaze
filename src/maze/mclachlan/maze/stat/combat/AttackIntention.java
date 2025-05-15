@@ -37,6 +37,7 @@ public class AttackIntention extends ActorActionIntention
 	public AttackIntention(ActorGroup actorGroup, Combat combat,
 		AttackWith attackWith)
 	{
+		super("attack "+actorGroup.getDescription()+" with "+attackWith.getName());
 		this.actorGroup = actorGroup;
 		this.combat = combat;
 		this.attackWith = attackWith;

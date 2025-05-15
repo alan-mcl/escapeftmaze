@@ -19,7 +19,6 @@
 
 package mclachlan.maze.stat;
 
-import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
@@ -44,7 +43,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class Foe extends UnifiedActor
 {
-	private FoeTemplate template;
+	protected FoeTemplate template;
 
 	/** The ActorGroup that this foe belongs to */
 	private FoeGroup foeGroup;
@@ -91,7 +90,7 @@ public class Foe extends UnifiedActor
 		this.template = template;
 
 		// set level
-		HashMap<String, Integer> levels = new HashMap<String, Integer>();
+		HashMap<String, Integer> levels = new HashMap<>();
 		levels.put(template.getName(), template.getLevelRange().roll("Foe: level"));
 		this.setLevels(levels);
 
@@ -144,7 +143,7 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void generateInventory()
+	public void generateInventory()
 	{
 		Maze.log(Log.DEBUG, "generating inventory for "+template.getName());
 
@@ -153,6 +152,14 @@ public class Foe extends UnifiedActor
 		{
 			return;
 		}
+
+		// clear existing inventory
+		getInventory().clear();
+		for (EquipableSlot slot : getAllEquipableSlots())
+		{
+			slot.setItem(null);
+		}
+
 		GroupOfPossibilities<ILootEntry> lootEntries = lootTable.getLootEntries();
 		if (lootEntries != null)
 		{
@@ -162,6 +169,7 @@ public class Foe extends UnifiedActor
 			for (Item i : items)
 			{
 				Maze.log(Log.DEBUG, template.getName()+" carries "+i.getName());
+
 				addInventoryItem(i);
 			}
 		}
@@ -170,7 +178,7 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * This foe gets a chance to look through what is in it's inventory and
+	 * This foe gets a chance to look through what is in its inventory and
 	 * equip items in any available slots
 	 */
 	public void initialEquip()
@@ -185,9 +193,13 @@ public class Foe extends UnifiedActor
 			Item item = getBestItemForSlot(slot.getType(), inventory);
 			if (item != null)
 			{
-				Maze.log(Log.DEBUG, template.getName()+" equips "+item.getName()+" in "+slot.getType());
+				Maze.log(Log.MEDIUM, template.getName()+" equips "+item.getName()+" in "+slot.getType()+" ("+slot.getName()+")");
 				this.setEquippedItem(slot.getType(), item);
 				this.getInventory().remove(item);
+			}
+			else
+			{
+				slot.setItem(null);
 			}
 		}
 	}

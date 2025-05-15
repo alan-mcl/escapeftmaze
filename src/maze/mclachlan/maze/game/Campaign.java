@@ -19,6 +19,8 @@
 
 package mclachlan.maze.game;
 
+import mclachlan.maze.editor.swing.EditorPanel;
+
 /**
  *
  */
@@ -44,7 +46,7 @@ public class Campaign
 		String defaultPortrait, 
 		String introScript)
 	{
-		this.parentCampaign = "".equalsIgnoreCase(parentCampaign)?null:parentCampaign;
+		setParentCampaign(parentCampaign);
 		this.introScript = introScript;
 		this.defaultPortrait = defaultPortrait;
 		this.defaultRace = defaultRace;
@@ -132,7 +134,15 @@ public class Campaign
 
 	public void setParentCampaign(String parentCampaign)
 	{
-		this.parentCampaign = parentCampaign;
+		if ("".equalsIgnoreCase(parentCampaign) ||
+			EditorPanel.NONE.equalsIgnoreCase(parentCampaign))
+		{
+			this.parentCampaign = null;
+		}
+		else
+		{
+			this.parentCampaign = parentCampaign;
+		}
 	}
 
 	@Override

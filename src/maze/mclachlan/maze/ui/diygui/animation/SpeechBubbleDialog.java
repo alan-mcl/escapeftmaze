@@ -24,6 +24,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import mclachlan.crusader.EngineObject;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
@@ -33,6 +34,9 @@ import mclachlan.maze.game.Maze;
  */
 public class SpeechBubbleDialog extends DIYPane
 {
+	// if not null, let the origination track this object
+	private EngineObject origination;
+
 	private final SpeechBubble speechBubble;
 
 	/*-------------------------------------------------------------------------*/
@@ -42,15 +46,43 @@ public class SpeechBubbleDialog extends DIYPane
 		Rectangle origination,
 		SpeechBubble.Orientation orientation)
 	{
-		speechBubble = new SpeechBubble(colour, text, origination, orientation);
+		speechBubble = init(colour, text, orientation, origination);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public SpeechBubbleDialog(
+		Color colour,
+		String text,
+		EngineObject origination,
+		SpeechBubble.Orientation orientation)
+	{
+		this.origination = origination;
+
+		Rectangle rect = Maze.getInstance().getUi().getObjectBounds(origination);
+
+		speechBubble = init(colour, text, orientation, rect);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private SpeechBubble init(Color colour, String text,
+		SpeechBubble.Orientation orientation, Rectangle rect)
+	{
+		final SpeechBubble speechBubble;
+		speechBubble = new SpeechBubble(colour, text, rect, orientation);
 
 		speechBubble.computeBounds(DIYToolkit.getInstance().getGraphics(), null, -1);
+		return speechBubble;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void draw(Graphics2D g)
 	{
+		if (origination != null)
+		{
+			this.speechBubble.setOrigination(Maze.getInstance().getUi().getObjectBounds(origination));
+			this.speechBubble.computeBounds(g, null, -1);
+		}
 		this.speechBubble.draw(g, true);
 	}
 

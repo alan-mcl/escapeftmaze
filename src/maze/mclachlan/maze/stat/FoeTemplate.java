@@ -109,6 +109,7 @@ public class FoeTemplate extends DataObject
 	private List<SpellLikeAbility> spellLikeAbilities;
 	/** chance of this foe to flee, each turn */
 	private int fleeChance;
+	/** should textures be randomly mirrored?*/
 
 	//--- AI parameters
 	/** behaviour of the foe wrt stealth actions */

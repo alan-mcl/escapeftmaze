@@ -26,4 +26,8 @@ import mclachlan.maze.stat.ActorActionIntention;
  */
 public class HideIntention extends ActorActionIntention
 {
+	public HideIntention()
+	{
+		super("hide");
+	}
 }

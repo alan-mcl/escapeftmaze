@@ -30,5 +30,6 @@ public class TalkIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public TalkIntention()
 	{
+		super("talk");
 	}
 }

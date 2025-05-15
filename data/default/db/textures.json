@@ -1256,6 +1256,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.angel.1",
+    "imageResources": [
+      "crusader/foe/angel_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "sky.stygios.forest",
     "imageResources": [
       "crusader/scene/stygios_sky"

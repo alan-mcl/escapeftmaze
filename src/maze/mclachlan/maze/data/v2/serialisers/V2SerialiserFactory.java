@@ -1562,7 +1562,7 @@ public class V2SerialiserFactory
 			Npc.class,
 			"template",
 			"attitude",
-			"currentInventory",
+			"tradingInventory",
 			"theftCounter",
 			"tile",
 			"zone",
@@ -1572,7 +1572,7 @@ public class V2SerialiserFactory
 			"guild");
 
 		result.addCustomSerialiser("template", new NameSerialiser<>(db.getNpcTemplates()::get));
-		result.addCustomSerialiser("currentInventory", new ListSerialiser(getItemSerialiser(db)));
+		result.addCustomSerialiser("tradingInventory", new ListSerialiser(getItemSerialiser(db)));
 		result.addCustomSerialiser("guild", new ListSerialiser(new DirectObjectSerialiser<String>()));
 
 		return result;

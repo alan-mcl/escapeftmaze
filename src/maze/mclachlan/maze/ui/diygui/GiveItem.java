@@ -50,6 +50,9 @@ public class GiveItem implements ItemSelectionCallback
 	public void itemSelected(Item item)
 	{
 		// we can take no sensible default action
-		callback.giveItem(item, user, userIndex);
+		if (item != null)
+		{
+			callback.giveItem(item, user, userIndex);
+		}
 	}
 }

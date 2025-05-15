@@ -959,7 +959,7 @@ public class ItemTemplatePanel extends EditorPanel
 		if (e.getSource() == sortBy)
 		{
 			currentSortBy = (SortBy)sortBy.getSelectedItem();
-			refreshNames(currentName);
+			refreshNamesInternal(currentName, new ItemTypeComparator());
 		}
 		else
 		{
@@ -968,7 +968,7 @@ public class ItemTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private class ItemTypeComparator implements Comparator<String>
+	private static class ItemTypeComparator implements Comparator<String>
 	{
 		public int compare(String o1, String o2)
 		{
@@ -980,10 +980,14 @@ public class ItemTemplatePanel extends EditorPanel
 			{
 				return i;
 			}
-			else
+
+			i = item1.getSubtype() - item2.getSubtype();
+			if (i != 0)
 			{
-				return item1.getName().compareTo(item2.getName());
+				return i;
 			}
+
+			return item1.getName().compareTo(item2.getName());
 		}
 	}
 }

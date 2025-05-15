@@ -187,7 +187,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 
 		// ammo requirement?
 		Item secondaryWeapon = source.getSecondaryWeapon();
-		if (weapon.isRanged() && weapon.getAmmoRequired() != null &&
+		if (weapon.isRanged() && weapon.getAmmoRequired() != null && !weapon.getAmmoRequired().isEmpty() &&
 			(secondaryWeapon == null || !weapon.getAmmoRequired().contains(secondaryWeapon.isAmmoType())))
 		{
 			Maze.log(Log.DEBUG, source.getName()+" - no ammo to snipe");

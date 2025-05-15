@@ -25,8 +25,10 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.ItemTemplate;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.NoEffectEvent;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
@@ -54,8 +56,7 @@ public class AmmoStashSpellResult extends SpellResult
 		{
 			List<ItemTemplate.AmmoType> ammoRequired = primaryWeapon.getAmmoRequired();
 
-			if (ammoRequired != null &&
-				!ammoRequired.isEmpty())
+			if (ammoRequired != null && !ammoRequired.isEmpty())
 			{
 				ItemTemplate.AmmoType ammoType = ammoRequired.get(Dice.nextInt(ammoRequired.size()));
 

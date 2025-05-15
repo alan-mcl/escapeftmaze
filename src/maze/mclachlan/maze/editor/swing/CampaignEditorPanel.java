@@ -192,10 +192,11 @@ public class CampaignEditorPanel extends JPanel
 		p.setProperty("defaultPortrait", defaultPortrait.getText());
 		p.setProperty("introScript", introScript.getSelectedItem().toString());
 		String parent = (String)parentCampaign.getSelectedItem();
-		if (!EditorPanel.NONE.equals(parent))
+		if (EditorPanel.NONE.equals(parent))
 		{
-			p.setProperty("parentCampaign", parent);
+			parent = "";
 		}
+		p.setProperty("parentCampaign", parent);
 
 		currentCampaign.setDisplayName(displayName.getText());
 		currentCampaign.setDescription(description.getText());

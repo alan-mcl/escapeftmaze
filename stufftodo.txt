@@ -6,7 +6,8 @@ ICHIBA CROSSROADS
 -----------------
 bug: zone change flickering
 foe attack/alternate textures fix
-npc entry speech conflict with entrance animation
+re-encounter NPC on the same tile
+snail cave and other encounters
 
 BACKLOG
 ----------

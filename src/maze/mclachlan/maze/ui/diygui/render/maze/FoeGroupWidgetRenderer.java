@@ -48,12 +48,12 @@ public class FoeGroupWidgetRenderer extends Renderer
 
 		if (group.numAlive() > 0)
 		{
-			g.setColor(Color.CYAN);
 
 			String display =
 				group.numAlive()+" "+group.getDescription() + " ("+group.numActive()+")";
 
-			g.drawString(display, x+5, y+12);
+			drawText(g, display, Color.CYAN, x + 6, y + 13);
+			drawText(g, display, Color.DARK_GRAY, x + 5, y + 12);
 
 			for (int i = 0; i < group.getCloudSpells().size(); i++)
 			{
@@ -76,5 +76,12 @@ public class FoeGroupWidgetRenderer extends Renderer
 			g.drawRect(x, y, width, height);
 		}
 
+	}
+
+	private void drawText(Graphics2D g, String display, Color colour, int xx,
+		int yy)
+	{
+		g.setColor(colour);
+		g.drawString(display, xx, yy);
 	}
 }

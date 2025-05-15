@@ -1866,7 +1866,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 						foe.getSpecialAbilityTexture().getTexture(),
 					};
 
-				if (Dice.d2.roll("mirror") == 1)
+				boolean shouldMirror = !foe.isNpc();
+
+				if (shouldMirror && Dice.d2.roll("mirror") == 1)
 				{
 					for (int i = 0; i < textures.length; i++)
 					{
@@ -1895,7 +1897,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					int rank = groupOffset + foeGroup;
 
 					double increment = 1.0 / (maxFoeIndex + 1);
-					double arc = increment * (foeIndex + 1) + (-0.1 * (rank % 2)); // stagger the groups
+					double arc = increment + increment*foeIndex;
 					double distance = 0.51 + (0.2 * rank);
 					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
 

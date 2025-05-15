@@ -29,6 +29,7 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -41,14 +42,14 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 	private final TradingWidget pcWidget, npcWidget;
 	private final DIYButton buy, sell, close;
-	private final Foe npc;
+	private final Npc npc;
 	private final PlayerCharacter pc;
 	private final DIYLabel partyGoldLabel;
 
 	/*-------------------------------------------------------------------------*/
 	public TradingDialog(
 		PlayerCharacter pc,
-		Foe npc)
+		Npc npc)
 	{
 		super();
 
@@ -170,11 +171,11 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void refresh(PlayerCharacter pc, Foe npc)
+	private void refresh(PlayerCharacter pc, Npc npc)
 	{
 		partyGoldLabel.setText(StringUtil.getUiLabel(
 			"trd.party.gold",Maze.getInstance().getParty().getGold()));
-		npc.sortInventory();
+		npc.sortTradingInventory();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -300,7 +301,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		}
 
 		// transfer the thing
-		npc.removeItem(item, true);
+		npc.removeTradingItem(item, true);
 		pc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
 			- GameSys.getInstance().getItemCost(item, getNpcSellsAt(npc, pc), pc));
@@ -346,7 +347,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		// transfer the thing
 		pc.removeItem(item, true);
-		npc.addInventoryItem(item);
+		npc.addTradingItem(item);
 		Maze.getInstance().getParty().incGold(
 			GameSys.getInstance().getItemCost(item, getNpcBuysAt(npc, pc), pc));
 		pcWidget.refresh(pc.getInventory().getItems());

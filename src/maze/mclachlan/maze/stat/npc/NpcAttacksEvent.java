@@ -30,7 +30,7 @@ import mclachlan.maze.stat.Foe;
  */
 public class NpcAttacksEvent extends MazeEvent
 {
-	private Foe npc;
+	private final Foe npc;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcAttacksEvent(Foe npc)

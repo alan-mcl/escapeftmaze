@@ -31,8 +31,8 @@ import mclachlan.maze.ui.diygui.GiveItem;
  */
 public class ChooseItemToGive extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
+	private final PlayerCharacter pc;
+	private final Foe npc;
 
 	/*-------------------------------------------------------------------------*/
 	public ChooseItemToGive(

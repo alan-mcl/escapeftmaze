@@ -31,34 +31,7 @@
   "scaleDistFromProjPlane": "0.65",
   "order": "1",
   "playerOrigin": "19:12",
-  "portals": [
-    {
-      "mazeVariable": "ichiba.crossroad.portal.0",
-      "initialState": "unlocked",
-      "from": "22:2",
-      "fromFacing": "3",
-      "to": "24:1",
-      "toFacing": "4",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "required": "",
-      "consumeKeyItem": "true"
-    }
-  ],
+  "portals": [],
   "tiles": [
     [
       {
@@ -11186,27 +11159,27 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "14",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "12",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
         "lightLevel": "10",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "8",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "8",
         "ceilingHeight": "1"
       },
       {
@@ -11494,23 +11467,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "12",
         "ceilingHeight": "1"
       },
       {
@@ -21646,17 +21619,17 @@
         "height": "2"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
         "textures": [
           "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -21886,18 +21859,20 @@
         "height": "3"
       },
       {
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
         "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "3"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "3"
-      },
-      {
         "textures": [
           "JUNGLE_CLIFF_1"
         ],
@@ -22099,7 +22074,7 @@
           "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
-        "solid": "false",
+        "solid": "true",
         "height": "2"
       },
       {
@@ -22108,7 +22083,7 @@
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "2"
       },
       {
@@ -22346,7 +22321,7 @@
       {
         "textures": [],
         "visible": "false",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -23758,7 +23733,7 @@
       {
         "textures": [],
         "visible": "false",
-        "solid": "false",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -29522,15 +29497,11 @@
       },
       {
         "textures": [
-          "JUNGLE_CLIFF_1",
-          "JUNGLE_CLIFF_1"
-        ],
-        "maskTextures": [
           "JUNGLE_CLIFF_1_CAVE",
-          "TRANSPARENT"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "2"
       },
       {
@@ -29541,10 +29512,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_CLIFF_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -29758,7 +29729,7 @@
           "No_WAll"
         ],
         "visible": "false",
-        "solid": "false",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -30014,7 +29985,7 @@
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "2"
       },
       {
@@ -31725,7 +31696,7 @@
       {
         "textures": [],
         "visible": "false",
-        "solid": "false",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -42815,46 +42786,6 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "JUNGLE_THICKET_2",
-        "southTexture": "JUNGLE_THICKET_2",
-        "eastTexture": "JUNGLE_THICKET_2",
-        "westTexture": "JUNGLE_THICKET_2",
-        "xPos": "11008",
-        "yPos": "2134",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "JUNGLE_THICKET_2",
-        "southTexture": "JUNGLE_THICKET_2",
-        "eastTexture": "JUNGLE_THICKET_2",
-        "westTexture": "JUNGLE_THICKET_2",
-        "xPos": "10838",
-        "yPos": "2304",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "JUNGLE_THICKET_2",
-        "southTexture": "JUNGLE_THICKET_2",
-        "eastTexture": "JUNGLE_THICKET_2",
-        "westTexture": "JUNGLE_THICKET_2",
-        "xPos": "11178",
-        "yPos": "2304",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "JUNGLE_THICKET_2",
-        "southTexture": "JUNGLE_THICKET_2",
-        "eastTexture": "JUNGLE_THICKET_2",
-        "westTexture": "JUNGLE_THICKET_2",
-        "xPos": "11008",
-        "yPos": "2474",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
         "northTexture": "JUNGLE_THICKET_1",
         "southTexture": "JUNGLE_THICKET_1",
         "eastTexture": "JUNGLE_THICKET_1",
@@ -51421,6 +51352,46 @@
         "westTexture": "JUNGLE_THICKET_1",
         "xPos": "11008",
         "yPos": "938",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "10496",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "10326",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "10666",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "10496",
+        "yPos": "1962",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

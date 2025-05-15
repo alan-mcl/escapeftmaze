@@ -39,7 +39,7 @@ public class Log
 	private Logger logger;
 	private int level = LOUD;
 	private int maxBufferSize = -1;
-	private List<String> buffer = new ArrayList<String>();
+	private List<String> buffer = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public static final int LOUD = 1;

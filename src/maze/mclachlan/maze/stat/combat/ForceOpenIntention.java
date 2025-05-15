@@ -30,5 +30,6 @@ public class ForceOpenIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public ForceOpenIntention()
 	{
+		super("force open");
 	}
 }

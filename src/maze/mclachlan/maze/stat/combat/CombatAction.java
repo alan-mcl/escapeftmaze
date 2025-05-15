@@ -26,7 +26,7 @@ import mclachlan.maze.stat.UnifiedActor;
 /**
  *
  */
-public class CombatAction //extends StatModifier
+public class CombatAction
 {
 	private UnifiedActor actor;
 	private boolean isAttackingAllies;

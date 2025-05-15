@@ -30,5 +30,6 @@ public class GiveIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public GiveIntention()
 	{
+		super("give");
 	}
 }

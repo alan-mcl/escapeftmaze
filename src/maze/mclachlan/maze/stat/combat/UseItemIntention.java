@@ -28,12 +28,13 @@ import mclachlan.maze.stat.SpellTarget;
  */
 public class UseItemIntention extends ActorActionIntention
 {
-	private Item item;
-	private SpellTarget target;
+	private final Item item;
+	private final SpellTarget target;
 
 	/*-------------------------------------------------------------------------*/
 	public UseItemIntention(Item item, SpellTarget target)
 	{
+		super("use item ["+item.getName()+"]");
 		this.item = item;
 		this.target = target;
 	}

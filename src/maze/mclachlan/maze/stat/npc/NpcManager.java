@@ -85,13 +85,13 @@ public class NpcManager implements GameCache
 		Npc npc = new Npc(npcTemplate);
 		if (npc.getInventoryTemplate() != null)
 		{
-			List<Item> inv = npc.getInventoryTemplate().update(new ArrayList<Item>());
-			npc.setCurrentInventory(inv);
+			List<Item> inv = npc.getInventoryTemplate().update(new ArrayList<>());
+			npc.setTradingInventory(inv);
 			npc.sortInventory();
 		}
 		else
 		{
-			npc.setCurrentInventory(new ArrayList<Item>());
+			npc.setTradingInventory(new ArrayList<>());
 		}
 		this.npcs.put(npc.getName(), npc);
 	}

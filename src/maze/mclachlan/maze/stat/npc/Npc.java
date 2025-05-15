@@ -45,8 +45,12 @@ public class Npc extends Foe
 	// trading parameters
 	//
 
-	/** what this NPC has in stock at the moment */
-	private List<Item> currentInventory;
+	/**
+	 * What this NPC has in stock at the moment, for trade.
+	 * Note that this is distinct to Foe.inventory, which is on their person
+	 * and can be used in combat, but is not available for trade.
+	 */
+	private List<Item> tradingInventory;
 
 	//
 	// Interaction parameters
@@ -92,7 +96,7 @@ public class Npc extends Foe
 	public Npc(
 		NpcTemplate template,
 		NpcFaction.Attitude attitude,
-		List<Item> currentInventory,
+		List<Item> tradingInventory,
 		int theftCounter,
 		Point tile,
 		String zone,
@@ -105,7 +109,7 @@ public class Npc extends Foe
 		super(foeTemplate);
 
 		this.attitude = attitude;
-		this.currentInventory = new ArrayList<>(currentInventory);
+		this.tradingInventory = new ArrayList<>(tradingInventory);
 		this.dead = dead;
 		this.found = found;
 		this.template = template;
@@ -147,7 +151,10 @@ public class Npc extends Foe
 		this.template.getScript().npc = this;
 		this.template.getScript().initialise();
 
-		super.setTemplate(template.getFoeTemplate());
+		if (super.template == null)
+		{
+			super.setTemplate(template.getFoeTemplate());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -173,13 +180,13 @@ public class Npc extends Foe
 
 	public List<Item> getTradingInventory()
 	{
-		return currentInventory;
+		return tradingInventory;
 	}
 
 	@Override
 	public List<Item> getStealableItems()
 	{
-		return this.currentInventory;
+		return this.tradingInventory;
 	}
 
 	public String getFaction()
@@ -330,23 +337,20 @@ public class Npc extends Foe
 		this.guild = guild;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public CurMaxSub getHitPoints()
-	{
-		// overridden so that the Actor counts as alive.
-		return new CurMaxSub(1);
-	}
-
 	@Override
 	public NpcScript getActionScript()
 	{
 		return getScript();
 	}
 
-	public void setCurrentInventory(List<Item> inv)
+	public void setTradingInventory(List<Item> inv)
 	{
-		this.currentInventory = new ArrayList<>();
-		this.currentInventory.addAll(inv);
+		this.tradingInventory = new ArrayList<>();
+
+		if (inv != null)
+		{
+			this.tradingInventory.addAll(inv);
+		}
 	}
 
 	@Override
@@ -364,37 +368,29 @@ public class Npc extends Foe
 		return itemCost <= this.template.getMaxPurchasePrice();
 	}
 
-	@Override
-	public void removeItem(Item item, boolean removeWholeStack)
+	public void removeTradingItem(Item item, boolean removeWholeStack)
 	{
-		if (!currentInventory.remove(item))
+		if (!tradingInventory.remove(item))
 		{
-			throw new MazeException("Item not in NPC inventory: "+item.getName());
+			throw new MazeException("Item not in NPC inventory: " + item.getName());
 		}
 	}
 
-	public void addItem(Item item)
+	public void addTradingItem(Item item)
 	{
-		if (currentInventory != null)
+		if (tradingInventory != null)
 		{
-			currentInventory.add(item);
+			tradingInventory.add(item);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void sortInventory()
+	public void sortTradingInventory()
 	{
-		if (currentInventory != null)
+		if (tradingInventory != null)
 		{
-			currentInventory.sort(cmp);
+			tradingInventory.sort(cmp);
 		}
-	}
-
-	@Override
-	public boolean addInventoryItem(Item item)
-	{
-		addItem(item);
-		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -415,7 +411,7 @@ public class Npc extends Foe
 
 	public List<Item> getCurrentInventory()
 	{
-		return currentInventory;
+		return tradingInventory;
 	}
 
 	public void setTheftCounter(int theftCounter)
@@ -429,13 +425,10 @@ public class Npc extends Foe
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static class InventoryComparator<T> implements Comparator
+	private static class InventoryComparator<T> implements Comparator<Item>
 	{
-		public int compare(Object o, Object o1)
+		public int compare(Item a, Item b)
 		{
-			Item a = (Item)o;
-			Item b = (Item)o1;
-
 			// first sort key: item type
 			if (a.getType() != b.getType())
 			{

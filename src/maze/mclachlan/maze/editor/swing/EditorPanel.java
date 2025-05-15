@@ -90,6 +90,12 @@ public abstract class EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public void refreshNames(String toBeSelected)
 	{
+		refreshNamesInternal(toBeSelected, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected void refreshNamesInternal(String toBeSelected, Comparator<String> comparator)
+	{
 		currentName = null;
 
 		Vector<DataObject> loadedData = loadData();
@@ -105,7 +111,7 @@ public abstract class EditorPanel
 			}
 		}
 
-		Collections.sort(keys);
+		keys.sort(comparator);
 
 		names.setListData(keys);
 		if (toBeSelected == null)

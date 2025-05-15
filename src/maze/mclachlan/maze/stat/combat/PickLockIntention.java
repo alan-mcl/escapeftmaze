@@ -30,5 +30,6 @@ public class PickLockIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public PickLockIntention()
 	{
+		super("pick lock");
 	}
 }

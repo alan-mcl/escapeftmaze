@@ -26,4 +26,8 @@ import mclachlan.maze.stat.ActorActionIntention;
  */
 public class EquipIntention extends ActorActionIntention
 {
+	public EquipIntention()
+	{
+		super("equip");
+	}
 }

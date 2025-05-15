@@ -30,5 +30,6 @@ public class BribeIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public BribeIntention()
 	{
+		super("bribe");
 	}
 }

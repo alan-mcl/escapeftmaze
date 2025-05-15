@@ -177,6 +177,12 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static void destroy()
+	{
+		instance = null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void init() throws Exception
 	{
 		Database db = new Database();
@@ -962,7 +968,8 @@ public class Maze implements Runnable
 			combat.combatRound(partyIntentions, foeIntentionList);
 		while (combatActions.hasNext())
 		{
-			appendEvents(new ResolveCombatActionEvent(combat, combatActions.next()));
+			CombatAction nextAction = combatActions.next();
+			appendEvents(new ResolveCombatActionEvent(combat, nextAction));
 			appendEvents(new CheckPartyStatusEvent());
 			appendEvents(new CheckCombatStatusEvent(this, combat));
 		}
@@ -1059,7 +1066,6 @@ public class Maze implements Runnable
 		{
 			if (partyIntentions[j] == null)
 			{
-//				throw new MazeException("null actor intention at party index "+j);
 				log("null actor intention at party index "+j);
 				partyIntentions[j] = new DefendIntention();
 			}
@@ -1081,7 +1087,10 @@ public class Maze implements Runnable
 			combat.combatRound(partyIntentions, foeIntentionList);
 		while (combatActions.hasNext())
 		{
-			appendEvents(new ResolveCombatActionEvent(combat, combatActions.next()));
+			CombatAction action = combatActions.next();
+			Maze.log("combat action: "+action.getActor().getName()+", "+action.getClass().getName());
+
+			appendEvents(new ResolveCombatActionEvent(combat, action));
 			appendEvents(new CheckPartyStatusEvent());
 			appendEvents(new CheckCombatStatusEvent(this, combat));
 		}
@@ -2503,6 +2512,7 @@ public class Maze implements Runnable
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private class CueActorsEvent extends MazeEvent
 	{
 		private final Combat.AmbushStatus fAmbushStatus;
@@ -2564,9 +2574,7 @@ public class Maze implements Runnable
 			List<MazeEvent> postAppearanceScript = currentActorEncounter.getPostAppearanceScript();
 			if (postAppearanceScript !=null && postAppearanceScript.size() > 0)
 			{
-//				result.add(new EnableInputEvent());
 				addAll(result, postAppearanceScript);
-//				result.add(new DisableInputEvent());
 			}
 
 			if (!leader.isFound())
@@ -2623,6 +2631,7 @@ public class Maze implements Runnable
 			public List<MazeEvent> resolve()
 			{
 				Maze.this.getUi().enableInput();
+				Maze.this.getUi().refreshPcActionOptions();
 				return null;
 			}
 		}

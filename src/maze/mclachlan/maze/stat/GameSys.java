@@ -308,7 +308,7 @@ public class GameSys
 		{
 			// ranged weapon uses the default damage type of the ammo
 			Item secondaryWeapon = source.getSecondaryWeapon();
-			if (attackWith.getAmmoRequired() != null &&
+			if (attackWith.getAmmoRequired() != null && !attackWith.getAmmoRequired().isEmpty() &&
 				secondaryWeapon != null &&
 				attackWith.getAmmoRequired().contains(secondaryWeapon.isAmmoType()))
 			{
@@ -639,9 +639,8 @@ public class GameSys
 			attacker instanceof PlayerCharacter)
 		{
 			Item secondaryWeapon = ((PlayerCharacter)attacker).getSecondaryWeapon();
-			if (secondaryWeapon != null &&
-				secondaryWeapon instanceof Item &&
-				attackWith.getAmmoRequired() != null &&
+			if (secondaryWeapon instanceof Item &&
+				attackWith.getAmmoRequired() != null && !attackWith.getAmmoRequired().isEmpty() &&
 				attackWith.getAmmoRequired().contains(secondaryWeapon.isAmmoType()))
 			{
 				return secondaryWeapon;

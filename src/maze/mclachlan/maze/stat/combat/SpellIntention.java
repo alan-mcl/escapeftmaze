@@ -28,9 +28,9 @@ import mclachlan.maze.stat.magic.Spell;
  */
 public class SpellIntention extends ActorActionIntention
 {
-	private SpellTarget target;
-	private Spell spell;
-	private int castingLevel;
+	private final SpellTarget target;
+	private final Spell spell;
+	private final int castingLevel;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -43,6 +43,7 @@ public class SpellIntention extends ActorActionIntention
 	 */ 
 	public SpellIntention(SpellTarget target, Spell spell, int castingLevel)
 	{
+		super("cast spell ["+spell.getName()+"]");
 		this.target = target;
 		this.spell = spell;
 		this.castingLevel = castingLevel;

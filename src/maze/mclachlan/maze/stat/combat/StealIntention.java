@@ -30,5 +30,6 @@ public class StealIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public StealIntention()
 	{
+		super("steal");
 	}
 }

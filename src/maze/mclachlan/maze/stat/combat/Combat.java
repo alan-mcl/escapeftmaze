@@ -398,7 +398,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> endRound()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		Maze.log("checking end of round berserk status...");
 		// chance of berserking every round
@@ -920,7 +920,7 @@ public class Combat
 			List<CombatAction> actorActions;
 			if (actionIntention == ActorActionIntention.INTEND_NOTHING)
 			{
-				actorActions = new ArrayList<CombatAction>();
+				actorActions = new ArrayList<>();
 				actorActions.add(CombatAction.DO_NOTHING);
 			}
 			else

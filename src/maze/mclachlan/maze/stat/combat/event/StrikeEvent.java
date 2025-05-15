@@ -36,18 +36,18 @@ import mclachlan.maze.util.MazeException;
  */
 public class StrikeEvent extends MazeEvent
 {
-	private Combat combat;
-	private UnifiedActor attacker;
-	private UnifiedActor defender;
-	private AttackWith attackWith;
-	private AttackType attackType;
-	private MagicSys.SpellEffectType damageType;
-	private AnimationContext animationContext;
-	private StatModifier modifiers;
+	private final Combat combat;
+	private final UnifiedActor attacker;
+	private final UnifiedActor defender;
+	private final AttackWith attackWith;
+	private final AttackType attackType;
+	private final MagicSys.SpellEffectType damageType;
+	private final AnimationContext animationContext;
+	private final StatModifier modifiers;
 	private BodyPart bodyPart;
 
 	/** a bag of random other state carried along with the attack */
-	private Set<String> tags = new HashSet<String>();
+	private final Set<String> tags = new HashSet<>();
 
 	/*-------------------------------------------------------------------------*/
 	public StrikeEvent(
@@ -123,7 +123,7 @@ public class StrikeEvent extends MazeEvent
 
 		Item ammo = null;
 		// Deduct ammo if required. We assume that the ammo type matches
-		if (attackWith.getAmmoRequired() != null)
+		if (attackWith.getAmmoRequired() != null && !attackWith.getAmmoRequired().isEmpty())
 		{
 			ammo = this.attacker.deductAmmo(this);
 		}

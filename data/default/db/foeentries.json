@@ -4071,6 +4071,26 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "avenging.angel.3",
+    "contains": {
+      "PERCENTAGES": [
+        100,
+        10
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Avenging Angel",
+          "quantity": "3d1"
+        },
+        {
+          "foeName": "Avenging Angel",
+          "quantity": "1d1"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "minion.of.usark",
     "contains": {
       "PERCENTAGES": [

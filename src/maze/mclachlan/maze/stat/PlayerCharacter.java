@@ -429,7 +429,7 @@ public class PlayerCharacter extends UnifiedActor
 		Combat combat)
 	{
 		HashMapMutableTree<ActorActionOption> result =
-			new HashMapMutableTree<ActorActionOption>();
+			new HashMapMutableTree<>();
 
 		boolean alive = GameSys.getInstance().isActorAlive(this);
 		boolean aware = GameSys.getInstance().isActorAware(this);

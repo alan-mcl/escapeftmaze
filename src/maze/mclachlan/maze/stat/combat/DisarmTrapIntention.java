@@ -30,5 +30,6 @@ public class DisarmTrapIntention extends ActorActionIntention
 	/*-------------------------------------------------------------------------*/
 	public DisarmTrapIntention()
 	{
+		super("disarm trap");
 	}
 }

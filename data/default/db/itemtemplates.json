@@ -380,8 +380,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -417,6 +417,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -456,8 +461,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -481,8 +486,8 @@
     "damage": "2d9+2",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -495,6 +500,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -2823,6 +2833,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -3284,6 +3299,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -3697,8 +3717,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -3737,6 +3757,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -3854,42 +3879,40 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Acolyte",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
       "Dwarf",
       "Pasht",
       "Gnome",
-      "Faerie",
       "Dryad",
+      "Faerie",
       "Elf"
     ],
     "usableByGender": [
@@ -3921,6 +3944,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "1",
     "damagePrevention": "0",
@@ -4042,34 +4070,31 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Cultist",
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Druid",
       "Sohei",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -4107,6 +4132,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -5911,6 +5941,7 @@
     "equipRequirements": "0,",
     "useRequirements": "0,",
     "defaultDamageType": "NONE",
+    "attackTypes": [],
     "twoHanded": "false",
     "ranged": "false",
     "returning": "false",
@@ -5922,6 +5953,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -8009,8 +8045,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -8050,6 +8086,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -8631,8 +8672,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -8672,6 +8713,7 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         35
@@ -9108,8 +9150,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -9147,9 +9189,13 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
-    "slaysFoeType": "outsider",
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
@@ -9848,8 +9894,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -9888,6 +9934,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -11239,6 +11290,11 @@
     "toInitiative": "6",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -12294,11 +12350,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
@@ -12307,17 +12363,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -12355,6 +12409,11 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -12727,8 +12786,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -12749,6 +12808,7 @@
     "equipRequirements": "200008,0202",
     "useRequirements": "0,",
     "defaultDamageType": "NONE",
+    "attackTypes": [],
     "twoHanded": "false",
     "ranged": "false",
     "returning": "false",
@@ -12760,6 +12820,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "3",
@@ -14188,8 +14253,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -14212,6 +14277,7 @@
     "equipRequirements": "0,",
     "useRequirements": "0,",
     "defaultDamageType": "NONE",
+    "attackTypes": [],
     "twoHanded": "false",
     "ranged": "false",
     "returning": "false",
@@ -14223,6 +14289,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "1",
@@ -16797,6 +16868,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -17495,11 +17571,17 @@
     "chargesType": "CHARGES_NON_FATAL",
     "usableByCharacterClass": [
       "Ranger",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
+      "Priest",
       "Exorcist",
-      "Sorcerer",
+      "Samurai",
       "Blackguard",
+      "Sorcerer",
       "Burglar",
+      "Shugenja",
       "Elemental",
       "Warlock",
       "Druid",
@@ -17507,34 +17589,23 @@
       "Ninja",
       "Acolyte",
       "Enchanter",
-      "Magician",
+      "Hero",
       "Monk",
       "Witch",
-      "Scout",
-      "Cultist",
-      "Gadgeteer",
-      "Skald",
-      "Berserker",
-      "Priest",
-      "Samurai",
-      "Shugenja",
-      "Hero",
-      "Knave",
-      "Amazon",
-      "Kamunushi"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
-      "Mata",
       "Goblin",
+      "Mata",
       "Dwarf",
       "Naga",
       "Neotroll",
       "Pasht",
       "Gnome",
-      "Faerie",
-      "Dryad"
+      "Dryad",
+      "Faerie"
     ],
     "usableByGender": [
       "Female",
@@ -17549,10 +17620,10 @@
     "damage": "9d9+9",
     "defaultDamageType": "BLUDGEONING",
     "attackTypes": [
+      "lunge",
       "snipe",
       "fire",
-      "shoot",
-      "lunge"
+      "shoot"
     ],
     "twoHanded": "true",
     "ranged": "true",
@@ -17565,6 +17636,7 @@
     "toInitiative": "-1",
     "minRange": "2",
     "maxRange": "4",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         1,
@@ -17715,8 +17787,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -17740,8 +17812,8 @@
     "damage": "1d20+15",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -17754,6 +17826,7 @@
     "toInitiative": "-4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         100
@@ -20184,11 +20257,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Blackguard",
       "Shaman",
@@ -20196,17 +20269,15 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -20243,6 +20314,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -20371,8 +20447,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -20396,8 +20472,8 @@
     "damage": "1d10",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -20410,6 +20486,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -21155,6 +21236,7 @@
     "toInitiative": "5",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         1
@@ -21305,8 +21387,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -21346,6 +21428,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -22681,6 +22768,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -22846,6 +22938,11 @@
     "toInitiative": "-14",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "-3",
     "bonusStrikes": "-3",
     "damagePrevention": "0",
@@ -23862,7 +23959,7 @@
   {
     "TYPE_KEY": "mclachlan.maze.stat.ItemTemplate",
     "name": "Angelic Blade",
-    "pluralName": "White Swords",
+    "pluralName": "Angelic Blades",
     "unidentifiedName": "?sword",
     "type": "0",
     "subtype": "1",
@@ -23927,6 +24024,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "1",
     "damagePrevention": "0",
@@ -25218,8 +25320,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -25259,6 +25361,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -25738,34 +25845,31 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Cultist",
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -25802,6 +25906,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -25821,7 +25930,6 @@
     "description": "This small packet contains pungent kiln-dried tobacco leaves. The label informs you: \"Aenen #5, First Grade dried Tobacco leaves. Grown in the Depths of the Earth by the Cunning Gnomes of Aenen. Nourished by the Potent Mineral Cave-Waters of the Below. Nurtured by the Warmth and Light of Mysterious Gnomish Devices. Dried by the Heat of their Industrious Furnaces. Taste the Real Thing, Taste Aenen Cavegrown!\"",
     "modifiers": "0,",
     "image": "item/powder_brown",
-    "equipableSlots": "",
     "weight": "100",
     "maxItemsPerStack": "1",
     "baseCost": "88",
@@ -26365,6 +26473,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -26509,8 +26622,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -26549,6 +26662,7 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         10
@@ -26759,17 +26873,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -26807,9 +26919,13 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
-    "slaysFoeType": "outsider",
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
@@ -26843,8 +26959,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -26885,6 +27001,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -28153,8 +28274,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -28192,6 +28313,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -28313,11 +28439,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Blackguard",
       "Shaman",
@@ -28325,17 +28451,15 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -28374,6 +28498,11 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -29243,7 +29372,6 @@
     "description": "Small, plum-coloured berries from the Sunbit bush. They are slightly tart with a hint of spice and give a warm, tingling sensation when eaten.",
     "modifiers": "0,",
     "image": "item/bag1",
-    "equipableSlots": "",
     "weight": "10",
     "maxItemsPerStack": "25",
     "baseCost": "1",
@@ -30297,6 +30425,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -30790,34 +30923,32 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Acolyte",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -30856,6 +30987,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -31249,8 +31385,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -31291,6 +31427,11 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -32000,6 +32141,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -33582,8 +33728,8 @@
     "damage": "4d8+1",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "swing"
+      "swing",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -33596,6 +33742,7 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "2",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         30
@@ -34070,8 +34217,8 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
       "Ranger",
+      "Skald",
       "Berserker",
       "Blackguard",
       "Shaman",
@@ -34083,8 +34230,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -34122,6 +34269,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -34563,8 +34715,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -34601,6 +34753,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -34640,8 +34797,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -34665,8 +34822,8 @@
     "damage": "4d4+4",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -34679,6 +34836,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -37016,7 +37178,6 @@
     "description": "This device forces the air around you air through a particulate filter, scrubbing it of most harmful particles.",
     "modifiers": "0,",
     "image": "item/airpurifier",
-    "equipableSlots": "",
     "weight": "3800",
     "maxItemsPerStack": "1",
     "baseCost": "2500",
@@ -37757,23 +37918,22 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
       "Ranger",
+      "Skald",
       "Berserker",
       "Sohei",
       "Blackguard",
       "Hero",
       "Paladin",
       "Amazon",
-      "Warlock",
-      "Scout"
+      "Warlock"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -37810,6 +37970,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -40337,17 +40502,15 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -40386,6 +40549,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -41049,8 +41217,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -41062,8 +41230,8 @@
       "Elf"
     ],
     "usableByGender": [
-      "Male",
       "Female",
+      "Male",
       "None"
     ],
     "questItem": "false",
@@ -41091,6 +41259,11 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "1",
     "discipline": "KENDO",
@@ -41312,8 +41485,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -41350,6 +41523,11 @@
     "toInitiative": "-2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -42814,33 +42992,30 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Cultist",
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -42878,6 +43053,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -43185,7 +43365,6 @@
     "description": "A complicated spellbook, to teach you a mid level spell. Includes detailed diagrams and a foreword by a famous researcher.",
     "modifiers": "0,",
     "image": "item/book",
-    "equipableSlots": "",
     "weight": "1100",
     "maxItemsPerStack": "1",
     "baseCost": "2500",
@@ -46090,11 +46269,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Samurai",
       "Blackguard",
       "Shaman",
@@ -46104,16 +46283,14 @@
       "Ninja",
       "Hero",
       "Courtesan",
-      "Knave",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -46153,6 +46330,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -47459,8 +47641,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -47501,6 +47683,11 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "1",
     "discipline": "KENDO",
@@ -48451,8 +48638,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -48476,8 +48663,8 @@
     "damage": "2d4+2",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -48490,6 +48677,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -49283,11 +49475,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Blackguard",
       "Shaman",
@@ -49295,25 +49487,23 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
       "Dwarf",
       "Pasht",
       "Gnome",
-      "Faerie",
       "Dryad",
+      "Faerie",
       "Elf"
     ],
     "usableByGender": [
@@ -49344,6 +49534,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -49954,6 +50149,7 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         5
@@ -52624,8 +52820,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -52663,6 +52859,11 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -54057,8 +54258,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -54098,6 +54299,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "1",
     "damagePrevention": "0",
@@ -54346,6 +54552,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -56185,17 +56396,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -56232,6 +56441,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -56556,8 +56770,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -56595,6 +56809,7 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         10
@@ -57222,8 +57437,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -57247,8 +57462,8 @@
     "damage": "1d10+5",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -57261,9 +57476,13 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
-    "slaysFoeType": "dragon",
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
@@ -58739,34 +58958,32 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Acolyte",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -58806,6 +59023,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -60015,8 +60237,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -60040,8 +60262,8 @@
     "damage": "2d5+2",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -60054,6 +60276,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -60537,17 +60764,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -60585,6 +60810,7 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         100
@@ -61818,6 +62044,7 @@
     "toInitiative": "5",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         50
@@ -62306,17 +62533,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -62354,9 +62579,13 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
-    "slaysFoeType": "outsider",
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
@@ -63093,9 +63322,9 @@
       "Ranger",
       "Troubadour",
       "Exorcist",
-      "Sorcerer",
-      "Shaman",
       "Blackguard",
+      "Shaman",
+      "Sorcerer",
       "Burglar",
       "Elemental",
       "Warlock",
@@ -63104,13 +63333,10 @@
       "Ninja",
       "Acolyte",
       "Enchanter",
-      "Magician",
       "Courtesan",
-      "Paladin",
       "Monk",
+      "Paladin",
       "Witch",
-      "Scout",
-      "Cultist",
       "Gadgeteer",
       "Skald",
       "Berserker",
@@ -63118,16 +63344,14 @@
       "Samurai",
       "Shugenja",
       "Hero",
-      "Knave",
-      "Amazon",
-      "Kamunushi"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -63150,6 +63374,7 @@
     "equipRequirements": "0,",
     "useRequirements": "0,",
     "defaultDamageType": "NONE",
+    "attackTypes": [],
     "twoHanded": "false",
     "ranged": "false",
     "returning": "false",
@@ -63161,6 +63386,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -63775,7 +64005,6 @@
     "description": "A complicated spellbook, to teach you a mid level spell. Includes detailed diagrams and a foreword by a famous researcher.",
     "modifiers": "0,",
     "image": "item/book",
-    "equipableSlots": "",
     "weight": "1200",
     "maxItemsPerStack": "1",
     "baseCost": "4500",
@@ -64922,8 +65151,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -64963,6 +65192,11 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "1",
     "damagePrevention": "0",
@@ -65259,21 +65493,20 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
       "Ranger",
+      "Skald",
       "Berserker",
       "Blackguard",
       "Hero",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -65310,9 +65543,13 @@
     "toInitiative": "-4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
-    "slaysFoeType": "plant",
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
@@ -65631,17 +65868,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -65679,6 +65914,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "1",
     "damagePrevention": "0",
@@ -66389,6 +66629,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -66510,33 +66755,30 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Cultist",
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -66574,6 +66816,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -67422,11 +67669,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Blackguard",
       "Shaman",
@@ -67434,17 +67681,15 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -67484,6 +67729,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -69243,7 +69493,6 @@
       "Sohei",
       "Ninja",
       "Samurai",
-      "Knave",
       "Shugenja",
       "Warlock"
     ],
@@ -69251,8 +69500,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -69292,6 +69541,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -71147,8 +71401,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -71187,6 +71441,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -71762,11 +72021,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Blackguard",
       "Shaman",
@@ -71774,17 +72033,15 @@
       "Warlock",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -71823,6 +72080,11 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -74105,6 +74367,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "1",
     "discipline": "KENDO",
@@ -74145,8 +74412,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -74184,6 +74451,7 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         100
@@ -74341,8 +74609,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -74381,6 +74649,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -74967,8 +75240,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -75008,6 +75281,10 @@
     "ammo": [
       "BOLT"
     ],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "-2",
     "bonusStrikes": "-2",
     "damagePrevention": "0",
@@ -75238,8 +75515,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -75277,6 +75554,7 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         100
@@ -75734,7 +76012,6 @@
     "description": "This appears to be a masterfully wrought and finely tuned violin. You pass the bow over the strings and are amazed by the glowing purple-rich notes that flow from the instrument.",
     "modifiers": "0,",
     "image": "item/violin",
-    "equipableSlots": "",
     "weight": "1100",
     "maxItemsPerStack": "1",
     "baseCost": "800",
@@ -77652,8 +77929,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -77677,8 +77954,8 @@
     "damage": "4d8+4",
     "defaultDamageType": "SLASHING",
     "attackTypes": [
-      "thrust",
-      "cut"
+      "cut",
+      "thrust"
     ],
     "twoHanded": "true",
     "ranged": "false",
@@ -77691,6 +77968,7 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         25
@@ -78849,8 +79127,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -78890,6 +79168,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -79631,6 +79914,11 @@
     "toInitiative": "0",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -79666,8 +79954,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -79708,6 +79996,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -79916,33 +80209,31 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Acolyte",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -79982,6 +80273,7 @@
     "toInitiative": "4",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         50
@@ -80598,8 +80890,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -80640,6 +80932,11 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "discipline": "KENDO",
@@ -81308,34 +81605,32 @@
     "invokedSpellLevel": "7",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Sohei",
       "Ninja",
       "Acolyte",
       "Hero",
       "Courtesan",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -81375,6 +81670,11 @@
     "toInitiative": "5",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "1",
     "bonusStrikes": "3",
     "damagePrevention": "0",
@@ -82431,7 +82731,6 @@
     "description": "A large golden-brown mushroom with a subtle honeyed taste. It can be eaten raw or cooked into a restorative stew.",
     "modifiers": "0,",
     "image": "item/bag1",
-    "equipableSlots": "",
     "weight": "10",
     "maxItemsPerStack": "25",
     "baseCost": "1",
@@ -88641,11 +88940,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Samurai",
       "Blackguard",
       "Shaman",
@@ -88655,16 +88954,14 @@
       "Ninja",
       "Hero",
       "Courtesan",
-      "Knave",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -88704,6 +89001,7 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         50
@@ -88939,8 +89237,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -88978,6 +89276,7 @@
     "toInitiative": "3",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         100
@@ -89520,7 +89819,6 @@
     "description": "A complicated spellbook, to teach you a mid level spell. Includes detailed diagrams and a foreword by a famous researcher.",
     "modifiers": "0,",
     "image": "item/book",
-    "equipableSlots": "",
     "weight": "1200",
     "maxItemsPerStack": "1",
     "baseCost": "4500",
@@ -89730,8 +90028,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -89769,6 +90067,11 @@
     "toInitiative": "-1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -91586,8 +91889,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -91624,6 +91927,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
@@ -92386,11 +92694,11 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Skald",
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
+      "Skald",
       "Troubadour",
+      "Berserker",
       "Exorcist",
       "Samurai",
       "Blackguard",
@@ -92399,17 +92707,15 @@
       "Warlock",
       "Sohei",
       "Hero",
-      "Knave",
       "Paladin",
-      "Amazon",
-      "Scout"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Dwarf",
       "Naga",
@@ -92447,6 +92753,11 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",
