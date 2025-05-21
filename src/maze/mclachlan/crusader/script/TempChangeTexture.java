@@ -27,20 +27,17 @@ import mclachlan.crusader.*;
  */
 public class TempChangeTexture extends MapScript
 {
-	EngineObject obj;
-	long timeToRemove;
-	CrusaderEngine engine;
-	Texture txt;
+	private final EngineObject obj;
+	private final long timeToRemove;
+	private final Texture previousTexture;
 
 	/*-------------------------------------------------------------------------*/
 	public TempChangeTexture(
 		EngineObject obj,
-		Texture texture,
-		CrusaderEngine engine)
+		Texture texture)
 	{
-		this.engine = engine;
 		this.obj = obj;
-		this.txt = obj.getCurrentTexture();
+		this.previousTexture = obj.getCurrentTexture();
 		this.obj.setCurrentTexture(texture);
 
 		long now = System.currentTimeMillis();
@@ -54,7 +51,7 @@ public class TempChangeTexture extends MapScript
 		// check if it's time to remove ourselves:
 		if (System.currentTimeMillis() > timeToRemove)
 		{
-			obj.setCurrentTexture(txt);
+			obj.setCurrentTexture(previousTexture);
 			map.removeScript(this);
 		}
 	}

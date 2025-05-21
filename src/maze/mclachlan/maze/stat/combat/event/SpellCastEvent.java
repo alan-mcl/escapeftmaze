@@ -30,9 +30,9 @@ import mclachlan.maze.stat.magic.Spell;
  */
 public class SpellCastEvent extends MazeEvent
 {
-	private UnifiedActor caster;
-	private Spell spell;
-	private int castingLevel;
+	private final UnifiedActor caster;
+	private final Spell spell;
+	private final int castingLevel;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellCastEvent(UnifiedActor attacker, Spell spell, int castingLevel)
@@ -69,7 +69,7 @@ public class SpellCastEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		int hitPointCost = MagicSys.getInstance().getPointCost(
 			spell.getHitPointCost(), castingLevel, caster);

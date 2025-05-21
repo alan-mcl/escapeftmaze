@@ -1034,6 +1034,30 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "name": "small snail bite",
+    "description": "bites",
+    "ranged": "false",
+    "damage": "1d6+4",
+    "damageType": "PIERCING",
+    "modifiers": "0,",
+    "minRange": "1",
+    "maxRange": "1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "spellEffectLevel": "1",
+    "attacks": [
+      "1"
+    ],
+    "attackScript": "generic weapon swish"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
     "name": "will o\u0027 wisp touch",
     "description": "touches...",
     "ranged": "false",
@@ -1181,6 +1205,10 @@
     "modifiers": "0,",
     "minRange": "1",
     "maxRange": "3",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "spellEffectLevel": "1",
     "attacks": [
       "1"
@@ -2201,6 +2229,10 @@
     "modifiers": "0,",
     "minRange": "1",
     "maxRange": "1",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "spellEffectLevel": "1",
     "attacks": [
       "1",
@@ -2954,6 +2986,10 @@
     "modifiers": "0,",
     "minRange": "1",
     "maxRange": "1",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "spellEffectLevel": "1",
     "attacks": [
       "2"

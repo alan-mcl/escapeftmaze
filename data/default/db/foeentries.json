@@ -936,6 +936,21 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ulgoth.1",
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Ulgoth The Watcher",
+          "quantity": "1d1"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "orngog",
     "contains": {
       "PERCENTAGES": [
@@ -3470,11 +3485,11 @@
       "POSSIBILITIES": [
         {
           "foeName": "Hawk Moth",
-          "quantity": "1d3"
+          "quantity": "1d2"
         },
         {
           "foeName": "Hawk Moth",
-          "quantity": "1d3"
+          "quantity": "1d2"
         }
       ]
     }

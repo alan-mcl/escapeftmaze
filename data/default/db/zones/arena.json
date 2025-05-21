@@ -10302,6 +10302,16 @@
         "yPos": "6256",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "MOTES_1",
+        "southTexture": "MOTES_1",
+        "eastTexture": "MOTES_1",
+        "westTexture": "MOTES_1",
+        "xPos": "2816",
+        "yPos": "2304",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
       }
     ],
     "scripts": []

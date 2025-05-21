@@ -1701,7 +1701,14 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actorAttacks(UnifiedActor attacker)
+	@Override
+	public void tempChangeTexture(EngineObject obj, Texture texture)
+	{
+		this.raycaster.addScript(new TempChangeTexture(obj, texture));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void actorAttacks(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
 		if (attacker instanceof Foe)
 		{
@@ -1714,10 +1721,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				return;
 			}
 
-			// todo: fix after object texture refactor
-//			this.raycaster.addScript(
-//				new TempChangeTexture(obj, Foe.Animation.MELEE_ATTACK, raycaster));
+			Texture attackTexture = attackWith.isRanged() ?
+				foe.getRangedAttackTexture().getTexture() :
+				foe.getMeleeAttackTexture().getTexture();
+
+			tempChangeTexture(obj, attackTexture);
 		}
+		// todo: PC attacks, highlight portrait?
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1945,7 +1955,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private double[] placeFoeSprite(List<UnifiedActor> group, Foe foe, int rank)
+
+	/**
+	 * Left-to-right spacing
+	 * One FG per rank
+	 */
+	private double[] placeFoeSprite1(List<UnifiedActor> group, Foe foe, int rank)
 	{
 		int foeIndex = group.indexOf(foe);
 
@@ -1960,8 +1975,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @param startingRank
-	 * 	The rank at which to start adding
+	 * Center-out spacing
+	 * One FG per rank
 	 */
 	private List<List<double[]>> placeFoeSprites2(int startingRank,
 		List<FoeGroup> foeGroups)
@@ -1975,8 +1990,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		{
 			FoeGroup group = foeGroups.get(g);
 			List<Foe> foes = group.getFoes();
-//			int count = foes.size();
-			int count = group.numAlive();
+			int count = foes.size();
+//			int count = group.numAlive(); todo
 
 			List<double[]> groupCoords = new ArrayList<>(count);
 
@@ -2003,6 +2018,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		return result;
 	}
 
+	/**
+	 * Center-out spacing
+	 * FGs spread across ranks.
+	 * todo: not working!
+	 */
 	private List<List<double[]>> placeFoeSprites3(
 		int startingRank,
 		List<FoeGroup> foeGroups)

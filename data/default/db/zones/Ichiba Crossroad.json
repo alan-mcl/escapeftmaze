@@ -7637,14 +7637,24 @@
         "restingEfficiency": "AVERAGE"
       },
       {
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.crossroad.execute.once.7",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "The air within the cave is chill and damp. Smells of minerals and mildew assail you, strangely at odds with the thick tropical jungle outside. Everything is eerily silent.\n",
+            "alignment": "CENTER"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020202010202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "cave_of_the_snail"
       },
       {
         "scripts": [],
@@ -7961,7 +7971,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020102010302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -7972,10 +7982,11 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020201010302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "cave_of_the_snail"
       },
       {
         "scripts": [],
@@ -8284,7 +8295,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02020101020302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -8607,7 +8618,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02010102020202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -8618,7 +8629,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020102010301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -8639,7 +8650,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010102010301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -8942,18 +8953,28 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020201020302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
         "sector": "cave_of_the_snail"
       },
       {
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "ichiba.crossroad.hawk.moth.1",
+            "mazeVariable": "ichiba.crossroad.encounter.3",
+            "attitude": "ATTACKING",
+            "preScript": "Ichiba Crossroad hawk moths enc"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
-        "statModifier": "3f800000000000000000,02010101020302",
+        "statModifier": "3f800000000000000000,02020202020302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -8964,7 +8985,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010202010301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9269,7 +9290,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02010202010201",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9280,7 +9301,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010102010302",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9291,7 +9312,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02020102020301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9585,7 +9606,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02020201020202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9596,7 +9617,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010101020301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9607,7 +9628,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010202010201",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cav",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9618,7 +9639,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010101010201",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9918,7 +9939,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020201010202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9929,18 +9950,28 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020101020202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
         "sector": "cave_of_the_snail"
       },
       {
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "ichiba.crossroad.ulgoth",
+            "mazeVariable": "ichiba.crossroad.encounter.4",
+            "attitude": "WARY",
+            "preScript": "Ichiba Crossroad ulgoth enc"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
-        "statModifier": "3f800000000000000000,01010101010202",
+        "statModifier": "3f800000000000000000,02020202020202",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -9951,7 +9982,7 @@
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020201010301",
         "terrainType": "WILDERNESS",
-        "terrainSubType": "Forest",
+        "terrainSubType": "Cave",
         "randomEncounterChance": "5",
         "restingDanger": "LOW",
         "restingEfficiency": "AVERAGE",
@@ -11159,30 +11190,334 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
+        "lightLevel": "9",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "8",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "7",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "4",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "WATER_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "8",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SE",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "11",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DIRT_FLOOR_1",
+        "floorTexture": "DIRT_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
         "lightLevel": "10",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "GRASS_FLOOR_1",
         "northWallTexture": "No_WAll",
@@ -11199,7 +11534,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "6",
         "ceilingHeight": "1"
       },
       {
@@ -11209,7 +11544,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "5",
         "ceilingHeight": "1"
       },
       {
@@ -11219,251 +11554,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SE",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11473,7 +11564,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "14",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11483,67 +11574,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "12",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DIRT_FLOOR_1",
-        "floorTexture": "DIRT_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11838,7 +11869,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11848,7 +11879,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11858,7 +11889,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -11868,7 +11899,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -12152,7 +12183,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -12162,7 +12193,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -12172,7 +12203,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -12182,7 +12213,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -12192,7 +12223,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "8",
+        "lightLevel": "4",
         "ceilingHeight": "1"
       },
       {
@@ -21905,8 +21936,10 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
+        "textures": [
+          "JUNGLE_CLIFF_1_CAVE"
+        ],
+        "visible": "true",
         "solid": "false",
         "height": "1"
       },
@@ -51393,6 +51426,206 @@
         "xPos": "10496",
         "yPos": "1962",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "13568",
+        "yPos": "1500",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "13910",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14762",
+        "yPos": "1622",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14422",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "13910",
+        "yPos": "2134",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14250",
+        "yPos": "2304",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14762",
+        "yPos": "2134",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14934",
+        "yPos": "2474",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15616",
+        "yPos": "2474",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15616",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15336",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15812",
+        "yPos": "1070",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15368",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "15104",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14934",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "14934",
+        "yPos": "1110",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "MOTES_1",
+        "southTexture": "MOTES_1",
+        "eastTexture": "MOTES_1",
+        "westTexture": "MOTES_1",
+        "xPos": "15616",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "MOTES_1",
+        "southTexture": "MOTES_1",
+        "eastTexture": "MOTES_1",
+        "westTexture": "MOTES_1",
+        "xPos": "15446",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "MOTES_1",
+        "southTexture": "MOTES_1",
+        "eastTexture": "MOTES_1",
+        "westTexture": "MOTES_1",
+        "xPos": "15786",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "MOTES_1",
+        "southTexture": "MOTES_1",
+        "eastTexture": "MOTES_1",
+        "westTexture": "MOTES_1",
+        "xPos": "15616",
+        "yPos": "938",
+        "lightSource": "true",
         "verticalAlignment": "BOTTOM"
       }
     ],

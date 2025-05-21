@@ -353,6 +353,18 @@
     ]
   },
   {
+    "name": "Ichiba Crossroad ulgoth enc",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The way is blocked by a gigantic snail, glowing faintly in the low light.\n\nAt first you think the beast is asleep, but slowly it opens a single lid and regards you with one cold eye.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      }
+    ]
+  },
+  {
     "name": "_UNLOCK_",
     "events": [
       {
@@ -1441,6 +1453,25 @@
     "events": [
       {
         "IMPL": "mclachlan.maze.campaign.def.script.RhysDeath"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad hawk moths enc",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You enter a dark cavern, every surface slick with condensation. Scattered fungi emit a faint bioluminescent glow. ",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "Other luminescent forms detach from the ceiling and drift dreamily down towards you. You marvel at the pretty lights.\n\nIt takes a moment to realise that you are under attack!",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },

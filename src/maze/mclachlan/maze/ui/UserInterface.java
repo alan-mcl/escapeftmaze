@@ -173,7 +173,7 @@ public interface UserInterface
 	void setTile(Zone zone, Tile t, Point tile);
 
 	/*-------------------------------------------------------------------------*/
-	void actorAttacks(UnifiedActor attacker);
+	void actorAttacks(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith);
 
 	/*-------------------------------------------------------------------------*/
 	void actorDies(UnifiedActor victim);
@@ -248,6 +248,10 @@ public interface UserInterface
 	boolean supportsAnimation();
 
 	/*-------------------------------------------------------------------------*/
+	void tempChangeTexture(EngineObject obj, Texture texture);
+
+	/*-------------------------------------------------------------------------*/
+
 	ActorGroup getSelectedFoeGroup();
 
 	void buildGui();

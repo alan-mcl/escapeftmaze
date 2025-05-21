@@ -1,0 +1,741 @@
+[
+  {
+    "template": "Imogen",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "36:3",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Tower Guardian NPC",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "15:30",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "C.O.C. Sergeant",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "14:19",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Lorelei",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "18:10",
+    "zone": "Danaos Village",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Tao",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "25:10",
+    "zone": "Dalen",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Mentes",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Chamois Skirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Jesters Cap",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Robes (L)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Sling",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "17:26",
+    "zone": "Aenen City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Diomedes",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Potion Of Bless",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Guardian Angel",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "26:25",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Nhapukom Minion Of Usark",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "7:15",
+    "zone": "Temple Of The Gate",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Stenelaus",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "4:16",
+    "zone": "Danaos Village",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Saropon Minion Of Usark",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "3:9",
+    "zone": "Tornado Mountain",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Sarpedon",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "12:26",
+    "zone": "Aenen City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "true",
+    "guild": []
+  },
+  {
+    "template": "Clockwork Sentinel",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "20:20",
+    "zone": "Aenen City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Agenor",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "2",
+    "tile": "14:6",
+    "zone": "Danaos Castle",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "true",
+    "guild": []
+  },
+  {
+    "template": "Rhys",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "8:14",
+    "zone": "Ichiba City Depths",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Kepnasha Minion Of Usark",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "0:0",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Eva Wingfield",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "10:8",
+    "zone": "Ichiba Crossroad",
+    "found": "true",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Three Eyes",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Dreamer Skull",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Emerald Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Mod Heal",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      }
+    ],
+    "theftCounter": "1",
+    "tile": "11:12",
+    "zone": "Gnoll Village",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Glaucus",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Amulet Of Static",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "10-16"
+      },
+      {
+        "template": "Bottled Mephits",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Brooch",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Enchanted Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Manta Roots",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Mistletoe Berry",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "50-50"
+      },
+      {
+        "template": "Oscillistor",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Darkness",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Theft",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scroll Of Magic Screen",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Suede Pants",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Vitriolic Warder",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "12:13",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Emmons",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "1",
+    "tile": "1:1",
+    "zone": "Ichiba City",
+    "found": "true",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Scrymgeour",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Adventurer\u0027s Armoury Key",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scrymgeour\u0027s Bitter",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "19:14",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "true",
+    "guild": []
+  },
+  {
+    "template": "W E Pickett",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "3:3",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Belisarius",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "2",
+    "tile": "22:10",
+    "zone": "Danaos Castle",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Pandarus",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Aenen Cavegrown Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Chamois Gloves",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Mingminder\u0027s Green Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Silver Leaf Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Silver Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Time Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "11:24",
+    "zone": "Aenen City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Ren San",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "15:26",
+    "zone": "Dalen",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Red Ear",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Chamois Skirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Fire Stix",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Ninja Cowl",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Pneumatic Piston",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Rutabaga",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Sandals",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Silk Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "23:20",
+    "zone": "Ichiba City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Fangorn",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "9:51",
+    "zone": "Castle Fangorn",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Getsel Gnawtooth",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "20:27",
+    "zone": "Caves Of Ilast",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Mnesus",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "4:16",
+    "zone": "Aenen City",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Old Igor",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "33:29",
+    "zone": "Ruins Of Hail",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Nusor Minion Of Usark",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "15:5",
+    "zone": "Stygios Forest",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Bel Ies",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "17:19",
+    "zone": "Writhing Mire",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Sir Kay",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "1",
+    "tile": "12:25",
+    "zone": "Ichiba Crossroad",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Ideaus",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "15:16",
+    "zone": "Aenen Outskirts",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Stentor",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "1",
+    "tile": "12:18",
+    "zone": "Danaos Village",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Ghul",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "3:59",
+    "zone": "Plain Of Pillars",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Stick Man Vendor",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "7:6",
+    "zone": "arena",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "true",
+    "guild": []
+  },
+  {
+    "template": "Broken Fang",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "14:9",
+    "zone": "Gnoll Village",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Asius",
+    "attitude": "NEUTRAL",
+    "tradingInventory": [
+      {
+        "template": "Bunch Of Bananas",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Invisibility",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Suede Doublet",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Tartan Kilt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
+    "theftCounter": "0",
+    "tile": "20:11",
+    "zone": "Aenen Outskirts",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  },
+  {
+    "template": "Miriam Marrowsucker",
+    "attitude": "ATTACKING",
+    "tradingInventory": [],
+    "theftCounter": "0",
+    "tile": "10:27",
+    "zone": "Caves Of Ilast",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false",
+    "guild": []
+  }
+]

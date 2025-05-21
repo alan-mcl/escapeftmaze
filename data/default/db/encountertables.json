@@ -967,6 +967,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.ulgoth",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "ulgoth.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "ichiba.domain.north.random.enc",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1891,7 +1904,7 @@
         "gnome.scouts.party",
         "human.footpads.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1928,7 +1941,7 @@
         100
       ],
       "ITEMS": [
-        "hunting.mantis.2"
+        "hunting.mantis.1"
       ],
       "SHOULD_SUM_TO_100": "true"
     }
@@ -2072,14 +2085,13 @@
     "name": "ichiba.crossroad.random.enc",
     "encounterTable": {
       "PERCENTAGES": [
+        15,
+        15,
         14,
         14,
         14,
         14,
-        8,
-        14,
-        14,
-        8
+        14
       ],
       "ITEMS": [
         "lurching.omnifid.small",
@@ -2088,8 +2100,7 @@
         "toothy.velox.small.pack",
         "hunting.mantis.1",
         "hawk.moth.small",
-        "emerald.spiders.small",
-        "dog.soldiers.small"
+        "emerald.spiders.small"
       ],
       "SHOULD_SUM_TO_100": "true"
     }
@@ -2345,6 +2356,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.hawk.moth.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "hawk.moth.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "call.wyrms.spell.1",
     "encounterTable": {
       "PERCENTAGES": [
@@ -2424,7 +2448,7 @@
       "ITEMS": [
         "call.wyrms.spell.4"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2543,7 +2567,7 @@
       "ITEMS": [
         "tower.guardians.small"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

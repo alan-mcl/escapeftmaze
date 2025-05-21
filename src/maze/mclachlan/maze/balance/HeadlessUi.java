@@ -298,7 +298,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void actorAttacks(UnifiedActor attacker)
+	public void actorAttacks(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
 		
 	}
@@ -497,6 +497,12 @@ public class HeadlessUi implements UserInterface
 	public boolean supportsAnimation()
 	{
 		return false;
+	}
+
+	@Override
+	public void tempChangeTexture(EngineObject obj, Texture texture)
+	{
+
 	}
 
 	public ActorGroup getSelectedFoeGroup()

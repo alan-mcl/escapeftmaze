@@ -34,20 +34,20 @@ import mclachlan.maze.ui.diygui.animation.AnimationContext;
  */
 public class AttackEvent extends MazeEvent
 {
-	private Combat combat;
-	private UnifiedActor attacker;
-	private UnifiedActor defender;
-	private AttackWith attackWith;
-	private AttackType attackType;
-	private int actionCost;
-	private int nrStrikes;
-	private MazeScript attackScript;
-	private MagicSys.SpellEffectType damageType;
-	private AnimationContext animationContext;
-	private StatModifier modifiers;
+	private final Combat combat;
+	private final UnifiedActor attacker;
+	private final UnifiedActor defender;
+	private final AttackWith attackWith;
+	private final AttackType attackType;
+	private final int actionCost;
+	private final int nrStrikes;
+	private final MazeScript attackScript;
+	private final MagicSys.SpellEffectType damageType;
+	private final AnimationContext animationContext;
+	private final StatModifier modifiers;
 
 	/** a bag of random other state carried along with the attack */
-	private Set<String> tags = new HashSet<String>();
+	private final Set<String> tags = new HashSet<>();
 
 	/*-------------------------------------------------------------------------*/
 	public AttackEvent(
@@ -113,11 +113,6 @@ public class AttackEvent extends MazeEvent
 		return 0;
 	}
 
-	public void incStrikes(int inc)
-	{
-		this.nrStrikes += inc;
-	}
-
 	public StatModifier getModifiers()
 	{
 		return modifiers;
@@ -127,11 +122,11 @@ public class AttackEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		boolean fumble = false;
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (Maze.getInstance() != null)
 		{
-			Maze.getInstance().actorAttacks(getAttacker());
+			Maze.getInstance().actorAttacks(getAttacker(), getDefender(), getAttackWith());
 		}
 
 		// deduct action points
@@ -218,11 +213,5 @@ public class AttackEvent extends MazeEvent
 	public String getText()
 	{
 		return getAttackWith().describe(this);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Set<String> getTags()
-	{
-		return tags;
 	}
 }

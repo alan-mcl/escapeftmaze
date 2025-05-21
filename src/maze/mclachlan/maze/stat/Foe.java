@@ -555,7 +555,7 @@ public class Foe extends UnifiedActor
 	@Override
 	public List<AttackWith> getAttackWithOptions()
 	{
-		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
+		ArrayList<AttackWith> result = new ArrayList<>();
 		if (getNaturalWeapons() != null)
 		{
 			result.addAll(getNaturalWeapons());
@@ -640,7 +640,7 @@ public class Foe extends UnifiedActor
 
 	public List<TypeDescriptor> getTypes()
 	{
-		List<TypeDescriptor> result = new ArrayList<TypeDescriptor>();
+		List<TypeDescriptor> result = new ArrayList<>();
 		if (template.getTypes() != null)
 		{
 			result.addAll(template.getTypes());
@@ -722,13 +722,7 @@ public class Foe extends UnifiedActor
 	@Override
 	public String toString()
 	{
-		final StringBuilder sb = new StringBuilder();
-		sb.append("Foe");
-		sb.append("{name='").append(template.getName()).append('\'');
-		sb.append(", level=").append(getLevel());
-		sb.append(", hp=").append(getHitPoints());
-		sb.append('}');
-		return sb.toString();
+		return "Foe{name='" + template.getName() + '\'' + ", level=" + getLevel() + ", hp=" + getHitPoints() + '}';
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -839,7 +833,7 @@ public class Foe extends UnifiedActor
 	{
 		if (this.getInventory() != null)
 		{
-			List<Item> result = new ArrayList<Item>(this.getInventory().getItems());
+			List<Item> result = new ArrayList<>(this.getInventory().getItems());
 
 			// remove stuff that is equipped
 			result.removeAll(getEquippedItems());
@@ -859,7 +853,6 @@ public class Foe extends UnifiedActor
 
 	public List<Item> getTradingInventory()
 	{
-		// todo: only unequipped items?
 		return getInventory().getItems();
 	}
 
@@ -886,7 +879,7 @@ public class Foe extends UnifiedActor
 
 	public List<String> getGuild()
 	{
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 	public FoeTemplate.AppearanceDirection getAppearanceDirection()
@@ -931,11 +924,15 @@ public class Foe extends UnifiedActor
 
 		public static int valueOf(String s)
 		{
-			if (s.equals("never evade")) return NEVER_EVADE;
-			else if (s.equals("random evade")) return RANDOM_EVADE;
-			else if (s.equals("always evade")) return ALWAYS_EVADE;
-			else if (s.equals("clever evade")) return CLEVER_EVADE;
-			else throw new MazeException("Invalid evasion behaviour: ["+s+"]");
+			return switch (s)
+				{
+					case "never evade" -> NEVER_EVADE;
+					case "random evade" -> RANDOM_EVADE;
+					case "always evade" -> ALWAYS_EVADE;
+					case "clever evade" -> CLEVER_EVADE;
+					default ->
+						throw new MazeException("Invalid evasion behaviour: [" + s + "]");
+				};
 		}
 	}
 
@@ -964,10 +961,14 @@ public class Foe extends UnifiedActor
 
 		public static int valueOf(String s)
 		{
-			if (s.equals("not stealthy")) return NOT_STEALTHY;
-			else if (s.equals("opportunistic")) return OPPORTUNISTIC;
-			else if (s.equals("stealth reliant")) return STEALTH_RELIANT;
-			else throw new MazeException("Invalid stealth behaviour: ["+s+"]");
+			return switch (s)
+				{
+					case "not stealthy" -> NOT_STEALTHY;
+					case "opportunistic" -> OPPORTUNISTIC;
+					case "stealth reliant" -> STEALTH_RELIANT;
+					default ->
+						throw new MazeException("Invalid stealth behaviour: [" + s + "]");
+				};
 		}
 	}
 

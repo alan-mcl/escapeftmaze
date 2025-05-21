@@ -171,45 +171,4 @@ public class MazeTexture extends DataObject
 		result.texture.setTint(tint);
 		return result;
 	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		MazeTexture that = (MazeTexture)o;
-
-		if (getAnimationDelay() != that.getAnimationDelay())
-		{
-			return false;
-		}
-		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
-		{
-			return false;
-		}
-		if (getImageResources() != null ? !getImageResources().equals(that.getImageResources()) : that.getImageResources() != null)
-		{
-			return false;
-		}
-		return getTexture() != null ? getTexture().equals(that.getTexture()) : that.getTexture() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getName() != null ? getName().hashCode() : 0;
-		result = 31 * result + (getImageResources() != null ? getImageResources().hashCode() : 0);
-		result = 31 * result + (getTexture() != null ? getTexture().hashCode() : 0);
-		result = 31 * result + getAnimationDelay();
-		return result;
-	}
 }

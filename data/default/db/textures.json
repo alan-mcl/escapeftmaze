@@ -109,6 +109,16 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "MOTES_1",
+    "imageResources": [
+      "crusader/scene/motes_1"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "UP",
+    "scrollSpeed": "50"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "DUNGEON_PORTCULLIS_1",
     "imageResources": [
       "crusader/scene/dungeon_portcullis_1"
@@ -1066,12 +1076,9 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.moth.1",
     "imageResources": [
-      "crusader/foe/moth_1",
-      "crusader/foe/moth_2",
-      "crusader/foe/moth_3",
-      "crusader/foe/moth_4"
+      "crusader/foe/moth_1"
     ],
-    "animationDelay": "100",
+    "animationDelay": "-1",
     "scrollSpeed": "-1"
   },
   {

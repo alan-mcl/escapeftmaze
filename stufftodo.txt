@@ -5,9 +5,16 @@ STUFFTODO
 ICHIBA CROSSROADS
 -----------------
 bug: zone change flickering
-foe attack/alternate textures fix
 re-encounter NPC on the same tile
-snail cave and other encounters
+snail cave
+mantis bones loot
+a shrine
+more berry bushes
+more bushes, incl proto-omnifids
+roach encounter
+emerald spider encounter
+forgotten path / red moss tree
+other encounters?
 
 BACKLOG
 ----------
@@ -25,7 +32,7 @@ animation: throwing hammer
 scene art: city windows, door+window
 scene art: table, chair, crate
 
-sprite & sound: angel
+sound: angel
 sprite & sound: clockwork beast
 sprite & sound: winter wolf, lava wolf
 sprite & sound: owlbear, stone bear

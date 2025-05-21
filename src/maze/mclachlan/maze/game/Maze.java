@@ -1243,9 +1243,9 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actorAttacks(UnifiedActor attacker)
+	public void actorAttacks(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
-		this.ui.actorAttacks(attacker);
+		this.ui.actorAttacks(attacker, defender, attackWith);
 	}
 
 	/*-------------------------------------------------------------------------*/
