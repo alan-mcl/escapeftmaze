@@ -4,6 +4,10 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
+factor out foe sprite object scripts
+inline zone maze scripts
+bug: summoning spell & call for help weirdnesses
+bug: random encounter prior to fixed encounter on a tile weirdness
 bug: zone change flickering
 re-encounter NPC on the same tile
 snail cave

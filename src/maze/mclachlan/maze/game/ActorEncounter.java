@@ -131,17 +131,18 @@ public class ActorEncounter
 				}
 			case WARY:
 				int roll = Dice.d100.roll("actor encounter: wary");
-				if (roll <= 20)
+
+				if (roll <= ((Foe)leader).getFleeChance())
+				{
+					return flees(maze, msg);
+				}
+				if (roll <= 25)
 				{
 					return attacks(maze, msg);
 				}
-				else if (roll <= 80)
-				{
-					return waits(msg);
-				}
 				else
 				{
-					return flees(maze, msg);
+					return waits(msg);
 				}
 			case SCARED:
 				if (Dice.d100.roll("actor encounter: scared") <= 80)

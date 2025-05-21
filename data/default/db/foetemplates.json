@@ -12421,8 +12421,8 @@
       "Vermin"
     ],
     "hitPointsRange": "6d3+6",
-    "actionPointsRange": "1d1",
-    "magicPointsRange": "1d1",
+    "actionPointsRange": "6d6+6",
+    "magicPointsRange": "6d6+6",
     "levelRange": "1d2+2",
     "experience": "300",
     "stats": "10000000000000000000000000000000236800006e02070fe007800198,0202020a0a0a0a0a0a0a0a0a0a0a0a32323214f65a325a3201010101010101",
@@ -12472,7 +12472,7 @@
       "NAME": "foe.giant.snail"
     },
     "verticalAlignment": "BOTTOM",
-    "textureTint": "fff3ffd4",
+    "textureTint": "ff99ffff",
     "loot": {
       "NAME": "NO_LOOT"
     },
@@ -12481,7 +12481,7 @@
     "identificationDifficulty": "3",
     "foeGroupBannerModifiers": "0,",
     "allFoesBannerModifiers": "0,",
-    "fleeChance": "1",
+    "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
     "appearanceScript": {
@@ -12497,8 +12497,7 @@
         "Call Vermin",
         "Entangle",
         "Mage Armour",
-        "Dire Wasps",
-        "Mephit"
+        "Dire Wasps"
       ]
     },
     "spellLikeAbilities": [],
