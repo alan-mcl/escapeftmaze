@@ -200,6 +200,13 @@ public class V2Saver extends Saver
 	}
 
 	@Override
+	public void saveObjectAnimations(
+		Map<String, ObjectAnimations> map) throws Exception
+	{
+		v2Crud(map, getPath(OBJECT_ANIMATIONS), new SimpleMapSilo<>(getFoeSpriteAnimationSerialiser()));
+	}
+
+	@Override
 	public void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception
 	{
 		v2Crud(map, getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));

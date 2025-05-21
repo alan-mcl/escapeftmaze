@@ -21,10 +21,12 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
+import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.FoeTemplate;
+import mclachlan.maze.stat.ObjectAnimations;
 
 /**
  *
@@ -35,9 +37,27 @@ public class UpdateFoes
 	{
 		System.out.println("...");
 
-		V1Loader loader = new V1Loader();
-		V1Saver saver = new V1Saver();
-		Database db = new Database(loader, saver, Maze.getStubCampaign());
+		V2Loader loader = new V2Loader();
+		V2Saver saver = new V2Saver();
+		Campaign campaign = Maze.getStubCampaign();
+/*		List<Campaign> campaigns = new ArrayList<>(Database.getCampaigns().values());
+		// haxor to get the arena campaign
+		for (Campaign c : campaigns)
+		{
+			if (c.getName().equals("default"))
+			{
+				campaign = c;
+				break;
+			}
+		}*/
+
+		Database db = new Database(loader, saver, campaign);
+
+//		dbv1.initImpls();
+//		dbv1.initCaches(null);
+
+		db.initImpls();
+		db.initCaches(null);
 
 		int count = 0;
 
@@ -47,19 +67,26 @@ public class UpdateFoes
 		{
 			FoeTemplate foeTemplate = foes.get(s);
 
-//			if (foeTemplate.isImmuneToCriticals())
-//			{
-//				System.out.println(foeTemplate.getName());
-//				count++;
-//
-//				foeTemplate.setImmuneToCriticals(false);
-//				StatModifier stats = foeTemplate.getStats();
-//				stats.setModifier(Stats.Modifier.IMMUNE_TO_CRITICALS, 1);
-//				foeTemplate.setStats(stats);
-//			}
+			ObjectAnimations spriteAnimations = foeTemplate.getSpriteAnimations();
+			if (spriteAnimations != null && spriteAnimations.getAnimationScripts().size() > 0)
+			{
+				count++;
+				System.out.println(foeTemplate.getName() + ": " + spriteAnimations.getAnimationScripts());
+
+				db.getObjectAnimations().put(spriteAnimations.getName(), spriteAnimations);
+			}
 		}
 
-		saver.saveFoeTemplates(foes);
+		for (ObjectAnimations oa : db.getObjectAnimations().values())
+		{
+			oa.setCampaign(campaign.getName());
+		}
+
+		System.out.println(db.getObjectAnimations());
+//		db.saveObjectAnimations(db.getObjectAnimations(), campaign);
+		db.saveFoeTemplates(db.getFoeTemplates(), campaign);
+
+//		saver.saveFoeTemplates(foes);
 		System.out.println("count = [" + count + "]");
 	}
 }

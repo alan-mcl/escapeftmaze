@@ -76,7 +76,6 @@
     "appearanceScript": {
       "NAME": "sound - kami"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mad kami touch"
@@ -173,7 +172,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "boulder dragon claw"
@@ -277,7 +275,6 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "hunting mantis foreleg"
@@ -366,7 +363,6 @@
     "appearanceScript": {
       "NAME": "sound - skeleton"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "ageyr\u0027s bones touch"
@@ -457,7 +453,6 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "griffon bite",
@@ -545,7 +540,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "deathScript": {
       "NAME": "Ichneumorax Death"
@@ -652,7 +646,6 @@
     "appearanceScript": {
       "NAME": "sound - crud"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -887,16 +880,7 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "20",
-        "minSpeed": "1000",
-        "maxSpeed": "1500",
-        "minPause": "500",
-        "maxPause": "1000"
-      }
-    ],
+    "spriteAnimations": "Mud Spider.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mud spider bite"
@@ -988,7 +972,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "wind dragon claw"
@@ -1085,7 +1068,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "ninja punch",
@@ -1181,7 +1163,6 @@
     "appearanceScript": {
       "NAME": "sound - puppet"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "angry puppet punch"
@@ -1269,7 +1250,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -1364,7 +1344,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -1455,7 +1434,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "shade touch"
@@ -1555,29 +1533,7 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "75",
-        "minSpeed": "500",
-        "maxSpeed": "1500",
-        "minPause": "0",
-        "maxPause": "0"
-      },
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
-        "minOffset": "-120",
-        "maxOffset": "80",
-        "minSpeed": "300",
-        "maxSpeed": "400",
-        "minPause": "0",
-        "maxPause": "0",
-        "pauseTop": "false",
-        "pauseBottom": "false",
-        "homeTop": "false",
-        "homeBottom": "false"
-      }
-    ],
+    "spriteAnimations": "Fruit Bat.default",
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "fruit bat bite",
@@ -1669,7 +1625,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -1760,7 +1715,6 @@
     "appearanceScript": {
       "NAME": "sound - snail"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "sawtooth snail bite"
@@ -1953,7 +1907,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -2049,7 +2002,6 @@
     "appearanceScript": {
       "NAME": "sound - accountant"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -2132,7 +2084,6 @@
     "appearanceScript": {
       "NAME": "sound - rustle"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "colonising omnifid lash",
@@ -2222,7 +2173,6 @@
     "appearanceScript": {
       "NAME": "sound - ape"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "gigantopithecus grasp"
@@ -2324,7 +2274,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -2422,7 +2371,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "plague bat bite"
@@ -2600,7 +2548,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -2696,7 +2643,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "old igor bite",
@@ -2807,16 +2753,7 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "50",
-        "minSpeed": "100",
-        "maxSpeed": "250",
-        "minPause": "250",
-        "maxPause": "500"
-      }
-    ],
+    "spriteAnimations": "Toothy Velox.default",
     "appearanceDirection": "FROM_FAR",
     "naturalWeapons": [
       "toothy velox bite"
@@ -2907,7 +2844,6 @@
     "appearanceScript": {
       "NAME": "sound - hag"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "miriam marrowsucker bite",
@@ -3003,7 +2939,6 @@
     "appearanceScript": {
       "NAME": "sound - golem"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "block golem punch"
@@ -3092,7 +3027,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "rabid gnoll bite"
@@ -3194,7 +3128,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "invisible stalker punch"
@@ -3281,7 +3214,6 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "harvestman spider bite"
@@ -3453,7 +3385,6 @@
     "appearanceScript": {
       "NAME": "sound - water elemental"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "water elemental punch"
@@ -3546,7 +3477,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -3642,7 +3572,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "minion of usark claw"
@@ -3843,7 +3772,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -4102,7 +4030,6 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bloated spider bite"
@@ -4202,7 +4129,6 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "creeping hagspawn claw",
@@ -4299,7 +4225,6 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "foxfire touch"
@@ -4398,7 +4323,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork soldier punch"
@@ -4486,7 +4410,6 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "emerald spider bite",
@@ -4572,7 +4495,6 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "owlbear bite",
@@ -4656,7 +4578,6 @@
     "appearanceScript": {
       "NAME": "sound - buzz"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "angry swarm attack"
@@ -4748,7 +4669,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -5018,7 +4938,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "resolution engine punch",
@@ -5221,7 +5140,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "invisible stalker punch"
@@ -5312,7 +5230,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -5402,7 +5319,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -5500,7 +5416,6 @@
     "appearanceScript": {
       "NAME": "sound - hag"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "miriam marrowsucker bite",
@@ -5598,7 +5513,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "old igor bite",
@@ -5707,7 +5621,6 @@
     "appearanceScript": {
       "NAME": "sound - bird"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "storm crow bite",
@@ -5797,7 +5710,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -5899,7 +5811,6 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bemiropterix bite",
@@ -6086,7 +5997,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "ghost touch"
@@ -6275,7 +6185,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -6363,7 +6272,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork vengeance punch"
@@ -6545,7 +6453,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -6638,7 +6545,6 @@
     "appearanceScript": {
       "NAME": "sound - skeleton"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "napiers bones touch"
@@ -6728,7 +6634,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -6819,7 +6724,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "flying hagspawn bite",
@@ -7003,24 +6907,7 @@
     "appearanceScript": {
       "NAME": "sound - crud"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.SinusoidalStretch",
-        "speed": "1.0",
-        "minStretch": "0.95",
-        "maxStretch": "1.05",
-        "vertical": "true",
-        "horizontal": "false"
-      },
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.SinusoidalStretch",
-        "speed": "1.0",
-        "minStretch": "0.95",
-        "maxStretch": "1.05",
-        "vertical": "false",
-        "horizontal": "true"
-      }
-    ],
+    "spriteAnimations": "Spotted Crud.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "spotted crud bite",
@@ -7125,7 +7012,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -7220,29 +7106,7 @@
     "appearanceScript": {
       "NAME": "sound - dun.draco"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
-        "minOffset": "-50",
-        "maxOffset": "50",
-        "minSpeed": "25",
-        "maxSpeed": "75",
-        "minPause": "0",
-        "maxPause": "0",
-        "pauseTop": "false",
-        "pauseBottom": "false",
-        "homeTop": "false",
-        "homeBottom": "false"
-      },
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "40",
-        "minSpeed": "2000",
-        "maxSpeed": "4000",
-        "minPause": "0",
-        "maxPause": "500"
-      }
-    ],
+    "spriteAnimations": "Dun Draco.default",
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "tan draco claw"
@@ -7330,7 +7194,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -7420,7 +7283,6 @@
     "appearanceScript": {
       "NAME": "sound - earth elemental"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "earth elemental punch"
@@ -7603,7 +7465,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "inferno dragon bite",
@@ -7712,7 +7573,6 @@
     "appearanceScript": {
       "NAME": "sound - panther"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "black panther bite",
@@ -7798,16 +7658,7 @@
     "appearanceScript": {
       "NAME": "sound - rustle"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "30",
-        "minSpeed": "2000",
-        "maxSpeed": "4000",
-        "minPause": "500",
-        "maxPause": "2000"
-      }
-    ],
+    "spriteAnimations": "Lurching Omnifid.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "lurching omnifid lash"
@@ -7997,7 +7848,6 @@
     "appearanceScript": {
       "NAME": "sound - ape"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "orngog hug"
@@ -8183,16 +8033,7 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "10",
-        "minSpeed": "1000",
-        "maxSpeed": "2000",
-        "minPause": "1000",
-        "maxPause": "2000"
-      }
-    ],
+    "spriteAnimations": "Malignant Widow.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -8292,7 +8133,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -8585,7 +8425,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -8680,7 +8519,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -8770,7 +8608,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -8860,7 +8697,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "braided moth bite"
@@ -8963,7 +8799,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9055,7 +8890,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -9148,7 +8982,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9251,7 +9084,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9432,7 +9264,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9519,7 +9350,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "inghean shade touch"
@@ -9621,7 +9451,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "deathScript": {
       "NAME": "Goblin Magsman Death"
@@ -9712,7 +9541,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9806,7 +9634,6 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -9907,7 +9734,6 @@
     "appearanceScript": {
       "NAME": "sound - moulder"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "aboroth punch",
@@ -10087,7 +9913,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -10189,7 +10014,6 @@
     "appearanceScript": {
       "NAME": "sound - ninjastab"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -10276,7 +10100,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "ghost touch"
@@ -10376,7 +10199,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "frost wyrm bite"
@@ -10478,7 +10300,6 @@
     "appearanceScript": {
       "NAME": "sound - skeleton"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "napiers bones touch"
@@ -10570,7 +10391,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "minion of usark claw"
@@ -10683,7 +10503,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -10974,7 +10793,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "glacier dragon bite",
@@ -11077,7 +10895,6 @@
     "appearanceScript": {
       "NAME": "sound - moulder"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "moulder grasp"
@@ -11166,7 +10983,6 @@
     "appearanceScript": {
       "NAME": "sound - kami"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "lost kami touch"
@@ -11349,7 +11165,6 @@
     "appearanceScript": {
       "NAME": "sound - tree"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "twisted sapling lash"
@@ -11439,7 +11254,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -11628,7 +11442,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -11714,7 +11527,6 @@
     "appearanceScript": {
       "NAME": "sound - tree"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "treant punch"
@@ -11801,29 +11613,7 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "25",
-        "minSpeed": "100",
-        "maxSpeed": "500",
-        "minPause": "500",
-        "maxPause": "2500"
-      },
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
-        "minOffset": "-200",
-        "maxOffset": "0",
-        "minSpeed": "500",
-        "maxSpeed": "750",
-        "minPause": "500",
-        "maxPause": "2500",
-        "pauseTop": "false",
-        "pauseBottom": "true",
-        "homeTop": "false",
-        "homeBottom": "true"
-      }
-    ],
+    "spriteAnimations": "Jumping Roach.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "jumping roach claw"
@@ -11915,7 +11705,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -12097,7 +11886,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bloodwyrm bite",
@@ -12288,7 +12076,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "kolidra claw"
@@ -12399,7 +12186,6 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "swarming roach claw"
@@ -12487,7 +12273,6 @@
     "appearanceScript": {
       "NAME": "sound - snail"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "small snail bite"
@@ -12581,16 +12366,7 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "15",
-        "minSpeed": "500",
-        "maxSpeed": "1000",
-        "minPause": "1000",
-        "maxPause": "1500"
-      }
-    ],
+    "spriteAnimations": "Bonebrood.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bonebrood bite"
@@ -12683,7 +12459,6 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -12778,7 +12553,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -12876,7 +12650,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -12973,7 +12746,6 @@
     "appearanceScript": {
       "NAME": "sound - imogen"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "deathScript": {
       "NAME": "Imogen Death"
@@ -13075,7 +12847,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork terror punch"
@@ -13166,7 +12937,6 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -13260,7 +13030,6 @@
     "appearanceScript": {
       "NAME": "sound - buzz"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "living hive attack"
@@ -13352,7 +13121,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork beast bite",
@@ -13529,7 +13297,6 @@
     "appearanceScript": {
       "NAME": "sound - puppet"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -13620,7 +13387,6 @@
     "appearanceScript": {
       "NAME": "sound - water elemental"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "water elemental punch"
@@ -13802,7 +13568,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -13892,7 +13657,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -14002,7 +13766,6 @@
     "appearanceScript": {
       "NAME": "sound - moulder"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "force of nature punch"
@@ -14093,7 +13856,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -14190,7 +13952,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -14282,7 +14043,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -14458,7 +14218,6 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "owlbear bite",
@@ -14551,7 +14310,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -14640,7 +14398,6 @@
     "appearanceScript": {
       "NAME": "sound - buzz"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "air elemental punch"
@@ -14736,7 +14493,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "fantasmagora claw"
@@ -14846,7 +14602,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -14948,7 +14703,6 @@
     "appearanceScript": {
       "NAME": "sound - kami"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -15042,7 +14796,6 @@
     "appearanceScript": {
       "NAME": "sound - rustle"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "colonising omnifid lash",
@@ -15128,7 +14881,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "hungry mist attack"
@@ -15217,7 +14969,6 @@
     "appearanceScript": {
       "NAME": "sound - golem"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "nejd golem punch"
@@ -15308,7 +15059,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "deathScript": {
       "NAME": "Onburi Death"
@@ -15399,7 +15149,6 @@
     "appearanceScript": {
       "NAME": "sound - snake"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mottled boa bite"
@@ -15487,7 +15236,6 @@
     "appearanceScript": {
       "NAME": "sound - puppet"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "punch maker-killer claw",
@@ -15587,7 +15335,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -15671,7 +15418,6 @@
     "appearanceScript": {
       "NAME": "sound - earth elemental"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "earth elemental punch"
@@ -15767,7 +15513,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -15949,7 +15694,6 @@
     "appearanceScript": {
       "NAME": "sound - tree"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "treant punch"
@@ -16039,7 +15783,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "haunt touch"
@@ -16135,7 +15878,6 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "will o\u0027 wisp touch"
@@ -16234,7 +15976,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -16323,7 +16064,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "minion of usark claw"
@@ -16433,7 +16173,7 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
+    "spriteAnimations": "Dun Draco.default",
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "hawk moth bite"
@@ -16533,7 +16273,6 @@
     "appearanceScript": {
       "NAME": "sound - snake"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "slithering hagspawn bite",
@@ -16627,7 +16366,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -16719,7 +16457,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "haunt touch"
@@ -16823,7 +16560,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "necromanis claw"
@@ -16935,7 +16671,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -17030,7 +16765,6 @@
     "appearanceScript": {
       "NAME": "sound - air elemental"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "air elemental punch"
@@ -17127,7 +16861,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -17216,7 +16949,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -17300,7 +17032,6 @@
     "appearanceScript": {
       "NAME": "sound - fireburn"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "fire elemental punch"
@@ -17396,7 +17127,6 @@
     "appearanceScript": {
       "NAME": "sound - vampire"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "ghul claw",
@@ -17497,7 +17227,6 @@
     "appearanceScript": {
       "NAME": "sound - snail"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "red spotted snail bite"
@@ -17599,7 +17328,6 @@
     "appearanceScript": {
       "NAME": "sound - skeleton"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "groaning bones touch"
@@ -17691,7 +17419,6 @@
     "appearanceScript": {
       "NAME": "sound - rustle"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "thorn elemental punch",
@@ -17783,7 +17510,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -17979,7 +17705,6 @@
     "appearanceScript": {
       "NAME": "sound - panther"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "black panther bite",
@@ -18079,7 +17804,6 @@
     "appearanceScript": {
       "NAME": "sound - leonal"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -18265,7 +17989,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -18363,7 +18086,6 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "maneater mantis foreleg"
@@ -18543,7 +18265,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork vengeance punch"
@@ -18636,16 +18357,7 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
-        "maxRadius": "50",
-        "minSpeed": "500",
-        "maxSpeed": "1000",
-        "minPause": "1000",
-        "maxPause": "2000"
-      }
-    ],
+    "spriteAnimations": "testing foe.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "griffon bite",
@@ -18740,7 +18452,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "fiero claw"
@@ -18940,7 +18651,6 @@
     "appearanceScript": {
       "NAME": "sound - bird"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "parched vulture claw",
@@ -19037,7 +18747,6 @@
     "appearanceScript": {
       "NAME": "sound - moulder"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "force of nature punch"
@@ -19214,7 +18923,6 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "antidiluvomorph bite",
@@ -19395,7 +19103,6 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "lava wolf bite"
@@ -19485,7 +19192,6 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "clockwork digger punch"
@@ -19658,7 +19364,6 @@
     "appearanceScript": {
       "NAME": "sound - panther"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "nightstalker claw",
@@ -19749,21 +19454,7 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
-    "animationScripts": [
-      {
-        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
-        "minOffset": "-50",
-        "maxOffset": "0",
-        "minSpeed": "25",
-        "maxSpeed": "25",
-        "minPause": "0",
-        "maxPause": "0",
-        "pauseTop": "false",
-        "pauseBottom": "false",
-        "homeTop": "false",
-        "homeBottom": "false"
-      }
-    ],
+    "spriteAnimations": "Avenging Angel.default",
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [],
     "spellBook": {
@@ -19967,7 +19658,6 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "paper dragon bite"
@@ -20074,7 +19764,6 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "shade touch"
@@ -20175,7 +19864,6 @@
     "appearanceScript": {
       "NAME": "sound - tree"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "brooding willow bite",
@@ -20269,7 +19957,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "minion of usark claw"
@@ -20384,7 +20071,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -20491,7 +20177,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -20586,7 +20271,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -20679,7 +20363,6 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -20769,7 +20452,6 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "morrigan touch"
@@ -20873,7 +20555,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "invisible stalker punch"
@@ -20960,7 +20641,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "goldcrown bat bite"
@@ -21048,7 +20728,6 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bat vampire bite"
@@ -21146,7 +20825,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -21245,7 +20923,6 @@
     "appearanceScript": {
       "NAME": "sound - curse"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "minion of usark claw"
@@ -21360,7 +21037,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -21464,7 +21140,6 @@
     "appearanceScript": {
       "NAME": "sound - cat-hiss"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "fruit bat claw"
@@ -21565,7 +21240,6 @@
     "appearanceScript": {
       "NAME": "sound - gnome"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -21936,7 +21610,6 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {
@@ -22021,7 +21694,6 @@
     "appearanceScript": {
       "NAME": "sound - tree"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "treant punch"
@@ -22111,7 +21783,6 @@
     "appearanceScript": {
       "NAME": "sound - moulder"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "manky moulder grasp"
@@ -22215,7 +21886,6 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "patient mantis foreleg"
@@ -22391,7 +22061,6 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "saliopod bite",
@@ -22494,7 +22163,6 @@
     "appearanceScript": {
       "NAME": "sound - panther"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "paper tiger bite",
@@ -22686,7 +22354,6 @@
     "appearanceScript": {
       "NAME": "sound - puppet"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "laughing puppet punch"
@@ -22771,7 +22438,6 @@
     "appearanceScript": {
       "NAME": "sound - crud"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "deathScript": {
       "NAME": "Corrosive Slime Death"
@@ -22967,7 +22633,6 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
-    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [],
     "spellBook": {

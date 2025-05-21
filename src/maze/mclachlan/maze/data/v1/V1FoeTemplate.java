@@ -290,7 +290,7 @@ public class V1FoeTemplate
 			b.append(V1Utils.NEWLINE);
 
 			b.append("animationScripts=");
-			b.append(obj.getAnimationScripts()==null?"":animationScripts.toString(obj.getAnimationScripts()));
+//			b.append(obj.getAnimationScripts()==null?"":animationScripts.toString(obj.getAnimationScripts())); todo
 			b.append(V1Utils.NEWLINE);
 
 			b.append("appearanceDirection=");
@@ -451,7 +451,7 @@ public class V1FoeTemplate
 				faction,
 				isNpc,
 				appearanceScript,
-				animScripts,
+				new ObjectAnimations(name, animScripts),
 				appearanceDirection,
 				deathScript,
 				naturalWeapons,

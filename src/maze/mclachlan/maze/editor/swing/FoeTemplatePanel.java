@@ -51,7 +51,8 @@ public class FoeTemplatePanel extends EditorPanel
 		appearanceScript, appearanceDirection, deathScript, focus, attitude,
 		verticalAlignment, alliesOnCall;
 	private JButton textureTint;
-	private ObjectScriptListPanel animationScripts;
+//	private ObjectScriptListPanel animationScripts;
+	private JComboBox spriteAnimations;
 	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 	private FoeTypeSelection foeTypes;
@@ -265,17 +266,17 @@ public class FoeTemplatePanel extends EditorPanel
 		deathScript.addActionListener(this);
 		dodgyGridBagShite(leftPanel, new JLabel("Death Script:"), deathScript, gbc);
 
+		spriteAnimations = new JComboBox();
+		spriteAnimations.addActionListener(this);
+		dodgyGridBagShite(leftPanel, new JLabel("Sprite Animations:"), spriteAnimations, gbc);
+
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
 		leftPanel.add(new JLabel(), gbc);
 
-
-		animationScripts = new ObjectScriptListPanel(dirtyFlag);
-
 		result.add(leftPanel, BorderLayout.CENTER);
-		result.add(animationScripts, BorderLayout.EAST);
 
 		return result;
 	}
@@ -568,6 +569,11 @@ public class FoeTemplatePanel extends EditorPanel
 		Collections.sort(encounterTables);
 		encounterTables.add(0, NONE);
 		alliesOnCall.setModel(new DefaultComboBoxModel<>(encounterTables));
+
+		Vector<String> animations = new Vector<>(Database.getInstance().getObjectAnimations().keySet());
+		Collections.sort(animations);
+		animations.add(0, NONE);
+		spriteAnimations.setModel(new DefaultComboBoxModel<>(animations));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -595,6 +601,7 @@ public class FoeTemplatePanel extends EditorPanel
 		race.removeActionListener(this);
 		characterClass.removeActionListener(this);
 		alliesOnCall.removeActionListener(this);
+		spriteAnimations.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -639,7 +646,7 @@ public class FoeTemplatePanel extends EditorPanel
 			appearanceScript.setSelectedItem(NONE);
 		}
 		appearanceDirection.setSelectedItem(ft.getAppearanceDirection());
-		animationScripts.refresh(ft.getAnimationScripts());
+		spriteAnimations.setSelectedItem(ft.getSpriteAnimations() == null ? EditorPanel.NONE : ft.getSpriteAnimations().getName());
 		mazeScript = ft.getDeathScript();
 		if (mazeScript != null)
 		{
@@ -676,6 +683,7 @@ public class FoeTemplatePanel extends EditorPanel
 		race.addActionListener(this);
 		characterClass.addActionListener(this);
 		alliesOnCall.addActionListener(this);
+		spriteAnimations.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -728,7 +736,7 @@ public class FoeTemplatePanel extends EditorPanel
 			"",
 			false,
 			null,
-			new ArrayList<>(),
+			new ObjectAnimations(),
 			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,
@@ -803,7 +811,7 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getFaction(),
 			current.isNpc(),
 			current.getAppearanceScript(),
-			current.getAnimationScripts(),
+			current.getSpriteAnimations(),
 			current.getAppearanceDirection(),
 			current.getDeathScript(),
 			current.getNaturalWeapons(),
@@ -898,7 +906,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setFaction(faction.getText().equals("") ? null : faction.getText());
 		ft.setNpc(isNpc.isSelected());
 		ft.setAppearanceScript(appScript);
-		ft.setAnimationScripts(animationScripts.getObjectScripts());
+		ft.setSpriteAnimations(spriteAnimations.getSelectedItem()==EditorPanel.NONE ? null : Database.getInstance().getObjectAnimation((String)spriteAnimations.getSelectedItem()));
 		ft.setAppearanceDirection((FoeTemplate.AppearanceDirection)appearanceDirection.getSelectedItem());
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());

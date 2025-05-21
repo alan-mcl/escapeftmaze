@@ -22,7 +22,6 @@ package mclachlan.maze.stat;
 import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
@@ -98,7 +97,7 @@ public class FoeTemplate extends DataObject
 	/** script to run when a group of this foe type appears */
 	private MazeScript appearanceScript;
 	/** any scripts to animate this object */
-	private List<ObjectScript> animationScripts;
+	private ObjectAnimations spriteAnimations;
 	/** script to run each time one of this foe dies */
 	private MazeScript deathScript;
 	/** natural weapons of this foe (claw, bite, etc) */
@@ -109,7 +108,6 @@ public class FoeTemplate extends DataObject
 	private List<SpellLikeAbility> spellLikeAbilities;
 	/** chance of this foe to flee, each turn */
 	private int fleeChance;
-	/** should textures be randomly mirrored?*/
 
 	//--- AI parameters
 	/** behaviour of the foe wrt stealth actions */
@@ -163,7 +161,7 @@ public class FoeTemplate extends DataObject
 		String faction,
 		boolean npc,
 		MazeScript appearanceScript,
-		List<ObjectScript> animationScripts,
+		ObjectAnimations spriteAnimations,
 		AppearanceDirection appearanceDirection,
 		MazeScript deathScript,
 		List<String> naturalWeapons,
@@ -206,7 +204,7 @@ public class FoeTemplate extends DataObject
 		this.faction = faction;
 		this.npc = npc;
 		this.appearanceScript = appearanceScript;
-		this.animationScripts = animationScripts;
+		this.spriteAnimations = spriteAnimations;
 		this.appearanceDirection = appearanceDirection;
 		this.deathScript = deathScript;
 		this.naturalWeapons = naturalWeapons;
@@ -578,15 +576,25 @@ public class FoeTemplate extends DataObject
 		this.appearanceDirection = appearanceDirection;
 	}
 
-	public List<ObjectScript> getAnimationScripts()
+	public ObjectAnimations getSpriteAnimations()
 	{
-		return animationScripts;
+		if (spriteAnimations != null && !spriteAnimations.getAnimationScripts().isEmpty())
+		{
+			return spriteAnimations;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
-	public void setAnimationScripts(
-		List<ObjectScript> animationScripts)
+	public void setSpriteAnimations(
+		ObjectAnimations spriteAnimations)
 	{
-		this.animationScripts = animationScripts;
+		if (spriteAnimations != null)
+		{
+			this.spriteAnimations = spriteAnimations;
+		}
 	}
 
 	public MazeScript getDeathScript()

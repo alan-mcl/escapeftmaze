@@ -889,7 +889,8 @@ public class Foe extends UnifiedActor
 
 	public List<ObjectScript> getAnimationScripts()
 	{
-		return this.template.getAnimationScripts();
+		ObjectAnimations spriteAnimations = this.template.getSpriteAnimations();
+		return spriteAnimations == null ? new ArrayList<>() : spriteAnimations.getAnimationScripts();
 	}
 
 	public EngineObject.Alignment getVerticalAlignment()

@@ -214,6 +214,12 @@ public class V2Loader extends Loader
 	}
 
 	@Override
+	public Map<String, ObjectAnimations> loadObjectAnimations()
+	{
+		return v2Crud(getPath(OBJECT_ANIMATIONS), new SimpleMapSilo<>(getFoeSpriteAnimationSerialiser()));
+	}
+
+	@Override
 	public Map<String, FoeTemplate> loadFoeTemplates()
 	{
 		Map<String, FoeTemplate> map = v2Crud(getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));

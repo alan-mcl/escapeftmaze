@@ -197,6 +197,13 @@ public class V1Loader extends Loader
 		return (Map<String, MazeTexture>)doV1Crud(V1Utils.MAZE_TEXTURES, V1MazeTexture::load, campaign);
 	}
 
+	@Override
+	public Map<String, ObjectAnimations> loadObjectAnimations()
+	{
+		// todo
+		return new HashMap<>();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Map<String, FoeTemplate> loadFoeTemplates()
 	{

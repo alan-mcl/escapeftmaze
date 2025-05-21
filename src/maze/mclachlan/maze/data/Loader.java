@@ -69,6 +69,8 @@ public abstract class Loader
 	public abstract Map<String, Spell> loadSpells();
 	public abstract Map<String, PlayerSpellBook> loadPlayerSpellBooks();
 	public abstract Map<String, MazeTexture> loadMazeTextures();
+
+	public abstract Map<String, ObjectAnimations> loadObjectAnimations();
 	public abstract Map<String, FoeTemplate> loadFoeTemplates();
 	public abstract Map<String, Trap> loadTraps();
 	public abstract Map<String, FoeEntry> loadFoeEntries();

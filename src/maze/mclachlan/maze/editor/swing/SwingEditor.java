@@ -68,6 +68,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private FoeTypePanel foeTypesPanel;
 	private MazeTexturePanel mazeTexturePanel;
 	private NaturalWeaponsPanel naturalWeaponsPanel;
+	private ObjectAnimationPanel objectAnimationPanel;
 	private FoeTemplatePanel foeTemplatePanel;
 	private TrapsPanel trapsPanel;
 	private FoeEntryPanel foeEntryPanel;
@@ -150,6 +151,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		addStaticDataTab("Foe Types", getFoeTypesPanel());
 		addStaticDataTab("Maze Textures", getMazeTexturesPanel());
 		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
+		addStaticDataTab("Object Animations", getObjectAnimationsPanel());
 		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
 		addStaticDataTab("Traps", getTrapsPanel());
 		addStaticDataTab("Foe Entries", getFoeEntriesPanel());
@@ -207,6 +209,13 @@ public class SwingEditor extends JFrame implements WindowListener
 	public void setFrameTitle()
 	{
 		setTitle("Mazemaster "+config.get(Maze.AppConfig.VERSION)+" [campaign="+currentCampaign.getName()+"]");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Component getObjectAnimationsPanel()
+	{
+		objectAnimationPanel = new ObjectAnimationPanel();
+		return objectAnimationPanel;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -506,7 +515,6 @@ public class SwingEditor extends JFrame implements WindowListener
 
 		try
 		{
-//			discardChanges();
 			currentCampaign = c;
 			initDatabase(c);
 			reloadAll();
@@ -547,6 +555,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.PLAYER_SPELL_BOOKS)) savePlayerSpellBooks();
 		if (dirty.get(Tab.RACES)) saveRaces();
 		if (dirty.get(Tab.TEXTURES)) saveMazeTextures();
+		if (dirty.get(Tab.OBJECT_ANIMATIONS)) saveObjectAnimations();
 		if (dirty.get(Tab.FOE_TEMPLATES)) saveFoeTemplates();
 		if (dirty.get(Tab.TRAPS)) saveTraps();
 		if (dirty.get(Tab.FOE_ENTRIES)) saveFoeEntries();
@@ -622,6 +631,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		savePlayerSpellBooks();
 		saveRaces();
 		saveMazeTextures();
+		saveObjectAnimations();
 		saveFoeTemplates();
 		saveTraps();
 		saveFoeEntries();
@@ -770,6 +780,11 @@ public class SwingEditor extends JFrame implements WindowListener
 	public void saveTraps() throws Exception
 	{
 		Database.getInstance().saveTraps(Database.getInstance().getTraps(), currentCampaign);
+	}
+
+	public void saveObjectAnimations() throws Exception
+	{
+		Database.getInstance().saveObjectAnimations(Database.getInstance().getObjectAnimations(), currentCampaign);
 	}
 
 	public void saveFoeTemplates() throws Exception
@@ -951,7 +966,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int PLAYER_SPELL_BOOKS = 14;
 		public static final int RACES = 15;
 		public static final int TEXTURES = 16;
-//		public static final int FOE_ATTACKS = 17;
+		public static final int OBJECT_ANIMATIONS = 17;
 		public static final int FOE_TEMPLATES = 18;
 		public static final int TRAPS = 19;
 		public static final int FOE_ENTRIES = 20;
@@ -976,44 +991,45 @@ public class SwingEditor extends JFrame implements WindowListener
 
 		public static String valueOf(int tab)
 		{
-			switch (tab)
-			{
-				case CAMPAIGN: return "campaign";
-				case GENDER: return "gender";
-				case BODY_PART: return "body parts";
-				case EXPERIENCE_TABLE: return "experience table";
-				case CHARACTER_CLASSES: return "character classes";
-				case ATTACK_TYPES: return "attack types";
-				case CONDITION_EFFECTS: return "condition effects";
-				case CONDITION_TEMPLATES: return "condition templates";
-				case SPELL_EFFECTS: return "spell effects";
-				case LOOT_ENTRIES: return "loot entries";
-				case LOOT_TABLES: return "loot tables";
-				case SCRIPTS: return "scripts";
-				case SPELLS: return "spells";
-				case PLAYER_SPELL_BOOKS: return "player spell books";
-				case RACES: return "races";
-				case TEXTURES: return "textures";
-				case FOE_TEMPLATES: return "foe templates";
-				case TRAPS: return "traps";
-				case FOE_ENTRIES: return "foe entries";
-				case ENCOUNTER_TABLES: return "encounter tables";
-				case NPC_FACTION_TEMPLATES: return "npc faction templates";
-				case NPC_TEMPLATES: return "npc templates";
-				case WIELDING_COMBOS: return "wielding combos";
-				case ITEM_TEMPLATES: return "item templates";
-				case ZONES: return "zones";
-				case GUILD: return "character guild";
-				case SAVE_GAMES: return "save games";
-				case DIFFICULTY_LEVELS: return "difficulty levels";
-				case CRAFT_RECIPES: return "craft recipes";
-				case ITEM_ENCHANTMENTS: return "item enchantments";
-				case PERSONALITIES: return "personalities";
-				case NATURAL_WEAPONS: return "natural weapons";
-				case STARTING_KITS: return "starting kits";
-				case FOE_TYPES: return "foe types";
-				default: throw new MazeException("invalid tab "+tab);
-			}
+			return switch (tab)
+				{
+					case CAMPAIGN -> "campaign";
+					case GENDER -> "gender";
+					case BODY_PART -> "body parts";
+					case EXPERIENCE_TABLE -> "experience table";
+					case CHARACTER_CLASSES -> "character classes";
+					case ATTACK_TYPES -> "attack types";
+					case CONDITION_EFFECTS -> "condition effects";
+					case CONDITION_TEMPLATES -> "condition templates";
+					case SPELL_EFFECTS -> "spell effects";
+					case LOOT_ENTRIES -> "loot entries";
+					case LOOT_TABLES -> "loot tables";
+					case SCRIPTS -> "scripts";
+					case SPELLS -> "spells";
+					case PLAYER_SPELL_BOOKS -> "player spell books";
+					case RACES -> "races";
+					case TEXTURES -> "textures";
+					case OBJECT_ANIMATIONS -> "object animations";
+					case FOE_TEMPLATES -> "foe templates";
+					case TRAPS -> "traps";
+					case FOE_ENTRIES -> "foe entries";
+					case ENCOUNTER_TABLES -> "encounter tables";
+					case NPC_FACTION_TEMPLATES -> "npc faction templates";
+					case NPC_TEMPLATES -> "npc templates";
+					case WIELDING_COMBOS -> "wielding combos";
+					case ITEM_TEMPLATES -> "item templates";
+					case ZONES -> "zones";
+					case GUILD -> "character guild";
+					case SAVE_GAMES -> "save games";
+					case DIFFICULTY_LEVELS -> "difficulty levels";
+					case CRAFT_RECIPES -> "craft recipes";
+					case ITEM_ENCHANTMENTS -> "item enchantments";
+					case PERSONALITIES -> "personalities";
+					case NATURAL_WEAPONS -> "natural weapons";
+					case STARTING_KITS -> "starting kits";
+					case FOE_TYPES -> "foe types";
+					default -> throw new MazeException("invalid tab " + tab);
+				};
 		}
 	}
 

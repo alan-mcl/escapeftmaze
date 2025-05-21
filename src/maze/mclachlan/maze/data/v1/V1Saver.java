@@ -222,6 +222,13 @@ public class V1Saver extends Saver
 		writer.close();
 	}
 
+	@Override
+	public void saveObjectAnimations(
+		Map<String, ObjectAnimations> map) throws Exception
+	{
+		// todo
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception
 	{

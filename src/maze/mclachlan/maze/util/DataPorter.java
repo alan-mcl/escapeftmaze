@@ -39,12 +39,12 @@ public class DataPorter
 	public static void main(String[] args) throws Exception
 	{
 		Campaign campaign = null;
-		List<Campaign> campaigns = new ArrayList<>(Database.getCampaigns().values());
 
 		Loader v1Loader = new V1Loader();
 		Saver v2Saver = new V2Saver();
 
 
+		List<Campaign> campaigns = new ArrayList<>(Database.getCampaigns().values());
 		// haxor to get the arena campaign
 		for (Campaign c : campaigns)
 		{

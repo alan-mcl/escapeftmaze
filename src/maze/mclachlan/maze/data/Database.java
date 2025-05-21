@@ -86,6 +86,7 @@ public class Database
 	private Map<String, Spell> spells;
 	private Map<String, PlayerSpellBook> playerSpellBooks;
 	private Map<String, MazeTexture> mazeTextures;
+	private Map<String, ObjectAnimations> objectAnimations;
 	private Map<String, FoeTemplate> foeTemplates;
 	private Map<String, Trap> traps;
 	private Map<String, FoeEntry> foeEntries;
@@ -834,6 +835,36 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Map<String, ObjectAnimations> getObjectAnimations()
+	{
+		synchronized(mutex)
+		{
+			if (objectAnimations == null)
+			{
+				objectAnimations = (Map<String, ObjectAnimations>)mergeMaps(Loader::loadObjectAnimations);
+			}
+			return objectAnimations;
+		}
+	}
+
+	public ObjectAnimations getObjectAnimation(String name)
+	{
+		synchronized(mutex)
+		{
+			ObjectAnimations result = this.getObjectAnimations().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
+	public void saveObjectAnimations(Map<String, ObjectAnimations> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveObjectAnimations((Map<String, ObjectAnimations>)filterMap(map, campaign));
+	}
+
 	public FoeTemplate getFoeTemplate(String name)
 	{
 		synchronized(mutex)

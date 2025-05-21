@@ -1,0 +1,205 @@
+[
+  {
+    "name": "Lurching Omnifid.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "30",
+        "minSpeed": "2000",
+        "maxSpeed": "4000",
+        "minPause": "500",
+        "maxPause": "2000"
+      }
+    ]
+  },
+  {
+    "name": "Spotted Crud.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.SinusoidalStretch",
+        "speed": "1.0",
+        "minStretch": "0.95",
+        "maxStretch": "1.05",
+        "vertical": "true",
+        "horizontal": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.SinusoidalStretch",
+        "speed": "1.0",
+        "minStretch": "0.95",
+        "maxStretch": "1.05",
+        "vertical": "false",
+        "horizontal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Dun Draco.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-50",
+        "maxOffset": "50",
+        "minSpeed": "25",
+        "maxSpeed": "75",
+        "minPause": "0",
+        "maxPause": "0",
+        "pauseTop": "false",
+        "pauseBottom": "false",
+        "homeTop": "false",
+        "homeBottom": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "40",
+        "minSpeed": "2000",
+        "maxSpeed": "4000",
+        "minPause": "0",
+        "maxPause": "500"
+      }
+    ]
+  },
+  {
+    "name": "Mud Spider.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "20",
+        "minSpeed": "1000",
+        "maxSpeed": "1500",
+        "minPause": "500",
+        "maxPause": "1000"
+      }
+    ]
+  },
+  {
+    "name": "Toothy Velox.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "50",
+        "minSpeed": "100",
+        "maxSpeed": "250",
+        "minPause": "250",
+        "maxPause": "500"
+      }
+    ]
+  },
+  {
+    "name": "Malignant Widow.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "10",
+        "minSpeed": "1000",
+        "maxSpeed": "2000",
+        "minPause": "1000",
+        "maxPause": "2000"
+      }
+    ]
+  },
+  {
+    "name": "Jumping Roach.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "25",
+        "minSpeed": "100",
+        "maxSpeed": "500",
+        "minPause": "500",
+        "maxPause": "2500"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-200",
+        "maxOffset": "0",
+        "minSpeed": "500",
+        "maxSpeed": "750",
+        "minPause": "500",
+        "maxPause": "2500",
+        "pauseTop": "false",
+        "pauseBottom": "true",
+        "homeTop": "false",
+        "homeBottom": "true"
+      }
+    ]
+  },
+  {
+    "name": "Fruit Bat.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "75",
+        "minSpeed": "500",
+        "maxSpeed": "1500",
+        "minPause": "0",
+        "maxPause": "0"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-120",
+        "maxOffset": "80",
+        "minSpeed": "300",
+        "maxSpeed": "400",
+        "minPause": "0",
+        "maxPause": "0",
+        "pauseTop": "false",
+        "pauseBottom": "false",
+        "homeTop": "false",
+        "homeBottom": "false"
+      }
+    ]
+  },
+  {
+    "name": "Avenging Angel.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-50",
+        "maxOffset": "0",
+        "minSpeed": "25",
+        "maxSpeed": "25",
+        "minPause": "0",
+        "maxPause": "0",
+        "pauseTop": "false",
+        "pauseBottom": "false",
+        "homeTop": "false",
+        "homeBottom": "false"
+      }
+    ]
+  },
+  {
+    "name": "testing foe.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "50",
+        "minSpeed": "500",
+        "maxSpeed": "1000",
+        "minPause": "1000",
+        "maxPause": "2000"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.SinusoidalStretch",
+        "speed": "1.0",
+        "minStretch": "1.0",
+        "maxStretch": "1.0",
+        "vertical": "true",
+        "horizontal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Bonebrood.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "15",
+        "minSpeed": "500",
+        "maxSpeed": "1000",
+        "minPause": "1000",
+        "maxPause": "1500"
+      }
+    ]
+  }
+]

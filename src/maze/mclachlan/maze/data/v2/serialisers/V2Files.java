@@ -20,7 +20,7 @@ public class V2Files
 	public static final String PLAYER_SPELL_BOOKS = "playerspellbooks.json";
 	public static final String MAZE_TEXTURES = "textures.json";
 	public static final String MAZE_SCRIPTS = "scripts.json";
-	public static final String FOE_ATTACKS = "foeattacks.json";
+	public static final String OBJECT_ANIMATIONS = "objectanimations.json";
 	public static final String FOE_TEMPLATES = "foetemplates.json";
 	public static final String TRAPS = "traps.json";
 	public static final String FOE_ENTRIES = "foeentries.json";

@@ -603,7 +603,7 @@ public class V2SerialiserFactory
 				"faction",
 				"npc",
 				"appearanceScript",
-				"animationScripts",
+				"spriteAnimations",
 				"appearanceDirection",
 				"deathScript",
 				"naturalWeapons",
@@ -624,7 +624,8 @@ public class V2SerialiserFactory
 		defaultSerialiser.addCustomSerialiser("castSpellTexture", new NameSerialiserMap<>(db::getMazeTexture));
 		defaultSerialiser.addCustomSerialiser("specialAbilityTexture", new NameSerialiserMap<>(db::getMazeTexture));
 		defaultSerialiser.addCustomSerialiser("loot", new NameSerialiserMap<>(db::getLootTable));
-		defaultSerialiser.addCustomSerialiser("animationScripts", new ListSerialiser(getAnimationScriptSerialiser()));
+
+		defaultSerialiser.addCustomSerialiser("spriteAnimations", new NameSerialiser<>(db::getObjectAnimation));
 		defaultSerialiser.addCustomSerialiser("appearanceScript", new NameSerialiserMap<>(db::getMazeScript));
 		defaultSerialiser.addCustomSerialiser("deathScript", new NameSerialiserMap<>(db::getMazeScript));
 		defaultSerialiser.addCustomSerialiser("naturalWeapons", new ListSerialiser(new DirectObjectSerialiser<String>()));
@@ -634,6 +635,13 @@ public class V2SerialiserFactory
 		HashMap<Class, V2SerialiserMap<FoeTemplate>> map = new HashMap<>();
 		map.put(FoeTemplate.class, defaultSerialiser);
 		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	public static V2SerialiserMap<ObjectAnimations> getFoeSpriteAnimationSerialiser()
+	{
+		ReflectiveSerialiser<ObjectAnimations> foeSpriteAnimationSerialiser = getReflectiveSerialiser(ObjectAnimations.class, "name", "animationScripts");
+		foeSpriteAnimationSerialiser.addCustomSerialiser("animationScripts", new ListSerialiser(getAnimationScriptSerialiser()));
+		return foeSpriteAnimationSerialiser;
 	}
 
 	private static ReflectiveSerialiser<SpellBook> getSpellBookSerialiser(

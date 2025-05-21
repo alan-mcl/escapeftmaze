@@ -888,7 +888,7 @@ public class MockCombat
 			null,
 			false,
 			null,
-			new ArrayList<>(),
+			new ObjectAnimations(),
 			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,
