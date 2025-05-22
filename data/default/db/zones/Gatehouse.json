@@ -5383,8 +5383,39 @@
             "eastTexture": "objects.lever.right",
             "westTexture": "objects.lever.left",
             "mazeVariable": "gatehouse.lever-state.0",
-            "preTransitionScript": "Gatehouse lever pre transition",
-            "postTransitionScript": "Gatehouse lever post transition"
+            "preTransitionScript": {
+              "name": "Lever.preTransScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You give the lever a hard yank.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            "postTransitionScript": {
+              "name": "Lever.postTransScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "_PORTCULLIS_"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "A loud clanking and grinding fills the dungeon.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+                  "tile": "15:26",
+                  "facing": "3"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",

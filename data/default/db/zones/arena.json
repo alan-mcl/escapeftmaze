@@ -1957,7 +1957,49 @@
             "eastTexture": "objects.lever.right",
             "westTexture": "objects.lever.left",
             "mazeVariable": "arena.lever-state.0",
-            "postTransitionScript": "z_arena lever"
+            "preTransitionScript": {
+              "name": "Lever.preTransScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "yar me lever",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            "postTransitionScript": {
+              "name": "Lever.postTransScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+                  "tile": "10:9",
+                  "facing": "1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                  "mazeVariable": "arena.stick.man.vendor.quest.1.completed",
+                  "value": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+                  "type": "LOGBOOK",
+                  "journalText": "test logbook event... ~~~ !!!"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+                  "type": "QUEST",
+                  "key": "LolQuest",
+                  "journalText": "Test Quest Event"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+                  "type": "ZONE",
+                  "journalText": "Test Zone Event"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",

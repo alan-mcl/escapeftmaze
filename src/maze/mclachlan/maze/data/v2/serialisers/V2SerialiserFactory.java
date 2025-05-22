@@ -774,8 +774,8 @@ public class V2SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"northTexture", "southTexture", "eastTexture", "westTexture", "mazeVariable",
 			"preTransitionScript", "postTransitionScript");
-		leverSerialiser.addCustomSerialiser("preTransitionScript", new NameSerialiser<>(db::getMazeScript));
-		leverSerialiser.addCustomSerialiser("postTransitionScript", new NameSerialiser<>(db::getMazeScript));
+		leverSerialiser.addCustomSerialiser("preTransitionScript", getMazeScriptSerialiser(db));
+		leverSerialiser.addCustomSerialiser("postTransitionScript", getMazeScriptSerialiser(db));
 		map.put(Lever.class, leverSerialiser);
 
 		ReflectiveSerialiser toggleWallSerialiser = getReflectiveSerialiser(ToggleWall.class,

@@ -128,8 +128,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox leverSouthTexture;
 	private JComboBox leverEastTexture;
 	private JComboBox leverWestTexture;
-	private JComboBox leverPreTransScript;
-	private JComboBox leverPostTransScript;
+	private MazeEventsComponent leverPreTransScript, leverPostTransScript;
 
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
@@ -385,8 +384,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				leverSouthTexture.setSelectedItem(lever.getSouthTexture());
 				leverEastTexture.setSelectedItem(lever.getEastTexture());
 				leverWestTexture.setSelectedItem(lever.getWestTexture());
-				leverPreTransScript.setSelectedItem(lever.getPreTransitionScript() == null ? EditorPanel.NONE : lever.getPreTransitionScript().getName());
-				leverPostTransScript.setSelectedItem(lever.getPostTransitionScript() == null ? EditorPanel.NONE : lever.getPostTransitionScript().getName());
+				leverPreTransScript.refresh(lever.getPreTransitionScript() == null ? null : lever.getPreTransitionScript().getEvents());
+				leverPostTransScript.refresh(lever.getPostTransitionScript() == null ? null : lever.getPostTransitionScript().getEvents());
 				break;
 			case ENCOUNTER:
 				Encounter e = (Encounter)ts;
@@ -878,10 +877,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		Collections.sort(scripts);
 		scripts.add(0, EditorPanel.NONE);
 
-		leverPreTransScript = new JComboBox(scripts);
-		leverPostTransScript = new JComboBox(scripts);
-
-		JButton edit = getMazeScriptEditButton();
+		leverPreTransScript = new MazeEventsComponent(dirtyFlag);
+		leverPostTransScript = new MazeEventsComponent(dirtyFlag);
 
 		JButton northTextureButton = new JButton("North Texture:");
 
@@ -907,7 +904,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				new JLabel("West Texture:"), leverWestTexture,
 				new JLabel("Pre-transition Script:"), leverPreTransScript,
 				new JLabel("Post-transition Script:"), leverPostTransScript,
-				new JLabel(), edit
 			};
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
@@ -1400,10 +1396,17 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					script);
 				break;
 			case LEVER:
-				MazeScript preTransScript = (leverPreTransScript.getSelectedItem() == EditorPanel.NONE) ?
-					null : Database.getInstance().getMazeScript((String)leverPreTransScript.getSelectedItem());
-				MazeScript postTransScript = (leverPostTransScript.getSelectedItem() == EditorPanel.NONE) ?
-					null : Database.getInstance().getMazeScript((String)leverPostTransScript.getSelectedItem());
+				MazeScript preTransScript = null;
+				if (leverPreTransScript.getEvents() != null && leverPreTransScript.getEvents().size()>0)
+				{
+					preTransScript = new MazeScript("Lever.preTransScript", leverPreTransScript.getEvents());
+				}
+
+				MazeScript postTransScript = null;
+				if (leverPostTransScript.getEvents() != null && leverPostTransScript.getEvents().size()>0)
+				{
+					postTransScript = new MazeScript("Lever.postTransScript", leverPostTransScript.getEvents());
+				}
 
 				result = new Lever(
 					(String)leverNorthTexture.getSelectedItem(),

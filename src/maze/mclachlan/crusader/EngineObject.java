@@ -163,7 +163,7 @@ public class EngineObject
 		this.tileIndex = tileIndex;
 		this.isLightSource = isLightSource;
 
-		this.currentTexture = northTexture;
+//		this.currentTexture = northTexture;
 	}
 	
 	/*-------------------------------------------------------------------------*/
