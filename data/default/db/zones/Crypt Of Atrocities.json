@@ -15614,63 +15614,6 @@
         "height": "1"
       }
     ],
-    "originalObjects": [
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "195",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "235",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "211",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "208",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "205",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.altar.1",
-        "southTexture": "objects.altar.1",
-        "eastTexture": "objects.altar.1",
-        "westTexture": "objects.altar.1",
-        "tileIndex": "202",
-        "lightSource": "false",
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      }
-    ],
     "expandedObjects": [
       {
         "northTexture": "objects.torch.1",
@@ -15730,7 +15673,6 @@
         "xPos": "1280",
         "yPos": "5376",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

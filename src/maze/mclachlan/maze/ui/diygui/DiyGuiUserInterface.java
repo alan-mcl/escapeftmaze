@@ -946,6 +946,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		partyOptionsAndTextWidget.setChest(chest);
 		movementCardLayout.show(partyOptionsAndTextWidget);
+		refreshPcActionOptions();
 	}
 
 	public void showEncounterActorsScreen(ActorEncounter actorEncounter)
@@ -953,6 +954,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		partyOptionsAndTextWidget.setActorEncounter(actorEncounter);
 		movementCardLayout.show(partyOptionsAndTextWidget);
+		refreshPcActionOptions();
 	}
 
 	private void showPortalScreen(Portal currentPortal)
@@ -960,6 +962,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		partyOptionsAndTextWidget.setPortal(currentPortal);
 		movementCardLayout.show(partyOptionsAndTextWidget);
+		refreshPcActionOptions();
 	}
 
 	@Override

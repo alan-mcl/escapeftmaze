@@ -21,6 +21,7 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
@@ -33,43 +34,35 @@ public class UpdateZones
 {
 	public static void main(String[] args) throws Exception
 	{
-//		Database dbv1 = new Database(new V1Loader(), new V1Saver(), Maze.getStubCampaign());
-		V2Saver v2Saver = new V2Saver();
-		Database dbv2 = new Database(new V2Loader(), v2Saver, Maze.getStubCampaign());
+		Database db = new Database(new V2Loader(), new V2Saver(), Maze.getStubCampaign());
 
-//		dbv1.initImpls();
-//		dbv1.initCaches(null);
-
-		dbv2.initImpls();
-		dbv2.initCaches(null);
+		db.initImpls();
+		db.initCaches(null);
 
 		if (args.length > 0)
 		{
 			String zoneName = args[0];
-			updateZone(v2Saver, dbv2, zoneName);
+			updateZone(db.getSaver(), db, zoneName);
 		}
 		else
 		{
-
-			List<String> zones = dbv2.getZoneNames();
+			List<String> zones = db.getZoneNames();
 
 			for (String zoneName : zones)
 			{
 				//			Zone z1 = dbv1.getZone(zoneName);
-
-				updateZone(v2Saver, dbv2, zoneName);
+				updateZone(db.getSaver(), db, zoneName);
 			}
 		}
 	}
 
-	private static void updateZone(V2Saver v2Saver, Database dbv2,
-		String zoneName) throws Exception
+	private static void updateZone(Saver saver, Database db, String zoneName) throws Exception
 	{
-		Zone z2 = dbv2.getZone(zoneName);
+		Zone z2 = db.getZone(zoneName);
 
 		System.out.print(z2.getName() + " ");
 
-		v2Saver.saveZone(z2);
+		saver.saveZone(z2);
 		System.out.println("done!");
 	}
 }

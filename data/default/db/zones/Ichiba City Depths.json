@@ -37787,72 +37787,6 @@
         "height": "1"
       }
     ],
-    "originalObjects": [
-      {
-        "northTexture": "objects.ladder.up",
-        "southTexture": "objects.ladder.up",
-        "eastTexture": "objects.ladder.up",
-        "westTexture": "objects.ladder.up",
-        "tileIndex": "205",
-        "lightSource": "false",
-        "mouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gnolls)"
-        },
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.ladder.up",
-        "southTexture": "objects.ladder.up",
-        "eastTexture": "objects.ladder.up",
-        "westTexture": "objects.ladder.up",
-        "tileIndex": "149",
-        "lightSource": "false",
-        "mouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to Gnoll Village"
-        },
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.ladder.up",
-        "southTexture": "objects.ladder.up",
-        "eastTexture": "objects.ladder.up",
-        "westTexture": "objects.ladder.up",
-        "tileIndex": "514",
-        "lightSource": "false",
-        "mouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gsc1)"
-        },
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.ladder.up",
-        "southTexture": "objects.ladder.up",
-        "eastTexture": "objects.ladder.up",
-        "westTexture": "objects.ladder.up",
-        "tileIndex": "284",
-        "lightSource": "false",
-        "mouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gsc2)"
-        },
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      }
-    ],
     "expandedObjects": [
       {
         "northTexture": "objects.ladder.up",
@@ -37868,7 +37802,6 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Ichiba Depths to City (gnolls)"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37885,7 +37818,6 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Ichiba Depths to Gnoll Village"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37902,7 +37834,6 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Ichiba Depths to City (gsc1)"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37919,7 +37850,6 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Ichiba Depths to City (gsc2)"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

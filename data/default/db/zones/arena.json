@@ -1628,13 +1628,32 @@
               "ITEMS": [
                 "4 - Rune Of Destruction"
               ],
-              "SHOULD_SUM_TO_100": "false"
+              "SHOULD_SUM_TO_100": "true"
             },
             "mazeVariable": "arena.chest.1",
             "northTexture": "CHEST_1_FRONT",
             "southTexture": "CHEST_1_BACK",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE"
+            "westTexture": "CHEST_1_SIDE",
+            "preScript": {
+              "name": "Chest.preScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "yeah there\u0027s a chest here",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "um yeah. chest",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",

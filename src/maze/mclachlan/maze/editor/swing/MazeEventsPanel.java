@@ -185,6 +185,11 @@ public class MazeEventsPanel extends JPanel
 
 	}
 
+	public void clear()
+	{
+		this.dataModel.clear();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	static class MazeEventsListModel extends AbstractListModel
 	{

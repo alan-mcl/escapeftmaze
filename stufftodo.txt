@@ -4,11 +4,11 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
-factor out foe sprite object scripts
 inline zone maze scripts
 bug: summoning spell & call for help weirdnesses
 bug: random encounter prior to fixed encounter on a tile weirdness
 bug: zone change flickering
+bug: HP update on healing spells?
 re-encounter NPC on the same tile
 snail cave
 mantis bones loot
@@ -19,6 +19,7 @@ roach encounter
 emerald spider encounter
 forgotten path / red moss tree
 other encounters?
+chest contents -> MazeScript
 
 BACKLOG
 ----------

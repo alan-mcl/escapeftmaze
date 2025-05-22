@@ -315,7 +315,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	{
 		Maze maze = Maze.getInstance();
 
-		java.util.List<MazeEvent> result = new ArrayList<MazeEvent>();
+		java.util.List<MazeEvent> result = new ArrayList<>();
 
 		Point tile = maze.getTile();
 		int facing = maze.getFacing();
@@ -448,7 +448,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	{
 		Maze maze = Maze.getInstance();
 
-		java.util.List<MazeEvent> result = new ArrayList<MazeEvent>();
+		java.util.List<MazeEvent> result = new ArrayList<>();
 
 		Point tile = maze.getTile();
 		int facing = maze.getFacing();
@@ -477,89 +477,6 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	public int getModifier(Stats.Modifier modifier)
 	{
 		return 0;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		Chest chest = (Chest)o;
-
-		if (getChestContents() != null ? !getChestContents().equals(chest.getChestContents()) : chest.getChestContents() != null)
-		{
-			return false;
-		}
-		if (getTraps() != null ? !getTraps().equals(chest.getTraps()) : chest.getTraps() != null)
-		{
-			return false;
-		}
-		if (getMazeVariable() != null ? !getMazeVariable().equals(chest.getMazeVariable()) : chest.getMazeVariable() != null)
-		{
-			return false;
-		}
-		if (getNorthTexture() != null ? !getNorthTexture().equals(chest.getNorthTexture()) : chest.getNorthTexture() != null)
-		{
-			return false;
-		}
-		if (getSouthTexture() != null ? !getSouthTexture().equals(chest.getSouthTexture()) : chest.getSouthTexture() != null)
-		{
-			return false;
-		}
-		if (getEastTexture() != null ? !getEastTexture().equals(chest.getEastTexture()) : chest.getEastTexture() != null)
-		{
-			return false;
-		}
-		if (getWestTexture() != null ? !getWestTexture().equals(chest.getWestTexture()) : chest.getWestTexture() != null)
-		{
-			return false;
-		}
-		if (getPreScript() != null ? !getPreScript().equals(chest.getPreScript()) : chest.getPreScript() != null)
-		{
-			return false;
-		}
-		if (getEngineObject() != null ? !getEngineObject().equals(chest.getEngineObject()) : chest.getEngineObject() != null)
-		{
-			return false;
-		}
-		if (!(getCurrentTrap() != null ? getCurrentTrap().equals(chest.getCurrentTrap()) : chest.getCurrentTrap() == null))
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = super.hashCode();
-		result = 31 * result + (getChestContents() != null ? getChestContents().hashCode() : 0);
-		result = 31 * result + (getTraps() != null ? getTraps().hashCode() : 0);
-		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
-		result = 31 * result + (getNorthTexture() != null ? getNorthTexture().hashCode() : 0);
-		result = 31 * result + (getSouthTexture() != null ? getSouthTexture().hashCode() : 0);
-		result = 31 * result + (getEastTexture() != null ? getEastTexture().hashCode() : 0);
-		result = 31 * result + (getWestTexture() != null ? getWestTexture().hashCode() : 0);
-		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
-		result = 31 * result + (getEngineObject() != null ? getEngineObject().hashCode() : 0);
-		result = 31 * result + (getCurrentTrap() != null ? getCurrentTrap().hashCode() : 0);
-		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

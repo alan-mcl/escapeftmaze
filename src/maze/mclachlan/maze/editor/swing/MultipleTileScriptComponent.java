@@ -38,23 +38,11 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 public class MultipleTileScriptComponent extends JButton implements ActionListener
 {
 	private List<TileScript> scripts;
-	private int dirtyFlag;
-	private TileScriptComponentCallback callback;
+	private final int dirtyFlag;
+	private final TileScriptComponentCallback callback;
 	private Zone zone;
 	private TileScriptsListModel dataModel;
 	private JDialog dialog;
-
-	/*-------------------------------------------------------------------------*/
-	public MultipleTileScriptComponent(int dirtyFlag, Zone zone)
-	{
-		this(null, dirtyFlag, null, zone);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public MultipleTileScriptComponent(List<TileScript> scripts, int dirtyFlag, Zone zone)
-	{
-		this(scripts, dirtyFlag, null, zone);
-	}
 
 	/*-------------------------------------------------------------------------*/
 	public MultipleTileScriptComponent(

@@ -51,7 +51,6 @@ public class FoeTemplatePanel extends EditorPanel
 		appearanceScript, appearanceDirection, deathScript, focus, attitude,
 		verticalAlignment, alliesOnCall;
 	private JButton textureTint;
-//	private ObjectScriptListPanel animationScripts;
 	private JComboBox spriteAnimations;
 	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;

@@ -150629,258 +150629,6 @@
         "height": "1"
       }
     ],
-    "originalObjects": [
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "1356",
-        "lightSource": "false",
-        "mouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "mazeScript": "Castle Fangorn to Ruins Of Hail"
-        },
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1156",
-        "lightSource": "false",
-        "placementMask": "01",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1166",
-        "lightSource": "false",
-        "placementMask": "001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1547",
-        "lightSource": "false",
-        "placementMask": "0001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1223",
-        "lightSource": "false",
-        "placementMask": "0000011",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1225",
-        "lightSource": "false",
-        "placementMask": "00100001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1291",
-        "lightSource": "false",
-        "placementMask": "000010001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1350",
-        "lightSource": "false",
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "210",
-        "lightSource": "false",
-        "placementMask": "001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "466",
-        "lightSource": "false",
-        "placementMask": "1",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "596",
-        "lightSource": "false",
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "659",
-        "lightSource": "false",
-        "placementMask": "00000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "661",
-        "lightSource": "false",
-        "placementMask": "1",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "787",
-        "lightSource": "false",
-        "placementMask": "000000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1107",
-        "lightSource": "false",
-        "placementMask": "000000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1170",
-        "lightSource": "false",
-        "placementMask": "001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1234",
-        "lightSource": "false",
-        "placementMask": "00000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1298",
-        "lightSource": "false",
-        "placementMask": "000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "1096",
-        "lightSource": "true",
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "1098",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.bones.2",
-        "southTexture": "objects.bones.2",
-        "eastTexture": "objects.bones.2",
-        "westTexture": "objects.bones.2",
-        "tileIndex": "1354",
-        "lightSource": "false",
-        "placementMask": "0000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "906",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "584",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "328",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
-        "tileIndex": "202",
-        "lightSource": "true",
-        "verticalAlignment": "BOTTOM"
-      }
-    ],
     "expandedObjects": [
       {
         "northTexture": "objects.pillar.1",
@@ -150906,7 +150654,6 @@
         "xPos": "2304",
         "yPos": "9302",
         "lightSource": "false",
-        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150917,7 +150664,6 @@
         "xPos": "7594",
         "yPos": "9302",
         "lightSource": "false",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150928,7 +150674,6 @@
         "xPos": "5718",
         "yPos": "12544",
         "lightSource": "false",
-        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150939,7 +150684,6 @@
         "xPos": "4010",
         "yPos": "9984",
         "lightSource": "false",
-        "placementMask": "0000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150950,7 +150694,6 @@
         "xPos": "3670",
         "yPos": "10154",
         "lightSource": "false",
-        "placementMask": "0000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150961,7 +150704,6 @@
         "xPos": "5034",
         "yPos": "9814",
         "lightSource": "false",
-        "placementMask": "00100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150972,7 +150714,6 @@
         "xPos": "4864",
         "yPos": "10154",
         "lightSource": "false",
-        "placementMask": "00100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150983,7 +150724,6 @@
         "xPos": "5888",
         "yPos": "10496",
         "lightSource": "false",
-        "placementMask": "000010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -150994,7 +150734,6 @@
         "xPos": "6058",
         "yPos": "10666",
         "lightSource": "false",
-        "placementMask": "000010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151005,7 +150744,6 @@
         "xPos": "3328",
         "yPos": "11008",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151016,7 +150754,6 @@
         "xPos": "9642",
         "yPos": "1622",
         "lightSource": "false",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151027,7 +150764,6 @@
         "xPos": "9302",
         "yPos": "3670",
         "lightSource": "false",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151038,7 +150774,6 @@
         "xPos": "10496",
         "yPos": "4864",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151049,7 +150784,6 @@
         "xPos": "9984",
         "yPos": "5546",
         "lightSource": "false",
-        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151060,7 +150794,6 @@
         "xPos": "10838",
         "yPos": "5206",
         "lightSource": "false",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151071,7 +150804,6 @@
         "xPos": "10154",
         "yPos": "6570",
         "lightSource": "false",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151082,7 +150814,6 @@
         "xPos": "10154",
         "yPos": "9130",
         "lightSource": "false",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151093,7 +150824,6 @@
         "xPos": "9642",
         "yPos": "9302",
         "lightSource": "false",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151104,7 +150834,6 @@
         "xPos": "9472",
         "yPos": "10154",
         "lightSource": "false",
-        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151115,7 +150844,6 @@
         "xPos": "9642",
         "yPos": "10496",
         "lightSource": "false",
-        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151126,7 +150854,6 @@
         "xPos": "4352",
         "yPos": "8960",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -151147,7 +150874,6 @@
         "xPos": "5206",
         "yPos": "11178",
         "lightSource": "false",
-        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {

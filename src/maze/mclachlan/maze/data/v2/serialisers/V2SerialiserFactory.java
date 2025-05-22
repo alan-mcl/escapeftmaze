@@ -721,7 +721,9 @@ public class V2SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"chestContents", "traps", "mazeVariable", "northTexture", "southTexture", "eastTexture", "westTexture", "preScript");
 		chestSerialiser.addCustomSerialiser("traps", new PercentageTableSerialiser<>(new NameSerialiser<>(db::getTrap)));
-		chestSerialiser.addCustomSerialiser("preScript", new NameSerialiser<>(db::getMazeScript));
+
+		chestSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
+
 		map.put(Chest.class, chestSerialiser);
 
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,

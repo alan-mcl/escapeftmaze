@@ -121,7 +121,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox chestEastTexture;
 	private JComboBox chestWestTexture;
 	private JComboBox encounterTable;
-	private JComboBox chestPreScript;
+	private MazeEventsComponent chestPreScript;
 
 	private JTextField leverMazeVariable;
 	private JComboBox leverNorthTexture;
@@ -374,7 +374,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				chestSouthTexture.setSelectedItem(c.getSouthTexture());
 				chestEastTexture.setSelectedItem(c.getEastTexture());
 				chestWestTexture.setSelectedItem(c.getWestTexture());
-				chestPreScript.setSelectedItem(c.getPreScript() == null ? EditorPanel.NONE : c.getPreScript().getName());
+				chestPreScript.refresh(c.getPreScript() == null ? null : c.getPreScript().getEvents());
 				break;
 			case LEVER:
 				Lever lever = (Lever)ts;
@@ -651,7 +651,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 				// all the foreign keys...
 				mazeScript.setModel(new DefaultComboBoxModel(scripts));
-				chestPreScript.setModel(new DefaultComboBoxModel(scripts2));
 				hiddenStuffPreScript.setModel(new DefaultComboBoxModel(scripts2));
 			}
 		});
@@ -835,13 +834,13 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getChestPanel()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getTraps().keySet());
+		Vector<String> vec = new Vector<>(Database.getInstance().getTraps().keySet());
 		Collections.sort(vec);
 		trap = new TrapPercentageTablePanel("Trap", SwingEditor.Tab.SCRIPTS, 0.5, 0.5);
 		trap.initForeignKeys();
 		chestContents = new SingleTileScriptComponent(dirtyFlag, zone);
 
-		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
 
 		chestMazeVariable = new JTextField(20);
@@ -850,13 +849,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		chestEastTexture = new JComboBox(textures);
 		chestWestTexture = new JComboBox(textures);
 
-		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(scripts);
-		scripts.add(0, EditorPanel.NONE);
-
-		chestPreScript = new JComboBox(scripts);
-
-		JButton edit = getMazeScriptEditButton();
+		chestPreScript = new MazeEventsComponent(dirtyFlag);
 
 		Component[] comps = new Component[]
 			{
@@ -867,7 +860,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				new JLabel("East Texture:"), chestEastTexture,
 				new JLabel("West Texture:"), chestWestTexture,
 				new JLabel("Pre Script:"), chestPreScript,
-				new JLabel(), edit
 			};
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
@@ -1404,8 +1396,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					(Integer)casterLevel.getValue());
 				break;
 			case CHEST:
-				MazeScript script = (chestPreScript.getSelectedItem() == EditorPanel.NONE) ?
-					null : Database.getInstance().getMazeScript((String)chestPreScript.getSelectedItem());
+				MazeScript script = null;
+				if (chestPreScript.getEvents() != null && !chestPreScript.getEvents().isEmpty())
+				{
+					script = new MazeScript("Chest.preScript", chestPreScript.getEvents());
+				}
+
 				result = new Chest(
 					chestContents.getScript(),
 					trap.getPercentageTable(),
