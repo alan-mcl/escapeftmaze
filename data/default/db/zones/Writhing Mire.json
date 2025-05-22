@@ -5053,7 +5053,23 @@
             "executeOnceMazeVariable": "writhing.mire.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Writhing Mire intro"
+            "script": {
+              "name": "Writhing Mire intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You appear in a gloomy marsh. Small buzzing insects rise from pools of fetid water, and the air is hot and humid. The stench of rotting vegetation is pervasive.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.writhing.mire.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "writhing.mire.random.enc",
@@ -37885,7 +37901,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Writhing Mire to Ruins Of Hail"
+          "script": {
+            "name": "Writhing Mire to Ruins Of Hail",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ruins Of Hail",
+                "pos": "22:21",
+                "facing": "2"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

@@ -10034,7 +10034,35 @@
             "executeOnceMazeVariable": "ruins.of.hail.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ruins Of Hail intro"
+            "script": {
+              "name": "Ruins Of Hail intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitully through the devastation.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "It seems pretty clear to you that this city has been deserted by it\u0027s inhabitants...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ruins.of.hail.intro",
+                  "modal": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                  "mazeVariable": "coc.quest.3.completed",
+                  "value": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",
@@ -10431,7 +10459,35 @@
             "executeOnceMazeVariable": "ruins.of.hail.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ruins Of Hail intro"
+            "script": {
+              "name": "Ruins Of Hail intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitully through the devastation.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "It seems pretty clear to you that this city has been deserted by it\u0027s inhabitants...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ruins.of.hail.intro",
+                  "modal": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                  "mazeVariable": "coc.quest.3.completed",
+                  "value": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",
@@ -59628,7 +59684,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ruins Of Hail to Tornado Mountain"
+          "script": {
+            "name": "Ruins Of Hail to Tornado Mountain",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels slightly warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Tornado Mountain",
+                "pos": "15:14",
+                "facing": "1"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -59644,7 +59724,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ruins Of Hail to Hianbian"
+          "script": {
+            "name": "Ruins Of Hail to Hianbian",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Hianbian",
+                "pos": "11:13",
+                "facing": "4"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -59660,7 +59764,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ruins Of Hail to Stygios Forest"
+          "script": {
+            "name": "Ruins Of Hail to Stygios Forest",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Stygios Forest",
+                "pos": "26:7",
+                "facing": "1"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -59676,7 +59804,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ruins Of Hail to Writhing Mire"
+          "script": {
+            "name": "Ruins Of Hail to Writhing Mire",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Writhing Mire",
+                "pos": "15:4",
+                "facing": "2"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -59692,7 +59844,31 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ruins Of Hail to Plain Of Pillars"
+          "script": {
+            "name": "Ruins Of Hail to Plain Of Pillars",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "The pillar feels warm beneath your hand...",
+                "delay": "1500",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                "clipNames": [
+                  "24003__Erdie__mega_thunder"
+                ],
+                "die": "1d1"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Plain Of Pillars",
+                "pos": "32:32",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

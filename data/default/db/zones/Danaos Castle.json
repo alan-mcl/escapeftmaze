@@ -3936,7 +3936,18 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.6",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle feasting hall flava"
+            "script": {
+              "name": "Danaos Castle feasting hall flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",
@@ -4598,7 +4609,18 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.6",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle feasting hall flava"
+            "script": {
+              "name": "Danaos Castle feasting hall flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",
@@ -5899,7 +5921,18 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.6",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle feasting hall flava"
+            "script": {
+              "name": "Danaos Castle feasting hall flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",
@@ -10226,7 +10259,30 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.8",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle intro"
+            "script": {
+              "name": "Danaos Castle intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.danaos.castle.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",
@@ -10244,7 +10300,30 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.8",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle intro"
+            "script": {
+              "name": "Danaos Castle intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.danaos.castle.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",
@@ -10262,7 +10341,30 @@
             "executeOnceMazeVariable": "danaos.castle.execute.once.8",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos Castle intro"
+            "script": {
+              "name": "Danaos Castle intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.danaos.castle.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.castle.random.enc",

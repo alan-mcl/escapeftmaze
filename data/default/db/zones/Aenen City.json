@@ -6464,7 +6464,30 @@
             "executeOnceMazeVariable": "aenen.city.execute.once.0",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen City intro"
+            "script": {
+              "name": "Aenen City intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Gnomes can be seen all around, hurrying here and there in small groups, many carrying metallic objects that you do not recognise. A quiet buzz of movement and conversation fills the passages. You draw some curious glances but nobody approaches you.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.city.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.city.random.enc",
@@ -10586,7 +10609,24 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen City to Tornado Mountain"
+            "script": {
+              "name": "Aenen City to Tornado Mountain",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Tornado Mountain",
+                  "pos": "28:25",
+                  "facing": "4"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.city.random.enc",
@@ -38878,7 +38918,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Aenen City to Outskirts"
+          "script": {
+            "name": "Aenen City to Outskirts",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Aenen Outskirts",
+                "pos": "16:14",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

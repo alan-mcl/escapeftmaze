@@ -2450,7 +2450,43 @@
             "executeOnceMazeVariable": "gatehouse.malignant.widows",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse malignant widow encounter"
+            "script": {
+              "name": "Gatehouse malignant widow encounter",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You enter the dank chamber.  Small clumps of fungi give off a sickly radiance, and moving amongst the stalks are a number of large spiders.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The arachnids pause and regard you in silence for a moment.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "_MAZE_INTERVENTION_"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "As one the spiders scuttle towards you, an uncanny malice glittering in their dark eyes.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
@@ -2566,7 +2602,41 @@
             "executeOnceMazeVariable": "gatehouse.angry.swarms.encounter",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse angry swarms encounter"
+            "script": {
+              "name": "Gatehouse angry swarms encounter",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Stepping through the door you find clouds of insects hovering near putrid pools of shallow water.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "_MAZE_INTERVENTION_"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "In unnerving unison, the swarms rise from the pools and attack you!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gatehouse.angry.swarms",
+                  "modal": "false"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
@@ -2837,7 +2907,23 @@
             "executeOnceMazeVariable": "gatehouse.execute.once.19",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse pre widows cck"
+            "script": {
+              "name": "Gatehouse pre widows cck",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "As you reach for the handle, something about this door makes you hesitate for a second...",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gatehouse.malignant.widows",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -2889,7 +2975,45 @@
             "executeOnceMazeVariable": "gatehouse.block.golem",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse block golem encounter"
+            "script": {
+              "name": "Gatehouse block golem encounter",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Standing in the middle of the chamber is a stone statue of a chunky humanoid figure.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gatehouse.block.golem",
+                  "modal": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "_MAZE_INTERVENTION_"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The eyes of the stone construct flare to life and it lumbers towards you...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
+                  "objectName": "gatehouse.block.golem.obj"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
@@ -3501,7 +3625,18 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse hidden stuff 1 pre"
+            "script": {
+              "name": "Gatehouse hidden stuff 1 pre",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The dry bones of some long dead traveller lie here, huddled in this dark and dusty corner.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3654,7 +3789,18 @@
             "executeOnceMazeVariable": "gatehouse.execute.once.eels",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse supplies 1 eels leave"
+            "script": {
+              "name": "Gatehouse supplies 1 eels leave",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The eels scatter into the depths and vanish.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3699,6 +3845,67 @@
             "scripts": [
               "Gatehouse supplies 1 cave eels skill test",
               "Gatehouse supplies 1 cave eels leave alone"
+            ],
+            "mazeScripts": [
+              {
+                "name": "Gatehouse supplies 1 cave eels skill test",
+                "events": [
+                  {
+                    "TYPE_KEY": "mclachlan.maze.game.event.SkillTestEvent",
+                    "keyModifier": "SKILL",
+                    "skill": [
+                      {
+                        "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
+                        "value": "0",
+                        "scaling": "NONE",
+                        "shouldNegate": "false",
+                        "modifier": "SKILL"
+                      },
+                      {
+                        "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
+                        "value": "0",
+                        "scaling": "NONE",
+                        "shouldNegate": "false",
+                        "modifier": "DUNGEONEER"
+                      },
+                      {
+                        "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+                        "value": "0",
+                        "scaling": "NONE",
+                        "shouldNegate": "false",
+                        "dice": "1d3"
+                      }
+                    ],
+                    "successValue": [
+                      {
+                        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+                        "value": "7",
+                        "scaling": "NONE",
+                        "shouldNegate": "false"
+                      }
+                    ],
+                    "successScript": "Gatehouse supplies 1 cave eels",
+                    "failureScript": "Gatehouse supplies 1 skill test fail"
+                  }
+                ]
+              },
+              {
+                "name": "Gatehouse supplies 1 cave eels leave alone",
+                "events": [
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                    "flavourText": "You leave the eels swimming in peace.",
+                    "delay": "-1",
+                    "shouldClearText": "false",
+                    "alignment": "CENTER"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                    "mazeVariable": "gatehouse.execute.once.eels",
+                    "value": "0"
+                  }
+                ]
+              }
             ]
           }
         ],
@@ -5206,6 +5413,53 @@
             "scripts": [
               "Gatehouse hidden pool contents",
               "Gatehouse hidden pool pass"
+            ],
+            "mazeScripts": [
+              {
+                "name": "Gatehouse hidden pool contents",
+                "events": [
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                    "flavourText": "You reach your arm deep into the cold, dark water...",
+                    "delay": "-1",
+                    "shouldClearText": "true",
+                    "alignment": "CENTER"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                    "flavourText": "Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.",
+                    "delay": "-1",
+                    "shouldClearText": "true",
+                    "alignment": "CENTER"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                    "lootTable": "gatehouse.potion.chest"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                    "mazeVariable": "gatehouse.pool.cache.found",
+                    "value": "1"
+                  }
+                ]
+              },
+              {
+                "name": "Gatehouse hidden pool pass",
+                "events": [
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                    "flavourText": "You decide to leave well enough alone.",
+                    "delay": "-1",
+                    "shouldClearText": "false",
+                    "alignment": "CENTER"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                    "mazeVariable": "gatehouse.pool.cache.found",
+                    "value": "0"
+                  }
+                ]
+              }
             ]
           }
         ],
@@ -5779,7 +6033,6 @@
             "mazeVariable": "gatehouse.encounter.3",
             "attitude": "ATTACKING",
             "ambushStatus": "NONE",
-            "preScript": "Gatehouse encounter 1 bats",
             "preScriptEvents": {
               "name": "Gatehouse encounter 1 bats",
               "events": [
@@ -6171,7 +6424,18 @@
             "facings": "00001",
             "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse first room window"
+            "script": {
+              "name": "Gatehouse first room window",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6573,7 +6837,18 @@
             "executeOnceMazeVariable": "gatehouse.execute.once.3",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse welcome sign"
+            "script": {
+              "name": "Gatehouse welcome sign",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Above you a fixture on the ceiling gives off some kind of soft magical light.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6593,7 +6868,28 @@
             "facings": "01111",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse first room"
+            "script": {
+              "name": "Gatehouse first room",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gatehouse.1",
+                  "modal": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+                  "type": "QUEST",
+                  "key": "Escape from the Second Realm",
+                  "journalText": "You have escaped from the First Realm of the Maze.\nYou seek now to escape from the Second.\n\nSomewhere in this Realm you have entered lies a Great Gate. You must locate it, access it and pass through to escape this Realm and continue your journey to escape from the Maze entirely."
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+                  "type": "QUEST",
+                  "key": "Escape from the Second Realm",
+                  "journalText": "Quest added"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6634,7 +6930,32 @@
             "executeOnceMazeVariable": "gatehouse.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse intro"
+            "script": {
+              "name": "Gatehouse intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -9529,7 +9850,27 @@
             "executeOnceMazeVariable": "gatehouse.execute.once.11",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse encounter 1 cruds"
+            "script": {
+              "name": "Gatehouse encounter 1 cruds",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "sound - crud"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+                  "pos": "-1:-1",
+                  "facing": "1"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
@@ -10814,7 +11155,6 @@
             "encounterTable": "gatehouse.feral.familiar.1",
             "mazeVariable": "gatehouse.encounter.20",
             "ambushStatus": "NONE",
-            "postAppearanceScript": "Gatehouse feral familiar encounter",
             "postAppearanceScriptEvents": {
               "name": "Gatehouse feral familiar encounter",
               "events": [
@@ -40482,7 +40822,34 @@
           "executeOnceMazeVariable": "gatehouse.execute.once.23",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "0",
-          "mazeScript": "Gatehouse hidden stuff 1 contents"
+          "script": {
+            "name": "Gatehouse hidden stuff 1 contents",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Quelling any misgivings about disturbing the remains, you decide to have a closer look.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                "speechKey": "default.gatehouse.hidden.stuff.1",
+                "modal": "true"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Any clothing has long since rotted to pieces, but you do find two durable items.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gatehouse.hiddenstuff.1"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -40959,7 +41326,18 @@
           "executeOnceMazeVariable": "gatehouse.execute.once.24",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "0",
-          "mazeScript": "Gatehouse bones2 hidden stuff"
+          "script": {
+            "name": "Gatehouse bones2 hidden stuff",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "These remains are so ancient and desiccated as to be hardly recognisable. You find nothing.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -41034,7 +41412,22 @@
           "executeOnceMazeVariable": "gatehouse.execute.once.10",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "0",
-          "mazeScript": "Gatehouse Bonebrood bones"
+          "script": {
+            "name": "Gatehouse Bonebrood bones",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Poking through the pile of moldy bones, you discover several items of interest...",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gatehouse.key.loot"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -42340,7 +42733,22 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Gatehouse supplies 1 iron rations"
+          "script": {
+            "name": "Gatehouse supplies 1 iron rations",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gatehouse.supplies.1.iron.rations"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -42356,7 +42764,22 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Gatehouse supplies 1 iron rations"
+          "script": {
+            "name": "Gatehouse supplies 1 iron rations",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gatehouse.supplies.1.iron.rations"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -42372,7 +42795,22 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Gatehouse supplies 1 iron rations"
+          "script": {
+            "name": "Gatehouse supplies 1 iron rations",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gatehouse.supplies.1.iron.rations"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -42389,7 +42827,18 @@
           "executeOnceMazeVariable": "gatehouse.execute.once.20",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "0",
-          "mazeScript": "Gatehouse bones2 hidden stuff"
+          "script": {
+            "name": "Gatehouse bones2 hidden stuff",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "These remains are so ancient and desiccated as to be hardly recognisable. You find nothing.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -43761,8 +44210,29 @@
             "Leave them alone"
           ],
           "scripts": [
-            "Gatehouse supplies 1 ambercaps",
-            " - "
+            "Gatehouse supplies 1 ambercaps"
+          ],
+          "mazeScripts": [
+            {
+              "name": "Gatehouse supplies 1 ambercaps",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You harvest the mushrooms. The smell pretty tasty.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
+                  "objectName": "gatehouse.supplies.1.ambercaps"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.supplies.1.ambercaps"
+                }
+              ]
+            }
           ]
         },
         "verticalAlignment": "BOTTOM"

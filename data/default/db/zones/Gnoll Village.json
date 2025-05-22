@@ -3175,7 +3175,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -3555,7 +3571,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -4449,7 +4481,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -4567,7 +4615,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -5219,7 +5283,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -5779,7 +5859,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -6833,7 +6929,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -7113,7 +7225,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -7161,7 +7289,23 @@
             "executeOnceMazeVariable": "gnoll.village.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gnoll Village intro"
+            "script": {
+              "name": "Gnoll Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.gnoll.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gnoll.village.random.enc",
@@ -37738,7 +37882,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Gnoll Village to Ichiba Depths"
+          "script": {
+            "name": "Gnoll Village to Ichiba Depths",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City Depths",
+                "pos": "21:4",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

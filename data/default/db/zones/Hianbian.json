@@ -2423,7 +2423,23 @@
             "executeOnceMazeVariable": "hianbian.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Hianbian intro"
+            "script": {
+              "name": "Hianbian intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.hianbian.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "hianbian.random.enc",
@@ -5369,7 +5385,23 @@
             "executeOnceMazeVariable": "hianbian.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Hianbian intro"
+            "script": {
+              "name": "Hianbian intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.hianbian.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "hianbian.random.enc",
@@ -10105,7 +10137,49 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Hianbian Yenluo encounter"
+            "script": {
+              "name": "Hianbian Yenluo encounter",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The vaulted roof of the chamber is lost in darkness above you. Stone pillars stand in seemingly random order near the walls, and still pools of water betray no hint of their depth.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You pause for a moment. From somewhere within the room comes the sound of water slowly dripping.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\nSuddenly, your eyes register a blur of motion. With speed that takes your breath away a deadly looking insectoid figure appears before you. Behind it, the still waters are disturbed as black garbed warriors spring from the pools, discarding breathing tubes.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\nThe mantis pauses for a moment and flexes it\u0027s limbs with fearsome purpose, then flashes towards you in attack.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.hianbian.yenluo.encounter",
+                  "modal": "true"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+                  "mazeVariable": "hianbian.yenluo.encounter",
+                  "encounterTable": "yenluo.encounter"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "hianbian.random.enc",

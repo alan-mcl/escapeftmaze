@@ -1980,7 +1980,30 @@
             "executeOnceMazeVariable": "dalen.flava.1",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Dalen intro"
+            "script": {
+              "name": "Dalen intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You appear in a lush jungle, an amazing profusion of growth surrounds you and vegetation smells fill your nostrils. The air is warm and humid. Giant trees tower far overhead, their trunks vanishing into the greenish gloom beneath their mighty canopies. Vines and creepers hang low overhead.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The place is oddly quiet... few of the animal sounds that you would expect in a place like this are to be heard...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.dalen.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "dalen.random.enc",

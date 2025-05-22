@@ -2017,7 +2017,31 @@
             "facings": "011",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba Domain North to Danaos"
+            "script": {
+              "name": "Ichiba Domain North to Danaos",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": " You step through the door...",
+                  "delay": "1500",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Danaos Village",
+                  "pos": "27:15",
+                  "facing": "4"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.domain.north.random.enc",
@@ -8750,7 +8774,37 @@
             "executeOnceMazeVariable": "ichiba.crossroad.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba Crossroad intro"
+            "script": {
+              "name": "Ichiba Crossroad intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird\u0027s shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin?\n\nOf more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.crossroad.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.domain.north.random.enc",
@@ -10049,7 +10103,17 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba Domain North to Crossroad"
+            "script": {
+              "name": "Ichiba Domain North to Crossroad",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ichiba Crossroad",
+                  "pos": "6:1",
+                  "facing": "0"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.domain.north.random.enc",

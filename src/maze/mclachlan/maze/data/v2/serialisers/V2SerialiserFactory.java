@@ -753,9 +753,11 @@ public class V2SerialiserFactory
 
 		ReflectiveSerialiser optionsSerialiser = getReflectiveSerialiser(DisplayOptions.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
-			"forceSelection", "title", "options", "scripts");
+			"forceSelection", "title", "options", /*"scripts", */"mazeScripts");
 		optionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
-		optionsSerialiser.addCustomSerialiser("scripts", new ListSerialiser(new DirectObjectSerialiser<String>()));
+//		optionsSerialiser.addCustomSerialiser("scripts", new ListSerialiser(new DirectObjectSerialiser<String>()));
+		optionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(getMazeScriptSerialiser(db)));
+
 		map.put(DisplayOptions.class, optionsSerialiser);
 
 		map.put(Loot.class, getReflectiveSerialiser(Loot.class,
@@ -765,8 +767,10 @@ public class V2SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"mazeVariable", "wallIndex", "horizontalWall"));
 
-		map.put(ExecuteMazeScript.class, getReflectiveSerialiser(ExecuteMazeScript.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeScript"));
+		ReflectiveSerialiser executeMazeScriptSerialiser = getReflectiveSerialiser(ExecuteMazeScript.class,
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "script");
+		executeMazeScriptSerialiser.addCustomSerialiser("script", getMazeScriptSerialiser(db));
+		map.put(ExecuteMazeScript.class, executeMazeScriptSerialiser);
 
 		map.put(SignBoard.class, getReflectiveSerialiser(SignBoard.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text"));
@@ -808,8 +812,8 @@ public class V2SerialiserFactory
 			"state2Solid",
 			"state2Secret",
 			"state2Height",
-			"preToggleScript",
-			"postToggleScript");
+			"preToggleScript", // todo
+			"postToggleScript"); // todo
 		toggleWallSerialiser.addCustomSerialiser("state1Texture", new NameSerialiser<>(db::getMazeTexture));
 		toggleWallSerialiser.addCustomSerialiser("state1MaskTexture", new NameSerialiser<>(db::getMazeTexture));
 		toggleWallSerialiser.addCustomSerialiser("state2Texture", new NameSerialiser<>(db::getMazeTexture));

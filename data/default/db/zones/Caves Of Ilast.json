@@ -4326,7 +4326,22 @@
               "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
               "reexecuteOnSameTile": "false",
               "scoutSecretDifficulty": "-1",
-              "mazeScript": "Caves Of Ilast miriam chest contents"
+              "script": {
+                "name": "Caves Of Ilast miriam chest contents",
+                "events": [
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                    "flavourText": "The chest is filled with trinket and junk - bent needles, old gnawed bones, bunches of twigs, discarded shoes and so on.\n\nYou find only one thing remotely interesting.",
+                    "delay": "-1",
+                    "shouldClearText": "true",
+                    "alignment": "CENTER"
+                  },
+                  {
+                    "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                    "lootTable": "caves.of.ilast.miriam.chest"
+                  }
+                ]
+              }
             },
             "traps": {
               "PERCENTAGES": [
@@ -38237,7 +38252,23 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Caves Of Ilast Brass Pillar"
+          "script": {
+            "name": "Caves Of Ilast Brass Pillar",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You strike the hollow brass pillar hard with a nearby rock.\n\nA loud CLANG echoes through the caves...",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+                "mazeVariable": "null",
+                "encounterTable": "caves.of.ilast.random.enc"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       }

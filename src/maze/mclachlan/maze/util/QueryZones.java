@@ -68,7 +68,7 @@ public class QueryZones
 							if (ms instanceof ExecuteMazeScript)
 							{
 								MazeScript script = Database.getInstance().getMazeScripts().get(
-									((ExecuteMazeScript)ms).getMazeScript());
+									((ExecuteMazeScript)ms).getScript());
 
 								for (MazeEvent me : script.getEvents())
 								{

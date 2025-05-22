@@ -1,7 +1,6 @@
 package mclachlan.maze.ui.diygui;
 
 import java.util.*;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.util.MazeException;
@@ -14,11 +13,11 @@ public class MazeScriptOptions implements GeneralOptionsCallback
 	/**
 	 * Map of option to maze script name.
 	 */
-	private final Map<String, String> options;
+	private final Map<String, MazeScript> options;
 
 	private final boolean forceSelection;
 
-	public MazeScriptOptions(Map<String, String> options, boolean forceSelection)
+	public MazeScriptOptions(Map<String, MazeScript> options, boolean forceSelection)
 	{
 		this.forceSelection = forceSelection;
 		this.options = options;
@@ -27,9 +26,9 @@ public class MazeScriptOptions implements GeneralOptionsCallback
 	@Override
 	public List<MazeEvent> optionChosen(String option)
 	{
-		String scriptName = options.get(option);
+		MazeScript script = options.get(option);
 
-		if (scriptName == null)
+		if (script == null)
 		{
 			if (forceSelection)
 			{
@@ -41,8 +40,6 @@ public class MazeScriptOptions implements GeneralOptionsCallback
 			}
 		}
 
-		MazeScript mazeScript = Database.getInstance().getMazeScript(scriptName);
-
-		return mazeScript.getEvents();
+		return script.getEvents();
 	}
 }

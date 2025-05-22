@@ -1194,7 +1194,31 @@
             "facings": "011",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen to Ichiba Domain South"
+            "script": {
+              "name": "Aenen to Ichiba Domain South",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": " You step through the door...",
+                  "delay": "1500",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ichiba Domain South",
+                  "pos": "16:37",
+                  "facing": "4"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -1940,7 +1964,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -2954,7 +2994,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -3272,7 +3330,17 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen City to Outskirts"
+            "script": {
+              "name": "Aenen City to Outskirts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Aenen Outskirts",
+                  "pos": "16:14",
+                  "facing": "0"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -3468,7 +3536,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -3956,7 +4040,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -4084,13 +4186,53 @@
             "executeOnceMazeVariable": "aenen.outskirts.execute.once.0",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts charred stump"
+            "script": {
+              "name": "Aenen Outskirts charred stump",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "In this part of the clearing you find a twisted, burnt stump of an old tree, long hacked down. The ground around is charred and blackened. Despite the jungle warmth you feel a strange chill on your skin...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.charred.stump",
+                  "modal": "true"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts charred stump search"
+            "script": {
+              "name": "Aenen Outskirts charred stump search",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Groping around the stump, you feel a sudden pain in your hand!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.CastSpellEvent",
+                  "spellName": "Hidden Snakebite - Trap",
+                  "casterLevel": "20",
+                  "castingLevel": "7"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\nThe small bright green snake that bit you slithers rapidly away into the undergrowth! You curse and attend to the wound.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -4316,7 +4458,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -4666,7 +4826,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -5136,7 +5312,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -5633,7 +5825,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -6293,7 +6503,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -6953,7 +7181,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -7660,7 +7906,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -8336,7 +8600,25 @@
             "executeOnceMazeVariable": "aenen.outskirts.clearing.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts clearing intro"
+            "script": {
+              "name": "Aenen Outskirts clearing intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
@@ -8603,7 +8885,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -8791,7 +9089,23 @@
             "executeOnceMazeVariable": "aenen.outskirts.solar.panel.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Aenen Outskirts solar array flava"
+            "script": {
+              "name": "Aenen Outskirts solar array flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "aenen.outskirts.random.enc",
@@ -39854,7 +40168,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Aenen Outskirts to City"
+          "script": {
+            "name": "Aenen Outskirts to City",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Aenen City",
+                "pos": "18:14",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

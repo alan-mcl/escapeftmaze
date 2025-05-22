@@ -37800,7 +37800,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gnolls)"
+          "script": {
+            "name": "Ichiba Depths to City (gnolls)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City",
+                "pos": "15:8",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -37816,7 +37826,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to Gnoll Village"
+          "script": {
+            "name": "Ichiba Depths to Gnoll Village",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Gnoll Village",
+                "pos": "16:28",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -37832,7 +37852,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gsc1)"
+          "script": {
+            "name": "Ichiba Depths to City (gsc1)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City",
+                "pos": "5:19",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -37848,7 +37878,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba Depths to City (gsc2)"
+          "script": {
+            "name": "Ichiba Depths to City (gsc2)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City",
+                "pos": "27:8",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       }

@@ -20,81 +20,43 @@
 package mclachlan.maze.map.script;
 
 import java.awt.Point;
-import mclachlan.maze.data.Database;
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.util.MazeException;
-import java.util.*;
 
 /**
  *
  */
 public class ExecuteMazeScript extends TileScript
 {
-	private String mazeScript;
+	private MazeScript script;
 
 	public ExecuteMazeScript()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ExecuteMazeScript(String mazeScript)
+	public ExecuteMazeScript(MazeScript mazeScript)
 	{
-		this.mazeScript = mazeScript;
+		this.script = mazeScript;
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		MazeScript script = Database.getInstance().getMazeScripts().get(mazeScript);
-		if (script == null)
-		{
-			throw new MazeException("Invalid script ["+mazeScript+"]");
-		}
 		return script.getEvents();
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public String getMazeScript()
+	public MazeScript getScript()
 	{
-		return mazeScript;
+		return script;
 	}
 
-	public void setMazeScript(String mazeScript)
+	public void setScript(MazeScript script)
 	{
-		this.mazeScript = mazeScript;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		ExecuteMazeScript that = (ExecuteMazeScript)o;
-
-		return Objects.equals(mazeScript, that.mazeScript);
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = super.hashCode();
-		result = 31 * result + (mazeScript != null ? mazeScript.hashCode() : 0);
-		return result;
+		this.script = script;
 	}
 }

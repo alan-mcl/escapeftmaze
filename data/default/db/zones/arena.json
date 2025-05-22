@@ -750,7 +750,39 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "test script"
+            "script": {
+              "name": "test script",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+                  "animation": {
+                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+                    "duration": "500",
+                    "startX": "7",
+                    "startY": "3",
+                    "endX": "14",
+                    "endY": "5",
+                    "lightLevels": [
+                      [
+                        "-1",
+                        "-1",
+                        "-1"
+                      ],
+                      [
+                        "-1",
+                        "25",
+                        "15"
+                      ],
+                      [
+                        "-1",
+                        "15",
+                        "15"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2204,7 +2236,24 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "_MAZE_INTERVENTION_"
+            "script": {
+              "name": "ExecuteMazeScript.script",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "424690__9931__dissonance-example"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+                  "animation": {
+                    "IMPL": "mclachlan.maze.ui.diygui.animation.MazeInterventionAnimation"
+                  }
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2410,7 +2459,39 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "test script"
+            "script": {
+              "name": "ExecuteMazeScript.script",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+                  "animation": {
+                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+                    "duration": "500",
+                    "startX": "7",
+                    "startY": "3",
+                    "endX": "14",
+                    "endY": "5",
+                    "lightLevels": [
+                      [
+                        "-1",
+                        "-1",
+                        "-1"
+                      ],
+                      [
+                        "-1",
+                        "25",
+                        "15"
+                      ],
+                      [
+                        "-1",
+                        "15",
+                        "15"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",
@@ -10385,11 +10466,81 @@
             "Yeah Yeah",
             "What"
           ],
-          "scripts": [
-            "Aenen Outskirts clearing intro",
-            "Gatehouse hidden pool contents",
-            "Ichiba City villa cck",
-            "Aenen Outskirts solar array flava"
+          "mazeScripts": [
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You reach your arm deep into the cold, dark water...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.potion.chest"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                  "mazeVariable": "gatehouse.pool.cache.found",
+                  "value": "1"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.villa.door",
+                  "modal": "true"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+                  "modal": "true"
+                }
+              ]
+            }
           ]
         },
         "verticalAlignment": "BOTTOM"

@@ -5203,7 +5203,18 @@
             "executeOnceMazeVariable": "tornado.mountain.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Tornado Mountain intro"
+            "script": {
+              "name": "Tornado Mountain intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your first impression is wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "tornado.mountain.random.enc",
@@ -5220,7 +5231,31 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Tornado Mountain to Ruins Of Hail"
+            "script": {
+              "name": "Tornado Mountain to Ruins Of Hail",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You pass through the archway...",
+                  "delay": "1500",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ruins Of Hail",
+                  "pos": "22:23",
+                  "facing": "1"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "tornado.mountain.random.enc",
@@ -6465,7 +6500,23 @@
             "executeOnceMazeVariable": "tornado.mountain.dragon.cave.flava",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Tornado Mountain dragon cave flava"
+            "script": {
+              "name": "Tornado Mountain dragon cave flava",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The cave smells musty and dry, and is heaped with bones of all descriptions. It appears deserted at first glance...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.tornado.mountain.dragon.cave",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "tornado.mountain.random.enc",
@@ -9633,7 +9684,18 @@
             "executeOnceMazeVariable": "tornado.mountain.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Tornado Mountain intro"
+            "script": {
+              "name": "Tornado Mountain intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your first impression is wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel.",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "tornado.mountain.random.enc",
@@ -9962,7 +10024,24 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Tornado Mountain to Aenen City"
+            "script": {
+              "name": "Tornado Mountain to Aenen City",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Aenen City",
+                  "pos": "28:27",
+                  "facing": "1"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "tornado.mountain.random.enc",

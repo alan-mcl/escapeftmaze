@@ -23,6 +23,7 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.DisplayOptionsEvent;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.ui.diygui.MazeScriptOptions;
@@ -34,19 +35,21 @@ public class DisplayOptions extends TileScript
 {
 	private boolean forceSelection;
 	private String title;
-	private List<String> options, scripts;
+	private List<String> options;
+//	private List<String> scripts;
+	private List<MazeScript> mazeScripts;
 
 	public DisplayOptions()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public DisplayOptions(boolean forceSelection, String title, List<String> options, List<String> scripts)
+	public DisplayOptions(boolean forceSelection, String title, List<String> options, List<MazeScript> scripts)
 	{
 		this.forceSelection = forceSelection;
 		this.title = title;
 		this.options = options;
-		this.scripts = scripts;
+		this.mazeScripts = scripts;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -54,10 +57,10 @@ public class DisplayOptions extends TileScript
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		HashMap<String, String> optionsMap = new HashMap<>();
+		HashMap<String, MazeScript> optionsMap = new HashMap<>();
 		for (int i = 0; i < options.size(); i++)
 		{
-			optionsMap.put(options.get(i), scripts.get(i));
+			optionsMap.put(options.get(i), mazeScripts.get(i));
 		}
 
 		result.add(new DisplayOptionsEvent(
@@ -78,10 +81,10 @@ public class DisplayOptions extends TileScript
 		return options;
 	}
 
-	public List<String> getScripts()
-	{
-		return scripts;
-	}
+//	public List<String> getScripts()
+//	{
+//		return scripts;
+//	}
 
 	public boolean isForceSelection()
 	{
@@ -103,54 +106,27 @@ public class DisplayOptions extends TileScript
 		this.options = options;
 	}
 
-	public void setScripts(List<String> scripts)
+//	public void setScripts(List<String> scripts)
+//	{
+//		this.scripts = scripts;
+//
+//		if (scripts != null)
+//		{
+//			mazeScripts = new ArrayList<>();
+//			for (String s : scripts)
+//			{
+//				mazeScripts.add(Database.getInstance().getMazeScript(s));
+//			}
+//		}
+//	}
+
+	public List<MazeScript> getMazeScripts()
 	{
-		this.scripts = scripts;
+		return mazeScripts;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public void setMazeScripts(List<MazeScript> mazeScripts)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		DisplayOptions that = (DisplayOptions)o;
-
-		if (isForceSelection() != that.isForceSelection())
-		{
-			return false;
-		}
-		if (getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null)
-		{
-			return false;
-		}
-		if (getOptions() != null ? !getOptions().equals(that.getOptions()) : that.getOptions() != null)
-		{
-			return false;
-		}
-		return getScripts() != null ? getScripts().equals(that.getScripts()) : that.getScripts() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = super.hashCode();
-		result = 31 * result + (isForceSelection() ? 1 : 0);
-		result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
-		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
-		result = 31 * result + (getScripts() != null ? getScripts().hashCode() : 0);
-		return result;
+		this.mazeScripts = mazeScripts;
 	}
 }

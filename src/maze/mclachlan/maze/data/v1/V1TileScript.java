@@ -229,7 +229,7 @@ public class V1TileScript
 				s.append(sep);
 				s.append(optionsList.toString(dop.getOptions()));
 				s.append(sep);
-				s.append(optionsList.toString(dop.getScripts()));
+//				s.append(optionsList.toString(dop.getScripts())); // todo
 				break;
 			case LOOT:
 				Loot l = (Loot)t;
@@ -285,7 +285,7 @@ public class V1TileScript
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				ExecuteMazeScript eme = (ExecuteMazeScript)t;
-				s.append(eme.getMazeScript());
+//				s.append(eme.getMazeScript()); todo
 				break;
 			case SIGNBOARD:
 				SignBoard sb = (SignBoard)t;
@@ -453,7 +453,7 @@ public class V1TileScript
 				String title = strs[i++];
 				List<String> options = optionsList.fromString(strs[i++]);
 				List<String> scripts = optionsList.fromString(strs[i++]);
-				result = new DisplayOptions(forceSelection, title, options, scripts);
+				result = new DisplayOptions(forceSelection, title, options, null); // todo
 				break;
 			case LOOT:
 				result = new Loot(strs[i++]);
@@ -503,7 +503,7 @@ public class V1TileScript
 					"".equals(postToggleScript)?null:postToggleScript);
 				break;
 			case EXECUTE_MAZE_SCRIPT:
-				result = new ExecuteMazeScript(strs[i++]);
+				result = new ExecuteMazeScript(); // todo
 				break;
 			case SIGNBOARD:
 				result = new SignBoard(V1Utils.replaceNewlines(strs[i++]));

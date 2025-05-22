@@ -9301,7 +9301,30 @@
             "executeOnceMazeVariable": "danaos.village.flava.1",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danoas Village intro"
+            "script": {
+              "name": "Danoas Village intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You appear in a warm and pleasant seeming forest domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness. White pennants with no visible marking flutter from it\u0027s spired.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.danaos.village.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.village.random.enc",
@@ -9631,7 +9654,31 @@
             "facings": "00011",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Danaos to Ichiba Domain North"
+            "script": {
+              "name": "Danaos to Ichiba Domain North",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": " You step through the door...",
+                  "delay": "1500",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "clipNames": [
+                    "24003__Erdie__mega_thunder"
+                  ],
+                  "die": "1d1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ichiba Domain North",
+                  "pos": "6:3",
+                  "facing": "2"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "danaos.village.random.enc",

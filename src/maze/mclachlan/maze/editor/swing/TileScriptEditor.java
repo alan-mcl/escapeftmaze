@@ -154,7 +154,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JSpinner state1Height, state2Height;
 	private JComboBox preToggleScript, postToggleScript;
 
-	private JComboBox mazeScript;
+	private MazeEventsComponent mazeScript;
 	private JTextArea signBoard;
 
 	private JTextField setMazeVariableVariable;
@@ -172,7 +172,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JCheckBox displayOptionsForceSelection;
 	private JTextField displayOptionsTitle;
 	private List<JTextField> displayOptionsOptions;
-	private List<JComboBox> displayOptionsScripts;
+	private List<MazeEventsComponent> displayOptionsScripts;
 
 	private JComboBox steKeyModifier;
 	private ValueComponent steSkillValue;
@@ -418,14 +418,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				for (int i=0; i<maxOptions; i++)
 				{
 					displayOptionsOptions.get(i).setText("");
-					displayOptionsScripts.get(i).setSelectedIndex(0);
+					displayOptionsScripts.get(i).refresh(null);
 				}
 
 				for (int i = 0; i < dop.getOptions().size(); i++)
 				{
 					displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
-					String scripti = dop.getScripts().get(i);
-					displayOptionsScripts.get(i).setSelectedItem(scripti==null ? EditorPanel.NONE : scripti);
+					MazeScript scripti = dop.getMazeScripts().get(i);
+					displayOptionsScripts.get(i).refresh(scripti==null ? null : scripti.getEvents());
 				}
 
 				break;
@@ -466,7 +466,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case EXECUTE_MAZE_EVENTS:
 				ExecuteMazeScript eme = (ExecuteMazeScript)ts;
-				mazeScript.setSelectedItem(eme.getMazeScript());
+				mazeScript.refresh(eme.getScript().getEvents());
 				break;
 			case SIGNBOARD:
 				SignBoard sb = (SignBoard)ts;
@@ -553,10 +553,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getDisplayOptionsPanel()
 	{
-		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(scripts);
-		scripts.add(0, EditorPanel.NONE);
-
 		displayOptionsForceSelection = new JCheckBox("Force selection?");
 
 		displayOptionsTitle = new JTextField(20);
@@ -566,10 +562,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		for (int i=0; i<maxOptions; i++)
 		{
 			displayOptionsOptions.add(new JTextField(20));
-			displayOptionsScripts.add(new JComboBox(scripts));
+			displayOptionsScripts.add(new MazeEventsComponent(dirtyFlag));
 		}
-
-		JButton edit = getMazeScriptEditButton();
 
 		return dirtyGridBagCrap(
 			displayOptionsForceSelection, new JLabel(),
@@ -578,8 +572,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			displayOptionsOptions.get(1), displayOptionsScripts.get(1),
 			displayOptionsOptions.get(2), displayOptionsScripts.get(2),
 			displayOptionsOptions.get(3), displayOptionsScripts.get(3),
-			displayOptionsOptions.get(4), displayOptionsScripts.get(4),
-			new JLabel(), edit);
+			displayOptionsOptions.get(4), displayOptionsScripts.get(4)
+		);
 	}
 
 	private JPanel getHiddenStuffPanel()
@@ -617,15 +611,11 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getExecuteMazeEventsPanel()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(vec);
-		mazeScript = new JComboBox(vec);
-
-		JButton edit = getMazeScriptEditButton();
+		mazeScript = new MazeEventsComponent(dirtyFlag);
 
 		return dirtyGridBagCrap(
-			new JLabel("Maze Script:"), mazeScript,
-			new JLabel(), edit);
+			new JLabel("Maze Script:"), mazeScript
+		);
 	}
 
 	private JButton getMazeScriptEditButton()
@@ -633,13 +623,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		JButton edit = new JButton("Edit Maze Scripts...");
 		edit.addActionListener(e -> {
 			new EditorPanelDialog("Edit Maze Scripts", new MazeScriptPanel());
-
-			Vector<String> scripts =
-				new Vector<String>(Database.getInstance().getMazeScripts().keySet());
-			Collections.sort(scripts);
-
-			// all the foreign keys...
-			mazeScript.setModel(new DefaultComboBoxModel(scripts));
 		});
 		return edit;
 	}
@@ -1443,7 +1426,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case DISPLAY_OPTIONS:
 				ArrayList<String> options = new ArrayList<>();
-				ArrayList<String> scripts = new ArrayList<>();
+				ArrayList<MazeScript> scripts = new ArrayList<>();
 
 				for (int i=0; i<maxOptions; i++)
 				{
@@ -1452,8 +1435,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					if (option != null && option.length() > 0)
 					{
 						options.add(option);
-						Object scriptopt = displayOptionsScripts.get(i).getSelectedItem();
-						scripts.add(scriptopt == EditorPanel.NONE ? null : (String)scriptopt);
+						MazeScript scriptopt = null;
+//						if (displayOptionsScripts.get(i).getEvents() != null && displayOptionsScripts.get(i).getEvents().size()>0)
+						{
+							scriptopt = new MazeScript("DisplayOptions.mazeScripts", displayOptionsScripts.get(i).getEvents());
+						}
+						scripts.add(scriptopt);
 					}
 				}
 				result = new DisplayOptions(
@@ -1494,7 +1481,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
-				result = new ExecuteMazeScript((String)mazeScript.getSelectedItem());
+				result = new ExecuteMazeScript(mazeScript.getEvents() == null ? null : new MazeScript("ExecuteMazeScript.script", mazeScript.getEvents()));
 				break;
 			case SIGNBOARD:
 				result = new SignBoard(signBoard.getText());

@@ -37972,7 +37972,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ekirth\u0027s Tomb to Isle Of The Gate"
+          "script": {
+            "name": "Ekirth\u0027s Tomb to Isle Of The Gate",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Isle Of The Gate",
+                "pos": "37:35",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },

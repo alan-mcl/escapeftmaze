@@ -5487,7 +5487,16 @@
             "facings": "00001",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City thieves guild cck doors"
+            "script": {
+              "name": "Ichiba City thieves guild cck doors",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.thieves.guild.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -6252,7 +6261,16 @@
             "executeOnceMazeVariable": "ichiba.gnome.garden.cck",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City gnome garden cck"
+            "script": {
+              "name": "Ichiba City gnome garden cck",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.city.gnome.garden",
+                  "modal": "true"
+                }
+              ]
+            }
           },
           {
             "IMPL": "mclachlan.maze.campaign.def.map.GardenOfGlaucus",
@@ -8131,7 +8149,43 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City wanted signboard"
+            "script": {
+              "name": "Ichiba City wanted signboard",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SignBoardEvent",
+                  "signBoardText": "WANTED\nDEAD OR ALIVE\nBounty collectable at C.O.C."
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The signboard has several paper posters bearing sketched portraits nailed to it.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, \u0027SIR\u0027 KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\"For Murder, Kidnapping, Banditry, Rape, Assault With Deadly Intent, VIRGILIO PATRICO. Reward 9000\"\n\nThe portrait shows a sneering human male with sharp features and long dark hair.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS \u0027THE HAND\u0027. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -8249,7 +8303,23 @@
             "executeOnceMazeVariable": "ichiba.city.imogens.tower.flava1",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City Imogens tower lvl1"
+            "script": {
+              "name": "Ichiba City Imogens tower lvl1",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn\u0027t been used in a while.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.city.imogen.tower.1",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -9868,7 +9938,16 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City villa cck"
+            "script": {
+              "name": "Ichiba City villa cck",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.villa.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10225,7 +10304,16 @@
             "facings": "0001",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City thieves guild cck doors"
+            "script": {
+              "name": "Ichiba City thieves guild cck doors",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.thieves.guild.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11964,7 +12052,16 @@
             "facings": "001",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City thieves guild cck doors"
+            "script": {
+              "name": "Ichiba City thieves guild cck doors",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.thieves.guild.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -12059,7 +12156,16 @@
             "facings": "0001",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City Imogen Door cck"
+            "script": {
+              "name": "Ichiba City Imogen Door cck",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.city.imogen.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -12642,7 +12748,23 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City Temple of The Lady sign"
+            "script": {
+              "name": "Ichiba City Temple of The Lady sign",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Over the doorway there is etched a striking ikon of crossed spears before a round shield.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.city.temple.of.the_lady.sign",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -14255,7 +14377,16 @@
             "facings": "01",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City thieves guild cck doors"
+            "script": {
+              "name": "Ichiba City thieves guild cck doors",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.thieves.guild.door",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -14742,7 +14873,37 @@
             "executeOnceMazeVariable": "ichiba.city.cck",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City cck"
+            "script": {
+              "name": "Ichiba City cck",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The inhabitants hurry about their business, many casting you curious glances but none approaching. Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don\u0027t recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "speechKey": "default.ichiba.city.intro",
+                  "modal": "true"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15987,7 +16148,25 @@
             "executeOnceMazeVariable": "ichiba.city.intro",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City Intro"
+            "script": {
+              "name": "Ichiba City Intro",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.\n",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -17654,7 +17833,17 @@
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Ichiba City to Crossroad"
+            "script": {
+              "name": "Ichiba City to Crossroad",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ichiba Crossroad",
+                  "pos": "3:30",
+                  "facing": "0"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -63665,7 +63854,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba City to Depths (gnolls)"
+          "script": {
+            "name": "Ichiba City to Depths (gnolls)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City Depths",
+                "pos": "13:6",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -63681,7 +63880,22 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba City COC tear off paper slip"
+          "script": {
+            "name": "Ichiba City COC tear off paper slip",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": " You tear off one of the small paper slips...",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.city.coc.paper.slip"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -63697,7 +63911,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba City to Depths (gsc1)"
+          "script": {
+            "name": "Ichiba City to Depths (gsc1)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City Depths",
+                "pos": "2:16",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -63713,7 +63937,17 @@
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "mazeScript": "Ichiba City to Depths (gsc2)"
+          "script": {
+            "name": "Ichiba City to Depths (gsc2)",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                "zone": "Ichiba City Depths",
+                "pos": "28:8",
+                "facing": "0"
+              }
+            ]
+          }
         },
         "verticalAlignment": "BOTTOM"
       },
