@@ -6457,7 +6457,22 @@
             "scoutSecretDifficulty": "-1",
             "findDifficulty": "0",
             "mazeVariable": "ichiba.domain.south.hidden.stuff.antenor",
-            "content": "Ichiba Domain South antenor loot"
+            "content": {
+              "name": "Ichiba Domain South antenor loot",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Your eyes are drawn to a bright gold ring on the finger of the skeleton.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gnome.antenor.loot"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.domain.south.random.enc",

@@ -763,8 +763,8 @@ public class V2SerialiserFactory
 		ReflectiveSerialiser hiddenStuffSerialiser = getReflectiveSerialiser(HiddenStuff.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"findDifficulty", "mazeVariable", "preScript", "content");
-		hiddenStuffSerialiser.addCustomSerialiser("preScript", new NameSerialiser<>(db::getMazeScript));
-		hiddenStuffSerialiser.addCustomSerialiser("content", new NameSerialiser<>(db::getMazeScript));
+		hiddenStuffSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
+		hiddenStuffSerialiser.addCustomSerialiser("content", getMazeScriptSerialiser(db));
 		map.put(HiddenStuff.class, hiddenStuffSerialiser);
 
 		map.put(Water.class, getReflectiveSerialiser(Water.class,

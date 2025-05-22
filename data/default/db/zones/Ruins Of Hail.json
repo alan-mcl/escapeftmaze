@@ -7591,7 +7591,15 @@
             "scoutSecretDifficulty": "-1",
             "findDifficulty": "0",
             "mazeVariable": "ruins.of.hail.hidden.stuff.1",
-            "content": "Ruins Of Hail hidden stuff 1"
+            "content": {
+              "name": "Ruins Of Hail hidden stuff 1",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ruins.of.hail.hidden.stuff.1"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",
@@ -14946,7 +14954,15 @@
             "scoutSecretDifficulty": "-1",
             "findDifficulty": "0",
             "mazeVariable": "ruins.of.hail.damla\u0027s.bones.hidden.stuff",
-            "content": "Ruins Of Hail damla\u0027s bones hidden stuff"
+            "content": {
+              "name": "Ruins Of Hail damla\u0027s bones hidden stuff",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ruins.of.hail.damla\u0027s.bones"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",

@@ -156,11 +156,13 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JComboBox mazeScript;
 	private JTextArea signBoard;
+
 	private JTextField setMazeVariableVariable;
 	private JTextField setMazeVariableValue;
+
 	private JTextField hiddenStuffVariable;
-	private JComboBox hiddenStuffContents;
-	private JComboBox hiddenStuffPreScript;
+	private MazeEventsComponent hiddenStuffContents;
+	private MazeEventsComponent hiddenStuffPreScript;
 	private JSpinner hiddenStuffFindDifficulty;
 
 	private JTextField psSpeechKey;
@@ -477,8 +479,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case HIDDEN_STUFF:
 				HiddenStuff hs = (HiddenStuff)ts;
-				hiddenStuffContents.setSelectedItem(hs.getContent().getName());
-				hiddenStuffPreScript.setSelectedItem(hs.getPreScript() == null ? EditorPanel.NONE : hs.getPreScript().getName());
+				hiddenStuffContents.refresh(hs.getContent() == null ? null : hs.getContent().getEvents());
+				hiddenStuffPreScript.refresh(hs.getPreScript() == null ? null : hs.getPreScript().getEvents());
 				hiddenStuffVariable.setText(hs.getMazeVariable());
 				hiddenStuffFindDifficulty.setValue(hs.getFindDifficulty());
 				break;
@@ -582,23 +584,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getHiddenStuffPanel()
 	{
-		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(scripts);
-		scripts.add(0, EditorPanel.NONE);
-
-		hiddenStuffContents = new JComboBox(scripts);
-		hiddenStuffPreScript = new JComboBox(scripts);
+		hiddenStuffContents = new MazeEventsComponent(dirtyFlag);
+		hiddenStuffPreScript = new MazeEventsComponent(dirtyFlag);
 		hiddenStuffVariable = new JTextField(20);
 		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1, 0, 127, 1));
-
-		JButton edit = getMazeScriptEditButton();
 
 		return dirtyGridBagCrap(
 			new JLabel("Maze Variable:"), hiddenStuffVariable,
 			new JLabel("Contents:"), hiddenStuffContents,
 			new JLabel("Pre Script:"), hiddenStuffPreScript,
-			new JLabel("Find Difficulty:"), hiddenStuffFindDifficulty,
-			new JLabel(), edit);
+			new JLabel("Find Difficulty:"), hiddenStuffFindDifficulty);
 	}
 
 	private JPanel getSetMazeVariablePanel()
@@ -636,23 +631,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JButton getMazeScriptEditButton()
 	{
 		JButton edit = new JButton("Edit Maze Scripts...");
-		edit.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				new EditorPanelDialog("Edit Maze Scripts", new MazeScriptPanel());
+		edit.addActionListener(e -> {
+			new EditorPanelDialog("Edit Maze Scripts", new MazeScriptPanel());
 
-				Vector<String> scripts =
-					new Vector<String>(Database.getInstance().getMazeScripts().keySet());
-				Collections.sort(scripts);
+			Vector<String> scripts =
+				new Vector<String>(Database.getInstance().getMazeScripts().keySet());
+			Collections.sort(scripts);
 
-				Vector<String> scripts2 = new Vector<String>(scripts);
-				scripts2.add(0, EditorPanel.NONE);
-
-				// all the foreign keys...
-				mazeScript.setModel(new DefaultComboBoxModel(scripts));
-				hiddenStuffPreScript.setModel(new DefaultComboBoxModel(scripts2));
-			}
+			// all the foreign keys...
+			mazeScript.setModel(new DefaultComboBoxModel(scripts));
 		});
 		return edit;
 	}
@@ -1511,11 +1498,18 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case HIDDEN_STUFF:
 				String mazeVar = hiddenStuffVariable.getText();
-				String contentStr = (String)hiddenStuffContents.getSelectedItem();
-				String preStr = (String)hiddenStuffPreScript.getSelectedItem();
 				int findDifficulty = (Integer)hiddenStuffFindDifficulty.getValue();
-				MazeScript content = (contentStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(contentStr);
-				MazeScript preScript = (preStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(preStr);
+				MazeScript content = null;
+				if (hiddenStuffContents.getEvents() != null && !hiddenStuffContents.getEvents().isEmpty())
+				{
+					content = new MazeScript("HiddenStuff.contents", hiddenStuffContents.getEvents());
+				}
+				MazeScript preScript = null;
+				if (hiddenStuffPreScript.getEvents() != null && !hiddenStuffPreScript.getEvents().isEmpty())
+				{
+					preScript = new MazeScript("HiddenStuff.preScript", hiddenStuffPreScript.getEvents());
+				}
+
 				result = new HiddenStuff(content, preScript, mazeVar, findDifficulty);
 				break;
 			case WATER:

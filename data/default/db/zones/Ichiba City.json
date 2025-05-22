@@ -8069,7 +8069,22 @@
             "scoutSecretDifficulty": "-1",
             "findDifficulty": "0",
             "mazeVariable": "",
-            "content": "Ichiba City COC tear off paper slip"
+            "content": {
+              "name": "Ichiba City COC tear off paper slip",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": " You tear off one of the small paper slips...",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.coc.paper.slip"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",

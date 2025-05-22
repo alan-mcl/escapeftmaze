@@ -1831,7 +1831,36 @@
         "restingEfficiency": "AVERAGE"
       },
       {
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "findDifficulty": "1",
+            "mazeVariable": "arena.hidden.stuff.1",
+            "preScript": {
+              "name": "HiddenStuff.preScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "lol yeah hidden stuffs",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            "content": {
+              "name": "HiddenStuff.contents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "Dog.Soldier.loot"
+                }
+              ]
+            }
+          }
+        ],
         "randomEncounters": "TestingTable",
         "statModifier": "3f800000000000000000,07080807080708",
         "terrainType": "URBAN",
@@ -3485,6 +3514,7 @@
       {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CHEST_1_FRONT",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",

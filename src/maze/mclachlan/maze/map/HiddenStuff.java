@@ -55,7 +55,7 @@ public class HiddenStuff extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (preScript != null)
 		{
@@ -70,7 +70,7 @@ public class HiddenStuff extends TileScript
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-/*		if (playerAction == PlayerAction.SEARCH)
+/*		if (playerAction == PlayerAction.SEARCH) todo
 		{
 			PlayerCharacter pc = GameSys.getInstance().scoutingFindsStash(maze, findDifficulty);
 			if (pc != null)
