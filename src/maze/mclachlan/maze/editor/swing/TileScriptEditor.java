@@ -133,8 +133,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
-	private JComboBox encounterPreScript, encounterPostAppearanceScript;
+	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript;
 	private JButton encounterQuickAssignMazeVar;
+
 	private JTextArea flavourText;
 	private JComboBox flavourTextAlignment;
 	private JComboBox lootTable;
@@ -393,8 +394,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				encounterVariable.setText(e.getMazeVariable());
 				encounterAttitude.setSelectedItem(e.getAttitude() == null ? EditorPanel.NONE : e.getAttitude());
 				encounterAmbushStatus.setSelectedItem(e.getAmbushStatus() == null ? EditorPanel.NONE : e.getAmbushStatus());
-				encounterPreScript.setSelectedItem(e.getPreScript() == null ? EditorPanel.NONE : e.getPreScript());
-				encounterPostAppearanceScript.setSelectedItem(e.getPostAppearanceScript() == null ? EditorPanel.NONE : e.getPostAppearanceScript());
+				encounterPreScript.refresh(e.getPreScriptEvents() == null ? null : e.getPreScriptEvents().getEvents());
+				encounterPostAppearanceScript.refresh(e.getPostAppearanceScriptEvents() == null ? null : e.getPostAppearanceScriptEvents().getEvents());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -801,12 +802,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		ambushStatuses.add(0, EditorPanel.NONE);
 		encounterAmbushStatus = new JComboBox(ambushStatuses);
 
-		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(vec2);
-		vec2.add(0, EditorPanel.NONE);
-		encounterPreScript = new JComboBox<>(vec2);
-
-		encounterPostAppearanceScript = new JComboBox<>(vec2);
+		encounterPreScript = new MazeEventsComponent(dirtyFlag);
+		encounterPostAppearanceScript = new MazeEventsComponent(dirtyFlag);
 
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
@@ -1420,8 +1417,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case ENCOUNTER:
 				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
-				String encPreScript = encounterPreScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPreScript.getSelectedItem();
-				String encPostAppearanceScript = encounterPostAppearanceScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPostAppearanceScript.getSelectedItem();
+				MazeScript encPreScript = null;
+				if (encounterPreScript.getEvents() != null && encounterPreScript.getEvents().size()>0)
+				{
+					encPreScript = new MazeScript("Encounter.preScript", encounterPreScript.getEvents());
+				}
+				MazeScript encPostAppearanceScript = null;
+				if (encounterPostAppearanceScript.getEvents() != null && encounterPostAppearanceScript.getEvents().size()>0)
+				{
+					encPostAppearanceScript = new MazeScript("Encounter.postAppearanceScript", encounterPostAppearanceScript.getEvents());
+				}
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
 					encounterVariable.getText(),

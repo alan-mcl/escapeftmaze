@@ -23,6 +23,7 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.stat.combat.Combat;
@@ -36,7 +37,7 @@ public class Encounter extends TileScript
 	private EncounterTable encounterTable;
 	private String mazeVariable;
 	private NpcFaction.Attitude attitude;
-	private String preScript, postAppearanceScript;
+	private MazeScript preScriptEvents, postAppearanceScriptEvents;
 	private Combat.AmbushStatus ambushStatus;
 
 	public Encounter()
@@ -58,15 +59,16 @@ public class Encounter extends TileScript
 		String mazeVariable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript,
-		String postAppearanceScript)
+		MazeScript preScriptEvents,
+		MazeScript postAppearanceScriptEvents)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
 		this.attitude = attitude;
 		this.ambushStatus = ambushStatus;
-		this.preScript = preScript;
-		this.postAppearanceScript = postAppearanceScript;
+
+		this.preScriptEvents = preScriptEvents;
+		this.postAppearanceScriptEvents = postAppearanceScriptEvents;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -123,8 +125,8 @@ public class Encounter extends TileScript
 					encounterTable,
 					attitude,
 					ambushStatus,
-					preScript,
-					postAppearanceScript));
+					preScriptEvents,
+					postAppearanceScriptEvents));
 		}
 		else
 		{
@@ -158,16 +160,6 @@ public class Encounter extends TileScript
 		return ambushStatus;
 	}
 
-	public String getPreScript()
-	{
-		return preScript;
-	}
-
-	public String getPostAppearanceScript()
-	{
-		return postAppearanceScript;
-	}
-
 	public void setEncounterTable(EncounterTable encounterTable)
 	{
 		this.encounterTable = encounterTable;
@@ -183,75 +175,30 @@ public class Encounter extends TileScript
 		this.attitude = attitude;
 	}
 
-	public void setPreScript(String preScript)
-	{
-		this.preScript = preScript;
-	}
-
-	public void setPostAppearanceScript(String postAppearanceScript)
-	{
-		this.postAppearanceScript = postAppearanceScript;
-	}
-
 	public void setAmbushStatus(
 		Combat.AmbushStatus ambushStatus)
 	{
 		this.ambushStatus = ambushStatus;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public MazeScript getPreScriptEvents()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		Encounter encounter = (Encounter)o;
-
-		if (getEncounterTable() != null ? !getEncounterTable().equals(encounter.getEncounterTable()) : encounter.getEncounterTable() != null)
-		{
-			return false;
-		}
-		if (getMazeVariable() != null ? !getMazeVariable().equals(encounter.getMazeVariable()) : encounter.getMazeVariable() != null)
-		{
-			return false;
-		}
-		if (getAttitude() != encounter.getAttitude())
-		{
-			return false;
-		}
-		if (getPreScript() != null ? !getPreScript().equals(encounter.getPreScript()) : encounter.getPreScript() != null)
-		{
-			return false;
-		}
-		if (getPostAppearanceScript() != null ? !getPostAppearanceScript().equals(encounter.getPostAppearanceScript()) : encounter.getPostAppearanceScript() != null)
-		{
-			return false;
-		}
-		return getAmbushStatus() == encounter.getAmbushStatus();
+		return preScriptEvents;
 	}
 
-	@Override
-	public int hashCode()
+	public void setPreScriptEvents(MazeScript preScriptEvents)
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getEncounterTable() != null ? getEncounterTable().hashCode() : 0);
-		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
-		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
-		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
-		result = 31 * result + (getPostAppearanceScript() != null ? getPostAppearanceScript().hashCode() : 0);
-		result = 31 * result + (getAmbushStatus() != null ? getAmbushStatus().hashCode() : 0);
-		return result;
+		this.preScriptEvents = preScriptEvents;
+	}
+
+	public MazeScript getPostAppearanceScriptEvents()
+	{
+		return postAppearanceScriptEvents;
+	}
+
+	public void setPostAppearanceScriptEvents(
+		MazeScript postAppearanceScriptEvents)
+	{
+		this.postAppearanceScriptEvents = postAppearanceScriptEvents;
 	}
 }

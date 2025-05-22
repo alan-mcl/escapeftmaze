@@ -20,10 +20,7 @@
 package mclachlan.maze.map.script;
 
 import java.util.*;
-import mclachlan.maze.game.ActorEncounter;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.*;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.stat.FoeGroup;
@@ -41,7 +38,7 @@ public class EncounterActorsEvent extends MazeEvent
 	private String encounterTable;
 	private NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
-	private String preScript, postAppearanceScript;
+	private MazeScript preScript, postAppearanceScript;
 
 	// volatile
 	private EncounterTable encounterTableRef;
@@ -56,8 +53,8 @@ public class EncounterActorsEvent extends MazeEvent
 		String encounterTable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript,
-		String postAppearanceScript)
+		MazeScript preScript,
+		MazeScript postAppearanceScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
@@ -73,8 +70,8 @@ public class EncounterActorsEvent extends MazeEvent
 		EncounterTable encounterTable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript,
-		String postAppearanceScript)
+		MazeScript preScript,
+		MazeScript postAppearanceScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable.getName();
@@ -121,7 +118,7 @@ public class EncounterActorsEvent extends MazeEvent
 		List<MazeEvent> preScriptEvents;
 		if (preScript != null)
 		{
-			preScriptEvents = Database.getInstance().getMazeScript(preScript).getEvents();
+			preScriptEvents = preScript.getEvents();
 		}
 		else
 		{
@@ -131,7 +128,7 @@ public class EncounterActorsEvent extends MazeEvent
 		List<MazeEvent> postAppearanceScriptEvents;
 		if (postAppearanceScript != null)
 		{
-			postAppearanceScriptEvents = Database.getInstance().getMazeScript(postAppearanceScript).getEvents();
+			postAppearanceScriptEvents = postAppearanceScript.getEvents();
 		}
 		else
 		{
@@ -164,12 +161,12 @@ public class EncounterActorsEvent extends MazeEvent
 		return ambushStatus;
 	}
 
-	public String getPreScript()
+	public MazeScript getPreScript()
 	{
 		return preScript;
 	}
 
-	public String getPostAppearanceScript()
+	public MazeScript getPostAppearanceScript()
 	{
 		return postAppearanceScript;
 	}
@@ -195,12 +192,12 @@ public class EncounterActorsEvent extends MazeEvent
 		this.ambushStatus = ambushStatus;
 	}
 
-	public void setPreScript(String preScript)
+	public void setPreScript(MazeScript preScript)
 	{
 		this.preScript = preScript;
 	}
 
-	public void setPostAppearanceScript(String postAppearanceScript)
+	public void setPostAppearanceScript(MazeScript postAppearanceScript)
 	{
 		this.postAppearanceScript = postAppearanceScript;
 	}

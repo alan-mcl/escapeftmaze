@@ -431,8 +431,11 @@ public class V2SerialiserFactory
 
 		map.put(ZoneChangeEvent.class, getReflectiveSerialiser(ZoneChangeEvent.class, "zone", "pos", "facing"));
 		map.put(CastSpellEvent.class, getReflectiveSerialiser(CastSpellEvent.class, "spellName", "casterLevel", "castingLevel"));
-		map.put(EncounterActorsEvent.class, getReflectiveSerialiser(EncounterActorsEvent.class,
-			"mazeVariable", "encounterTable", "attitude", "ambushStatus", "preScript", "postAppearanceScript"));
+
+		ReflectiveSerialiser encounterActorsSerialiser = getReflectiveSerialiser(EncounterActorsEvent.class,
+			"mazeVariable", "encounterTable", "attitude", "ambushStatus", "preScript", "postAppearanceScript");
+		map.put(EncounterActorsEvent.class, encounterActorsSerialiser);
+
 		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText", "alignment"));
 		map.put(GrantExperienceEvent.class, getReflectiveSerialiser(GrantExperienceEvent.class, "amount", "pc"));
 		map.put(GrantGoldEvent.class, getReflectiveSerialiser(GrantGoldEvent.class, "amount"));
@@ -475,7 +478,13 @@ public class V2SerialiserFactory
 
 		map.put(JournalEntryEvent.class, getReflectiveSerialiser(JournalEntryEvent.class, "type", "key", "journalText"));
 
-		return new MazeObjectImplSerialiser<>(map);
+		MazeObjectImplSerialiser<MazeEvent> result = new MazeObjectImplSerialiser<>(map);
+
+		// dodginess
+		encounterActorsSerialiser.addCustomSerialiser("preScript", result);
+		encounterActorsSerialiser.addCustomSerialiser("postAppearanceScript", result);
+
+		return result;
 	}
 
 	private static MazeObjectImplSerialiser<MazeEvent> getAnimationSerialiser()
@@ -728,8 +737,12 @@ public class V2SerialiserFactory
 
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
-			"encounterTable", "mazeVariable", "attitude", "ambushStatus", "preScript", "postAppearanceScript");
+			"encounterTable", "mazeVariable", "attitude", "ambushStatus", "preScriptEvents", "postAppearanceScriptEvents");
 		encounterSerialiser.addCustomSerialiser("encounterTable", new NameSerialiser<>(db::getEncounterTable));
+
+		encounterSerialiser.addCustomSerialiser("preScriptEvents", getMazeScriptSerialiser(db));
+		encounterSerialiser.addCustomSerialiser("postAppearanceScriptEvents", getMazeScriptSerialiser(db));
+
 		map.put(Encounter.class, encounterSerialiser);
 
 		map.put(FlavourText.class, getReflectiveSerialiser(FlavourText.class,

@@ -5779,7 +5779,19 @@
             "mazeVariable": "gatehouse.encounter.3",
             "attitude": "ATTACKING",
             "ambushStatus": "NONE",
-            "preScript": "Gatehouse encounter 1 bats"
+            "preScript": "Gatehouse encounter 1 bats",
+            "preScriptEvents": {
+              "name": "Gatehouse encounter 1 bats",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "With a flurry of wings, you are suddenly assaulted from above!",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -10802,7 +10814,26 @@
             "encounterTable": "gatehouse.feral.familiar.1",
             "mazeVariable": "gatehouse.encounter.20",
             "ambushStatus": "NONE",
-            "postAppearanceScript": "Gatehouse feral familiar encounter"
+            "postAppearanceScript": "Gatehouse feral familiar encounter",
+            "postAppearanceScriptEvents": {
+              "name": "Gatehouse feral familiar encounter",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You find a small, fierce looking creature rooting and scratching in the barrels in this room.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "TOP"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature\u0027s eyes blaze with fury and it moves to attack!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "TOP"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "gatehouse.level.1",

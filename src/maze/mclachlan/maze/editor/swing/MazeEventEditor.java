@@ -32,6 +32,7 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.JournalEntryEvent;
 import mclachlan.maze.game.journal.JournalManager;
@@ -81,7 +82,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField encounterMazeVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
-	private JComboBox encounterPreScript, encounterPostAppearanceScript;
+	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
 	private JComboBox alignment;
@@ -230,8 +231,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				encounterTable.setSelectedItem(ee.getEncounterTable());
 				encounterAttitude.setSelectedItem(ee.getAttitude() == null ? EditorPanel.NONE : ee.getAttitude());
 				encounterAmbushStatus.setSelectedItem(ee.getAmbushStatus() == null ? Combat.AmbushStatus.NONE : ee.getAmbushStatus());
-				encounterPreScript.setSelectedItem(ee.getPreScript() == null ? EditorPanel.NONE : ee.getPreScript());
-				encounterPostAppearanceScript.setSelectedItem(ee.getPostAppearanceScript() == null ? EditorPanel.NONE : ee.getPostAppearanceScript());
+				encounterPreScript.refresh(ee.getPreScript() == null ? null : ee.getPreScript().getEvents());
+				encounterPostAppearanceScript.refresh(ee.getPostAppearanceScript() == null ? null : ee.getPostAppearanceScript().getEvents());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -465,8 +466,16 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _EncounterActorsEvent:
 				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
-				String preScript = encounterPreScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPreScript.getSelectedItem();
-				String postAppearanceScript = encounterPostAppearanceScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPostAppearanceScript.getSelectedItem();
+				MazeScript preScript = null;
+				if (encounterPreScript.getEvents() != null && encounterPreScript.getEvents().size()>0)
+				{
+					preScript = new MazeScript("EncounterActorsEvent.preScript", encounterPreScript.getEvents());
+				}
+				MazeScript postAppearanceScript = null;
+				if (encounterPostAppearanceScript.getEvents() != null && encounterPostAppearanceScript.getEvents().size()>0)
+				{
+					postAppearanceScript = new MazeScript("EncounterActorsEvent.postAppearanceScript", postAppearanceScript.getEvents());
+				}
 
 				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
@@ -1158,12 +1167,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		ambushStatuses.add(0, EditorPanel.NONE);
 		encounterAmbushStatus = new JComboBox(ambushStatuses);
 
-		Vector vec2 = new Vector(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(vec2);
-		vec2.add(0, EditorPanel.NONE);
-		encounterPreScript = new JComboBox(vec2);
+		encounterPreScript = new MazeEventsComponent(dirtyFlag);
 
-		encounterPostAppearanceScript = new JComboBox(vec2);
+		encounterPostAppearanceScript = new MazeEventsComponent(dirtyFlag);
 
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(

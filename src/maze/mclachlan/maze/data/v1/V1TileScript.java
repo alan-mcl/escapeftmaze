@@ -207,9 +207,9 @@ public class V1TileScript
 				s.append(sep);
 				s.append(e.getAmbushStatus()==null?"":e.getAmbushStatus().toString());
 				s.append(sep);
-				s.append(e.getPreScript()==null?"":e.getPreScript());
-				s.append(sep);
-				s.append(e.getPostAppearanceScript()==null?"":e.getPostAppearanceScript());
+//				s.append(e.getPreScript()==null?"":e.getPreScript());
+//				s.append(sep);
+//				s.append(e.getPostAppearanceScript()==null?"":e.getPostAppearanceScript());todo
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)t;
@@ -432,8 +432,8 @@ public class V1TileScript
 					encMazVar,
 					attitude,
 					ambushStatus,
-					preEncounterScript,
-					postAppearanceScript);
+					null,
+					null); // todo
 				break;
 			case FLAVOUR_TEXT:
 				// hack alert.  Any commas will have been split above.  Replace them

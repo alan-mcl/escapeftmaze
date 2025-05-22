@@ -550,7 +550,7 @@ public class V1MazeEvent
 					preScript = "".equals(strs[5])?null:strs[5];
 					postAppearanceScript = "".equals(strs[6])?null:strs[6];
 				}
-				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, preScript, postAppearanceScript);
+				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, null, null); // todo
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);
