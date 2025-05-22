@@ -36,7 +36,6 @@ public class DisplayOptions extends TileScript
 	private boolean forceSelection;
 	private String title;
 	private List<String> options;
-//	private List<String> scripts;
 	private List<MazeScript> mazeScripts;
 
 	public DisplayOptions()
@@ -81,11 +80,6 @@ public class DisplayOptions extends TileScript
 		return options;
 	}
 
-//	public List<String> getScripts()
-//	{
-//		return scripts;
-//	}
-
 	public boolean isForceSelection()
 	{
 		return forceSelection;
@@ -105,20 +99,6 @@ public class DisplayOptions extends TileScript
 	{
 		this.options = options;
 	}
-
-//	public void setScripts(List<String> scripts)
-//	{
-//		this.scripts = scripts;
-//
-//		if (scripts != null)
-//		{
-//			mazeScripts = new ArrayList<>();
-//			for (String s : scripts)
-//			{
-//				mazeScripts.add(Database.getInstance().getMazeScript(s));
-//			}
-//		}
-//	}
 
 	public List<MazeScript> getMazeScripts()
 	{

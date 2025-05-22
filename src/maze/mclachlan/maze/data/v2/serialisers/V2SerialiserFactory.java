@@ -753,9 +753,8 @@ public class V2SerialiserFactory
 
 		ReflectiveSerialiser optionsSerialiser = getReflectiveSerialiser(DisplayOptions.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
-			"forceSelection", "title", "options", /*"scripts", */"mazeScripts");
+			"forceSelection", "title", "options", "mazeScripts");
 		optionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
-//		optionsSerialiser.addCustomSerialiser("scripts", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		optionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(getMazeScriptSerialiser(db)));
 
 		map.put(DisplayOptions.class, optionsSerialiser);

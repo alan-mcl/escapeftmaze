@@ -733,110 +733,59 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public List<TileScript> getAllTileScripts()
 	{
-		if (this == o)
+		List<TileScript> result = new ArrayList<>();
+
+		Tile[][] tiles = getTiles();
+		for (int i = 0, tilesLength = tiles.length; i < tilesLength; i++)
 		{
-			return true;
-		}
-		if (!(o instanceof Zone))
-		{
-			return false;
+			Tile[] x = tiles[i];
+			for (int j = 0, xLength = x.length; j < xLength; j++)
+			{
+				Tile y = x[j];
+				if (y.getScripts() != null && !y.getScripts().isEmpty())
+				{
+					result.addAll(y.getScripts());
+
+					Point tilePoint = new Point(i, j);
+					for (Wall w : getMap().getWalls(tilePoint))
+					{
+						MouseClickScriptAdapter mouseClickScript = (MouseClickScriptAdapter)w.getMouseClickScript();
+						MouseClickScriptAdapter maskTextureMouseClickScript = (MouseClickScriptAdapter)w.getMaskTextureMouseClickScript();
+						MouseClickScriptAdapter internalScript = (MouseClickScriptAdapter)w.getInternalScript();
+
+						if (mouseClickScript != null)
+						{
+							result.add(mouseClickScript.getScript());
+						}
+						if (maskTextureMouseClickScript != null)
+						{
+							result.add(maskTextureMouseClickScript.getScript());
+						}
+						if (internalScript != null)
+						{
+							result.add(internalScript.getScript());
+						}
+					}
+					List<EngineObject> objects = getMap().getObjects(getTileIndex(tilePoint));
+
+					for (EngineObject object : objects)
+					{
+						if (object != null && object.getMouseClickScript() != null &&
+							object.getMouseClickScript() instanceof MouseClickScriptAdapter)
+						{
+							result.add(((MouseClickScriptAdapter)object.getMouseClickScript()).getScript());
+						}
+					}
+				}
+			}
 		}
 
-		Zone zone = (Zone)o;
 
-		if (isDoShading() != zone.isDoShading())
-		{
-			return false;
-		}
-		if (isDoLighting() != zone.isDoLighting())
-		{
-			return false;
-		}
-		if (Double.compare(zone.getShadingDistance(), getShadingDistance()) != 0)
-		{
-			return false;
-		}
-		if (Double.compare(zone.getShadingMultiplier(), getShadingMultiplier()) != 0)
-		{
-			return false;
-		}
-		if (getProjectionPlaneOffset() != zone.getProjectionPlaneOffset())
-		{
-			return false;
-		}
-		if (getPlayerFieldOfView() != zone.getPlayerFieldOfView())
-		{
-			return false;
-		}
-		if (Double.compare(zone.getScaleDistFromProjPlane(), getScaleDistFromProjPlane()) != 0)
-		{
-			return false;
-		}
-		if (getOrder() != zone.getOrder())
-		{
-			return false;
-		}
-		if (getName() != null ? !getName().equals(zone.getName()) : zone.getName() != null)
-		{
-			return false;
-		}
-		if (getMap() != null ? !getMap().equals(zone.getMap()) : zone.getMap() != null)
-		{
-			return false;
-		}
-		if (!Arrays.deepEquals(getTiles(), zone.getTiles()))
-		{
-			return false;
-		}
-		if (!Arrays.deepEquals(getPortals(), zone.getPortals()))
-		{
-			return false;
-		}
-		if (getScript() != null ? !getScript().equals(zone.getScript()) : zone.getScript() != null)
-		{
-			return false;
-		}
-		if (getShadeTargetColor() != null ? !getShadeTargetColor().equals(zone.getShadeTargetColor()) : zone.getShadeTargetColor() != null)
-		{
-			return false;
-		}
-		if (getTransparentColor() != null ? !getTransparentColor().equals(zone.getTransparentColor()) : zone.getTransparentColor() != null)
-		{
-			return false;
-		}
-		return getPlayerOrigin() != null ? getPlayerOrigin().equals(zone.getPlayerOrigin()) : zone.getPlayerOrigin() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result;
-		long temp;
-		result = getName() != null ? getName().hashCode() : 0;
-		result = 31 * result + (getMap() != null ? getMap().hashCode() : 0);
-		result = 31 * result + Arrays.deepHashCode(getTiles());
-		result = 31 * result + (getPortals() != null ? getPortals().hashCode() : 0);
-		result = 31 * result + (getScript() != null ? getScript().hashCode() : 0);
-		result = 31 * result + (getShadeTargetColor() != null ? getShadeTargetColor().hashCode() : 0);
-		result = 31 * result + (getTransparentColor() != null ? getTransparentColor().hashCode() : 0);
-		result = 31 * result + (isDoShading() ? 1 : 0);
-		result = 31 * result + (isDoLighting() ? 1 : 0);
-		temp = Double.doubleToLongBits(getShadingDistance());
-		result = 31 * result + (int)(temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(getShadingMultiplier());
-		result = 31 * result + (int)(temp ^ (temp >>> 32));
-		result = 31 * result + getProjectionPlaneOffset();
-		result = 31 * result + getPlayerFieldOfView();
-		temp = Double.doubleToLongBits(getScaleDistFromProjPlane());
-		result = 31 * result + (int)(temp ^ (temp >>> 32));
-		result = 31 * result + getOrder();
-		result = 31 * result + (getPlayerOrigin() != null ? getPlayerOrigin().hashCode() : 0);
 		return result;
 	}
+
 
 	/*-------------------------------------------------------------------------*/
 	public static class Vector

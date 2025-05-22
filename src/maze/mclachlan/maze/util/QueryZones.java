@@ -21,16 +21,15 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
-import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.script.ExecuteMazeScript;
+import mclachlan.maze.map.script.*;
 
 /**
  *
@@ -44,9 +43,10 @@ public class QueryZones
 	{
 		System.out.println("...");
 
-		V1Loader loader = new V1Loader();
-		saver = new V1Saver();
-		Database db = new Database(loader, saver, Maze.getStubCampaign());
+		Database db = new Database(new V2Loader(), new V2Saver(), Maze.getStubCampaign());
+
+		db.initImpls();
+		db.initCaches(null);
 
 		List<String> zones = db.getZoneNames();
 
@@ -54,31 +54,62 @@ public class QueryZones
 		{
 			Zone z = db.getZone(s);
 
-			Tile[][] tiles = z.getTiles();
-			for (int i = 0, tilesLength = tiles.length; i < tilesLength; i++)
-			{
-				Tile[] x = tiles[i];
-				for (int j = 0, xLength = x.length; j < xLength; j++)
-				{
-					Tile y = x[j];
-					if (y.getScripts() != null && !y.getScripts().isEmpty())
-					{
-						for (TileScript ms : y.getScripts())
-						{
-							if (ms instanceof ExecuteMazeScript)
-							{
-								MazeScript script = Database.getInstance().getMazeScripts().get(
-									((ExecuteMazeScript)ms).getScript());
+			List<TileScript> allTileScripts = z.getAllTileScripts();
 
-								for (MazeEvent me : script.getEvents())
-								{
-									if (me instanceof CharacterClassKnowledgeEvent)
-									{
-										System.out.println(s + ": "+i+","+j);
-									}
-								}
-							}
-						}
+			for (TileScript ts : allTileScripts)
+			{
+				if (ts instanceof Encounter)
+				{
+					if (((Encounter)ts).getPreScriptEvents() != null)
+					{
+						System.out.println(((Encounter)ts).getPreScriptEvents().getName());
+					}
+					if (((Encounter)ts).getPostAppearanceScriptEvents() != null)
+					{
+						System.out.println(((Encounter)ts).getPostAppearanceScriptEvents().getName());
+					}
+				}
+				else if (ts instanceof Chest)
+				{
+					if (((Chest)ts).getPreScript() != null)
+					{
+						System.out.println(((Chest)ts).getPreScript().getName());
+					}
+				}
+				else if (ts instanceof HiddenStuff)
+				{
+					if (((HiddenStuff)ts).getPreScript() != null)
+					{
+						System.out.println(((HiddenStuff)ts).getPreScript().getName());
+					}
+					if (((HiddenStuff)ts).getContent() != null)
+					{
+						System.out.println(((HiddenStuff)ts).getContent().getName());
+					}
+				}
+				else if (ts instanceof ExecuteMazeScript)
+				{
+					if (((ExecuteMazeScript)ts).getScript() != null)
+					{
+						System.out.println(((ExecuteMazeScript)ts).getScript().getName());
+					}
+				}
+				else if (ts instanceof Lever)
+				{
+					if (((Lever)ts).getPreTransitionScript() != null)
+					{
+						System.out.println(((Lever)ts).getPreTransitionScript().getName());
+					}
+					if (((Lever)ts).getPostTransitionScript() != null)
+					{
+						System.out.println(((Lever)ts).getPostTransitionScript().getName());
+					}
+				}
+				else if (ts instanceof DisplayOptions)
+				{
+					for (MazeScript ms : ((DisplayOptions)ts).getMazeScripts())
+					{
+						System.out.println(ms.getName());
 					}
 				}
 			}
