@@ -217,7 +217,7 @@ public class MockCombat
 
 		ArrayList<FoeGroup> foeGroups = new ArrayList<>(List.of(foeGroup));
 
-		GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
+		GameState gs = new GameState("arena", new DifficultyLevel(), new Point(), 0, 0,
 			0, List.of("Tester"), 1, 0);
 		maze.setGameState(gs);
 
@@ -314,7 +314,7 @@ public class MockCombat
 
 				maze.setParty(party);
 
-				GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
+				GameState gs = new GameState("arena", new DifficultyLevel(), new Point(), 0, 0,
 					0, List.of("Tester"), 1, 0);
 				maze.setGameState(gs);
 

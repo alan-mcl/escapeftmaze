@@ -72,14 +72,26 @@ public class DefaultFoeAiScript extends NpcScript
 	@Override
 	public List<MazeEvent> partyLeavesFriendly()
 	{
-		return getList(new PartyLeavesEvent());
+		List<MazeEvent> result = new ArrayList<>();
+		if (actorEncounter.getPartyLeavesFriendlyScript() != null)
+		{
+			result.addAll(actorEncounter.getPartyLeavesFriendlyScript());
+		}
+		result.add(new PartyLeavesEvent());
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> partyLeavesNeutral()
 	{
-		return getList(new PartyLeavesEvent());
+		List<MazeEvent> result = new ArrayList<>();
+		if (actorEncounter.getPartyLeavesNeutralScript() != null)
+		{
+			result.addAll(actorEncounter.getPartyLeavesNeutralScript());
+		}
+		result.add(new PartyLeavesEvent());
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

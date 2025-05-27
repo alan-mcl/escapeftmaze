@@ -24,8 +24,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -33,7 +33,6 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.GameState;
 import mclachlan.maze.game.PlayerTilesVisited;
-import mclachlan.maze.map.Zone;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -181,7 +180,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		p6.removeActionListener(this);
 		difficultyLevel.removeActionListener(this);
 
-		zone.setSelectedItem(gs.getCurrentZone().getName());
+		zone.setSelectedItem(gs.getCurrentZone());
 		facing.setSelectedIndex(gs.getFacing()-1);
 		playerX.setValue(gs.getPlayerPos().x);
 		playerY.setValue(gs.getPlayerPos().y);
@@ -223,7 +222,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 	/*-------------------------------------------------------------------------*/
 	public GameState getGameState()
 	{
-		Zone zone = Database.getInstance().getZone((String)this.zone.getSelectedItem());
+		String zone = (String)this.zone.getSelectedItem();
 		int x = (Integer)playerX.getValue();
 		int y = (Integer)playerY.getValue();
 		int gold = (Integer)partyGold.getValue();

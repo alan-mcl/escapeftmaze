@@ -44,6 +44,8 @@ import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.stat.ItemTemplate.Type;
+import static mclachlan.maze.stat.combat.Combat.AmbushStatus.*;
+import static mclachlan.maze.stat.npc.NpcFaction.Attitude.*;
 
 public class GameSys
 {
@@ -127,7 +129,10 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Combat.AmbushStatus determineAmbushStatus(PlayerParty party, List<FoeGroup> foes)
+	public Combat.AmbushStatus determineAmbushStatus(
+		PlayerParty party,
+		NpcFaction.Attitude attitude,
+		List<FoeGroup> foes)
 	{
 		Combat.AmbushStatus result;
 
@@ -140,41 +145,43 @@ public class GameSys
 		partyValue += Dice.d10.roll("ambush status: party");
 		foesValue += Dice.d10.roll("ambush status: foes");
 
+		// check and see if there are any "cannot evade" foes
+		boolean cannotEvade = false;
+		for (FoeGroup fg : foes)
+		{
+			for(Foe f : fg.getFoes())
+			{
+				cannotEvade |= f.cannotBeEvaded();
+			}
+		}
+
+		// decide ambush status
 		if (partyValue > foesValue+20)
 		{
-			// check and see if there are any "cannot evade" foes
-			boolean cannotEvade = false;
-			for (FoeGroup fg : foes)
-			{
-				for(Foe f : fg.getFoes())
-				{
-					cannotEvade |= f.cannotBeEvaded();
-				}
-			}
 			if (cannotEvade)
 			{
-				result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES;
+				result = PARTY_MAY_AMBUSH_FOES;
 			}
 			else
 			{
-				result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES;
+				result = PARTY_MAY_AMBUSH_OR_EVADE_FOES;
 			}
 		}
 		else if (partyValue > foesValue+10)
 		{
-			result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES;
+			result = PARTY_MAY_AMBUSH_FOES;
 		}
 		else if (foesValue > partyValue+20)
 		{
-			result = Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
+			result = FOES_MAY_AMBUSH_OR_EVADE_PARTY;
 		}
 		else if (foesValue > partyValue+10)
 		{
-			result = Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY;
+			result = FOES_MAY_AMBUSH_PARTY;
 		}
 		else
 		{
-			result = Combat.AmbushStatus.NONE;
+			result = NONE;
 		}
 
 		return result;
@@ -193,11 +200,11 @@ public class GameSys
 					case ATTACKING:
 						return NpcFaction.Attitude.AGGRESSIVE;
 					case AGGRESSIVE:
-						return NpcFaction.Attitude.WARY;
+						return WARY;
 					case WARY:
 						return NpcFaction.Attitude.NEUTRAL;
 					case SCARED:
-						return NpcFaction.Attitude.WARY;
+						return WARY;
 					case NEUTRAL:
 						return NpcFaction.Attitude.FRIENDLY;
 					case FRIENDLY:

@@ -39,7 +39,8 @@ public class ActorEncounter
 	private NpcFaction.Attitude encounterAttitude;
 	private Combat.AmbushStatus ambushStatus;
 	private final UnifiedActor leader;
-	private final List<MazeEvent> preScript, postAppearanceScript;
+	private final List<MazeEvent> preScript, postAppearanceScript,
+		partyLeavesFriendlyScript, partyLeavesNeutralScript;
 
 	/*-------------------------------------------------------------------------*/
 	public ActorEncounter(
@@ -48,7 +49,9 @@ public class ActorEncounter
 		NpcFaction.Attitude encounterAttitude,
 		Combat.AmbushStatus ambushStatus,
 		List<MazeEvent> preScript,
-		List<MazeEvent> postAppearanceScript)
+		List<MazeEvent> postAppearanceScript,
+		List<MazeEvent> partyLeavesNeutralScript,
+		List<MazeEvent> partyLeavesFriendlyScript)
 	{
 		this.encounterAttitude = encounterAttitude;
 		this.actors = actors;
@@ -56,6 +59,8 @@ public class ActorEncounter
 		this.ambushStatus = ambushStatus;
 		this.preScript = preScript;
 		this.postAppearanceScript = postAppearanceScript;
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
 		leader = GameSys.getInstance().getLeader(this.actors);
 	}
 
@@ -63,7 +68,7 @@ public class ActorEncounter
 	public String describe()
 	{
 		StringBuilder actorsDesc = new StringBuilder();
-		Set<String> uniqueNames = new HashSet<String>();
+		Set<String> uniqueNames = new HashSet<>();
 
 		for (ActorGroup ag : actors)
 		{
@@ -283,6 +288,16 @@ public class ActorEncounter
 	public List<MazeEvent> getPostAppearanceScript()
 	{
 		return postAppearanceScript;
+	}
+
+	public List<MazeEvent> getPartyLeavesFriendlyScript()
+	{
+		return partyLeavesFriendlyScript;
+	}
+
+	public List<MazeEvent> getPartyLeavesNeutralScript()
+	{
+		return partyLeavesNeutralScript;
 	}
 
 	private static class MsgDestinationEvent extends MazeEvent

@@ -8000,7 +8000,7 @@
             "alignment": "CENTER"
           }
         ],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020202010202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -8321,7 +8321,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020102010302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -8332,7 +8332,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020201010302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -8645,7 +8645,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02020101020302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -8968,7 +8968,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02010102020202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -8979,7 +8979,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020102010301",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9303,7 +9303,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020201020302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9342,7 +9342,7 @@
             }
           }
         ],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02020202020302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9353,7 +9353,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01010202010301",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9669,7 +9669,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01010102010302",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9680,7 +9680,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02020102020301",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -9974,24 +9974,24 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02020201020202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
         "randomEncounterChance": "5",
-        "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE",
+        "restingDanger": "NONE",
+        "restingEfficiency": "EXCELLENT",
         "sector": "cave_of_the_snail"
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01010101020301",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
         "randomEncounterChance": "5",
-        "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE",
+        "restingDanger": "NONE",
+        "restingEfficiency": "EXCELLENT",
         "sector": "cave_of_the_snail"
       },
       {
@@ -10007,7 +10007,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01010101010201",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -10316,25 +10316,48 @@
         "restingEfficiency": "AVERAGE"
       },
       {
-        "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true",
+            "scoutSecretDifficulty": "-1"
+          }
+        ],
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020201010202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
         "randomEncounterChance": "5",
-        "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE",
+        "restingDanger": "NONE",
+        "restingEfficiency": "EXCELLENT",
         "sector": "cave_of_the_snail"
       },
       {
-        "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.crossroad.execute.once.8",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "In the corner of this small cave lies a still pool of phosphorescent water. Tiny glowing motes drift slowly upwards from the dark water surface.\n\nIt looks very deep.",
+            "alignment": "CENTER"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.crossroad.execute.once.9",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "Something about the chamber makes you feel peaceful and safe. You\u0027re not sure why.",
+            "alignment": "CENTER"
+          }
+        ],
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020101020202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
         "randomEncounterChance": "5",
-        "restingDanger": "LOW",
-        "restingEfficiency": "AVERAGE",
+        "restingDanger": "NONE",
+        "restingEfficiency": "EXCELLENT",
         "sector": "cave_of_the_snail"
       },
       {
@@ -10346,21 +10369,46 @@
             "encounterTable": "ichiba.crossroad.ulgoth",
             "mazeVariable": "ichiba.crossroad.encounter.4",
             "attitude": "WARY",
-            "preScriptEvents": {
-              "name": "Ichiba Crossroad ulgoth enc",
+            "ambushStatus": "NONE",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "The way is blocked by a gigantic snail, glowing faintly in the low light.\n\nAt first you think the beast is asleep, but slowly it opens a single lid and regards you with one cold eye.",
+                  "flavourText": "The way is blocked by a gigantic snail, glowing faintly in the low light.",
                   "delay": "-1",
                   "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "alignment": "TOP"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "At first you think the beast is asleep, but slowly it opens a single lid and regards you with one cold eye.\n\nIt doesn\u0027t look friendly.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "TOP"
+                }
+              ]
+            },
+            "partyLeavesNeutralScript": {
+              "name": "EncounterActorsEvent.partyLeavesNeutral",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "You back away. The snail slowly closes it\u0027s eye.",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "TOP"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+                  "pos": "30:4",
+                  "facing": "0"
                 }
               ]
             }
           }
         ],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,02020202020202",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -10371,7 +10419,7 @@
       },
       {
         "scripts": [],
-        "randomEncounters": "ichiba.crossroad.random.enc",
+        "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
         "statModifier": "3f800000000000000000,01020201010301",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Cave",
@@ -11962,6 +12010,7 @@
       {
         "ceilingTexture": "DIRT_FLOOR_1",
         "floorTexture": "DIRT_FLOOR_1",
+        "floorMaskTexture": "TRANSPARENT",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",

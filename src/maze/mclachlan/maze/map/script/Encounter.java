@@ -37,7 +37,7 @@ public class Encounter extends TileScript
 	private EncounterTable encounterTable;
 	private String mazeVariable;
 	private NpcFaction.Attitude attitude;
-	private MazeScript preScriptEvents, postAppearanceScriptEvents;
+	private MazeScript preScriptEvents, postAppearanceScriptEvents, partyLeavesNeutralScript, partyLeavesFriendlyScript;
 	private Combat.AmbushStatus ambushStatus;
 
 	public Encounter()
@@ -60,7 +60,9 @@ public class Encounter extends TileScript
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
 		MazeScript preScriptEvents,
-		MazeScript postAppearanceScriptEvents)
+		MazeScript postAppearanceScriptEvents,
+		MazeScript partyLeavesNeutralScript,
+		MazeScript partyLeavesFriendlyScript)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
@@ -69,6 +71,8 @@ public class Encounter extends TileScript
 
 		this.preScriptEvents = preScriptEvents;
 		this.postAppearanceScriptEvents = postAppearanceScriptEvents;
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -126,7 +130,7 @@ public class Encounter extends TileScript
 					attitude,
 					ambushStatus,
 					preScriptEvents,
-					postAppearanceScriptEvents));
+					postAppearanceScriptEvents, partyLeavesNeutralScript, partyLeavesFriendlyScript));
 		}
 		else
 		{
@@ -200,5 +204,27 @@ public class Encounter extends TileScript
 		MazeScript postAppearanceScriptEvents)
 	{
 		this.postAppearanceScriptEvents = postAppearanceScriptEvents;
+	}
+
+	public MazeScript getPartyLeavesNeutralScript()
+	{
+		return partyLeavesNeutralScript;
+	}
+
+	public void setPartyLeavesNeutralScript(
+		MazeScript partyLeavesNeutralScript)
+	{
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
+	}
+
+	public MazeScript getPartyLeavesFriendlyScript()
+	{
+		return partyLeavesFriendlyScript;
+	}
+
+	public void setPartyLeavesFriendlyScript(
+		MazeScript partyLeavesFriendlyScript)
+	{
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
 	}
 }

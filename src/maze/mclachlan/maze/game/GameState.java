@@ -19,16 +19,15 @@
 
 package mclachlan.maze.game;
 
-import java.util.List;
-import mclachlan.maze.map.Zone;
-import java.awt.*;
+import java.awt.Point;
+import java.util.*;
 
 /**
  *
  */
 public class GameState
 {
-	private Zone currentZone;
+	private String currentZone;
 	private DifficultyLevel difficultyLevel;
 	private Point playerPos;
 	private int partyGold;
@@ -44,7 +43,7 @@ public class GameState
 
 	/*-------------------------------------------------------------------------*/
 	public GameState(
-		Zone currentZone,
+		String currentZone,
 		DifficultyLevel difficultyLevel,
 		Point playerPos,
 		int facing,
@@ -76,12 +75,12 @@ public class GameState
 		this.turnNr = turnNr;
 	}
 
-	public Zone getCurrentZone()
+	public String getCurrentZone()
 	{
 		return currentZone;
 	}
 
-	public void setCurrentZone(Zone currentZone)
+	public void setCurrentZone(String currentZone)
 	{
 		this.currentZone = currentZone;
 	}
@@ -154,71 +153,5 @@ public class GameState
 	public void setPartySupplies(int partySupplies)
 	{
 		this.partySupplies = partySupplies;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof GameState))
-		{
-			return false;
-		}
-
-		GameState gameState = (GameState)o;
-
-		if (getPartyGold() != gameState.getPartyGold())
-		{
-			return false;
-		}
-		if (getPartySupplies() != gameState.getPartySupplies())
-		{
-			return false;
-		}
-		if (getFormation() != gameState.getFormation())
-		{
-			return false;
-		}
-		if (getFacing() != gameState.getFacing())
-		{
-			return false;
-		}
-		if (getTurnNr() != gameState.getTurnNr())
-		{
-			return false;
-		}
-		if (getCurrentZone() != null ? !getCurrentZone().equals(gameState.getCurrentZone()) : gameState.getCurrentZone() != null)
-		{
-			return false;
-		}
-		if (getDifficultyLevel() != null ? !getDifficultyLevel().equals(gameState.getDifficultyLevel()) : gameState.getDifficultyLevel() != null)
-		{
-			return false;
-		}
-		if (getPlayerPos() != null ? !getPlayerPos().equals(gameState.getPlayerPos()) : gameState.getPlayerPos() != null)
-		{
-			return false;
-		}
-		return getPartyNames() != null ? getPartyNames().equals(gameState.getPartyNames()) : gameState.getPartyNames() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getCurrentZone() != null ? getCurrentZone().hashCode() : 0;
-		result = 31 * result + (getDifficultyLevel() != null ? getDifficultyLevel().hashCode() : 0);
-		result = 31 * result + (getPlayerPos() != null ? getPlayerPos().hashCode() : 0);
-		result = 31 * result + getPartyGold();
-		result = 31 * result + getPartySupplies();
-		result = 31 * result + (getPartyNames() != null ? getPartyNames().hashCode() : 0);
-		result = 31 * result + getFormation();
-		result = 31 * result + getFacing();
-		result = 31 * result + (int)(getTurnNr() ^ (getTurnNr() >>> 32));
-		return result;
 	}
 }

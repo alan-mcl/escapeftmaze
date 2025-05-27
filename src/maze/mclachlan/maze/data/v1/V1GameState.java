@@ -54,7 +54,7 @@ public class V1GameState
 		StringBuilder b = new StringBuilder();
 
 		b.append("zone=");
-		b.append(gameState.getCurrentZone().getName());
+		b.append(gameState.getCurrentZone());
 		b.append(V1Utils.NEWLINE);
 		b.append("difficultyLevel=");
 		b.append(gameState.getDifficultyLevel().getName());
@@ -97,6 +97,6 @@ public class V1GameState
 		int formation = Integer.parseInt(p.getProperty("formation"));
 		long turnNr = Long.parseLong(p.getProperty("turnNr"));
 
-		return new GameState(zone, dl, playerPos, facing, partyGold, partySupplies, partyNames, formation, turnNr);
+		return new GameState(zone.getName(), dl, playerPos, facing, partyGold, partySupplies, partyNames, formation, turnNr);
 	}
 }

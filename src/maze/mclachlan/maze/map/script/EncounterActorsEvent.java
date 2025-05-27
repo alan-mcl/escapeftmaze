@@ -38,14 +38,11 @@ public class EncounterActorsEvent extends MazeEvent
 	private String encounterTable;
 	private NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
-	private MazeScript preScript, postAppearanceScript;
+	private MazeScript preScript, postAppearanceScript,
+		partyLeavesNeutralScript, partyLeavesFriendlyScript;
 
 	// volatile
 	private EncounterTable encounterTableRef;
-
-	public EncounterActorsEvent()
-	{
-	}
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
@@ -54,7 +51,9 @@ public class EncounterActorsEvent extends MazeEvent
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
 		MazeScript preScript,
-		MazeScript postAppearanceScript)
+		MazeScript postAppearanceScript,
+		MazeScript partyLeavesNeutralScript,
+		MazeScript partyLeavesFriendlyScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
@@ -62,6 +61,8 @@ public class EncounterActorsEvent extends MazeEvent
 		this.ambushStatus = ambushStatus;
 		this.preScript = preScript;
 		this.postAppearanceScript = postAppearanceScript;
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -71,7 +72,9 @@ public class EncounterActorsEvent extends MazeEvent
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
 		MazeScript preScript,
-		MazeScript postAppearanceScript)
+		MazeScript postAppearanceScript,
+		MazeScript partyLeavesNeutralScript,
+		MazeScript partyLeavesFriendlyScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable.getName();
@@ -81,6 +84,8 @@ public class EncounterActorsEvent extends MazeEvent
 		this.encounterTableRef = encounterTable;
 		this.preScript = preScript;
 		this.postAppearanceScript = postAppearanceScript;
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -112,32 +117,19 @@ public class EncounterActorsEvent extends MazeEvent
 		{
 			ambushStatus = GameSys.getInstance().determineAmbushStatus(
 				Maze.getInstance().getParty(),
+				attitude,
 				allFoes);
 		}
 
-		List<MazeEvent> preScriptEvents;
-		if (preScript != null)
-		{
-			preScriptEvents = preScript.getEvents();
-		}
-		else
-		{
-			preScriptEvents = new ArrayList<>();
-		}
-
-		List<MazeEvent> postAppearanceScriptEvents;
-		if (postAppearanceScript != null)
-		{
-			postAppearanceScriptEvents = postAppearanceScript.getEvents();
-		}
-		else
-		{
-			postAppearanceScriptEvents = new ArrayList<>();
-		}
-
+		List<MazeEvent> preScriptEvents = preScript == null ? new ArrayList<>() : preScript.getEvents();
+		List<MazeEvent> postAppearanceScriptEvents = postAppearanceScript == null ? new ArrayList<>() : postAppearanceScript.getEvents();
+		List<MazeEvent> partyLeavesNeutralScriptEvents = partyLeavesNeutralScript == null ? new ArrayList<>() : partyLeavesNeutralScript.getEvents();
+		List<MazeEvent> partyLeavesFriendlyScriptEvents = partyLeavesFriendlyScript == null ? new ArrayList<>() : partyLeavesFriendlyScript.getEvents();
 
 		return Maze.getInstance().encounterActors(
-			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, preScriptEvents, postAppearanceScriptEvents));
+			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus,
+				preScriptEvents, postAppearanceScriptEvents,
+				partyLeavesNeutralScriptEvents, partyLeavesFriendlyScriptEvents));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -202,54 +194,25 @@ public class EncounterActorsEvent extends MazeEvent
 		this.postAppearanceScript = postAppearanceScript;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public MazeScript getPartyLeavesNeutralScript()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		EncounterActorsEvent that = (EncounterActorsEvent)o;
-
-		if (getMazeVariable() != null ? !getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() != null)
-		{
-			return false;
-		}
-		if (getEncounterTable() != null ? !getEncounterTable().equals(that.getEncounterTable()) : that.getEncounterTable() != null)
-		{
-			return false;
-		}
-		if (getAttitude() != that.getAttitude())
-		{
-			return false;
-		}
-		if (getAmbushStatus() != that.getAmbushStatus())
-		{
-			return false;
-		}
-		if (getPreScript() != null ? !getPreScript().equals(that.getPreScript()) : that.getPreScript() != null)
-		{
-			return false;
-		}
-		return getPostAppearanceScript() != null ? getPostAppearanceScript().equals(that.getPostAppearanceScript()) : that.getPostAppearanceScript() == null;
+		return partyLeavesNeutralScript;
 	}
 
-	@Override
-	public int hashCode()
+	public void setPartyLeavesNeutralScript(
+		MazeScript partyLeavesNeutralScript)
 	{
-		int result = getMazeVariable() != null ? getMazeVariable().hashCode() : 0;
-		result = 31 * result + (getEncounterTable() != null ? getEncounterTable().hashCode() : 0);
-		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
-		result = 31 * result + (getAmbushStatus() != null ? getAmbushStatus().hashCode() : 0);
-		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
-		result = 31 * result + (getPostAppearanceScript() != null ? getPostAppearanceScript().hashCode() : 0);
-		return result;
+		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
+	}
+
+	public MazeScript getPartyLeavesFriendlyScript()
+	{
+		return partyLeavesFriendlyScript;
+	}
+
+	public void setPartyLeavesFriendlyScript(
+		MazeScript partyLeavesFriendlyScript)
+	{
+		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
 	}
 }

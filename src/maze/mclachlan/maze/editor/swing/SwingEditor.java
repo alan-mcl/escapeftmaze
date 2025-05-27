@@ -171,7 +171,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		
 		addDynamicDataTab("Guild", getGuildPanel());
 		
-		saveGamePanels = new ArrayList<SaveGamePanel>();
+		saveGamePanels = new ArrayList<>();
 		List<String> saves = Database.getInstance().getLoader().getSaveGames();
 		for (String s : saves)
 		{

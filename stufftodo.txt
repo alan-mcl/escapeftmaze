@@ -4,13 +4,11 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
-inline zone maze scripts
 bug: summoning spell & call for help weirdnesses
 bug: random encounter prior to fixed encounter on a tile weirdness
 bug: zone change flickering
 bug: HP update on healing spells?
 re-encounter NPC on the same tile
-snail cave
 mantis bones loot
 a shrine
 more berry bushes
@@ -21,6 +19,8 @@ forgotten path / red moss tree
 other encounters?
 chest contents -> MazeScript
 make hidden stuff tile script work again
+floor texture & mask click scripts
+snail cave loot & pool
 
 BACKLOG
 ----------

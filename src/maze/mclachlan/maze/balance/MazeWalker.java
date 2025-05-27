@@ -24,7 +24,7 @@ public class MazeWalker
 		List<Tile> tiles = zs.getNavigableTiles(zone);
 
 		GameState gs = new GameState(
-			zone,
+			zone.getName(),
 			new DifficultyLevel(),
 			zone.getPlayerOrigin(),
 			ZoneChangeEvent.Facing.NORTH,

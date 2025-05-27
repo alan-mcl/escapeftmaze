@@ -133,7 +133,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
-	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript;
+	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript,
+		partyLeavesNeutralScript, partyLeavesFriendlyScript;
 	private JButton encounterQuickAssignMazeVar;
 
 	private JTextArea flavourText;
@@ -396,6 +397,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				encounterAmbushStatus.setSelectedItem(e.getAmbushStatus() == null ? EditorPanel.NONE : e.getAmbushStatus());
 				encounterPreScript.refresh(e.getPreScriptEvents() == null ? null : e.getPreScriptEvents().getEvents());
 				encounterPostAppearanceScript.refresh(e.getPostAppearanceScriptEvents() == null ? null : e.getPostAppearanceScriptEvents().getEvents());
+				partyLeavesNeutralScript.refresh(e.getPartyLeavesNeutralScript() == null ? null : e.getPartyLeavesNeutralScript().getEvents());
+				partyLeavesFriendlyScript.refresh(e.getPartyLeavesFriendlyScript() == null ? null : e.getPartyLeavesFriendlyScript().getEvents());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -415,7 +418,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 				displayOptionsTitle.setText(dop.getTitle());
 
-				for (int i=0; i<maxOptions; i++)
+				for (int i = 0; i < maxOptions; i++)
 				{
 					displayOptionsOptions.get(i).setText("");
 					displayOptionsScripts.get(i).refresh(null);
@@ -425,7 +428,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				{
 					displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
 					MazeScript scripti = dop.getMazeScripts().get(i);
-					displayOptionsScripts.get(i).refresh(scripti==null ? null : scripti.getEvents());
+					displayOptionsScripts.get(i).refresh(scripti == null ? null : scripti.getEvents());
 				}
 
 				break;
@@ -559,7 +562,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		displayOptionsOptions = new ArrayList<>(maxOptions);
 		displayOptionsScripts = new ArrayList<>(maxOptions);
-		for (int i=0; i<maxOptions; i++)
+		for (int i = 0; i < maxOptions; i++)
 		{
 			displayOptionsOptions.add(new JTextField(20));
 			displayOptionsScripts.add(new MazeEventsComponent(dirtyFlag));
@@ -787,6 +790,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		encounterPreScript = new MazeEventsComponent(dirtyFlag);
 		encounterPostAppearanceScript = new MazeEventsComponent(dirtyFlag);
+		partyLeavesNeutralScript = new MazeEventsComponent(dirtyFlag);
+		partyLeavesFriendlyScript = new MazeEventsComponent(dirtyFlag);
+
 
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
@@ -794,7 +800,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Attitude:"), encounterAttitude,
 			new JLabel("Ambush Status:"), encounterAmbushStatus,
 			new JLabel("Pre Script:"), encounterPreScript,
-			new JLabel("Post Appearance Script:"), encounterPostAppearanceScript
+			new JLabel("Post Appearance Script:"), encounterPostAppearanceScript,
+			new JLabel("Party Leaves Neutral Script: "), partyLeavesNeutralScript,
+			new JLabel("Party Leaves Friendly Script: "), partyLeavesFriendlyScript
 		);
 	}
 
@@ -1377,13 +1385,13 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case LEVER:
 				MazeScript preTransScript = null;
-				if (leverPreTransScript.getEvents() != null && leverPreTransScript.getEvents().size()>0)
+				if (leverPreTransScript.getEvents() != null && leverPreTransScript.getEvents().size() > 0)
 				{
 					preTransScript = new MazeScript("Lever.preTransScript", leverPreTransScript.getEvents());
 				}
 
 				MazeScript postTransScript = null;
-				if (leverPostTransScript.getEvents() != null && leverPostTransScript.getEvents().size()>0)
+				if (leverPostTransScript.getEvents() != null && leverPostTransScript.getEvents().size() > 0)
 				{
 					postTransScript = new MazeScript("Lever.postTransScript", leverPostTransScript.getEvents());
 				}
@@ -1401,22 +1409,35 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
 				MazeScript encPreScript = null;
-				if (encounterPreScript.getEvents() != null && encounterPreScript.getEvents().size()>0)
+				if (encounterPreScript.getEvents() != null && encounterPreScript.getEvents().size() > 0)
 				{
 					encPreScript = new MazeScript("Encounter.preScript", encounterPreScript.getEvents());
 				}
 				MazeScript encPostAppearanceScript = null;
-				if (encounterPostAppearanceScript.getEvents() != null && encounterPostAppearanceScript.getEvents().size()>0)
+				if (encounterPostAppearanceScript.getEvents() != null && encounterPostAppearanceScript.getEvents().size() > 0)
 				{
 					encPostAppearanceScript = new MazeScript("Encounter.postAppearanceScript", encounterPostAppearanceScript.getEvents());
 				}
+				MazeScript partyLeavesFriendly = null;
+				if (partyLeavesFriendlyScript.getEvents() != null && partyLeavesFriendlyScript.getEvents().size()>0)
+				{
+					partyLeavesFriendly = new MazeScript("EncounterActorsEvent.partyLeavesFriendly", partyLeavesFriendlyScript.getEvents());
+				}
+				MazeScript partyLeavesNeutral = null;
+				if (partyLeavesNeutralScript.getEvents() != null && partyLeavesNeutralScript.getEvents().size()>0)
+				{
+					partyLeavesNeutral = new MazeScript("EncounterActorsEvent.partyLeavesNeutral", partyLeavesNeutralScript.getEvents());
+				}
+
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
 					encounterVariable.getText(),
 					attitude,
 					ambushStatus,
 					encPreScript,
-					encPostAppearanceScript);
+					encPostAppearanceScript,
+					partyLeavesNeutral,
+					partyLeavesFriendly);
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText(), (FlavourTextEvent.Alignment)flavourTextAlignment.getSelectedItem());
@@ -1428,7 +1449,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				ArrayList<String> options = new ArrayList<>();
 				ArrayList<MazeScript> scripts = new ArrayList<>();
 
-				for (int i=0; i<maxOptions; i++)
+				for (int i = 0; i < maxOptions; i++)
 				{
 					String option = displayOptionsOptions.get(i).getText();
 

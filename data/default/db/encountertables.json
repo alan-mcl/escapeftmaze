@@ -148,7 +148,7 @@
         "gnoll.thugs.small",
         "human.footpads.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -583,6 +583,23 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.snail.cave.random.enc",
+    "encounterTable": {
+      "PERCENTAGES": [
+        34,
+        33,
+        33
+      ],
+      "ITEMS": [
+        "swarming.roach.swarm",
+        "hawk.moth.small",
+        "emerald.spiders.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "gates.of.hell.spell.1",
     "encounterTable": {
       "PERCENTAGES": [
@@ -879,7 +896,7 @@
         "lurching.omnifid.small",
         "fruit.bats.medium"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2332,7 +2349,7 @@
       "ITEMS": [
         "inghean.shades"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2409,7 +2426,7 @@
       "ITEMS": [
         "call.wyrms.spell.3"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

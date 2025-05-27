@@ -62,7 +62,7 @@ public class EkirthsTombGetselsBoneComb extends TileScript
 					MazeEvent.Delay.WAIT_ON_CLICK, true));
 			result.add(new SetMazeVariableEvent(BONE_COMB_USED, "true"));
 			result.add(new RemoveObjectEvent("ekirths.tomb.ageyrs.bones"));
-			result.add(new EncounterActorsEvent(null, "ageyrs.bones.1", null, null, null, null));
+			result.add(new EncounterActorsEvent(null, "ageyrs.bones.1", null, null, null, null, null, null));
 			
 			user.removeItem(item, true);
 

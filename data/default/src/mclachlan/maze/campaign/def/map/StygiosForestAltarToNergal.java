@@ -40,7 +40,7 @@ public class StygiosForestAltarToNergal extends TileScript
 				"creature reaches ghostly hands towards you...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true));
 			result.add(new EncounterActorsEvent("stygios.forest.altar.of.nergal.spirit",
-				"stygios.forest.altar.of.nergal.spirit", null, null, null, null));
+				"stygios.forest.altar.of.nergal.spirit", null, null, null, null, null, null));
 
 			return result;
 		}

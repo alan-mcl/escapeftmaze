@@ -22,25 +22,46 @@ package mclachlan.maze.stat.npc;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import java.util.*;
+import mclachlan.maze.stat.Dice;
 
 /**
  *
  */
 public class BackPartyUpEvent extends MazeEvent
 {
-	private int maxKeys;
+	private Dice maxTiles;
 	private int facing;
 
 	/*-------------------------------------------------------------------------*/
-	public BackPartyUpEvent(int maxKeys, int facing)
+	public BackPartyUpEvent(Dice maxTiles, int facing)
 	{
-		this.maxKeys = maxKeys;
+		this.maxTiles = maxTiles;
 		this.facing = facing;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		return Maze.getInstance().backPartyUp(maxKeys, facing);
+		return Maze.getInstance().backPartyUp(maxTiles.roll("backPartyUpEvent"), facing);
+	}
+
+	public Dice getMaxTiles()
+	{
+		return maxTiles;
+	}
+
+	public void setMaxTiles(Dice maxTiles)
+	{
+		this.maxTiles = maxTiles;
+	}
+
+	public int getFacing()
+	{
+		return facing;
+	}
+
+	public void setFacing(int facing)
+	{
+		this.facing = facing;
 	}
 }

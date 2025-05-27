@@ -19,6 +19,7 @@
 
 package mclachlan.maze.balance;
 
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.GameState;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
@@ -37,7 +38,7 @@ public class EncounterListener extends MazeWalker.Listener
 	public void walk(GameState gs)
 	{
 		// todo: difficulty level
-		Tile tile = gs.getCurrentZone().getTile(gs.getPlayerPos());
+		Tile tile = Database.getInstance().getZone(gs.getCurrentZone()).getTile(gs.getPlayerPos());
 
 		if (tile.getScripts() != null)
 		{

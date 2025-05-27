@@ -33,6 +33,7 @@ import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.util.MazeException;
+import static mclachlan.maze.editor.swing.MazeEventEditor.*;
 
 /**
  *
@@ -40,95 +41,7 @@ import mclachlan.maze.util.MazeException;
 public class V1MazeEvent
 {
 	public static final String SEP = ",";
-	public static Map<Class, Integer> types;
 
-	public static final int CUSTOM = 0;
-	public static final int _ZoneChangeEvent = 1;
-	public static final int _CastSpellEvent = 2;
-	public static final int _EncounterActorsEvent = 3;
-	public static final int _FlavourTextEvent = 4;
-	public static final int _GrantExperienceEvent = 5;
-	public static final int _GrantGoldEvent = 6;
-	public static final int _GrantItemsEvent = 7;
-	public static final int _SignBoardEvent = 8;
-	public static final int _LootTableEvent = 9;
-	public static final int _DelayEvent = 10;
-	public static final int _MovePartyEvent = 11;
-	public static final int _CharacterClassKnowledgeEvent = 12;
-	public static final int _MazeScript = 13;
-	public static final int _RemoveWall = 14;
-	public static final int _BlockingScreen = 15;
-	public static final int _EndGame = 16;
-	public static final int _SetMazeVariableEvent = 17;
-	public static final int _PersonalitySpeechEvent = 18;
-	public static final int _StoryboardEvent = 19;
-	public static final int _SetUserConfigEvent = 20;
-	public static final int _TogglePortalStateEvent = 21;
-	public static final int _RemoveObjectEvent = 22;
-	public static final int _SkillTestEvent = 23;
-	public static final int _AnimationEvent = 104;
-	public static final int _MusicEvent = 149;
-	public static final int _SoundEffectEvent = 138;
-	public static final int _JournalEntryEvent = 24;
-
-	public static final int _ActorDiesEvent = 100;
-	public static final int _ActorUnaffectedEvent = 101;
-	public static final int _AmbushHitEvent = 102;
-	public static final int _AmbushMissEvent = 103;
-	public static final int _AttackDodgeEvent = 105;
-	public static final int _AttackEvent = 106;
-	public static final int _AttackHitEvent = 107;
-	public static final int _AttackMissEvent = 108;
-	public static final int _BreaksFreeEvent = 109;
-	public static final int _ConditionEvent = 110;
-	public static final int _CowerInFearEvent = 111;
-	public static final int _DamageEvent = 112;
-	public static final int _DancesWildlyEvent = 113;
-	public static final int _DefendEvent = 114;
-	public static final int _EquipEvent = 116;
-	public static final int _FailureEvent = 117;
-	public static final int _FatigueEvent = 118;
-	public static final int _FreezeInTerrorEvent = 119;
-	public static final int _GagsHelplesslyEvent = 120;
-	public static final int _HealingEvent = 121;
-	public static final int _HideAttemptEvent = 122;
-	public static final int _HideFailsEvent = 123;
-	public static final int _HideSucceedsEvent = 124;
-	public static final int _ItchesUncontrollablyEvent = 125;
-	public static final int _ItemUseEvent = 126;
-	public static final int _LaughsMadlyEvent = 127;
-	public static final int _NoEffectEvent = 128;
-	public static final int _NpcCharmedEvent = 129;
-	public static final int _NpcMindreadEvent = 130;
-	public static final int _NpcMindreadFailedEvent = 131;
-	public static final int _NpcNotCharmedEvent = 132;
-	public static final int _RemoveCurseEvent = 133;
-	public static final int _RetchesNoisilyEvent = 134;
-	public static final int _RunAwayAttemptEvent = 135;
-	public static final int _RunAwayFailedEvent = 136;
-	public static final int _RunAwaySuccessEvent = 137;
-	public static final int _SpecialAbilityUseEvent = 139;
-	public static final int _SpellCastEvent = 140;
-	public static final int _SpellFizzlesEvent = 141;
-	public static final int _StrugglesMightilyEvent = 142;
-	public static final int _StumbleBlindlyEvent = 143;
-	public static final int _SuccessEvent = 144;
-	public static final int _SummoningFailsEvent = 145;
-	public static final int _SummoningSucceedsEvent = 146;
-	public static final int _TheftSpellFailed = 147;
-	public static final int _TheftSpellSucceeded = 148;
-
-	public static final int _ChangeNpcAttitudeEvent = 200;
-	public static final int _ChangeNpcLocationEvent = 201;
-	public static final int _ChangeNpcTheftCounter = 202;
-	public static final int _GiveItemToParty = 203;
-	public static final int _NpcAttacksEvent = 204;
-	public static final int _NpcLeavesEvent = 205;
-	public static final int _NpcSpeechEvent = 206;
-	public static final int _NpcTakesItemEvent = 207;
-	public static final int _WaitForPlayerSpeech = 208;
-	public static final int _ChangeNpcFactionAttitudeEvent = 209;
-	
 	private static final V1List<String> slashSeparatedStringList = new V1List<String>("/")
 	{
 		public String typeToString(String s)
@@ -141,95 +54,6 @@ public class V1MazeEvent
 			return s;
 		}
 	};
-
-	/*-------------------------------------------------------------------------*/
-	static
-	{
-		types = new HashMap<Class, Integer>();
-
-		types.put(ZoneChangeEvent.class, _ZoneChangeEvent);
-		types.put(CastSpellEvent.class, _CastSpellEvent);
-		types.put(EncounterActorsEvent.class, _EncounterActorsEvent);
-		types.put(FlavourTextEvent.class, _FlavourTextEvent);
-		types.put(GrantExperienceEvent.class, _GrantExperienceEvent);
-		types.put(GrantGoldEvent.class, _GrantGoldEvent);
-		types.put(GrantItemsEvent.class, _GrantItemsEvent);
-		types.put(SignBoardEvent.class, _SignBoardEvent);
-		types.put(LootTableEvent.class, _LootTableEvent);
-		types.put(ActorDiesEvent.class, _ActorDiesEvent);
-		types.put(ActorUnaffectedEvent.class, _ActorUnaffectedEvent);
-		types.put(AnimationEvent.class, _AnimationEvent);
-		types.put(AttackDodgeEvent.class, _AttackDodgeEvent);
-		types.put(AttackEvent.class, _AttackEvent);
-		types.put(AttackHitEvent.class, _AttackHitEvent);
-		types.put(AttackMissEvent.class, _AttackMissEvent);
-		types.put(BreaksFreeEvent.class, _BreaksFreeEvent);
-		types.put(ConditionEvent.class, _ConditionEvent);
-		types.put(CowerInFearEvent.class, _CowerInFearEvent);
-		types.put(DamageEvent.class, _DamageEvent);
-		types.put(DancesWildlyEvent.class, _DancesWildlyEvent);
-		types.put(DefendEvent.class, _DefendEvent);
-		types.put(DelayEvent.class, _DelayEvent);
-		types.put(MovePartyEvent.class, _MovePartyEvent);
-		types.put(CharacterClassKnowledgeEvent.class, _CharacterClassKnowledgeEvent);
-		types.put(PersonalitySpeechBubbleEvent.class, _PersonalitySpeechEvent);
-		types.put(StoryboardEvent.class, _StoryboardEvent);
-		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
-		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
-		types.put(RemoveObjectEvent.class, _RemoveObjectEvent);
-		types.put(SkillTestEvent.class, _SkillTestEvent);
-		types.put(JournalEntryEvent.class, _JournalEntryEvent);
-
-		types.put(MazeScriptEvent.class, _MazeScript);
-		types.put(RemoveWallEvent.class, _RemoveWall);
-		types.put(BlockingScreenEvent.class, _BlockingScreen);
-		types.put(EndGameEvent.class, _EndGame);
-		types.put(EquipEvent.class, _EquipEvent);
-		types.put(FailureEvent.class, _FailureEvent);
-		types.put(FatigueEvent.class, _FatigueEvent);
-		types.put(FreezeInTerrorEvent.class, _FreezeInTerrorEvent);
-		types.put(GagsHelplesslyEvent.class, _GagsHelplesslyEvent);
-		types.put(HealingEvent.class, _HealingEvent);
-		types.put(HideAttemptEvent.class, _HideAttemptEvent);
-		types.put(HideFailsEvent.class, _HideFailsEvent);
-		types.put(HideSucceedsEvent.class, _HideSucceedsEvent);
-		types.put(ItchesUncontrollablyEvent.class, _ItchesUncontrollablyEvent);
-		types.put(ItemUseEvent.class, _ItemUseEvent);
-		types.put(LaughsMadlyEvent.class, _LaughsMadlyEvent);
-		types.put(NoEffectEvent	.class, _NoEffectEvent	);
-		types.put(NpcCharmedEvent.class, _NpcCharmedEvent);
-		types.put(NpcMindreadEvent.class, _NpcMindreadEvent);
-		types.put(NpcMindreadFailedEvent.class, _NpcMindreadFailedEvent);
-		types.put(NpcNotCharmedEvent.class, _NpcNotCharmedEvent);
-		types.put(RemoveCurseEvent.class, _RemoveCurseEvent);
-		types.put(RetchesNoisilyEvent.class, _RetchesNoisilyEvent);
-		types.put(RunAwayAttemptEvent.class, _RunAwayAttemptEvent);
-		types.put(RunAwayFailedEvent.class, _RunAwayFailedEvent);
-		types.put(RunAwaySuccessEvent.class, _RunAwaySuccessEvent);
-		types.put(SoundEffectEvent.class, _SoundEffectEvent);
-		types.put(MusicEvent.class, _MusicEvent);
-		types.put(SpecialAbilityUseEvent.class, _SpecialAbilityUseEvent);
-		types.put(SpellCastEvent.class, _SpellCastEvent);
-		types.put(SpellFizzlesEvent.class, _SpellFizzlesEvent);
-		types.put(StrugglesMightilyEvent.class, _StrugglesMightilyEvent);
-		types.put(StumbleBlindlyEvent.class, _StumbleBlindlyEvent);
-		types.put(SuccessEvent.class, _SuccessEvent);
-		types.put(SummoningFailsEvent.class, _SummoningFailsEvent);
-		types.put(SummoningSucceedsEvent.class, _SummoningSucceedsEvent);
-		types.put(TheftSpellFailed.class, _TheftSpellFailed);
-		types.put(TheftSpellSucceeded.class, _TheftSpellSucceeded);
-		types.put(ChangeNpcAttitudeEvent.class, _ChangeNpcAttitudeEvent);
-		types.put(ChangeNpcLocationEvent.class, _ChangeNpcLocationEvent);
-		types.put(ChangeNpcTheftCounter.class, _ChangeNpcTheftCounter);
-		types.put(GiveItemToParty.class, _GiveItemToParty);
-		types.put(NpcAttacksEvent.class, _NpcAttacksEvent);
-		types.put(ActorsLeaveEvent.class, _NpcLeavesEvent);
-		types.put(NpcSpeechEvent.class, _NpcSpeechEvent);
-		types.put(NpcTakesItemEvent.class, _NpcTakesItemEvent);
-		types.put(WaitForPlayerSpeech.class, _WaitForPlayerSpeech);
-		types.put(SetMazeVariableEvent.class, _SetMazeVariableEvent);
-		types.put(ChangeNpcFactionAttitudeEvent.class, _ChangeNpcFactionAttitudeEvent);
-	}
 
 	/*-------------------------------------------------------------------------*/
 	public static String toString(MazeEvent e)
@@ -550,7 +374,7 @@ public class V1MazeEvent
 					preScript = "".equals(strs[5])?null:strs[5];
 					postAppearanceScript = "".equals(strs[6])?null:strs[6];
 				}
-				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, null, null); // todo
+				return new EncounterActorsEvent(mazeVariable, (String)null, attitude, ambushStatus, null, null, null, null); // todo
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

@@ -350,7 +350,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			case MOVEMENT ->
 			{
 				String zoneName = maze.getCurrentZone().getName();
-				header.setText(StringUtil.getUiLabel("poatw.exploring", zoneName));
+//				header.setText(StringUtil.getUiLabel("poatw.exploring", zoneName));
+				header.setText("");
 				stateHandlerCards.show(MOVEMENT);
 
 				journal.setEnabled(true);

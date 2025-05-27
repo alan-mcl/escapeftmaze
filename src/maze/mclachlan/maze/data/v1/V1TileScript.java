@@ -433,6 +433,8 @@ public class V1TileScript
 					attitude,
 					ambushStatus,
 					null,
+					null,
+					null,
 					null); // todo
 				break;
 			case FLAVOUR_TEXT:

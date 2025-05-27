@@ -26,7 +26,7 @@ public class CorrosiveSlimeEncounter extends TileScript
 			return getList(
 				new FlavourTextEvent("In the depths of the sewers, you " +
 					"stumble across a gigantic, living slime!"),
-				new EncounterActorsEvent(CORROSIVE_SLIME_ENCOUNTER, CORROSIVE_SLIME_ENCOUNTER, null, null, null, null));
+				new EncounterActorsEvent(CORROSIVE_SLIME_ENCOUNTER, CORROSIVE_SLIME_ENCOUNTER, null, null, null, null, null, null));
 		}
 		else
 		{

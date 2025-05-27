@@ -27,7 +27,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1MazeEvent;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ZoneChangeEvent;
 
@@ -203,7 +202,7 @@ public class MazeEventsPanel extends JPanel
 		public Object getElementAt(int index)
 		{
 			MazeEvent event = data.get(index);
-			String s = event.getClass().getSimpleName() + " [" + V1MazeEvent.toString(event) + "]";
+			String s = event.getClass().getSimpleName() + " [" + event.getClass().getSimpleName() + "]";
 			if (s.length() > 75)
 			{
 				s = s.substring(0, 73)+"...";

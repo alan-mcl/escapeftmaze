@@ -19,11 +19,10 @@
 
 package mclachlan.maze.editor.swing;
 
-import javax.swing.*;
-import mclachlan.maze.data.v1.V1MazeEvent;
-import mclachlan.maze.game.MazeEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import mclachlan.maze.game.MazeEvent;
 
 /**
  *
@@ -50,7 +49,7 @@ public class MazeEventComponent extends JButton implements ActionListener
 		}
 		else
 		{
-			String text = V1MazeEvent.toString(e);
+			String text = e.getClass().getSimpleName();
 
 			this.setToolTipText(text);
 

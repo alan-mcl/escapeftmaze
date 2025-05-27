@@ -433,7 +433,8 @@ public class V2SerialiserFactory
 		map.put(CastSpellEvent.class, getReflectiveSerialiser(CastSpellEvent.class, "spellName", "casterLevel", "castingLevel"));
 
 		ReflectiveSerialiser encounterActorsSerialiser = getReflectiveSerialiser(EncounterActorsEvent.class,
-			"mazeVariable", "encounterTable", "attitude", "ambushStatus", "preScript", "postAppearanceScript");
+			"mazeVariable", "encounterTable", "attitude", "ambushStatus",
+			"preScript", "postAppearanceScript", "partyLeavesNeutralScript", "partyLeavesFriendlyScript");
 		map.put(EncounterActorsEvent.class, encounterActorsSerialiser);
 
 		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText", "alignment"));
@@ -462,6 +463,7 @@ public class V2SerialiserFactory
 		map.put(RemoveObjectEvent.class, getReflectiveSerialiser(RemoveObjectEvent.class, "objectName"));
 		map.put(SkillTestEvent.class, getReflectiveSerialiser(SkillTestEvent.class,
 			"keyModifier", "skill", "successValue", "successScript", "failureScript"));
+		map.put(BackPartyUpEvent.class, getReflectiveSerialiser(BackPartyUpEvent.class, "maxTiles", "facing"));
 
 		MazeObjectImplSerialiser<MazeEvent> animationSerialiser = getAnimationSerialiser();
 		ReflectiveSerialiser aes = getReflectiveSerialiser(AnimationEvent.class, "animation");
@@ -483,6 +485,8 @@ public class V2SerialiserFactory
 		// dodginess
 		encounterActorsSerialiser.addCustomSerialiser("preScript", result);
 		encounterActorsSerialiser.addCustomSerialiser("postAppearanceScript", result);
+		encounterActorsSerialiser.addCustomSerialiser("partyLeavesNeutralScript", result);
+		encounterActorsSerialiser.addCustomSerialiser("partyLeavesFriendlyScript", result);
 
 		return result;
 	}
@@ -717,6 +721,7 @@ public class V2SerialiserFactory
 		return new MazeObjectImplSerialiser<>(map, "name");
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private static V2SerialiserObject<TileScript> getTileScriptSerialiser(
 		Database db)
 	{
@@ -730,18 +735,20 @@ public class V2SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"chestContents", "traps", "mazeVariable", "northTexture", "southTexture", "eastTexture", "westTexture", "preScript");
 		chestSerialiser.addCustomSerialiser("traps", new PercentageTableSerialiser<>(new NameSerialiser<>(db::getTrap)));
-
 		chestSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
 
 		map.put(Chest.class, chestSerialiser);
 
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
-			"encounterTable", "mazeVariable", "attitude", "ambushStatus", "preScriptEvents", "postAppearanceScriptEvents");
+			"encounterTable", "mazeVariable", "attitude", "ambushStatus",
+			"preScriptEvents", "postAppearanceScriptEvents", "partyLeavesNeutralScript", "partyLeavesFriendlyScript");
 		encounterSerialiser.addCustomSerialiser("encounterTable", new NameSerialiser<>(db::getEncounterTable));
 
 		encounterSerialiser.addCustomSerialiser("preScriptEvents", getMazeScriptSerialiser(db));
 		encounterSerialiser.addCustomSerialiser("postAppearanceScriptEvents", getMazeScriptSerialiser(db));
+		encounterSerialiser.addCustomSerialiser("partyLeavesNeutralScript", getMazeScriptSerialiser(db));
+		encounterSerialiser.addCustomSerialiser("partyLeavesFriendlyScript", getMazeScriptSerialiser(db));
 
 		map.put(Encounter.class, encounterSerialiser);
 
@@ -1363,14 +1370,12 @@ public class V2SerialiserFactory
 			"tiles",
 			"horizontalWalls",
 			"verticalWalls",
-//			"originalObjects",
 			"expandedObjects",
 			"scripts");
 
 		result.addCustomSerialiser("skyTexture", getCrusaderTextureSerialiser(db));
 		result.addCustomSerialiser("tiles", new ArraySerialiser<>(mclachlan.crusader.Tile.class, getCrusaderTileSerialiser(db)));
 		result.addCustomSerialiser(Wall[].class, new ArraySerialiser<>(Wall.class, getCrusaderWallSerialiser(db)));
-//		result.addCustomSerialiser("originalObjects", new ListSerialiser<>(getCrusaderObjectSerialiser(db)));
 		result.addCustomSerialiser("expandedObjects", new ListSerialiser<>(getCrusaderObjectSerialiser2(db)));
 		result.addCustomSerialiser("scripts", new ArraySerialiser<>(MapScript.class, getMapScriptSerialiser(db)));
 		result.addCustomSerialiser("skyConfigs", new ArraySerialiser<>(mclachlan.crusader.Map.SkyConfig.class, getSkyConfigSerialiser(db)));
@@ -1575,7 +1580,7 @@ public class V2SerialiserFactory
 			"formation",
 			"turnNr");
 
-		result.addCustomSerialiser("currentZone", new NameSerialiser<>(db::getZone));
+//		result.addCustomSerialiser("currentZone", new NameSerialiser<>(db::getZone));
 		result.addCustomSerialiser("difficultyLevel", new NameSerialiser<>(db.getDifficultyLevels()::get));
 
 		return result;

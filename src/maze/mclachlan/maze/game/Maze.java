@@ -397,7 +397,7 @@ public class Maze implements Runnable
 	public GameState getGameState()
 	{
 		return new GameState(
-			zone,
+			zone.getName(),
 			difficultyLevel,
 			playerPos,
 			getFacing(),
@@ -417,7 +417,7 @@ public class Maze implements Runnable
 		party.setSupplies(gs.getPartySupplies());
 		party.setFormation(gs.getFormation());
 
-		return changeZone(gs.getCurrentZone().getName(), gs.getPlayerPos(), gs.getFacing());
+		return changeZone(gs.getCurrentZone(), gs.getPlayerPos(), gs.getFacing());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -832,7 +832,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							addAll(result, this.encounterActors(new ActorEncounter(foes, null, null, null, null, null)));
+							addAll(result, this.encounterActors(new ActorEncounter(foes, null, null, null, null, null, null, null)));
 						}
 					}
 				}
@@ -1317,13 +1317,13 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * @param maxKeys
-	 * 	The maximum number of player keystrokes to reverse; may turn out to
-	 * 	be less if there is less key history available.
+	 * @param maxTiles
+	 * 	The maximum number of player tiles visited to reverse; may turn out to
+	 * 	be less if there is less tile history available.
 	 */
-	public List<MazeEvent> backPartyUp(int maxKeys, int facing)
+	public List<MazeEvent> backPartyUp(int maxTiles, int facing)
 	{
-		return this.ui.backPartyUp(maxKeys, facing);
+		return this.ui.backPartyUp(maxTiles, facing);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1996,7 +1996,7 @@ public class Maze implements Runnable
 		if (actorEncounter.getAmbushStatus() == null)
 		{
 			actorEncounter.setAmbushStatus(
-				GameSys.getInstance().determineAmbushStatus(party, actors));
+				GameSys.getInstance().determineAmbushStatus(party, attitude, actors));
 		}
 		Combat.AmbushStatus ambushStatus = actorEncounter.getAmbushStatus();
 
@@ -2012,7 +2012,11 @@ public class Maze implements Runnable
 		}
 
 		Maze.this.currentActorEncounter =
-			new ActorEncounter(actors, mazeVar, attitude, ambushStatus, actorEncounter.getPreScript(), actorEncounter.getPostAppearanceScript());
+			new ActorEncounter(actors, mazeVar, attitude, ambushStatus,
+				actorEncounter.getPreScript(),
+				actorEncounter.getPostAppearanceScript(),
+				actorEncounter.getPartyLeavesNeutralScript(),
+				actorEncounter.getPartyLeavesFriendlyScript());
 
 		// first, any pre-encounter events need to be executed
 		addAll(result, currentActorEncounter.getPreScript());
