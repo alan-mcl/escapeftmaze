@@ -17,10 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.v2;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.maze.data.v1.V1Point;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.PlayerCharacter;

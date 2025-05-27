@@ -21,9 +21,10 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1NpcInventoryTemplate;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.Loader;
+import mclachlan.maze.data.Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.ItemTemplate;
@@ -38,8 +39,8 @@ public class GenInv
 {
 	public static void main(String[] args) throws Exception
 	{
-		V1Loader loader = new V1Loader();
-		V1Saver saver = new V1Saver();
+		Loader loader = new V2Loader();
+		Saver saver = new V2Saver();
 		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		int count = 0;
@@ -70,7 +71,7 @@ public class GenInv
 			}
 		}
 
-		String s = V1NpcInventoryTemplate.toString(t);
+		String s = t.toString();
 		System.out.println(s);
 	}
 

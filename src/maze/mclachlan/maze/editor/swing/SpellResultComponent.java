@@ -22,7 +22,6 @@ package mclachlan.maze.editor.swing;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1SpellResult;
 import mclachlan.maze.stat.magic.SpellResult;
 
 /**
@@ -57,7 +56,7 @@ public class SpellResultComponent extends JButton implements ActionListener
 		}
 		else
 		{
-			String text = V1SpellResult.toString(spellResult);
+			String text = spellResult.getClass().getSimpleName();
 
 			this.setToolTipText(text);
 

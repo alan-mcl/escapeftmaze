@@ -19,23 +19,24 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import mclachlan.crusader.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.swing.*;
+import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.Tile;
+import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.Portal;
-import mclachlan.maze.util.MazeException;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.editor.swing.ZonePanel;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.Portal;
+import mclachlan.maze.map.Zone;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -580,8 +581,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public static void main(String[] args) throws Exception
 	{
-		Loader loader = new V1Loader();
-		Saver saver = new V1Saver();
+		Loader loader = new V2Loader();
+		Saver saver = new V2Saver();
 		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame frame = new JFrame("Map Editor");

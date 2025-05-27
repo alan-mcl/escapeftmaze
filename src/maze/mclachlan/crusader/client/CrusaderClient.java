@@ -30,10 +30,7 @@ import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.CrusaderException;
 import mclachlan.crusader.Map;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -132,10 +129,8 @@ public class CrusaderClient extends Frame
 			else
 			{
 				V1Loader loader = new V1Loader();
-				V1Saver saver = new V1Saver();
-				Database db = new Database(loader, saver, Maze.getStubCampaign());
 
-				Zone zone = db.getZone(mazeMap);
+				Zone zone = loader.getZone(mazeMap);
 
 				engine = new CrusaderEngine32(
 					zone.getMap(),

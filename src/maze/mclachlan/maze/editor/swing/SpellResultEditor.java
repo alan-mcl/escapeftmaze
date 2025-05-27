@@ -22,19 +22,16 @@ package mclachlan.maze.editor.swing;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1SpellResult;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
-
-import static mclachlan.maze.data.v1.V1SpellResult.*;
 
 /**
  *
@@ -182,14 +179,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private void setState(SpellResult sr)
 	{
 		int srType;
-		if (V1SpellResult.types.containsKey(sr.getClass()))
-		{
-			srType = V1SpellResult.types.get(sr.getClass());
-		}
-		else
-		{
-			srType = CUSTOM;
-		}
+		srType = types.getOrDefault(sr.getClass(), CUSTOM);
 		type.setSelectedIndex(srType);
 
 		foeType.setSelectedItem(sr.getFoeType() == null ? EditorPanel.NONE : sr.getFoeType().getName());
@@ -1118,5 +1108,74 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 		result.setFocusAffinity(focusAffinity.getSelectedItem() == EditorPanel.NONE ?
 			null : (CharacterClass.Focus)focusAffinity.getSelectedItem());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Map<Class, Integer> types;
+
+	public static final int CUSTOM = 0;
+	public static final int ATTACK_WITH_WEAPON = 1;
+	public static final int CHARM = 2;
+	public static final int CONDITION = 3;
+	public static final int DAMAGE = 4;
+	public static final int HEALING = 5;
+	public static final int IDENTIFY = 6;
+	public static final int MIND_READ = 7;
+	public static final int MIND_READ_FAILED = 8;
+	public static final int RECHARGE = 9;
+	public static final int REMOVE_CURSE = 10;
+	public static final int SUMMONING = 11;
+	public static final int THEFT = 12;
+	public static final int THEFT_FAILED = 13;
+	public static final int UNLOCK = 14;
+	public static final int DRAIN = 15;
+	public static final int CREATE_ITEM = 16;
+	public static final int SINGLE_USE_SPELL = 17;
+	public static final int CONDITION_REMOVAL = 18;
+	public static final int DEATH = 19;
+	public static final int CLOUD_SPELL = 20;
+	public static final int PURIFY_AIR = 21;
+	public static final int RESURRECTION = 22;
+	public static final int BOOZE = 23;
+	public static final int FORGET = 24;
+	public static final int CONDITION_IDENTIFICATION = 25;
+	public static final int LOCATE_PERSON = 26;
+	public static final int REMOVE_ITEM = 27;
+	public static final int CONDITION_TRANSFER = 28;
+
+	public static final int MAX = 29;
+
+	static
+	{
+		types = new HashMap<Class, Integer>();
+
+		types.put(AttackWithWeaponSpellResult.class, ATTACK_WITH_WEAPON);
+		types.put(CharmSpellResult.class, CHARM);
+		types.put(ConditionSpellResult.class, CONDITION);
+		types.put(DamageSpellResult.class, DAMAGE);
+		types.put(HealingSpellResult.class, HEALING);
+		types.put(IdentifySpellResult.class, IDENTIFY);
+		types.put(MindReadSpellResult.class, MIND_READ);
+		types.put(MindReadFailedSpellResult.class, MIND_READ_FAILED);
+		types.put(RechargeSpellResult.class, RECHARGE);
+		types.put(RemoveCurseSpellResult.class, REMOVE_CURSE);
+		types.put(SummoningSpellResult.class, SUMMONING);
+		types.put(TheftSpellResult.class, THEFT);
+		types.put(TheftFailedSpellResult.class, THEFT_FAILED);
+		types.put(UnlockSpellResult.class, UNLOCK);
+		types.put(DrainSpellResult.class, DRAIN);
+		types.put(ConditionRemovalSpellResult.class, CONDITION_REMOVAL);
+		types.put(DeathSpellResult.class, DEATH);
+		types.put(CloudSpellResult.class, CLOUD_SPELL);
+		types.put(PurifyAirSpellResult.class, PURIFY_AIR);
+		types.put(ResurrectionSpellResult.class, RESURRECTION);
+		types.put(BoozeSpellResult.class, BOOZE);
+		types.put(ForgetSpellResult.class, FORGET);
+		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
+		types.put(CreateItemSpellResult.class, CREATE_ITEM);
+		types.put(LocatePersonSpellResult.class, LOCATE_PERSON);
+		types.put(RemoveItemSpellResult.class, REMOVE_ITEM);
+		types.put(SingleUseSpellSpellResult.class, SINGLE_USE_SPELL);
+		types.put(ConditionTransferSpellResult.class, CONDITION_TRANSFER);
 	}
 }

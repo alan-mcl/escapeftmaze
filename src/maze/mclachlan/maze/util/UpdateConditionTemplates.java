@@ -21,8 +21,8 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -36,8 +36,8 @@ public class UpdateConditionTemplates
 	{
 		System.out.println("...");
 
-		V1Loader loader = new V1Loader();
-		V1Saver saver = new V1Saver();
+		V2Loader loader = new V2Loader();
+		V2Saver saver = new V2Saver();
 		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		int count = 0;

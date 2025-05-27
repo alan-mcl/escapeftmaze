@@ -28,7 +28,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1NpcSpeech;
+import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.stat.npc.NpcSpeechRow;
 
@@ -89,6 +89,14 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static String getKey(Set<String> keywords)
+	{
+		String[] arr = keywords.toArray(new String[keywords.size()]);
+		Arrays.sort(arr);
+		return V1Utils.toStringStrings(arr,",");
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void refresh(NpcSpeech npcSpeech)
 	{
 		speech = new ArrayList<NpcSpeechRow>();
@@ -100,14 +108,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 				speech.add(row);
 			}
 
-			Collections.sort(speech, new Comparator<NpcSpeechRow>()
-			{
-				public int compare(NpcSpeechRow o1, NpcSpeechRow o2)
-				{
-					return V1NpcSpeech.getKey(o1.getKeywords()).compareTo(
-						V1NpcSpeech.getKey(o2.getKeywords()));
-				}
-			});
+			Collections.sort(speech, Comparator.comparing(o -> getKey(o.getKeywords())));
 		}
 
 		dataModel.refresh();

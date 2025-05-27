@@ -30,11 +30,9 @@ import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
 import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
-import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 import mclachlan.maze.ui.diygui.animation.LightLevelPass;
+import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 import mclachlan.maze.util.MazeException;
-
-import static mclachlan.maze.data.v1.V1Animation.*;
 
 /**
  *
@@ -586,4 +584,26 @@ public class AnimationPanel extends JPanel implements ActionListener
 			}
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Map<Class, Integer> types;
+
+	public static final int CUSTOM = 0;
+	public static final int PROJECTILE = 1;
+	public static final int COLOUR_PORTRAIT = 2;
+	public static final int FADE_TO_BLACK = 3;
+	public static final int LIGHT_LEVEL_PASS = 4;
+
+	public static final int MAX = 5;
+
+	static
+	{
+		types = new HashMap<>();
+
+		types.put(ProjectileAnimation.class, PROJECTILE);
+		types.put(ColourMagicPortraitAnimation.class, COLOUR_PORTRAIT);
+		types.put(FadeToBlackAnimation.class, FADE_TO_BLACK);
+		types.put(LightLevelPass.class, LIGHT_LEVEL_PASS);
+	}
+
 }

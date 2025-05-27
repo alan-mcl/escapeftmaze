@@ -22,8 +22,10 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.Loader;
+import mclachlan.maze.data.Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
 
@@ -34,8 +36,8 @@ public class Report
 {
 	public static void main(String[] args) throws Exception
 	{
-		V1Loader loader = new V1Loader();
-		V1Saver saver = new V1Saver();
+		Loader loader = new V2Loader();
+		Saver saver = new V2Saver();
 		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Map<String,ItemTemplate> items = db.getItemTemplates();

@@ -27,8 +27,8 @@ import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.SpellLikeAbility;
 
@@ -177,8 +177,8 @@ public class SpellLikeAbilityEditor extends JDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public static void main(String[] args) throws Exception
 	{
-		Loader loader = new V1Loader();
-		Saver saver = new V1Saver();
+		Loader loader = new V2Loader();
+		Saver saver = new V2Saver();
 		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");

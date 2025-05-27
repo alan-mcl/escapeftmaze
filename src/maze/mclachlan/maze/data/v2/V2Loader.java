@@ -13,7 +13,6 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.StringManager;
 import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1ConditionBearer;
 import mclachlan.maze.data.v1.V1StringManager;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;

@@ -20,16 +20,6 @@
 package mclachlan.maze.util;
 
 import java.util.*;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.data.Loader;
-import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v2.V2Loader;
-import mclachlan.maze.data.v2.V2Saver;
-import mclachlan.maze.game.Campaign;
-import mclachlan.maze.game.MazeVariables;
-import mclachlan.maze.game.journal.JournalManager;
-import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -38,7 +28,7 @@ public class DataPorter
 {
 	public static void main(String[] args) throws Exception
 	{
-		Campaign campaign = null;
+/*		Campaign campaign = null;
 
 		Loader v1Loader = new V1Loader();
 		Saver v2Saver = new V2Saver();
@@ -322,7 +312,7 @@ public class DataPorter
 			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.ZONE.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.ZONE.getJournalName()));
 			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.NPC.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.NPC.getJournalName()));
 			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.LOGBOOK.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.LOGBOOK.getJournalName()));
-		}
+		}*/
 	}
 
 	private static void assertEquals(Object obj1, Object obj2)
