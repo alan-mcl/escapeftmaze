@@ -59,7 +59,7 @@ public class DamageEvent extends MazeEvent
 	private final AnimationContext animationContext;
 
 	/** a bag of random other state carried along with the attack */
-	private final Set<String> tags = new HashSet<String>();
+	private final Set<String> tags = new HashSet<>();
 
 	/*-------------------------------------------------------------------------*/
 	public DamageEvent(
@@ -125,13 +125,13 @@ public class DamageEvent extends MazeEvent
 			damage -= (damage * GameSys.getInstance().getResistance(defender, attacker, type) / 100);
 		}
 
-		List<Condition> list = new ArrayList<Condition>(defender.getConditions());
+		List<Condition> list = new ArrayList<>(defender.getConditions());
 		for (Condition c : list)
 		{
 			damage = c.getEffect().damageToTarget(defender, c, damage, this);
 		}
 
-		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
+		ArrayList<MazeEvent> result = new ArrayList<>();
 
 		damage = Math.max(damage, 0);
 
@@ -344,6 +344,12 @@ public class DamageEvent extends MazeEvent
 			defender.getHitPoints().getRatio() <= 0.1)
 		{
 			result.addAll(SpeechUtil.getInstance().badlyWoundedSpeech((PlayerCharacter)defender));
+		}
+
+		// refresh the UI for PCs
+		if (defender instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)defender);
 		}
 
 		return result;

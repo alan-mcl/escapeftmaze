@@ -20,6 +20,7 @@
 package mclachlan.maze.editor.swing.map;
 
 import java.util.*;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.Tile;
@@ -33,39 +34,84 @@ public abstract class TileProxy
 {
 	// Crusader tile properties
 	public abstract Texture getFloorTexture();
+
 	public abstract Texture getFloorMaskTexture();
+
 	public abstract Texture getCeilingTexture();
+
 	public abstract Texture getCeilingMaskTexture();
+
 	public abstract int getLightLevel();
 
 	public abstract int getCeilingHeight();
+
 	public abstract void setCeilingTexture(Texture ceilingTexture);
+
 	public abstract void setCeilingMaskTexture(Texture ceilingTexture);
+
 	public abstract void setFloorTexture(Texture floorTexture);
+
 	public abstract void setFloorMaskTexture(Texture floorTexture);
+
 	public abstract void setLightLevel(int lightLevel);
 
 	public abstract void setCeilingHeight(int height);
 
 	// Maze tile properties
 	public abstract StatModifier getStatModifier();
+
 	public abstract String getTerrainSubType();
+
 	public abstract Tile.TerrainType getTerrainType();
+
 	public abstract int getRandomEncounterChance();
+
 	public abstract EncounterTable getRandomEncounters();
+
 	public abstract List<TileScript> getScripts();
+
 	public abstract void setRandomEncounterChance(int randomEncounterChance);
+
 	public abstract void setRandomEncounters(EncounterTable randomEncounters);
+
 	public abstract void setScripts(List<TileScript> scripts);
+
 	public abstract void setStatModifier(StatModifier statModifier);
+
 	public abstract void setTerrainSubType(String terrainSubType);
+
 	public abstract void setTerrainType(Tile.TerrainType terrainType);
+
 	public abstract Tile.RestingDanger getRestingDanger();
+
 	public abstract Tile.RestingEfficiency getRestingEfficiency();
+
 	public abstract void setRestingDanger(Tile.RestingDanger restingDanger);
-	public abstract void setRestingEfficiency(Tile.RestingEfficiency restingEfficiency);
+
+	public abstract void setRestingEfficiency(
+		Tile.RestingEfficiency restingEfficiency);
 
 	public abstract void setSector(String sector);
 
 	public abstract String getSector();
+
+	public abstract MouseClickScript getFloorMouseClickScript();
+
+	public abstract void setFloorMouseClickScript(
+		MouseClickScript floorMouseClickScript);
+
+	public abstract MouseClickScript getFloorMaskTextureMouseClickScript();
+
+	public abstract void setFloorMaskTextureMouseClickScript(
+		MouseClickScript floorMaskTextureMouseClickScript);
+
+	public abstract MouseClickScript getCeilingMouseClickScript();
+
+	public abstract void setCeilingMouseClickScript(
+		MouseClickScript ceilingMouseClickScript);
+
+	public abstract MouseClickScript getCeilingMaskTextureMouseClickScript();
+
+	public abstract void setCeilingMaskTextureMouseClickScript(
+		MouseClickScript ceilingMaskTextureMouseClickScript);
 }

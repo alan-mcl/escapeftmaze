@@ -32,6 +32,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.*;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 
 /**
  *
@@ -58,6 +59,9 @@ public class TileDetailsPanel extends JPanel
 	private final JComboBox restingEfficiency;
 	private final JTextField sector;
 	private final MultipleTileScriptComponent tileScript;
+	private final SingleTileScriptComponent floorMouseClickScript,
+		floorMaskTextureMouseClickScript, ceilingMouseClickScript,
+		ceilingMaskTextureMouseClickScript;
 	
 	// crusader tile properties
 	private final JComboBox ceilingTexture, floorTexture;                                                                
@@ -134,7 +138,7 @@ public class TileDetailsPanel extends JPanel
 		floorTexture.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("Floor Texture:"), floorTexture, gbc);
 
-		Vector<String> vec2 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		vec2.insertElementAt(EditorPanel.NONE, 0);
 		Collections.sort(vec2);
 		floorMaskTexture = new JComboBox(vec2);
@@ -165,6 +169,18 @@ public class TileDetailsPanel extends JPanel
 		ceilingHeight = new JSpinner(new SpinnerNumberModel(1, 1, 32, 1));
 		ceilingHeight.addChangeListener(this);
 		dodgyGridBagShite(content, new JLabel("Ceiling Height:"), ceilingHeight, gbc);
+
+		floorMouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
+		dodgyGridBagShite(content, new JLabel("Floor Click Script:"), floorMouseClickScript, gbc);
+
+		floorMaskTextureMouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
+		dodgyGridBagShite(content, new JLabel("Floor Mask Click Script:"), floorMaskTextureMouseClickScript, gbc);
+
+		ceilingMouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
+		dodgyGridBagShite(content, new JLabel("Ceiling Click Script:"), ceilingMouseClickScript, gbc);
+
+		ceilingMaskTextureMouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
+		dodgyGridBagShite(content, new JLabel("Ceiling Mask Click Script:"), ceilingMaskTextureMouseClickScript, gbc);
 
 		placeObject = new PlaceObjects();
 		String toolName = placeObject.getName();
@@ -212,6 +228,16 @@ public class TileDetailsPanel extends JPanel
 		randomEncounterChance.setValue(tile.getRandomEncounterChance());
 		randomEncounterTable.setSelectedItem(tile.getRandomEncounters()==null?EditorPanel.NONE:tile.getRandomEncounters().getName());
 		tileScript.refresh(tile.getScripts(), zone);
+
+		MouseClickScriptAdapter fmcsa = (MouseClickScriptAdapter)(tile.getFloorMouseClickScript());
+		floorMouseClickScript.refresh(fmcsa == null ? null : fmcsa.getScript(), zone);
+		MouseClickScriptAdapter fmtmcs = (MouseClickScriptAdapter)(tile.getFloorMaskTextureMouseClickScript());
+		floorMaskTextureMouseClickScript.refresh(fmtmcs == null ? null : fmtmcs.getScript(), zone);
+		MouseClickScriptAdapter cmcsa = (MouseClickScriptAdapter)(tile.getCeilingMouseClickScript());
+		ceilingMouseClickScript.refresh(cmcsa == null ? null : cmcsa.getScript(), zone);
+		MouseClickScriptAdapter cmtmcs = (MouseClickScriptAdapter)(tile.getCeilingMaskTextureMouseClickScript());
+		ceilingMaskTextureMouseClickScript.refresh(cmtmcs == null ? null : cmtmcs.getScript(), zone);
+
 		sector.setText(tile.getSector() == null ? "" : tile.getSector());
 		
 		floorTexture.setSelectedItem(tile.getFloorTexture()==null?EditorPanel.NONE:tile.getFloorTexture().getName());
@@ -439,6 +465,26 @@ public class TileDetailsPanel extends JPanel
 		if (component == tileScript)
 		{
 			tile.setScripts(tileScript.getScripts());
+		}
+		else if (component == floorMouseClickScript)
+		{
+			tile.setFloorMouseClickScript(
+				new MouseClickScriptAdapter(floorMouseClickScript.getScript()));
+		}
+		else if (component == floorMaskTextureMouseClickScript)
+		{
+			tile.setFloorMaskTextureMouseClickScript(
+				new MouseClickScriptAdapter(floorMaskTextureMouseClickScript.getScript()));
+		}
+		else if (component == ceilingMouseClickScript)
+		{
+			tile.setCeilingMouseClickScript(
+				new MouseClickScriptAdapter(ceilingMouseClickScript.getScript()));
+		}
+		else if (component == ceilingMaskTextureMouseClickScript)
+		{
+			tile.setCeilingMaskTextureMouseClickScript(
+				new MouseClickScriptAdapter(ceilingMaskTextureMouseClickScript.getScript()));
 		}
 	}
 }

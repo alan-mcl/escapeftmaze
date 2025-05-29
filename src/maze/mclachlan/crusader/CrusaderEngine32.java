@@ -2460,14 +2460,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Can Be Optomised
-	 *  @param column
-	 * 	the column being drawn
+	 *  @param screenX
+	 * 	the screenX being drawn
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
 	private boolean drawFloor(
 		int castArc,
-		int column,
+		int screenX,
 		float wallHeight,
 		int depth,
 		int top,
@@ -2476,6 +2476,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		boolean hasAlpha = false;
 
 		int bottom = projectionPlaneHeight;
+
+		BlockHitRecord hitRecord = blockHitRecord[screenX][depth];
 
 		int screenY = top;
 		int screenYInUnits=0;
@@ -2503,7 +2505,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			try
 			{
-				int bufferIndex = column + screenY * projectionPlaneWidth;
+				int bufferIndex = screenX + screenY * projectionPlaneWidth;
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
 					heightOnProjectionPlane = screenY -playerHeight -projPlaneOffset;
@@ -2548,11 +2550,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 					textureX = Math.abs(xIntersection % tileSize);
 					textureY = Math.abs(yIntersection % tileSize);
 
-					texture = map.tiles[mapIndex].floorTexture;
-					maskTexture = map.tiles[mapIndex].floorMaskTexture;
+					Tile tile = map.tiles[mapIndex];
+					texture = tile.floorTexture;
+					maskTexture = tile.floorMaskTexture;
 					if (this.doLighting)
 					{
-						lightLevel = map.tiles[mapIndex].currentLightLevel;
+						lightLevel = tile.currentLightLevel;
 					}
 					else
 					{
@@ -2569,13 +2572,25 @@ public class CrusaderEngine32 implements CrusaderEngine
 					// draw the floor:
 					if (maskTexture != null)
 					{
+						int maskPixel = maskTexture.getCurrentImageData(textureX, textureY, timeNow);
+
 						colour = alphaBlend(
 							texture.getCurrentImageData(textureX, textureY, timeNow),
-							maskTexture.getCurrentImageData(textureX, textureY, timeNow));
+							maskPixel);
+
+						// if this click is on a visible piece of the mask texture, use that script
+						if (tile.floorMaskTextureMouseClickScript != null && getAlpha(maskPixel) != 0)
+						{
+							this.mouseClickScriptRecords[bufferIndex].script = tile.floorMaskTextureMouseClickScript;
+							this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+						}
 					}
 					else
 					{
 						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
+
+						this.mouseClickScriptRecords[bufferIndex].script = tile.floorMouseClickScript;
+						this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
 					}
 					pixel = colourPixel(colour, lightLevel, shadeMult);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
@@ -2586,10 +2601,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 					{
 						hasAlpha |= hasAlpha(pixel);
 					}
-
-					// mouse click scripts associated with floors and ceilings not yet supported
-					this.mouseClickScriptRecords[bufferIndex].script = null;
-					this.mouseClickScriptRecords[bufferIndex].distance = -1;
 				}
 
 				screenY++;
@@ -2599,7 +2610,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("playerArc = [" + playerArc + "]");
 				log("castArc = [" + castArc + "]");
 				log("wallHeight = [" + wallHeight + "]");
-				log("column = [" + column + "]");
+				log("screenX = [" + screenX + "]");
 				log("playerHeight = [" + this.playerHeight + "]");
 				log("playerHeightInUnits = [" + playerHeightInUnits + "]");
 				log("playerDistanceToTheProjectionPlane = [" + playerDistToProjectionPlane + "]");
@@ -2615,7 +2626,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("[gridX, gridY] = [" + gridX + ","+ gridY +"]");
 				log("[textureX, textureY] = [" + textureX + ","+ textureY +"]");
 				log("mapIndex = [" + mapIndex + "]");
-				log("blockHitRecord[column][0] = " + blockHitRecord[column][0]);
+				log("blockHitRecord[screenX][0] = " + blockHitRecord[screenX][0]);
 				log("projectionPlaneHeight = [" + projectionPlaneHeight + "]");
 				log("projectionPlaneWidth = [" + projectionPlaneWidth + "]");
 
@@ -2647,6 +2658,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
 		// this is the bottom if the wall height is 1
 //		int height1bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
+
+		BlockHitRecord hitRecord = blockHitRecord[screenX][depth];
 
 		int screenY = top;
 		int screenYInUnits=0;
@@ -2719,16 +2732,18 @@ public class CrusaderEngine32 implements CrusaderEngine
 				textureX = Math.abs(xIntersection % tileSize);
 				textureY = Math.abs(yIntersection % tileSize);
 
-				texture = map.tiles[mapIndex].floorTexture;
-				maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
-				ceilingHeight = map.tiles[mapIndex].ceilingHeight;
+				Tile tile = map.tiles[mapIndex];
+
+				texture = tile.floorTexture;
+				maskTexture = tile.ceilingMaskTexture;
+				ceilingHeight = tile.ceilingHeight;
 
 				if (bufferIndex < outputBuffer.length && // todo prod hides a bug
 					hasAlpha(outputBuffer[bufferIndex]))
 				{
 					if (this.doLighting)
 					{
-						lightLevel = map.tiles[mapIndex].currentLightLevel;
+						lightLevel = tile.currentLightLevel;
 					}
 					else
 					{
@@ -2742,16 +2757,27 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 
 					// draw the ceiling:
-					texture = map.tiles[mapIndex].ceilingTexture;
+					texture = tile.ceilingTexture;
 					if (maskTexture != null)
 					{
+						int maskPixel = maskTexture.getCurrentImageData(textureX, textureY, timeNow);
 						colour = alphaBlend(
 							texture.getCurrentImageData(textureX, textureY, timeNow),
-							maskTexture.getCurrentImageData(textureX, textureY, timeNow));
+							maskPixel);
+
+						// if this click is on a visible piece of the mask texture, use that script
+						if (tile.floorMaskTextureMouseClickScript != null && getAlpha(maskPixel) != 0)
+						{
+							this.mouseClickScriptRecords[bufferIndex].script = tile.ceilingMaskTextureMouseClickScript;
+							this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+						}
 					}
 					else
 					{
 						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
+
+						this.mouseClickScriptRecords[bufferIndex].script = tile.ceilingMouseClickScript;
+						this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
 					}
 
 					pixel = colourPixel(colour, lightLevel, shadeMult);

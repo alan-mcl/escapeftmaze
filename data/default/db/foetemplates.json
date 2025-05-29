@@ -12280,9 +12280,10 @@
     "spellBook": {
       "spells": [
         "Call Vermin",
-        "Entangle",
-        "Mage Armour",
-        "Dire Wasps"
+        "Barkskin",
+        "Razor Cloak",
+        "Dire Wasps",
+        "Paralysis"
       ]
     },
     "spellLikeAbilities": [],

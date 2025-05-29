@@ -862,11 +862,16 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void keyTyped(KeyEvent e)
 	{
-		if (!dialogs.isEmpty())
+		synchronized (dialogMutex)
 		{
-			getDialog().processKeyTyped(e);
+			if (!dialogs.isEmpty())
+			{
+				getDialog().processKeyTyped(e);
+				return;
+			}
 		}
-		else if (isWidgetInteractable(focusWidget))
+
+		if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyTyped(e);
 			notifyContentPaneChildrenOfKeyEvent(e);

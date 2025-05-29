@@ -33,8 +33,8 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class SummoningSucceedsEvent extends MazeEvent
 {
-	private UnifiedActor source;
-	private List<FoeGroup> foeGroups;
+	private final UnifiedActor source;
+	private final List<FoeGroup> foeGroups;
 
 	/*-------------------------------------------------------------------------*/
 	public SummoningSucceedsEvent(List<FoeGroup> foeGroups, UnifiedActor source)

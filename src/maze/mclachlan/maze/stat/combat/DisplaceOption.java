@@ -113,6 +113,13 @@ public class DisplaceOption extends ActorActionOption
 
 		Maze.getInstance().reorderParty(actors, Maze.getInstance().getParty().getFormation());
 		displacer.getCombatantData().setDisplaced(true);
+
+		// refresh the UI for PCs
+		if (displacer instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)displacer);
+		}
+
 		return true;
 	}
 

@@ -22,6 +22,7 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -29,8 +30,8 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class HealingEvent extends MazeEvent
 {
-	private UnifiedActor target;
-	private int amount;
+	private final UnifiedActor target;
+	private final int amount;
 
 	/*-------------------------------------------------------------------------*/
 	public HealingEvent(UnifiedActor target, int amount)
@@ -58,6 +59,10 @@ public class HealingEvent extends MazeEvent
 		{
 			// can only heal the living
 			target.getHitPoints().incCurrent(amount);
+			if (target instanceof PlayerCharacter)
+			{
+				Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)target);
+			}
 		}
 		return null;
 	}

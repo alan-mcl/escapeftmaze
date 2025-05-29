@@ -77,8 +77,7 @@ public class SummoningSpellResult extends SpellResult
 		str = Math.min(9, str);
 		str = Math.max(0, str);
 
-		EncounterTable table =
-			Database.getInstance().getEncounterTable(this.encounterTable[str]);
+		EncounterTable table = Database.getInstance().getEncounterTable(this.encounterTable[str]);
 		FoeEntry fe = table.getEncounterTable().getRandomItem();
 		List<FoeGroup> foeGroups = fe.generate();
 

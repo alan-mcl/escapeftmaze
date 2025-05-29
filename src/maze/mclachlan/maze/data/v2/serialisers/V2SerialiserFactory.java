@@ -1525,9 +1525,14 @@ public class V2SerialiserFactory
 			"eastWallTexture",
 			"westWallTexture",
 			"lightLevel",
-			"ceilingHeight");
+			"ceilingHeight",
+			"floorMouseClickScript",
+			"floorMaskTextureMouseClickScript",
+			"ceilingMouseClickScript",
+			"ceilingMaskTextureMouseClickScript");
 
 		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
+		result.addCustomSerialiser(MouseClickScript.class, getMouseClickScriptSerialiser(db));
 
 		return result;
 	}

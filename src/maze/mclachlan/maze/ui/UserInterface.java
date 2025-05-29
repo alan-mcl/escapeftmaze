@@ -89,6 +89,9 @@ public interface UserInterface
 	void refreshCharacterData();
 
 	/*-------------------------------------------------------------------------*/
+	void refreshCharacterWidget(PlayerCharacter pc);
+
+	/*-------------------------------------------------------------------------*/
 	void disableInput();
 
 	/*-------------------------------------------------------------------------*/

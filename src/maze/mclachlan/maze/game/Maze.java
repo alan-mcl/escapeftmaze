@@ -1183,8 +1183,8 @@ public class Maze implements Runnable
 	{
 		if (this.currentCombat != null)
 		{
-			this.currentCombat.addPartyAllies(allies);
-			this.ui.addFoes(currentCombat.getFoes(), true);
+			this.currentCombat.addFoeAllies(allies);
+			this.ui.addFoes(allies, true);
 		}
 	}
 

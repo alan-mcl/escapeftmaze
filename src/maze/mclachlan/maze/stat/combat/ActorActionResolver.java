@@ -918,7 +918,7 @@ public class ActorActionResolver
 		Maze.log(Log.DEBUG, "resolving ["+caster.getName()+"] spell action ["+
 			spellAction+" ("+isCloudSpell+")]");
 
-		List<MazeEvent> events = new ArrayList<MazeEvent>();
+		List<MazeEvent> events = new ArrayList<>();
 
 		final Spell spell = spellAction.getSpell();
 

@@ -130,6 +130,12 @@ public class HeadlessUi implements UserInterface
 	}
 
 	@Override
+	public void refreshCharacterWidget(PlayerCharacter pc)
+	{
+
+	}
+
+	@Override
 	public void disableInput()
 	{
 		throw new RuntimeException("Unimplemented auto generated method!");

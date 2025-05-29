@@ -757,6 +757,23 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void refreshCharacterWidget(PlayerCharacter pc)
+	{
+		int index = Maze.getInstance().getParty().getPlayerCharacterIndex(pc);
+
+		switch (index)
+		{
+			case 0 -> charTopLeft.refresh();
+			case 1 -> charTopRight.refresh();
+			case 2 -> charMidLeft.refresh();
+			case 3 -> charMidRight.refresh();
+			case 4 -> charLowLeft.refresh();
+			case 5 -> charLowRight.refresh();
+			default -> throw new MazeException("Invalid index " + index);
+		};
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void addObject(EngineObject obj)
 	{
 		this.raycaster.addObject(obj);
@@ -1798,13 +1815,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
 		// remove any existing sprites
-		if (this.foeGroups != null)
+		if (this.getFoeGroups() != null)
 		{
-			for (FoeGroup foeGroup1 : this.foeGroups)
+			for (FoeGroup foeGroup1 : this.getFoeGroups())
 			{
 				removeFoeGroupSprites(foeGroup1);
 			}
-			this.foeGroups = null;
+			this.setFoeGroups(null);
 		}
 		this.mazeWidget.setFoes(null);
 
@@ -1849,15 +1866,15 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		// this is an offset if we are adding groupd (e.g. leader calling for help)
 		int startingRank;
-		if (this.foeGroups == null)
+		if (this.getFoeGroups() == null)
 		{
 			startingRank = 0;
-			this.foeGroups = new ArrayList<>(others);
+			this.setFoeGroups(new ArrayList<>(others));
 		}
 		else
 		{
-			startingRank = foeGroups.size();
-			this.foeGroups.addAll(others);
+			startingRank = getFoeGroups().size();
+			this.addFoeGroups(others);
 		}
 
 		List<List<double[]>> coordList = placeFoeSprites2(startingRank, others);
@@ -2121,8 +2138,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	@Override
 	public void rebalanceFoeSprites(Combat combat)
 	{
-		this.foeGroups = combat.getFoes();
-		ListIterator<FoeGroup> foeGroupListIterator = foeGroups.listIterator();
+		this.setFoeGroups(combat.getFoes());
+		ListIterator<FoeGroup> foeGroupListIterator = getFoeGroups().listIterator();
 		mazeWidget.setFoes(null);
 		while (foeGroupListIterator.hasNext())
 		{
@@ -2140,7 +2157,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 		}
 
-		List<List<double[]>> coordList = placeFoeSprites2(0, this.foeGroups);
+		List<List<double[]>> coordList = placeFoeSprites2(0, this.getFoeGroups());
 
 		// determine locations of live foes and move them there
 		int rank = 0;
@@ -2162,7 +2179,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 //					double distance = 0.51 + (0.2 * rank);
 //					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), distance, arc);
 
-					double[] coords = coordList.get(foeGroups.indexOf(fg)).get(foeIndex);
+					double[] coords = coordList.get(getFoeGroups().indexOf(fg)).get(foeIndex);
 					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), coords[0], coords[1]);
 				}
 			}
@@ -2459,6 +2476,30 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public CrusaderEngine getRaycaster()
 	{
 		return raycaster;
+	}
+
+	public List<FoeGroup> getFoeGroups()
+	{
+		return foeGroups;
+	}
+
+	public void setFoeGroups(List<FoeGroup> foeGroups)
+	{
+		if (foeGroups != null)
+		{
+			this.foeGroups = Collections.unmodifiableList(foeGroups);
+		}
+		else
+		{
+			this.foeGroups = null;
+		}
+	}
+
+	public void addFoeGroups(List<FoeGroup> foeGroups)
+	{
+		ArrayList<FoeGroup> temp = new ArrayList<>(this.foeGroups);
+		temp.addAll(foeGroups);
+		this.foeGroups = Collections.unmodifiableList(temp);
 	}
 
 	/*-------------------------------------------------------------------------*/

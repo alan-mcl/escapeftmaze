@@ -20,6 +20,7 @@
 package mclachlan.maze.editor.swing.map;
 
 import java.util.*;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.map.EncounterTable;
@@ -223,4 +224,49 @@ public class SingleTileProxy extends TileProxy
 	{
 		return mazeTile.getSector();
 	}
+
+	public MouseClickScript getFloorMouseClickScript()
+	{
+		return crusaderTile.getFloorMouseClickScript();
+	}
+
+	public void setFloorMouseClickScript(
+		MouseClickScript floorMouseClickScript)
+	{
+		crusaderTile.setFloorMouseClickScript(floorMouseClickScript);
+	}
+
+	public MouseClickScript getFloorMaskTextureMouseClickScript()
+	{
+		return crusaderTile.getFloorMaskTextureMouseClickScript();
+	}
+
+	public void setFloorMaskTextureMouseClickScript(
+		MouseClickScript floorMaskTextureMouseClickScript)
+	{
+		crusaderTile.setFloorMaskTextureMouseClickScript(floorMaskTextureMouseClickScript);
+	}
+
+	public MouseClickScript getCeilingMouseClickScript()
+	{
+		return crusaderTile.getCeilingMouseClickScript();
+	}
+
+	public void setCeilingMouseClickScript(
+		MouseClickScript ceilingMouseClickScript)
+	{
+		crusaderTile.setCeilingMouseClickScript(ceilingMouseClickScript);
+	}
+
+	public MouseClickScript getCeilingMaskTextureMouseClickScript()
+	{
+		return crusaderTile.getCeilingMaskTextureMouseClickScript();
+	}
+
+	public void setCeilingMaskTextureMouseClickScript(
+		MouseClickScript ceilingMaskTextureMouseClickScript)
+	{
+		crusaderTile.setCeilingMaskTextureMouseClickScript(ceilingMaskTextureMouseClickScript);
+	}
+
 }

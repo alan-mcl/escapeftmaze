@@ -25,6 +25,7 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.CombatantData;
@@ -112,6 +113,16 @@ public class DrainEvent extends MazeEvent
 
 			// defender is KO
 			result.add(new ConditionEvent(target, ko));
+		}
+
+		// refresh the UI for PCs
+		if (target instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)target);
+		}
+		if (source instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)source);
 		}
 
 		return result;

@@ -19,6 +19,7 @@
 
 package mclachlan.maze.editor.swing.map;
 
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.Tile;
 import java.util.List;
@@ -449,5 +450,108 @@ public class MultipleTileProxy extends TileProxy
 		}
 
 		return x;
+	}
+
+	@Override
+	public MouseClickScript getFloorMouseClickScript()
+	{
+		MouseClickScript x = crusaderTiles.get(0).getFloorMouseClickScript();
+
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			if (!x.equals(t.getFloorMouseClickScript()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	@Override
+	public void setFloorMouseClickScript(MouseClickScript floorMouseClickScript)
+	{
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			t.setFloorMouseClickScript(floorMouseClickScript);
+		}
+	}
+
+	@Override
+	public MouseClickScript getFloorMaskTextureMouseClickScript()
+	{
+		MouseClickScript x = crusaderTiles.get(0).getFloorMaskTextureMouseClickScript();
+
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			if (!x.equals(t.getFloorMaskTextureMouseClickScript()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	@Override
+	public void setFloorMaskTextureMouseClickScript(
+		MouseClickScript floorMaskTextureMouseClickScript)
+	{
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			t.setFloorMaskTextureMouseClickScript(floorMaskTextureMouseClickScript);
+		}
+	}
+
+	@Override
+	public MouseClickScript getCeilingMouseClickScript()
+	{
+		MouseClickScript x = crusaderTiles.get(0).getCeilingMouseClickScript();
+
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			if (!x.equals(t.getCeilingMouseClickScript()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	@Override
+	public void setCeilingMouseClickScript(
+		MouseClickScript ceilingMouseClickScript)
+	{
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			t.setCeilingMouseClickScript(ceilingMouseClickScript);
+		}
+	}
+
+	@Override
+	public MouseClickScript getCeilingMaskTextureMouseClickScript()
+	{
+		MouseClickScript x = crusaderTiles.get(0).getCeilingMaskTextureMouseClickScript();
+
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			if (!x.equals(t.getCeilingMaskTextureMouseClickScript()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	@Override
+	public void setCeilingMaskTextureMouseClickScript(
+		MouseClickScript ceilingMaskTextureMouseClickScript)
+	{
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			t.setCeilingMaskTextureMouseClickScript(ceilingMaskTextureMouseClickScript);
+		}
 	}
 }

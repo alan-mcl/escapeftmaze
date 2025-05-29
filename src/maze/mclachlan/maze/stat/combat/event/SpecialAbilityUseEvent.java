@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
@@ -110,6 +111,12 @@ public class SpecialAbilityUseEvent extends MazeEvent
 		if (caster.getMagicPoints().getCurrent() < 0)
 		{
 			caster.getMagicPoints().setCurrent(0);
+		}
+
+		// refresh the UI for PCs
+		if (caster instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)caster);
 		}
 
 		return result;

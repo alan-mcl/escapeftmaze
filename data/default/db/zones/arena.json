@@ -1065,6 +1065,7 @@
             "scoutSecretDifficulty": "-1",
             "encounterTable": "ichiba.crossroad.toothy.velox.1",
             "mazeVariable": "arena.encounter.12",
+            "attitude": "AGGRESSIVE",
             "preScriptEvents": {
               "name": "Encounter.preScript",
               "events": [
@@ -1121,7 +1122,7 @@
         "statModifier": "3f800000000000000000,08070708080708",
         "terrainType": "URBAN",
         "terrainSubType": "Arena",
-        "randomEncounterChance": "1",
+        "randomEncounterChance": "100",
         "restingDanger": "MEDIUM",
         "restingEfficiency": "AVERAGE"
       },
@@ -5117,7 +5118,21 @@
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "32",
-        "ceilingHeight": "1"
+        "ceilingHeight": "1",
+        "floorMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "you click the floor near the road",
+          "alignment": "CENTER"
+        },
+        "floorMaskTextureMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "you click on the road corner",
+          "alignment": "CENTER"
+        }
       },
       {
         "ceilingTexture": "TRANSPARENT",
@@ -7124,7 +7139,14 @@
         ],
         "visible": "true",
         "solid": "false",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click a bat",
+          "alignment": "CENTER"
+        }
       },
       {
         "textures": [

@@ -24,6 +24,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.CurMax;
 import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
 
@@ -86,6 +87,12 @@ public class DamageMagicEvent extends MazeEvent
 		if (magicPoints.getCurrent() < 0)
 		{
 			magicPoints.setCurrent(0);
+		}
+
+		// refresh the UI for PCs
+		if (defender instanceof PlayerCharacter)
+		{
+			Maze.getInstance().getUi().refreshCharacterWidget((PlayerCharacter)defender);
 		}
 		
 		return null;
