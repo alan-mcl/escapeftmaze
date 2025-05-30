@@ -420,17 +420,19 @@ public class V2SerialiserFactory
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(MazeScript.class, "name", "events");
 
-		result.addCustomSerialiser("events", new ListSerialiser(getMazeEventSerialiser(db)));
+		MazeObjectImplSerialiser<MazeEvent> mazeEventSerialiser = (MazeObjectImplSerialiser<MazeEvent>)getMazeEventSerialiser(db);
+		result.addCustomSerialiser("events", new ListSerialiser(mazeEventSerialiser));
 
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private static V2SerialiserObject getMazeEventSerialiser(Database db)
 	{
 		HashMap<Class, V2SerialiserMap<MazeEvent>> map = new HashMap<>();
 
 		map.put(ZoneChangeEvent.class, getReflectiveSerialiser(ZoneChangeEvent.class, "zone", "pos", "facing"));
-		map.put(CastSpellEvent.class, getReflectiveSerialiser(CastSpellEvent.class, "spellName", "casterLevel", "castingLevel"));
+		map.put(CastSpellAtPartyEvent.class, getReflectiveSerialiser(CastSpellAtPartyEvent.class, "spellName", "casterLevel", "castingLevel"));
 
 		ReflectiveSerialiser encounterActorsSerialiser = getReflectiveSerialiser(EncounterActorsEvent.class,
 			"mazeVariable", "encounterTable", "attitude", "ambushStatus",
@@ -480,13 +482,21 @@ public class V2SerialiserFactory
 
 		map.put(JournalEntryEvent.class, getReflectiveSerialiser(JournalEntryEvent.class, "type", "key", "journalText"));
 
+		ReflectiveSerialiser displayOptionsSerialiser = getReflectiveSerialiser(DisplayOptionsEvent.class,
+			"forceSelection", "title", "options", "mazeScripts");
+		displayOptionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
+		map.put(DisplayOptionsEvent.class, displayOptionsSerialiser);
+
+
+		// final result map
 		MazeObjectImplSerialiser<MazeEvent> result = new MazeObjectImplSerialiser<>(map);
 
-		// dodginess
+		// recursive dodginess
 		encounterActorsSerialiser.addCustomSerialiser("preScript", result);
 		encounterActorsSerialiser.addCustomSerialiser("postAppearanceScript", result);
 		encounterActorsSerialiser.addCustomSerialiser("partyLeavesNeutralScript", result);
 		encounterActorsSerialiser.addCustomSerialiser("partyLeavesFriendlyScript", result);
+		displayOptionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(new ListSerialiser(result)));
 
 		return result;
 	}
@@ -728,11 +738,11 @@ public class V2SerialiserFactory
 		HashMap<Class, V2SerialiserMap<TileScript>> map = new HashMap<>();
 
 		map.put(CastSpell.class, getReflectiveSerialiser(CastSpell.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"spellName", "castingLevel", "casterLevel"));
 
 		ReflectiveSerialiser chestSerialiser = getReflectiveSerialiser(Chest.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"chestContents", "traps", "mazeVariable", "northTexture", "southTexture", "eastTexture", "westTexture", "preScript");
 		chestSerialiser.addCustomSerialiser("traps", new PercentageTableSerialiser<>(new NameSerialiser<>(db::getTrap)));
 		chestSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
@@ -740,7 +750,7 @@ public class V2SerialiserFactory
 		map.put(Chest.class, chestSerialiser);
 
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"encounterTable", "mazeVariable", "attitude", "ambushStatus",
 			"preScriptEvents", "postAppearanceScriptEvents", "partyLeavesNeutralScript", "partyLeavesFriendlyScript");
 		encounterSerialiser.addCustomSerialiser("encounterTable", new NameSerialiser<>(db::getEncounterTable));
@@ -753,13 +763,13 @@ public class V2SerialiserFactory
 		map.put(Encounter.class, encounterSerialiser);
 
 		map.put(FlavourText.class, getReflectiveSerialiser(FlavourText.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text", "alignment"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "text", "alignment"));
 
 		map.put(PersonalitySpeech.class, getReflectiveSerialiser(PersonalitySpeech.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "speechKey", "modal"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "speechKey", "modal"));
 
 		ReflectiveSerialiser optionsSerialiser = getReflectiveSerialiser(DisplayOptions.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"forceSelection", "title", "options", "mazeScripts");
 		optionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		optionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(getMazeScriptSerialiser(db)));
@@ -767,34 +777,34 @@ public class V2SerialiserFactory
 		map.put(DisplayOptions.class, optionsSerialiser);
 
 		map.put(Loot.class, getReflectiveSerialiser(Loot.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "lootTable"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "lootTable"));
 
 		map.put(RemoveWall.class, getReflectiveSerialiser(RemoveWall.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"mazeVariable", "wallIndex", "horizontalWall"));
 
 		ReflectiveSerialiser executeMazeScriptSerialiser = getReflectiveSerialiser(ExecuteMazeScript.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "script");
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "script");
 		executeMazeScriptSerialiser.addCustomSerialiser("script", getMazeScriptSerialiser(db));
 		map.put(ExecuteMazeScript.class, executeMazeScriptSerialiser);
 
 		map.put(SignBoard.class, getReflectiveSerialiser(SignBoard.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "text"));
 		map.put(SetMazeVariable.class, getReflectiveSerialiser(SetMazeVariable.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable", "value"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "mazeVariable", "value"));
 
 		ReflectiveSerialiser hiddenStuffSerialiser = getReflectiveSerialiser(HiddenStuff.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"findDifficulty", "mazeVariable", "preScript", "content");
 		hiddenStuffSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
 		hiddenStuffSerialiser.addCustomSerialiser("content", getMazeScriptSerialiser(db));
 		map.put(HiddenStuff.class, hiddenStuffSerialiser);
 
 		map.put(Water.class, getReflectiveSerialiser(Water.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance"));
 
 		ReflectiveSerialiser leverSerialiser = getReflectiveSerialiser(Lever.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"northTexture", "southTexture", "eastTexture", "westTexture", "mazeVariable",
 			"preTransitionScript", "postTransitionScript");
 		leverSerialiser.addCustomSerialiser("preTransitionScript", getMazeScriptSerialiser(db));
@@ -802,7 +812,7 @@ public class V2SerialiserFactory
 		map.put(Lever.class, leverSerialiser);
 
 		ReflectiveSerialiser toggleWallSerialiser = getReflectiveSerialiser(ToggleWall.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"mazeVariable",
 			"wallIndex",
 			"horizontalWall",
@@ -827,11 +837,11 @@ public class V2SerialiserFactory
 		map.put(ToggleWall.class, toggleWallSerialiser);
 
 		map.put(SkillTest.class, getReflectiveSerialiser(SkillTest.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"keyModifier", "skill", "successValue", "successScript", "failureScript"));
 
 		MazeObjectImplSerialiser<TileScript> result = new MazeObjectImplSerialiser<>(map,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty");
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance");
 
 		// dubiousness
 		chestSerialiser.addCustomSerialiser("chestContents", result);

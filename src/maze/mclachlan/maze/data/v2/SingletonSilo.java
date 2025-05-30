@@ -36,6 +36,12 @@ public class SingletonSilo<T> implements V2SiloSingleton<T>
 	}
 
 	@Override
+	public void validate(T obj, Database db) throws V2Exception
+	{
+		serialiser.toObject(obj, db);
+	}
+
+	@Override
 	public T load(BufferedReader reader, Database db) throws IOException
 	{
 		Map map = V2Utils.getMap(reader);

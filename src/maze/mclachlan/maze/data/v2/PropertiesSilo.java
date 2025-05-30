@@ -29,6 +29,12 @@ import mclachlan.maze.data.Database;
 public class PropertiesSilo implements V2SiloSingleton<Properties>
 {
 	@Override
+	public void validate(Properties obj, Database db) throws V2Exception
+	{
+		// no op
+	}
+
+	@Override
 	public Properties load(BufferedReader reader,
 		Database db) throws IOException
 	{

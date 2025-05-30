@@ -1024,7 +1024,7 @@ public class ActorActionResolver
 		}
 
 		// the casting animation (todo: cast by player allies?)
-		if (caster instanceof PlayerCharacter)
+		if (caster instanceof PlayerCharacter || caster instanceof GameSys.FriendlyCaster)
 		{
 			if (spell.getCastByPlayerScript() != null)
 			{

@@ -4384,9 +4384,9 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public static class DummyCaster extends AbstractActor
 	{
-		private Spell spell;
-		private int casterLevel, castingLevel;
-		private String name;
+		private final Spell spell;
+		private final int casterLevel, castingLevel;
+		private final String name;
 
 		/*----------------------------------------------------------------------*/
 		public DummyCaster(Spell spell, int casterLevel, int castingLevel)
@@ -4425,12 +4425,18 @@ public class GameSys
 				throw new MazeException("Invalid intention "+actionIntention);
 			}
 
-			List<CombatAction> result = new ArrayList<CombatAction>();
+			List<CombatAction> result = new ArrayList<>();
 			SpellAction spellAction =
 				new SpellAction(((SpellIntention)actionIntention).getTarget(), spell, castingLevel);
 			spellAction.setActor(this);
 			result.add(spellAction);
 			return result;
+		}
+
+		@Override
+		public ActorGroup getActorGroup()
+		{
+			return new FoeGroup(Collections.singletonList(this));
 		}
 	}
 
@@ -4444,6 +4450,25 @@ public class GameSys
 		public TrapCaster(Spell spell, int casterLevel, int castingLevel)
 		{
 			super(spell, casterLevel, castingLevel);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Caster to be used by things that cast beneficial spells on the party.
+	 */
+	public static class FriendlyCaster extends DummyCaster
+	{
+		public FriendlyCaster(Spell spell, int casterLevel, int castingLevel)
+		{
+			super(spell, casterLevel, castingLevel);
+		}
+
+		@Override
+		public ActorGroup getActorGroup()
+		{
+			return Maze.getInstance().getParty();
 		}
 	}
 }

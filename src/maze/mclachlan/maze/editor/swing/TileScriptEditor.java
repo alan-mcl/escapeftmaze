@@ -108,7 +108,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField executeOnceMazeVariable;
 	private JCheckBox north, south, east, west;
 	private JCheckBox reexecuteOnSameTile;
-	private JSpinner scoutSecretDifficulty;
+	private JSpinner scoutSecretDifficulty, clickMaxDistance;
 
 	private JComboBox spell;
 	private JSpinner castingLevel;
@@ -300,6 +300,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		panel2.add(scoutSecretDifficulty);
 		result.add(panel2, gbc);
 
+		gbc.gridy++;
+		gbc.weightx = 1.0;
+		gbc.weighty = 0.0;
+		JPanel panel3 = new JPanel();
+		clickMaxDistance = new JSpinner(new SpinnerNumberModel(1, 1, 256, 1));
+		panel3.add(new JLabel("Click Max Distance:"));
+		panel3.add(clickMaxDistance);
+		result.add(panel3, gbc);
+
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx = 0;
@@ -356,6 +365,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		}
 
 		scoutSecretDifficulty.setValue(ts.getScoutSecretDifficulty());
+		clickMaxDistance.setValue(ts.getClickMaxDistance());
 
 		switch (tsType)
 		{
@@ -418,18 +428,28 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 				displayOptionsTitle.setText(dop.getTitle());
 
+				List<String> options = dop.getOptions();
+				List<MazeScript> scripts = dop.getMazeScripts();
 				for (int i = 0; i < maxOptions; i++)
 				{
-					displayOptionsOptions.get(i).setText("");
-					displayOptionsScripts.get(i).refresh(null);
+					if (i < options.size())
+					{
+						displayOptionsOptions.get(i).setText(options.get(i));
+					}
+					else
+					{
+						displayOptionsOptions.get(i).setText("");
+					}
+					if (i < scripts.size())
+					{
+						displayOptionsScripts.get(i).refresh(scripts.get(i) == null ? null : scripts.get(i).getEvents());
+					}
+					else
+					{
+						displayOptionsScripts.get(i).refresh(null);
+					}
 				}
 
-				for (int i = 0; i < dop.getOptions().size(); i++)
-				{
-					displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
-					MazeScript scripti = dop.getMazeScripts().get(i);
-					displayOptionsScripts.get(i).refresh(scripti == null ? null : scripti.getEvents());
-				}
 
 				break;
 			case LOOT:
@@ -568,15 +588,24 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			displayOptionsScripts.add(new MazeEventsComponent(dirtyFlag));
 		}
 
-		return dirtyGridBagCrap(
-			displayOptionsForceSelection, new JLabel(),
-			new JLabel("Title:"), displayOptionsTitle,
-			displayOptionsOptions.get(0), displayOptionsScripts.get(0),
-			displayOptionsOptions.get(1), displayOptionsScripts.get(1),
-			displayOptionsOptions.get(2), displayOptionsScripts.get(2),
-			displayOptionsOptions.get(3), displayOptionsScripts.get(3),
-			displayOptionsOptions.get(4), displayOptionsScripts.get(4)
-		);
+		JPanel result = new JPanel(new BorderLayout());
+		JPanel header = new JPanel();
+		header.add(new JLabel("Title:"));
+		header.add(displayOptionsTitle);
+
+		result.add(header, BorderLayout.NORTH);
+		result.add(
+			dirtyGridBagCrap(
+				new JLabel("Options:"),new JLabel(),
+				displayOptionsForceSelection, new JLabel(),
+				displayOptionsOptions.get(0), displayOptionsScripts.get(0),
+				displayOptionsOptions.get(1), displayOptionsScripts.get(1),
+				displayOptionsOptions.get(2), displayOptionsScripts.get(2),
+				displayOptionsOptions.get(3), displayOptionsScripts.get(3),
+				displayOptionsOptions.get(4), displayOptionsScripts.get(4)),
+			BorderLayout.CENTER);
+
+		return result;
 	}
 
 	private JPanel getHiddenStuffPanel()
@@ -1575,6 +1604,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		}
 
 		result.setScoutSecretDifficulty((Integer)scoutSecretDifficulty.getValue());
+		result.setClickMaxDistance((Integer)clickMaxDistance.getValue());
 
 		result.setReexecuteOnSameTile(reexecuteOnSameTile.isSelected());
 	}

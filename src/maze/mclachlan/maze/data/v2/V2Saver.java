@@ -47,7 +47,6 @@ public class V2Saver extends Saver
 	@Override
 	public void init(Campaign c)
 	{
-		// todo: remove v2
 		path = "data/"+ c.getName()+"/db/";
 		savePath = "data/"+ c.getName()+"/save/";
 		campaign = c;
@@ -84,6 +83,9 @@ public class V2Saver extends Saver
 
 	private void v2Crud(Object obj, String path, V2SiloSingleton silo) throws Exception
 	{
+		// check that this object can serialise
+		silo.validate(obj, db);
+
 		File f = new File(path);
 		f.getParentFile().mkdirs();
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));

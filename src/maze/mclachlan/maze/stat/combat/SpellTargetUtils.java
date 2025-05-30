@@ -455,14 +455,14 @@ public class SpellTargetUtils
 	public static List<MazeEvent> resolvePartySpell(Combat combat, UnifiedActor caster,
 		int castingLevel, Spell spell, AnimationContext animationContext)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
 		GroupOfPossibilities<SpellEffect> spellEffects =
 			processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result, combat);
 
-		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
+		List<MazeEvent> mazeEvents = new ArrayList<>();
 
 		ActorGroup castingParty = caster.getActorGroup();
 		for (UnifiedActor target : castingParty.getActors())
@@ -486,14 +486,14 @@ public class SpellTargetUtils
 	public static List<MazeEvent> resolvePartyButNotCasterSpell(Combat combat, UnifiedActor caster,
 		int castingLevel, Spell spell, AnimationContext animationContext)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
 		GroupOfPossibilities<SpellEffect> spellEffects =
 			processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result, combat);
 
-		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
+		List<MazeEvent> mazeEvents = new ArrayList<>();
 
 		ActorGroup actors = SpellTargetUtils.getActorGroupWithoutCaster(caster);
 		for (UnifiedActor target : actors.getActors())

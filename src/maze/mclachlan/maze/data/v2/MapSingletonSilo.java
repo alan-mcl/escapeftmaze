@@ -40,6 +40,18 @@ public class MapSingletonSilo implements V2SiloSingleton<Map>
 	}
 
 	@Override
+	public void validate(Map map, Database db)
+	{
+		if (valueSerialiser != null)
+		{
+			for (Object key : map.keySet())
+			{
+				valueSerialiser.toObject(map.get(key), db);
+			}
+		}
+	}
+
+	@Override
 	public Map load(BufferedReader reader,
 		Database db) throws IOException
 	{

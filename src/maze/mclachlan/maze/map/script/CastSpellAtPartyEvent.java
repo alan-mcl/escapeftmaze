@@ -19,27 +19,30 @@
 
 package mclachlan.maze.map.script;
 
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.data.Database;
 import java.util.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.Spell;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class CastSpellEvent extends MazeEvent
+public class CastSpellAtPartyEvent extends MazeEvent
 {
 	private String spellName;
 	private int casterLevel;
 	private int castingLevel;
 
-	public CastSpellEvent()
+	public CastSpellAtPartyEvent()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public CastSpellEvent(String spellName, int casterLevel, int castingLevel)
+	public CastSpellAtPartyEvent(String spellName, int casterLevel, int castingLevel)
 	{
 		this.spellName = spellName;
 		this.casterLevel = casterLevel;
@@ -50,9 +53,37 @@ public class CastSpellEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Spell spell = Database.getInstance().getSpell(spellName);
+
+		UnifiedActor caster =
+			switch (spell.getTargetType())
+				{
+					// good stuff cast on the party
+					case MagicSys.SpellTargetType.CASTER,
+						MagicSys.SpellTargetType.PARTY,
+						MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER,
+						MagicSys.SpellTargetType.TILE,
+						MagicSys.SpellTargetType.ITEM,
+						MagicSys.SpellTargetType.ALLY ->
+						caster = new GameSys.FriendlyCaster(spell, casterLevel, castingLevel);
+
+
+					// bad stuff cast at the part
+					case MagicSys.SpellTargetType.ALL_FOES,
+						MagicSys.SpellTargetType.FOE,
+						MagicSys.SpellTargetType.FOE_GROUP,
+						MagicSys.SpellTargetType.LOCK_OR_TRAP,
+						MagicSys.SpellTargetType.NPC,
+						MagicSys.SpellTargetType.CLOUD_ONE_GROUP,
+						MagicSys.SpellTargetType.CLOUD_ALL_GROUPS ->
+						caster = new GameSys.TrapCaster(spell, casterLevel, castingLevel);
+
+					default ->
+						throw new MazeException("Unrecognized spell target type: "
+							+ spell.getTargetType());
+				};
+
 		GameSys.getInstance().castSpellOnPartyOutsideCombat(
-			spell, casterLevel, castingLevel,
-			new GameSys.TrapCaster(spell, casterLevel, castingLevel));
+			spell, casterLevel, castingLevel, caster);
 
 		return null;
 	}
@@ -86,41 +117,5 @@ public class CastSpellEvent extends MazeEvent
 	public void setCastingLevel(int castingLevel)
 	{
 		this.castingLevel = castingLevel;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		CastSpellEvent that = (CastSpellEvent)o;
-
-		if (getCasterLevel() != that.getCasterLevel())
-		{
-			return false;
-		}
-		if (getCastingLevel() != that.getCastingLevel())
-		{
-			return false;
-		}
-		return getSpellName() != null ? getSpellName().equals(that.getSpellName()) : that.getSpellName() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getSpellName() != null ? getSpellName().hashCode() : 0;
-		result = 31 * result + getCasterLevel();
-		result = 31 * result + getCastingLevel();
-		return result;
 	}
 }

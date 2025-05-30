@@ -4,7 +4,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.ReflectiveSerialiser;
 import mclachlan.maze.data.v2.V2Exception;
-import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.data.v2.V2SerialiserMap;
 import mclachlan.maze.util.MazeException;
 
@@ -44,7 +43,7 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 		else
 		{
 			ReflectiveSerialiser serialiser = new ReflectiveSerialiser(t.getClass(), defaultFields);
-			Map result = serialiser.toObject((V2Seralisable)t, db);
+			Map result = serialiser.toObject(t, db);
 			result.put(IMPL, typeKey);
 			return result;
 		}
@@ -83,5 +82,10 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 		{
 			throw new V2Exception("unknown type: ["+map+"]");
 		}
+	}
+
+	public Map<String, V2SerialiserMap<T>> getSerialisers()
+	{
+		return serialisers;
 	}
 }

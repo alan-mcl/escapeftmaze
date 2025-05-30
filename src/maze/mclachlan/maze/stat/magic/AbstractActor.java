@@ -19,15 +19,13 @@
 
 package mclachlan.maze.stat.magic;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.ModifierValue;
-import mclachlan.maze.stat.combat.*;
-import mclachlan.maze.stat.condition.Condition;
-import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.CombatAction;
+import mclachlan.maze.stat.combat.CombatantData;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.npc.NpcScript;
 
 /**
@@ -55,13 +53,31 @@ public abstract class AbstractActor extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> addCondition(Condition c) {return new ArrayList<MazeEvent>(); }
-	public void deductAmmo(AttackEvent event) {}
-	public ActorGroup getActorGroup() { return null; }
-	public Item getArmour(BodyPart bodyPart) { return null; }
-	public PercentageTable<BodyPart> getBodyParts() { return null; }
+	public List<MazeEvent> addCondition(Condition c)
+	{
+		return new ArrayList<>();
+	}
+
+	public ActorGroup getActorGroup()
+	{
+		return null;
+	}
+
+	public Item getArmour(BodyPart bodyPart)
+	{
+		return null;
+	}
+
+	public PercentageTable<BodyPart> getBodyParts()
+	{
+		return null;
+	}
+
 	public List<CombatAction> getCombatActions(
-		ActorActionIntention actionIntention) { return null; }
+		ActorActionIntention actionIntention)
+	{
+		return null;
+	}
 
 	@Override
 	public List<Item> getStealableItems()
@@ -69,48 +85,160 @@ public abstract class AbstractActor extends UnifiedActor
 		return null;
 	}
 
-	public List<Condition> getConditions() { return new ArrayList<Condition>(); }
-	public int getLevel() { return 0; }
-	public List<TypeDescriptor> getTypes() { return new ArrayList<TypeDescriptor>(); }
-	public int getModifier(Stats.Modifier modifier) { return 0; }
-	public int getModifier(Stats.Modifier modifier, boolean checkCarryingCapacity) {return 0;}
-	public int getBaseModifier(Stats.Modifier modifier) { return 0; };
-	public String getName() { return "Abstract Actor"; }
-	public String getDisplayName() { return getName(); }
+	public List<Condition> getConditions()
+	{
+		return new ArrayList<>();
+	}
+
+	public int getLevel()
+	{
+		return 0;
+	}
+
+	public List<TypeDescriptor> getTypes()
+	{
+		return new ArrayList<>();
+	}
+
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
+
+	public int getModifier(Stats.Modifier modifier,
+		boolean checkCarryingCapacity)
+	{
+		return 0;
+	}
+
+	public int getBaseModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
+
+	;
+
+	public String getName()
+	{
+		return "Abstract Actor";
+	}
+
+	public String getDisplayName()
+	{
+		return getName();
+	}
 
 	@Override
-	public String getDisplayNamePlural() { return getName(); }
+	public String getDisplayNamePlural()
+	{
+		return getName();
+	}
 
-	public CurMax getActionPoints() { return new CurMax(); }
-	public CurMaxSub getHitPoints() { return new CurMaxSub(); }
-	public CurMax getMagicPoints() { return new CurMax(); }
-	public void removeCondition(Condition c) {}
-	public void setModifier(Stats.Modifier modifier, int value) {}
-	public void removeItem(Item item, boolean removeWholeStack) {}
+	public CurMax getActionPoints()
+	{
+		return new CurMax();
+	}
 
-	public void removeItem(String itemName, boolean removeWholeStack) {}
+	public CurMaxSub getHitPoints()
+	{
+		return new CurMaxSub();
+	}
 
-	public void regenerateResources(long turnNr, boolean resting, boolean combat, Tile currentTile) {}
-	public void removeCurse(int strength) {}
-	public void addAllies(List<FoeGroup> foeGroups) {}
+	public CurMax getMagicPoints()
+	{
+		return new CurMax();
+	}
 
-	public boolean meetsRequirements(StatModifier req) { return false; }
-	public boolean isActiveModifier(Stats.Modifier modifier) {return true;}
+	public void removeCondition(Condition c)
+	{
+	}
+
+	public void setModifier(Stats.Modifier modifier, int value)
+	{
+	}
+
+	public void removeItem(Item item, boolean removeWholeStack)
+	{
+	}
+
+	public void removeItem(String itemName, boolean removeWholeStack)
+	{
+	}
+
+	public void regenerateResources(long turnNr, boolean resting, boolean combat,
+		Tile currentTile)
+	{
+	}
+
+	public void removeCurse(int strength)
+	{
+	}
+
+	public void addAllies(List<FoeGroup> foeGroups)
+	{
+	}
+
+	public boolean meetsRequirements(StatModifier req)
+	{
+		return false;
+	}
+
+	public boolean isActiveModifier(Stats.Modifier modifier)
+	{
+		return true;
+	}
 
 	@Override
-	public List<AttackWith> getAttackWithOptions() { return new ArrayList<AttackWith>(); }
+	public List<AttackWith> getAttackWithOptions()
+	{
+		return new ArrayList<>();
+	}
 
-	public Item getEquippedItem(EquipableSlot.Type type, int i) {return null;};
+	public Item getEquippedItem(EquipableSlot.Type type, int i)
+	{
+		return null;
+	}
 
-	public int getCarrying() {return 0;};
+	;
 
-	public Gender getGender(){return null;};
-	public Race getRace(){return null;};
-	public CharacterClass getCharacterClass(){return null;};
-	public ModifierValue collectConditionBanners(String modifier) {return null;};
-	public int getAmountMagicPresent(int colour) {return 0;};
+	public int getCarrying()
+	{
+		return 0;
+	}
 
-	public void inventoryItemAdded(Item item) {}
+	;
+
+	public Gender getGender()
+	{
+		return null;
+	}
+
+	;
+
+	public Race getRace()
+	{
+		return null;
+	}
+
+	;
+
+	public CharacterClass getCharacterClass()
+	{
+		return null;
+	}
+
+	;
+
+	public int getAmountMagicPresent(int colour)
+	{
+		return 0;
+	}
+
+	;
+
+	public void inventoryItemAdded(Item item)
+	{
+	}
 
 	@Override
 	public NpcScript getActionScript()
@@ -123,7 +251,7 @@ public abstract class AbstractActor extends UnifiedActor
 	@Override
 	public List<SpellLikeAbility> getSpellLikeAbilities()
 	{
-		return new ArrayList<SpellLikeAbility>();
+		return new ArrayList<>();
 	}
 
 	@Override

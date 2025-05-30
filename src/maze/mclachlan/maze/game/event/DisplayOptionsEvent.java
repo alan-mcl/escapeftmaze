@@ -22,8 +22,10 @@ package mclachlan.maze.game.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
 import mclachlan.maze.ui.diygui.GeneralOptionsDialog;
+import mclachlan.maze.ui.diygui.MazeScriptOptions;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -31,26 +33,63 @@ import mclachlan.maze.util.MazeException;
  */
 public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCallback
 {
-	private final boolean forceSelection;
-	private final GeneralOptionsCallback callback;
-	private final String[] options;
-	private final String title;
+	private boolean forceSelection;
+	private GeneralOptionsCallback callback;
+	private List<String> options;
+	private List<List<MazeEvent>> mazeScripts;
+	private String title;
 
 	private transient String optionChosen;
+
+	public DisplayOptionsEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public DisplayOptionsEvent(GeneralOptionsCallback callback, boolean forceSelection, String title, String... options)
 	{
 		this.callback = callback;
 		this.forceSelection = forceSelection;
-		this.options = options;
+		this.options = Arrays.asList(options);
 		this.title = title;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DisplayOptionsEvent(boolean forceSelection, String title, List<String> options, List<MazeScript> scripts)
+	{
+		this.forceSelection = forceSelection;
+		this.options = options;
+		this.mazeScripts = new ArrayList<>();
+		scripts.forEach(script -> {
+			if (script == null)
+			{
+				mazeScripts.add(null);
+			}
+			else
+			{
+				mazeScripts.add(script.getEvents());
+			}});
+
+		createCallback(forceSelection, options, mazeScripts);
+		this.title = title;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void createCallback(boolean forceSelection, List<String> options, List<List<MazeEvent>> scripts)
+	{
+		HashMap<String, MazeScript> optionsMap = new HashMap<>();
+		for (int i = 0; i < options.size(); i++)
+		{
+			optionsMap.put(options.get(i), new MazeScript("option "+i, scripts.get(i)));
+		}
+
+		this.callback = new MazeScriptOptions(optionsMap, forceSelection);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		GeneralOptionsDialog dialog = new GeneralOptionsDialog(this, forceSelection, title, options);
+		GeneralOptionsDialog dialog = new GeneralOptionsDialog(this, forceSelection, title, options.toArray(new String[0]));
 		Maze.getInstance().getUi().showDialog(dialog);
 
 		synchronized(Maze.getInstance().getEventMutex())
@@ -78,5 +117,48 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 		}
 
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public boolean isForceSelection()
+	{
+		return forceSelection;
+	}
+
+	public void setForceSelection(boolean forceSelection)
+	{
+		this.forceSelection = forceSelection;
+	}
+
+	public List<String> getOptions()
+	{
+		return options;
+	}
+
+	public void setOptions(List<String> options)
+	{
+		this.options = options;
+	}
+
+	public List<List<MazeEvent>> getMazeScripts()
+	{
+		return mazeScripts;
+	}
+
+	public void setMazeScripts(List<List<MazeEvent>> mazeScripts)
+	{
+		this.mazeScripts = mazeScripts;
+		createCallback(forceSelection, options, mazeScripts);
+	}
+
+	public String getTitle()
+	{
+		return title;
+	}
+
+	public void setTitle(String title)
+	{
+		this.title = title;
 	}
 }

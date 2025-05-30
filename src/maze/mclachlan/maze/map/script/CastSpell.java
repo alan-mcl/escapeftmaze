@@ -50,7 +50,7 @@ public class CastSpell extends TileScript
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
-		result.add(new CastSpellEvent(spellName, casterLevel, castingLevel));
+		result.add(new CastSpellAtPartyEvent(spellName, casterLevel, castingLevel));
 		return result;
 	}
 

@@ -121,6 +121,13 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField journalKey;
 	private JTextArea journalText;
 
+	private int maxOptions = 5;
+	private JCheckBox displayOptionsForceSelection;
+	private JTextField displayOptionsTitle;
+	private List<JTextField> displayOptionsOptions;
+	private List<MazeEventsComponent> displayOptionsScripts;
+
+
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
 	{
@@ -220,7 +227,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				zoneFacing.setSelectedIndex(zce.getFacing());
 				break;
 			case _CastSpellEvent:
-				CastSpellEvent cse = (CastSpellEvent)e;
+				CastSpellAtPartyEvent cse = (CastSpellAtPartyEvent)e;
 				spell.setSelectedItem(cse.getSpellName());
 				casterLevel.setValue(cse.getCasterLevel());
 				castingLevel.setValue(cse.getCastingLevel());
@@ -343,6 +350,33 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				journalKey.setText(jee.getKey() == null ? "" : jee.getKey());
 				journalText.setText(jee.getJournalText() == null ? "" : jee.getJournalText());
 				break;
+			case _DisplayOptionsEvent:
+				DisplayOptionsEvent doe = (DisplayOptionsEvent)e;
+				displayOptionsForceSelection.setSelected(doe.isForceSelection());
+				displayOptionsTitle.setText(doe.getTitle());
+				List<String> options = doe.getOptions();
+				List<List<MazeEvent>> scripts = doe.getMazeScripts();
+				for (int i = 0; i < maxOptions; i++)
+				{
+					if (i < options.size())
+					{
+						displayOptionsOptions.get(i).setText(options.get(i));
+					}
+					else
+					{
+						displayOptionsOptions.get(i).setText("");
+					}
+					if (i < scripts.size())
+					{
+						displayOptionsScripts.get(i).refresh(scripts.get(i) == null ? null : scripts.get(i));
+					}
+					else
+					{
+						displayOptionsScripts.get(i).refresh(null);
+					}
+				}
+				break;
+
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -460,7 +494,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					zoneFacing.getSelectedIndex());
 				break;
 			case _CastSpellEvent:
-				this.result = new CastSpellEvent(
+				this.result = new CastSpellAtPartyEvent(
 					(String)spell.getSelectedItem(),
 					(Integer)casterLevel.getValue(),
 					(Integer)castingLevel.getValue());
@@ -600,6 +634,24 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					"".equals(journalKey.getText()) ? null : journalKey.getText(),
 					"".equals(journalText.getText()) ? null : journalText.getText());
 				break;
+			case _DisplayOptionsEvent:
+				List<String> options = new ArrayList<>();
+				List<MazeScript> scripts = new ArrayList<>();
+				for (int i = 0; i < maxOptions; i++)
+				{
+					String option = displayOptionsOptions.get(i).getText();
+					if (option != null && option.length() > 0)
+					{
+						options.add(option);
+						scripts.add(displayOptionsScripts.get(i).getEvents() == null ? null : new MazeScript("DisplayOptionsEvent.option" + i, displayOptionsScripts.get(i).getEvents()));
+					}
+				}
+				this.result = new DisplayOptionsEvent(
+					displayOptionsForceSelection.isSelected(),
+					displayOptionsTitle.getText(),
+					options,
+					scripts);
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -734,6 +786,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getSkillTestEventPanel();
 			case _JournalEntryEvent:
 				return getJournalEntryEventPanel();
+			case _DisplayOptionsEvent:
+				return getDisplayOptionsPanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -801,6 +855,40 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	private JPanel getDisplayOptionsPanel()
+	{
+		displayOptionsForceSelection = new JCheckBox("Force selection?");
+
+		displayOptionsTitle = new JTextField(20);
+
+		displayOptionsOptions = new ArrayList<>(maxOptions);
+		displayOptionsScripts = new ArrayList<>(maxOptions);
+		for (int i = 0; i < maxOptions; i++)
+		{
+			displayOptionsOptions.add(new JTextField(20));
+			displayOptionsScripts.add(new MazeEventsComponent(dirtyFlag));
+		}
+
+		JPanel result = new JPanel(new BorderLayout());
+		JPanel header = new JPanel();
+		header.add(new JLabel("Title:"));
+		header.add(displayOptionsTitle);
+
+		result.add(header, BorderLayout.NORTH);
+		result.add(
+			dirtyGridBagCrap(
+				new JLabel("Options:"),new JLabel(),
+				displayOptionsForceSelection, new JLabel(),
+				displayOptionsOptions.get(0), displayOptionsScripts.get(0),
+				displayOptionsOptions.get(1), displayOptionsScripts.get(1),
+				displayOptionsOptions.get(2), displayOptionsScripts.get(2),
+				displayOptionsOptions.get(3), displayOptionsScripts.get(3),
+				displayOptionsOptions.get(4), displayOptionsScripts.get(4)),
+			BorderLayout.CENTER);
+
+		return result;
 	}
 
 	private JPanel getJournalEntryEventPanel()
@@ -1386,6 +1474,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Skill Test";
 			case _JournalEntryEvent:
 				return "Journal Entry";
+			case _DisplayOptionsEvent:
+				return "Display Options";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -1516,6 +1606,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _MusicEvent = 149;
 	public static final int _SoundEffectEvent = 138;
 	public static final int _JournalEntryEvent = 24;
+	public static final int _DisplayOptionsEvent = 25;
 
 	// not implemented
 	public static final int _ActorDiesEvent = 100;
@@ -1583,7 +1674,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 		// implemented in UI & DB
 		types.put(ZoneChangeEvent.class, _ZoneChangeEvent);
-		types.put(CastSpellEvent.class, _CastSpellEvent);
+		types.put(CastSpellAtPartyEvent.class, _CastSpellEvent);
 		types.put(EncounterActorsEvent.class, _EncounterActorsEvent);
 		types.put(FlavourTextEvent.class, _FlavourTextEvent);
 		types.put(GrantExperienceEvent.class, _GrantExperienceEvent);
@@ -1614,6 +1705,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(RemoveObjectEvent.class, _RemoveObjectEvent);
 		types.put(SkillTestEvent.class, _SkillTestEvent);
 		types.put(JournalEntryEvent.class, _JournalEntryEvent);
+		types.put(DisplayOptionsEvent.class, _DisplayOptionsEvent);
 
 		// not implemented
 		types.put(BackPartyUpEvent.class, _BackPartyUpEvent);

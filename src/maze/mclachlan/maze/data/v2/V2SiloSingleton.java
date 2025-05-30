@@ -31,6 +31,16 @@ import mclachlan.maze.data.Database;
 public interface V2SiloSingleton<V>
 {
 	/**
+	 * Validate the given object.
+	 *
+	 * @param obj
+	 *    The object to validate
+	 * @throws V2Exception
+	 *    If the object is not valid
+	 */
+	void validate(V obj, Database db) throws V2Exception;
+
+	/**
 	 * Load up this silo from the given input stream.
 	 */
 	V load(BufferedReader reader, Database db) throws Exception;

@@ -5103,11 +5103,38 @@
           "alignment": "CENTER"
         },
         "floorMaskTextureMouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "text": "click on the mask",
-          "alignment": "CENTER"
+          "forceSelection": "true",
+          "title": "FLLOR MASK OPTIONS",
+          "options": [
+            "opt1 1 11 :)",
+            "opt2"
+          ],
+          "mazeScripts": [
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "yeah 1",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.GrantExperienceEvent",
+                  "amount": "4001"
+                }
+              ]
+            }
+          ]
         },
         "ceilingMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -5117,11 +5144,43 @@
           "alignment": "CENTER"
         },
         "ceilingMaskTextureMouseClickScript": {
-          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "text": "click the ceiling mask",
-          "alignment": "CENTER"
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.DisplayOptionsEvent",
+                "forceSelection": "false",
+                "title": "hgfhgfh",
+                "options": [
+                  "hgfgh",
+                  "fhgf"
+                ],
+                "mazeScripts": [
+                  [
+                    {
+                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                      "flavourText": "hgfhgf",
+                      "delay": "-1",
+                      "shouldClearText": "false",
+                      "alignment": "CENTER"
+                    }
+                  ],
+                  [
+                    {
+                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                      "flavourText": "jhgjhgh",
+                      "delay": "-1",
+                      "shouldClearText": "false",
+                      "alignment": "CENTER"
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
         }
       },
       {

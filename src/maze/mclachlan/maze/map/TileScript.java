@@ -62,6 +62,11 @@ public abstract class TileScript implements V2Seralisable
 	 */
 	private int scoutSecretDifficulty = -1;
 
+	/**
+	 * Max click distance for click scripts, in tiles
+	 */
+	private int clickMaxDistance = 1;
+
 
 	/** Constant returned by scripts that prevent other player actions (e.g. while swimming) */
 	public static final List<MazeEvent> PREVENT_ACTION = new ArrayList<>();
@@ -243,6 +248,16 @@ public abstract class TileScript implements V2Seralisable
 	public boolean isHiddenSecret()
 	{
 		return scoutSecretDifficulty > -1 && !isFinishedExecuting();
+	}
+
+	public int getClickMaxDistance()
+	{
+		return clickMaxDistance;
+	}
+
+	public void setClickMaxDistance(int clickMaxDistance)
+	{
+		this.clickMaxDistance = clickMaxDistance;
 	}
 
 	/*-------------------------------------------------------------------------*/

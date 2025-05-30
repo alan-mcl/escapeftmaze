@@ -3790,7 +3790,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "script": {
-              "name": "Gatehouse supplies 1 eels leave",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -3842,13 +3842,9 @@
               "Yes",
               "No thanks, leave them alone"
             ],
-            "scripts": [
-              "Gatehouse supplies 1 cave eels skill test",
-              "Gatehouse supplies 1 cave eels leave alone"
-            ],
             "mazeScripts": [
               {
-                "name": "Gatehouse supplies 1 cave eels skill test",
+                "name": "DisplayOptions.mazeScripts",
                 "events": [
                   {
                     "TYPE_KEY": "mclachlan.maze.game.event.SkillTestEvent",
@@ -3890,7 +3886,7 @@
                 ]
               },
               {
-                "name": "Gatehouse supplies 1 cave eels leave alone",
+                "name": "DisplayOptions.mazeScripts",
                 "events": [
                   {
                     "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -5409,10 +5405,6 @@
             "options": [
               "Yes",
               "No thanks"
-            ],
-            "scripts": [
-              "Gatehouse hidden pool contents",
-              "Gatehouse hidden pool pass"
             ],
             "mazeScripts": [
               {
@@ -44209,12 +44201,9 @@
             "Take the mushrooms",
             "Leave them alone"
           ],
-          "scripts": [
-            "Gatehouse supplies 1 ambercaps"
-          ],
           "mazeScripts": [
             {
-              "name": "Gatehouse supplies 1 ambercaps",
+              "name": "DisplayOptions.mazeScripts",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -44232,6 +44221,9 @@
                   "lootTable": "gatehouse.supplies.1.ambercaps"
                 }
               ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts"
             }
           ]
         },
