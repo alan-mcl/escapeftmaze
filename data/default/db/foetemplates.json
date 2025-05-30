@@ -12186,7 +12186,8 @@
     "appearanceScript": {
       "NAME": "sound - cicada"
     },
-    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "spriteAnimations": "Jumping Roach.default",
+    "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "swarming roach claw"
     ],

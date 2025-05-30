@@ -60,7 +60,7 @@ public class V1Point
 	/*-------------------------------------------------------------------------*/
 	public static Point fromString(String s, String sep)
 	{
-		if (s.equals(""))
+		if (s == null || s.equals(""))
 		{
 			return null;
 		}

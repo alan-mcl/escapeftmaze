@@ -1352,6 +1352,7 @@ public class V2SerialiserFactory
 	private static V2SerialiserMap<Tile> getTileSerialiser(Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(Tile.class,
+			"coords",
 			"scripts",
 			"randomEncounters",
 			"statModifier",

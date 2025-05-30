@@ -11,7 +11,6 @@ mantis bones loot
 a shrine
 more berry bushes
 more bushes, incl proto-omnifids
-roach encounter
 emerald spider encounter
 forgotten path / red moss tree
 other encounters?

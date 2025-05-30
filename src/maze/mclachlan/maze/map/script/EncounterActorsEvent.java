@@ -44,6 +44,10 @@ public class EncounterActorsEvent extends MazeEvent
 	// volatile
 	private EncounterTable encounterTableRef;
 
+	public EncounterActorsEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
 		String mazeVariable,

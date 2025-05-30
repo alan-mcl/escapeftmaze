@@ -1272,6 +1272,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.swarming.roach.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "swarming.roach.swarm"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "gnoll.village.random.enc",
     "encounterTable": {
       "PERCENTAGES": [
