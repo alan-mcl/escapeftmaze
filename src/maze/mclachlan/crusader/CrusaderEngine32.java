@@ -966,6 +966,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return null;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void addPostProcessor(PostProcessor postProcessor)
 	{
@@ -2231,6 +2232,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// fill the render buffer with alpha
 			Arrays.fill(renderBuffer, 0x00000000);
 
+			// clear mouse click scripts
+			for (int i = 0; i < mouseClickScriptRecords.length; i++)
+			{
+				mouseClickScriptRecords[i].script = null;
+				mouseClickScriptRecords[i].distance = -1;
+			}
+
 			try
 			{
 				// ray cast and render each column
@@ -2569,7 +2577,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 						shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
 					}
 
-					// draw the floor:
+					// draw the floor
 					if (maskTexture != null)
 					{
 						int maskPixel = maskTexture.getCurrentImageData(textureX, textureY, timeNow);
@@ -2582,15 +2590,22 @@ public class CrusaderEngine32 implements CrusaderEngine
 						if (tile.floorMaskTextureMouseClickScript != null && getAlpha(maskPixel) != 0)
 						{
 							this.mouseClickScriptRecords[bufferIndex].script = tile.floorMaskTextureMouseClickScript;
-							this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+							this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
+						}
+						else
+						{
+							// use the floor texture mouse click script instead
+							this.mouseClickScriptRecords[bufferIndex].script = tile.floorMouseClickScript;
+							this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
 						}
 					}
 					else
 					{
 						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
 
+						// use the floor texture mouse click script
 						this.mouseClickScriptRecords[bufferIndex].script = tile.floorMouseClickScript;
-						this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+						this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
 					}
 					pixel = colourPixel(colour, lightLevel, shadeMult);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
@@ -2658,8 +2673,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
 		// this is the bottom if the wall height is 1
 //		int height1bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
-
-		BlockHitRecord hitRecord = blockHitRecord[screenX][depth];
 
 		int screenY = top;
 		int screenYInUnits=0;
@@ -2766,18 +2779,25 @@ public class CrusaderEngine32 implements CrusaderEngine
 							maskPixel);
 
 						// if this click is on a visible piece of the mask texture, use that script
-						if (tile.floorMaskTextureMouseClickScript != null && getAlpha(maskPixel) != 0)
+						if (tile.ceilingMaskTextureMouseClickScript != null && getAlpha(maskPixel) != 0)
 						{
 							this.mouseClickScriptRecords[bufferIndex].script = tile.ceilingMaskTextureMouseClickScript;
-							this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+							this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
+						}
+						else
+						{
+							// use the ceiling texture mouse click script instead
+							this.mouseClickScriptRecords[bufferIndex].script = tile.ceilingMouseClickScript;
+							this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
 						}
 					}
 					else
 					{
 						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
 
+						// use the ceiling texture mouse click script
 						this.mouseClickScriptRecords[bufferIndex].script = tile.ceilingMouseClickScript;
-						this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
+						this.mouseClickScriptRecords[bufferIndex].distance = actualDistance;
 					}
 
 					pixel = colourPixel(colour, lightLevel, shadeMult);
@@ -2789,10 +2809,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 					{
 						hasAlpha |= hasAlpha(pixel);
 					}
-
-					// mouse click scripts associated with floors and ceilings not yet supported
-					this.mouseClickScriptRecords[bufferIndex].script = null;
-					this.mouseClickScriptRecords[bufferIndex].distance = -1;
 				}
 
 				screenY++;

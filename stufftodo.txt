@@ -16,7 +16,6 @@ emerald spider encounter
 forgotten path / red moss tree
 other encounters?
 
-floor texture & mask click scripts
 snail cave loot & pool
 chest contents -> MazeScript
 make hidden stuff tile script work again

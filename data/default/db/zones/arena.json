@@ -5075,17 +5075,54 @@
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "32",
-        "ceilingHeight": "1"
+        "ceilingHeight": "1",
+        "floorMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click on floor",
+          "alignment": "CENTER"
+        }
       },
       {
-        "ceilingTexture": "TRANSPARENT",
+        "ceilingTexture": "CITY_FLOOR_1",
+        "ceilingMaskTexture": "BIG_TREE_1_TOP",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "BIG_TREE_1_BOTTOM",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "32",
-        "ceilingHeight": "1"
+        "ceilingHeight": "1",
+        "floorMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click on the floor",
+          "alignment": "CENTER"
+        },
+        "floorMaskTextureMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click on the mask",
+          "alignment": "CENTER"
+        },
+        "ceilingMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click the ceiling",
+          "alignment": "CENTER"
+        },
+        "ceilingMaskTextureMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "click the ceiling mask",
+          "alignment": "CENTER"
+        }
       },
       {
         "ceilingTexture": "TRANSPARENT",
