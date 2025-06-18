@@ -183,16 +183,27 @@ public class Personality extends DataObject
 
 	public enum DefaultCampaignSpeech
 	{
+		MAZE_INTERVENTION_1("default.maze.intervention.1"),
+		MAZE_INTERVENTION_2("default.maze.intervention.2"),
+		MAZE_INTERVENTION_3("default.maze.intervention.3"),
+
 		GATEHOUSE_1("default.gatehouse.1"),
 		GATEHOUSE_DEACTIVATED_PORTAL("default.gatehouse.deactivated.portal"),
 		GATEHOUSE_BLOCK_GOLEM("default.gatehouse.block.golem"),
 		GATEHOUSE_HIDDEN_STUFF_1("default.gatehouse.hidden.stuff.1"),
 		GATEHOUSE_MALIGNANT_WIDOWS("default.gatehouse.malignant.widows"),
 		GATEHOUSE_ANGRY_SWARMS("default.gatehouse.angry.swarms"),
+
 		ICHIBA_CROSSROAD_INTRO("default.ichiba.crossroad.intro"),
 		ICHIBA_CROSSROAD_HIDDEN_STUFF_1("default.ichiba.crossroad.hidden.stuff.1"),
 		ICHIBA_CROSSROAD_MANTIS_GLEN("default.ichiba.crossroad.mantis.glen"),
+		ICHIBA_CROSSROAD_FALLEN_MONUMENT("default.ichiba.crossroad.fallen.monument"),
+		ICHIBA_CROSSROAD_SNAIL_CAVE_SANCTUARY("default.ichiba.crossroad.snail.cave.sanctuary"),
+		ICHIBA_CROSSROAD_OMNIFID_AMBUSH("default.ichiba.crossroad.omnifid.ambush"),
+		ICHIBA_CROSSROAD_VELOX_AMBUSH("default.ichiba.crossroad.velox.ambush"),
+
 		ICHIBA_DOMAIN_SOUTH_SHRINE("default.ichiba.domain.south.shrine"),
+
 		ICHIBA_CITY_INTRO("default.ichiba.city.intro"),
 		ICHIBA_CITY_VILLA_DOOR("default.ichiba.villa.door"),
 		ICHIBA_CITY_TEMPLE_OF_THE_LADY_SIGN("default.ichiba.city.temple.of.the_lady.sign"),
@@ -200,16 +211,20 @@ public class Personality extends DataObject
 		ICHIBA_CITY_THIEVES_GUILD_DOOR("default.ichiba.thieves.guild.door"),
 		ICHIBA_CITY_IMOGEN_DOOR("default.ichiba.city.imogen.door"),
 		ICHIBA_CITY_IMOGEN_TOWER_1("default.ichiba.city.imogen.tower.1"),
+
 		GNOLL_VILLAGE_INTRO("default.gnoll.village.intro"),
+
 		AENEN_CITY_INTRO("default.aenen.city.intro"),
 		AENEN_OUTSKIRTS_SOLAR_PANEL_DISCOVERY("default.aenen.outskirts.solar.panel.discovery"),
 		AENEN_OUTSKIRTS_CHARRED_STUMP("default.aenen.outskirts.charred.stump"),
+
 		DANAOS_VILLAGE_INTRO("default.danaos.village.intro"),
 		DANAOS_CASTLE_INTRO("default.danaos.castle.intro"),
 		DANAOS_DUNGEON_INTRO("default.danaos.dungeon.intro"),
 		STYGION_FOREST_INTRO("default.stygios.forest.intro"),
 		STYGION_FOREST_FAERIE_CIRCLE("default.stygios.forest.faerie.circle"),
 		STYGION_FOREST_SHRINE("default.stygios.forest.shrine"),
+
 		PLAIN_OF_PILLARS_INTRO("default.plain.of.pillars.intro"),
 		RUINS_OF_HAIL_INTRO("default.ruins.of.hail.intro"),
 		TORNADO_MOUNTAIN_DRAGON_CAVE("default.tornado.mountain.dragon.cave"),

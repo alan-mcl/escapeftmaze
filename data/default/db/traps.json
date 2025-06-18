@@ -17,6 +17,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Boiling Blood - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -40,6 +41,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Ray Of Enfeeblement - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -63,6 +65,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Armourmelt - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -86,6 +89,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Curse Of Medusa - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -109,6 +113,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Vacuum - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -132,6 +137,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Forget - Trap",
       "castingLevel": "5",
       "casterLevel": "20"
@@ -155,6 +161,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Acid Bomb - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -178,6 +185,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Glowing Curse - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -201,6 +209,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Null Magic - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -224,6 +233,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Hexxer - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -247,6 +257,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Prismic Missile - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -270,6 +281,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Kiss Of Death - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -293,6 +305,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Rune Of Destruction - Trap",
       "castingLevel": "18",
       "casterLevel": "20"
@@ -316,6 +329,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Daggers - Trap",
       "castingLevel": "3",
       "casterLevel": "20"
@@ -339,6 +353,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Stunner - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -362,6 +377,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Magic Sparks",
       "castingLevel": "3",
       "casterLevel": "3"
@@ -385,6 +401,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Hidden Snakebite - Trap",
       "castingLevel": "15",
       "casterLevel": "5"
@@ -408,6 +425,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Fizzle Field - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -431,6 +449,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "encounterTable": "guardian.trap",
       "mazeVariable": ""
     }
@@ -453,6 +472,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Cloud Of Fear - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -476,6 +496,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Lifestealer - Trap",
       "castingLevel": "3",
       "casterLevel": "20"
@@ -499,6 +520,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Fire Bomb - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -522,6 +544,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Toxic Gas - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -545,6 +568,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Noxious Vapours - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -568,6 +592,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Fire Trap",
       "castingLevel": "6",
       "casterLevel": "6"
@@ -591,6 +616,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Poison Darts",
       "castingLevel": "3",
       "casterLevel": "3"
@@ -614,6 +640,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Energy Drain - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -637,6 +664,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Psionic Bolt - Trap",
       "castingLevel": "7",
       "casterLevel": "20"
@@ -660,6 +688,7 @@
       "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
       "reexecuteOnSameTile": "false",
       "scoutSecretDifficulty": "-1",
+      "clickMaxDistance": "1",
       "spellName": "Forget - Trap",
       "castingLevel": "10",
       "casterLevel": "20"

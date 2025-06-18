@@ -20,6 +20,10 @@
     "attitude": "ATTACKING"
   },
   {
+    "template": "The Last Accord",
+    "attitude": "NEUTRAL"
+  },
+  {
     "template": "Stick Men",
     "attitude": "NEUTRAL"
   },

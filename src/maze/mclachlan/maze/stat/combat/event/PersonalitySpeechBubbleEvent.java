@@ -24,6 +24,7 @@ import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.SpeechUtil;
@@ -105,8 +106,10 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		Rectangle origination = this.origination;
 		Color colour = null;
 
+		String speechKeyToUse = getSpeechKeyToUse();
+
 		if (personality != null &&
-			personality.getWords(speechKey) == null)
+			personality.getWords(speechKeyToUse) == null)
 		{
 			// personality is specified, but this character has nothing to say
 			return null;
@@ -115,7 +118,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		// do we need a character?
 		if (playerCharacter == null && (personality == null || origination == null))
 		{
-			playerCharacter = SpeechUtil.getInstance().getRandomPlayerCharacterForSpeech(speechKey);
+			playerCharacter = SpeechUtil.getInstance().getRandomPlayerCharacterForSpeech(speechKeyToUse);
 
 			if (playerCharacter == null)
 			{
@@ -139,17 +142,17 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 			colour = personality.getColour();
 		}
 
-		String text = personality.getWords(speechKey);
+		String text = personality.getWords(speechKeyToUse);
 
 		if (text == null)
 		{
 			// bit of a hack, to support character free types speech
-			text = speechKey;
+			text = speechKeyToUse;
 		}
 
 		if (playerCharacter != null)
 		{
-			text = playerCharacter.modifyPersonalitySpeech(speechKey, text);
+			text = playerCharacter.modifyPersonalitySpeech(speechKeyToUse, text);
 		}
 
 		int duration;
@@ -176,7 +179,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 
 			for (int i=0; i<6; i++)
 			{
-				pc2 = SpeechUtil.getInstance().getRandomPlayerCharacterForSpeech(speechKey);
+				pc2 = SpeechUtil.getInstance().getRandomPlayerCharacterForSpeech(speechKeyToUse);
 				if (pc2 != null && pc2 != playerCharacter)
 				{
 					break;
@@ -186,7 +189,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 			if (pc2 != null && pc2 != playerCharacter)
 			{
 				PersonalitySpeechBubbleEvent e2 = new PersonalitySpeechBubbleEvent(
-					pc2, null, speechKey, null, null, this.isModal());
+					pc2, null, speechKeyToUse, null, null, this.isModal());
 				suppressExtraChattiness = true;
 				result.add(e2);
 			}
@@ -246,33 +249,17 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	private String getSpeechKeyToUse()
 	{
-		if (this == o)
+		if (!speechKey.contains(","))
 		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
+			return speechKey;
 		}
 
-		PersonalitySpeechBubbleEvent that = (PersonalitySpeechBubbleEvent)o;
+		String[] split = speechKey.split(",");
 
-		if (isModal() != that.isModal())
-		{
-			return false;
-		}
-		return getSpeechKey() != null ? getSpeechKey().equals(that.getSpeechKey()) : that.getSpeechKey() == null;
-	}
+		Dice d = new Dice(1, split.length, -1);
 
-	@Override
-	public int hashCode()
-	{
-		int result = getSpeechKey() != null ? getSpeechKey().hashCode() : 0;
-		result = 31 * result + (isModal() ? 1 : 0);
-		return result;
+		return split[d.roll("PersonalitySpeechBubbleEvent")];
 	}
 }

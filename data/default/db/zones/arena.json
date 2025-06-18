@@ -2424,17 +2424,8 @@
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
-                  "clipNames": [
-                    "424690__9931__dissonance-example"
-                  ],
-                  "die": "1d1"
-                },
-                {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
-                  "animation": {
-                    "IMPL": "mclachlan.maze.ui.diygui.animation.MazeInterventionAnimation"
-                  }
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                  "script": "_MAZE_INTERVENTION_"
                 }
               ]
             }
