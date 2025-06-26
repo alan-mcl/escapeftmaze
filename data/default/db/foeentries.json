@@ -3519,12 +3519,27 @@
     "name": "emerald.spiders.small",
     "contains": {
       "PERCENTAGES": [
+        100,
+        100,
+        100,
         100
       ],
       "POSSIBILITIES": [
         {
           "foeName": "Emerald Spider",
-          "quantity": "1d5"
+          "quantity": "1d2"
+        },
+        {
+          "foeName": "Emerald Spider",
+          "quantity": "1d2"
+        },
+        {
+          "foeName": "Emerald Spider",
+          "quantity": "1d2"
+        },
+        {
+          "foeName": "Emerald Spider",
+          "quantity": "1d2"
         }
       ]
     }

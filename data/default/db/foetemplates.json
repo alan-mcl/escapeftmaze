@@ -4348,7 +4348,7 @@
     "magicPointsRange": "1d1",
     "levelRange": "2d2",
     "experience": "200",
-    "stats": "6c080b000000000150,0205021e0a01051e1e1e1e",
+    "stats": "6c080b000000000150,0505021e0a01051e1e1e1e",
     "bodyParts": {
       "PERCENTAGES": [
         40,
@@ -4410,6 +4410,7 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
+    "spriteAnimations": "Mud Spider.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "emerald spider bite",

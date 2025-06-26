@@ -5008,7 +5008,18 @@
       },
       {
         "coords": "13:22",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.crossroad.execute.once.14",
+            "facings": "00001",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "1",
+            "clickMaxDistance": "1",
+            "text": "This clearing is heavily overgrown with ferms, all rustling in the gentle breeze. \n\nYou regard is suspiciously, but as far as you can tell the glade is empty...",
+            "alignment": "CENTER"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02010101020301",
         "terrainType": "WILDERNESS",
@@ -5484,7 +5495,31 @@
       },
       {
         "coords": "14:22",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "facings": "0001",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "encounterTable": "ichiba.crossroad.emerald.spiders.1",
+            "mazeVariable": "ichiba.crossroad.encounter.5",
+            "attitude": "ATTACKING",
+            "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Suddenly a group of nasty looking green spiders rush out of their hiding in the undergrowth and attack you!",
+                  "delay": "-1",
+                  "shouldClearText": "true",
+                  "alignment": "CENTER"
+                }
+              ]
+            }
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020202020301",
         "terrainType": "WILDERNESS",
@@ -28114,17 +28149,13 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -28372,17 +28403,13 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -36186,17 +36213,13 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -36456,9 +36479,7 @@
         "height": "2"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -53505,6 +53526,289 @@
             ]
           }
         },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bones.2",
+        "southTexture": "objects.bones.2",
+        "eastTexture": "objects.bones.2",
+        "westTexture": "objects.bones.2",
+        "xPos": "12544",
+        "yPos": "3840",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.crossroad.execute.once.13",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Rummaging through the remains of several previous victims, you find a number of useful things that they will no longer need.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.hidden.stuff.1"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7216",
+        "yPos": "11336",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7422",
+        "yPos": "11408",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7256",
+        "yPos": "11450",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6721",
+        "yPos": "11250",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6931",
+        "yPos": "11026",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6709",
+        "yPos": "10948",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6983",
+        "yPos": "10882",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7024",
+        "yPos": "11558",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7074",
+        "yPos": "11282",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6955",
+        "yPos": "12004",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7057",
+        "yPos": "12023",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7009",
+        "yPos": "12104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6401",
+        "yPos": "11842",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6394",
+        "yPos": "12287",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6308",
+        "yPos": "12255",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6159",
+        "yPos": "11874",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6250",
+        "yPos": "12145",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6290",
+        "yPos": "11510",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6220",
+        "yPos": "11300",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6412",
+        "yPos": "11315",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6486",
+        "yPos": "11617",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6405",
+        "yPos": "11245",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6477",
+        "yPos": "10878",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6336",
+        "yPos": "10865",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6595",
+        "yPos": "10809",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }
     ],
