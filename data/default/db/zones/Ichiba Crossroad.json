@@ -38698,7 +38698,7 @@
           "scoutSecretDifficulty": "2",
           "clickMaxDistance": "1",
           "script": {
-            "name": "Ichiba Crossroad berry forage",
+            "name": "ExecuteMazeScript.script",
             "events": [
               {
                 "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -42697,13 +42697,36 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.2",
-        "southTexture": "objects.plant.2",
-        "eastTexture": "objects.plant.2",
-        "westTexture": "objects.plant.2",
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
         "xPos": "12544",
         "yPos": "8448",
         "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.crossroad.execute.once.18",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You pick a handful of berries off the bush.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.berry.forage"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -53837,6 +53860,137 @@
         "xPos": "5376",
         "yPos": "14592",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
+        "xPos": "1280",
+        "yPos": "6912",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.crossroad.execute.once.16",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You pick a handful of berries off the bush.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.berry.forage"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
+        "xPos": "8448",
+        "yPos": "1792",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.crossroad.execute.once.17",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You pick a handful of berries off the bush.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.berry.forage"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
+        "xPos": "13568",
+        "yPos": "14592",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.crossroad.execute.once.19",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You pick a handful of berries off the bush.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.berry.forage"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
+        "xPos": "8960",
+        "yPos": "12544",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "You pick a handful of berries off the bush.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ichiba.crossroad.berry.forage"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       }
     ],
