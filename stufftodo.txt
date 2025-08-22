@@ -9,7 +9,6 @@ foe group selection improvements
 
 bug: resting resurrects dead characters?
 
-a shrine
 more berry bushes
 more bushes, incl proto-omnifids
 forgotten path / red moss tree

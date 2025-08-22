@@ -578,6 +578,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.shrine.2.front",
+    "imageResources": [
+      "crusader/scene/shrine_2_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "BIG_TREE_1_BOTTOM",
     "imageResources": [
       "crusader/scene/big_tree_1_bottom"

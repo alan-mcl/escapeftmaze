@@ -3946,7 +3946,25 @@
       },
       {
         "coords": "10:28",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "In a secluded glade you find a small shrine made of moss-covered stone.\n\nFrom the carvings you judge it to be a shrine to The Weaver, Thyra, the remote Mistress of Fate who spins the threads of destiny, weaving together the tales of all beings.\n",
+            "alignment": "TOP"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.PersonalitySpeech",
+            "executeOnceMazeVariable": "ichiba.crossroad.execute.once.15",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "speechKey": "default.ichiba.crossroad.shrine.thyra",
+            "modal": "false"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020101020202",
         "terrainType": "WILDERNESS",
@@ -53808,6 +53826,16 @@
         "westTexture": "objects.plant.2",
         "xPos": "6595",
         "yPos": "10809",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.shrine.2.front",
+        "southTexture": "objects.shrine.2.front",
+        "eastTexture": "objects.shrine.2.front",
+        "westTexture": "objects.shrine.2.front",
+        "xPos": "5376",
+        "yPos": "14592",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }
