@@ -60,7 +60,7 @@ public class PlaceObjects extends Tool implements ActionListener
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();
 		
-		if (selection == null || selection.size() == 0)
+		if (selection == null || selection.isEmpty())
 		{
 			JOptionPane.showMessageDialog(editor, "No tiles selected");
 			return;
@@ -144,57 +144,88 @@ public class PlaceObjects extends Tool implements ActionListener
 
 		MazeTexture mazeTexture = Database.getInstance().getMazeTextures().get(name);
 		Texture tx = mazeTexture.getTexture();
-		Dice posD = new Dice(1,9,-1);
+		Dice posD = new Dice(1, 9, -1);
 
 		List<Object> selection = editor.getSelection();
-		
+
 		for (Object obj : selection)
 		{
 			if (obj instanceof Tile)
 			{
 				Tile t = (Tile)obj;
-				
+
 				if (Dice.d100.roll("scatter object 1") <= prob)
 				{
 					int tileIndex = editor.getCrusaderIndexOfTile(t);
-					
-					int nr = nrPerTile.roll("scatter object 2");
 
-					BitSet maskAllowed = new BitSet();
-					for (int i=0; i<optionsPanel.placementMask.length; i++)
+					int nrObjsToPlace = nrPerTile.roll("scatter object 2");
+
+					boolean anySelected = false;
+					for (JCheckBox cb : optionsPanel.placementMask)
 					{
-						if (optionsPanel.placementMask[i].isSelected())
+						if (cb.isSelected())
 						{
-							maskAllowed.set(i);
+							anySelected = true;
+							break;
 						}
 					}
 
-					nr = Math.min(nr, maskAllowed.cardinality());
-
-					BitSet mask = new BitSet();
-					
-					for (int i=0; i<nr; i++)
+					if (anySelected)
 					{
-						int pos;
-						do
+						// place according to the mask
+
+						BitSet maskAllowed = new BitSet();
+						for (int i = 0; i < optionsPanel.placementMask.length; i++)
 						{
-							pos = posD.roll("scatter object 3");
+							if (optionsPanel.placementMask[i].isSelected())
+							{
+								maskAllowed.set(i);
+							}
 						}
-						while (mask.get(pos) || !maskAllowed.get(pos));
-												
-						mask.set(pos);
-					}
-					
-					// remove any duplicate
-//					editor.getMap().removeObject(index);
 
-					for (int i=0; i< 9; i++)
-					{
-						if (mask.get(i))
+						nrObjsToPlace = Math.min(nrObjsToPlace, maskAllowed.cardinality());
+
+						BitSet mask = new BitSet();
+
+						for (int i = 0; i < nrObjsToPlace; i++)
 						{
+							int pos;
+							do
+							{
+								pos = posD.roll("scatter object 3");
+							}
+							while (mask.get(pos) || !maskAllowed.get(pos));
+
+							mask.set(pos);
+						}
+
+						for (int i = 0; i < 9; i++)
+						{
+							if (mask.get(i))
+							{
+								EngineObject eo = new EngineObject(
+									null, 0, 0, tx, tx, tx, tx, tileIndex, false, null, EngineObject.Alignment.BOTTOM);
+								editor.getMap().initObjectFromTileIndex(eo, i);
+
+								editor.getMap().addObject(eo);
+							}
+						}
+					}
+					else
+					{
+						// just place in random positions
+						for (int i = 0; i < nrObjsToPlace; i++)
+						{
+							// get the actual x and y coords from the tile index
+							Point tileXYPos = editor.getMap().getTileXYPos(tileIndex);
+
+							Dice xD = new Dice(1, editor.getMap().getBaseImageSize(), tileXYPos.x - 1);
+							Dice yD = new Dice(1, editor.getMap().getBaseImageSize(), tileXYPos.y - 1);
+
 							EngineObject eo = new EngineObject(
-								null, 0, 0, tx, tx, tx, tx, tileIndex, false, null, EngineObject.Alignment.BOTTOM);
-							editor.getMap().initObjectFromTileIndex(eo, i);
+								null, xD.roll("scatter object 4"), yD.roll("scatter object 5"),
+								tx, tx, tx, tx, tileIndex, false, null, EngineObject.Alignment.BOTTOM);
+							editor.getMap().initObjectFromXY(eo);
 
 							editor.getMap().addObject(eo);
 						}

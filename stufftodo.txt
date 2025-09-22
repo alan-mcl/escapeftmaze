@@ -9,7 +9,6 @@ foe group selection improvements
 
 bug: resting resurrects dead characters?
 
-more bushes, incl proto-omnifids
 forgotten path / red moss tree
 other encounters?
 

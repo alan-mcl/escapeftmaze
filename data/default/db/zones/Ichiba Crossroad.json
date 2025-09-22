@@ -53992,6 +53992,2896 @@
           }
         },
         "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9642",
+        "yPos": "6742",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9302",
+        "yPos": "7082",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9642",
+        "yPos": "5718",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9642",
+        "yPos": "6058",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9130",
+        "yPos": "5206",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8278",
+        "yPos": "5206",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8278",
+        "yPos": "4182",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8618",
+        "yPos": "4522",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7254",
+        "yPos": "4522",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7254",
+        "yPos": "2986",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7082",
+        "yPos": "2646",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6742",
+        "yPos": "2986",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5718",
+        "yPos": "2646",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5718",
+        "yPos": "2986",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5718",
+        "yPos": "2474",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6058",
+        "yPos": "2474",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6058",
+        "yPos": "1962",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5206",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5546",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3670",
+        "yPos": "2646",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4182",
+        "yPos": "2646",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3670",
+        "yPos": "1110",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3498",
+        "yPos": "1450",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2474",
+        "yPos": "1110",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2474",
+        "yPos": "1450",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2134",
+        "yPos": "2474",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9302",
+        "yPos": "7766",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9302",
+        "yPos": "8278",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9642",
+        "yPos": "8618",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9302",
+        "yPos": "9302",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10666",
+        "yPos": "10326",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10326",
+        "yPos": "10666",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10666",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10326",
+        "yPos": "11178",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11350",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12714",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12374",
+        "yPos": "11178",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13226",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12886",
+        "yPos": "11178",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12886",
+        "yPos": "11350",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12886",
+        "yPos": "11690",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13910",
+        "yPos": "12886",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13910",
+        "yPos": "13226",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14250",
+        "yPos": "13910",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14250",
+        "yPos": "14422",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14250",
+        "yPos": "14762",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14934",
+        "yPos": "14422",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15274",
+        "yPos": "14762",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15446",
+        "yPos": "14422",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15786",
+        "yPos": "14762",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8618",
+        "yPos": "7082",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8278",
+        "yPos": "8106",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8618",
+        "yPos": "8106",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8106",
+        "yPos": "7766",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7766",
+        "yPos": "8106",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7082",
+        "yPos": "8618",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6742",
+        "yPos": "9130",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7082",
+        "yPos": "9130",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6230",
+        "yPos": "8790",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6570",
+        "yPos": "9642",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6058",
+        "yPos": "9302",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6058",
+        "yPos": "9642",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5206",
+        "yPos": "10666",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4694",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4694",
+        "yPos": "11178",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4182",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4010",
+        "yPos": "10154",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3498",
+        "yPos": "10154",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2646",
+        "yPos": "10154",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2986",
+        "yPos": "10154",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2474",
+        "yPos": "9814",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1962",
+        "yPos": "12374",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1962",
+        "yPos": "12714",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1622",
+        "yPos": "12886",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1962",
+        "yPos": "13910",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1622",
+        "yPos": "14250",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2474",
+        "yPos": "14422",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2474",
+        "yPos": "14762",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1622",
+        "yPos": "15274",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1110",
+        "yPos": "14934",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1450",
+        "yPos": "15274",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10565",
+        "yPos": "4842",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10771",
+        "yPos": "4355",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11186",
+        "yPos": "3533",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11119",
+        "yPos": "3751",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12426",
+        "yPos": "3873",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12440",
+        "yPos": "4231",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12692",
+        "yPos": "4144",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12602",
+        "yPos": "3841",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11082",
+        "yPos": "2650",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10437",
+        "yPos": "1859",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10344",
+        "yPos": "2268",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9991",
+        "yPos": "2819",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9177",
+        "yPos": "3936",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9350",
+        "yPos": "4027",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9461",
+        "yPos": "3608",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9104",
+        "yPos": "2962",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9202",
+        "yPos": "6024",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7237",
+        "yPos": "4180",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7010",
+        "yPos": "3822",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7478",
+        "yPos": "2401",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7639",
+        "yPos": "2376",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7972",
+        "yPos": "2437",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8880",
+        "yPos": "1953",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8946",
+        "yPos": "1818",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8070",
+        "yPos": "2097",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6866",
+        "yPos": "3798",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6805",
+        "yPos": "3776",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5897",
+        "yPos": "1738",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6182",
+        "yPos": "1636",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5701",
+        "yPos": "4196",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6110",
+        "yPos": "4735",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6251",
+        "yPos": "4428",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6329",
+        "yPos": "5783",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5995",
+        "yPos": "5689",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6451",
+        "yPos": "6172",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6769",
+        "yPos": "6348",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5491",
+        "yPos": "4354",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5633",
+        "yPos": "4623",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4889",
+        "yPos": "4511",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4937",
+        "yPos": "5087",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4923",
+        "yPos": "4966",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5881",
+        "yPos": "5137",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5526",
+        "yPos": "5487",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4598",
+        "yPos": "5977",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4403",
+        "yPos": "6193",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3531",
+        "yPos": "6297",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3370",
+        "yPos": "6115",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3722",
+        "yPos": "5790",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2582",
+        "yPos": "4599",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2775",
+        "yPos": "4449",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4696",
+        "yPos": "3989",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4474",
+        "yPos": "4094",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3988",
+        "yPos": "4121",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3197",
+        "yPos": "4207",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2846",
+        "yPos": "3593",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11523",
+        "yPos": "10486",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12014",
+        "yPos": "10392",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12744",
+        "yPos": "10679",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12115",
+        "yPos": "10751",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13306",
+        "yPos": "9530",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13136",
+        "yPos": "9585",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12817",
+        "yPos": "10346",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12591",
+        "yPos": "10283",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14008",
+        "yPos": "10215",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14093",
+        "yPos": "11021",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14980",
+        "yPos": "11737",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14807",
+        "yPos": "12271",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "14992",
+        "yPos": "13043",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15133",
+        "yPos": "12686",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15609",
+        "yPos": "12851",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15275",
+        "yPos": "13313",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "15542",
+        "yPos": "13297",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13648",
+        "yPos": "13484",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13853",
+        "yPos": "13187",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "13289",
+        "yPos": "13416",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12926",
+        "yPos": "13505",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12788",
+        "yPos": "12176",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12105",
+        "yPos": "12199",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12353",
+        "yPos": "12514",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11188",
+        "yPos": "12578",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11027",
+        "yPos": "12998",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11223",
+        "yPos": "13271",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11194",
+        "yPos": "13583",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "11165",
+        "yPos": "13793",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12358",
+        "yPos": "14314",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "12299",
+        "yPos": "14233",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10692",
+        "yPos": "12150",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10801",
+        "yPos": "11673",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "10753",
+        "yPos": "11556",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9528",
+        "yPos": "10025",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9759",
+        "yPos": "9999",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9679",
+        "yPos": "10945",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9819",
+        "yPos": "10841",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9005",
+        "yPos": "11502",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9029",
+        "yPos": "11755",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "9078",
+        "yPos": "11977",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8819",
+        "yPos": "12045",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8166",
+        "yPos": "11119",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8301",
+        "yPos": "11247",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8489",
+        "yPos": "11075",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7970",
+        "yPos": "10684",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8152",
+        "yPos": "10748",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7473",
+        "yPos": "10475",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8142",
+        "yPos": "10273",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "8249",
+        "yPos": "10089",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7557",
+        "yPos": "8870",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7738",
+        "yPos": "8464",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7699",
+        "yPos": "9208",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "7730",
+        "yPos": "7420",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6885",
+        "yPos": "7052",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6661",
+        "yPos": "7121",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6581",
+        "yPos": "8154",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "6246",
+        "yPos": "8124",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5290",
+        "yPos": "9497",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5049",
+        "yPos": "9707",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5049",
+        "yPos": "8169",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4242",
+        "yPos": "7370",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4133",
+        "yPos": "7530",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4260",
+        "yPos": "7754",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3514",
+        "yPos": "7718",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3526",
+        "yPos": "7453",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3551",
+        "yPos": "8347",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3858",
+        "yPos": "8137",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3910",
+        "yPos": "7994",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4088",
+        "yPos": "8677",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4154",
+        "yPos": "8536",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2488",
+        "yPos": "7885",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1433",
+        "yPos": "7847",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2073",
+        "yPos": "7822",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2214",
+        "yPos": "8177",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1706",
+        "yPos": "8575",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1390",
+        "yPos": "9169",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1299",
+        "yPos": "9092",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1618",
+        "yPos": "10459",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1673",
+        "yPos": "10402",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2783",
+        "yPos": "10222",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2348",
+        "yPos": "10088",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4276",
+        "yPos": "9392",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4250",
+        "yPos": "9315",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4676",
+        "yPos": "10615",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4122",
+        "yPos": "11977",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4637",
+        "yPos": "12701",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5218",
+        "yPos": "13054",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5300",
+        "yPos": "12555",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5854",
+        "yPos": "12886",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5797",
+        "yPos": "12678",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5821",
+        "yPos": "13231",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5550",
+        "yPos": "13364",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5399",
+        "yPos": "14261",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5006",
+        "yPos": "13749",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "5155",
+        "yPos": "14019",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "4600",
+        "yPos": "13704",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3352",
+        "yPos": "12799",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3599",
+        "yPos": "12733",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2895",
+        "yPos": "13061",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2923",
+        "yPos": "12357",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "3301",
+        "yPos": "12506",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2440",
+        "yPos": "13003",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "2606",
+        "yPos": "12626",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1643",
+        "yPos": "11435",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "xPos": "1580",
+        "yPos": "11820",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "11000",
+        "yPos": "1771",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "11027",
+        "yPos": "1550",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "11152",
+        "yPos": "1785",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "3981",
+        "yPos": "4318",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "1306",
+        "yPos": "7428",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "13558",
+        "yPos": "7993",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "13556",
+        "yPos": "8179",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "13072",
+        "yPos": "7974",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "5948",
+        "yPos": "6101",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6249",
+        "yPos": "6322",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "4187",
+        "yPos": "11952",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "4185",
+        "yPos": "11557",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "5273",
+        "yPos": "11663",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "9670",
+        "yPos": "10662",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "9948",
+        "yPos": "10694",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "13454",
+        "yPos": "13136",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "13324",
+        "yPos": "13429",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6236",
+        "yPos": "3808",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "5985",
+        "yPos": "3566",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6244",
+        "yPos": "3789",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6642",
+        "yPos": "3675",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6618",
+        "yPos": "3927",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6867",
+        "yPos": "4236",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "5934",
+        "yPos": "4119",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
+        "xPos": "6282",
+        "yPos": "3929",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "11000",
+        "yPos": "1592",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "3867",
+        "yPos": "3874",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "4264",
+        "yPos": "4165",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "1345",
+        "yPos": "7425",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "13287",
+        "yPos": "7971",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "13269",
+        "yPos": "8062",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6146",
+        "yPos": "6387",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6049",
+        "yPos": "6380",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "4218",
+        "yPos": "11822",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "4213",
+        "yPos": "11794",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "5365",
+        "yPos": "11807",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "4922",
+        "yPos": "11706",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "9591",
+        "yPos": "10748",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "13106",
+        "yPos": "13520",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "13309",
+        "yPos": "13392",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6197",
+        "yPos": "3651",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6825",
+        "yPos": "3541",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6505",
+        "yPos": "3639",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6893",
+        "yPos": "4253",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6518",
+        "yPos": "3881",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6093",
+        "yPos": "4230",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.1",
+        "southTexture": "objects.plant.1",
+        "eastTexture": "objects.plant.1",
+        "westTexture": "objects.plant.1",
+        "xPos": "6270",
+        "yPos": "4092",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
       }
     ],
     "scripts": []

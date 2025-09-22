@@ -314,11 +314,29 @@ public class Map
 			default ->
 				throw new CrusaderException("Invalid placement index: " + placement);
 		}
-		
-		obj.xPos = obj.gridX*baseImageSize + baseImageSize/2 + xOffset;
-		obj.yPos = obj.gridY*baseImageSize + baseImageSize/2 + yOffset;
+
+		obj.xPos = getXPos(obj.gridX)  +baseImageSize/2 +xOffset;
+		obj.yPos = getYPos(obj.gridY)  +baseImageSize/2 +yOffset;
 	}
-	
+
+	public int getYPos(int gridY)
+	{
+		return gridY * baseImageSize;
+	}
+
+	public int getXPos(int gridX)
+	{
+		return getYPos(gridX);
+	}
+
+	public Point getTileXYPos(int tileIndex)
+	{
+		int x = getXPos(tileIndex%width);
+		int y = getYPos(tileIndex/width);
+
+		return new Point(x, y);
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * For map editing only

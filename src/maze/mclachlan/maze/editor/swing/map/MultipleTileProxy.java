@@ -459,7 +459,7 @@ public class MultipleTileProxy extends TileProxy
 
 		for (mclachlan.crusader.Tile t : crusaderTiles)
 		{
-			if (!x.equals(t.getFloorMouseClickScript()))
+			if (x==null || !x.equals(t.getFloorMouseClickScript()))
 			{
 				return null;
 			}
@@ -484,7 +484,7 @@ public class MultipleTileProxy extends TileProxy
 
 		for (mclachlan.crusader.Tile t : crusaderTiles)
 		{
-			if (!x.equals(t.getFloorMaskTextureMouseClickScript()))
+			if (x == null || !x.equals(t.getFloorMaskTextureMouseClickScript()))
 			{
 				return null;
 			}
@@ -510,7 +510,7 @@ public class MultipleTileProxy extends TileProxy
 
 		for (mclachlan.crusader.Tile t : crusaderTiles)
 		{
-			if (!x.equals(t.getCeilingMouseClickScript()))
+			if (x == null || !x.equals(t.getCeilingMouseClickScript()))
 			{
 				return null;
 			}
@@ -536,7 +536,7 @@ public class MultipleTileProxy extends TileProxy
 
 		for (mclachlan.crusader.Tile t : crusaderTiles)
 		{
-			if (!x.equals(t.getCeilingMaskTextureMouseClickScript()))
+			if (x == null || !x.equals(t.getCeilingMaskTextureMouseClickScript()))
 			{
 				return null;
 			}
