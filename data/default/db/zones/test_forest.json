@@ -2882,7 +2882,7 @@
         "bottomColour": "0",
         "topColour": "0",
         "ceilingImage": "sky.ichiba.flat",
-        "imageScale": "0",
+        "imageScale": "20",
         "ceilingHeight": "10"
       }
     ],

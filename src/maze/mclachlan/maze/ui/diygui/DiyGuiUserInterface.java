@@ -1695,6 +1695,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.charTopLeft.refresh();
 		this.charTopRight.refresh();
 
+		refreshPcActionOptions();
+
 		partyOptionsAndTextWidget.setParty(party);
 	}
 

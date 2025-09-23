@@ -61,7 +61,10 @@ public class RestingTurnEvent extends MazeEvent
 		// regen resources from resting
 		for (UnifiedActor a : group.getActors())
 		{
-			regenResources(a);
+			if (a.isAlive())
+			{
+				regenResources(a);
+			}
 		}
 
 		progress.incProgress(1);

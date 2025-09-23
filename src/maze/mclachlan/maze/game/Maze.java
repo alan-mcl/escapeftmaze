@@ -905,8 +905,11 @@ public class Maze implements Runnable
 		for (PlayerCharacter pc : getParty().getPlayerCharacters())
 		{
 			// do not process maze events - everyone just goes to sleep
-			pc.addCondition(sleep.create(
-				pc, pc, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE));
+			if (pc.isAlive())
+			{
+				pc.addCondition(sleep.create(
+					pc, pc, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE));
+			}
 		}
 	}
 	

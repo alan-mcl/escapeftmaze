@@ -2,7 +2,6 @@
   "1~Silvia": [],
   "1~Ascxs": [],
   "1~Haakon": [],
-  "1~Ug": [],
   "1~Brunswick": [
     {
       "template": "test spell effect",
@@ -18,6 +17,7 @@
       "hostile": "false"
     }
   ],
+  "1~Ug": [],
   "1~Gibby": [],
   "1~Agar": [],
   "1~Dwaf": [],

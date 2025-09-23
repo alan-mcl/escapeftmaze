@@ -7,8 +7,6 @@ ICHIBA CROSSROADS
 
 foe group selection improvements
 
-bug: resting resurrects dead characters?
-
 forgotten path / red moss tree
 other encounters?
 

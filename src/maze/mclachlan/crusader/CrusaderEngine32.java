@@ -2979,8 +2979,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int yIntersection = (int)(/*playerY +*/ yDistance);
 
 		// adding half the texture dimension so that any tiling happens off to the side of the player eyeline
-		skyTextureX = (xIntersection / skyConfig.imageScale +image.imageWidth/2) % image.imageWidth;
-		skyTextureY = (yIntersection / skyConfig.imageScale +image.imageHeight/2) % image.imageHeight;
+		skyTextureX = (xIntersection/skyConfig.imageScale +image.imageWidth/2) % image.imageWidth;
+		skyTextureY = (yIntersection/skyConfig.imageScale +image.imageHeight/2) % image.imageHeight;
 
 		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}

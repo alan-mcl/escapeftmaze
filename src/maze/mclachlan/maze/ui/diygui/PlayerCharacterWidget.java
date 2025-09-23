@@ -511,7 +511,7 @@ public class PlayerCharacterWidget extends DIYPanel
 			if (combat == null)
 			{
 				action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
-				action.setEnabled(!action.getModel().isEmpty());
+				action.setEnabled(this.isEnabled() && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
 			}
 			else
 			{
