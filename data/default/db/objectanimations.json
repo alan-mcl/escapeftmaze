@@ -60,6 +60,32 @@
     ]
   },
   {
+    "name": "Hawk Moth.default",
+    "animationScripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectVertically",
+        "minOffset": "-50",
+        "maxOffset": "50",
+        "minSpeed": "15",
+        "maxSpeed": "35",
+        "minPause": "0",
+        "maxPause": "0",
+        "pauseTop": "false",
+        "pauseBottom": "false",
+        "homeTop": "false",
+        "homeBottom": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.JagObjectWithinRadius",
+        "maxRadius": "50",
+        "minSpeed": "2000",
+        "maxSpeed": "3000",
+        "minPause": "0",
+        "maxPause": "100"
+      }
+    ]
+  },
+  {
     "name": "Mud Spider.default",
     "animationScripts": [
       {

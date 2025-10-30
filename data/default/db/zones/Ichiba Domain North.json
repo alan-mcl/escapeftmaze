@@ -10825,15 +10825,33 @@
     "width": "32",
     "baseImageSize": "512",
     "skyConfigs": [
-      {
-        "type": "CYLINDER_IMAGE",
-        "cylinderSkyImage": "sky.ichiba",
-        "bottomColour": "0",
-        "topColour": "0",
-        "imageScale": "0",
-        "ceilingHeight": "0"
-      }
-    ],
+          {
+            "type": "CUBEMAP_IMAGES",
+            "bottomColour": "0",
+            "topColour": "0",
+            "imageScale": "0",
+            "ceilingHeight": "0",
+            "cubeNorth": "sky.ichiba.crater.rim.1",
+            "cubeSouth": "sky.ichiba.crater.rim.2",
+            "cubeEast": "sky.ichiba.crater.rim.3",
+            "cubeWest": "sky.ichiba.crater.rim.4"
+          },
+          {
+            "type": "HIGH_CEILING_IMAGE",
+            "bottomColour": "0",
+            "topColour": "0",
+            "ceilingImage": "sky.ichiba.flat",
+            "imageScale": "8",
+            "ceilingHeight": "10"
+          },
+          {
+            "type": "CYLINDER_GRADIENT",
+            "bottomColour": "-10066177",
+            "topColour": "-16777063",
+            "imageScale": "0",
+            "ceilingHeight": "0"
+          }
+        ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

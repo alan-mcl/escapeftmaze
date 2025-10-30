@@ -1063,7 +1063,25 @@
       },
       {
         "coords": "2:29",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "script": {
+              "name": "ExecuteMazeScript.script",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+                  "zone": "Ichiba City",
+                  "pos": "35:21",
+                  "facing": "0"
+                }
+              ]
+            }
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01020202020301",
         "terrainType": "WILDERNESS",
@@ -1424,25 +1442,7 @@
       },
       {
         "coords": "3:29",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "script": {
-              "name": "Ichiba Crossroad to City",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
-                  "zone": "Ichiba City",
-                  "pos": "35:21",
-                  "facing": "0"
-                }
-              ]
-            }
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,01010201010202",
         "terrainType": "WILDERNESS",
@@ -29575,6 +29575,10 @@
       },
       {
         "textures": [
+          "JUNGLE_CLIFF_1",
+          "JUNGLE_CLIFF_1"
+        ],
+        "maskTextures": [
           "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
@@ -29584,11 +29588,11 @@
       },
       {
         "textures": [
-          "JUNGLE_THICKET_3_SOLID"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -30265,16 +30269,20 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [],
@@ -37684,6 +37692,10 @@
       },
       {
         "textures": [
+          "JUNGLE_CLIFF_1",
+          "JUNGLE_CLIFF_1"
+        ],
+        "maskTextures": [
           "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
@@ -37701,11 +37713,11 @@
       },
       {
         "textures": [
-          "JUNGLE_THICKET_3_SOLID"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -37934,11 +37946,11 @@
       },
       {
         "textures": [
-          "JUNGLE_THICKET_3_SOLID"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [],
@@ -37947,10 +37959,12 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [
@@ -38170,11 +38184,11 @@
       },
       {
         "textures": [
-          "JUNGLE_THICKET_3_SOLID"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [],
@@ -38183,10 +38197,12 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [],

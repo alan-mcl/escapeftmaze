@@ -1,0 +1,35 @@
+{
+  "name": "logbook",
+  "contents": {
+    "Logbook": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "585",
+        "text": "Departed Ichiba Crossroad"
+      },
+      {
+        "turnNr": "585",
+        "text": "Arrived in Ichiba Crossroad"
+      },
+      {
+        "turnNr": "792",
+        "text": "Departed Ichiba City"
+      },
+      {
+        "turnNr": "792",
+        "text": "Arrived in Ichiba City"
+      },
+      {
+        "turnNr": "797",
+        "text": "Departed Ichiba Crossroad"
+      },
+      {
+        "turnNr": "797",
+        "text": "Arrived in Ichiba Crossroad"
+      }
+    ]
+  }
+}

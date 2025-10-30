@@ -252,6 +252,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_WALL_1_WINDOW",
+    "imageResources": [
+      "crusader/scene/city_wall_1_window"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.bones.2",
     "imageResources": [
       "crusader/scene/bones_2"
@@ -1311,6 +1320,15 @@
     "name": "SAND_ROAD_EW",
     "imageResources": [
       "crusader/scene/sand_road_ew"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_FLOOR_2",
+    "imageResources": [
+      "crusader/scene/city_floor_2"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

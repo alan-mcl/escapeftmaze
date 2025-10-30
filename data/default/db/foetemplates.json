@@ -3214,6 +3214,7 @@
     "appearanceScript": {
       "NAME": "sound - hiss"
     },
+    "spriteAnimations": "Mud Spider.default",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "harvestman spider bite"
@@ -3251,7 +3252,7 @@
         "DEFAULT_HEAD",
         "DEFAULT_TAIL"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -3268,7 +3269,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.wyrm"
@@ -3308,6 +3309,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -7697,7 +7699,7 @@
         "DEFAULT_BODY",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -7714,7 +7716,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.moth.1"
@@ -7747,7 +7749,8 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "spriteAnimations": "Hawk Moth.default",
+    "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "spore moth pod"
     ],
@@ -16176,7 +16179,7 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
-    "spriteAnimations": "Dun Draco.default",
+    "spriteAnimations": "Hawk Moth.default",
     "appearanceDirection": "FROM_TOP",
     "naturalWeapons": [
       "hawk moth bite"
@@ -19498,7 +19501,7 @@
         "DEFAULT_BODY",
         "DEFAULT_TAIL"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -19515,7 +19518,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.wyrm"

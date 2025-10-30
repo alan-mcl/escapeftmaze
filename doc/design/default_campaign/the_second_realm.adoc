@@ -78,7 +78,7 @@ Foes:
 * Hawk Moths: frustrating debuff foe
 * Dun Draco: quick and evasive
 * Emerald Spider: evasive, mild poison
-* Ulgoth The Watcher: boss, guards the way to a healing pool.
+* Ulgoth The Watcher: giant snail boss, guards the way to a healing pool.
 
 ==== Ichiba Domain North
 The road wends northwards from the crossroads, passing through thick forest. It ends in a glade that contains a Gate in the form of a door stands alone without walls or support. The Gate leads to Danaos Castle.
@@ -109,7 +109,15 @@ Notes
 
 Called the "city in the crater", this is the most cosmopolitan city in the Second Realm, a bustling commercial hub of trade and business. Humans, Goblins and Gnolls predominate, with many Gnomes and Leonals present too.
 
-Foes: moths, flying lizards and spiders. thieves, thugs and beggars.
+Foes:
+
+* Spore Moths: frustrating debuffer
+* Dun Draco: quick and evasive
+* Harvestman Spiders: poison
+* Goblin Cutpurse:
+* Gnome Beggar:
+* Gnoll Thug:
+
 
 Notes
 

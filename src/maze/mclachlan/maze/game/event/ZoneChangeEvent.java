@@ -103,42 +103,6 @@ public class ZoneChangeEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		ZoneChangeEvent that = (ZoneChangeEvent)o;
-
-		if (getFacing() != that.getFacing())
-		{
-			return false;
-		}
-		if (getZone() != null ? !getZone().equals(that.getZone()) : that.getZone() != null)
-		{
-			return false;
-		}
-		return getPos() != null ? getPos().equals(that.getPos()) : that.getPos() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getZone() != null ? getZone().hashCode() : 0;
-		result = 31 * result + (getPos() != null ? getPos().hashCode() : 0);
-		result = 31 * result + getFacing();
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public static class Facing extends CrusaderEngine.Facing
 	{
 		public static final int UNCHANGED = 0;

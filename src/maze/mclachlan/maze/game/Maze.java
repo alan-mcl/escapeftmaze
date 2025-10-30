@@ -1767,6 +1767,9 @@ public class Maze implements Runnable
 			// something is borked
 			return result;
 		}
+		
+		String zoneName = zone.getName();
+
 		Tile t = zone.getTile(tile);
 
 		this.playerPos = tile;
@@ -1777,7 +1780,7 @@ public class Maze implements Runnable
 			@Override
 			public List<MazeEvent> resolve()
 			{
-				playerTilesVisited.visitTile(zone.getName(), tile);
+				playerTilesVisited.visitTile(zoneName, tile);
 				return null;
 			}
 		});
@@ -2053,7 +2056,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> changeZone(String zoneName, Point pos, int facing)
 	{
-		// todo: persistance of conditions on tiles in the old zone and the new zone
+		// todo: persistence of conditions on tiles in the old zone and the new zone
 
 		int newFacing;
 		if (facing == ZoneChangeEvent.Facing.UNCHANGED)
@@ -2076,6 +2079,7 @@ public class Maze implements Runnable
 			@Override
 			public List<MazeEvent> resolve()
 			{
+
 				ui.setZone(zone, pos, newFacing);
 				zone.initialise(getTurnNr());
 				getPlayerTilesVisited().resetRecentTiles();

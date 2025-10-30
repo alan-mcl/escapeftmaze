@@ -1,0 +1,66 @@
+[
+  {
+    "template": "Minions Of Usark",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Gnolls",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Ichiba GSC",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Ichiba Chamber Of Commerce",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Hags",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "The Last Accord",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Stick Men",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Fangorn",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "White Order",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Old Igor",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "Bel Ies",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "Keepers Of Dalen",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "Ghul",
+    "attitude": "ATTACKING"
+  },
+  {
+    "template": "Gnomes",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Allies of Imogen",
+    "attitude": "NEUTRAL"
+  },
+  {
+    "template": "Allies of Lorelei",
+    "attitude": "NEUTRAL"
+  }
+]

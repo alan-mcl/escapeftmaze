@@ -1703,8 +1703,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void setZone(Zone zone, Point pos, int facing)
 	{
-		this.raycaster = getCrusaderEngine(zone);
-		raycaster.setPlayerPos(pos.x, pos.y, facing);
+		CrusaderEngine newRaycaster = getCrusaderEngine(zone);
+		newRaycaster.setPlayerPos(pos.x, pos.y, facing);
+		this.raycaster = newRaycaster;
 		this.mazeWidget.setEngine(raycaster);
 		this.zoneDisplay.setZone(zone);
 	}

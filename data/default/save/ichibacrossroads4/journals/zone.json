@@ -1,0 +1,667 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "2",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "2",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "10",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "14",
+        "text": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever."
+      },
+      {
+        "turnNr": "18",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "34",
+        "text": "With a flurry of wings, you are suddenly assaulted from above!"
+      },
+      {
+        "turnNr": "34",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "34",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "34",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "35",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "35",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "39",
+        "text": "The large lever mechanism looks tarnished and old but otherwise functional.\n\nYou wonder what hidden machinery it connects to..."
+      },
+      {
+        "turnNr": "39",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "39",
+        "text": "A loud clanking and grinding fills the dungeon."
+      },
+      {
+        "turnNr": "84",
+        "text": "Save Game \u0027gatehouse\u0027 Loaded"
+      },
+      {
+        "turnNr": "85",
+        "text": "Large silky webs cover the walls and recede around the corner."
+      },
+      {
+        "turnNr": "93",
+        "text": "This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.\n\nFrom the darkness you seem to feel many eyes watching you through the strands of webbing."
+      },
+      {
+        "turnNr": "103",
+        "text": "Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!"
+      },
+      {
+        "turnNr": "103",
+        "text": "Encountered Mud Spiders "
+      },
+      {
+        "turnNr": "103",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "103",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "104",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "104",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "105",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "105",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "111",
+        "text": "You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.\n\nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!"
+      },
+      {
+        "turnNr": "111",
+        "text": "Encountered Bonebrood, Mud Spiders "
+      },
+      {
+        "turnNr": "111",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "111",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "112",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "112",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "113",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "113",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "115",
+        "text": "A pile of dry and dusty bones has been heaped in this dark corner."
+      },
+      {
+        "turnNr": "115",
+        "text": "Poking through the pile of moldy bones, you discover several items of interest..."
+      },
+      {
+        "turnNr": "159",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "160",
+        "text": "UNLOCKED!"
+      },
+      {
+        "turnNr": "162",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "162",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "162",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "163",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "163",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "173",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "174",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "181",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "188",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "199",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "220",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "227",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "236",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "243",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "252",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "271",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "280",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "287",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "308",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "309",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "328",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "357",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "358",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "405",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "452",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "452",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "452",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "452",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "453",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "454",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "454",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "481",
+        "text": "Save Game \u0027gatehouse2\u0027 Loaded"
+      },
+      {
+        "turnNr": "496",
+        "text": "With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!"
+      },
+      {
+        "turnNr": "497",
+        "text": "Encountered Spotted Crud "
+      },
+      {
+        "turnNr": "497",
+        "text": "Foes surprise you!"
+      },
+      {
+        "turnNr": "497",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "497",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "498",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "498",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "499",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "499",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "508",
+        "text": "Save Game \u0027gatehouse3\u0027 Loaded"
+      },
+      {
+        "turnNr": "519",
+        "text": "The portcullis is lowered and will not budge. You note a small lock mechanism with a keyhole near the ground..."
+      },
+      {
+        "turnNr": "519",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "520",
+        "text": "UNLOCKED!"
+      },
+      {
+        "turnNr": "523",
+        "text": "Encountered Spotted Cruds "
+      },
+      {
+        "turnNr": "524",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "524",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "525",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "525",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "529",
+        "text": "Save Game \u0027gatehouse4\u0027 Loaded"
+      },
+      {
+        "turnNr": "530",
+        "text": "Rounding the corner you nearly collide with a short, scruffy goblin who is furtively picking with a knife between the cracks of the northern wall."
+      },
+      {
+        "turnNr": "530",
+        "text": "Encountered Emmons "
+      },
+      {
+        "turnNr": "530",
+        "text": "In a flash the stranger confronts you!"
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Oh aye! What have we here?\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Could it be ... ye\u0027re newcomers to this here Second Realm?\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Ha! Newly arrived through the Great Gate eh! Been a while, quite a while, since Emmons has seen the likes of ye!\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Where are me manners?\n\nGreetings travellers, from Emmons, called by some The Hand. On account of me skill at juggling.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Now mind you I have little time for prattle. Got business to take care of.\n\nNo doubt ye\u0027ll be wanting to move on quickly to Ichiba ...\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"So listen mateys.\n\nEmmons know these halls. There are three Gates outta here.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"All will take ye to places in the crater.\n\nIf I were ye I\u0027d take the center and make for the city. It\u0027s where all the action is.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Emmons has his own ways out!\n\nFarewell, mayhap we\u0027ll meet again in Ichiba City!\""
+      },
+      {
+        "turnNr": "530",
+        "text": "With a casual but surprisingly fast saunter, the goblin steps around the corner and out of sight."
+      },
+      {
+        "turnNr": "536",
+        "text": "Encountered Mud Spiders "
+      },
+      {
+        "turnNr": "536",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "536",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "550",
+        "text": "Save Game \u0027gatehouse6\u0027 Loaded"
+      },
+      {
+        "turnNr": "550",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "569",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "577",
+        "text": "Standing in the middle of the chamber is a stone statue of a chunky humanoid figure."
+      },
+      {
+        "turnNr": "577",
+        "text": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!"
+      },
+      {
+        "turnNr": "577",
+        "text": "The eyes of the stone construct flare to life and it lumbers towards you..."
+      },
+      {
+        "turnNr": "577",
+        "text": "Encountered Block Golem "
+      },
+      {
+        "turnNr": "577",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "577",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "578",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "583",
+        "text": "You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.\n\nThere is no immediate indication of where this one leads..."
+      },
+      {
+        "turnNr": "585",
+        "text": "You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.\n\nThere is no immediate indication of where this one leads..."
+      },
+      {
+        "turnNr": "585",
+        "text": "Save Game \u0027gatehouse6\u0027 Loaded"
+      },
+      {
+        "turnNr": "585",
+        "text": "You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.\n\nThere is no immediate indication of where this one leads..."
+      },
+      {
+        "turnNr": "585",
+        "text": "You step purposefully into the vivid portal..."
+      },
+      {
+        "turnNr": "585",
+        "text": "Departed Ichiba Crossroad"
+      }
+    ],
+    "Ichiba City": [
+      {
+        "turnNr": "792",
+        "text": "Arrived in Ichiba City"
+      },
+      {
+        "turnNr": "797",
+        "text": "Departed Ichiba Crossroad"
+      }
+    ],
+    "Ichiba Crossroad": [
+      {
+        "turnNr": "585",
+        "text": "Arrived in Ichiba Crossroad"
+      },
+      {
+        "turnNr": "585",
+        "text": "... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover."
+      },
+      {
+        "turnNr": "585",
+        "text": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird\u0027s shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy."
+      },
+      {
+        "turnNr": "585",
+        "text": "What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin?\n\nOf more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas."
+      },
+      {
+        "turnNr": "585",
+        "text": "Save Game \u0027ichibacrossroads1\u0027 Loaded"
+      },
+      {
+        "turnNr": "589",
+        "text": "Save Game \u0027ichibacrossroads1\u0027 Loaded"
+      },
+      {
+        "turnNr": "592",
+        "text": "Striding rapidly through the wilderness comes a tall warrior woman, red cape streaming behind her."
+      },
+      {
+        "turnNr": "592",
+        "text": "She stops before you, her jaw set in a look of fierce determination."
+      },
+      {
+        "turnNr": "592",
+        "text": "Encountered Eva Wingfield "
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"My greetings to you, wayfarers.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Long are the years that I have walked the winding paths of this Second Realm, but few are the likes of you that I have encountered.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"For unless I miss my mark you are refugees from the previous Realm.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Yes, it is clear. Your feats in the face of adversity to reach this point are admirable.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Yet be warned that admiration is worth little here.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "She pauses, and her face sets angrily."
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"I should know, for bitter have the years been since I too walked the path that you have followed.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Yea, we were a merry band who came here, sure of our destiny. Sure that soon we would pass through this Realm and continue our escape!\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Yet now... well, here I am. I walk the ways and do my part to keep them open.\""
+      },
+      {
+        "turnNr": "592",
+        "text": "Eva Wingfield- \"Of the others I know not, and care less.\""
+      },
+      {
+        "turnNr": "608",
+        "text": "All of a sudden your skin crawls. You are certain that you are being watched!\n\nYou freeze and stand ready to defend yourself."
+      },
+      {
+        "turnNr": "608",
+        "text": "Nothing happens. Perhaps you were mistaken."
+      },
+      {
+        "turnNr": "616",
+        "text": "The air within the cave is chill and damp. Smells of minerals and mildew assail you, strangely at odds with the thick tropical jungle outside. Everything is eerily silent.\n"
+      },
+      {
+        "turnNr": "628",
+        "text": "You enter a dark cavern, every surface slick with condensation. Scattered fungi emit a faint bioluminescent glow. "
+      },
+      {
+        "turnNr": "628",
+        "text": "Other luminescent forms detach from the ceiling and drift dreamily down towards you. You marvel at the pretty lights.\n\nIt takes a moment to realise that you are under attack!"
+      },
+      {
+        "turnNr": "628",
+        "text": "Encountered Hawk Moth "
+      },
+      {
+        "turnNr": "628",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "628",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "629",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "630",
+        "text": "--- combat round 3 starts ---"
+      },
+      {
+        "turnNr": "631",
+        "text": "--- combat round 4 starts ---"
+      },
+      {
+        "turnNr": "632",
+        "text": "--- combat round 5 starts ---"
+      },
+      {
+        "turnNr": "633",
+        "text": "--- combat round 6 starts ---"
+      },
+      {
+        "turnNr": "634",
+        "text": "--- combat round 7 starts ---"
+      },
+      {
+        "turnNr": "635",
+        "text": "--- combat round 8 starts ---"
+      },
+      {
+        "turnNr": "636",
+        "text": "--- combat round 9 starts ---"
+      },
+      {
+        "turnNr": "639",
+        "text": "Save Game \u0027ichibacrossroads2\u0027 Loaded"
+      },
+      {
+        "turnNr": "678",
+        "text": "The dirt path runs through a peaceful looking glade and wends it\u0027s way around some strange looking clumps of bush."
+      },
+      {
+        "turnNr": "678",
+        "text": "You pause and cast a suspicious eye over the bushes. \n\nFor a moment nothing moves in the glade."
+      },
+      {
+        "turnNr": "678",
+        "text": "Suddenly, with little more than an eery rustle, the real danger here emerges from the trees around you!"
+      },
+      {
+        "turnNr": "700",
+        "text": "Save Game \u0027ichibacrossroads3\u0027 Loaded"
+      },
+      {
+        "turnNr": "792",
+        "text": "Departed Ichiba City"
+      },
+      {
+        "turnNr": "797",
+        "text": "Arrived in Ichiba Crossroad"
+      }
+    ]
+  }
+}

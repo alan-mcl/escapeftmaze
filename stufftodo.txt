@@ -5,8 +5,6 @@ STUFFTODO
 ICHIBA CROSSROADS
 -----------------
 
-foe group selection improvements
-
 forgotten path / red moss tree
 other encounters?
 
@@ -14,6 +12,12 @@ chest contents -> MazeScript
 make hidden stuff tile script work again
 
 bug: zone change flickering
+
+ICHIBA CITY
+-----------
+scene art: city windows, door+window
+scene art: table, chair, crate
+foe rebalancing
 
 BACKLOG
 ----------
@@ -27,9 +31,6 @@ sound: all musical instruments
 animation: javelin
 animation: throwing axe
 animation: throwing hammer
-
-scene art: city windows, door+window
-scene art: table, chair, crate
 
 sound: angel
 sprite & sound: clockwork beast
