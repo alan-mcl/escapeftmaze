@@ -195,7 +195,7 @@ public class Maze implements Runnable
 		log("start threads");
 		startThreads();
 
-		int MAX_PROGRESS = 35;
+		int MAX_PROGRESS = 36;
 
 		LoadingScreen screen = new LoadingScreen(MAX_PROGRESS);
 		ui.showDialog(screen);

@@ -106,7 +106,7 @@
         "mad.kami.1",
         "ninja.group"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -725,7 +725,7 @@
         "tornado.dragon.1",
         "glacier.dragon.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1615,6 +1615,31 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.random.enc.residents",
+    "encounterTable": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        "human.hirebrand.small",
+        "goblin.cutpurse.small",
+        "gnome.beggar.small",
+        "gnoll.thugs.small",
+        "leonal.knights",
+        "gnome.scouts.party",
+        "human.footpads.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "call.plants.spell.3",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1924,28 +1949,14 @@
     "name": "ichiba.city.random.enc",
     "encounterTable": {
       "PERCENTAGES": [
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10
+        34,
+        33,
+        33
       ],
       "ITEMS": [
-        "human.hirebrand.small",
-        "goblin.cutpurse.small",
-        "gnome.beggar.small",
-        "gnoll.thugs.small",
         "spore.moth.small",
         "harvestman.spiders.small",
-        "dun.draco.small.pack",
-        "leonal.knights",
-        "gnome.scouts.party",
-        "human.footpads.1"
+        "dun.draco.small.pack"
       ],
       "SHOULD_SUM_TO_100": "true"
     }
@@ -2478,7 +2489,7 @@
       "ITEMS": [
         "call.wyrms.spell.5"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2786,7 +2797,7 @@
         "fantasmagora.2",
         "yreguoth.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

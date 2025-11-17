@@ -232,6 +232,54 @@ public class Texture implements Comparable<Texture>
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Return a colour based on a fast approximation of the
+	 * predominant color of the texture.
+	 */
+	public Color getIndicativeColor()
+	{
+		long totalRed = 0;
+		long totalGreen = 0;
+		long totalBlue = 0;
+		long totalPixels = 0;
+
+		for (BufferedImage image : images)
+		{
+			int width = image.getWidth();
+			int height = image.getHeight();
+
+			for (int y = 0; y < height; y += 10) // sample every 10th pixel vertically
+			{
+				for (int x = 0; x < width; x += 10) // sample every 10th pixel horizontally
+				{
+					int rgb = image.getRGB(x, y);
+					Color color = new Color(rgb, true);
+
+					// Ignore fully transparent pixels
+					if (color.getAlpha() > 0)
+					{
+						totalRed += color.getRed();
+						totalGreen += color.getGreen();
+						totalBlue += color.getBlue();
+						totalPixels++;
+					}
+				}
+			}
+		}
+
+		if (totalPixels == 0)
+		{
+			return new Color(0, 0, 0); // default to black if no pixels were counted
+		}
+
+		int avgRed = (int)(totalRed / totalPixels);
+		int avgGreen = (int)(totalGreen / totalPixels);
+		int avgBlue = (int)(totalBlue / totalPixels);
+
+		return new Color(avgRed, avgGreen, avgBlue);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void applyTint(Color tint)
 	{
 		for (int[] imagePixels : imageData)

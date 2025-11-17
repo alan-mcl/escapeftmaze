@@ -3964,18 +3964,12 @@
     "name": "Goblin.Cutpurse.loot",
     "lootEntries": {
       "PERCENTAGES": [
-        100,
         35,
-        100,
-        100,
+        75,
         100,
         100
       ],
       "POSSIBILITIES": [
-        {
-          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Knife"
-        },
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
           "name": "Copper Coin"
@@ -3991,10 +3985,6 @@
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
           "name": "Cloth Pants"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Throwing Knife"
         }
       ]
     }
@@ -5371,22 +5361,12 @@
       "PERCENTAGES": [
         100,
         100,
-        100,
-        100,
         20,
         100,
         100,
         100
       ],
       "POSSIBILITIES": [
-        {
-          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Iron Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Chain Hauberk"
-        },
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
           "name": "Chamois Gloves"
@@ -5401,15 +5381,15 @@
         },
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Bastard Sword"
+          "name": "Stiletto"
         },
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Targe"
+          "name": "Chamail Pants"
         },
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
-          "name": "Longsword"
+          "name": "Chamail Doublet"
         }
       ]
     }
@@ -6090,6 +6070,61 @@
         {
           "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
           "name": "Robes (L)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gurney.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Chausses"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Luther\u0027s Fiddle"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Short Sword"
         }
       ]
     }

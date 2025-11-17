@@ -69,6 +69,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private MazeTexturePanel mazeTexturePanel;
 	private NaturalWeaponsPanel naturalWeaponsPanel;
 	private ObjectAnimationPanel objectAnimationPanel;
+	private FoeSpeechPanel foeSpeechPanel;
 	private FoeTemplatePanel foeTemplatePanel;
 	private TrapsPanel trapsPanel;
 	private FoeEntryPanel foeEntryPanel;
@@ -152,6 +153,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		addStaticDataTab("Maze Textures", getMazeTexturesPanel());
 		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
 		addStaticDataTab("Object Animations", getObjectAnimationsPanel());
+		addStaticDataTab("Foe Speech", getFoeSpeechPanel());
 		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
 		addStaticDataTab("Traps", getTrapsPanel());
 		addStaticDataTab("Foe Entries", getFoeEntriesPanel());
@@ -328,6 +330,12 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		trapsPanel = new TrapsPanel();
 		return trapsPanel;
+	}
+
+	private EditorPanel getFoeSpeechPanel()
+	{
+		foeSpeechPanel = new FoeSpeechPanel();
+		return foeSpeechPanel;
 	}
 
 	private EditorPanel getFoeTemplatesPanel()
@@ -556,6 +564,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.RACES)) saveRaces();
 		if (dirty.get(Tab.TEXTURES)) saveMazeTextures();
 		if (dirty.get(Tab.OBJECT_ANIMATIONS)) saveObjectAnimations();
+		if (dirty.get(Tab.FOE_SPEECH)) saveFoeSpeech();
 		if (dirty.get(Tab.FOE_TEMPLATES)) saveFoeTemplates();
 		if (dirty.get(Tab.TRAPS)) saveTraps();
 		if (dirty.get(Tab.FOE_ENTRIES)) saveFoeEntries();
@@ -632,6 +641,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		saveRaces();
 		saveMazeTextures();
 		saveObjectAnimations();
+		saveFoeSpeech();
 		saveFoeTemplates();
 		saveTraps();
 		saveFoeEntries();
@@ -785,6 +795,11 @@ public class SwingEditor extends JFrame implements WindowListener
 	public void saveObjectAnimations() throws Exception
 	{
 		Database.getInstance().saveObjectAnimations(Database.getInstance().getObjectAnimations(), currentCampaign);
+	}
+
+	public void saveFoeSpeech() throws Exception
+	{
+		Database.getInstance().saveFoeSpeech(Database.getInstance().getFoeSpeeches(), currentCampaign);
 	}
 
 	public void saveFoeTemplates() throws Exception
@@ -988,6 +1003,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int NATURAL_WEAPONS = 34;
 		public static final int STARTING_KITS = 35;
 		public static final int FOE_TYPES = 36;
+		public static final int FOE_SPEECH = 37;
 
 		public static String valueOf(int tab)
 		{
@@ -1011,6 +1027,7 @@ public class SwingEditor extends JFrame implements WindowListener
 					case TEXTURES -> "textures";
 					case OBJECT_ANIMATIONS -> "object animations";
 					case FOE_TEMPLATES -> "foe templates";
+					case FOE_SPEECH -> "foe speech";
 					case TRAPS -> "traps";
 					case FOE_ENTRIES -> "foe entries";
 					case ENCOUNTER_TABLES -> "encounter tables";

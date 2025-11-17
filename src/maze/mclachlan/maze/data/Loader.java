@@ -38,10 +38,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.stat.npc.NpcFactionTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 
 /**
  *
@@ -72,6 +69,7 @@ public abstract class Loader
 
 	public abstract Map<String, ObjectAnimations> loadObjectAnimations();
 	public abstract Map<String, FoeTemplate> loadFoeTemplates();
+	public abstract Map<String, FoeSpeech> loadFoeSpeech();
 	public abstract Map<String, Trap> loadTraps();
 	public abstract Map<String, FoeEntry> loadFoeEntries();
 	public abstract Map<String, EncounterTable> loadEncounterTables();

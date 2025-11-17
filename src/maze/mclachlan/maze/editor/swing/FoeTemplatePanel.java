@@ -65,6 +65,8 @@ public class FoeTemplatePanel extends EditorPanel
 	private SpellLikeAbilitiesWidget spellLikeAbilitiesWidget;
 	private LootTableDisplayWidget lootTable;
 
+	private JComboBox foeSpeech;
+
 	static String[] evasionBehaviours =
 		{
 			Foe.EvasionBehaviour.toString(Foe.EvasionBehaviour.NEVER_EVADE),
@@ -93,9 +95,9 @@ public class FoeTemplatePanel extends EditorPanel
 		JTabbedPane tabs = new JTabbedPane();
 
 		tabs.add("Stats", getStatsPanel());
-		tabs.add("AI Params", getAiPanel());
 		tabs.add("Attacks", getAttacksPanel());
 		tabs.add("Art & Scripts", getArtAndScriptsPanel());
+		tabs.add("AI Params", getAiPanel());
 		tabs.add("Analysis", getAnalysisPanel());
 
 		return tabs;
@@ -130,6 +132,7 @@ public class FoeTemplatePanel extends EditorPanel
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void equip()
 	{
 		try
@@ -152,7 +155,9 @@ public class FoeTemplatePanel extends EditorPanel
 
 			sb.append("\n\nEquipped:\n");
 
-			for (EquipableSlot slot : foe.getAllEquipableSlots())
+			List<EquipableSlot> allEquipableSlots = foe.getAllEquipableSlots();
+			allEquipableSlots.sort(Comparator.comparing(EquipableSlot::getType));
+			for (EquipableSlot slot : allEquipableSlots)
 			{
 				sb.append(slot.getType()).append("(").append(slot.getName()).append(")").append(" - ").append(slot.getItem()).append("\n");
 			}
@@ -522,6 +527,10 @@ public class FoeTemplatePanel extends EditorPanel
 		alliesOnCall.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Allies On Call:"), alliesOnCall, gbc);
 
+		foeSpeech = new JComboBox();
+		foeSpeech.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Speech:"), foeSpeech, gbc);
+
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
@@ -573,6 +582,11 @@ public class FoeTemplatePanel extends EditorPanel
 		Collections.sort(animations);
 		animations.add(0, NONE);
 		spriteAnimations.setModel(new DefaultComboBoxModel<>(animations));
+
+		Vector<String> foeSpeeches = new Vector<>(Database.getInstance().getFoeSpeeches().keySet());
+		Collections.sort(foeSpeeches);
+		foeSpeeches.add(0, NONE);
+		foeSpeech.setModel(new DefaultComboBoxModel<>(foeSpeeches));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -601,6 +615,7 @@ public class FoeTemplatePanel extends EditorPanel
 		characterClass.removeActionListener(this);
 		alliesOnCall.removeActionListener(this);
 		spriteAnimations.removeActionListener(this);
+		foeSpeech.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -659,6 +674,7 @@ public class FoeTemplatePanel extends EditorPanel
 		focus.setSelectedItem(ft.getFocus());
 		attitude.setSelectedItem(ft.getDefaultAttitude());
 		alliesOnCall.setSelectedItem(ft.getAlliesOnCall()==null?NONE:ft.getAlliesOnCall());
+		foeSpeech.setSelectedItem(ft.getFoeSpeech() == null ? EditorPanel.NONE : ft.getFoeSpeech().getName());
 
 		analysisOutput.setText("");
 
@@ -683,6 +699,7 @@ public class FoeTemplatePanel extends EditorPanel
 		characterClass.addActionListener(this);
 		alliesOnCall.addActionListener(this);
 		spriteAnimations.addActionListener(this);
+		foeSpeech.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -743,6 +760,7 @@ public class FoeTemplatePanel extends EditorPanel
 			null,
 			CharacterClass.Focus.COMBAT,
 			NpcFaction.Attitude.ATTACKING,
+			null,
 			null);
 		Database.getInstance().getFoeTemplates().put(name, ft);
 
@@ -818,7 +836,8 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getSpellLikeAbilities(),
 			current.getFocus(),
 			current.getDefaultAttitude(),
-			current.getAlliesOnCall());
+			current.getAlliesOnCall(),
+			current.getFoeSpeech());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 
@@ -911,6 +930,8 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
 		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 		ft.setAlliesOnCall(NONE==alliesOnCall.getSelectedItem()?null: (String)alliesOnCall.getSelectedItem());
+
+		ft.setFoeSpeech(EditorPanel.NONE.equals(foeSpeech.getSelectedItem()) ? null : Database.getInstance().getFoeSpeech((String)foeSpeech.getSelectedItem()));
 
 		return ft;
 	}

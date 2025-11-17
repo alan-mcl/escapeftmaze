@@ -33,7 +33,7 @@ public class RedEar extends NpcScript
 					"are draped over most of the walls and windows. Dust and " +
 					"mold assault your nostrils."),
 			new FlavourTextEvent(
-				"\n\nFrom the shadows bounds a hunched figure clad in scruffy " +
+				"From the shadows bounds a hunched figure clad in scruffy " +
 					"rags, tongue lolling and yellow eyes glinting as he " +
 					"sizes you up..."));
 	}
@@ -48,7 +48,7 @@ public class RedEar extends NpcScript
 				"those who come through the Gate, but Red Ear thinks you are " +
 				"among them, yes he does!", npc),
 			new NpcSpeechEvent("What trinkets and trifles do they bring to " +
-				"Ichiba from beyond the Gate? Red Ear will buy them, he will. " +
+				"Ichiba from beyond the Gate? Red Ear will buy them, yes he will. " +
 				"Red Ear has the best deals in Ichiba! Take a look!", npc));
 	}
 

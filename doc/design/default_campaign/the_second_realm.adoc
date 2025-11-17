@@ -114,9 +114,9 @@ Foes:
 * Spore Moths: frustrating debuffer
 * Dun Draco: quick and evasive
 * Harvestman Spiders: poison
-* Goblin Cutpurse:
-* Gnome Beggar:
-* Gnoll Thug:
+* Goblin Cutpurse: quick and evasive
+* Gnome Beggar: annoying debuff
+* Gnoll Thug: resilient
 
 
 Notes

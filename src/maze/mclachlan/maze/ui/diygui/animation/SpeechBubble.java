@@ -37,6 +37,7 @@ public class SpeechBubble
 	private Rectangle bounds;
 	private int index;
 	private ArrayList<String> strings;
+	private Color textColour;
 
 	/**
 	 * Orientation of the speech bubble relative to its origination bounds
@@ -59,10 +60,39 @@ public class SpeechBubble
 		this.origination = origination;
 		this.orientation = orientation;
 
+		textColour = getHighContrastTextColour(colour);
+
 		synchronized (SpeechBubble.bubbles)
 		{
 			bubbles.add(this);
 		}
+	}
+
+	/**
+	 * Get a high contrast colour for writing text over the given colour.
+	 */
+	private Color getHighContrastTextColour(Color colour)
+	{
+		if (colour == null)
+		{
+			return Color.DARK_GRAY;
+		}
+
+		// Convert sRGB to a luminance value (WCAG 2.0)
+		double r = colour.getRed() / 255.0;
+		double g = colour.getGreen() / 255.0;
+		double b = colour.getBlue() / 255.0;
+
+		// Gamma correction
+		r = (r <= 0.03928) ? (r / 12.92) : Math.pow((r + 0.055) / 1.055, 2.4);
+		g = (g <= 0.03928) ? (g / 12.92) : Math.pow((g + 0.055) / 1.055, 2.4);
+		b = (b <= 0.03928) ? (b / 12.92) : Math.pow((b + 0.055) / 1.055, 2.4);
+
+		// Relative luminance
+		double luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+		// If the background is bright, return black; if dark, return white.
+		return luminance > 0.5 ? Color.DARK_GRAY : Color.LIGHT_GRAY;
 	}
 
 	public static void remove(SpeechBubble speechBubble)
@@ -98,7 +128,7 @@ public class SpeechBubble
 //				g.drawRect(origination.x, origination.y, origination.width, origination.height);
 //			}
 
-		g.setColor(Color.DARK_GRAY);
+		g.setColor(textColour);
 		int line = 1;
 		for (String s : strings)
 		{

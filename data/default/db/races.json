@@ -21,6 +21,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Shen",
@@ -342,6 +344,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Sog Snegm",
@@ -966,7 +970,6 @@
         "Hickory"
       ]
     },
-    "unlockVariable": "",
     "unlockDescription": "",
     "characterCreationImage": "race/dryad"
   },
@@ -992,6 +995,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Celadia",

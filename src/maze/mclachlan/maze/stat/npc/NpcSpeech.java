@@ -37,6 +37,20 @@ public class NpcSpeech
 	private List<NpcSpeechRow> dialogue = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
+
+	public NpcSpeech()
+	{
+	}
+
+	public NpcSpeech(NpcSpeech other)
+	{
+		this.dialogue = new ArrayList<>();
+		this.lookup = new HashMap<>();
+
+		other.getDialogue().forEach(this::addNpcSpeechRow);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Performs a keyword lookup on the given player sentence, and returns what
 	 * the NPC has to say in response, via a rather brute force search.

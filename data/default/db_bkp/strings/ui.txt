@@ -1,0 +1,645 @@
+
+# COMMON STRINGS
+common.ok = OK
+common.exit = Exit
+common.cancel = Cancel
+common.gametime = Day %s, turn %s
+common.gp = %sgp
+
+# the create character wizard
+cc.title = Create Character
+cc.next = Next >
+cc.previous = < Previous
+cc.random = (random)
+cc.race.title = Character Race
+cc.gender.title = Character Gender
+cc.race.modifiers = Race Modifiers
+cc.class.modifiers = Class Modifiers
+cc.kit.modifiers = Kit Modifiers
+cc.final.modifiers = Final Character Modifiers
+cc.resources = Resources
+cc.attributes = Attributes
+cc.resistances = Resistances
+cc.other.modifiers = Other Modifiers
+cc.choose.race.and.gender = Choose a race and gender for your new character
+cc.choose.race.and.gender.flava = "Many and varied are the peoples of our exile. We are united by little other than our mutual captivity." \n~excerpt from "Races of the First Realm" by Theodorus of Kilin
+cc.class.title = Character Class
+cc.choose.class = Choose a character class for your
+cc.choose.class.flava = "What of the skills needed to walk undying through the perils of the Maze? Sit a while, and I will teach you what I can."\n~Azael the Half-Blind
+cc.choose.kit = Choose the starting kit for your
+cc.kit.title = Starting Kits
+cc.kit.items.title = Starting Items
+cc.choose.kit.flava = "Kneeling gracefully, he fastened tightly to his muscled shins a pair of worn and battered steel greaves. With barely a swift glance in the admiring mirror, he strode boldly forth meet his deadly fate."\n~excerpt from "Red Greave and the Bane of Sigil", author unknown
+cc.choose.spells = Choose starting spells for your
+cc.choose.spells.flava = "Magic? Perhaps I have a little. Perhaps you will not call it magic after you have seen it."\n ~Rainmaker
+cc.choose.personals = Choose a name, portrait and personality for your
+cc.personality = Character Personality
+cc.character.portrait = Character Portrait
+cc.character.name = Character Name
+cc.suggest.name = (suggest)
+cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
+cc.ability.progression = Special Abilities
+cc.show.lap = ...
+cc.show.lap.tooltip = Show the full level ability progression for this class.
+cc.locked = ** LOCKED **
+cc.spell.books = Magic Use:
+
+# level up widget
+lu.title = Level Up %s
+lu.next = Next >
+lu.previous = < Previous
+lu.class.change.req = Show Class Change Requirements
+lu.level.up.inc = Level %s
+lu.bonus.title = Choose a Bonus
+lu.bonus.hp = Grants this character bonus hit points, over and above the regular hit point increase for this level.
+lu.bonus.ap = Grants this character bonus action points, over and above the regular action point increase for this level.
+lu.bonus.mp = Grants this character bonus magic points, over and above the regular magic point increase for this level.
+lu.bonus.mod = Grants this character bonus modifiers that can be assigned later in this level up.
+lu.bonus.spell = Grants this character a bonus spell choice.
+lu.bonus.revitalise = Restores this characters hit, stealth amd magic points to their maximum and removes most baneful conditions.
+lu.state.desc = Hit Points +%s\nAction Points +%s\nMagic Points +%s\nAssignable Modifiers %s
+lu.state.desc.spellpicks = Spell Picks +%s
+lu.select.spells = Learn New Spells
+
+# modifiers edit widget
+mew.title = Assign Modifiers
+
+# stats display widget
+sdw.title = Statistics
+sdw.kills = Kills: %s
+sdw.deaths = Deaths: %s
+sdw.experience = Experience: %s / %s
+sdw.resistances = Resistances
+sdw.resources = Resources
+sdw.enter.new.name = Enter New Name
+sdw.portrait = Portrait
+sdw.personality = Personality
+
+# properties display widget
+pdw.title = Properties and Conditions
+pdw.properties = Properties
+pdw.conditions = Conditions
+
+# modifiers display widget
+mdw.title = Modifiers
+mdw.attributes = Attribute Modifiers
+mdw.combat = Combat Modifiers
+mdw.stealth = Stealth Modifiers
+mdw.magic = Magic Modifiers
+
+# magic display widget
+madw.title = Magic
+
+# grant items widget
+giw.title = Take Items
+giw.take.all = Take (A)ll
+giw.take.all.tooltip = Choose a character to take all items
+
+# modifier display widget
+mdw.influence.base = Base
+mdw.influence.gender = Gender (%s)
+mdw.influence.race = Character Race (%s)
+mdw.influence.class = Character Class (%s, %s)
+mdw.influence.combat.intention = Combat Intention
+mdw.influence.combat.action = Combat Action
+mdw.influence.combatant.data = Combatant Data
+mdw.influence.current.tile = Current Tile
+mdw.influence.wielding.combo = Wielding Combo
+mdw.influence.encumbrance = Encumbrance
+
+# item details widget
+iw.weight = Weight: %skg
+iw.stack = Stack: %s of %s
+iw.teaches.spell = Teaches Spell: %s (%s)
+iw.invoked.spell = Invoked Spell: %s
+iw.variable.level = variable level
+iw.level = level %s
+iw.charges = , charges %s of %s
+iw.charges.infinite = , charges infinite
+iw.spell.effects = Effects:
+iw.all = all
+iw.all.except = all except
+iw.usable.by.races = Usable by races:
+iw.usable.by.classes = Usable by classes:
+iw.usable.by.genders = Usable by genders:
+iw.slots = Slots:
+iw.ammo.required = Ammo Required:
+iw.weapon = Weapon:
+iw.damage = %s damage
+iw.two.handed = Two Handed
+iw.ranged = Ranged
+iw.returning = Returning
+iw.backstabber = Backstabber
+iw.sniper = Sniper
+iw.attacks.at = Attacks at %s
+iw.to.hit = %s to hit
+iw.to.penetrate = %s to penetrate
+iw.to.criticals = %s to criticals
+iw.to.initiative = %s to initiative
+iw.attacks.with = Attacks with %s
+iw.bonus.attacks = %s bonus attacks
+iw.bonus.strikes = %s bonus strikes
+iw.attack.modes = Attack modes:
+iw.at = at
+iw.to = to
+iw.range = range
+iw.armour = Armour:
+iw.shield = Shield:
+iw.damage.prevention = %s%% chance of damage %s
+iw.ammo = Ammunition:
+iw.banner.item = Banner Item:
+iw.bomb = Bomb:
+iw.drink = Beverage:
+iw.food = Food:
+iw.key = Key:
+iw.misc.item = Miscellaneous Item:
+iw.misc.magic = Magical Item:
+iw.other = Miscellaneous Item:
+iw.potion = Potion:
+iw.powder = Powder:
+iw.scroll = Scroll:
+iw.spellbook = Spell Book:
+iw.writing = Book:
+iw.money = Money
+iw.supplies = Supplies
+iw.gadget = Gadget
+iw.music = Musical Instrument
+iw.misc = Misc Item
+iw.modifiers = Modifiers:
+iw.equip.requirements = Required to equip:
+iw.use.requirements = Required to use:
+iw.cancel = Cancel
+iw.convert.to.money = Convert to party gold
+iw.convert.to.supplies = Convert to party supplies
+iw.conversion.rate.money = (will be converted to %s gold pieces)
+iw.conversion.rate.supplies  = (will be converted to %s supply units)
+
+# craft items dialog
+cid.title = Choose two items to combine
+cid.crafting.skill = Crafting skill of %s is %s
+cid.craft = (C)raft
+cid.select.two.different = Not a valid item selection.\nPlease select two different items.
+cid.created = Crafting successful!\n\n%s created %s.
+cid.cannot.merge = %s cannot merge those two items.\n\nCrafting this requires:
+cid.cannot.be.merged = Can't craft with these two items.
+
+# combat options widget
+cow.attack = (A)ttack
+cow.defend = (D)efend
+cow.cast.spell = (C)ast Spell
+cow.hide = (H)ide
+cow.use.item = (U)se Item
+cow.equip = (E)quip
+cow.run = Ru(n)
+cow.backup = < Bac(k)up
+cow.cancel = << Cance(l)
+cow.repeat = (R)epeat >>
+cow.formation = (F)ormation
+cow.swap.hands = S(w)ap Hands
+cow.displace = Displace
+cow.race = Race
+cow.class = Class
+cow.start.round = (S)tart Round
+cow.terminate.game = Terminate Game
+cow.evade = (E)vade Foes
+cow.surprise = (S)urprise Foes
+cow.formation.changed = Formation will change at end of round
+
+# formation dialog
+fd.title = Party Formation
+fd.move.up = Move (U)p
+fd.move.down = Move (D)own
+
+# movement options widget
+poatw.quit = (Q)uit
+poatw.stats = Stats
+poatw.inventory = (I)nventory
+poatw.search = (S)earch
+poatw.open = (O)pen
+poatw.rest = (R)est
+poatw.rest.tooltip = The party rests and recovers resources.
+poatw.use.item = (U)se Item
+poatw.cast.spell = (C)ast Spell
+poatw.formation = (F)ormation
+poatw.formation.tooltip = Change the formation of characters in the party.
+poatw.formation.tooltip.combat = Change party formation (takes effect at the end of the combat round).
+poatw.hide = (H)ide
+poatw.save.load = Save/Loa(d)
+poatw.settings = Settin(g)s
+poatw.map = (M)ap
+poatw.journal = (J)ournal
+poatw.attack = (A)ttack
+poatw.attack.tooltip = The party initiates combat.
+poatw.wait = (W)ait
+poatw.wait.tooltip = Wait and see what the other party decides to do.
+poatw.leave = (L)eave
+poatw.leave.tooltip = The party leaves.
+poatw.flee = (F)lee
+poatw.flee.no.hotkey = Flee
+poatw.flee.tooltip = Attempt to run away from this encounter.
+poatw.evade = (E)vade
+poatw.evade.tooltip = The party stealthily evades this encounter.
+poatw.surprise = Ambu(s)h
+poatw.surprise.tooltip = The party springs an ambush, getting a free attack round.
+poatw.guild = (G)uild
+poatw.guild.tooltip = You can recruit characters for the party here.
+poatw.start.round = (S)tart Round
+poatw.start.round.tooltip = Start the next combat round.
+poatw.defend.all = Defend All
+poatw.defend.all.tooltip = Set all party members to defend.
+poatw.terminate.game = Terminate Game
+poatw.confirm.exit.title = Quit Game
+poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
+poatw.actor.encounter = Encounter: %s (%s)
+poatw.exploring = Exploring: %s
+poatw.chest.encounter = Encounter chest
+poatw.portal.encounter = Encounter door
+poatw.view.log = (V)iew Log
+poatw.view.log.title = Message Log
+poatw.stealth = Party Stealth: %s
+
+# player character widget
+pcw.levelup=+
+pcw.levelup.tooltip = Level up this character.
+pcw.take.an.action = Take an action...
+pcw.hp.fatigue.tooltip = Hit points %s/%s (%s fatigue)
+pcw.hp.tooltip = Hit points %s/%s
+pcw.ap.tooltip = Action points %s/%s
+pcw.mp.tooltip = Magic points %s/%s
+
+# modifier display action listener
+mdal.influences = INFLUENCES:
+mdal.practice = PRACTICE:
+
+# actor action options
+aao.use.item = Use Item ...
+aao.cast.spell = Cast Spell ...
+aao.spell.like.ability = %s
+aao.hide = Hide In Shadows
+aao.displace = Displace
+aao.equip = Change Equipment
+aao.attack = Attack (%s)
+aao.backstab = Backstab (%s)
+aao.snipe = Snipe (%s)
+aao.defend = Defend
+aao.run.away = Run Away
+aao.intend.nothing = No Action
+aao.threaten = Threaten
+aao.talk = Talk
+aao.give = Give Item
+aao.bribe = Bribe
+aao.steal = Steal
+aao.trade = Trade
+aao.disarm.trap = Disarm Trap
+aao.open.chest = Open Chest
+aao.pick.lock = Pick Lock
+aao.force.open = Force Open
+aao.surprised = Surprised!
+aao.dead = Dead
+aao.unaware = Unaware...
+aao.front.row = front row
+aao.back.row = back row
+
+# actor stance options
+aso.snakespeed = Snakespeed
+aso.act.early = Act early
+aso.act.late = Act late
+aso.patience = Patience
+
+# start game options
+sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.
+sgo.difficulty.level = Difficulty Level
+
+# class change requirements widget
+ccrw.namelabel = %s, level %s %s %s %s
+ccrw.current = Current:
+ccrw.eligible = Eligible Classes
+ccrw.ineligible = Ineligible Classes
+
+# level ability progression widget
+lapw.title = %s Level Ability Progression
+lapw.level = Lvl %s:
+
+# level ability action listener
+laal.modifiers = Modifiers:
+laal.banner.modifiers = Banner Modifiers:
+laal.spellpicks = Spellpicks:
+
+# main menu
+mm.quick.start = Q(u)ick Start
+mm.quick.start.tooltip = Generate a random party and get started without delay!
+mm.start.game = (S)tart Game
+mm.start.game.tooltip = Start a new game with the current party.
+mm.create.character = (C)reate Character
+mm.create.character.tooltip = Create a new character.
+mm.add.character = (A)dd Character To Party
+mm.add.character.tooltip = Add a previously created character to the party.
+mm.remove.character = (R)emove Character
+mm.remove.character.tooltip = Remove a character from the party.
+mm.load.game = Loa(d) Game
+mm.load.game.tooltip = Load a saved game.
+mm.settings = Settin(g)s
+mm.settings.tooltip = Change game settings.
+mm.quit = (Q)UIT
+mm.rolling.characters = Rolling characters...
+
+# Save / Load screen
+sls.save.game.name = Save Game Name:
+sls.save = (S)ave
+sls.load = Loa(d)
+
+# resting dialog
+rd.title = Resting At This Location
+rd.rest = Begin (C)amping
+rd.resting.danger = Resting Danger:
+rd.resting.efficiency = Resting Efficiency:
+rd.supplies.available = Party Supplies:
+rd.supplies = Supplies
+rd.needed = Supplies Needed
+rd.available = Will Consume
+rd.supplies.units = %s units
+rd.resting.progress = Resting in %s
+rd.encounter = An Encounter!
+rd.resting = Resting....
+rd.supplies.consumed = Consumed %s units of supplies
+rd.totals = TOTAL:
+rd.guard.duty = (%s is on guard duty)
+
+# inventory display widget
+idw.title = Inventory
+idw.cast.spell = (C)ast Spell
+idw.use.item = (U)se Item
+idw.craft = C(r)aft
+idw.disassemble = Disassem(b)le
+idw.drop.item = (D)rop Item
+idw.split.stack = Sp(l)it Stack
+idw.carrying = Carrying (kg):
+idw.primary = Primary:
+idw.secondary = Second:
+idw.alt.primary = Alt prim:
+idw.alt.secondary = Alt sec:
+idw.helm = Helm:
+idw.torso = Torso:
+idw.legs = Legs:
+idw.gloves = Gloves:
+idw.boots = Boots:
+idw.banner = Banner:
+idw.misc1 = Misc #1:
+idw.misc2 = Misc #2:
+idw.pack.items = Pack Items
+idw.equipped.items = Equipped Items
+idw.character.details = %s, level %s %s %s %s
+idw.party.gold = Party gold: %sgp
+idw.party.supplies = Party supplies: %s units
+idw.carrying.label = Carrying (kg): %s / %s
+idw.cast.spell.on.item = Cast Spell On Item
+idw.invoke.spell.on.item = Invoke Spell On Item
+idw.pick.up.to.disassemble = Please pick up the item to disassemble
+idw.cannot.disassemble = %s cannot be disassembled.
+idw.cannot.disassemble.req = %s cannot disassemble that item.\n\nRequires:
+idw.pick.up.to.split = Please pick up the stack of items to split
+idw.not.stackable = %s is not stackable
+idw.cannot.split = Cannot split that stack
+idw.use.item.title = Use Item
+idw.drop.item.title = Drop Item
+
+# settings dialog
+sd.title = Settings
+sd.audio.settings = Audio Settings
+sd.music.volume = Music Volume:
+sd.ui.settings = UI Settings
+sd.event.display.speed = Event Display Speed:
+sd.personality.chattiness = Personality Chattiness:
+sd.gameplay.settings = Gameplay Settings
+sd.auto.add.consumables = Auto Add Consumables
+sd.music.off = Off
+sd.music.low = Low
+sd.music.med = Med
+sd.music.high = High
+sd.chat.off = Off
+sd.chat.low = Low
+sd.chat.med = Med
+sd.chat.high = High
+sd.event.delay.instant = Instant
+sd.event.delay.fast = Fast
+sd.event.delay.med = Med
+sd.event.delay.slow = Slow
+sd.auto.add.consumables.never = Never
+sd.auto.add.consumables.always = Always
+
+# journal dialog
+jd.title.logbook = Logbook
+jd.title.zones = Journal: Zones
+jd.title.quests = Journal: Quests
+jd.title.npcs = Journal: NPCs
+jd.logbook = (L)ogbook
+jd.logbook.key = Logbook
+jd.zones = (Z)ones
+jd.quests = (Q)uests
+jd.npcs = (N)PCs
+jd.none.yet = <no entries yet>
+
+# journalling events
+j.depart.zone = Departed %s
+j.arrive.zone = Arrived in %s
+j.npc.speech = %s- "%s"
+
+# loading screen
+ls.load.genders = loading genders...
+ls.load.body.parts = loading body parts...
+ls.load.xp.tables = loading xp tables...
+ls.load.attack.types = loading attack types...
+ls.load.condition.effects = loading condition effects...
+ls.load.condition.templates = loading condition templates...
+ls.load.spell.effects = loading spell effects...
+ls.load.loot.entries = loading loot entries...
+ls.load.loot.tables = loading loot tables...
+ls.load.maze.scripts = loading maze scripts...
+ls.load.spells = loading spells...
+ls.load.starting.kits = loading starting kits...
+ls.load.character.classes = loading character classes...
+ls.load.player.spell.books = loading player spell books...
+ls.load.natural.weapons = loading natural weapons...
+ls.load.races = loading races...
+ls.load.maze.textures = loading maze textures...
+ls.load.foe.types = loading foe types...
+ls.load.foe.speech = loading foe speech...
+ls.load.foe.templates = loading foe templates...
+ls.load.foe.entries = loading foe entries...
+ls.load.encounter.tables = loading encounter tables...
+ls.load.traps = loading traps...
+ls.load.npc.faction.templates = loading npc faction templates...
+ls.load.npc.templates = loading npc templates...
+ls.load.wielding.combos = loading wielding combos...
+ls.load.item.templates = loading item templates...
+ls.load.difficulty.levels = loading difficulty levels...
+ls.load.craft.recipes = loading craft recipes...
+ls.load.item.enchantments = loading item enchantments...
+ls.load.personalities = loading personalities...
+ls.init.audio = init audio player...
+ls.init.logs = init logging...
+ls.init.state = init game state...
+ls.init.systems = init game systems...
+ls.start.threads = starting threads...
+ls.build.gui = building gui...
+
+ls.gamestate = loading gamestate...
+ls.gametime = init game time...
+ls.party = loading player party...
+ls.difficulty = loading difficulty level...
+ls.tiles.visited = loading tiles visited...
+ls.clear.maze.vars = clearing maze variables...
+ls.npc = loading npcs...
+ls.maze.vars = loading maze variables...
+ls.item.caches = loading item caches...
+ls.init = init game state...
+ls.conditions = loading conditions...
+ls.journals = loading journals...
+ls.game.loaded = Save Game '%s' Loaded
+
+# condition details widget
+cdw.unknown.strength = ?unknown?
+cdw.type = Type: %s (%s)
+cdw.strength = Strength: %s
+cdw.modifiers = Modifiers:
+cdw.source = Source: %s
+
+# theft dialog
+td.title = %s stealing from %s
+td.steal = (S)teal
+td.grab.and.attack = (G)rab & Attack
+
+# trading dialog
+trd.title = %s trading with %s
+trd.sell = (S)ell
+trd.buy = (B)uy
+trd.party.gold = Party Gold: %sgp
+
+# guild display dialog
+gdd.title = Guild
+gdd.title.npc = Guild of %s
+gdd.add.to.party = (A)dd To Party
+gdd.remove.from.party = (R)emove From Party
+gdd.create.character = (C)reate Character
+gdd.delete.character = (D)elete Character
+gdd.cost = cost: %sgp
+gdd.party.gold = Party Gold: %sgp
+
+# pick lock widget
+plw.title = %s: Pick Lock
+plw.picked = picked
+plw.required = required
+plw.chisel = (C)hisel
+plw.crowbar = C(r)owbar
+plw.drill = (D)rill
+plw.hammer = (H)ammer
+plw.jackknife = (J)ackknife
+plw.lockpick = (L)ock Pick
+plw.skeleton.key = (S)keleton Key
+plw.tension.wrench = (T)ension Wrench
+
+# spell details dialog
+sdd.spell.level =           Spell Level: %s
+sdd.hit.point.cost =        Hit Point Cost: %s
+sdd.action.point.cost =     Action Point Cost: %s
+sdd.magic.point.cost =      Magic Point Cost: %s
+sdd.target.type =           Target Type: %s
+sdd.usability.type =        Usability: %s
+sdd.book =                  Book: %s
+sdd.school =                School: %s
+sdd.primary.modifier =      Primary Modifier: %s
+sdd.secondary.modifier =    Secondary Modifier: %s
+sdd.effects =               Effects:
+sdd.magic.required =         Required:
+sdd.magic.available =        Available:
+sdd.projectile =            (projectile spell)
+
+# foe details widget
+fdw.unknown = ???
+fdw.level = Level: %s
+fdw.type = Type: %s
+fdw.hpapmp = HP: %s/%s, AP: %s/%s, MP: %s/%s
+fdw.attribute.modifiers = Attributes:
+fdw.resistances = Resistances:
+fdw.other.modifiers = Other Modifiers:
+fdw.special.abilities = Special Abilities:
+fdw.natural.weapons = Natural Weapons:
+fdw.spells = Spells:
+fdw.equipped.items = Equipped Items:
+
+# disarm trap widget
+dtw.title = %s: Disarm Trap
+dtw.name.trap.sense = %s (Trap Sense)
+dtw.inspect = Inspect
+dtw.armed = armed
+dtw.disarmed = disarmed
+dtw.unknown = ?
+dtw.not.present = -
+
+# item select dialog
+isd.use = Use
+isd.give = Give
+isd.drop = Drop
+isd.select = Select
+
+# spell selection
+ssd.title = Cast Spell: %s
+ssd.cast = Cast Spell
+ssd.filters = Filters:
+ssd.casting.level = Casting Level:
+ssd.cost = Cost: %s
+
+# get amount dialog
+gad.how.much = How Much (max %s)?
+
+# get player speech dialog
+gps.title = %s says:
+
+# magic display widget
+madw.red.tooltip.base = Red Magic base
+madw.black.tooltip.base = Black Magic base
+madw.purple.tooltip.base = Purple Magic base
+madw.gold.tooltip.base = Gold Magic base
+madw.white.tooltip.base = White Magic base
+madw.green.tooltip.base = Green Magic base
+madw.blue.tooltip.base = Blue Magic base
+
+madw.red.tooltip.present = Red Magic present here
+madw.black.tooltip.present = Black Magic present here
+madw.purple.tooltip.present = Purple Magic present here
+madw.gold.tooltip.present = Gold Magic present here
+madw.white.tooltip.present = White Magic present here
+madw.green.tooltip.present = Green Magic present here
+madw.blue.tooltip.present = Blue Magic present here
+
+madw.red.tooltip.required = Red Magic required
+madw.black.tooltip.required = Black Magic required
+madw.purple.tooltip.required = Purple Magic required
+madw.gold.tooltip.required = Gold Magic required
+madw.white.tooltip.required = White Magic required
+madw.green.tooltip.required = Green Magic required
+madw.blue.tooltip.required = Blue Magic required
+
+madw.red.tooltip.magic.use = Red Magic use maximum level
+madw.black.tooltip.magic.use = Black Magic use maximum level
+madw.purple.tooltip.magic.use = Purple Magic use maximum level
+madw.gold.tooltip.magic.use = Gold Magic use maximum level
+madw.white.tooltip.magic.use = White Magic use maximum level
+madw.green.tooltip.magic.use = Green Magic use maximum level
+madw.blue.tooltip.magic.use = Blue Magic use maximum level
+
+# value descriptions
+vd.magic.present = %s magic present
+vd.scale.casting.level = %s per casting level
+vd.scale.character.level = %s per character level
+vd.scale.class.level = %s per %s level
+vd.scale.modifier = %s per %s
+vd.scale.party = %s per party member
+
+# spell result descriptions
+srd.damage = %s: %s %s (%s)
+srd.hp = HP
+srd.ap = AP
+srd.mp = MP
+srd.fatigue = Fatigue
+srd.condition = %s, rounds duration: %s

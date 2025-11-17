@@ -15,9 +15,10 @@ bug: zone change flickering
 
 ICHIBA CITY
 -----------
-scene art: city windows, door+window
-scene art: table, chair, crate
+city secret passage button
 foe rebalancing
+guildmaster button
+NPC-on-same-tile issue
 
 BACKLOG
 ----------

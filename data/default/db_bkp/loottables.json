@@ -1,0 +1,7322 @@
+[
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "castle.fangorn.eokil.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        15,
+        15,
+        15,
+        15,
+        15,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Warlock\u0027s Blade"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "throwing knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnoll.Hero.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        45,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Knave.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Morningstar"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Shirt"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.imogen.room.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ebony Amulet"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnoll.Hunter.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        45,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Glaucus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thorn Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Shirt"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "magma.spear.spell",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Magma Spear"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Emmons.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skull Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Ring"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Tools"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Snakeskin Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Snakeskin Belt"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "rogue.clockwork.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Clockwork Head"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "dalen.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        90,
+        80,
+        90,
+        80,
+        90,
+        90,
+        80,
+        90,
+        90,
+        90,
+        90
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.depths.rhys.chest.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50,
+        50,
+        100,
+        100,
+        100,
+        50,
+        50,
+        50,
+        100,
+        75,
+        50,
+        25,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "coc.sheriff.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Black Blood"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Orngog.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Club"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.supplies.1.ambercaps",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "supplies.1.ambercaps"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "dalen.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        90,
+        80,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        100,
+        90
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Avenging.Angel.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "White Sword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.crossroad.berry.forage",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "supplies.1.sunbite.berries"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ruins.of.hail.old.igor.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dragon Rod"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "aenen.city.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        75,
+        50,
+        100,
+        75,
+        50,
+        100,
+        100,
+        75
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "aenen.city.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Den.Mother.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        60,
+        100,
+        100,
+        66,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Copper Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Light Crossbow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Quarrel"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Baselard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Skirt"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Rabid.Gnoll.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        45,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Goblin.Magsman.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        35,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Kwai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bite Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Copper Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Stiletto"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Scout.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Willow Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bearded War Axe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Prof.Therust.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        50,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gnarled Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Elemental.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        100,
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gnarled Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gnome.antenor.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        15,
+        15,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Antenor\u0027s Ring"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Asius.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        55,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Battleaxe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Willow Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "shield.of.ice.spell",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Shield of Ice"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "NO_LOOT",
+    "lootEntries": {
+      "PERCENTAGES": [
+        1
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Sir.Kay.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skull Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Ring"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Tools"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Conjurers Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Snakeskin Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Snakeskin Belt"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Bel.Ies.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        50,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Imogen.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50,
+        100,
+        100,
+        50,
+        5,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "exotic.starting.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes Of Rejuvenation"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "coloniser.omnifid.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Taflen Seeds"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Durek.Hammerhand.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Flambard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "writhing.mire.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        50,
+        100,
+        50,
+        100,
+        50,
+        100,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "A_WEE_BIT_MORE_GOLD",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "stygios.forest.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        75,
+        50,
+        75,
+        50,
+        75,
+        75,
+        75,
+        50,
+        50,
+        75,
+        75,
+        75,
+        75,
+        50,
+        75,
+        100,
+        75,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "writhing.mire.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        99,
+        95,
+        90,
+        80,
+        70,
+        60,
+        50,
+        50,
+        100,
+        50,
+        100,
+        100,
+        10,
+        100,
+        100,
+        90,
+        75,
+        50,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.steampunk.items"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "crypt.of.atrocities.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        15,
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "exotic.starting.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Trooper.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Seraph.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mystic Spear"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Crag.Faerie.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        10,
+        10,
+        100,
+        100,
+        100,
+        100,
+        100,
+        10,
+        10
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gossamer Gown (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gossamer Gown (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fey Dart"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fey Needle"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Feather Dart"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Seress.Silverlock.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gossamer Gown (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gossamer Gown (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fey Dart"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Feather Dart"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fey Needle"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "aenen.city.apothecary.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50,
+        100,
+        50,
+        50,
+        50,
+        50,
+        100,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Aenen Sundew"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Aenen Sundew"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Shaman.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Short Spear"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Primary.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        50,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gnarled Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Mnesus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        55,
+        100,
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gorgon"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gloves Of Myrdall"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Granite Shield"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Diomedes.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        50,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Cross"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "hianbian.yenluo.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        50,
+        100,
+        50,
+        50,
+        50,
+        50,
+        50,
+        100,
+        50,
+        50,
+        10,
+        50,
+        50,
+        100,
+        100,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.gadgets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.minor.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.hiddenstuff.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mace"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Ring"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "TestingFoeLoot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Leggings"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Brooch"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ambassador\u0027s Amulet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dagger"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "hianbian.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        10,
+        100,
+        10,
+        100,
+        100,
+        100,
+        100,
+        10,
+        100,
+        100,
+        10,
+        100,
+        10,
+        100,
+        10,
+        10,
+        10,
+        10
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Ninja.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        33
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Shuriken"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ninja Cowl"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ninja Garb (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ninja Garb (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Tabi Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ninjato"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "einherjar.berserker.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bipennis"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "hianbian.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        10,
+        100,
+        10,
+        100,
+        100,
+        100,
+        10,
+        100,
+        10,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Human.Hirebrand.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Longsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "hianbian.chest.3",
+    "lootEntries": {
+      "PERCENTAGES": [
+        33,
+        33,
+        33,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        75,
+        100,
+        10,
+        100,
+        100,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "W.E.Pickett.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Feather Dart"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "danaos.castle.belisarius.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        75,
+        66,
+        66,
+        66,
+        66,
+        66,
+        100,
+        66
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Ideaus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mystic Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Jian"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skullcap"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Leonal.Peer.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Kudawu.Aku.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Short Spear"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mystic Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Jian"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skullcap"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.coc.paper.slip",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "C.O.C Paper Slip"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.domain.north.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        10,
+        10,
+        10,
+        75,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.booze"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.steampunk.items"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.imogen.chest.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        50,
+        15,
+        100,
+        50,
+        15,
+        100,
+        50,
+        15,
+        100,
+        90,
+        75,
+        50,
+        75,
+        75,
+        75,
+        75,
+        75,
+        50,
+        100,
+        75
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Red.Ear.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        45,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Stentor.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Fangorn.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cold Iron Spike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (U)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Stenelaus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnoll.Brave.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        45,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.domain.south.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        75,
+        100,
+        75,
+        50,
+        75,
+        50,
+        100,
+        25,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gnome.scout.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gnome.scout.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Aenen Sundew"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Aenen Sundew"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Aenen Sundew"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.musical.intruments"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.modern.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Leonal.Paladin.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Onburi.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        50,
+        10,
+        50,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Kwai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mystic Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Buckler"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Ring"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Tools"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skull Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.supplies.1.cave.eels",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "supplies.1.cave.eels"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Ren.San.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bushido Blade"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Ineoth-Em-Risiss-Mar.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Spear Of Ineoth"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Skull.Crusher.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Club"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Goblin.Cutpurse.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        35,
+        75,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Copper Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Kwai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Human.Footpad.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        20,
+        20,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Kwai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Three.Eyes.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        45,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dreamer Skull"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Leonal.Champion.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        100,
+        50,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ekirths.tomb.chest.3",
+    "lootEntries": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        100,
+        20,
+        20,
+        20,
+        20,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.steampunk.items"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Broken.Fang.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        45,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ekirths.tomb.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        50,
+        100,
+        75,
+        50,
+        75,
+        75,
+        75,
+        100,
+        90,
+        80,
+        70
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Lorelei.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Moss Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ekirths.tomb.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.4.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "C.O.C..Sergeant.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bastard Sword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "bomb construction",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gadgeteer.bomb.construction"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.key.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gatehouse Key"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "A_FAIR_BIT_OF_GOLD",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.potion.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        100,
+        100,
+        75,
+        50,
+        25,
+        75,
+        50,
+        25,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "vital.items.resurrection.powder"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Getsel.Gnawtooth.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        33,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Getsel\u0027s Bone Comb"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Serra.Angel.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Singing Sword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Lord.Of.Eight.Banners.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bushido Blade"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Pandarus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        55,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ruins.of.hail.hidden.stuff.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        75,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Faded Diary"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Archangel.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Angelic Blade"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gigantopithecus.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Club"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gnome.clockwork.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        17
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gnome.clockwork.loot"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "yenluo.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        15,
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Yenluo\u0027s Eye"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Shadow.Warrior.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Longsword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Mentes.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Robber.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Willow Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bearded War Axe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.supplies.1.iron.rations",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "supplies.1.iron.rations"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.minor.loot.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        50,
+        75,
+        50,
+        100,
+        100,
+        50,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "exotic.starting.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.musical.intruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gatehouse.minor.loot.3",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        25,
+        100,
+        25,
+        100,
+        25,
+        75,
+        75,
+        75,
+        100,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.booze"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.food"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.100"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "HIDDEN_BLADE_1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dagger"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Sarij.bin.Abdullah.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        35,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Kwai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bite Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Copper Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Throwing Knife"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "disassembly.clockwork.head",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Electric Eye"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Electrodes"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "HIDDEN_BLADE_3",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Stiletto"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "puppet.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        10,
+        5
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "exotic.starting.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "HIDDEN_BLADE_2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Poignard"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "minor powder creation",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "minor powder creation"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Leonal.Knight.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Plate Mail (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "stygios.forest.altar.of.nergal",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Spagyric Gem"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ruins.of.hail.library.books",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Modern Astrology"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "The Compendium Of Classic Poetry"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Metaphysics Of The Maze"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Al-Khydr\u0027s Grimoire"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "The Guide To Runes"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "The Voyages Of Maranera"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "disassembly.electrified.sword",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "High Voltage Transformer"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Tarnished Sword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Scrymgeour.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        20,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Stiletto"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamail Doublet"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "C.O.C..Sheriff.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        20,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bastard Sword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "danaos.castle.armoury.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        90,
+        100,
+        90,
+        75,
+        50,
+        100,
+        75,
+        50,
+        100,
+        50,
+        100,
+        75,
+        50,
+        100,
+        75,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Machinist.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        50,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gnarled Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.chest.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50,
+        50,
+        100,
+        100,
+        100,
+        50,
+        50,
+        10
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "heavy.weapon"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.musical.intruments"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.chest.3",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "vital.items.resurrection.powder"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "only.arrows"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Baselard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Phrygian Cap"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.chest.4",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bracers Of Defense"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "caves.of.ilast.miriam.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Miriam\u0027s Rag Doll"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Tao.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bushido Blade"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Dog.Soldier.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        45,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Sarpedon.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        55,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Fauchard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Warlock.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        55,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mystic Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Long Bow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Jian"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skullcap"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "disassembly.tesla.coil",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Capacitor"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Coil Of Copper Wire"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Capacitor"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.incense.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Camphor Incense"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ghul.personal.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ghola Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gurney.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Chausses"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Luther\u0027s Fiddle"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Short Sword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnome.Beggar.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        55,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gnarled Staff"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Cloth Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sandals"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gadgeteer.invention.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gadgeteer.invention.1"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "plain.of.pillars.ghul.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        75,
+        100,
+        90,
+        100,
+        75,
+        75,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.bombs"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "gadgeteer.invention.2",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gadgeteer.invention.2"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "danaos.castle.armoury.floor",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        90,
+        75,
+        50,
+        25,
+        100,
+        90,
+        75,
+        50,
+        25,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        100,
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Awl Pike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Awl Pike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Awl Pike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Awl Pike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Awl Pike"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Steel Guantlets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Breastplate"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bronze Greaves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Heater Shield"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Shrike Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Shrike Arrow"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.ammo"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ruins.of.hail.damla\u0027s.bones",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Sword Of Damla"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.ammo"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.throwing.weapons"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "tornado.mountain.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        40,
+        100,
+        100,
+        75,
+        50,
+        100,
+        50,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.banner.items"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.500"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "TestLootTable",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Anointed Flail"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Acid Bomb"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "A_WEE_BIT_OF_GOLD",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "writhing.mire.bel.ies.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        50,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        50,
+        100,
+        50,
+        100,
+        50,
+        100,
+        50,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.other"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.powders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.scrolls"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Medallion Of Bel"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.crossroad.hidden.stuff.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        15,
+        15,
+        15,
+        15,
+        75,
+        75,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Resurrection Powder"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.city.coc.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Diamondtip"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Ring"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Agenor.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "WAND_CRAFTING",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "wand.crafting.1"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ruins.of.hail.black.dog.chest",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hail Cider"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.gadgets"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Gnoll.Thug.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        45,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Assegai"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Gold Piece"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Miriam.Marrowsucker.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        33
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Ghoul.Sheriff.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        20,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Hauberk"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bastard Sword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Targe"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Eva.Wingfield.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Breastplate"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Heater Shield"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chain Chausses"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.1.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Singing Sword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Belisarius.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        100,
+        10,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "gold.1000"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Bastard Sword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Claymore"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Flambard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Mace And Chain"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "War Hammer"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Anointed Flail"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Iron Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Broadsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Sollerets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dragon Plate (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dragon Plate (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Field Of Gules"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Saint Bastard"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Heal Light Wounds"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Paralysis"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Sleep"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Stamina"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Striking"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Cure Lesser Condition"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Identify"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Script Of Guardian Angel"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "plain.of.pillars.chest.1",
+    "lootEntries": {
+      "PERCENTAGES": [
+        75,
+        75,
+        75,
+        100,
+        100,
+        100,
+        100,
+        75,
+        75,
+        100,
+        75,
+        50
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.magic.trinkets"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.armour"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.mundane.weapons"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.potions.healing"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.stix"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.2.spell.books"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "batch.3.musical.instruments"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "testing.foe.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        50,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Longsword"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Helm"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Cuirass"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Leggings"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Brooch"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Ambassador\u0027s Amulet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "low.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "mid.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "high.level.gold"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Longsword"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Master.Thief.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        10,
+        10,
+        50,
+        100,
+        100,
+        100,
+        100,
+        55
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Skull Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Dagger"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Buckler"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Ring"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Thieves Tools"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Chamois Gloves"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        }
+      ]
+    }
+  }
+]

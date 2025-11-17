@@ -1,0 +1,161 @@
+#
+# Event text descriptions
+#
+modify.supplies = Party receives %s units of supplies
+grant.gold = Party receives %sgp
+event.success = SUCCESS!
+event.failed = FAILED!
+event.ouch = OUCH!
+event.locked = LOCKED!
+msg.grant.experience.single = %s gets %s experience
+msg.grant.experience.all = All survivors get %s experience
+msg.lose.experience.single = %s loses %s experience
+msg.lose.experience.all = Party loses %s experience
+no.effect = ...no effect
+
+#
+# Attitude descriptions
+#
+attitude.ATTACKING = Attacking!
+attitude.AGGRESSIVE = Aggressive!
+attitude.WARY = Wary
+attitude.SCARED = Scared
+attitude.NEUTRAL = Neutral
+attitude.FRIENDLY = Friendly
+attitude.ALLIED = Allied
+
+#
+# Other messages to the UI
+#
+msg.restore.action.points = %s restores action points
+msg.encounter.actors = Encountered %s
+msg.party.may.ambush = Party is stealthy and may ambush foes!
+msg.party.may.ambush.or.evade = Party is stealthy and may ambush or evade foes!
+msg.foes.surprise.party = Foes surprise you!
+msg.party.quick.wits = Quick witted characters may act in the surprise round!
+msg.party.attacks = Party attacks!
+msg.combat.starts = COMBAT!
+msg.victory = Victory!
+msg.party.leaves = Party leaves
+msg.party.waits = Party waits
+msg.actors.attack = %s attack!
+msg.actor.attacks = %s attacks!
+msg.actors.wait = %s wait...
+msg.actor.waits = %s waits...
+msg.actors.flee = %s flee!
+msg.actor.flees = %s flees!
+msg.party.flees = Party flees!
+msg.party.evades = Party evades the encounter
+msg.party.ambushes = Party ambushes foes!
+msg.combat.round.starts = --- combat round %s starts ---
+msg.combat.round.ends = --- combat round %s ends ---
+msg.no.response = No response
+msg.actor.takes.item = %s takes %s.
+msg.actor.is.pleased = %s is pleased!
+msg.actor.is.not.impressed = %s is not impressed
+msg.actor.is.angered = %s is angered!
+msg.call.for.help = %s calls for help!
+msg.pc.theft.success = %s steals %s!
+msg.pc.theft.fail.undetected = %s fails but is undetected
+msg.pc.theft.fail.caught = %s IS CAUGHT!
+msg.pc.grab.and.attack = %s grabs %s!
+msg.no.thanks = No thanks.
+msg.npc.doesnt.know = I don't know anything about '%s'
+msg.party.cant.afford.item = Sorry, you can't afford that. Come back when you have more money.
+msg.party.character.inventory.full = It looks like you can't carry anything more. Please come back when you have some more space.
+msg.not.interested.in.buying.item = No thanks, I am not interested in buying that from you.
+msg.cant.afford.to.buy.item = Sorry, I can't afford to buy that from you.
+msg.npc.inventory.full = No thanks, I don't want to buy anything more from you right now. Please come back later.
+msg.amazon.courage = %s fights back the fear!
+msg.amazon.willpower = %s is not overcome!
+msg.amazon.fury = %s is furious!
+msg.dying.blow = %s strikes a dying blow!
+msg.parry = %s: PARRY!
+msg.riposte = %s: RIPOSTE!
+msg.dodge = %s: Dodges!
+msg.deflected = %s: DEFLECTED!
+msg.caught = %s catches the projectile!
+msg.attack.hit = %s: Hit - %s;
+msg.attack.miss = %s: Missed!
+msg.summoning.succeeds = %s %s %s
+msg.summoning.multiple = appear
+msg.summoning.single = appears
+msg.summoning.empowered = %s is empowered!
+msg.ammo.stash = %s produces %s %s!
+msg.melee.cleave = %s cleaves!
+msg.last.stand = %s prepares to fight to the bitter end!
+msg.shield.block = Hit shield!
+msg.protect = %s takes the blow!
+msg.restore.stamina = %s restores %s stamina
+msg.remove.curse = %s loses curse effects
+msg.resurrection = %s lives!
+msg.dies = %s DIES!
+msg.cannot.displace.ap = %s does not have enough Action Points to displace.
+msg.already.displaced = %s has already displaced this round.
+msg.die.hard = %s keeps on fighting!
+msg.nothing.happens = Nothing happens!
+msg.journal.logbook = Logbook updated
+msg.journal.zone = Zone journal updated
+msg.journal.quest = Quest journal updated
+msg.journal.npc = NPC journal updated
+
+#
+# Encounter Actors events
+#
+msg.actor.is.charmed = %s is charmed
+msg.default.mindread =-mind is blank-
+msg.thread.succeeds = Thread succeeds
+msg.bribe.succeeds = Bribe succeeds
+
+#
+# Combat events
+#
+msg.hide.attempt = %s hides...
+msg.combat.fumble = %s fumbles!
+msg.change.equipment = %s changes equipment...
+
+#
+# Lock/trap events
+#
+msg.locked = locked!
+msg.unlocked = UNLOCKED!
+msg.oops = OOPS!
+msg.force.open.success = Successfully forced open!
+
+#
+# Locate Person spells
+#
+msg.npc.location = %s is at %s.
+msg.npc.dead = %s is dead.
+msg.locate.person.nothing = %s detects nothing.
+
+#
+# Pray For Miracle messages
+#
+pray.caster.name = Heaven answers your prayers!
+msg.pray.gold = Pennies fall from heaven!
+msg.pray.lesson = A voice from heaven booms: "THINK OF THIS AS A LEARNING EXPERIENCE!"
+msg.pray.doom = The party gets a strong feeling of impending doom...
+msg.pray.nothing = Your prayer goes unanswered.
+
+#
+# Prank messages
+#
+msg.prank.acid.1 = %s squirts acid!
+msg.prank.blind.1 = %s kicks up sand!
+msg.prank.entangle.1 = %s ties shoelaces together!
+msg.prank.nauseate.1 = %s throws a stink bomb!
+msg.prank.slow.1 = %s goes for the hamstring!
+msg.prank.silence.1 = %s throws a sticky gag!
+msg.prank.fear.1 = %s throws a flashbang!
+msg.prank.plyze.1 = %s slides and trips!
+msg.prank.ko.1 = %s swings a sap!
+msg.prank.irritate.1 = %s tells a bad joke!
+msg.prank.poison.1 = %s scratches a poison needle!
+msg.prank.swallow.1 = % throws a barbed net!
+
+#
+# Spell Stealing messages
+#
+msg.spell.stealing.no.spells = %s knows no spells...
+

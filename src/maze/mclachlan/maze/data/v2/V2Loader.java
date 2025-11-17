@@ -29,10 +29,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.stat.npc.NpcFactionTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.data.v2.serialisers.V2Files.*;
@@ -224,6 +221,12 @@ public class V2Loader extends Loader
 		Map<String, FoeTemplate> map = v2Crud(getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
 		map.forEach((k, v) -> v.init());
 		return map;
+	}
+
+	@Override
+	public Map<String, FoeSpeech> loadFoeSpeech()
+	{
+		return v2Crud(getPath(FOE_SPEECH), new SimpleMapSilo<>(getFoeSpeechSerialiser(db)));
 	}
 
 	@Override

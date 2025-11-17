@@ -108,6 +108,15 @@
     "equipableSlotType": "TORSO_ARMOUR"
   },
   {
+    "name": "DEFAULT_HAND",
+    "displayName": "arm",
+    "modifiers": "0,",
+    "damagePrevention": "0",
+    "damagePreventionChance": "0",
+    "nrWeaponHardpoints": "2",
+    "equipableSlotType": "GLOVES"
+  },
+  {
     "name": "chain hauberk (armless) torso",
     "displayName": "body",
     "modifiers": "0,",

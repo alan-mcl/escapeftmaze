@@ -25,10 +25,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.stat.npc.NpcFactionTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.*;
@@ -211,6 +208,12 @@ public class V2Saver extends Saver
 	public void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception
 	{
 		v2Crud(map, getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
+	}
+
+	@Override
+	public void saveFoeSpeech(Map<String, FoeSpeech> map) throws Exception
+	{
+		v2Crud(map, getPath(FOE_SPEECH), new SimpleMapSilo<>(getFoeSpeechSerialiser(db)));
 	}
 
 	@Override

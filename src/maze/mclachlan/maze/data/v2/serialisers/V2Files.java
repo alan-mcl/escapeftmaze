@@ -22,6 +22,7 @@ public class V2Files
 	public static final String MAZE_SCRIPTS = "scripts.json";
 	public static final String OBJECT_ANIMATIONS = "objectanimations.json";
 	public static final String FOE_TEMPLATES = "foetemplates.json";
+	public static final String FOE_SPEECH = "foespeech.json";
 	public static final String TRAPS = "traps.json";
 	public static final String FOE_ENTRIES = "foeentries.json";
 	public static final String ENCOUNTER_TABLES = "encountertables.json";

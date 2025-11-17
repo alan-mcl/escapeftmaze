@@ -22,6 +22,7 @@ package mclachlan.maze.stat.npc;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.ui.diygui.TradingDialog;
 
@@ -31,11 +32,11 @@ import mclachlan.maze.ui.diygui.TradingDialog;
 public class InitiateTradeEvent extends MazeEvent
 {
 	private final PlayerCharacter pc;
-	private final Npc npc;
+	private final Foe npc;
 
 	/*-------------------------------------------------------------------------*/
 	public InitiateTradeEvent(
-		Npc npc,
+		Foe npc,
 		PlayerCharacter pc)
 	{
 		this.pc = pc;

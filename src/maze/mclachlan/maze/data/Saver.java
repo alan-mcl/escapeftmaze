@@ -34,10 +34,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.stat.npc.NpcFactionTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 
 
 /**
@@ -67,6 +64,7 @@ public abstract class Saver
 	public abstract void saveMazeTextures(Map<String, MazeTexture> map) throws Exception;
 	public abstract void saveObjectAnimations(Map<String, ObjectAnimations> map) throws Exception;
 	public abstract void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception;
+	public abstract void saveFoeSpeech(Map<String, FoeSpeech> map) throws Exception;
 	public abstract void saveTraps(Map<String, Trap> map) throws Exception;
 	public abstract void saveFoeEntries(Map<String, FoeEntry> map) throws Exception;
 	public abstract void saveEncounterTables(Map<String, EncounterTable> map) throws Exception;

@@ -27,6 +27,7 @@ import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.npc.FoeSpeech;
 import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
@@ -121,6 +122,8 @@ public class FoeTemplate extends DataObject
 	private NpcFaction.Attitude defaultAttitude;
 	/** any allies that this foe can summon at the start of combat */
 	private String alliesOnCall;
+	/** speech pack in case of non-hostile interaction */
+	private FoeSpeech foeSpeech;
 
 	public FoeTemplate()
 	{
@@ -169,7 +172,8 @@ public class FoeTemplate extends DataObject
 		List<SpellLikeAbility> spellLikeAbilities,
 		CharacterClass.Focus focus,
 		NpcFaction.Attitude defaultAttitude,
-		String alliesOnCall)
+		String alliesOnCall,
+		FoeSpeech foeSpeech)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.types = types;
@@ -213,6 +217,7 @@ public class FoeTemplate extends DataObject
 		this.focus = focus;
 		this.defaultAttitude = defaultAttitude;
 		this.alliesOnCall = alliesOnCall;
+		this.foeSpeech = foeSpeech;
 
 		init();
 	}
@@ -675,6 +680,16 @@ public class FoeTemplate extends DataObject
 	public boolean isCannotBeEvaded()
 	{
 		return cannotBeEvaded;
+	}
+
+	public FoeSpeech getFoeSpeech()
+	{
+		return foeSpeech;
+	}
+
+	public void setFoeSpeech(FoeSpeech foeSpeech)
+	{
+		this.foeSpeech = foeSpeech;
 	}
 
 	/*-------------------------------------------------------------------------*/

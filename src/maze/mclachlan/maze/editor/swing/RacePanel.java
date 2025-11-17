@@ -385,7 +385,7 @@ public class RacePanel extends EditorPanel
 		r.setAttributeCeilings(attributeCeilings.getModifier());
 		r.setLeftHandIcon(leftHandIcon.getText());
 		r.setRightHandIcon(rightHandIcon.getText());
-		r.setUnlockVariable(unlockVariable.getText());
+		r.setUnlockVariable("".equals(unlockVariable.getText()) ? null : unlockVariable.getText());
 		r.setUnlockDescription(unlockDescription.getText());
 		r.setMagicDead(magicDead.isSelected());
 		r.setAllowedGenders(allowedGenders.getAllowedGendersList());

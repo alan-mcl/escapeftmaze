@@ -69,7 +69,7 @@ public class NpcSpeechEvent extends MazeEvent
 					throw new MazeException("Invalid vertical alignment: " + npc.getSprite().getVerticalAlignment());
 			};
 
-		Color colour = ((Npc)npc).getSpeechColour();
+		Color colour = npc.getSpeechColour();
 
 		if (delay == Delay.WAIT_ON_CLICK)
 		{

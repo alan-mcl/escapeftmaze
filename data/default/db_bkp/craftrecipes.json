@@ -1,0 +1,338 @@
+[
+  {
+    "name": "Potion Of Heavy Heal",
+    "requirements": "80000000000,03",
+    "item1": "Potion Of Light Heal",
+    "item2": "Potion Of Mod Heal",
+    "resultingItem": "Potion Of Heavy Heal"
+  },
+  {
+    "name": "Flamethrower",
+    "requirements": "200000000000000000000,09",
+    "item1": "Greek Fire",
+    "item2": "High Pressure Hose",
+    "resultingItem": "Flamethrower"
+  },
+  {
+    "name": "Faraday Helm",
+    "requirements": "200000000000000000000,01",
+    "item1": "Leather Helm",
+    "item2": "Copper Mesh",
+    "resultingItem": "Faraday Helm"
+  },
+  {
+    "name": "Gyroscopic Boots",
+    "requirements": "200000000000000000000,01",
+    "item1": "Gyroscope",
+    "item2": "Leather Boots",
+    "resultingItem": "Gyroscopic Boots"
+  },
+  {
+    "name": "Wrist Mounted Flamer",
+    "requirements": "200000000000000000000,01",
+    "item1": "Greek Fire",
+    "item2": "Steel Guantlets",
+    "resultingItem": "Wrist Mounted Flamer"
+  },
+  {
+    "name": "Pneumatic Gloves",
+    "requirements": "200000000000000000000,03",
+    "item1": "Pneumatic Piston",
+    "item2": "Leather Gloves",
+    "resultingItem": "Pneumatic Gloves"
+  },
+  {
+    "name": "Air Purifier",
+    "requirements": "200000000000000000000,07",
+    "item1": "Air Filter",
+    "item2": "Vacuum Pump",
+    "resultingItem": "Air Purifier"
+  },
+  {
+    "name": "Logic Field Generator",
+    "requirements": "200000000000000000000,0b",
+    "item1": "Metronome",
+    "item2": "Lazurite Crystal",
+    "resultingItem": "Logic Field Generator"
+  },
+  {
+    "name": "Canned Elemental",
+    "requirements": "80000000000,15",
+    "item1": "Fire Bomb",
+    "item2": "Ice Bomb",
+    "resultingItem": "Canned Elemental"
+  },
+  {
+    "name": "Clockwork Beast",
+    "requirements": "200000000000000000000,0d",
+    "item1": "Reticulated Wolverine",
+    "item2": "Large Clockwork Motor",
+    "resultingItem": "Clockwork Beast"
+  },
+  {
+    "name": "Chemical Flash",
+    "requirements": "200000000000000000000,03",
+    "item1": "Parabolic Reflector",
+    "item2": "Flash Powder",
+    "resultingItem": "Chemical Flash"
+  },
+  {
+    "name": "Prismic Shield Generator",
+    "requirements": "200000000000000000000,05",
+    "item1": "Dispersive Prism",
+    "item2": "Laser Pointer",
+    "resultingItem": "Prismic Shield Generator"
+  },
+  {
+    "name": "Goggled Helmet",
+    "requirements": "200000000000000000000,05",
+    "item1": "Steel Helm",
+    "item2": "Welding Goggles",
+    "resultingItem": "Goggled Helmet"
+  },
+  {
+    "name": "Acid Bomb",
+    "requirements": "80000000000,05",
+    "item1": "Stink Bomb",
+    "item2": "Boom Bomb",
+    "resultingItem": "Acid Bomb"
+  },
+  {
+    "name": "Clockwork Spider",
+    "requirements": "200000000000000000000,01",
+    "item1": "Small Clockwork Motor",
+    "item2": "Coil Of Copper Wire",
+    "resultingItem": "Clockwork Spider"
+  },
+  {
+    "name": "Large Battery",
+    "requirements": "200000000000000000000,07",
+    "item1": "Small Battery",
+    "item2": "Small Battery",
+    "resultingItem": "Large Battery"
+  },
+  {
+    "name": "Crystal Oscillator",
+    "requirements": "200000000000000000000,03",
+    "item1": "Oscillistor",
+    "item2": "Quartz Crystal",
+    "resultingItem": "Crystal Oscillator"
+  },
+  {
+    "name": "Lightning Gun",
+    "requirements": "200000000000000000000,09",
+    "item1": "Tesla Coil",
+    "item2": "High Voltage Transformer",
+    "resultingItem": "Lightning Gun"
+  },
+  {
+    "name": "Disruptor Shield",
+    "requirements": "200000000000000000000,05",
+    "item1": "Buckler Shield",
+    "item2": "High Voltage Transformer",
+    "resultingItem": "Disruptor Shield"
+  },
+  {
+    "name": "Automated Lockpick",
+    "requirements": "200000000000000000000,05",
+    "item1": "Small Clockwork Motor",
+    "item2": "Tungsten Filament",
+    "resultingItem": "Automated Lockpick"
+  },
+  {
+    "name": "Potion Of Guardian Angel",
+    "requirements": "80000000000,03",
+    "item1": "Potion Of Bless",
+    "item2": "Potion Of Light Heal",
+    "resultingItem": "Potion Of Guardian Angel"
+  },
+  {
+    "name": "Powered Exoskeleton (L)",
+    "requirements": "200000000000000000000,0d",
+    "item1": "Plate Mail (L)",
+    "item2": "Steam Powered Hydraulics",
+    "resultingItem": "Powered Exoskeleton (L)"
+  },
+  {
+    "name": "Flak Cannon",
+    "requirements": "200000000000000000000,0b",
+    "item1": "Fowling Piece",
+    "item2": "RPG Launcher",
+    "resultingItem": "Flak Cannon"
+  },
+  {
+    "name": "Gun Halberd",
+    "requirements": "200000000000000000000,04",
+    "item1": "Halberd",
+    "item2": "Flintlock Pistol",
+    "resultingItem": "Gun Halberd"
+  },
+  {
+    "name": "Flashbang",
+    "requirements": "200000000000000000000,01",
+    "item1": "Empty Bottle",
+    "item2": "Black Powder",
+    "resultingItem": "Flashbang"
+  },
+  {
+    "name": "Net Thrower",
+    "requirements": "200000000000000000000,05",
+    "item1": "Barbed Net",
+    "item2": "Spring Powered Catapult",
+    "resultingItem": "Net Thrower"
+  },
+  {
+    "name": "Potion Of Renewal",
+    "requirements": "80000000000,0b",
+    "item1": "Potion Of Cure Disease",
+    "item2": "Potion Of Heavy Heal",
+    "resultingItem": "Potion Of Renewal"
+  },
+  {
+    "name": "Powered Exoskeleton (U)",
+    "requirements": "200000000000000000000,0d",
+    "item1": "Plate Mail (U)",
+    "item2": "Steam Powered Hydraulics",
+    "resultingItem": "Powered Exoskeleton (U)"
+  },
+  {
+    "name": "Potion Of Cure Disease",
+    "requirements": "80000000000,09",
+    "item1": "Potion Of Lesser Curing",
+    "item2": "Potion Of Heavy Heal",
+    "resultingItem": "Potion Of Cure Disease"
+  },
+  {
+    "name": "Ballistic Vest",
+    "requirements": "200000000000000000000,03",
+    "item1": "Leather Hauberk",
+    "item2": "Copper Mesh",
+    "resultingItem": "Ballistic Vest"
+  },
+  {
+    "name": "Skeleton Powder",
+    "requirements": "80000000000,0b",
+    "item1": "Dust Of Dessication",
+    "item2": "Concussion Powder",
+    "resultingItem": "Skeleton Powder"
+  },
+  {
+    "name": "Steam Cannon",
+    "requirements": "200000000000000000000,07",
+    "item1": "Steam Powered Hydraulics",
+    "item2": "High Pressure Hose",
+    "resultingItem": "Steam Cannon"
+  },
+  {
+    "name": "Pneumatic Boots",
+    "requirements": "200000000000000000000,08",
+    "item1": "Pneumatic Piston",
+    "item2": "Sollerets",
+    "resultingItem": "Pneumatic Boots"
+  },
+  {
+    "name": "Pickmeup Potion",
+    "requirements": "80000000000,05",
+    "item1": "Potion Of Mod Heal",
+    "item2": "Potion Of Stamina",
+    "resultingItem": "Pickmeup Potion"
+  },
+  {
+    "name": "Electrified Sword",
+    "requirements": "200000000000000000000,06",
+    "item1": "Longsword",
+    "item2": "High Voltage Transformer",
+    "resultingItem": "Electrified Sword"
+  },
+  {
+    "name": "Potion Of Restoration",
+    "requirements": "80000000000,0b",
+    "item1": "Potion Of Heavy Stamina",
+    "item2": "Potion Of Heavy Heal",
+    "resultingItem": "Potion Of Restoration"
+  },
+  {
+    "name": "Clockwork Watchdog",
+    "requirements": "200000000000000000000,07",
+    "item1": "Small Clockwork Motor",
+    "item2": "Electric Eye",
+    "resultingItem": "Clockwork Watchdog"
+  },
+  {
+    "name": "Miners Helmet",
+    "requirements": "200000000000000000000,02",
+    "item1": "Iron Helm",
+    "item2": "Halogen Lamp",
+    "resultingItem": "Miners Helmet"
+  },
+  {
+    "name": "Small Battery",
+    "requirements": "200000000000000000000,03",
+    "item1": "Capacitor",
+    "item2": "Capacitor",
+    "resultingItem": "Small Battery"
+  },
+  {
+    "name": "Pneumatic Lance",
+    "requirements": "200000000000000000000,03",
+    "item1": "Telescoping Lance",
+    "item2": "Pneumatic Piston",
+    "resultingItem": "Pneumatic Lance"
+  },
+  {
+    "name": "Resurrection Powder",
+    "requirements": "80000000000,11",
+    "item1": "Potion Of Renewal",
+    "item2": "Magic Nectar",
+    "resultingItem": "Resurrection Powder"
+  },
+  {
+    "name": "Pandemonium Powder",
+    "requirements": "100000000000,0b",
+    "item1": "Sneeze Powder",
+    "item2": "Flash Powder",
+    "resultingItem": "Pandemonium Powder"
+  },
+  {
+    "name": "Searchlight",
+    "requirements": "200000000000000000000,01",
+    "item1": "Parabolic Reflector",
+    "item2": "Halogen Lamp",
+    "resultingItem": "Searchlight"
+  },
+  {
+    "name": "Rail Gun",
+    "requirements": "200000000000000000000,0d",
+    "item1": "Large Battery",
+    "item2": "Long Steel Rails",
+    "resultingItem": "Rail Gun"
+  },
+  {
+    "name": "Charged Armour",
+    "requirements": "200000000000000000000,05",
+    "item1": "Breastplate",
+    "item2": "High Voltage Transformer",
+    "resultingItem": "Charged Armour"
+  },
+  {
+    "name": "Capacitor",
+    "requirements": "200000000000000000000,01",
+    "item1": "Empty Bottle",
+    "item2": "Conducting Solution",
+    "resultingItem": "Capacitor"
+  },
+  {
+    "name": "Brass Legs",
+    "requirements": "200000000000000000000,06",
+    "item1": "Bronze Greaves",
+    "item2": "Pneumatic Piston",
+    "resultingItem": "Brass Legs"
+  },
+  {
+    "name": "Jumpstarter",
+    "requirements": "200000000000000000000,09",
+    "item1": "Large Battery",
+    "item2": "Electrodes",
+    "resultingItem": "Jumpstarter"
+  }
+]

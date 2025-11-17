@@ -4739,7 +4739,7 @@
     "buysAt": "0",
     "sellsAt": "0",
     "maxPurchasePrice": "0",
-    "willBuyItemTypes": "11111111111111",
+    "willBuyItemTypes": "0000000000000000000100000011",
     "inventoryTemplate": {
       "rows": []
     },
@@ -13907,6 +13907,439 @@
     "speechColour": "ffccff66",
     "zone": "Aenen City",
     "tile": "4:16",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "name": "Gurney",
+    "foeName": "Gurney",
+    "faction": "The Last Accord",
+    "attitude": "NEUTRAL",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.def.npc.Gurney"
+    },
+    "alliesOnCall": "einherjar.berserkers.1",
+    "buysAt": "0",
+    "sellsAt": "0",
+    "maxPurchasePrice": "0",
+    "willBuyItemTypes": "1111111111111111111111111111",
+    "inventoryTemplate": {
+      "rows": []
+    },
+    "resistThreats": "99",
+    "resistBribes": "99",
+    "resistSteal": "25",
+    "theftCounter": "0",
+    "dialogue": {
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": "If you see her, tell her I’ve a letter for the dead. Addressed to the West Wind. Postage unpaid, but the sorrow\u0027s heavy enough."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": "The gnomes built it deep, beneath stone and spell. Saw too much of the world’s cruelty, so they folded it away."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": "Me, I just raise a cup when the rains come."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": "A good general, aye, but beware the righteous ones. They march for honor till honor starts to bleed, and then they just keep marching."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "I’m no shopkeep, but a man\u0027s got to eat. I’ll buy what’s worth keeping, sell what I can spare. Fair enough?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Aye, off with you then. May the road stay true \u0027neath yer feet."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "The Chamber? Hah! A nest of snakes wearing silken collars. They call it \u0027commerce\u0027 but it smells more like robbery with receipts to me."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": "The world’s full of holes, ye ken. Fall into one, ye name it whatever ye like."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": "I played there once, long ago. My lute echoed off golden halls, and nary one soul clapped. The Leonals have pride enough for ten kingdoms."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "Don\u0027t drink, don\u0027t laugh, don\u0027t blink. Diplomats, eh?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "Emmons? Hah! Only thing sharper than that little rat’s wits is his knives."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": "If there’s a road out, I never found it. Gods know I walked enough wrong ones. Maybe the Maze isn’t walls at all. Maybe it’s what’s left inside you."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": "The world’s full of holes, ye ken. Fall into one, ye name it whatever ye like."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": "The world’s full of holes, ye ken. Fall into one, ye name it whatever ye like."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": "The First Realm... aye. I sailed her seas once. Sky bluer than mercy, waves meaner than any god, wind cleaner than the sunrise. A fine place to live, and a finer place to lose."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "Say what ye will. Words are cheap, and yours will buy nowt but regrets."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": "Every drunk in the tavern thinks he\u0027s Garret’s chosen, just because he can\u0027t find his way home. Heh heh heh!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": "Every Gate’s a wager, bub. Ye step through, maybe find a paradise... or maybe just more of The Maze."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "The gnome ambassador? Hah! He’s been playing both sides of every table in Ichiba since before I started drinking."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "Say what you will, they’ve got more honor than most merchants and more sense than most kings. Just don’t touch their shamen or their packmates."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "Clever little sparks, every one of \u0027em. Spend half their lives building wonders, and the other half hiding them away."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "Well met bub. Pull up a stool but mind the puddles. Some be beer, some be blood, and I’ve forgotten which is which."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": "The world’s full of holes, ye ken. Fall into one, ye name it whatever ye like."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Ichiba\u0027s a fine place for losing things - yer coin, yer faith, yer heart. The trick is not tae mind too much when they don’t come back."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "Aye, I know of her. She once turned a thief into a mushroom, heh. Still growing in her tower, they say."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "He of the silver tongue and iron heart, cloaked in midnight. He robs the rich, cheats the wicked, and smiles while the city bleeds."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady"
+          ],
+          "speech": "The Shield-Maiden, the Iron Heart of Heaven! Justice in one hand, mercy in the other - and neither comes cheap! Heh heh heh!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Aye, a proud folk - too proud by half. They speak of justice as if they invented it, and of mercy as if it’s a coin they alone can spend."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": "She had a smile that could calm tempests and a wrath that could wake the mountains."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": "Prison, proving ground, purgatory! \n\nChoose your verse, they all rhyme."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": "The stern king of gnomes rules from a throne carved out of memory itself - a seat of stone and sorrow"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": "He Who Sows and He Who Reaps. The blind god with perfect aim. He never misses a soul, only takes his time finding it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": "Ah, Master Pickett! The lion tamer of ledgers, the thief in daylight! Every brick of this city was bought, sold, and resold under his seal."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "The world doesn’t need another quest, bub. It needs a few finished ones."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "Aye, I know Red Ear. Honest as any merchant in Ichiba, heh heh heh!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "Rumors? Hah! In Ichiba, rumor\u0027s the only thing cheaper than ale!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "Good man, Scrymgeour. Keeps me in drink and out of trouble - well, mostly."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": "Ye want to know the Second Realm? Step out the gates of Ichiba and listen. The wind will tell ye stories of gods gone mad and heroes gone missing. Then ask yerself if ye still want to hear the ending."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "Aye, well, if it helped, then I’ll drink to that. If it didn’t, I’ll drink twice, heh heh!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": "Me? Hah! Just another fool with more stories than sense. Once a captain, twice a coward, and now a bard too broke to buy his own applause."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": "If the First was home and the Second’s a cage, then the Third... the Third is the reckoning. Whatever waits there, it remembers us - and it’s not done yet."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": "Sorry, can’t help ye there. I used to keep track of names and faces... now I just remember ghosts and debts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": "The Iron Storm! He rides upon thunder and dines on courage, feasting on the clash of blades! Aye, I’ve seen his banner rise - and I’ve buried what was left beneath it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": "Beyond Hail, the air turns thin and the ground turns cruel. The sun burns white, the shadows bite back, and every ruin whispers, \u0027Go no further.\u0027 \n\nI went once, bub. Once was enough."
+        }
+      ]
+    },
+    "speechColour": "ff999900",
+    "zone": "Ichiba City",
+    "tile": "18:14",
     "found": "false",
     "dead": "false",
     "guildMaster": "false"

@@ -1,0 +1,1978 @@
+[
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.triton.female",
+    "imageResources": [
+      "crusader/foe/triton_female"
+    ],
+    "animationDelay": "150",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.pit.1",
+    "imageResources": [
+      "crusader/scene/pit_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.moulder",
+    "imageResources": [
+      "crusader/foe/moulder"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_CLIFF_1_CAVE",
+    "imageResources": [
+      "crusader/scene/jungle_cliff_1_cave"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.woodsign.side",
+    "imageResources": [
+      "crusader/scene/wood_sign_side"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/dungeon_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elemental.water",
+    "imageResources": [
+      "crusader/foe/water_elemental"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.shrine.1.front",
+    "imageResources": [
+      "crusader/scene/shrine_1_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dwarf.female.1",
+    "imageResources": [
+      "crusader/foe/dwarf_female_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_bottom_right"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elf.male",
+    "imageResources": [
+      "crusader/foe/elf_male"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnome.warrior.1",
+    "imageResources": [
+      "crusader/foe/gnome_warrior"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "MOTES_1",
+    "imageResources": [
+      "crusader/scene/motes_1"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "UP",
+    "scrollSpeed": "50"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_PORTCULLIS_1",
+    "imageResources": [
+      "crusader/scene/dungeon_portcullis_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.human.merchant",
+    "imageResources": [
+      "crusader/foe/human_merchant"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.wyrm",
+    "imageResources": [
+      "crusader/foe/wyrm"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.fey.male",
+    "imageResources": [
+      "crusader/foe/fey_male"
+    ],
+    "animationDelay": "150",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.bat.1",
+    "imageResources": [
+      "crusader/foe/bat_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.bird",
+    "imageResources": [
+      "crusader/foe/bird"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "BLOOD_SPLAT_1",
+    "imageResources": [
+      "animation/blood_splat_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_WALL_1_WINDOW",
+    "imageResources": [
+      "crusader/scene/dungeon_wall_1_window"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.ruin.head",
+    "imageResources": [
+      "crusader/scene/ruin_head"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_PORTAL",
+    "imageResources": [
+      "crusader/scene/dungeon_portal_1",
+      "crusader/scene/dungeon_portal_2",
+      "crusader/scene/dungeon_portal_3",
+      "crusader/scene/dungeon_portal_4",
+      "crusader/scene/dungeon_portal_3",
+      "crusader/scene/dungeon_portal_2"
+    ],
+    "animationDelay": "200",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WATER_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/water_floor_1",
+      "crusader/scene/water_floor_2",
+      "crusader/scene/water_floor_3"
+    ],
+    "animationDelay": "300",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.omnifid.1",
+    "imageResources": [
+      "crusader/foe/omnifid_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.mata.2",
+    "imageResources": [
+      "crusader/foe/mata_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.mata.1",
+    "imageResources": [
+      "crusader/foe/mata_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.block.golem",
+    "imageResources": [
+      "crusader/foe/block_golem"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_WALL_1_WINDOW",
+    "imageResources": [
+      "crusader/scene/city_wall_1_window"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.bones.2",
+    "imageResources": [
+      "crusader/scene/bones_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.puppet",
+    "imageResources": [
+      "crusader/foe/puppet"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elemental.air",
+    "imageResources": [
+      "crusader/foe/air_elemental"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_DOOR_1",
+    "imageResources": [
+      "crusader/scene/dungeon_door_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.leonal.champion",
+    "imageResources": [
+      "crusader/foe/leonal_champion"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.flat",
+    "imageResources": [
+      "crusader/scene/sky_ichiba_flat"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "DOWN",
+    "scrollSpeed": "150"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "TRANSPARENT",
+    "imageResources": [
+      "crusader/scene/transparent"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.fangorn",
+    "imageResources": [
+      "crusader/foe/fangorn"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dryad.male.1",
+    "imageResources": [
+      "crusader/foe/dryad_male_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.shrine.1.side",
+    "imageResources": [
+      "crusader/scene/shrine_1_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.leonal.warrior",
+    "imageResources": [
+      "crusader/foe/leonal_warrior"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.accountant",
+    "imageResources": [
+      "crusader/foe/accountant"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_WALL_1",
+    "imageResources": [
+      "crusader/scene/city_wall_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.woodsign.front",
+    "imageResources": [
+      "crusader/scene/wood_sign_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_C_NE",
+    "imageResources": [
+      "crusader/scene/sand_road_c_ne"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.neotroll.male.1",
+    "imageResources": [
+      "crusader/foe/troll_male_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.swarm.1",
+    "imageResources": [
+      "crusader/foe/swarm_1",
+      "crusader/foe/swarm_2",
+      "crusader/foe/swarm_3"
+    ],
+    "animationDelay": "150",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_NS",
+    "imageResources": [
+      "crusader/scene/sand_road_ns"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.lever.front",
+    "imageResources": [
+      "crusader/scene/lever_1_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_STUB_N",
+    "imageResources": [
+      "crusader/scene/sand_road_stub_n"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_STUB_S",
+    "imageResources": [
+      "crusader/scene/sand_road_stub_s"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.red",
+    "imageResources": [
+      "crusader/scene/red_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_STUB_W",
+    "imageResources": [
+      "crusader/scene/sand_road_stub_w"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.faerie",
+    "imageResources": [
+      "crusader/foe/faerie_1",
+      "crusader/foe/faerie_2",
+      "crusader/foe/faerie_3",
+      "crusader/foe/faerie_2"
+    ],
+    "animationDelay": "150",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.imogen",
+    "imageResources": [
+      "crusader/foe/imogen"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.hag",
+    "imageResources": [
+      "crusader/foe/hag"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.roach.1",
+    "imageResources": [
+      "crusader/foe/roach_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.naga.male",
+    "imageResources": [
+      "crusader/foe/naga_male"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.torch.1",
+    "imageResources": [
+      "crusader/scene/torch_1",
+      "crusader/scene/torch_2",
+      "crusader/scene/torch_3",
+      "crusader/scene/torch_4",
+      "crusader/scene/torch_3",
+      "crusader/scene/torch_2"
+    ],
+    "animationDelay": "100",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.vampire",
+    "imageResources": [
+      "crusader/foe/vampire"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.fungus.ambercap",
+    "imageResources": [
+      "crusader/scene/fungus_ambercap"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.triton.male",
+    "imageResources": [
+      "crusader/foe/triton_male"
+    ],
+    "animationDelay": "150",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.hynobi.female",
+    "imageResources": [
+      "crusader/foe/hynobi_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.spider.1",
+    "imageResources": [
+      "crusader/foe/spider_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.altar.1.side",
+    "imageResources": [
+      "crusader/scene/altar_1_side"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.shrine.2.front",
+    "imageResources": [
+      "crusader/scene/shrine_2_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "BIG_TREE_1_BOTTOM",
+    "imageResources": [
+      "crusader/scene/big_tree_1_bottom"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.eggs.1.hatched",
+    "imageResources": [
+      "crusader/scene/eggs_1_hatched"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_CEILING_1",
+    "imageResources": [
+      "crusader/scene/dungeon_ceiling_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_ROOF_1",
+    "imageResources": [
+      "crusader/scene/city_roof_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.ladder.down",
+    "imageResources": [
+      "crusader/scene/ladder_down"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.hanging.sign.front",
+    "imageResources": [
+      "crusader/scene/hanging_sign_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.goblin.2",
+    "imageResources": [
+      "crusader/foe/goblin_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.goblin.1",
+    "imageResources": [
+      "crusader/foe/goblin_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.willow_sapling",
+    "imageResources": [
+      "crusader/foe/willow_sapling"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.goblin.3",
+    "imageResources": [
+      "crusader/foe/goblin_3"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_WALL_1_ARCH",
+    "imageResources": [
+      "crusader/scene/dungeon_wall_1_arch"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.bed.1",
+    "imageResources": [
+      "crusader/scene/bed_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.danaos",
+    "imageResources": [
+      "crusader/scene/danaos_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.mirka.female.1",
+    "imageResources": [
+      "crusader/foe/mirka_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elemental.earth",
+    "imageResources": [
+      "crusader/foe/earth_elemental"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CEILING_LIGHT_2",
+    "imageResources": [
+      "crusader/scene/ceiling_light_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CEILING_LIGHT_1",
+    "imageResources": [
+      "crusader/scene/ceiling_light_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_STUB",
+    "imageResources": [
+      "crusader/scene/sand_road_stub"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "MYSTIC_CIRCLE",
+    "imageResources": [
+      "crusader/scene/mystic_circle"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "TREE_WALL_1",
+    "imageResources": [
+      "crusader/scene/tree_wall_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.ladder.up",
+    "imageResources": [
+      "crusader/scene/ladder_up"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_STUB_E",
+    "imageResources": [
+      "crusader/scene/sand_road_stub_e"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "RUNES_1",
+    "imageResources": [
+      "crusader/scene/runes_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.solar.array",
+    "imageResources": [
+      "crusader/scene/solar_array"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WATER_2",
+    "imageResources": [
+      "crusader/scene/water_2_1"
+    ],
+    "animationDelay": "500",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.hanging.sign.side",
+    "imageResources": [
+      "crusader/scene/hanging_sign_side"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnome.female.caster.1",
+    "imageResources": [
+      "crusader/foe/gnome_female_caster"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_WALL_1_ARCH",
+    "imageResources": [
+      "crusader/scene/city_wall_1_arch"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_TOP_RIGHT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_top_right"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_2",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_1",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.naga.female",
+    "imageResources": [
+      "crusader/foe/naga_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.giant.snail",
+    "imageResources": [
+      "crusader/foe/giant_snail"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnome.clockwork.1",
+    "imageResources": [
+      "crusader/foe/gnome_clockwork"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dryad.female.1",
+    "imageResources": [
+      "crusader/foe/dryad_female_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.eva.wingfield",
+    "imageResources": [
+      "crusader/foe/eva_wingfield"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.bed.1.side",
+    "imageResources": [
+      "crusader/scene/bed_1_side"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dragon.1",
+    "imageResources": [
+      "crusader/foe/dragon"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.ovoraptor.1",
+    "imageResources": [
+      "crusader/foe/ovoraptor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_STAIR_UP",
+    "imageResources": [
+      "crusader/scene/dungeon_stair_up"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.flat.2",
+    "imageResources": [
+      "crusader/scene/sky_ichiba_flat"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "LEFT",
+    "scrollSpeed": "250"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.hail",
+    "imageResources": [
+      "crusader/scene/hail_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_WALL_1_TEXT_1",
+    "imageResources": [
+      "crusader/scene/dungeon_wall_text_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_C_SE",
+    "imageResources": [
+      "crusader/scene/sand_road_c_se"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "PURPLE_HAZE",
+    "imageResources": [
+      "crusader/scene/purple_haze"
+    ],
+    "animationDelay": "300",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.feline.1",
+    "imageResources": [
+      "crusader/foe/feline_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.lever.left",
+    "imageResources": [
+      "crusader/scene/lever_1_left"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.mantis.1",
+    "imageResources": [
+      "crusader/foe/mantis_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WALL_BUTTON",
+    "imageResources": [
+      "crusader/scene/wall_button"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.tornado.mountain",
+    "imageResources": [
+      "crusader/scene/tornado_mountain_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_C_SW",
+    "imageResources": [
+      "crusader/scene/sand_road_c_sw"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SALT_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/salt_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.eggs.1",
+    "imageResources": [
+      "crusader/scene/eggs_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.skeleton",
+    "imageResources": [
+      "crusader/foe/skeleton"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.ape",
+    "imageResources": [
+      "crusader/foe/ape"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.goblin.female",
+    "imageResources": [
+      "crusader/foe/goblin_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.crater.rim.4",
+    "imageResources": [
+      "crusader/scene/ichiba_crater_rim_4"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.crater.rim.3",
+    "imageResources": [
+      "crusader/scene/ichiba_crater_rim_3"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.crater.rim.2",
+    "imageResources": [
+      "crusader/scene/ichiba_crater_rim_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.crater.rim.1",
+    "imageResources": [
+      "crusader/scene/ichiba_crater_rim_5"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.chair.1",
+    "imageResources": [
+      "crusader/scene/chair_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.moth.1",
+    "imageResources": [
+      "crusader/foe/moth_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.plant.5",
+    "imageResources": [
+      "crusader/scene/plant_5"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "LEAF_CEILING_1",
+    "imageResources": [
+      "crusader/scene/leaf_ceiling_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.lorelei",
+    "imageResources": [
+      "crusader/foe/lorelei"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CHEST_1_BACK",
+    "imageResources": [
+      "crusader/scene/chest_back"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.plant.2",
+    "imageResources": [
+      "crusader/scene/plant_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.plant.1",
+    "imageResources": [
+      "crusader/scene/plant_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.plant.4",
+    "imageResources": [
+      "crusader/scene/plant_4"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.plant.3",
+    "imageResources": [
+      "crusader/scene/plant_3"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SPIKE",
+    "imageResources": [
+      "crusader/scene/spike"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.barrel.1",
+    "imageResources": [
+      "crusader/scene/barrel_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_bottom_left"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.aenen",
+    "imageResources": [
+      "crusader/scene/aenen_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_4WAY",
+    "imageResources": [
+      "crusader/scene/sand_road_4way"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_WALL_1",
+    "imageResources": [
+      "crusader/scene/dungeon_wall_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_3_SOLID",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_3_solid"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.crud.1",
+    "imageResources": [
+      "crusader/foe/crud_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.altar.1",
+    "imageResources": [
+      "crusader/scene/altar_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.familiar.1",
+    "imageResources": [
+      "crusader/foe/familiar_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "BIG_TREE_1_TOP",
+    "imageResources": [
+      "crusader/scene/big_tree_1_top"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnoll.1",
+    "imageResources": [
+      "crusader/foe/gnoll_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.angel.1",
+    "imageResources": [
+      "crusader/foe/angel_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.stygios.forest",
+    "imageResources": [
+      "crusader/scene/stygios_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.cat_samurai",
+    "imageResources": [
+      "crusader/foe/cat_samurai"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_EW",
+    "imageResources": [
+      "crusader/scene/sand_road_ew"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_FLOOR_2",
+    "imageResources": [
+      "crusader/scene/city_floor_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.crate.1",
+    "imageResources": [
+      "crusader/scene/crate_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.human.thief",
+    "imageResources": [
+      "crusader/foe/human_thief"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/city_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_C_NW",
+    "imageResources": [
+      "crusader/scene/sand_road_c_nw"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_TOP_LEFT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_top_left"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.table.2",
+    "imageResources": [
+      "crusader/scene/table_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.table.1",
+    "imageResources": [
+      "crusader/scene/table_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.stick.man",
+    "imageResources": [
+      "crusader/foe/stick_man_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.slime_ceiling",
+    "imageResources": [
+      "crusader/scene/slime_ceiling_obj"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.pasht.female.1",
+    "imageResources": [
+      "crusader/foe/pasht_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_WALL_1_GAP",
+    "imageResources": [
+      "crusader/scene/dungeon_wall_1_gap"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.will_o_wisp",
+    "imageResources": [
+      "crusader/foe/will_o_wisp"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnome.caster.1",
+    "imageResources": [
+      "crusader/foe/gnome_caster"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.neotroll.female.1",
+    "imageResources": [
+      "crusader/foe/troll_female_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.ninja",
+    "imageResources": [
+      "crusader/foe/ninja"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elemental.fire",
+    "imageResources": [
+      "crusader/foe/fire_elemental"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.fungus.1",
+    "imageResources": [
+      "crusader/scene/fungus_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DIRT_WALL_1",
+    "imageResources": [
+      "crusader/scene/dirt_wall_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_CEILING_1",
+    "imageResources": [
+      "crusader/scene/city_ceiling_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.fungus.3",
+    "imageResources": [
+      "crusader/scene/fungus_3"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.fungus.2",
+    "imageResources": [
+      "crusader/scene/fungus_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.dalen",
+    "imageResources": [
+      "crusader/scene/dalen_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.flyinglizard.1",
+    "imageResources": [
+      "crusader/foe/flying_lizard_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_ARCH_1",
+    "imageResources": [
+      "crusader/scene/dungeon_arch_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba",
+    "imageResources": [
+      "crusader/scene/ichiba_sky_0",
+      "crusader/scene/ichiba_sky_1",
+      "crusader/scene/ichiba_sky_2",
+      "crusader/scene/ichiba_sky_3",
+      "crusader/scene/ichiba_sky_4",
+      "crusader/scene/ichiba_sky_4",
+      "crusader/scene/ichiba_sky_3",
+      "crusader/scene/ichiba_sky_2",
+      "crusader/scene/ichiba_sky_1",
+      "crusader/scene/ichiba_sky_0"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.writhing.mire",
+    "imageResources": [
+      "crusader/scene/writhing_mire_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gnome.female.warrior.1",
+    "imageResources": [
+      "crusader/foe/gnome_female_warrior"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SHIMMERING_PORTAL",
+    "imageResources": [
+      "crusader/scene/shimmering_portal_1",
+      "crusader/scene/shimmering_portal_2",
+      "crusader/scene/shimmering_portal_3",
+      "crusader/scene/shimmering_portal_4"
+    ],
+    "animationDelay": "200",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_DOOR_1",
+    "imageResources": [
+      "crusader/scene/city_door_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SLIME_CEILING",
+    "imageResources": [
+      "crusader/scene/slime_ceiling"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.human.1",
+    "imageResources": [
+      "crusader/foe/human_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_PORTAL_DEACTIVATED",
+    "imageResources": [
+      "crusader/scene/dungeon_portal"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.pillar.1",
+    "imageResources": [
+      "crusader/scene/pillar_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DEFAULT_SKY",
+    "imageResources": [
+      "crusader/scene/default_sky"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.hynobi.male",
+    "imageResources": [
+      "crusader/foe/hynobi_male"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_STAIR_DOWN",
+    "imageResources": [
+      "crusader/scene/dungeon_stair_down"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.shade",
+    "imageResources": [
+      "crusader/foe/shade"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.mirka.male.1",
+    "imageResources": [
+      "crusader/foe/mirka_male"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_T_W",
+    "imageResources": [
+      "crusader/scene/sand_road_t_w"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.lever.back",
+    "imageResources": [
+      "crusader/scene/lever_1_back"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_T_S",
+    "imageResources": [
+      "crusader/scene/sand_road_t_s"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DUNGEON_PORTCULLIS_1_UP",
+    "imageResources": [
+      "crusader/scene/dungeon_portcullis_1_up"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.bell",
+    "imageResources": [
+      "crusader/scene/chest_back"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WALL_SIGN",
+    "imageResources": [
+      "crusader/scene/wall_sign"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.lever.right",
+    "imageResources": [
+      "crusader/scene/lever_1_right"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.demon",
+    "imageResources": [
+      "crusader/foe/demon"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.gurney",
+    "imageResources": [
+      "crusader/foe/gurney"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CHEST_1_SIDE",
+    "imageResources": [
+      "crusader/scene/chest_side"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dwarf.male.1",
+    "imageResources": [
+      "crusader/foe/dwarf_male_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_CLIFF_1",
+    "imageResources": [
+      "crusader/scene/jungle_cliff_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.bel_ies",
+    "imageResources": [
+      "crusader/foe/bel_ies"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.giant_snake",
+    "imageResources": [
+      "crusader/foe/giant_snake"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WEBS_1",
+    "imageResources": [
+      "crusader/scene/webs_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_T_N",
+    "imageResources": [
+      "crusader/scene/sand_road_t_n"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.elf.female",
+    "imageResources": [
+      "crusader/foe/elf_female"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "DIRT_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/dirt_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WEBS_2",
+    "imageResources": [
+      "crusader/scene/webs_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "MARSH_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/marsh_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "GRASS_FLOOR_1",
+    "imageResources": [
+      "crusader/scene/grass_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "SAND_ROAD_T_E",
+    "imageResources": [
+      "crusader/scene/sand_road_t_e"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CHEST_1_FRONT",
+    "imageResources": [
+      "crusader/scene/chest_front"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.kami",
+    "imageResources": [
+      "crusader/foe/kami"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.sir.kay",
+    "imageResources": [
+      "crusader/foe/sir_kay"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.panther",
+    "imageResources": [
+      "crusader/foe/panther"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  }
+]

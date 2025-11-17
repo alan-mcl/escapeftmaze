@@ -139,7 +139,7 @@ public class Zone extends DataObject
 			{
 				// todo: won't work for more than one NPC?
 
-				List<FoeGroup> actors = new ArrayList<FoeGroup>();
+				List<FoeGroup> actors = new ArrayList<>();
 				FoeGroup fg = new FoeGroup();
 				fg.add(npc);
 				actors.add(fg);

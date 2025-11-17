@@ -721,7 +721,7 @@
         "DEFAULT_ARM",
         "DEFAULT_LEG"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -738,7 +738,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.kami"
@@ -1923,7 +1923,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -2214,16 +2215,18 @@
     "stats": "6000048,01010101",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -2562,6 +2565,105 @@
     "spellLikeAbilities": [],
     "focus": "MAGIC",
     "defaultAttitude": "ATTACKING"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Gurney",
+    "pluralName": "Gurney",
+    "unidentifiedName": "?dwarf",
+    "unidentifiedPluralName": "?dwarves",
+    "types": [],
+    "race": "Dwarf",
+    "characterClass": "Skald",
+    "hitPointsRange": "15d10+15",
+    "actionPointsRange": "1d1",
+    "magicPointsRange": "15d10+150",
+    "levelRange": "15d1",
+    "experience": "1500",
+    "stats": "7e0000342807a3ffff,020202140c0a020c120f0f0f0f0f0f0f0f0f0f0f1405050f0f0f0a194b195a191e4b",
+    "bodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "DEFAULT_HEAD",
+        "DEFAULT_BODY",
+        "DEFAULT_LEG",
+        "human foot",
+        "human hand"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.gurney"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.gurney"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.gurney"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Gurney.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "5",
+    "stealthBehaviour": "1",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - marching"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": [
+        "Barkskin",
+        "Thorns",
+        "Flame Blade",
+        "Dire Wasps",
+        "Disease",
+        "Entangle",
+        "Icicle",
+        "Spit Venom",
+        "Hailstorm",
+        "Fey Voice"
+      ]
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "NEUTRAL"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -3636,7 +3738,7 @@
         "DEFAULT_ARM",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -3653,7 +3755,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.block.golem"
@@ -3692,6 +3794,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -4802,7 +4905,7 @@
         "DEFAULT_BODY",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -4819,7 +4922,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.bat.1"
@@ -4863,6 +4966,7 @@
         "Magic Sparks"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -5653,16 +5757,18 @@
     "stats": "200000000000000000000000000000006000048,0707070701",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -5709,6 +5815,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "5",
     "stealthBehaviour": "1",
+    "faction": "Gnolls",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - growl"
@@ -5733,7 +5840,8 @@
       }
     ],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnolls"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -7028,7 +7136,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "leonals"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -7734,7 +7843,6 @@
       "NAME": "foe.moth.1"
     },
     "verticalAlignment": "BOTTOM",
-    "textureTint": "ffeeeeee",
     "loot": {
       "NAME": "A_WEE_BIT_OF_GOLD"
     },
@@ -8150,7 +8258,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "leonals"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -8182,7 +8291,7 @@
         "human hand",
         "human foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -8199,7 +8308,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.demon"
@@ -8530,7 +8639,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "leonals"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -8624,7 +8734,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -8926,16 +9037,18 @@
     "stats": "0,",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -9275,7 +9388,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "chamber of commerce"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -9426,19 +9540,19 @@
       "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.goblin.1"
+      "NAME": "foe.goblin.3"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.goblin.1"
+      "NAME": "foe.goblin.3"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.goblin.1"
+      "NAME": "foe.goblin.3"
     },
     "castSpellTexture": {
-      "NAME": "foe.goblin.1"
+      "NAME": "foe.goblin.3"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.goblin.1"
+      "NAME": "foe.goblin.3"
     },
     "verticalAlignment": "BOTTOM",
     "loot": {
@@ -9451,6 +9565,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "10",
     "stealthBehaviour": "3",
+    "faction": "Ichiba GSC",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - ninjastab"
@@ -9465,7 +9580,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "goblins"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -9477,10 +9593,10 @@
     "race": "Gnome",
     "hitPointsRange": "3d3+2",
     "actionPointsRange": "2d4",
-    "magicPointsRange": "4d10+400",
+    "magicPointsRange": "4d10+40",
     "levelRange": "1d2+2",
     "experience": "300",
-    "stats": "d4001000160,0101010101010101",
+    "stats": "d4001000160,0201050105050505",
     "bodyParts": {
       "PERCENTAGES": [
         25,
@@ -9541,6 +9657,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "15",
     "stealthBehaviour": "1",
+    "faction": "Gnomes",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - gnome"
@@ -9557,7 +9674,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -9849,7 +9967,7 @@
     "types": [
       "Gnoll"
     ],
-    "hitPointsRange": "4d3+6",
+    "hitPointsRange": "4d4+6",
     "actionPointsRange": "1d1",
     "magicPointsRange": "1d1",
     "levelRange": "1d2+2",
@@ -9857,16 +9975,18 @@
     "stats": "200000000000000000000000000000006000048,0101010101",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -9913,6 +10033,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "11",
     "stealthBehaviour": "1",
+    "faction": "Gnolls",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - growl"
@@ -9937,7 +10058,8 @@
       }
     ],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnolls"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -9953,7 +10075,7 @@
     "magicPointsRange": "0d1",
     "levelRange": "1d2+2",
     "experience": "300",
-    "stats": "8000019800070,0103020505050502",
+    "stats": "8000019800070,0404040505050504",
     "bodyParts": {
       "PERCENTAGES": [
         25,
@@ -10014,6 +10136,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "10",
     "stealthBehaviour": "3",
+    "faction": "Ichiba GSC",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - ninjastab"
@@ -10025,7 +10148,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "goblins"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -10447,16 +10571,18 @@
     "stats": "200000000000000000000000000000006000048,0909090901",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -10503,6 +10629,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "4",
     "stealthBehaviour": "1",
+    "faction": "Gnolls",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - growl"
@@ -10527,7 +10654,8 @@
       }
     ],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnolls"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -11729,7 +11857,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -11941,7 +12070,7 @@
         "DEFAULT_BODY",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -11958,7 +12087,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.roach.1"
@@ -11998,6 +12127,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -13570,6 +13700,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "5",
     "stealthBehaviour": "1",
+    "faction": "Ichiba Chamber Of Commerce",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - marching"
@@ -13581,7 +13712,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "chamber of commerce"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -13691,7 +13823,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -13797,7 +13930,7 @@
     "magicPointsRange": "15d10+150",
     "levelRange": "15d1",
     "experience": "1500",
-    "stats": "800000000100007e000034480723ffff,0202020f0e05040d0c0f0f0f0f0f0f0f0f0f0f0f0a0a0f0f0f0f0f323232321e5a1e01",
+    "stats": "800000000000007e000034480723ffff,0202020f0e05040d0c0f0f0f0f0f0f0f0f0f0f0f0a0a0f0f0f0f0f323232321e5a01",
     "bodyParts": {
       "PERCENTAGES": [
         20,
@@ -14328,7 +14461,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -14548,16 +14682,18 @@
     "stats": "200000000000000000000000000000006000048,0606060601",
     "bodyParts": {
       "PERCENTAGES": [
+        20,
         25,
         25,
         25,
-        25
+        5
       ],
       "ITEMS": [
         "DEFAULT_HEAD",
         "DEFAULT_BODY",
         "DEFAULT_LEG",
-        "DEFAULT_ARM"
+        "DEFAULT_ARM",
+        "DEFAULT_HAND"
       ],
       "SHOULD_SUM_TO_100": "true"
     },
@@ -14604,6 +14740,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "5",
     "stealthBehaviour": "1",
+    "faction": "Gnolls",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - growl"
@@ -14628,7 +14765,8 @@
       }
     ],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnolls"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -15337,6 +15475,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "7",
     "stealthBehaviour": "3",
+    "faction": "Ichiba GSC",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - running"
@@ -15348,7 +15487,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "goblins"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -15531,7 +15671,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -16384,7 +16525,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -17823,7 +17965,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "leonals"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -18359,6 +18502,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "10",
     "stealthBehaviour": "1",
+    "faction": "Gnomes",
     "npc": "false",
     "appearanceScript": {
       "NAME": "sound - marching"
@@ -18377,7 +18521,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "AGGRESSIVE"
+    "defaultAttitude": "AGGRESSIVE",
+    "foeSpeech": "test"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -20101,7 +20246,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -20289,7 +20435,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -20376,7 +20523,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "chamber of commerce"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -21067,7 +21215,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -21258,7 +21407,8 @@
     },
     "spellLikeAbilities": [],
     "focus": "MAGIC",
-    "defaultAttitude": "ATTACKING"
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "gnomes"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
@@ -21377,7 +21527,7 @@
         "DEFAULT_ARM",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -21394,7 +21544,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.block.golem"
@@ -21433,6 +21583,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -21909,6 +22060,7 @@
     "pluralName": "Scrymgeours",
     "unidentifiedName": "?human",
     "unidentifiedPluralName": "?humans",
+    "types": [],
     "race": "Human",
     "hitPointsRange": "10d4+6",
     "actionPointsRange": "0d1",
@@ -21931,7 +22083,7 @@
         "human hand",
         "human foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -21948,22 +22100,22 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.human.1"
+      "NAME": "foe.human.merchant"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.human.1"
+      "NAME": "foe.human.merchant"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.human.1"
+      "NAME": "foe.human.merchant"
     },
     "castSpellTexture": {
-      "NAME": "foe.human.1"
+      "NAME": "foe.human.merchant"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.human.1"
+      "NAME": "foe.human.merchant"
     },
     "verticalAlignment": "BOTTOM",
     "loot": {
@@ -21981,9 +22133,11 @@
       "NAME": "sound - marching"
     },
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },

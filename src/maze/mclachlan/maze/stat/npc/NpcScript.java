@@ -420,11 +420,19 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> parsePartySpeech(PlayerCharacter pc, String speech)
 	{
+		NpcSpeech dialogue = null;
 		if (this.npc instanceof Npc)
 		{
 			Npc npc1 = (Npc)this.npc;
-			NpcSpeech dialogue = npc1.getTemplate().getDialogue();
+			dialogue = npc1.getTemplate().getDialogue();
+		}
+		else if (this.npc.getFoeTemplate().getFoeSpeech() != null)
+		{
+			dialogue = this.npc.getFoeTemplate().getFoeSpeech().getDialog();
+		}
 
+		if (dialogue != null)
+		{
 			String response = dialogue.lookupPlayerSentence(speech);
 
 			if (response == null)
@@ -433,7 +441,13 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 			}
 
 			List<MazeEvent> result = new ArrayList<>();
-			result.add(new NpcSpeechEvent(npc, response, MazeEvent.Delay.WAIT_ON_CLICK));
+
+			String [] rsps = response.split("\n");
+
+			for (String rsp : rsps)
+			{
+				result.add(new NpcSpeechEvent(npc, rsp.trim(), MazeEvent.Delay.WAIT_ON_CLICK));
+			}
 
 			// check if the player wants to end the conversation
 			if (!NpcSpeech.sentenceContainsKeywords(speech, "bye", "goodbye", "farewell"))

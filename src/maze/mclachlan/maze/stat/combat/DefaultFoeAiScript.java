@@ -20,14 +20,13 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.StartCombatEvent;
-import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.npc.FoeSpeech;
 import mclachlan.maze.stat.npc.NpcScript;
+import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import mclachlan.maze.stat.npc.PartyLeavesEvent;
 
 /**
@@ -42,6 +41,46 @@ public class DefaultFoeAiScript extends NpcScript
 	{
 		this.actorEncounter = actorEncounter;
 		this.npc = actorEncounter.getLeader();
+	}
+
+	@Override
+	public List<MazeEvent> firstGreeting()
+	{
+		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
+		if (foeSpeech != null)
+		{
+			switch (npc.getAttitude())
+			{
+				case NEUTRAL ->
+				{
+					if (foeSpeech.getNeutralGreeting() != null)
+					{
+						return getList(new NpcSpeechEvent(foeSpeech.getNeutralGreeting(), npc));
+					}
+				}
+				case FRIENDLY, ALLIED ->
+				{
+					if (foeSpeech.getFriendlyGreeting() != null)
+					{
+						return getList(new NpcSpeechEvent(foeSpeech.getFriendlyGreeting(), npc));
+					}
+				}
+			}
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<MazeEvent> subsequentGreeting()
+	{
+		return firstGreeting();
+	}
+
+	@Override
+	public List<MazeEvent> neutralGreeting()
+	{
+		return firstGreeting();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -77,6 +116,11 @@ public class DefaultFoeAiScript extends NpcScript
 		{
 			result.addAll(actorEncounter.getPartyLeavesFriendlyScript());
 		}
+		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
+		if (foeSpeech != null && foeSpeech.getFriendlyFarewell() != null)
+		{
+			result.add(new NpcSpeechEvent(foeSpeech.getFriendlyFarewell(), npc));
+		}
 		result.add(new PartyLeavesEvent());
 		return result;
 	}
@@ -90,19 +134,12 @@ public class DefaultFoeAiScript extends NpcScript
 		{
 			result.addAll(actorEncounter.getPartyLeavesNeutralScript());
 		}
+		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
+		if (foeSpeech != null && foeSpeech.getNeutralFarewell() != null)
+		{
+			result.add(new NpcSpeechEvent(foeSpeech.getNeutralFarewell(), npc));
+		}
 		result.add(new PartyLeavesEvent());
 		return result;
 	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public List<MazeEvent> partyWantsToTalk(PlayerCharacter pc)
-	{
-		return getList(new FlavourTextEvent(StringUtil.getEventText("msg.no.response")));
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-
 }

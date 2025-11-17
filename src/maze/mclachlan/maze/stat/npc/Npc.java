@@ -155,6 +155,20 @@ public class Npc extends Foe
 		{
 			super.setTemplate(template.getFoeTemplate());
 		}
+
+		// set level
+		HashMap<String, Integer> levels = new HashMap<>();
+		levels.put(template.getName(), template.getFoeTemplate().getLevelRange().roll("Foe: level"));
+		this.setLevels(levels);
+
+		// roll up this foes vitals
+		int maxHP = template.getFoeTemplate().getHitPointsRange().roll("Foe: hp");
+		int maxStealth = template.getFoeTemplate().getActionPointsRange().roll("Foe: ap");
+		int maxMagic = template.getFoeTemplate().getMagicPointsRange().roll("Foe: mp");
+
+		getStats().setHitPoints(new CurMaxSub(maxHP));
+		getStats().setActionPoints(new CurMax(maxStealth));
+		getStats().setMagicPoints(new CurMax(maxMagic));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -606,8 +606,7 @@
                 "shouldNegate": "false"
               }
             ],
-            "successScript": "Gatehouse hidden pool contents",
-            "failureScript": "Gatehouse encounter 1 cruds"
+            "successScript": "pennywhistle animation"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -11017,6 +11016,46 @@
         "westTexture": "MOTES_1",
         "xPos": "2816",
         "yPos": "2304",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.crate.1",
+        "southTexture": "objects.crate.1",
+        "eastTexture": "objects.crate.1",
+        "westTexture": "objects.crate.1",
+        "xPos": "768",
+        "yPos": "5376",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "768",
+        "yPos": "5888",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.table.1",
+        "southTexture": "objects.table.1",
+        "eastTexture": "objects.table.1",
+        "westTexture": "objects.table.1",
+        "xPos": "768",
+        "yPos": "6400",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.table.2",
+        "southTexture": "objects.table.2",
+        "eastTexture": "objects.table.2",
+        "westTexture": "objects.table.2",
+        "xPos": "768",
+        "yPos": "6912",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

@@ -73,11 +73,14 @@ public class ColourMagicPortraitAnimation extends Animation
 		ColourMagicPortraitAnimation result = new ColourMagicPortraitAnimation(colour);
 		ArrayList bb = new ArrayList();
 
-		for (UnifiedActor a : context.getTargets())
+		if (context != null)
 		{
-			if (a instanceof PlayerCharacter)
+			for (UnifiedActor a : context.getTargets())
 			{
-				bb.add(getUi().getPlayerCharacterWidgetBounds((PlayerCharacter)a));
+				if (a instanceof PlayerCharacter)
+				{
+					bb.add(getUi().getPlayerCharacterWidgetBounds((PlayerCharacter)a));
+				}
 			}
 		}
 

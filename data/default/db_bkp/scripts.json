@@ -1,0 +1,3182 @@
+[
+  {
+    "name": "dire wasps from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/direWaspsFromPlayer1",
+            "animation/direWaspsFromPlayer2",
+            "animation/direWaspsFromPlayer3",
+            "animation/direWaspsFromPlayer4"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "colour spray from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - leonal",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24797__Terwelp__Lions_Roar_at_Lincoln_Park_Zoo"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "group curse from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Onburi Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "sir.kay.quest.3.complete",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - imogen",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "15288_Hell_s_Sound_Guy_FEMALE_GIGGLE"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - ghost",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "33501__CosmicD__dreamyghost"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - marching",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "14624__man__soldati_marcia"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad test load",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "19:12",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "sound - ninjastab",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "63985__iwilldstroyu__quickstab1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - snake",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "33458__Kjell_Persson__Boa_Constrictor_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "burning hands from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "15"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "47252__nthompson__rocketexpl"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - hiss",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "33458__Kjell_Persson__Boa_Constrictor_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Temple Of The Gate",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Temple Of The Gate",
+        "pos": "27:15",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse lever pre transition",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You give the lever a hard yank.",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      }
+    ]
+  },
+  {
+    "name": "sound - rustle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "2589__schademans__bush10"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Crypt Of Atrocities",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Crypt Of Atrocities",
+        "pos": "17:10",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "blinding flash spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redCloudFromPlayer1",
+            "animation/redCloudFromPlayer2",
+            "animation/redCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse load",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": [
+          "shadows_in_an_empty_cathedral"
+        ]
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_1",
+        "textResource": "default.intro.1",
+        "textPlacement": "TOP_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_2",
+        "textResource": "default.intro.2",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_3",
+        "textResource": "default.intro.3",
+        "textPlacement": "BOTTOM_RIGHT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_4",
+        "textResource": "default.intro.4",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_5",
+        "textResource": "default.intro.5",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/default_intro_6",
+        "textResource": "default.intro.6",
+        "textPlacement": "TOP_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": []
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Gatehouse",
+        "pos": "14:30",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "frontier phaser from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "0"
+        }
+      }
+    ]
+  },
+  {
+    "name": "white cloud from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - faerie",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "51713__BristolStories__u_chimes_short1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "_PORTCULLIS_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "336888__omnisis__gate-heavy-openclose2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Dalen",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You cup the mysterious seeds in your hand...",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "\nWarmth grows slowly in your closed palm, and the sounds of the bustling city behind you fade into silence... with a start you realise that time has frozen around you. You stare in surprise at the dust particles suspended in mid air before you...",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "... when suddenly, you feel the familiar wrenching pull of  planar travel!",
+        "delay": "1000",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Dalen",
+        "pos": "5:17",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Isle Of The Gate",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Isle Of The Gate",
+        "pos": "37:35",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_MAIN_MENU_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": [
+          "prescience"
+        ],
+        "musicState": "MAINMENU"
+      }
+    ]
+  },
+  {
+    "name": "_OPEN_CHEST_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24244__Corsica_S__cupboard_creak_3"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "sound - water elemental",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "17783__suonho__ELEMENTS_WATER_02_Phasin_bubbles"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "ambient - rustle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "2589__schademans__bush10_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "red portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25074_FreqMan_whoosh06"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ffff0000"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Corrosive Slime Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "sir.kay.corrosive.slime.slain",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "dire wasps from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/direWaspsFromPlayer1",
+            "animation/direWaspsFromPlayer2",
+            "animation/direWaspsFromPlayer3",
+            "animation/direWaspsFromPlayer4"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_UNLOCK_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "23451__Percy_Duke__Opening_Older_Lock_2"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "sound - skeleton",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "58626__kathol__A_Moaning_Zombie"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - snail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "72755_reinsamba_snail_munching"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "spine from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/spineFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - vampire",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "48688__Sea_Fury__Monster_4"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "green portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ff00b200"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - growl",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "23387__ljudman__dog"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 skill test fail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You\u0027re not fast enough.",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "Gatehouse supplies 1 eels leave"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad berry forage",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You pick a handful of berries off the bush.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "ichiba.crossroad.berry.forage"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gnolls)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "13:6",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (coc)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "2:5",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "sound - puppet",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9557__thanvannispen__2gnomes"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad bones hidden stuff",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "A moldy pile of bones lies here, overgrown with moss and fungus.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.crossroad.hidden.stuff.1",
+        "modal": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.GrantGoldEvent",
+        "amount": "200"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "ichiba.crossroad.hidden.stuff.1"
+      }
+    ]
+  },
+  {
+    "name": "shrill sound from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "4249__dobroide__knifegrinder.whistle"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - moulder",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "55134__NoiseCollector__stereomonster"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "_MAZE_INTERVENTION_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "424690__9931__dissonance-example"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "IMPL": "mclachlan.maze.ui.diygui.animation.MazeInterventionAnimation"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.maze.intervention.1,default.maze.intervention.2,default.maze.intervention.3",
+        "modal": "false"
+      }
+    ]
+  },
+  {
+    "name": "Sir Kay Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "coc.quest.4.completed",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian to Caves Of Ilast",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "30:3",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "willow arrow from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/willowArrowFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Plain Of Pillars to Caves Of Ilast",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "3:3",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "static bolt from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "19486__Halleck__JacobsLadderSingle1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Temple Of The Gate to Ekirth\u0027s Tomb",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ekirth\u0027s Tomb",
+        "pos": "28:16",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "sound - cat-hiss",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "16466__acclivity__TheLadySaysNo"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "gold enchantment from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/goldEnchantmentFromPlayer1",
+            "animation/goldEnchantmentFromPlayer2",
+            "animation/goldEnchantmentFromPlayer3",
+            "animation/goldEnchantmentFromPlayer4"
+          ],
+          "frameDelay": "30"
+        }
+      }
+    ]
+  },
+  {
+    "name": "quarrel from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/quarrelFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Crypt Of Atrocities to Ekirth\u0027s Tomb",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ekirth\u0027s Tomb",
+        "pos": "23:26",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "generic weapon swish",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9509_petenice_whoosh",
+          "12657__mich3d__Whoosh_Swish_02"
+        ],
+        "die": "1d2"
+      }
+    ]
+  },
+  {
+    "name": "ambient - cicada",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "15345__fotomacc__cicada2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "musket ball from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "34708__Jon285__44_black_powder_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "400"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/musketBallFromPlayer1"
+          ],
+          "frameDelay": "1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Dalen to Ichiba City",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "9:10",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "shuriken from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/shurikenFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - curse",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Default Campaign Intro",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_MAIN_MENU_MUSIC_"
+      }
+    ]
+  },
+  {
+    "name": "sound - panther",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "63668__Miselaineous__elaine_growl"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "white portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ffffffff"
+        }
+      }
+    ]
+  },
+  {
+    "name": "feather dart from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/featherDartFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - clockwork",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "49214_tombola_Fisher_Price3"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "white cloud from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_WEAPON_HIT_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "27826_Erdie_sword01",
+          "27856_Erdie_sword02",
+          "27857_Erdie_sword03"
+        ],
+        "die": "1d3"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "400"
+      }
+    ]
+  },
+  {
+    "name": "sound - cicada",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "15345__fotomacc__cicada1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "quarrel from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/quarrelFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "gold portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ffffd700"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_OUCH_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "34875__Sruddi1__Grunts_1",
+          "34875__Sruddi1__Grunts_2",
+          "34875__Sruddi1__Grunts_3"
+        ],
+        "die": "1d3"
+      }
+    ]
+  },
+  {
+    "name": "Ichneumorax Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "leonal.quest.1.complete",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "web spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/brownCloudFromPlayer1",
+            "animation/brownCloudFromPlayer2",
+            "animation/brownCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Plain Of Pillars to Ruins Of Hail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "21:21",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Isle Of The Gate to Caves Of Ilast",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "29:27",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "ambient - bird2",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "19264__reinsamba__morning_birds_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "spine from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/spineFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "ambient - bird1",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "19257__reinsamba__bird_in_rainforest_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Writhing Mire to Ruins Of Hail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "22:21",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "sound - buzz",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "witchbolt from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blackBoltFromPlayer"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Dungeon to Castle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle",
+        "pos": "22:22",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "bullet stone from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/bulletStoneFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - fireburn",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "_INSPECT_TRAP_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "23451__Percy_Duke__Opening_Older_Lock"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "3100"
+      }
+    ]
+  },
+  {
+    "name": "sound - hag",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "80187__Robinhood76__01277_witch_cackle_laughter_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - air elemental",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "17645__Cyril_Laurier__Wind"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Hianbian",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Hianbian",
+        "pos": "2:26",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail use black blood",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "On a hunch, you uncork the bottle and pour the noxious liquid out at the base of the pillar.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "\nThe evil smelling stuff is absorbed between the cracks in the paving with haste that is almost unseemly.\nYou are left holding an empty bottle and wondering if you have achieved anything...",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "ruins.of.hail.black.blood.used",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "name": "colour spray from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_DIE_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "34875__Sruddi1__Grunts_4",
+          "34875__Sruddi1__Grunts_5",
+          "34875__Sruddi1__Grunts_6"
+        ],
+        "die": "1d3"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Isle Of The Gate",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Isle Of The Gate",
+        "pos": "33:29",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "ghul laugh",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - kami"
+      }
+    ]
+  },
+  {
+    "name": "Imogen Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "sir.kay.quest.4.complete",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - tree",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "33256__ERH__creaking_silver_birch_3c"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Rhys Death",
+    "events": [
+      {
+        "IMPL": "mclachlan.maze.campaign.def.script.RhysDeath"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts to City",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Aenen City",
+        "pos": "18:14",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_THIEF_TOOL_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "14090_adcbicycle_3",
+          "14095_adcbicycle_8",
+          "14096_adcbicycle_9",
+          "14098_adcbicycle_11",
+          "14099_adcbicycle_12",
+          "14100_adcbicycle_13",
+          "14109_adcbicycle_22"
+        ],
+        "die": "1d7"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "sound - bird",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "56233__Q.K.__Crows_01"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (coc)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "6:14",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "purple portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ff800080"
+        }
+      }
+    ]
+  },
+  {
+    "name": "bullet stone from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/bulletStoneFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "z_arena lever",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+        "tile": "10:9",
+        "facing": "1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "arena.stick.man.vendor.quest.1.completed",
+        "value": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "LOGBOOK",
+        "journalText": "test logbook event"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "QUEST",
+        "key": "LolQuest",
+        "journalText": "Test Quest Event"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "ZONE",
+        "journalText": "Test Zone Event"
+      }
+    ]
+  },
+  {
+    "name": "shuriken from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/shurikenFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "musket ball from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "34708__Jon285__44_black_powder_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "400"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/musketBallFromFoe1"
+          ],
+          "frameDelay": "1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - golem",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "48709__Sea_Fury__Monster_5"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "shrill sound from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "4249__dobroide__knifegrinder.whistle"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "frostbite spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blueBoltFromFoe"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "sound - yelp",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "23387__ljudman__dog_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle to Dungeon",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle Dungeon",
+        "pos": "10:9",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Plain Of Pillars",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Plain Of Pillars",
+        "pos": "20:34",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "paper tiger roar",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "48709__Sea_Fury__Monster_5"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - wings",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9329__tigersound__pigeon_wings"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - reptile-screech",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25713__Wolfsinger__inhuman_screech"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian teleporter 1",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "12652__mich3d__Door_Wood_Open_01",
+          "12741_Leady_opening_a_creaky_door",
+          "29690__HerbertBoland__Creak_3"
+        ],
+        "die": "1d3"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+        "pos": "15:17",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "throwing knife from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/throwingKnifeFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_PULL_LEVER_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "676412__a_kuha__pulling-a-lever"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "sound - earth elemental",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "7135_mystiscool_rocks1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse deactivated portal",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.deactivated.portal",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "_ENCOUNTER_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "26198__tobyk__Medieval_Fanfare",
+          "37596__hello_flowers__Sword"
+        ],
+        "die": "1d2"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "1000"
+      }
+    ]
+  },
+  {
+    "name": "frostbite spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blueBoltFromPlayer"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "group curse from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Goblin Magsman Death",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "coc.quest.2.completed",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "gnoll taunt",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "23387__ljudman__dog_2"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "800"
+      }
+    ]
+  },
+  {
+    "name": "red bolt from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "_INVENTORY_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": [
+          "paper_dolls"
+        ],
+        "musicState": "INVENTORY"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gsc1)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "2:16",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to Gnoll Village",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Gnoll Village",
+        "pos": "16:28",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "acid splash spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9508__petenice__SPLASH_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/greenBoltFromFoe1",
+            "animation/greenBoltFromFoe2",
+            "animation/greenBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9508__petenice__SPLASH_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Castle Fangorn",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Castle Fangorn",
+        "pos": "11:21",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast miriam chest contents",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The chest is filled with trinket and junk - bent needles, old gnawed bones, bunches of twigs, discarded shoes and so on.\n\nYou find only one thing remotely interesting.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "caves.of.ilast.miriam.chest"
+      }
+    ]
+  },
+  {
+    "name": "sound - accountant",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "79774__engreitz__ManClearingThroat_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "witchbolt from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blackBoltFromFoe"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "blinding flash spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redCloudFromPlayer1",
+            "animation/redCloudFromPlayer2",
+            "animation/redCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - dragon",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "85568__JoelAudio__DRAGON_ROAR"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle to Village",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Village",
+        "pos": "4:16",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "blue portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25074_FreqMan_whoosh06"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ff0000ff"
+        }
+      }
+    ]
+  },
+  {
+    "name": "burning hands from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "15"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "47252__nthompson__rocketexpl"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sonic boom from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "47252__nthompson__rocketexpl_2"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "pennywhistle animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "pennywhistle"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ffffd700"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (gsc1)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "5:19",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_FORCE_PORTAL_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "31625__Srehpog__heavy_crate_smash"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "saliopod screech from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - reptile-screech"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - kami",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "76455__str4ngS__monster_insane_laugh_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "_PARTY_DEAD_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "30305__ERH__call"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "imageResource": "screen/party_death_1",
+        "textResource": "",
+        "textPlacement": "CENTER"
+      }
+    ]
+  },
+  {
+    "name": "web spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/brownCloudFromPlayer1",
+            "animation/brownCloudFromPlayer2",
+            "animation/brownCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - ape",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "34137__SylverMonk__SylverMonk_cavegrunt"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "feather dart from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/featherDartFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gsc2)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "28:8",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_SECRET_PASSAGE_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "14096_adcbicycle_9_2"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "25845__FreqMan__concrete_blocks_moving1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  },
+  {
+    "name": "throwing knife from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/throwingKnifeFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_CREATE_CHARACTER_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": [
+          "shattered_windows"
+        ],
+        "musicState": "CREATE_CHARACTER"
+      }
+    ]
+  },
+  {
+    "name": "black portrait animation",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "16999__Incarnadine__sinister_chord"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation",
+          "colour": "ff000000"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - dun.draco",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "44022__AaronGNP__Hissing_Snakes"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - crud",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "52293__XxBirdoxX__stomach_growl_PiSh_01"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Castle Fangorn to Ruins Of Hail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "21:23",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "generic spell woosh",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "18397__inferno__smalllas"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "sound - running",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "54779_bevangoldswain_running_hard_surface"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 cave eels",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "With blinding speed you grab a wriggling eel and haul it out of the water!\n\nThe other eels scatter into the depths.",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "gatehouse.supplies.1.cave.eels"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse first wall button pre toggle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "Searching the wall, one of the stones shifts inwards at your touch!",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      }
+    ]
+  },
+  {
+    "name": "acid splash spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9508__petenice__SPLASH_1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/greenBoltFromPlayer1",
+            "animation/greenBoltFromPlayer2",
+            "animation/greenBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "9508__petenice__SPLASH_2"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Village to Castle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle",
+        "pos": "29:15",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "sonic boom from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "47252__nthompson__rocketexpl_2"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - gnome",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "79774__engreitz__ManClearingThroat_1"
+        ],
+        "die": "1d1"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 iron rations",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "gatehouse.supplies.1.iron.rations"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian to Ruins Of Hail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "23:23",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "gold enchantment from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/goldEnchantmentFromPlayer1",
+            "animation/goldEnchantmentFromPlayer2",
+            "animation/goldEnchantmentFromPlayer3",
+            "animation/goldEnchantmentFromPlayer4"
+          ],
+          "frameDelay": "30"
+        }
+      }
+    ]
+  },
+  {
+    "name": "willow arrow from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/willowArrowFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (gsc2)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "27:8",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "static bolt from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "19486__Halleck__JacobsLadderSingle1"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "red bolt from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse lever post transition",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_PORTCULLIS_"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "A loud clanking and grinding fills the dungeon.",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+        "tile": "15:26",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "gigantopithecus taunt",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - ape"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "800"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 3",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain South",
+        "pos": "3:5",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 2",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "19:12",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 1",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain North",
+        "pos": "25:28",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "generic door creak",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "12652__mich3d__Door_Wood_Open_01",
+          "12741_Leady_opening_a_creaky_door",
+          "29690__HerbertBoland__Creak_3"
+        ],
+        "die": "1d3"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent",
+        "delay": "500"
+      }
+    ]
+  }
+]

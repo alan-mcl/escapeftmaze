@@ -1,0 +1,10 @@
+tip_0=The guild already contains six characters that are ready to add to your party. Using them you can skip character creation and dive right in.
+tip_1=Right click on almost anything to get more information.
+tip_2=Your party will need a balance of combat, stealth and magic skills to survive.
+tip_3=Any character race can become any character class, but some combinations are better than others.
+tip_4=Purple magic spells can only be used by female characters. This prevents other genders from becoming Witches, Amazons, Cultists or Courtesans.
+tip_5=Red magic spells can only be used by male characters. This prevents other genders from becoming Sorcerers, Warlocks, Magicians or Samurai.
+tip_6=Each weapon has associated attack modes like Swing and Thrust. A character benefits from the related modifiers when using the weapon in combat.
+tip_7=Stealthy characters can use their Backstab and Snipe modifiers to attack with appropriate weapons. These attacks cost action points but cause double damage if they hit.
+tip_8=Characters have three resources: hit points, stealth points and magic points.
+tip_9=Hit points, action points and magic points regenerate over time; quickly while resting, slowly otherwise.

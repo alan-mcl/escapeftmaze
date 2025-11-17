@@ -18015,7 +18015,7 @@
         "shouldNegate": "false"
       }
     ],
-    "description": "gnoll taunt... mostly just for flavour :)",
+    "description": "taunts you!",
     "level": "1",
     "targetType": "0",
     "usabilityType": "0",
@@ -18029,6 +18029,7 @@
         "stamina spell"
       ]
     },
+    "requirementsToCast": [],
     "requirementsToLearn": "0,",
     "castByPlayerScript": "gnoll taunt",
     "castByFoeScript": "gnoll taunt",

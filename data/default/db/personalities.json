@@ -1272,7 +1272,7 @@
     "description": "Bold and bravo. A bit of an Indiana Jones.",
     "colour": "ff9999ff",
     "speech": {
-      "default.ichiba.city.intro": "",
+      "default.ichiba.city.intro": "Now this is more like it - noise, crowds, and the smell of profit.\n\nWatch your coin and your step folks. In a place like this both can vanish fast!",
       "encounter.win.normal": "You think they\u0027d learn not to mess with the hero of the story.",
       "default.ichiba.domain.south.shrine": "",
       "default.ichiba.city.imogen.door": "",

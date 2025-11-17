@@ -29,7 +29,6 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -42,14 +41,14 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 	private final TradingWidget pcWidget, npcWidget;
 	private final DIYButton buy, sell, close;
-	private final Npc npc;
+	private final Foe npc;
 	private final PlayerCharacter pc;
 	private final DIYLabel partyGoldLabel;
 
 	/*-------------------------------------------------------------------------*/
 	public TradingDialog(
 		PlayerCharacter pc,
-		Npc npc)
+		Foe npc)
 	{
 		super();
 
@@ -171,7 +170,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void refresh(PlayerCharacter pc, Npc npc)
+	private void refresh(PlayerCharacter pc, Foe npc)
 	{
 		partyGoldLabel.setText(StringUtil.getUiLabel(
 			"trd.party.gold",Maze.getInstance().getParty().getGold()));

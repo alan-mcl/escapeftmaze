@@ -99,7 +99,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	/*-------------------------------------------------------------------------*/
 	public void refresh(NpcSpeech npcSpeech)
 	{
-		speech = new ArrayList<NpcSpeechRow>();
+		speech = new ArrayList<>();
 
 		if (npcSpeech != null)
 		{
@@ -161,7 +161,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	/*-------------------------------------------------------------------------*/
 	private void addListItem()
 	{
-		NpcSpeechRow row = new NpcSpeechRow(0, new HashSet<String>(), "");
+		NpcSpeechRow row = new NpcSpeechRow(0, new HashSet<>(), "");
 		NpcSpeechRowEditor dialog = new NpcSpeechRowEditor(SwingEditor.instance, row);
 		if (dialog.getResult() != null)
 		{
@@ -233,6 +233,13 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("three eyes");
 		addSpeech("we pickett, pickett");
 		addSpeech("maze master");
+
+		addSpeech("eva, wingfield");
+		addSpeech("rainmaker");
+		addSpeech("gurney");
+		addSpeech("lorelei");
+		addSpeech("red greave");
+		addSpeech("jasker");
 
 		addSpeech("gnomes, gnome");
 		addSpeech("gnolls, gnoll");

@@ -1,0 +1,100 @@
+[
+  {
+    "name": "cut",
+    "verb": "cuts",
+    "attackModifier": "CUT",
+    "modifiers": "10000000000000,01",
+    "damageType": "SLASHING"
+  },
+  {
+    "name": "snipe",
+    "verb": "snipes",
+    "attackModifier": "SNIPE",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "lunge",
+    "verb": "lunges",
+    "attackModifier": "LUNGE",
+    "modifiers": "80000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "punch",
+    "verb": "punches",
+    "attackModifier": "MARTIAL_ARTS",
+    "modifiers": "10000000000000,01",
+    "damageType": "BLUDGEONING"
+  },
+  {
+    "name": "backstab",
+    "verb": "backstabs",
+    "attackModifier": "BACKSTAB",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "swing",
+    "verb": "swings",
+    "attackModifier": "SWING",
+    "modifiers": "10000000000000,01",
+    "damageType": "SLASHING"
+  },
+  {
+    "name": "kick",
+    "verb": "kicks",
+    "attackModifier": "MARTIAL_ARTS",
+    "modifiers": "80000000000000,01",
+    "damageType": "BLUDGEONING"
+  },
+  {
+    "name": "throw",
+    "verb": "throws",
+    "attackModifier": "THROW",
+    "modifiers": "8000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "lash",
+    "verb": "lashes",
+    "attackModifier": "NONE",
+    "modifiers": "0,",
+    "damageType": "SLASHING"
+  },
+  {
+    "name": "thrust",
+    "verb": "thrusts",
+    "attackModifier": "THRUST",
+    "modifiers": "80000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "fire",
+    "verb": "fires",
+    "attackModifier": "FIRE",
+    "modifiers": "100000000000000,0a",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "shoot",
+    "verb": "shoots",
+    "attackModifier": "SHOOT",
+    "modifiers": "100000000000000,01",
+    "damageType": "PIERCING"
+  },
+  {
+    "name": "bash",
+    "verb": "bashes",
+    "attackModifier": "BASH",
+    "modifiers": "100000000000000,01",
+    "damageType": "BLUDGEONING"
+  },
+  {
+    "name": "_SHIELD_BASH_",
+    "verb": "bashes",
+    "attackModifier": "NONE",
+    "modifiers": "100000000000000,01",
+    "damageType": "BLUDGEONING"
+  }
+]

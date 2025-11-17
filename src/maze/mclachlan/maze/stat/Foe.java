@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat;
 
+import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
@@ -142,6 +143,16 @@ public class Foe extends UnifiedActor
 		super.setInventory(new Inventory(MAX_PACK_ITEMS));
 	}
 
+	public FoeTemplate getFoeTemplate()
+	{
+		return template;
+	}
+
+	public Color getSpeechColour()
+	{
+		return getSprite().getCurrentTexture().getIndicativeColor();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void generateInventory()
 	{
@@ -183,11 +194,16 @@ public class Foe extends UnifiedActor
 	 */
 	public void initialEquip()
 	{
+		List<EquipableSlot> allEquipableSlots = this.getAllEquipableSlots();
+
+		// sort in priority order, e.g. primary vs secondary weapons
+		allEquipableSlots.sort(Comparator.comparing(EquipableSlot::getType));
+
 		Maze.log(Log.DEBUG, template.getName()+" organises inventory");
-		Maze.log(Log.DEBUG, template.getName()+" slots: ["+this.getAllEquipableSlots()+"]");
+		Maze.log(Log.DEBUG, template.getName()+" slots: ["+ allEquipableSlots +"]");
 		Maze.log(Log.DEBUG, template.getName()+" inventory: ["+this.getInventory()+"]");
 
-		for (EquipableSlot slot : this.getAllEquipableSlots())
+		for (EquipableSlot slot : allEquipableSlots)
 		{
 			List<Item> inventory = this.getInventory().getItems();
 			Item item = getBestItemForSlot(slot.getType(), inventory);
@@ -600,6 +616,21 @@ public class Foe extends UnifiedActor
 	public void setIdentificationState(int state)
 	{
 		this.identificationState = state;
+
+		if (identificationState == Item.IdentificationState.IDENTIFIED)
+		{
+			// identify any items that have an identification difficulty same
+			// or less than this foe type
+
+			for (Item item : this.getAllItems())
+			{
+				if (!item.isIdentified() &&
+					item.getIdentificationDifficulty() <= this.getIdentificationDifficulty())
+				{
+					item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+				}
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -859,6 +890,21 @@ public class Foe extends UnifiedActor
 	public void sortInventory()
 	{
 
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void sortTradingInventory()
+	{
+	}
+
+	public void removeTradingItem(Item item, boolean removeWholeStack)
+	{
+		getInventory().remove(item);
+	}
+
+	public void addTradingItem(Item item)
+	{
+		getInventory().add(item);
 	}
 
 	public boolean isInterestedInBuyingItem(Item item, PlayerCharacter pc)

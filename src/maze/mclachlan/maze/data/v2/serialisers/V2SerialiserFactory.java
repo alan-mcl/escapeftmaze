@@ -580,7 +580,7 @@ public class V2SerialiserFactory
 		ReflectiveSerialiser defaultSerialiser =
 			getReflectiveSerialiser(MazeTexture.class, "name", "imageResources", "animationDelay", "scrollBehaviour", "scrollSpeed");
 
-		defaultSerialiser.addCustomSerialiser("imageResources", new ListSerialiser(new DirectObjectSerialiser<String>()));
+		defaultSerialiser.addCustomSerialiser("imageResources", new ListSerialiser<>(new DirectObjectSerialiser<String>()));
 
 		HashMap<Class, V2SerialiserMap<MazeTexture>> map = new HashMap<>();
 		map.put(MazeTexture.class, defaultSerialiser);
@@ -588,8 +588,24 @@ public class V2SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<FoeTemplate> getFoeTemplateSerialiser(
-		Database db)
+	public static V2SerialiserMap<FoeSpeech> getFoeSpeechSerialiser(Database db)
+	{
+		var result = getReflectiveSerialiser(
+			FoeSpeech.class,
+			"name",
+			"friendlyGreeting",
+			"neutralGreeting",
+			"friendlyFarewell",
+			"neutralFarewell",
+			"dialog");
+
+		result.addCustomSerialiser("dialog", getNpcSpeechSerialiser());
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<FoeTemplate> getFoeTemplateSerialiser(Database db)
 	{
 		ReflectiveSerialiser defaultSerialiser =
 			getReflectiveSerialiser(FoeTemplate.class,
@@ -634,7 +650,8 @@ public class V2SerialiserFactory
 				"spellLikeAbilities",
 				"focus",
 				"defaultAttitude",
-				"alliesOnCall");
+				"alliesOnCall",
+				"foeSpeech");
 
 		defaultSerialiser.addCustomSerialiser("types", new ListSerialiser(new NameSerialiser<>(db::getFoeType)));
 		defaultSerialiser.addCustomSerialiser("race", new NameSerialiser<>(db::getRace));
@@ -654,6 +671,7 @@ public class V2SerialiserFactory
 		defaultSerialiser.addCustomSerialiser("naturalWeapons", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		defaultSerialiser.addCustomSerialiser("spellBook", getSpellBookSerialiser(db));
 		defaultSerialiser.addCustomSerialiser("spellLikeAbilities", new ListSerialiser(getSpellLikeAbilitySerialiser(db)));
+		defaultSerialiser.addCustomSerialiser("foeSpeech", new NameSerialiser<>(db::getFoeSpeech));
 
 		HashMap<Class, V2SerialiserMap<FoeTemplate>> map = new HashMap<>();
 		map.put(FoeTemplate.class, defaultSerialiser);
