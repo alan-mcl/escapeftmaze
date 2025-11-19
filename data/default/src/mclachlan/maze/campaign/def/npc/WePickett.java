@@ -373,7 +373,7 @@ public class WePickett extends NpcScript
 			new NpcSpeechEvent("Yes, yes, good to meet you. I'm Pickett, W E " +
 				"Pickett, Director, Ichiba Chamber of Commerce. I've heard " +
 				"of your arrival. How are you settling into Ichiba? " +
-				"Please to finally meet you.", npc));
+				"Pleased to finally meet you.", npc));
 
 		checkQuests(result);
 

@@ -37,7 +37,7 @@ public class SpeechBubble
 	private Rectangle bounds;
 	private int index;
 	private ArrayList<String> strings;
-	private Color textColour;
+	private final Color textColour;
 
 	/**
 	 * Orientation of the speech bubble relative to its origination bounds
@@ -92,7 +92,7 @@ public class SpeechBubble
 		double luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
 		// If the background is bright, return black; if dark, return white.
-		return luminance > 0.5 ? Color.DARK_GRAY : Color.LIGHT_GRAY;
+		return luminance > 0.125 ? Color.DARK_GRAY : Color.LIGHT_GRAY;
 	}
 
 	public static void remove(SpeechBubble speechBubble)

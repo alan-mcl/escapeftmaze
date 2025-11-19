@@ -13,12 +13,23 @@ make hidden stuff tile script work again
 
 bug: zone change flickering
 
+Eva quest -> Gurney
+
 ICHIBA CITY
 -----------
 city secret passage button
+city staircase
 foe rebalancing
 guildmaster button
 NPC-on-same-tile issue
+
+crater bazaar
+The Tumbledown
+random houses: encounters and locked doors
+NPC bedrooms with loot
+Inn kitchen
+ambient encounters
+complete rando NPC dialog
 
 BACKLOG
 ----------

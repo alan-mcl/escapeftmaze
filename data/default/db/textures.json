@@ -1689,6 +1689,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.pillar.2",
+    "imageResources": [
+      "crusader/scene/pillar_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.pillar.1",
     "imageResources": [
       "crusader/scene/pillar_1"

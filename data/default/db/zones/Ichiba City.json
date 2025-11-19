@@ -808,33 +808,6 @@
       "mazeScript": "generic door creak"
     },
     {
-      "mazeVariable": "ichiba.city.portal.29",
-      "initialState": "unlocked",
-      "from": "15:22",
-      "fromFacing": "2",
-      "to": "15:23",
-      "toFacing": "1",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
       "mazeVariable": "ichiba.city.portal.30",
       "initialState": "unlocked",
       "from": "16:25",
@@ -1271,60 +1244,6 @@
       "mazeScript": "generic door creak"
     },
     {
-      "mazeVariable": "ichiba.city.portal.46",
-      "initialState": "unlocked",
-      "from": "16:16",
-      "fromFacing": "1",
-      "to": "16:15",
-      "toFacing": "2",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
-      "mazeVariable": "ichiba.city.portal.47",
-      "initialState": "unlocked",
-      "from": "14:14",
-      "fromFacing": "1",
-      "to": "14:13",
-      "toFacing": "2",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
       "mazeVariable": "ichiba.city.portal.48",
       "initialState": "locked",
       "from": "12:9",
@@ -1467,33 +1386,6 @@
       "fromFacing": "3",
       "to": "20:11",
       "toFacing": "4",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
-      "mazeVariable": "",
-      "initialState": "unlocked",
-      "from": "22:12",
-      "fromFacing": "4",
-      "to": "21:12",
-      "toFacing": "3",
       "twoWay": "true",
       "canForce": "true",
       "canPick": "true",
@@ -1999,6 +1891,33 @@
       "keyItem": "null",
       "consumeKeyItem": "true",
       "mazeScript": "Ichiba City to Depths (coc)"
+    },
+    {
+      "mazeVariable": "ichiba.city.portal.70",
+      "initialState": "unlocked",
+      "from": "19:12",
+      "fromFacing": "3",
+      "to": "20:12",
+      "toFacing": "4",
+      "twoWay": "true",
+      "canForce": "true",
+      "canPick": "false",
+      "canSpellPick": "true",
+      "hitPointCostToForce": "15",
+      "resistForce": "5",
+      "difficulty": [
+        "10",
+        "0",
+        "10",
+        "0",
+        "10",
+        "0",
+        "10",
+        "0"
+      ],
+      "required": "1010101",
+      "consumeKeyItem": "true",
+      "mazeScript": "generic door creak"
     }
   ],
   "tiles": [
@@ -2465,7 +2384,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "1:2",
@@ -2476,7 +2396,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "1:3",
@@ -2495,7 +2416,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "1:4",
@@ -2506,7 +2428,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "1:5",
@@ -2517,7 +2440,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "1:6",
@@ -2759,7 +2683,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "1:28",
@@ -2770,7 +2695,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "1:29",
@@ -2836,7 +2762,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "1:35",
@@ -2847,7 +2774,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "1:36",
@@ -2858,7 +2786,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "1:37",
@@ -2869,7 +2798,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "1:38",
@@ -2880,7 +2810,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "1:39",
@@ -2915,7 +2846,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "2:2",
@@ -2926,7 +2858,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "2:3",
@@ -2945,7 +2878,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "2:4",
@@ -2956,7 +2890,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "2:5",
@@ -2967,7 +2902,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "2:6",
@@ -3209,7 +3145,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "2:28",
@@ -3220,7 +3157,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "2:29",
@@ -3286,7 +3224,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "2:35",
@@ -3306,7 +3245,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "2:36",
@@ -3317,7 +3257,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "2:37",
@@ -3328,7 +3269,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "2:38",
@@ -3339,7 +3281,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "2:39",
@@ -3408,7 +3351,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "3:2",
@@ -3419,7 +3363,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "3:3",
@@ -3430,7 +3375,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "3:4",
@@ -3441,7 +3387,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "3:5",
@@ -3452,7 +3399,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "3:6",
@@ -3672,7 +3620,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "3:26",
@@ -3683,7 +3632,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "3:27",
@@ -3694,7 +3644,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "3:28",
@@ -3705,7 +3656,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "3:29",
@@ -3771,7 +3723,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "3:35",
@@ -3782,7 +3735,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "3:36",
@@ -3793,7 +3747,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "3:37",
@@ -3804,7 +3759,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "3:38",
@@ -3815,7 +3771,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "3:39",
@@ -3850,7 +3807,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "4:2",
@@ -3861,7 +3819,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "4:3",
@@ -3872,7 +3831,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "4:4",
@@ -3883,7 +3843,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "4:5",
@@ -3894,7 +3855,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "4:6",
@@ -4114,7 +4076,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "4:26",
@@ -4125,7 +4088,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "4:27",
@@ -4136,7 +4100,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "4:28",
@@ -4147,7 +4112,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl2"
       },
       {
         "coords": "4:29",
@@ -4213,7 +4179,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "4:35",
@@ -4224,7 +4191,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "4:36",
@@ -4235,7 +4203,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "4:37",
@@ -4246,7 +4215,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "4:38",
@@ -4257,7 +4227,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_2"
       },
       {
         "coords": "4:39",
@@ -4292,7 +4263,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "5:2",
@@ -4303,7 +4275,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "5:3",
@@ -4314,7 +4287,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "5:4",
@@ -4325,7 +4299,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "5:5",
@@ -4336,7 +4311,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_2"
       },
       {
         "coords": "5:6",
@@ -6296,7 +6272,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "9:18",
@@ -6307,7 +6284,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "9:19",
@@ -6326,7 +6304,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "9:20",
@@ -6337,7 +6316,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "9:21",
@@ -6348,7 +6328,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "9:22",
@@ -6777,7 +6758,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "10:18",
@@ -6788,7 +6770,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "10:19",
@@ -6799,7 +6782,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "10:20",
@@ -6810,7 +6794,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "10:21",
@@ -6821,7 +6806,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "10:22",
@@ -7237,7 +7223,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "11:18",
@@ -7248,7 +7235,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "11:19",
@@ -7259,7 +7247,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "11:20",
@@ -7270,7 +7259,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "11:21",
@@ -7281,7 +7271,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "11:22",
@@ -7729,7 +7720,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "12:18",
@@ -7740,7 +7732,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "12:19",
@@ -7751,7 +7744,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "12:20",
@@ -7762,7 +7756,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "12:21",
@@ -7773,7 +7768,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "12:22",
@@ -7810,23 +7806,15 @@
       },
       {
         "coords": "12:25",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.30"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030203020102",
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "12:26",
@@ -7837,7 +7825,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "12:27",
@@ -7881,7 +7870,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "12:31",
@@ -7892,7 +7882,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "12:32",
@@ -7903,7 +7894,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "12:33",
@@ -8223,7 +8215,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "13:19",
@@ -8234,7 +8227,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "13:20",
@@ -8253,7 +8247,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "13:21",
@@ -8317,7 +8312,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "13:26",
@@ -8328,7 +8324,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "13:27",
@@ -8361,7 +8358,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "13:30",
@@ -8372,7 +8370,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "13:31",
@@ -8383,7 +8382,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "13:32",
@@ -8394,7 +8394,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "13:33",
@@ -8405,7 +8406,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "13:34",
@@ -8629,16 +8631,7 @@
       },
       {
         "coords": "14:13",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.21"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02010203030301",
         "terrainType": "URBAN",
@@ -8649,7 +8642,15 @@
       },
       {
         "coords": "14:14",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02010203030102",
         "terrainType": "URBAN",
@@ -8743,7 +8744,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "coc_lvl_1"
       },
       {
         "coords": "14:20",
@@ -8831,7 +8833,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "14:24",
@@ -8842,7 +8845,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "14:25",
@@ -8853,7 +8857,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "14:26",
@@ -8864,7 +8869,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "14:27",
@@ -8897,7 +8903,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "14:30",
@@ -8908,7 +8915,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "14:31",
@@ -8919,7 +8927,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "14:32",
@@ -8955,7 +8964,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "14:33",
@@ -8966,7 +8976,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "14:34",
@@ -9299,23 +9310,15 @@
       },
       {
         "coords": "15:23",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.28"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030201030303",
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "15:24",
@@ -9326,27 +9329,20 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "15:25",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.29"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010103030303",
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "15:26",
@@ -9357,7 +9353,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "tumbledown_lvl1"
       },
       {
         "coords": "15:27",
@@ -9409,7 +9406,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "15:31",
@@ -9420,7 +9418,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "15:32",
@@ -9431,7 +9430,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_1"
       },
       {
         "coords": "15:33",
@@ -9635,7 +9635,15 @@
       },
       {
         "coords": "16:11",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,01020301030302",
         "terrainType": "URBAN",
@@ -9679,16 +9687,7 @@
       },
       {
         "coords": "16:15",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.20"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03020101030302",
         "terrainType": "URBAN",
@@ -9699,7 +9698,15 @@
       },
       {
         "coords": "16:16",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02020203030203",
         "terrainType": "URBAN",
@@ -10130,7 +10137,15 @@
       },
       {
         "coords": "17:15",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02020101020202",
         "terrainType": "URBAN",
@@ -12176,16 +12191,7 @@
       },
       {
         "coords": "21:12",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.11"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010203030102",
         "terrainType": "URBAN",
@@ -16649,7 +16655,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "ICHIBA\n\nCity In The Crater"
+            "text": "ICHIBA\nCity In The Crater"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -18708,7 +18714,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:2",
@@ -18719,7 +18726,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:3",
@@ -18730,7 +18738,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:4",
@@ -18741,7 +18750,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:5",
@@ -18752,7 +18762,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:6",
@@ -19071,7 +19082,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:35",
@@ -19082,7 +19094,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:36",
@@ -19101,7 +19114,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:37",
@@ -19120,7 +19134,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:38",
@@ -19131,7 +19146,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "35:39",
@@ -19166,7 +19182,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:2",
@@ -19177,7 +19194,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:3",
@@ -19188,7 +19206,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:4",
@@ -19199,7 +19218,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:5",
@@ -19210,7 +19230,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:6",
@@ -19547,7 +19568,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:35",
@@ -19567,7 +19589,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:36",
@@ -19614,7 +19637,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:37",
@@ -19633,7 +19657,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:38",
@@ -19652,7 +19677,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "36:39",
@@ -19687,7 +19713,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:2",
@@ -19698,7 +19725,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:3",
@@ -19709,7 +19737,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:4",
@@ -19720,7 +19749,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:5",
@@ -19731,7 +19761,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:6",
@@ -20050,7 +20081,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:35",
@@ -20070,7 +20102,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:36",
@@ -20090,7 +20123,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:37",
@@ -20109,7 +20143,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:38",
@@ -20120,7 +20155,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "37:39",
@@ -20155,7 +20191,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:2",
@@ -20166,7 +20203,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:3",
@@ -20177,7 +20215,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:4",
@@ -20188,7 +20227,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:5",
@@ -20199,7 +20239,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:6",
@@ -20518,7 +20559,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:35",
@@ -20529,7 +20571,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:36",
@@ -20540,7 +20583,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:37",
@@ -20559,7 +20603,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:38",
@@ -20570,7 +20615,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "imogen_lvl_3"
       },
       {
         "coords": "38:39",
@@ -26001,33 +26047,33 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -26401,33 +26447,33 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -26811,23 +26857,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -27211,23 +27257,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -30420,7 +30466,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -30430,7 +30476,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -30820,7 +30866,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -30830,7 +30876,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31110,7 +31156,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31120,7 +31166,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31200,7 +31246,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31210,7 +31256,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31220,7 +31266,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31230,7 +31276,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31510,7 +31556,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31520,7 +31566,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31600,7 +31646,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31610,7 +31656,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31620,7 +31666,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31630,7 +31676,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31890,7 +31936,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31900,7 +31946,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31910,7 +31956,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -31920,7 +31966,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -32290,7 +32336,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -32300,7 +32346,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -32310,7 +32356,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -32320,7 +32366,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -41083,18 +41129,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -41103,6 +41141,14 @@
         ],
         "visible": "true",
         "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_ARCH"
+        ],
+        "visible": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -41447,17 +41493,17 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
         "height": "1"
       },
@@ -41724,29 +41770,22 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -42387,13 +42426,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -42656,15 +42692,16 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -42672,15 +42709,16 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -43007,11 +43045,12 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -43349,7 +43388,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -43667,7 +43706,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -43992,11 +44031,12 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -44279,15 +44319,16 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -44295,15 +44336,16 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -44643,22 +44685,20 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
           "CITY_WALL_1"
         ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -45200,18 +45240,18 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -45276,7 +45316,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -45284,22 +45324,18 @@
         ],
         "visible": "true",
         "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -45535,9 +45571,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -45822,18 +45856,18 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -45914,7 +45948,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -45922,7 +45956,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -45930,7 +45964,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -45938,7 +45972,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -46480,34 +46514,34 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -54532,6 +54566,9 @@
         "textures": [
           "CITY_WALL_1"
         ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
         "visible": "true",
         "solid": "true",
         "height": "1"
@@ -54546,10 +54583,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_WALL_1_WINDOW"
         ],
         "visible": "true",
         "solid": "true",
@@ -54817,7 +54851,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_WINDOW"
         ],
         "visible": "true",
         "solid": "true",
@@ -54868,10 +54902,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -55156,10 +55190,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -55499,7 +55533,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_WINDOW"
         ],
         "visible": "true",
         "solid": "true",
@@ -55515,10 +55549,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -56109,7 +56143,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -56141,7 +56175,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -56436,7 +56470,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -56479,7 +56513,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -56781,7 +56815,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -56828,14 +56862,16 @@
       },
       {
         "textures": [
+          "CITY_WALL_1",
           "CITY_WALL_1"
         ],
         "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_DOOR_1",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -57109,7 +57145,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -57152,7 +57188,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -57443,7 +57479,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -57475,7 +57511,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -58137,7 +58173,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -58153,7 +58189,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -58465,7 +58501,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -58481,7 +58517,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -58704,10 +58740,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -58720,10 +58756,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -58776,49 +58812,51 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
+          "CITY_WALL_1",
           "CITY_WALL_1"
         ],
         "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_DOOR_1",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1",
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1",
+          "TRANSPARENT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [
@@ -59037,26 +59075,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -59070,6 +59092,108 @@
       {
         "textures": [
           "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -59112,92 +59236,6 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
           "No_WAll"
         ],
         "visible": "false",
@@ -59358,7 +59396,7 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -59390,10 +59428,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -59686,7 +59724,7 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -59718,10 +59756,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -63938,120 +63976,120 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13056",
         "yPos": "12544",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13056",
         "yPos": "13568",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13398",
         "yPos": "12714",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13738",
         "yPos": "12714",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13398",
         "yPos": "13398",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "13738",
         "yPos": "13398",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14422",
         "yPos": "12714",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14762",
         "yPos": "12714",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14422",
         "yPos": "13398",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14762",
         "yPos": "13398",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14080",
         "yPos": "12714",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "14080",
         "yPos": "13398",
         "lightSource": "false",
@@ -64428,40 +64466,40 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
         "xPos": "9472",
         "yPos": "8278",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
         "xPos": "9472",
         "yPos": "8448",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
         "xPos": "9302",
         "yPos": "8618",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
         "xPos": "10154",
         "yPos": "8278",
         "lightSource": "false",
@@ -64478,10 +64516,10 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
         "xPos": "10838",
         "yPos": "9814",
         "lightSource": "false",
@@ -64508,20 +64546,20 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "12544",
         "yPos": "12544",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
         "xPos": "12544",
         "yPos": "13568",
         "lightSource": "false",
@@ -67495,7 +67533,7 @@
         "southTexture": "objects.chair.1",
         "eastTexture": "objects.chair.1",
         "westTexture": "objects.chair.1",
-        "xPos": "9276",
+        "xPos": "9409",
         "yPos": "6687",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
@@ -67515,8 +67553,8 @@
         "southTexture": "objects.table.2",
         "eastTexture": "objects.table.2",
         "westTexture": "objects.table.2",
-        "xPos": "9472",
-        "yPos": "7424",
+        "xPos": "9412",
+        "yPos": "7482",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -67527,6 +67565,36 @@
         "westTexture": "objects.fungus.3",
         "xPos": "18688",
         "yPos": "598",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1.side",
+        "eastTexture": "objects.bed.1",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "11008",
+        "yPos": "6400",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
+        "xPos": "7936",
+        "yPos": "7168",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.2",
+        "southTexture": "objects.pillar.2",
+        "eastTexture": "objects.pillar.2",
+        "westTexture": "objects.pillar.2",
+        "xPos": "8448",
+        "yPos": "7168",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

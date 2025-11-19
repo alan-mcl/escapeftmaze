@@ -10746,7 +10746,7 @@
           "keywords": [
             "belisarius"
           ],
-          "speech": "The leonal boss. A good soldier, I\u0027m sure. But his grasp of economics is lacking. We\u0027re not living in the dark ages any more, children are taught about compound interest in school these days."
+          "speech": "The leonal boss. A good soldier, I\u0027m sure. But his grasp of economics is lacking.\nWe\u0027re not living in the dark ages any more, children are taught about compound interest in school these days."
         },
         {
           "priority": "9",
@@ -10782,7 +10782,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": "Trade is the lifeblood of Ichiba, and we control the trade. Everyone gets a fair deal, we take our cut, and provide logistical and security related services. Bottom line - goods keep moving. Can\u0027t have it any other way."
+          "speech": "Trade is the lifeblood of Ichiba, and we control the trade.\nEveryone gets a fair deal, we take our cut, and provide logistical and security related services.\nBottom line - goods keep moving. Can\u0027t have it any other way."
         },
         {
           "priority": "9",
@@ -10832,7 +10832,7 @@
           "keywords": [
             "first realm"
           ],
-          "speech": "Well, I know the trade network we have here can\u0027t compare to what you\u0027re used to at home. But circumstances are different. This Realm is a lot wilder, a lot less of a civilised market to sell into. But we\u0027re doing what we can. It takes time to build up."
+          "speech": "Well, I know the trade network we have here can\u0027t compare to what you\u0027re used to back in the First.\nBut circumstances are different. This Realm is a lot wilder, a lot less of a civilised market to sell into. \nWe\u0027re doing what we can. It takes time to build up."
         },
         {
           "priority": "9",
@@ -10863,7 +10863,7 @@
             "gentlemen\u0027s social club",
             "thieves guild"
           ],
-          "speech": "Those blasted thieves are an incessant nuisance! They\u0027re led by a fellow called Kay, who styles himself as some sort of glorified brigand king. Needless to say, their banditry comes straight off our bottom line. They have no regard for the hard work an honest merchant puts into making a living!"
+          "speech": "Those blasted thieves are an incessant nuisance! \nThey\u0027re led by a fellow called Kay, who styles himself as some sort of glorified brigand king. \nNeedless to say, their banditry comes straight off our bottom line. They have no regard for the hard work an honest merchant puts into making a living!"
         },
         {
           "priority": "9",
@@ -10886,7 +10886,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": "We run caravans out to the little folk, in their city Aenen. They\u0027re a reasonable trading partner, but their record keeping is horrendous. Best not to let them get into debt, because tomorrow morning they\u0027ll have woken up and forgotten about it!"
+          "speech": "We run caravans out to the little folk, in their city Aenen. They\u0027re a reasonable trading partner, but their record keeping is horrendous.\nBest not to let them get into debt, because tomorrow morning they\u0027ll have woken up and forgotten about it!"
         },
         {
           "priority": "9",
@@ -10896,28 +10896,28 @@
             "hello",
             "salutations"
           ],
-          "speech": "Hello."
+          "speech": "I\u0027m a busy man. What do you want?"
         },
         {
           "priority": "9",
           "keywords": [
             "hail"
           ],
-          "speech": "We used to run caravans out to Hail, before my time in this position. But the city was sacked by a dragon. Bad for business, that. We don\u0027t send people out that way now. It\u0027s a pity, I was fond of the cider they made there."
+          "speech": "We used to run caravans out to Hail, before my time in this position. But the city was sacked by a dragon. Bad for business, that.\nWe don\u0027t send people out that way now. It\u0027s a pity, I was fond of the cider they made there."
         },
         {
           "priority": "9",
           "keywords": [
             "ichiba"
           ],
-          "speech": "Ichiba might be smallish, by the scale of cities in the First Realm. But it\u0027s the best we have in thie Realm. And it\u0027s not such a bad place - there\u0027s an appetite for trade in this Crater, and with the C.O.C. providing a helping hand the economy is thriving."
+          "speech": "Ichiba might be smallish, by the scale of cities in the First Realm. But it\u0027s the best we have in thie Realm.\nIt\u0027s not such a bad place - there\u0027s an appetite for trade in the Crater, and with the C.O.C. providing a steady hand the economy is thriving."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": "Indeed I do know the green sorceress. Frankly, she\u0027s a nuisance. Always throwing her weight around, expecting special treatment, looking after her own ends. Having a witch working who-knows-what magicks in a lonely tower would be trying enough if she kept to herself, but it\u0027s insufferable when she tries to get involved in matters of economy and politics."
+          "speech": "Indeed I do know the green sorceress.\nFrankly, she\u0027s a nuisance. Always throwing her weight around, expecting special treatment, looking after her own ends.\nHaving a witch working who-knows-what magicks in a lonely tower would be trying enough if she kept to herself, but it\u0027s insufferable when she tries to get involved in matters of economy and politics."
         },
         {
           "priority": "9",
@@ -10925,7 +10925,7 @@
             "kay",
             "sir kay"
           ],
-          "speech": "He\u0027s blackguard of the worst sort - a rogue without morals or conscience, as lazy and shifty as they come. The local riff raff look up to him as some kind of leader, and he of course plays along and styles himself the Bandit King. Bah! The sooner we clean them up the better."
+          "speech": "He\u0027s blackguard of the worst sort - a rogue without morals or conscience, as lazy and shifty as they come.\nThe local riff raff look up to him as some kind of leader, and he of course plays along and styles himself the Bandit King.\nBah! The sooner we clean them up the better."
         },
         {
           "priority": "9",
@@ -10941,7 +10941,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": "The lion folk, always stalking around in the clanking armour. Most of them are pious and honest to a fault, thanks to that humourless goddess they worship. Running caravans out to their castle Danaos is a bit tedious - they have little grasp of the the niceties of modern economics. I once spent hours explaining compound interest to their quartermaster... and a month later he flew into a rage when I sent him a bill!"
+          "speech": "The lion folk, always stalking around in the clanking armour. Most of them are pious and honest to a fault, thanks to that humourless goddess they worship.\nRunning caravans out to their castle Danaos is a bit tedious - they have little grasp of the the niceties of modern economics.\nI once spent hours explaining compound interest to their quartermaster... and a month later he flew into a rage when I sent him a bill!"
         },
         {
           "priority": "9",
@@ -11006,7 +11006,7 @@
           "keywords": [
             "red ear"
           ],
-          "speech": "That\u0027s the gnoll who opened a shop in town recently. He\u0027s having some trouble with basic concepts like rent, tax and trading licenses. Damn savage gnolls, they should just stay in the forest."
+          "speech": "That\u0027s the gnoll who opened a shop in town recently. He\u0027s having some trouble with basic concepts like rent, tax and trading licenses.\nDamn savage gnolls, they should just stay in the forest."
         },
         {
           "priority": "9",

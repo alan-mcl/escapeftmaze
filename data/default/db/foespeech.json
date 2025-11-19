@@ -454,15 +454,893 @@
     "friendlyFarewell": "Go well, friends of Aenen... may luck skip ahead of you.",
     "neutralFarewell": "The road forgets no footsteps.",
     "dialog": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": ""
+        }
+      ]
     }
   },
   {
     "name": "leonals",
     "friendlyGreeting": "Blessings upon thee; thy presence is ever a welcome sight.",
     "neutralGreeting": "Move aside, stranger, lest thou hinder the Lady\u0027s own work.",
+    "friendlyFarewell": "Go in the Lady\u0027s grace, friends, and return when thou hast need.",
+    "neutralFarewell": "Go thy way, and may no folly follow thee.",
     "dialog": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": ""
+        }
+      ]
     }
   },
   {
@@ -472,7 +1350,445 @@
     "friendlyFarewell": "See you around. Holler if you need backup.",
     "neutralFarewell": "We\u0027re done here. Stay out of trouble.",
     "dialog": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "Not now. I\u0027m on the clock."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "We\u0027re done here. Stay out of trouble."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "The Chamber runs this city. Make sure you remember it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "Talks too much about virtue for my taste."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "Emmons? Yeah, there\u0027s coin on his head. Report any information to HQ."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "Say that again and you\u0027ll be spitting teeth on the cobbles."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "Guild scum slip through cracks, but we close those cracks fast."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "If you want exotic junk, he’s your gnome."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "We keep them in line easy enough. They yap and posture, then bolt when steel comes out."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "Half of them are harmless, the other half are dangerous..."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "We keep the peace here, remember that."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Everything you see here exists because the Chamber keeps the wheels turning."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "Not Chamber business, so not my problem."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "Wouldn\u0027t mind the bounty myself, but he\u0027s a slippery bastard."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Good intentions don’t keep streets safe for trade. We do."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": "He runs the Chamber, which means he runs this city."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "We\u0027re guards, not recruiters. Try the notice boards if you want busywork."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "If you’re buying from Red Ear, check the goods twice."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "They say the Guild’s planning something big. Not my problem unless it hits the streets."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "Just doing my job."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": "Pay my wage for the week and maybe I’ll share my life story."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": ""
+        }
+      ]
     }
   },
   {
@@ -482,7 +1798,445 @@
     "friendlyFarewell": "Go safe, friend-pack. We howl for your return.",
     "neutralFarewell": "Strangers go now. Good.",
     "dialog": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": ""
+        }
+      ]
     }
   },
   {
@@ -680,7 +2434,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": ""
+          "speech": "They’re loud, they’re dumb, and they bite."
         },
         {
           "priority": "9",
@@ -688,7 +2442,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": ""
+          "speech": "I don’t mind \u0027em. Easy to lift from, hard to catch."
         },
         {
           "priority": "9",
@@ -757,7 +2511,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": ""
+          "speech": "Leonals? Pah. Big furry paladins with sticks shoved so far up they walk like statues."
         },
         {
           "priority": "9",
