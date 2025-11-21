@@ -80,6 +80,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField encounterMazeVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
+	private JCheckBox bypassNpcScriptsOnNonHostile;
 	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript,
 		partyLeavesNeutralScript, partyLeavesFriendlyScript;
 	private JSpinner flavourTextDelay;
@@ -116,6 +117,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox steKeyModifier;
 	private ValueComponent steSkillValue, steSuccessValue;
 	private JComboBox steSuccessScript, steFailureScript;
+	private JTextArea npcSpeechSpeech;
+	private JSpinner npcSpeechDelay;
+	private DiceField backupPartyUpMaxTiles;
+	private JComboBox backupPartyUpFacing;
 
 	private JComboBox journalType;
 	private JTextField journalKey;
@@ -126,7 +131,6 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField displayOptionsTitle;
 	private List<JTextField> displayOptionsOptions;
 	private List<MazeEventsComponent> displayOptionsScripts;
-
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
@@ -242,6 +246,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				encounterPostAppearanceScript.refresh(ee.getPostAppearanceScript() == null ? null : ee.getPostAppearanceScript().getEvents());
 				partyLeavesNeutralScript.refresh(ee.getPartyLeavesNeutralScript() == null ? null : ee.getPartyLeavesNeutralScript().getEvents());
 				partyLeavesFriendlyScript.refresh(ee.getPartyLeavesFriendlyScript() == null ? null : ee.getPartyLeavesFriendlyScript().getEvents());
+				bypassNpcScriptsOnNonHostile.setSelected(ee.isBypassNpcScriptsOnNonHostile());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -278,6 +283,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				movePartyX.setValue(mpe.getPos().x);
 				movePartyY.setValue(mpe.getPos().y);
 				break;
+			case _BackPartyUpEvent:
+				BackPartyUpEvent bpe = (BackPartyUpEvent)e;
+				backupPartyUpMaxTiles.setDice(bpe.getMaxTiles());
+				backupPartyUpFacing.setSelectedItem(FACINGS[bpe.getFacing()]);
+				break;
 			case _CharacterClassKnowledgeEvent:
 				CharacterClassKnowledgeEvent ccke = (CharacterClassKnowledgeEvent)e;
 				Map<String, String> map = ccke.getKnowledgeText();
@@ -291,6 +301,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				PersonalitySpeechBubbleEvent spbe = (PersonalitySpeechBubbleEvent)e;
 				speechKey.setText(spbe.getSpeechKey());
 				modalSpeech.setSelected(spbe.isModal());
+				break;
+			case _NpcSpeechEvent:
+				NpcSpeechEvent nse = (NpcSpeechEvent)e;
+				npcSpeechDelay.setValue(nse.getDelay());
+				npcSpeechSpeech.setText(nse.getSpeechText());
 				break;
 			case _StoryboardEvent:
 				StoryboardEvent se = (StoryboardEvent)e;
@@ -424,7 +439,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _SummoningSucceedsEvent:
 			case _TheftSpellFailed:
 			case _TheftSpellSucceeded:
+			case _ActorsLeaveEvent:
+				// Nothing to set
 				break;
+
 			case _SoundEffectEvent:
 				SoundEffectEvent see = (SoundEffectEvent)e;
 				List<String> clipNames1 = see.getClipNames();
@@ -460,8 +478,6 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _ChangeNpcTheftCounter:
 			case _GiveItemToParty:
 			case _NpcAttacksEvent:
-			case _NpcLeavesEvent:
-			case _NpcSpeechEvent:
 			case _NpcTakesItemEvent:
 			case _WaitForPlayerSpeech:
 
@@ -531,7 +547,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					preScript,
 					postAppearanceScript,
 					partyLeavesNeutral,
-					partyLeavesFriendly);
+					partyLeavesFriendly,
+					bypassNpcScriptsOnNonHostile.isSelected());
 				break;
 			case _FlavourTextEvent:
 				this.result = new FlavourTextEvent(
@@ -567,6 +584,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					new Point((Integer)movePartyX.getValue(), (Integer)movePartyY.getValue()), 
 					movePartyFacing.getSelectedIndex());
 				break;
+			case _BackPartyUpEvent:
+				this.result = new BackPartyUpEvent(
+					backupPartyUpMaxTiles.getDice(),
+					backupPartyUpFacing.getSelectedIndex());
+				break;
 			case _CharacterClassKnowledgeEvent:
 				Map<String, String> kMap = new HashMap<>();
 				for (String c : cckClassesMap.keySet())
@@ -581,6 +603,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				break;
 			case _PersonalitySpeechEvent:
 				this.result = new PersonalitySpeechBubbleEvent(speechKey.getText(), modalSpeech.isSelected());
+				break;
+			case _NpcSpeechEvent:
+				this.result = new NpcSpeechEvent(null, npcSpeechSpeech.getText(), (Integer)npcSpeechDelay.getValue());
 				break;
 			case _StoryboardEvent:
 				this.result = new StoryboardEvent(
@@ -711,14 +736,15 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _AnimationEvent:
 				this.result = new AnimationEvent(animation.getAnimation());
 				break;
+			case _ActorsLeaveEvent:
+				this.result = new ActorsLeaveEvent();
+				break;
 
 			case _ChangeNpcAttitudeEvent:
 			case _ChangeNpcLocationEvent:
 			case _ChangeNpcTheftCounter:
 			case _GiveItemToParty:
 			case _NpcAttacksEvent:
-			case _NpcLeavesEvent:
-			case _NpcSpeechEvent:
 			case _NpcTakesItemEvent:
 			case _WaitForPlayerSpeech:
 
@@ -760,10 +786,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getDelayEventPanel();
 			case _MovePartyEvent:
 				return getMovePartyPanel();
+			case _BackPartyUpEvent:
+				return getBackPartyUpPanel();
 			case _CharacterClassKnowledgeEvent:
 				return getCharacterClassKnowledgePanel();
 			case _PersonalitySpeechEvent:
 				return getSpeechBubbleEventPanel();
+			case _NpcSpeechEvent:
+				return getNpcSpeechEventPanel();
 			case _StoryboardEvent:
 				return getStoryboardEventPanel();
 			case _SetUserConfigEvent:
@@ -842,19 +872,31 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getMusicPanel();
 			case _AnimationEvent:
 				return getAnimationPanel();
+			case _ActorsLeaveEvent:
+				return new JPanel();
 
 			case _ChangeNpcAttitudeEvent:
 			case _ChangeNpcLocationEvent:
 			case _ChangeNpcTheftCounter:
 			case _GiveItemToParty:
 			case _NpcAttacksEvent:
-			case _NpcLeavesEvent:
-			case _NpcSpeechEvent:
 			case _NpcTakesItemEvent:
 			case _WaitForPlayerSpeech:
 
 			default: return null;
 		}
+	}
+
+	private JPanel getNpcSpeechEventPanel()
+	{
+		npcSpeechDelay = new JSpinner(new SpinnerNumberModel(-1, -1, 99999, 1));
+		npcSpeechSpeech = new JTextArea(10, 35);
+		npcSpeechSpeech.setLineWrap(true);
+		npcSpeechSpeech.setWrapStyleWord(true);
+
+		return dirtyGridBagCrap(
+			new JLabel("Delay:"), npcSpeechDelay,
+			new JLabel("Speech:"), npcSpeechSpeech);
 	}
 
 	private JPanel getDisplayOptionsPanel()
@@ -1099,6 +1141,20 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private JPanel getBackPartyUpPanel()
+	{
+		backupPartyUpMaxTiles = new DiceField();
+		backupPartyUpFacing = new JComboBox(FACINGS);
+
+		JPanel result = new JPanel();
+		dirtyGridLayoutCrap(
+			result,
+			new JLabel("Max Tiles: "), backupPartyUpMaxTiles,
+			new JLabel("Facing: "), backupPartyUpFacing);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private JPanel getMovePartyPanel()
 	{
 		movePartyFacing = new JComboBox(FACINGS);
@@ -1274,6 +1330,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		partyLeavesNeutralScript = new MazeEventsComponent(dirtyFlag);
 		partyLeavesFriendlyScript = new MazeEventsComponent(dirtyFlag);
 
+		bypassNpcScriptsOnNonHostile = new JCheckBox("Bypass NPC Scripts On Non Hostile?");
+
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
@@ -1284,7 +1342,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			new JLabel("Pre Script: "), encounterPreScript,
 			new JLabel("Post Appearance Script: "), encounterPostAppearanceScript,
 			new JLabel("Party Leaves Neutral Script: "), partyLeavesNeutralScript,
-			new JLabel("Party Leaves Friendly Script: "), partyLeavesFriendlyScript
+			new JLabel("Party Leaves Friendly Script: "), partyLeavesFriendlyScript,
+			new JLabel(), bypassNpcScriptsOnNonHostile
 			);
 		return result;
 	}
@@ -1448,10 +1507,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Delay";
 			case _MovePartyEvent:
 				return "Move/Rotate Party";
+			case _BackPartyUpEvent:
+				return "Back Party Up";
 			case _CharacterClassKnowledgeEvent:
 				return "Character Class Knowledge";
 			case _PersonalitySpeechEvent:
 				return "Personality Speech";
+			case _NpcSpeechEvent:
+				return "NPC Speech";
 			case _StoryboardEvent:
 				return "Story Board Screen";
 			case _SetUserConfigEvent:
@@ -1530,14 +1593,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Music";
 			case _AnimationEvent:
 				return "Animation";
+			case _ActorsLeaveEvent:
+				return "Actors Leave";
 
 			case _ChangeNpcAttitudeEvent:
 			case _ChangeNpcLocationEvent:
 			case _ChangeNpcTheftCounter:
 			case _GiveItemToParty:
 			case _NpcAttacksEvent:
-			case _NpcLeavesEvent:
-			case _NpcSpeechEvent:
 			case _NpcTakesItemEvent:
 			case _WaitForPlayerSpeech:
 			case _ChangeNpcFactionAttitudeEvent:
@@ -1597,6 +1660,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _EndGame = 16;
 	public static final int _SetMazeVariableEvent = 17;
 	public static final int _PersonalitySpeechEvent = 18;
+	public static final int _NpcSpeechEvent = 206;
 	public static final int _StoryboardEvent = 19;
 	public static final int _SetUserConfigEvent = 20;
 	public static final int _TogglePortalStateEvent = 21;
@@ -1607,6 +1671,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _SoundEffectEvent = 138;
 	public static final int _JournalEntryEvent = 24;
 	public static final int _DisplayOptionsEvent = 25;
+	public static final int _ActorsLeaveEvent = 205;
+	public static final int _BackPartyUpEvent = 150;
 
 	// not implemented
 	public static final int _ActorDiesEvent = 100;
@@ -1655,15 +1721,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _SummoningSucceedsEvent = 146;
 	public static final int _TheftSpellFailed = 147;
 	public static final int _TheftSpellSucceeded = 148;
-	public static final int _BackPartyUpEvent = 149;
 
 	public static final int _ChangeNpcAttitudeEvent = 200;
 	public static final int _ChangeNpcLocationEvent = 201;
 	public static final int _ChangeNpcTheftCounter = 202;
 	public static final int _GiveItemToParty = 203;
 	public static final int _NpcAttacksEvent = 204;
-	public static final int _NpcLeavesEvent = 205;
-	public static final int _NpcSpeechEvent = 206;
 	public static final int _NpcTakesItemEvent = 207;
 	public static final int _WaitForPlayerSpeech = 208;
 	public static final int _ChangeNpcFactionAttitudeEvent = 209;
@@ -1699,6 +1762,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(MovePartyEvent.class, _MovePartyEvent);
 		types.put(CharacterClassKnowledgeEvent.class, _CharacterClassKnowledgeEvent);
 		types.put(PersonalitySpeechBubbleEvent.class, _PersonalitySpeechEvent);
+		types.put(NpcSpeechEvent.class, _NpcSpeechEvent);
 		types.put(StoryboardEvent.class, _StoryboardEvent);
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
 		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
@@ -1706,9 +1770,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(SkillTestEvent.class, _SkillTestEvent);
 		types.put(JournalEntryEvent.class, _JournalEntryEvent);
 		types.put(DisplayOptionsEvent.class, _DisplayOptionsEvent);
+		types.put(ActorsLeaveEvent.class, _ActorsLeaveEvent);
+		types.put(BackPartyUpEvent.class, _BackPartyUpEvent);
 
 		// not implemented
-		types.put(BackPartyUpEvent.class, _BackPartyUpEvent);
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
 		types.put(BlockingScreenEvent.class, _BlockingScreen);
@@ -1752,8 +1817,6 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(ChangeNpcTheftCounter.class, _ChangeNpcTheftCounter);
 		types.put(GiveItemToParty.class, _GiveItemToParty);
 		types.put(NpcAttacksEvent.class, _NpcAttacksEvent);
-		types.put(ActorsLeaveEvent.class, _NpcLeavesEvent);
-		types.put(NpcSpeechEvent.class, _NpcSpeechEvent);
 		types.put(NpcTakesItemEvent.class, _NpcTakesItemEvent);
 		types.put(WaitForPlayerSpeech.class, _WaitForPlayerSpeech);
 		types.put(SetMazeVariableEvent.class, _SetMazeVariableEvent);

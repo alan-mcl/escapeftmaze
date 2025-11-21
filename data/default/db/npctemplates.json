@@ -12096,11 +12096,12 @@
       "rows": [
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Amulet Of Ares"
+          "chanceOfVanishing": "15",
+          "itemName": "Willow Arrow",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
@@ -12108,871 +12109,62 @@
           "partyLevelAppearing": "3",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Assegai"
+          "itemName": "Bullet Stone",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
+          "partyLevelAppearing": "5",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Baselard"
+          "itemName": "Quarrel",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bearded War Axe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bo Stick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Boom Bomb"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bottled Mephits"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bread Roll"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bread Roll"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Buckler Shield"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "3",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Bullet Stone"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bunch Of Bananas"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Bunch Of Bananas"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Buskins"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Capacitor"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Chamois Gloves"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Chamois Skirt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Cherry Bomb"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Cloth Pants"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Cloth Shirt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Club"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Coil Of Copper Wire"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Conducting Solution"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Copper Mesh"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Corrosion Bomb"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Crook"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Cutlass"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Dagger"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Dungore\u0027s Malt Ale"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "4",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Elm Arrow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "2",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Feather Dart"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Feathered Hat"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Fire Stix"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
           "partyLevelAppearing": "6",
-          "maxStocked": "3",
+          "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Fletched Bolt"
+          "itemName": "Spike Stone",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
+          "partyLevelAppearing": "5",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Fur Halter"
+          "itemName": "Shrike Arrow",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Fur Leggings"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Fur Tunic"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Gnarled Staff"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Golden Apple"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Gyroscope"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Hachimaki"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Hail Bomb"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Halogen Lamp"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Hammer"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Hand Axe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Herbal Patty"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "High Pressure Hose"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
           "partyLevelAppearing": "7",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Hunter Arrow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Icicle Stix"
+          "itemName": "Hunter Arrow",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Iron Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Iron Ration"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Jian"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Jiyuu Sashimono"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Jo Stick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Kabuto"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Knock Pick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Koga Headband"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Kwai"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Leather Gloves"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Leather Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Lightning Rod"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Longsword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Lyre Of Legends"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Mace"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Main Guache"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Mitre"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Ninja Cowl"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Parabolic Reflector"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Pneumatic Piston"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "5",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Quarrel"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Quarterstaff"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Quilt Leggings"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Quilt Tunic"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Rapier"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Red Mushroom"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "2",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Rhine Stone"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Roasted Corn"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Roasted Corn"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Robes (L)"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Robes (U)"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Rose Petals"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Rutabaga"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Sabre"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Sandals"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Shaolin Sash"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Short Bow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Short Spear"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Short Sword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "5",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Shrike Arrow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "3",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Shuriken"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Silk Shirt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Skullcap"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Sling"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Small Clockwork Motor"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Sparkle Stix"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Spear"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
           "partyLevelAppearing": "6",
-          "maxStocked": "3",
+          "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Spike Stone"
+          "itemName": "Fletched Bolt",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "partyLevelAppearing": "2",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Spring Powered Catapult"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Stink Bomb"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Stone Of Fields"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Suede Doublet"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Suede Pants"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tabi Boots"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tanto"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tartan Kilt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tartan Trews"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "Thieves Tools"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
-          "partyLevelAppearing": "3",
-          "maxStocked": "3",
-          "chanceOfVanishing": "15",
-          "itemName": "Throwing Knife"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tomahawk"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tungsten Filament"
+          "itemName": "Rhine Stone",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
@@ -12980,7 +12172,8 @@
           "partyLevelAppearing": "4",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "War Hammer"
+          "itemName": "Elm Arrow",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
@@ -12988,31 +12181,971 @@
           "partyLevelAppearing": "4",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "War Scepter"
+          "itemName": "Musket Ball",
+          "stackSize": "3d6+35"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "2",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "0",
           "maxStocked": "1",
-          "chanceOfVanishing": "40",
-          "itemName": "White Standard"
+          "chanceOfVanishing": "15",
+          "itemName": "Black Powder",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "40",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Empty Bottle",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Capacitor",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Conducting Solution",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Copper Mesh",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Coil Of Copper Wire",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Gyroscope",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Halogen Lamp",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Parabolic Reflector",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Pneumatic Piston",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Small Clockwork Motor",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Telescoping Lance",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tesla Coil",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
-          "maxStocked": "3",
+          "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Willow Arrow"
+          "itemName": "Kabuto",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "chanceOfSpawning": "5",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Chamois Gloves",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Iron Helm",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Mitre",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Silk Shirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Quilt Leggings",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Quilt Tunic",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Leggings",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Tunic",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Gloves",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Helm",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Buskins",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tartan Kilt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tabi Boots",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Suede Doublet",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Feathered Hat",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tartan Trews",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Buckler Shield",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Suede Pants",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Ninja Cowl",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Hachimaki",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Skullcap",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sandals",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Chamois Skirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Halter",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Robes (L)",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Robes (U)",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Cloth Pants",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Cloth Shirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Short Bow",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Rapier",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Bearded War Axe",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "5",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sabre",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "War Scepter",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jian",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Short Sword",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Hand Axe",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tomahawk",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Mace",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "War Hammer",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "5",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Longsword",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Cutlass",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jo Stick",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tanto",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Baselard",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Kwai",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Main Guache",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sling",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Dagger",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Spear",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Crook",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Assegai",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Hammer",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Short Spear",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Bo Stick",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Quarterstaff",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Club",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Gnarled Staff",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Throwing Axe",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Throwing Knife",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Throwing Hammer",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Shuriken",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Javelin",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Feather Dart",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "0",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Wytch Stix"
+          "itemName": "Iron Ration",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Felt Slippers",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jesters Cap",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jesters Staff",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jo Stick",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Ninja Cowl",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Ninja Garb (L)",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Ninja Garb (U)",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Patchwork Coat",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Silk Pantaloons",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Silk Shirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Silver Ring",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tabi Boots",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tartan Kilt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tartan Trews",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Shuriken",
+          "stackSize": "5d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Bo Stick",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Assegai",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tomahawk",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Hachimaki",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "4",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sword Cane",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Omnigun Prototype",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "0",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Welding Goggles",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Utilikilt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Athame",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Smallsword",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Bullwhip",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Wand Of Airs",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Short Staff",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "5",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Nagamaki",
+          "stackSize": "1d1"
         }
       ]
     },

@@ -24,10 +24,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.StartCombatEvent;
-import mclachlan.maze.stat.npc.FoeSpeech;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
-import mclachlan.maze.stat.npc.PartyLeavesEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  *
@@ -112,16 +109,16 @@ public class DefaultFoeAiScript extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		if (actorEncounter.getPartyLeavesFriendlyScript() != null)
-		{
-			result.addAll(actorEncounter.getPartyLeavesFriendlyScript());
-		}
 		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
 		if (foeSpeech != null && foeSpeech.getFriendlyFarewell() != null)
 		{
 			result.add(new NpcSpeechEvent(foeSpeech.getFriendlyFarewell(), npc));
 		}
-		result.add(new PartyLeavesEvent());
+		if (actorEncounter.getPartyLeavesFriendlyScript() != null)
+		{
+			result.addAll(actorEncounter.getPartyLeavesFriendlyScript());
+		}
+		result.add(new ActorsLeaveEvent());
 		return result;
 	}
 
@@ -130,16 +127,16 @@ public class DefaultFoeAiScript extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		if (actorEncounter.getPartyLeavesNeutralScript() != null)
-		{
-			result.addAll(actorEncounter.getPartyLeavesNeutralScript());
-		}
 		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
 		if (foeSpeech != null && foeSpeech.getNeutralFarewell() != null)
 		{
 			result.add(new NpcSpeechEvent(foeSpeech.getNeutralFarewell(), npc));
 		}
-		result.add(new PartyLeavesEvent());
+		if (actorEncounter.getPartyLeavesNeutralScript() != null)
+		{
+			result.addAll(actorEncounter.getPartyLeavesNeutralScript());
+		}
+		result.add(new ActorsLeaveEvent());
 		return result;
 	}
 }

@@ -40,6 +40,7 @@ public class EncounterActorsEvent extends MazeEvent
 	private Combat.AmbushStatus ambushStatus;
 	private MazeScript preScript, postAppearanceScript,
 		partyLeavesNeutralScript, partyLeavesFriendlyScript;
+	private boolean bypassNpcScriptsOnNonHostile;
 
 	// volatile
 	private EncounterTable encounterTableRef;
@@ -57,7 +58,8 @@ public class EncounterActorsEvent extends MazeEvent
 		MazeScript preScript,
 		MazeScript postAppearanceScript,
 		MazeScript partyLeavesNeutralScript,
-		MazeScript partyLeavesFriendlyScript)
+		MazeScript partyLeavesFriendlyScript,
+		boolean bypassNpcScriptsOnNonHostile)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
@@ -67,6 +69,7 @@ public class EncounterActorsEvent extends MazeEvent
 		this.postAppearanceScript = postAppearanceScript;
 		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -78,7 +81,8 @@ public class EncounterActorsEvent extends MazeEvent
 		MazeScript preScript,
 		MazeScript postAppearanceScript,
 		MazeScript partyLeavesNeutralScript,
-		MazeScript partyLeavesFriendlyScript)
+		MazeScript partyLeavesFriendlyScript,
+		boolean bypassNpcScriptsOnNonHostile)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable.getName();
@@ -90,6 +94,7 @@ public class EncounterActorsEvent extends MazeEvent
 		this.postAppearanceScript = postAppearanceScript;
 		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -132,6 +137,7 @@ public class EncounterActorsEvent extends MazeEvent
 
 		return Maze.getInstance().encounterActors(
 			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus,
+				bypassNpcScriptsOnNonHostile,
 				preScriptEvents, postAppearanceScriptEvents,
 				partyLeavesNeutralScriptEvents, partyLeavesFriendlyScriptEvents));
 	}
@@ -218,5 +224,16 @@ public class EncounterActorsEvent extends MazeEvent
 		MazeScript partyLeavesFriendlyScript)
 	{
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+	}
+
+	public boolean isBypassNpcScriptsOnNonHostile()
+	{
+		return bypassNpcScriptsOnNonHostile;
+	}
+
+	public void setBypassNpcScriptsOnNonHostile(
+		boolean bypassNpcScriptsOnNonHostile)
+	{
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 }

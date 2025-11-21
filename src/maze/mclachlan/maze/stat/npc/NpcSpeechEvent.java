@@ -39,21 +39,25 @@ import mclachlan.maze.util.MazeException;
  */
 public class NpcSpeechEvent extends MazeEvent
 {
-	private final Foe npc;
-	private final String text;
-	private final int delay;
+	private Foe npc;
+	private String speechText;
+	private int delay;
+
+	public NpcSpeechEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text, Foe npc)
+	public NpcSpeechEvent(String speechText, Foe npc)
 	{
-		this(npc, text, Delay.WAIT_ON_CLICK);
+		this(npc, speechText, Delay.WAIT_ON_CLICK);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(Foe npc, String text, int delay)
+	public NpcSpeechEvent(Foe npc, String speechText, int delay)
 	{
 		this.npc = npc;
-		this.text = text;
+		this.speechText = speechText;
 		this.delay = delay;
 	}
 
@@ -61,6 +65,12 @@ public class NpcSpeechEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
+		if (npc == null)
+		{
+			// select the leader of the current encounter
+			npc = Maze.getInstance().getCurrentActorEncounter().getLeader();
+		}
+
 		SpeechBubble.Orientation orientation = switch (npc.getSprite().getVerticalAlignment())
 			{
 				case TOP -> SpeechBubble.Orientation.BELOW;
@@ -75,7 +85,7 @@ public class NpcSpeechEvent extends MazeEvent
 		{
 			SpeechBubbleDialog dialog = new SpeechBubbleDialog(
 				colour == null ? Constants.Colour.STEALTH_GREEN : colour,
-				text,
+				speechText,
 				npc.getSprite(),
 				orientation);
 
@@ -83,7 +93,7 @@ public class NpcSpeechEvent extends MazeEvent
 		}
 		else
 		{
-			Animation a = new SpeechBubbleAnimation(colour, text,
+			Animation a = new SpeechBubbleAnimation(colour, speechText,
 				Maze.getInstance().getUi().getObjectBounds(npc.getSprite()), orientation, delay);
 
 			Maze.getInstance().startAnimation(a, null, new AnimationContext(null));
@@ -91,7 +101,7 @@ public class NpcSpeechEvent extends MazeEvent
 
 		Maze.getInstance().journalInContext(
 			StringUtil.getUiLabel("j.npc.speech",
-				npc.getName(), text));
+				npc.getName(), speechText));
 		
 		return null;
 	}
@@ -106,5 +116,30 @@ public class NpcSpeechEvent extends MazeEvent
 	public boolean shouldClearText()
 	{
 		return true;
+	}
+
+	public Foe getNpc()
+	{
+		return npc;
+	}
+
+	public void setNpc(Foe npc)
+	{
+		this.npc = npc;
+	}
+
+	public String getSpeechText()
+	{
+		return speechText;
+	}
+
+	public void setSpeechText(String speechText)
+	{
+		this.speechText = speechText;
+	}
+
+	public void setDelay(int delay)
+	{
+		this.delay = delay;
 	}
 }

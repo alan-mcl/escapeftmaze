@@ -28,7 +28,6 @@ import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.npc.NpcManager;
-import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -100,32 +99,6 @@ public class GameTime
 		});
 		result.add(new LogEvent(Log.MEDIUM, "------[ turn "+ getTurnNr() +" ]------"));
 		return result;
-	}
-
-	private static class PerfLogEvent extends MazeEvent
-	{
-		String tag;
-		PerfEvent event;
-
-		enum PerfEvent {ENTER, EXIT};
-
-		public PerfLogEvent(PerfEvent event, String tag)
-		{
-			this.tag = tag;
-			this.event = event;
-		}
-
-		@Override
-		public List<MazeEvent> resolve()
-		{
-			switch (event)
-			{
-				case ENTER -> Maze.getPerfLog().enter(tag);
-				case EXIT -> Maze.getPerfLog().exit(tag);
-				default -> throw new MazeException("invalid "+event);
-			}
-			return null;
-		}
 	}
 
 	private static class LogEvent extends MazeEvent

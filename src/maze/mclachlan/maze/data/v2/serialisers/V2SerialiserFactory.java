@@ -436,7 +436,7 @@ public class V2SerialiserFactory
 
 		ReflectiveSerialiser encounterActorsSerialiser = getReflectiveSerialiser(EncounterActorsEvent.class,
 			"mazeVariable", "encounterTable", "attitude", "ambushStatus",
-			"preScript", "postAppearanceScript", "partyLeavesNeutralScript", "partyLeavesFriendlyScript");
+			"preScript", "postAppearanceScript", "partyLeavesNeutralScript", "partyLeavesFriendlyScript", "bypassNpcScriptsOnNonHostile");
 		map.put(EncounterActorsEvent.class, encounterActorsSerialiser);
 
 		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText", "alignment"));
@@ -487,6 +487,7 @@ public class V2SerialiserFactory
 		displayOptionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		map.put(DisplayOptionsEvent.class, displayOptionsSerialiser);
 
+		map.put(NpcSpeechEvent.class, getReflectiveSerialiser(NpcSpeechEvent.class, "speechText", "delay"));
 
 		// final result map
 		MazeObjectImplSerialiser<MazeEvent> result = new MazeObjectImplSerialiser<>(map);
@@ -497,6 +498,8 @@ public class V2SerialiserFactory
 		encounterActorsSerialiser.addCustomSerialiser("partyLeavesNeutralScript", result);
 		encounterActorsSerialiser.addCustomSerialiser("partyLeavesFriendlyScript", result);
 		displayOptionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(new ListSerialiser(result)));
+
+		map.put(ActorsLeaveEvent.class, getReflectiveSerialiser(ActorsLeaveEvent.class));
 
 		return result;
 	}
@@ -770,7 +773,8 @@ public class V2SerialiserFactory
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
 			"encounterTable", "mazeVariable", "attitude", "ambushStatus",
-			"preScriptEvents", "postAppearanceScriptEvents", "partyLeavesNeutralScript", "partyLeavesFriendlyScript");
+			"preScriptEvents", "postAppearanceScriptEvents", "partyLeavesNeutralScript", "partyLeavesFriendlyScript",
+			"bypassNpcScriptsOnNonHostile");
 		encounterSerialiser.addCustomSerialiser("encounterTable", new NameSerialiser<>(db::getEncounterTable));
 
 		encounterSerialiser.addCustomSerialiser("preScriptEvents", getMazeScriptSerialiser(db));

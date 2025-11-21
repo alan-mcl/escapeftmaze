@@ -22,6 +22,7 @@ city staircase
 foe rebalancing
 guildmaster button
 NPC-on-same-tile issue
+gate guards
 
 crater bazaar
 The Tumbledown

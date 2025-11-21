@@ -2483,14 +2483,9 @@ public class GameSys
 		{
 			for (Foe actor : ag.getFoes())
 			{
-				// give preference to NPCs, then legendary foes, then the highest
-				// level regular actor
+				// give preference to legendary foes, then the highest level regular actor
 
-//				if (actor instanceof Npc) todo
-//				{
-//					bestSoFar = actor;
-//				}
-				/*else */if (actor.getTypes().contains(Foe.Type.LEGENDARY) &&
+				if (actor.getTypes().contains(Foe.Type.LEGENDARY) &&
 					!bestSoFar.getTypes().contains(Foe.Type.LEGENDARY))
 				{
 					bestSoFar = actor;

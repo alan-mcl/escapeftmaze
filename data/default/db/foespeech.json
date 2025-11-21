@@ -467,7 +467,7 @@
           "keywords": [
             "aenen"
           ],
-          "speech": ""
+          "speech": "Aenen stands strong and stubborn. The Maze will not conquer us."
         },
         {
           "priority": "9",
@@ -513,7 +513,7 @@
             "sell",
             "buy"
           ],
-          "speech": ""
+          "speech": "A deal? Perhaps. We\u0027ll hear you out..."
         },
         {
           "priority": "9",
@@ -522,7 +522,7 @@
             "bye",
             "farewell"
           ],
-          "speech": ""
+          "speech": "The road forgets no footsteps."
         },
         {
           "priority": "9",
@@ -531,7 +531,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": ""
+          "speech": "Trade winds blow through Ichiba, aye."
         },
         {
           "priority": "9",
@@ -545,21 +545,21 @@
           "keywords": [
             "danaos"
           ],
-          "speech": ""
+          "speech": "They call it a realm of honor. We call it a realm that forgets its own shadows."
         },
         {
           "priority": "9",
           "keywords": [
             "diomedes"
           ],
-          "speech": ""
+          "speech": "He speaks of honor as if it were a cloak he never removes."
         },
         {
           "priority": "9",
           "keywords": [
             "emmons"
           ],
-          "speech": ""
+          "speech": "Where he walks, trouble walks two steps behind."
         },
         {
           "priority": "9",
@@ -604,7 +604,7 @@
             "fuck you",
             "fuck"
           ],
-          "speech": ""
+          "speech": "Anger is a small cloak, but you wear it bravely."
         },
         {
           "priority": "9",
@@ -627,14 +627,14 @@
             "gentlemen\u0027s social club",
             "thieves guild"
           ],
-          "speech": ""
+          "speech": "Ask them for honesty and they’ll steal the question right back."
         },
         {
           "priority": "9",
           "keywords": [
             "glaucus"
           ],
-          "speech": ""
+          "speech": "He of many words and even more wares."
         },
         {
           "priority": "9",
@@ -642,7 +642,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": ""
+          "speech": "Subtlety is a language they never learned."
         },
         {
           "priority": "9",
@@ -650,7 +650,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": ""
+          "speech": "Gnomes of Aenen walk sideways through the world. Straight paths are for taller folk."
         },
         {
           "priority": "9",
@@ -660,7 +660,7 @@
             "greetings",
             "salutations"
           ],
-          "speech": ""
+          "speech": "Mind where your steps fall, travelers."
         },
         {
           "priority": "9",
@@ -681,14 +681,14 @@
           "keywords": [
             "ichiba"
           ],
-          "speech": ""
+          "speech": "Every corner whispers a different secret… most of them half-true."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": ""
+          "speech": "Some fear her, some flatter her."
         },
         {
           "priority": "9",
@@ -703,7 +703,7 @@
             "kay",
             "sir kay"
           ],
-          "speech": ""
+          "speech": "Even the shadows owe him favors."
         },
         {
           "priority": "9",
@@ -719,7 +719,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": ""
+          "speech": "They speak of honor, yes... just before they pounce. Hypocrisy makes a fine mane.\nIf war comes, it will be because the lions wanted applause for starting it."
         },
         {
           "priority": "9",
@@ -769,7 +769,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": ""
+          "speech": "Pickett counts everything: coin, favors, enemies..."
         },
         {
           "priority": "9",
@@ -777,7 +777,7 @@
             "quests",
             "quest"
           ],
-          "speech": ""
+          "speech": "If you seek purpose, look under whatever stones you dare to lift."
         },
         {
           "priority": "9",
@@ -791,7 +791,7 @@
           "keywords": [
             "red ear"
           ],
-          "speech": ""
+          "speech": "Half of what he sells is junk, the other half trouble."
         },
         {
           "priority": "9",
@@ -807,7 +807,7 @@
             "rumors",
             "rumour"
           ],
-          "speech": ""
+          "speech": "Rumours flutter like moths. Catch one and another slips past."
         },
         {
           "priority": "9",
@@ -821,7 +821,7 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": ""
+          "speech": "Even the walls in his tavern have opinions."
         },
         {
           "priority": "9",
@@ -850,7 +850,7 @@
             "thanks",
             "thank you"
           ],
-          "speech": ""
+          "speech": "No need for thanks."
         },
         {
           "priority": "9",
@@ -860,7 +860,7 @@
             "thou",
             "you"
           ],
-          "speech": ""
+          "speech": "Ask again tomorrow; I might be someone different by then."
         },
         {
           "priority": "9",
@@ -915,7 +915,7 @@
           "keywords": [
             "aenen"
           ],
-          "speech": ""
+          "speech": "Aenen is a den of gnomish intrigue, ever scheming, ever pressing us toward the brink of war, reckless of the consequences of their actions."
         },
         {
           "priority": "9",
@@ -961,7 +961,7 @@
             "sell",
             "buy"
           ],
-          "speech": ""
+          "speech": "Speak thy needs plainly, and we shall see what may be bartered in honor."
         },
         {
           "priority": "9",
@@ -970,7 +970,7 @@
             "bye",
             "farewell"
           ],
-          "speech": ""
+          "speech": "Go thy way, and may no folly follow thee."
         },
         {
           "priority": "9",
@@ -979,7 +979,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": ""
+          "speech": "Their dealings are ever shrouded in petty scheming."
         },
         {
           "priority": "9",
@@ -993,21 +993,21 @@
           "keywords": [
             "danaos"
           ],
-          "speech": ""
+          "speech": "Much endureth by our shield-arm and our great fortress. \nBut for our watch upon the crater\u0027s edge, this domain would have long since been swallowed whole.\nLet none here forget whose vigilance holdeth the darkness at bay."
         },
         {
           "priority": "9",
           "keywords": [
             "diomedes"
           ],
-          "speech": ""
+          "speech": "Steadfast in duty and unwavering in The Lady\u0027s light."
         },
         {
           "priority": "9",
           "keywords": [
             "emmons"
           ],
-          "speech": ""
+          "speech": "A villain unworthy of mercy."
         },
         {
           "priority": "9",
@@ -1052,7 +1052,7 @@
             "fuck you",
             "fuck"
           ],
-          "speech": ""
+          "speech": "Mind thy tongue, wretch, lest honour compel me to silence it."
         },
         {
           "priority": "9",
@@ -1075,14 +1075,14 @@
             "gentlemen\u0027s social club",
             "thieves guild"
           ],
-          "speech": ""
+          "speech": "There is no honour amongst thieves."
         },
         {
           "priority": "9",
           "keywords": [
             "glaucus"
           ],
-          "speech": ""
+          "speech": "He is no threat, merely an irritation."
         },
         {
           "priority": "9",
@@ -1090,7 +1090,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": ""
+          "speech": "Trust them not overmuch; their loyalty shifteth with the scent of meat."
         },
         {
           "priority": "9",
@@ -1098,7 +1098,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": ""
+          "speech": "Beware their false courtesy, traveler.\nAenen\u0027s schemes have near drawn steel more times than I can count."
         },
         {
           "priority": "9",
@@ -1108,7 +1108,7 @@
             "greetings",
             "salutations"
           ],
-          "speech": ""
+          "speech": "Blessings upon thee."
         },
         {
           "priority": "9",
@@ -1129,14 +1129,14 @@
           "keywords": [
             "ichiba"
           ],
-          "speech": ""
+          "speech": "A strange crossroads, indeed, where virtue must stand guard at every hour."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": ""
+          "speech": "A perilous sorceress, weaving powers best left untouched."
         },
         {
           "priority": "9",
@@ -1151,14 +1151,14 @@
             "kay",
             "sir kay"
           ],
-          "speech": ""
+          "speech": "A villain unworthy of mercy."
         },
         {
           "priority": "9",
           "keywords": [
             "lady"
           ],
-          "speech": ""
+          "speech": "She who tempereth justice with mercy guideth every true heart."
         },
         {
           "priority": "9",
@@ -1167,7 +1167,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": ""
+          "speech": "Leonals stand where others falter; our honor is our armor, our duty our guide."
         },
         {
           "priority": "9",
@@ -1217,7 +1217,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": ""
+          "speech": "Avarice cloudeth his judgment."
         },
         {
           "priority": "9",
@@ -1225,7 +1225,7 @@
             "quests",
             "quest"
           ],
-          "speech": ""
+          "speech": "There are always shadows to be driven back in the Lady\u0027s name."
         },
         {
           "priority": "9",
@@ -1239,7 +1239,7 @@
           "keywords": [
             "red ear"
           ],
-          "speech": ""
+          "speech": "A gnoll trader of dubious repute."
         },
         {
           "priority": "9",
@@ -1255,7 +1255,7 @@
             "rumors",
             "rumour"
           ],
-          "speech": ""
+          "speech": "Tensions rise between the realms, and many fear steel shall speak ere long."
         },
         {
           "priority": "9",
@@ -1269,7 +1269,7 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": ""
+          "speech": "We lodge there when duty requireth; his hospitality is humble but sound."
         },
         {
           "priority": "9",
@@ -1298,7 +1298,7 @@
             "thanks",
             "thank you"
           ],
-          "speech": ""
+          "speech": "Thy courtesy is welcome."
         },
         {
           "priority": "9",
@@ -1308,7 +1308,7 @@
             "thou",
             "you"
           ],
-          "speech": ""
+          "speech": "We are knights of Danaos, sworn to the White Lady and unbending in our charge."
         },
         {
           "priority": "9",
@@ -1717,7 +1717,7 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": ""
+          "speech": "A steady fellow, that one."
         },
         {
           "priority": "9",
@@ -1857,7 +1857,7 @@
             "sell",
             "buy"
           ],
-          "speech": ""
+          "speech": "Show what you bring, then we see who smiles."
         },
         {
           "priority": "9",
@@ -1866,7 +1866,7 @@
             "bye",
             "farewell"
           ],
-          "speech": ""
+          "speech": "Strangers go now."
         },
         {
           "priority": "9",
@@ -1875,7 +1875,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": ""
+          "speech": "Commerce-people think they own everything."
         },
         {
           "priority": "9",
@@ -1896,14 +1896,14 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": ""
+          "speech": "Hrrf. Too proud."
         },
         {
           "priority": "9",
           "keywords": [
             "emmons"
           ],
-          "speech": ""
+          "speech": "We hear he got price on head. Big price."
         },
         {
           "priority": "9",
@@ -1948,7 +1948,7 @@
             "fuck you",
             "fuck"
           ],
-          "speech": ""
+          "speech": "Hrrf. Maybe you want fight… or you just stupid."
         },
         {
           "priority": "9",
@@ -1971,14 +1971,14 @@
             "gentlemen\u0027s social club",
             "thieves guild"
           ],
-          "speech": ""
+          "speech": "Cowards who fear real hunt."
         },
         {
           "priority": "9",
           "keywords": [
             "glaucus"
           ],
-          "speech": ""
+          "speech": "Try sell us shiny junk. We laugh, he leave quick."
         },
         {
           "priority": "9",
@@ -1986,7 +1986,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": ""
+          "speech": "We Gnolls strong-pack. Hunt hard, fight hard, live wild.\nGnolls no bow to city laws. Jungle give law, we follow."
         },
         {
           "priority": "9",
@@ -1994,7 +1994,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": ""
+          "speech": "Too many toys, not enough claws."
         },
         {
           "priority": "9",
@@ -2004,7 +2004,7 @@
             "greetings",
             "salutations"
           ],
-          "speech": ""
+          "speech": "We watch you close."
         },
         {
           "priority": "9",
@@ -2025,14 +2025,14 @@
           "keywords": [
             "ichiba"
           ],
-          "speech": ""
+          "speech": "Guards stare like we already bite someone."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": ""
+          "speech": "What about her?\nShe a great sorceress. You be scared."
         },
         {
           "priority": "9",
@@ -2047,7 +2047,7 @@
             "kay",
             "sir kay"
           ],
-          "speech": ""
+          "speech": "Just big sneak with fancy name."
         },
         {
           "priority": "9",
@@ -2063,7 +2063,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": ""
+          "speech": "They step in our jungle, they get lost fast."
         },
         {
           "priority": "9",
@@ -2113,7 +2113,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": ""
+          "speech": "City boss-man count coins all day."
         },
         {
           "priority": "9",
@@ -2121,7 +2121,7 @@
             "quests",
             "quest"
           ],
-          "speech": ""
+          "speech": "Jungle always got things need killing. If you tough enough."
         },
         {
           "priority": "9",
@@ -2135,7 +2135,7 @@
           "keywords": [
             "red ear"
           ],
-          "speech": ""
+          "speech": "He got good nose for deals."
         },
         {
           "priority": "9",
@@ -2151,7 +2151,7 @@
             "rumors",
             "rumour"
           ],
-          "speech": ""
+          "speech": "Hrrf. Jungle whisper plenty. You go listen."
         },
         {
           "priority": "9",
@@ -2165,7 +2165,7 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": ""
+          "speech": "Inn-man always listening."
         },
         {
           "priority": "9",
@@ -2194,7 +2194,7 @@
             "thanks",
             "thank you"
           ],
-          "speech": ""
+          "speech": "Thanks mean nothing in jungle."
         },
         {
           "priority": "9",
@@ -2204,7 +2204,7 @@
             "thou",
             "you"
           ],
-          "speech": ""
+          "speech": "Gnolls born in jungle, gnolls die in jungle."
         },
         {
           "priority": "9",
@@ -2613,7 +2613,7 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": ""
+          "speech": "Runs a clean taproom... too clean, if you ask me."
         },
         {
           "priority": "9",

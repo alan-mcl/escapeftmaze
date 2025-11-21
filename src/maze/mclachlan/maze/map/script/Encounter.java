@@ -39,6 +39,7 @@ public class Encounter extends TileScript
 	private NpcFaction.Attitude attitude;
 	private MazeScript preScriptEvents, postAppearanceScriptEvents, partyLeavesNeutralScript, partyLeavesFriendlyScript;
 	private Combat.AmbushStatus ambushStatus;
+	private boolean bypassNpcScriptsOnNonHostile;
 
 	public Encounter()
 	{
@@ -62,7 +63,8 @@ public class Encounter extends TileScript
 		MazeScript preScriptEvents,
 		MazeScript postAppearanceScriptEvents,
 		MazeScript partyLeavesNeutralScript,
-		MazeScript partyLeavesFriendlyScript)
+		MazeScript partyLeavesFriendlyScript,
+		boolean bypassNpcScriptsOnNonHostile)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
@@ -73,6 +75,7 @@ public class Encounter extends TileScript
 		this.postAppearanceScriptEvents = postAppearanceScriptEvents;
 		this.partyLeavesNeutralScript = partyLeavesNeutralScript;
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -130,7 +133,10 @@ public class Encounter extends TileScript
 					attitude,
 					ambushStatus,
 					preScriptEvents,
-					postAppearanceScriptEvents, partyLeavesNeutralScript, partyLeavesFriendlyScript));
+					postAppearanceScriptEvents,
+					partyLeavesNeutralScript,
+					partyLeavesFriendlyScript,
+					bypassNpcScriptsOnNonHostile));
 		}
 		else
 		{
@@ -226,5 +232,16 @@ public class Encounter extends TileScript
 		MazeScript partyLeavesFriendlyScript)
 	{
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
+	}
+
+	public boolean isBypassNpcScriptsOnNonHostile()
+	{
+		return bypassNpcScriptsOnNonHostile;
+	}
+
+	public void setBypassNpcScriptsOnNonHostile(
+		boolean bypassNpcScriptsOnNonHostile)
+	{
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 }

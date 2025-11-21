@@ -795,8 +795,10 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> incTurn(boolean checkRandomEncounters)
 	{
-		Maze.getPerfLog().enter("Maze::incTurn");
+		Maze.getPerfLog().enter("Maze::incTurn::event generation");
 		List<MazeEvent> result = new ArrayList<>();
+
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "Maze::incTurn::event resolution"));
 
 		addAll(result, GameTime.incTurn());
 
@@ -832,14 +834,16 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							addAll(result, this.encounterActors(new ActorEncounter(foes, null, null, null, null, null, null, null)));
+							addAll(result, this.encounterActors(new ActorEncounter(foes, null, null, null, false, null, null, null, null)));
 						}
 					}
 				}
 			}
 		}
 
-		Maze.getPerfLog().exit("Maze::incTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "Maze::incTurn::event resolution"));
+
+		Maze.getPerfLog().exit("Maze::incTurn::event generation");
 		return result;
 	}
 
@@ -1902,6 +1906,7 @@ public class Maze implements Runnable
 		final List<FoeGroup> actors = actorEncounter.getActors();
 		final NpcFaction.Attitude encounterAttitude = actorEncounter.getEncounterAttitude();
 		final String mazeVar = actorEncounter.getMazeVar();
+		final boolean bypassNpcScripts = actorEncounter.isBypassNpcScriptsOnNonHostile();
 
 		//
 		// check if there are actually any foes in here
@@ -1999,26 +2004,31 @@ public class Maze implements Runnable
 		final Foe leader = (Foe)GameSys.getInstance().getLeader(actors);
 
 		// determine ambush status
-		if (actorEncounter.getAmbushStatus() == null)
-		{
-			actorEncounter.setAmbushStatus(
-				GameSys.getInstance().determineAmbushStatus(party, attitude, actors));
-		}
 		Combat.AmbushStatus ambushStatus = actorEncounter.getAmbushStatus();
-
-		if (ambushStatus ==
-			Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+		if (attitude != NpcFaction.Attitude.FRIENDLY && attitude != NpcFaction.Attitude.ALLIED)
 		{
-			if (leader.shouldEvade(actors, getParty()))
+			if (actorEncounter.getAmbushStatus() == null)
 			{
-				// cancel the encounter, the party never knows about it
-				this.setState(State.MOVEMENT);
-				return result;
+				actorEncounter.setAmbushStatus(
+					GameSys.getInstance().determineAmbushStatus(party, attitude, actors));
+			}
+			ambushStatus = actorEncounter.getAmbushStatus();
+
+			if (ambushStatus ==
+				Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+			{
+				if (leader.shouldEvade(actors, getParty()))
+				{
+					// cancel the encounter, the party never knows about it
+					this.setState(State.MOVEMENT);
+					return result;
+				}
 			}
 		}
 
 		Maze.this.currentActorEncounter =
 			new ActorEncounter(actors, mazeVar, attitude, ambushStatus,
+				bypassNpcScripts,
 				actorEncounter.getPreScript(),
 				actorEncounter.getPostAppearanceScript(),
 				actorEncounter.getPartyLeavesNeutralScript(),
@@ -2028,7 +2038,7 @@ public class Maze implements Runnable
 		addAll(result, currentActorEncounter.getPreScript());
 
 		result.add(new InitEncounterEvent(actors, leader));
-		result.add(new CueActorsEvent(ambushStatus, leader, attitude));
+		result.add(new CueActorsEvent(ambushStatus, leader, attitude, bypassNpcScripts));
 
 		return result;
 	}
@@ -2529,13 +2539,18 @@ public class Maze implements Runnable
 		private final Combat.AmbushStatus fAmbushStatus;
 		private final Foe leader;
 		private final NpcFaction.Attitude fAttitude;
+		private final boolean bypassNpcScriptsNonHostile;
 
-		public CueActorsEvent(Combat.AmbushStatus fAmbushStatus, Foe leader,
-			NpcFaction.Attitude fAttitude)
+		public CueActorsEvent(
+			Combat.AmbushStatus fAmbushStatus,
+			Foe leader,
+			NpcFaction.Attitude fAttitude,
+			boolean bypassNpcScriptsNonHostile)
 		{
 			this.fAmbushStatus = fAmbushStatus;
 			this.leader = leader;
 			this.fAttitude = fAttitude;
+			this.bypassNpcScriptsNonHostile = bypassNpcScriptsNonHostile;
 		}
 
 		@Override
@@ -2583,31 +2598,34 @@ public class Maze implements Runnable
 
 			// any post-appearance events from the encounter
 			List<MazeEvent> postAppearanceScript = currentActorEncounter.getPostAppearanceScript();
-			if (postAppearanceScript !=null && postAppearanceScript.size() > 0)
+			if (postAppearanceScript !=null && !postAppearanceScript.isEmpty())
 			{
 				addAll(result, postAppearanceScript);
 			}
 
-			if (!leader.isFound())
+			if (!bypassNpcScriptsNonHostile && !(fAttitude == NpcFaction.Attitude.ATTACKING))
 			{
-				result.add(new EnableInputEvent());
-				addAll(result, leader.getActionScript().firstGreeting());
-				result.add(new DisableInputEvent());
-				leader.setFound(true);
-			}
-			else
-			{
-				result.add(new EnableInputEvent());
-				if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
-					fAttitude == NpcFaction.Attitude.ALLIED)
+				if (!leader.isFound())
 				{
-					addAll(result, leader.getActionScript().subsequentGreeting());
+					result.add(new EnableInputEvent());
+					addAll(result, leader.getActionScript().firstGreeting());
+					result.add(new DisableInputEvent());
+					leader.setFound(true);
 				}
 				else
 				{
-					addAll(result, leader.getActionScript().neutralGreeting());
+					result.add(new EnableInputEvent());
+					if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
+						fAttitude == NpcFaction.Attitude.ALLIED)
+					{
+						addAll(result, leader.getActionScript().subsequentGreeting());
+					}
+					else
+					{
+						addAll(result, leader.getActionScript().neutralGreeting());
+					}
+					result.add(new DisableInputEvent());
 				}
-				result.add(new DisableInputEvent());
 			}
 
 			//

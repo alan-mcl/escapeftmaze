@@ -1714,7 +1714,17 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
-            "mazeVariable": "arena.encounter.0"
+            "mazeVariable": "arena.encounter.0",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "HA HA HA HA\nLOL\nWHAT",
+                  "delay": "-1"
+                }
+              ]
+            }
           }
         ],
         "randomEncounters": "TestingTable",

@@ -29,15 +29,16 @@
       "hitPointCostToForce": "5",
       "resistForce": "0",
       "difficulty": [
+        "5",
         "0",
         "0",
         "0",
         "0",
-        "0",
-        "0",
+        "3",
         "0",
         "0"
       ],
+      "required": "100001",
       "keyItem": "null",
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
@@ -71,7 +72,7 @@
     },
     {
       "mazeVariable": "ichiba.city.portal.1",
-      "initialState": "unlocked",
+      "initialState": "locked",
       "from": "27:18",
       "fromFacing": "1",
       "to": "27:17",
@@ -85,13 +86,14 @@
       "difficulty": [
         "0",
         "0",
+        "4",
         "0",
         "0",
         "0",
-        "0",
-        "0",
+        "5",
         "0"
       ],
+      "required": "0010001",
       "keyItem": "null",
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
@@ -625,33 +627,6 @@
       "fromFacing": "4",
       "to": "7:21",
       "toFacing": "3",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
-      "mazeVariable": "ichiba.city.portal.23",
-      "initialState": "unlocked",
-      "from": "8:22",
-      "fromFacing": "2",
-      "to": "8:23",
-      "toFacing": "1",
       "twoWay": "true",
       "canForce": "true",
       "canPick": "true",
@@ -5349,8 +5324,9 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.23"
+            "encounterTable": "ichiba.city.inhabitants.human.footpads",
+            "mazeVariable": "ichiba.city.encounter.23",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -5374,16 +5350,7 @@
       },
       {
         "coords": "7:21",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.24"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030203020201",
         "terrainType": "URBAN",
@@ -5812,7 +5779,7 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
-              "name": "Ichiba City thieves guild cck doors",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -5866,16 +5833,7 @@
       },
       {
         "coords": "8:23",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.25"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03020102010201",
         "terrainType": "URBAN",
@@ -6811,7 +6769,15 @@
       },
       {
         "coords": "10:22",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Barracks B"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,01030202020301",
         "terrainType": "URBAN",
@@ -6828,8 +6794,49 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.26"
+            "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
+            "mazeVariable": "ichiba.city.encounter.5",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "This is C.O.C. quarters. You don\u0027t just stroll in here.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "If you’re lost, turn around and leave now.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "If you’re not lost, well, I\u0027d say it\u0027s time to reconsider your life choices!",
+                  "delay": "-1"
+                }
+              ]
+            },
+            "partyLeavesNeutralScript": {
+              "name": "EncounterActorsEvent.partyLeavesNeutral",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "partyLeavesFriendlyScript": {
+              "name": "EncounterActorsEvent.partyLeavesFriendly",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "bypassNpcScriptsOnNonHostile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -6864,16 +6871,7 @@
       },
       {
         "coords": "10:26",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.31"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02010102010302",
         "terrainType": "URBAN",
@@ -7618,16 +7616,7 @@
       },
       {
         "coords": "12:10",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.19"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02030103010101",
         "terrainType": "URBAN",
@@ -7688,8 +7677,44 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.22"
+            "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
+            "mazeVariable": "ichiba.city.encounter.4",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Hey! This is a barracks, not a market stall.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Outsiders aren’t welcome unless summoned. Which you weren’t. Get out!",
+                  "delay": "-1"
+                }
+              ]
+            },
+            "partyLeavesNeutralScript": {
+              "name": "EncounterActorsEvent.partyLeavesNeutral",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "partyLeavesFriendlyScript": {
+              "name": "EncounterActorsEvent.partyLeavesFriendly",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "bypassNpcScriptsOnNonHostile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -8066,16 +8091,7 @@
       },
       {
         "coords": "13:8",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.18"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01020202010103",
         "terrainType": "URBAN",
@@ -8143,7 +8159,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Glaucus\n~\nGeneral Store"
+            "text": "Glaucus\nGeneral Store"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8167,7 +8183,15 @@
       },
       {
         "coords": "13:15",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Barracks A"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,01030302030203",
         "terrainType": "URBAN",
@@ -8274,16 +8298,7 @@
       },
       {
         "coords": "13:23",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.27"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01010101020303",
         "terrainType": "URBAN",
@@ -8589,16 +8604,7 @@
       },
       {
         "coords": "14:10",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "gnoll.village.placed.enc",
-            "mazeVariable": "ichiba.city.encounter.17"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02030303030301",
         "terrainType": "URBAN",
@@ -8767,7 +8773,7 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
-              "name": "Ichiba City wanted signboard",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.SignBoardEvent",
@@ -9261,10 +9267,20 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "facings": "00001",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Chamber\nof\nCommerce"
+            "text": "Chamber of\nCommerce"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.city.execute.once.5",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Nailed to the door is an official looking notice. It reads:\n\nTHE MERCHANT CHARTER\nSummary of Section 4: Penalties And Enforcement\n\nTheft, burglary, assault, banditry, murder, arson, kidnapping, rape, treason, and other major and capital offenses: The penalty is death.\n\nSmuggling, forgery, disorderly behaviour and other minor and illegal behaviours: The penalty is asset siezure and banishment.\n\nNo appeals.\nNo leniency for first offenses.\nIgnorance of the Charter is not a defense.",
+            "alignment": "CENTER"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -10258,16 +10274,7 @@
       },
       {
         "coords": "17:24",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.34"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010301010103",
         "terrainType": "URBAN",
@@ -10544,16 +10551,7 @@
       },
       {
         "coords": "18:9",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.16"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03020201020101",
         "terrainType": "URBAN",
@@ -10854,16 +10852,7 @@
       },
       {
         "coords": "18:29",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.35"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02030303020201",
         "terrainType": "URBAN",
@@ -11815,7 +11804,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.villa.guardians",
-            "mazeVariable": "ichiba.city.encounter.3"
+            "mazeVariable": "ichiba.city.encounter.3",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11867,16 +11857,7 @@
       },
       {
         "coords": "20:26",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.32"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02030202020303",
         "terrainType": "URBAN",
@@ -11898,16 +11879,7 @@
       },
       {
         "coords": "20:28",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.33"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010201010203",
         "terrainType": "URBAN",
@@ -11940,16 +11912,7 @@
       },
       {
         "coords": "20:31",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.36"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030102010203",
         "terrainType": "URBAN",
@@ -12149,16 +12112,7 @@
       },
       {
         "coords": "21:9",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.14"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010302030203",
         "terrainType": "URBAN",
@@ -12765,16 +12719,7 @@
       },
       {
         "coords": "22:24",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.37"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010303010301",
         "terrainType": "URBAN",
@@ -12818,16 +12763,7 @@
       },
       {
         "coords": "22:28",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.38"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010102010102",
         "terrainType": "URBAN",
@@ -13152,16 +13088,7 @@
       },
       {
         "coords": "23:13",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.10"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02030302010202",
         "terrainType": "URBAN",
@@ -13212,16 +13139,7 @@
       },
       {
         "coords": "23:16",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.6"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02010203020202",
         "terrainType": "URBAN",
@@ -13693,7 +13611,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.imogen.inghean.shades",
-            "mazeVariable": "ichiba.city.encounter.9"
+            "mazeVariable": "ichiba.city.encounter.9",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -13728,16 +13647,7 @@
       },
       {
         "coords": "24:17",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.villa.guardians",
-            "mazeVariable": "ichiba.city.encounter.4"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01020102020201",
         "terrainType": "URBAN",
@@ -13883,16 +13793,7 @@
       },
       {
         "coords": "24:28",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.39"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03010102030102",
         "terrainType": "URBAN",
@@ -14125,16 +14026,7 @@
       },
       {
         "coords": "25:9",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.12"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01010103030202",
         "terrainType": "URBAN",
@@ -14302,16 +14194,7 @@
       },
       {
         "coords": "25:21",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.5"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01010302020101",
         "terrainType": "URBAN",
@@ -15137,16 +15020,7 @@
       },
       {
         "coords": "27:12",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.7"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01010102010103",
         "terrainType": "URBAN",
@@ -15207,8 +15081,49 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.1"
+            "encounterTable": "ichiba.city.inhabitants.human.footpads",
+            "mazeVariable": "ichiba.city.encounter.1",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Oi! Ever heard of knockin\u0027, culley, or did your manners die young?",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Wrong door to kick in! This is our pad, and we got connections, if you savvy \u0027bout what I mean!\n",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Now beat it or else!",
+                  "delay": "-1"
+                }
+              ]
+            },
+            "partyLeavesNeutralScript": {
+              "name": "EncounterActorsEvent.partyLeavesNeutral",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "partyLeavesFriendlyScript": {
+              "name": "EncounterActorsEvent.partyLeavesFriendly",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "bypassNpcScriptsOnNonHostile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15249,8 +15164,44 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.2"
+            "encounterTable": "ichiba.city.inhabitants.gnome.beggars",
+            "mazeVariable": "ichiba.city.encounter.2",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "If you wished to visit, a knock costs less than an apology.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Door\u0027s behind you. Use it and leave now please.",
+                  "delay": "-1"
+                }
+              ]
+            },
+            "partyLeavesNeutralScript": {
+              "name": "EncounterActorsEvent.partyLeavesNeutral",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "partyLeavesFriendlyScript": {
+              "name": "EncounterActorsEvent.partyLeavesFriendly",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "maxTiles": "1d1",
+                  "facing": "0"
+                }
+              ]
+            },
+            "bypassNpcScriptsOnNonHostile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15340,16 +15291,7 @@
       },
       {
         "coords": "27:28",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.40"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03030303030202",
         "terrainType": "URBAN",
@@ -15599,8 +15541,9 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.8"
+            "encounterTable": "ichiba.city.inhabitants.human.footpads",
+            "mazeVariable": "ichiba.city.encounter.8",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -16308,16 +16251,7 @@
       },
       {
         "coords": "29:28",
-        "scripts": [
-          {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants",
-            "mazeVariable": "ichiba.city.encounter.41"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03020101010103",
         "terrainType": "URBAN",
@@ -17099,7 +17033,68 @@
       },
       {
         "coords": "31:18",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
+            "mazeVariable": "ichiba.city.encounter.0",
+            "ambushStatus": "NONE",
+            "preScriptEvents": {
+              "name": "Encounter.preScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "flavourText": "Lounging in a disorderly fashion near the gate, several heavily armed guards accost you as you approach...",
+                  "delay": "-1",
+                  "shouldClearText": "false",
+                  "alignment": "CENTER"
+                }
+              ]
+            },
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Hold it, strangers!",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "Ichiba is open for trade. By the terms of the Merchant Charter, you have right of passage for the purpose of commerce.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "The Chamber of Commerce guarantees the Charter in this town.\n\nThe penalty for breaking the peace is death!",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "So if you bring commerce and goodwill, welcome.\n\nIf not, best you leave now and make your way elsewhere in The Maze.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
+                  "speechText": "We\u0027re done here. Stay out of trouble.",
+                  "delay": "-1"
+                },
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+                  "mazeVariable": "ichiba.city.encounter.0",
+                  "value": "true"
+                },
+                {
+                  "IMPL": "mclachlan.maze.stat.npc.ActorsLeaveEvent"
+                }
+              ]
+            },
+            "bypassNpcScriptsOnNonHostile": "true"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01020202030301",
         "terrainType": "URBAN",
@@ -17549,7 +17544,7 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
-              "name": "Ichiba City Intro",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -17560,7 +17555,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
+                  "flavourText": "The ancient gates lie open, lightly guarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"
@@ -20114,7 +20109,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.imogen.allies.on.call",
-            "mazeVariable": "ichiba.city.encounter.15"
+            "mazeVariable": "ichiba.city.encounter.15",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -26908,17 +26904,7 @@
       },
       {
         "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_1",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -26938,7 +26924,17 @@
       },
       {
         "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_1",
+        "floorTexture": "CITY_FLOOR_2",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -28609,7 +28605,6 @@
       {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "CITY_FLOOR_2",
-        "floorMaskTexture": "SAND_ROAD_STUB",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -41147,6 +41142,9 @@
         "textures": [
           "CITY_WALL_1_ARCH"
         ],
+        "maskTextures": [
+          "HANGING_SIGN_WALL_MASK"
+        ],
         "visible": "true",
         "solid": "false",
         "height": "1"
@@ -41772,6 +41770,9 @@
         "textures": [
           "CITY_WALL_1_ARCH"
         ],
+        "maskTextures": [
+          "HANGING_SIGN_WALL_MASK"
+        ],
         "visible": "true",
         "solid": "false",
         "height": "1"
@@ -42427,6 +42428,9 @@
       {
         "textures": [
           "CITY_WALL_1_ARCH"
+        ],
+        "maskTextures": [
+          "HANGING_SIGN_WALL_MASK"
         ],
         "visible": "true",
         "solid": "false",
@@ -44628,10 +44632,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_WALL_1_WINDOW"
         ],
         "visible": "true",
         "solid": "true",
@@ -55192,6 +55193,9 @@
         "textures": [
           "CITY_WALL_1_ARCH"
         ],
+        "maskTextures": [
+          "HANGING_SIGN_WALL_MASK"
+        ],
         "visible": "true",
         "solid": "false",
         "height": "1"
@@ -55550,6 +55554,9 @@
       {
         "textures": [
           "CITY_WALL_1_ARCH"
+        ],
+        "maskTextures": [
+          "HANGING_SIGN_WALL_MASK"
         ],
         "visible": "true",
         "solid": "false",
@@ -56646,9 +56653,9 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_PORTCULLIS_1_UP"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
         "height": "1"
       },
@@ -58128,11 +58135,9 @@
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -58456,11 +58461,9 @@
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -63836,10 +63839,10 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
+        "northTexture": "objects.plant.4",
+        "southTexture": "objects.plant.4",
+        "eastTexture": "objects.plant.4",
+        "westTexture": "objects.plant.4",
         "xPos": "13226",
         "yPos": "9302",
         "lightSource": "false",
@@ -64533,6 +64536,21 @@
         "xPos": "11178",
         "yPos": "8790",
         "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+                "script": "Ichiba Crossroad berry forage"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -67584,7 +67602,7 @@
         "eastTexture": "objects.pillar.2",
         "westTexture": "objects.pillar.2",
         "xPos": "7936",
-        "yPos": "7168",
+        "yPos": "6951",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -67594,7 +67612,97 @@
         "eastTexture": "objects.pillar.2",
         "westTexture": "objects.pillar.2",
         "xPos": "8448",
-        "yPos": "7168",
+        "yPos": "6951",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "5376",
+        "yPos": "7424",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "5888",
+        "yPos": "7424",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "6400",
+        "yPos": "7424",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "5376",
+        "yPos": "12544",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "4864",
+        "yPos": "12544",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "4352",
+        "yPos": "12544",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "3840",
+        "yPos": "12544",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1",
+        "southTexture": "objects.bed.1",
+        "eastTexture": "objects.bed.1.side",
+        "westTexture": "objects.bed.1.side",
+        "xPos": "3840",
+        "yPos": "12032",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1.side",
+        "southTexture": "objects.bed.1.side",
+        "eastTexture": "objects.bed.1",
+        "westTexture": "objects.bed.1",
+        "xPos": "5376",
+        "yPos": "6912",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

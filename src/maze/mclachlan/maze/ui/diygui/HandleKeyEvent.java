@@ -104,7 +104,7 @@ class HandleKeyEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		Maze.getPerfLog().enter("MazeActionListener::movePlayer");
+		Maze.getPerfLog().enter("HandleKeyEvent::movePlayer");
 
 		DiyGuiUserInterface.instance.raycaster.handleKey(playerStatus);
 
@@ -115,7 +115,7 @@ class HandleKeyEvent extends MazeEvent
 
 		result.addAll(maze.encounterTile(newTile, oldTile, facing));
 
-		Maze.getPerfLog().exit("MazeActionListener::movePlayer");
+		Maze.getPerfLog().exit("HandleKeyEvent::movePlayer");
 
 		return result;
 	}

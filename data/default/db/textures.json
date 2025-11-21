@@ -528,6 +528,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_PORTCULLIS_1",
+    "imageResources": [
+      "crusader/scene/city_portcullis_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.torch.1",
     "imageResources": [
       "crusader/scene/torch_1",
@@ -779,6 +788,15 @@
     "name": "TREE_WALL_1",
     "imageResources": [
       "crusader/scene/tree_wall_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CITY_PORTCULLIS_1_UP",
+    "imageResources": [
+      "crusader/scene/city_portcullis_1_up"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -1737,6 +1755,15 @@
     "name": "foe.shade",
     "imageResources": [
       "crusader/foe/shade"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "HANGING_SIGN_WALL_MASK",
+    "imageResources": [
+      "crusader/scene/hanging_sign_wall_mask"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

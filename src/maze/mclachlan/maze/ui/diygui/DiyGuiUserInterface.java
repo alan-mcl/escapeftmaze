@@ -1785,7 +1785,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		for (int i = maxTiles; i > 0; i--)
 		{
-			int index = recentTiles.size() - i;
+			int index = recentTiles.size() -1 - i;
 
 			if (index >= 0)
 			{

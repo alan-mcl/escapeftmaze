@@ -33,6 +33,10 @@ public class BackPartyUpEvent extends MazeEvent
 	private int facing;
 
 	/*-------------------------------------------------------------------------*/
+	public BackPartyUpEvent()
+	{
+	}
+
 	public BackPartyUpEvent(Dice maxTiles, int facing)
 	{
 		this.maxTiles = maxTiles;

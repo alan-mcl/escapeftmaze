@@ -435,7 +435,8 @@ public class V1TileScript
 					null,
 					null,
 					null,
-					null); // todo
+					null,
+					false); // todo
 				break;
 			case FLAVOUR_TEXT:
 				// hack alert.  Any commas will have been split above.  Replace them

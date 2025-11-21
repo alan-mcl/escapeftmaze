@@ -132,6 +132,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.inhabitants.human.footpads",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "human.footpads.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "ichiba.city.inhabitants",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1146,6 +1159,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.inhabitants.gnome.beggars",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "gnome.beggar.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "guardian.trap",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1963,6 +1989,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.inhabitants.goblin.cutpurses",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "goblin.cutpurse.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "gatehouse.level.1.spider.1",
     "encounterTable": {
       "PERCENTAGES": [
@@ -2352,6 +2391,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.inhabitants.human.hirebrands",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "human.hirebrand.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "yenluo.encounter",
     "encounterTable": {
       "PERCENTAGES": [
@@ -2451,6 +2503,19 @@
         "summon.mephit.spell.low.4"
       ],
       "SHOULD_SUM_TO_100": "false"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.city.inhabitants.gnoll.thugs",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "gnoll.thugs.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

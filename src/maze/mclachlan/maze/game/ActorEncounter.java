@@ -41,6 +41,7 @@ public class ActorEncounter
 	private final UnifiedActor leader;
 	private final List<MazeEvent> preScript, postAppearanceScript,
 		partyLeavesFriendlyScript, partyLeavesNeutralScript;
+	boolean bypassNpcScriptsOnNonHostile;
 
 	/*-------------------------------------------------------------------------*/
 	public ActorEncounter(
@@ -48,6 +49,7 @@ public class ActorEncounter
 		String mazeVar,
 		NpcFaction.Attitude encounterAttitude,
 		Combat.AmbushStatus ambushStatus,
+		boolean bypassNpcScriptsOnNonHostile,
 		List<MazeEvent> preScript,
 		List<MazeEvent> postAppearanceScript,
 		List<MazeEvent> partyLeavesNeutralScript,
@@ -57,6 +59,7 @@ public class ActorEncounter
 		this.actors = actors;
 		this.mazeVar = mazeVar;
 		this.ambushStatus = ambushStatus;
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 		this.preScript = preScript;
 		this.postAppearanceScript = postAppearanceScript;
 		this.partyLeavesFriendlyScript = partyLeavesFriendlyScript;
@@ -158,11 +161,7 @@ public class ActorEncounter
 				{
 					return waits(msg);
 				}
-			case NEUTRAL:
-				return waits(msg);
-			case FRIENDLY:
-				return waits(msg);
-			case ALLIED:
+			case NEUTRAL, FRIENDLY, ALLIED:
 				return waits(msg);
 			default:
 				throw new MazeException("Invalid: "+encounterAttitude);
@@ -230,9 +229,7 @@ public class ActorEncounter
 
 	public List<ActorGroup> getActorGroups()
 	{
-		List<ActorGroup> result = new ArrayList<ActorGroup>();
-		result.addAll(actors);
-		return result;
+		return new ArrayList<>(actors);
 	}
 
 	public void setActors(List<FoeGroup> actors)
@@ -298,6 +295,17 @@ public class ActorEncounter
 	public List<MazeEvent> getPartyLeavesNeutralScript()
 	{
 		return partyLeavesNeutralScript;
+	}
+
+	public boolean isBypassNpcScriptsOnNonHostile()
+	{
+		return bypassNpcScriptsOnNonHostile;
+	}
+
+	public void setBypassNpcScriptsOnNonHostile(
+		boolean bypassNpcScriptsOnNonHostile)
+	{
+		this.bypassNpcScriptsOnNonHostile = bypassNpcScriptsOnNonHostile;
 	}
 
 	private static class MsgDestinationEvent extends MazeEvent

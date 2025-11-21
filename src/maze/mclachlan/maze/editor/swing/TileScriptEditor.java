@@ -133,6 +133,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
+	private JCheckBox bypassNpcScriptsOnNonHostile;
 	private MazeEventsComponent encounterPreScript, encounterPostAppearanceScript,
 		partyLeavesNeutralScript, partyLeavesFriendlyScript;
 	private JButton encounterQuickAssignMazeVar;
@@ -409,6 +410,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				encounterPostAppearanceScript.refresh(e.getPostAppearanceScriptEvents() == null ? null : e.getPostAppearanceScriptEvents().getEvents());
 				partyLeavesNeutralScript.refresh(e.getPartyLeavesNeutralScript() == null ? null : e.getPartyLeavesNeutralScript().getEvents());
 				partyLeavesFriendlyScript.refresh(e.getPartyLeavesFriendlyScript() == null ? null : e.getPartyLeavesFriendlyScript().getEvents());
+				bypassNpcScriptsOnNonHostile.setSelected(e.isBypassNpcScriptsOnNonHostile());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -816,6 +818,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		Collections.addAll(ambushStatuses, statuses);
 		ambushStatuses.add(0, EditorPanel.NONE);
 		encounterAmbushStatus = new JComboBox(ambushStatuses);
+		bypassNpcScriptsOnNonHostile = new JCheckBox("Bypass NPC Scripts On Non Hostile?");
 
 		encounterPreScript = new MazeEventsComponent(dirtyFlag);
 		encounterPostAppearanceScript = new MazeEventsComponent(dirtyFlag);
@@ -831,7 +834,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Pre Script:"), encounterPreScript,
 			new JLabel("Post Appearance Script:"), encounterPostAppearanceScript,
 			new JLabel("Party Leaves Neutral Script: "), partyLeavesNeutralScript,
-			new JLabel("Party Leaves Friendly Script: "), partyLeavesFriendlyScript
+			new JLabel("Party Leaves Friendly Script: "), partyLeavesFriendlyScript,
+			new JLabel(), bypassNpcScriptsOnNonHostile
 		);
 	}
 
@@ -1466,7 +1470,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					encPreScript,
 					encPostAppearanceScript,
 					partyLeavesNeutral,
-					partyLeavesFriendly);
+					partyLeavesFriendly,
+					bypassNpcScriptsOnNonHostile.isSelected());
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText(), (FlavourTextEvent.Alignment)flavourTextAlignment.getSelectedItem());
