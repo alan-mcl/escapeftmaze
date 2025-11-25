@@ -2004,7 +2004,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	private List<List<double[]>> placeFoeSprites2(int startingRank,
 		List<FoeGroup> foeGroups)
 	{
-		final double baseDistance = 0.5;
+		final double baseDistance = 0.48;
 		final double rankStep = 0.2;
 
 		List<List<double[]>> result = new ArrayList<>();

@@ -2602,6 +2602,65 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "name": "Mazza",
+    "foeName": "Mazza",
+    "faction": "Ichiba GSC",
+    "attitude": "NEUTRAL",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.def.npc.Mazza"
+    },
+    "alliesOnCall": "goblin.magsmen.encounter",
+    "buysAt": "65",
+    "sellsAt": "105",
+    "maxPurchasePrice": "100",
+    "willBuyItemTypes": "0000000000000000000000000001",
+    "inventoryTemplate": {
+      "rows": [
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "100",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Baz Cake",
+          "stackSize": "3d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Herbal Patty",
+          "stackSize": "3d6"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Roasted Corn",
+          "stackSize": "3d6"
+        }
+      ]
+    },
+    "resistThreats": "0",
+    "resistBribes": "0",
+    "resistSteal": "10",
+    "theftCounter": "0",
+    "dialogue": {
+      "dialogue": []
+    },
+    "speechColour": "ff999900",
+    "zone": "Ichiba City",
+    "tile": "15:15",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
     "name": "Diomedes",
     "foeName": "Diomedes",
     "faction": "White Order",

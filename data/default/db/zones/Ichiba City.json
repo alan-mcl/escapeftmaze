@@ -9220,7 +9220,15 @@
       },
       {
         "coords": "15:15",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "MAZZA\u0027S\nFRIED\nANYTHING"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03020303010202",
         "terrainType": "URBAN",
@@ -26865,6 +26873,7 @@
       {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "CITY_FLOOR_2",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -67597,26 +67606,6 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.pillar.2",
-        "southTexture": "objects.pillar.2",
-        "eastTexture": "objects.pillar.2",
-        "westTexture": "objects.pillar.2",
-        "xPos": "7936",
-        "yPos": "6951",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.2",
-        "southTexture": "objects.pillar.2",
-        "eastTexture": "objects.pillar.2",
-        "westTexture": "objects.pillar.2",
-        "xPos": "8448",
-        "yPos": "6951",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
         "northTexture": "objects.bed.1",
         "southTexture": "objects.bed.1",
         "eastTexture": "objects.bed.1.side",
@@ -67703,6 +67692,16 @@
         "westTexture": "objects.bed.1",
         "xPos": "5376",
         "yPos": "6912",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.market.stall.1",
+        "southTexture": "objects.market.stall.1",
+        "eastTexture": "objects.market.stall.1",
+        "westTexture": "objects.market.stall.1",
+        "xPos": "7936",
+        "yPos": "7936",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

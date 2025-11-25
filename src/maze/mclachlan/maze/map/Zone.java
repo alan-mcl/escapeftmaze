@@ -130,26 +130,6 @@ public class Zone extends DataObject
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		// NPCs get preference to TileScripts
-		Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(name, tile);
-		
-		if (npcs != null)
-		{
-			for (Npc npc : npcs)
-			{
-				// todo: won't work for more than one NPC?
-
-				List<FoeGroup> actors = new ArrayList<>();
-				FoeGroup fg = new FoeGroup();
-				fg.add(npc);
-				actors.add(fg);
-
-				ActorEncounter actorEncounter = new ActorEncounter(
-					actors, null, null, Combat.AmbushStatus.NONE, false, npc.getScript().preAppearance(), null, null, null);
-				result.addAll(Maze.getInstance().encounterActors(actorEncounter));
-			}
-		}
-
 		// process any tile scripts present
 		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
@@ -243,6 +223,26 @@ public class Zone extends DataObject
 			if (!maze.checkPartyStatus())
 			{
 				break;
+			}
+		}
+
+		// then any NPCs present
+		Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(name, tile);
+
+		if (npcs != null)
+		{
+			for (Npc npc : npcs)
+			{
+				// todo: won't work for more than one NPC?
+
+				List<FoeGroup> actors = new ArrayList<>();
+				FoeGroup fg = new FoeGroup();
+				fg.add(npc);
+				actors.add(fg);
+
+				ActorEncounter actorEncounter = new ActorEncounter(
+					actors, null, null, Combat.AmbushStatus.NONE, false, npc.getScript().preAppearance(), null, null, null);
+				result.addAll(Maze.getInstance().encounterActors(actorEncounter));
 			}
 		}
 

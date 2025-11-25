@@ -353,7 +353,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 		if (item.isQuestItem())
 		{
-			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.no.thanks"), leader));
+			return doesntWantItem(leader);
 		}
 		else
 		{
@@ -437,7 +437,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 			if (response == null)
 			{
-				response = StringUtil.getEventText("msg.npc.doesnt.know", speech);
+				response = doesntKnowAbout(speech);
 			}
 
 			List<MazeEvent> result = new ArrayList<>();
@@ -571,16 +571,15 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Override
-	public int hashCode()
+	public List<MazeEvent> doesntWantItem(Foe leader)
 	{
-		return getClass().hashCode();
+		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.no.thanks"), leader));
 	}
 
-	@Override
-	public boolean equals(Object o)
+	/*-------------------------------------------------------------------------*/
+	public String doesntKnowAbout(String speech)
 	{
-		return o != null && getClass() == o.getClass();
+		return StringUtil.getEventText("msg.npc.doesnt.know", speech);
 	}
 
 	/*-------------------------------------------------------------------------*/

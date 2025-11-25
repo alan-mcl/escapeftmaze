@@ -124,12 +124,15 @@ Notes
 * Behind two locked doors a chest contains a set of ranger gear
 * Behind two locked doors a chest contains a heavy weapon and some equipment
 * A chest in a magic workshop contains potions, scrolls and one random spellbook
-* A verdant garden behind Glaucus the Gnome's shop emanates green magic. Magical seeds used there produce surprising results. Mistletoe berries, purchased from Glaucus, heal the party when used there.
+* A verdant garden behind Glaucus the Gnome's shop emanates green magic. Magical
+seeds used there produce surprising results. Mistletoe berries, purchased from
+Glaucus, heal the party when used there.
 * The temple of The Lady emanates strong white magic
 * A villa on the waterfront is locked and guarded by golems. It contains a chest with lots of gold
 * The thieves guild maintains two safe houses that include access to the sewers
 * A signboard outside the Chamber of Commerce advertises that mercenaries are wanted.
-* Imogens tower rises above the southern wall, but a guardian golem denies access to all
+* Imogen's tower rises above the southern wall, but a guardian golem denies access to all
+* __The Crater Market has a number of vendor stalls: Mazza's Fried Anything, The Scrimshaw Brothers, Gerta's Spice Sieve, Bessa's Lucky Shoes__
 
 ==== Gnoll Village
 ----

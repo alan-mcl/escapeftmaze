@@ -722,6 +722,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "CARPETS_1",
+    "imageResources": [
+      "crusader/scene/carpets_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "sky.danaos",
     "imageResources": [
       "crusader/scene/danaos_sky"
@@ -1962,6 +1971,15 @@
     "name": "GRASS_FLOOR_1",
     "imageResources": [
       "crusader/scene/grass_floor_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "objects.market.stall.1",
+    "imageResources": [
+      "crusader/scene/market_stall_1"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

@@ -6669,6 +6669,95 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Mazza",
+    "pluralName": "Mazza\u0027s",
+    "unidentifiedName": "?goblin",
+    "unidentifiedPluralName": "?goblins",
+    "types": [],
+    "race": "Goblin",
+    "characterClass": "Burglar",
+    "hitPointsRange": "8d3+4",
+    "actionPointsRange": "8d3+1",
+    "magicPointsRange": "0d1",
+    "levelRange": "6d1",
+    "experience": "300",
+    "stats": "8000019800070,0404040505050504",
+    "bodyParts": {
+      "PERCENTAGES": [
+        25,
+        33,
+        26,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "human head",
+        "human torso",
+        "human leg",
+        "human hand",
+        "human foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        25,
+        33,
+        26,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.goblin.1"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.goblin.1"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.goblin.1"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.goblin.1"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.goblin.1"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Goblin.Cutpurse.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "1",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "10",
+    "stealthBehaviour": "3",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - ninjastab"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "ATTACKING",
+    "foeSpeech": "goblins"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
     "name": "Diomedes",
     "pluralName": "Diomedes",
     "unidentifiedName": "?leonal",
