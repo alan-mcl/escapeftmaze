@@ -17030,6 +17030,48 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "name": "Madame Hoshiko",
+    "foeName": "Madame Hoshiko",
+    "faction": "Ichiba Chamber Of Commerce",
+    "attitude": "NEUTRAL",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.def.npc.MadameHoshiko"
+    },
+    "alliesOnCall": "ichiba.city.inhabitants",
+    "buysAt": "0",
+    "sellsAt": "0",
+    "maxPurchasePrice": "0",
+    "willBuyItemTypes": "",
+    "inventoryTemplate": {
+      "rows": []
+    },
+    "resistThreats": "0",
+    "resistBribes": "0",
+    "resistSteal": "0",
+    "theftCounter": "0",
+    "dialogue": {
+      "dialogue": [],
+      "friendlyGreeting": "Mmm, welcome back. I felt the tremor of your approach. A pleasant one, for a change.",
+      "neutralGreeting": "Back so soon? Very well. The cards will tolerate your presence.",
+      "friendlyFarewell": "Until next time, wanderers. May your steps confuse the Maze.",
+      "neutralFarewell": "Our thread ends here for now. Step carefully outside.",
+      "partyCantAffordItem": "Mm. No. I deal in truths, not wares.",
+      "characterInventoryFull": "Mm. No. I deal in truths, not wares.",
+      "notInterestedInBuyingItem": "Mm. No. I deal in truths, not wares.",
+      "cantAffordToBuyItem": "Mm. No. I deal in truths, not wares.",
+      "npcInventoryFull": "Mm. No. I deal in truths, not wares.",
+      "doesntWantItem": "Mm. No. I deal in truths, not wares.",
+      "doesntKnowAbout": "Mmm. \u0027%s\u0027. I sense nothing. Sometimes the absence of an answer is its own omen."
+    },
+    "speechColour": "ffccccff",
+    "zone": "Ichiba City",
+    "tile": "27:12",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
     "name": "Ghul",
     "foeName": "Ghul",
     "faction": "Ghul",

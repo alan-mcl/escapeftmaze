@@ -14958,6 +14958,92 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Madame Hoshiko",
+    "pluralName": "Madame Hoshiko",
+    "unidentifiedName": "?human",
+    "unidentifiedPluralName": "?human",
+    "types": [],
+    "race": "Human",
+    "hitPointsRange": "3d3+3",
+    "actionPointsRange": "3d3+3",
+    "magicPointsRange": "3d3+3",
+    "levelRange": "3d1",
+    "experience": "200",
+    "stats": "8000000080000000000000af,0202020101010201",
+    "bodyParts": {
+      "PERCENTAGES": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "ITEMS": [
+        "DEFAULT_HEAD",
+        "DEFAULT_BODY",
+        "DEFAULT_ARM",
+        "DEFAULT_LEG"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        18,
+        33,
+        31,
+        8,
+        10
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.madame.hoshiko"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.madame.hoshiko"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.madame.hoshiko"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.madame.hoshiko"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.madame.hoshiko"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "A_WEE_BIT_OF_GOLD"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "35",
+    "stealthBehaviour": "2",
+    "npc": "true",
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": [
+        "Sleep",
+        "Invisibility"
+      ]
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "ATTACKING",
+    "alliesOnCall": "ichiba.city.inhabitants"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
     "name": "Alpha Omnifid",
     "pluralName": "Alpha Omnifids",
     "unidentifiedName": "?plant",

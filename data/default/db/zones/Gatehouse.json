@@ -2081,7 +2081,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.11"
+            "mazeVariable": "gatehouse.encounter.11",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -2633,7 +2634,8 @@
             "encounterTable": "gatehouse.malignant.widows",
             "mazeVariable": "gatehouse.encounter.12",
             "attitude": "ATTACKING",
-            "ambushStatus": "NONE"
+            "ambushStatus": "NONE",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -2794,7 +2796,8 @@
             "encounterTable": "gatehouse.angry.swarms",
             "mazeVariable": "gatehouse.encounter.9",
             "attitude": "ATTACKING",
-            "ambushStatus": "NONE"
+            "ambushStatus": "NONE",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3202,7 +3205,8 @@
             "encounterTable": "gatehouse.block.golem",
             "mazeVariable": "gatehouse.encounter.10",
             "attitude": "ATTACKING",
-            "ambushStatus": "NONE"
+            "ambushStatus": "NONE",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3612,7 +3616,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.35"
+            "mazeVariable": "gatehouse.encounter.35",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3830,7 +3835,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.4"
+            "mazeVariable": "gatehouse.encounter.4",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -3954,7 +3960,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.1"
+            "mazeVariable": "gatehouse.encounter.1",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -4352,7 +4359,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.4"
+            "mazeVariable": "gatehouse.encounter.4",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -4619,7 +4627,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.18"
+            "mazeVariable": "gatehouse.encounter.18",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -4825,7 +4834,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.13"
+            "mazeVariable": "gatehouse.encounter.13",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -5327,7 +5337,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.34"
+            "mazeVariable": "gatehouse.encounter.34",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -5605,7 +5616,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.14"
+            "mazeVariable": "gatehouse.encounter.14",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -5722,7 +5734,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.19"
+            "mazeVariable": "gatehouse.encounter.19",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6205,7 +6218,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.32"
+            "mazeVariable": "gatehouse.encounter.32",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6485,7 +6499,8 @@
                   "alignment": "CENTER"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -6530,7 +6545,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.15"
+            "mazeVariable": "gatehouse.encounter.15",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -7100,7 +7116,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.33"
+            "mazeVariable": "gatehouse.encounter.33",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -7652,7 +7669,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.17"
+            "mazeVariable": "gatehouse.encounter.17",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -7806,7 +7824,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.bats.or.spiders",
-            "mazeVariable": "gatehouse.encounter.16"
+            "mazeVariable": "gatehouse.encounter.16",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -7959,7 +7978,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.36"
+            "mazeVariable": "gatehouse.encounter.36",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -7992,7 +8012,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.0"
+            "mazeVariable": "gatehouse.encounter.0",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -8357,7 +8378,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.26"
+            "mazeVariable": "gatehouse.encounter.26",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -8679,7 +8701,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.bonebrood",
-            "mazeVariable": "gatehouse.encounter.7"
+            "mazeVariable": "gatehouse.encounter.7",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -8708,7 +8731,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.bonebrood",
-            "mazeVariable": "gatehouse.encounter.7"
+            "mazeVariable": "gatehouse.encounter.7",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -8825,7 +8849,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.medium",
-            "mazeVariable": "gatehouse.encounter.37"
+            "mazeVariable": "gatehouse.encounter.37",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -8882,7 +8907,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.2"
+            "mazeVariable": "gatehouse.encounter.2",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -9516,7 +9542,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.spiders",
-            "mazeVariable": "gatehouse.encounter.6"
+            "mazeVariable": "gatehouse.encounter.6",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -9928,7 +9955,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.spiders",
-            "mazeVariable": "gatehouse.encounter.6"
+            "mazeVariable": "gatehouse.encounter.6",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -10675,7 +10703,8 @@
             "encounterTable": "gatehouse.level.1.cruds",
             "mazeVariable": "gatehouse.encounter.8",
             "attitude": "ATTACKING",
-            "ambushStatus": "FOES_MAY_AMBUSH_PARTY"
+            "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -10752,7 +10781,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.spider.1",
-            "mazeVariable": "gatehouse.encounter.5"
+            "mazeVariable": "gatehouse.encounter.5",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -11292,7 +11322,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1",
-            "mazeVariable": "gatehouse.encounter.22"
+            "mazeVariable": "gatehouse.encounter.22",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -12090,7 +12121,8 @@
                   "alignment": "TOP"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -12355,7 +12387,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.roaches",
-            "mazeVariable": "gatehouse.encounter.46"
+            "mazeVariable": "gatehouse.encounter.46",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1.roaches",
@@ -12700,7 +12733,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.roaches.medium",
-            "mazeVariable": "gatehouse.encounter.45"
+            "mazeVariable": "gatehouse.encounter.45",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1.roaches.medium",
@@ -13274,7 +13308,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.roaches",
-            "mazeVariable": "gatehouse.encounter.23"
+            "mazeVariable": "gatehouse.encounter.23",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -13587,7 +13622,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.roaches.medium",
-            "mazeVariable": "gatehouse.encounter.47"
+            "mazeVariable": "gatehouse.encounter.47",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1.roaches.medium",
@@ -13897,7 +13933,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gatehouse.level.1.roaches",
-            "mazeVariable": "gatehouse.encounter.44"
+            "mazeVariable": "gatehouse.encounter.44",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "gatehouse.level.1.roaches",

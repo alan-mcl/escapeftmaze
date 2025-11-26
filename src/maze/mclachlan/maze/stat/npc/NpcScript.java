@@ -457,7 +457,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 			List<MazeEvent> result = new ArrayList<>();
 
-			String [] rsps = response.split("\n");
+			String[] rsps = response.split("\n");
 
 			for (String rsp : rsps)
 			{

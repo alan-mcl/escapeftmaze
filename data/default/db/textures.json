@@ -252,6 +252,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.madame.hoshiko",
+    "imageResources": [
+      "crusader/foe/madame_hoshiko"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.block.golem",
     "imageResources": [
       "crusader/foe/block_golem"

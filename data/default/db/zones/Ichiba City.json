@@ -15063,7 +15063,17 @@
       },
       {
         "coords": "27:13",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "facings": "01",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "A short price list is attached to the door. It reads:\n\nService Offered:\nYour Fortune Told: 50gp",
+            "alignment": "CENTER"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030103010203",
         "terrainType": "URBAN",
@@ -15074,7 +15084,15 @@
       },
       {
         "coords": "27:14",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "MADAME HOSHIKO\nYour Future Foretold Today"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02030303010303",
         "terrainType": "URBAN",
@@ -25797,21 +25815,23 @@
       {
         "ceilingTexture": "CITY_CEILING_1",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
         "ceilingTexture": "CITY_CEILING_1",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -26197,21 +26217,23 @@
       {
         "ceilingTexture": "CITY_CEILING_1",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
         "ceilingTexture": "CITY_CEILING_1",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "14",
         "ceilingHeight": "1"
       },
       {
@@ -41572,7 +41594,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -55003,7 +55025,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_WINDOW"
         ],
         "visible": "true",
         "solid": "true",
@@ -67748,8 +67770,28 @@
         "yPos": "6912",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.torch.1",
+        "southTexture": "objects.torch.1",
+        "eastTexture": "objects.torch.1",
+        "westTexture": "objects.torch.1",
+        "xPos": "14080",
+        "yPos": "5888",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
       }
     ],
-    "scripts": []
+    "scripts": [
+      {
+        "TYPE_KEY": "mclachlan.crusader.script.RandomLightingScript",
+        "affectedTiles": [
+          "467"
+        ],
+        "frequency": "5",
+        "minLightLevel": "16",
+        "maxLightLevel": "28"
+      }
+    ]
   }
 }
