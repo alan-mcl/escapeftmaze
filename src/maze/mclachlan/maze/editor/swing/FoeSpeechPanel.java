@@ -111,10 +111,10 @@ public class FoeSpeechPanel extends EditorPanel
 	{
 		FoeSpeech ft = Database.getInstance().getFoeSpeech(name);
 
-		neutralGreeting.removeActionListener(this);
-		friendlyGreeting.removeActionListener(this);
-		neutralFarewell.removeActionListener(this);
-		friendlyFarewell.removeActionListener(this);
+		neutralGreeting.removeKeyListener(this);
+		friendlyGreeting.removeKeyListener(this);
+		neutralFarewell.removeKeyListener(this);
+		friendlyFarewell.removeKeyListener(this);
 
 		neutralGreeting.setText(ft.getNeutralGreeting() == null ? "" : ft.getNeutralGreeting());
 		friendlyGreeting.setText(ft.getFriendlyGreeting() == null ? "" : ft.getFriendlyGreeting());
@@ -122,10 +122,10 @@ public class FoeSpeechPanel extends EditorPanel
 		friendlyFarewell.setText(ft.getFriendlyFarewell() == null ? "" : ft.getFriendlyFarewell());
 		dialog.refresh(ft.getDialog());
 
-		neutralGreeting.addActionListener(this);
-		friendlyGreeting.addActionListener(this);
-		neutralFarewell.addActionListener(this);
-		friendlyFarewell.addActionListener(this);
+		neutralGreeting.addKeyListener(this);
+		friendlyGreeting.addKeyListener(this);
+		neutralFarewell.addKeyListener(this);
+		friendlyFarewell.addKeyListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/

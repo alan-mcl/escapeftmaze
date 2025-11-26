@@ -157,5 +157,4 @@ public class EvaWingfield extends NpcScript
 		newTile = new Point(Dice.d10.roll("location")+5, Dice.d20.roll("location")+15);
 		return newTile;
 	}
-
 }

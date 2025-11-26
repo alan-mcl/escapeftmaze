@@ -83,7 +83,14 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> subsequentGreeting()
 	{
-		return new ArrayList<>();
+		if (getNpcSpeech().getFriendlyGreeting() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getFriendlyGreeting(), npc));
+		}
+		else
+		{
+			return new ArrayList<>();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -93,7 +100,14 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> neutralGreeting()
 	{
-		return new ArrayList<>();
+		if (getNpcSpeech().getNeutralGreeting() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getNeutralGreeting(), npc));
+		}
+		else
+		{
+			return new ArrayList<>();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -135,7 +149,12 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> partyLeavesNeutral()
 	{
-		return getList(new ActorsLeaveEvent());
+		List<MazeEvent> result = getList(new ActorsLeaveEvent());
+		if (getNpcSpeech().getNeutralFarewell() != null)
+		{
+			result.add(0, new NpcSpeechEvent(getNpcSpeech().getNeutralFarewell(), npc));
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -145,7 +164,12 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> partyLeavesFriendly()
 	{
-		return getList(new ActorsLeaveEvent());
+		List<MazeEvent> result = getList(new ActorsLeaveEvent());
+		if (getNpcSpeech().getFriendlyFarewell() != null)
+		{
+			result.add(0, new NpcSpeechEvent(getNpcSpeech().getFriendlyFarewell(), npc));
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -353,7 +377,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 		if (item.isQuestItem())
 		{
-			return doesntWantItem(leader);
+			return doesntWantItem();
 		}
 		else
 		{
@@ -420,16 +444,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 */
 	public List<MazeEvent> parsePartySpeech(PlayerCharacter pc, String speech)
 	{
-		NpcSpeech dialogue = null;
-		if (this.npc instanceof Npc)
-		{
-			Npc npc1 = (Npc)this.npc;
-			dialogue = npc1.getTemplate().getDialogue();
-		}
-		else if (this.npc.getFoeTemplate().getFoeSpeech() != null)
-		{
-			dialogue = this.npc.getFoeTemplate().getFoeSpeech().getDialog();
-		}
+		NpcSpeech dialogue = getNpcSpeech();
 
 		if (dialogue != null)
 		{
@@ -461,6 +476,22 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 		{
 			return getList(new FlavourTextEvent(StringUtil.getEventText("msg.no.response")));
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private NpcSpeech getNpcSpeech()
+	{
+		NpcSpeech dialogue = null;
+		if (this.npc instanceof Npc)
+		{
+			Npc npc1 = (Npc)this.npc;
+			dialogue = npc1.getTemplate().getDialogue();
+		}
+		else if (this.npc.getFoeTemplate().getFoeSpeech() != null)
+		{
+			dialogue = this.npc.getFoeTemplate().getFoeSpeech().getDialog();
+		}
+		return dialogue;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -543,43 +574,92 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyCantAffordItem(PlayerParty party, Item item)
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.party.cant.afford.item"), npc));
+		if (getNpcSpeech().getPartyCantAffordItem() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getPartyCantAffordItem(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.party.cant.afford.item"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> characterInventoryFull(PlayerParty party, Item item)
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.party.character.inventory.full"), npc));
+		if (getNpcSpeech().getCharacterInventoryFull() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getCharacterInventoryFull(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.party.character.inventory.full"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> notInterestedInBuyingItem(Item item)
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.not.interested.in.buying.item"), npc));
+		if (getNpcSpeech().getNotInterestedInBuyingItem() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getNotInterestedInBuyingItem(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.not.interested.in.buying.item"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> cantAffordToBuyItem(Item item)
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.cant.afford.to.buy.item"), npc));
+		if (getNpcSpeech().getCantAffordToBuyItem() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getCantAffordToBuyItem(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.cant.afford.to.buy.item"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> npcInventoryFull(Item item)
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.npc.inventory.full"), npc));
+		if (getNpcSpeech().getNpcInventoryFull() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getNpcInventoryFull(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.npc.inventory.full"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> doesntWantItem(Foe leader)
+	public List<MazeEvent> doesntWantItem()
 	{
-		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.no.thanks"), leader));
+		if (getNpcSpeech().getDoesntWantItem() != null)
+		{
+			return getList(new NpcSpeechEvent(getNpcSpeech().getDoesntWantItem(), npc));
+		}
+		else
+		{
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.no.thanks"), npc));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public String doesntKnowAbout(String speech)
 	{
-		return StringUtil.getEventText("msg.npc.doesnt.know", speech);
+		if (getNpcSpeech().getDoesntKnowAbout() != null)
+		{
+			return String.format(getNpcSpeech().getDoesntKnowAbout(), speech);
+		}
+		else
+		{
+			return StringUtil.getEventText("msg.npc.doesnt.know", speech);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

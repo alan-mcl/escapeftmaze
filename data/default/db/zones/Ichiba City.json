@@ -9187,7 +9187,15 @@
       },
       {
         "coords": "15:12",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "SCRIMSHAW BROS"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02020202010303",
         "terrainType": "URBAN",
@@ -9689,7 +9697,15 @@
       },
       {
         "coords": "16:13",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Bessa\u0027s Lucky Shoes"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,03030101010202",
         "terrainType": "URBAN",
@@ -9700,7 +9716,15 @@
       },
       {
         "coords": "16:14",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Gerta\u0027s Spices"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01030302030201",
         "terrainType": "URBAN",
@@ -67702,6 +67726,26 @@
         "westTexture": "objects.market.stall.1",
         "xPos": "7936",
         "yPos": "7936",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.market.stall.1",
+        "southTexture": "objects.market.stall.1",
+        "eastTexture": "objects.market.stall.1",
+        "westTexture": "objects.market.stall.1",
+        "xPos": "7936",
+        "yPos": "6400",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.market.stall.1",
+        "southTexture": "objects.market.stall.1",
+        "eastTexture": "objects.market.stall.1",
+        "westTexture": "objects.market.stall.1",
+        "xPos": "8448",
+        "yPos": "6912",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

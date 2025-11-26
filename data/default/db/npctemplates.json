@@ -2650,7 +2650,18 @@
     "resistSteal": "10",
     "theftCounter": "0",
     "dialogue": {
-      "dialogue": []
+      "dialogue": [],
+      "friendlyGreeting": "You look HUNGRY! Or tired. Or both. Either way, fried bits solve it.",
+      "neutralGreeting": "CHEAP? No no, boss, I call it competitively EDIBLE!",
+      "friendlyFarewell": "Come back anytime and Mazza gives you the friend price... which is STILL A BARGAIN!",
+      "neutralFarewell": "Take it easy out there! Mazza will keep the OIL HOT for ya!",
+      "partyCantAffordItem": "Sorry but NO CREDIT! Mazza takes only cash!",
+      "characterInventoryFull": "You got no hands for that boss! Lighten the load, THEN WE FEED!",
+      "notInterestedInBuyingItem": "What? Mazza can\u0027t fry THAT!",
+      "cantAffordToBuyItem": "If only! Mazza\u0027s purse is EMPTY!",
+      "npcInventoryFull": "Sorry boss, Mazza\u0027s got NO ROOM!",
+      "doesntWantItem": "What? Mazza can\u0027t fry THAT!",
+      "doesntKnowAbout": "No idea what \u0027%s\u0027 is, boss. Sounds UNFRYABLE!"
     },
     "speechColour": "ff999900",
     "zone": "Ichiba City",
@@ -5216,7 +5227,18 @@
           ],
           "speech": "Beyond the gates of Danoas and Aenen, the Second Realm is wild and uncivilised. Those domains are not for the faint of heart. "
         }
-      ]
+      ],
+      "friendlyGreeting": "Well met, companions. The winds carry grim tidings, but seeing you brings a measure of hope.",
+      "neutralGreeting": "Well met. I trust your journey has not been harder than mine.",
+      "friendlyFarewell": "Walk well, companions, and let no shadow dim your spirits.",
+      "neutralFarewell": "I have lingered long enough. The road calls me onward.",
+      "partyCantAffordItem": "Gold is the least of this world\u0027s burdens. Return when you carry enough of it.",
+      "characterInventoryFull": "You are burdened enough. Lighten your load, then return.",
+      "notInterestedInBuyingItem": "I do not want it. My burdens are heavy enough already.",
+      "cantAffordToBuyItem": "I have little coin, and less reason to spend it. Keep your goods.",
+      "npcInventoryFull": "I carry all that I can. There is no room for more, not even for this.",
+      "doesntWantItem": "I do not want it. My burdens are heavy enough already.",
+      "doesntKnowAbout": "I have no knowledge of %s. The Second Realm is large, and I have not seen all of it."
     },
     "speechColour": "ffffd700",
     "zone": "Ichiba Crossroad",
@@ -9185,7 +9207,14 @@
           ],
           "speech": "Stick to the city mateys, much better for business."
         }
-      ]
+      ],
+      "partyCantAffordItem": "No gold, no goods.  Emmons ain\u0027t runnin\u0027 a charity.",
+      "characterInventoryFull": "Heh! Ye lot carryin\u0027 half the Realm on yer backs? Clear some space if ye want this.",
+      "notInterestedInBuyingItem": "Not interested, nope.",
+      "cantAffordToBuyItem": "If I had the coin, I\u0027d snatch it up quick. But I don\u0027t, so ye\u0027ll have to sell it elsewhere.",
+      "npcInventoryFull": "No room, mateys. I\u0027m full up with goods already.",
+      "doesntWantItem": "You can shove that back in yer pack. I ain\u0027t touchin\u0027 it.",
+      "doesntKnowAbout": "No clue about \u0027%s\u0027, mateys. That\u0027s outside my shadows."
     },
     "speechColour": "ff009900",
     "zone": "Gatehouse",

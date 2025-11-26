@@ -36,6 +36,19 @@ public class NpcSpeech
 
 	private List<NpcSpeechRow> dialogue = new ArrayList<>();
 
+	// stock phrases
+	private String friendlyGreeting;
+	private String neutralGreeting;
+	private String friendlyFarewell;
+	private String neutralFarewell;
+	private String partyCantAffordItem;
+	private String characterInventoryFull;
+	private String notInterestedInBuyingItem;
+	private String cantAffordToBuyItem;
+	private String npcInventoryFull;
+	private String doesntWantItem;
+	private String doesntKnowAbout;
+
 	/*-------------------------------------------------------------------------*/
 
 	public NpcSpeech()
@@ -178,27 +191,114 @@ public class NpcSpeech
 
 	/*-------------------------------------------------------------------------*/
 
-	@Override
-	public boolean equals(Object o)
+	public String getFriendlyGreeting()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		NpcSpeech npcSpeech = (NpcSpeech)o;
-
-		return getDialogue() != null ? getDialogue().equals(npcSpeech.getDialogue()) : npcSpeech.getDialogue() == null;
+		return friendlyGreeting;
 	}
 
-	@Override
-	public int hashCode()
+	public void setFriendlyGreeting(String friendlyGreeting)
 	{
-		return getDialogue() != null ? getDialogue().hashCode() : 0;
+		this.friendlyGreeting = friendlyGreeting;
+	}
+
+	public String getNeutralGreeting()
+	{
+		return neutralGreeting;
+	}
+
+	public void setNeutralGreeting(String neutralGreeting)
+	{
+		this.neutralGreeting = neutralGreeting;
+	}
+
+	public String getFriendlyFarewell()
+	{
+		return friendlyFarewell;
+	}
+
+	public void setFriendlyFarewell(String friendlyFarewell)
+	{
+		this.friendlyFarewell = friendlyFarewell;
+	}
+
+	public String getNeutralFarewell()
+	{
+		return neutralFarewell;
+	}
+
+	public void setNeutralFarewell(String neutralFarewell)
+	{
+		this.neutralFarewell = neutralFarewell;
+	}
+
+	public String getPartyCantAffordItem()
+	{
+		return partyCantAffordItem;
+	}
+
+	public void setPartyCantAffordItem(String partyCantAffordItem)
+	{
+		this.partyCantAffordItem = partyCantAffordItem;
+	}
+
+	public String getCharacterInventoryFull()
+	{
+		return characterInventoryFull;
+	}
+
+	public void setCharacterInventoryFull(String characterInventoryFull)
+	{
+		this.characterInventoryFull = characterInventoryFull;
+	}
+
+	public String getNotInterestedInBuyingItem()
+	{
+		return notInterestedInBuyingItem;
+	}
+
+	public void setNotInterestedInBuyingItem(String notInterestedInBuyingItem)
+	{
+		this.notInterestedInBuyingItem = notInterestedInBuyingItem;
+	}
+
+	public String getCantAffordToBuyItem()
+	{
+		return cantAffordToBuyItem;
+	}
+
+	public void setCantAffordToBuyItem(String cantAffordToBuyItem)
+	{
+		this.cantAffordToBuyItem = cantAffordToBuyItem;
+	}
+
+	public String getNpcInventoryFull()
+	{
+		return npcInventoryFull;
+	}
+
+	public void setNpcInventoryFull(String npcInventoryFull)
+	{
+		this.npcInventoryFull = npcInventoryFull;
+	}
+
+	public String getDoesntWantItem()
+	{
+		return doesntWantItem;
+	}
+
+	public void setDoesntWantItem(String doesntWantItem)
+	{
+		this.doesntWantItem = doesntWantItem;
+	}
+
+	public String getDoesntKnowAbout()
+	{
+		return doesntKnowAbout;
+	}
+
+	public void setDoesntKnowAbout(String doesntKnowAbout)
+	{
+		this.doesntKnowAbout = doesntKnowAbout;
 	}
 
 	/*-------------------------------------------------------------------------*/

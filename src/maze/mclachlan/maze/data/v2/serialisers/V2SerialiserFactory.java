@@ -970,9 +970,26 @@ public class V2SerialiserFactory
 	/*-------------------------------------------------------------------------*/
 	public static V2SerialiserMap<NpcSpeech> getNpcSpeechSerialiser()
 	{
-		ReflectiveSerialiser result = getReflectiveSerialiser(NpcSpeech.class, "dialogue");
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			NpcSpeech.class,
+			"dialogue",
+			"friendlyGreeting",
+			"neutralGreeting",
+			"friendlyFarewell",
+			"neutralFarewell",
+			"partyCantAffordItem",
+			"characterInventoryFull",
+			"notInterestedInBuyingItem",
+			"cantAffordToBuyItem",
+			"npcInventoryFull",
+			"doesntWantItem",
+			"doesntKnowAbout");
 
-		ReflectiveSerialiser rowSerialiser = getReflectiveSerialiser(NpcSpeechRow.class, "priority", "keywords", "speech");
+		ReflectiveSerialiser rowSerialiser = getReflectiveSerialiser
+			(NpcSpeechRow.class,
+				"priority",
+				"keywords",
+				"speech");
 
 		rowSerialiser.addCustomSerialiser("keywords", new StringSetSerialiser());
 

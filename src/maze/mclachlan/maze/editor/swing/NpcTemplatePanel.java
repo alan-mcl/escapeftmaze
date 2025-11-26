@@ -45,6 +45,10 @@ public class NpcTemplatePanel extends EditorPanel
 	private NpcSpeechPanel npcSpeechPanel;
 	private JButton colourButton;
 
+	JTextField neutralGreeting, friendlyGreeting, neutralFarewell, friendlyFarewell,
+		partyCantAffordItem, characterInventoryFull, notInterestedInBuyingItem,
+		cantAffordToBuyItem, npcInventoryFull, doesntWantItem, doesntKnowAbout;
+
 	/*-------------------------------------------------------------------------*/
 	public NpcTemplatePanel()
 	{
@@ -58,9 +62,78 @@ public class NpcTemplatePanel extends EditorPanel
 
 		tabs.add("Detail", getDetailTab());
 		tabs.add("Inventory Template", getInventoryTemplateTab());
+		tabs.add("Interactions", getInteractionsTab());
 		tabs.add("Dialogue", getDialogTab());
 
 		return tabs;
+	}
+
+	private Component getInteractionsTab()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		neutralGreeting = new JTextField(50);
+		neutralGreeting.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Neutral Greeting:"), neutralGreeting, gbc);
+
+		friendlyGreeting = new JTextField(50);
+		friendlyGreeting.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Friendly Greeting:"), friendlyGreeting, gbc);
+
+		neutralFarewell = new JTextField(50);
+		neutralFarewell.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Neutral Farewell:"), neutralFarewell, gbc);
+
+		friendlyFarewell = new JTextField(50);
+		friendlyFarewell.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Friendly Farewell:"), friendlyFarewell, gbc);
+
+		partyCantAffordItem = new JTextField(50);
+		partyCantAffordItem.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Party Can't Afford Item:"), partyCantAffordItem, gbc);
+
+		characterInventoryFull = new JTextField(50);
+		characterInventoryFull.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Character Inventory Full:"), characterInventoryFull, gbc);
+
+		notInterestedInBuyingItem = new JTextField(50);
+		notInterestedInBuyingItem.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Not Interested In Buying Item:" ), notInterestedInBuyingItem, gbc);
+
+		cantAffordToBuyItem = new JTextField(50);
+		cantAffordToBuyItem.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Can't Afford To Buy Item:"), cantAffordToBuyItem, gbc);
+
+		npcInventoryFull = new JTextField(50);
+		npcInventoryFull.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("NPC Inventory Full:"), npcInventoryFull, gbc);
+
+		doesntWantItem = new JTextField(50);
+		doesntWantItem.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Doesn't Want Item:"), doesntWantItem, gbc);
+
+		doesntKnowAbout = new JTextField(50);
+		doesntKnowAbout.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Doesn't Know About %s:"), doesntKnowAbout, gbc);
+
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		gbc.gridwidth = 3;
+		gbc.gridheight = GridBagConstraints.REMAINDER;
+		result.add(new JLabel(), gbc);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -271,6 +344,18 @@ public class NpcTemplatePanel extends EditorPanel
 		alliesOnCall.removeActionListener(this);
 		zone.removeActionListener(this);
 
+		friendlyGreeting.removeKeyListener(this);
+		neutralGreeting.removeKeyListener(this);
+		friendlyFarewell.removeKeyListener(this);
+		neutralFarewell.removeKeyListener(this);
+		partyCantAffordItem.removeKeyListener(this);
+		characterInventoryFull.removeKeyListener(this);
+		notInterestedInBuyingItem.removeKeyListener(this);
+		cantAffordToBuyItem.removeKeyListener(this);
+		npcInventoryFull.removeKeyListener(this);
+		doesntWantItem.removeKeyListener(this);
+		doesntKnowAbout.removeKeyListener(this);
+
 		foeName.setSelectedItem(npc.getFoeName());
 		faction.setSelectedItem(npc.getFaction());
 		npcScript.setText(npc.getScript().getClass().getName());
@@ -303,6 +388,18 @@ public class NpcTemplatePanel extends EditorPanel
 		npcSpeechPanel.refresh(npc.getDialogue());
 		colourButton.setBackground(npc.getSpeechColour());
 
+		friendlyGreeting.setText(npc.getDialogue().getFriendlyGreeting() == null ? "" : npc.getDialogue().getFriendlyGreeting());
+		neutralGreeting.setText(npc.getDialogue().getNeutralGreeting() == null ? "" : npc.getDialogue().getNeutralGreeting());
+		friendlyFarewell.setText(npc.getDialogue().getFriendlyFarewell() == null ? "" : npc.getDialogue().getFriendlyFarewell());
+		neutralFarewell.setText(npc.getDialogue().getNeutralFarewell() == null ? "" : npc.getDialogue().getNeutralFarewell());
+		partyCantAffordItem.setText(npc.getDialogue().getPartyCantAffordItem() == null ? "" : npc.getDialogue().getPartyCantAffordItem());
+		characterInventoryFull.setText(npc.getDialogue().getCharacterInventoryFull() == null ? "" : npc.getDialogue().getCharacterInventoryFull());
+		notInterestedInBuyingItem.setText(npc.getDialogue().getNotInterestedInBuyingItem() == null ? "" : npc.getDialogue().getNotInterestedInBuyingItem());
+		cantAffordToBuyItem.setText(npc.getDialogue().getCantAffordToBuyItem() == null ? "" : npc.getDialogue().getCantAffordToBuyItem());
+		npcInventoryFull.setText(npc.getDialogue().getNpcInventoryFull() == null ? "" : npc.getDialogue().getNpcInventoryFull());
+		doesntWantItem.setText(npc.getDialogue().getDoesntWantItem() == null ? "" : npc.getDialogue().getDoesntWantItem());
+		doesntKnowAbout.setText(npc.getDialogue().getDoesntKnowAbout() == null ? "" : npc.getDialogue().getDoesntKnowAbout());
+
 		attitude.addActionListener(this);
 		buysAt.addChangeListener(this);
 		sellsAt.addChangeListener(this);
@@ -317,6 +414,18 @@ public class NpcTemplatePanel extends EditorPanel
 		faction.addActionListener(this);
 		alliesOnCall.addActionListener(this);
 		zone.addActionListener(this);
+
+		friendlyGreeting.addKeyListener(this);
+		neutralGreeting.addKeyListener(this);
+		friendlyFarewell.addKeyListener(this);
+		neutralFarewell.addKeyListener(this);
+		partyCantAffordItem.addKeyListener(this);
+		characterInventoryFull.addKeyListener(this);
+		notInterestedInBuyingItem.addKeyListener(this);
+		cantAffordToBuyItem.addKeyListener(this);
+		npcInventoryFull.addKeyListener(this);
+		doesntWantItem.addKeyListener(this);
+		doesntKnowAbout.addKeyListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -432,6 +541,18 @@ public class NpcTemplatePanel extends EditorPanel
 		npc.setFaction((String)faction.getSelectedItem());
 		npc.setDialogue(npcSpeechPanel.getDialogue());
 		npc.setSpeechColour(colourButton.getBackground());
+
+		npc.getDialogue().setFriendlyGreeting("".equals(friendlyGreeting.getText()) ? null : friendlyGreeting.getText());
+		npc.getDialogue().setNeutralGreeting("".equals(neutralGreeting.getText()) ? null : neutralGreeting.getText());
+		npc.getDialogue().setFriendlyFarewell("".equals(friendlyFarewell.getText()) ? null : friendlyFarewell.getText());
+		npc.getDialogue().setNeutralFarewell("".equals(neutralFarewell.getText()) ? null : neutralFarewell.getText());
+		npc.getDialogue().setPartyCantAffordItem("".equals(partyCantAffordItem.getText()) ? null : partyCantAffordItem.getText());
+		npc.getDialogue().setCharacterInventoryFull("".equals(characterInventoryFull.getText()) ? null : characterInventoryFull.getText());
+		npc.getDialogue().setNotInterestedInBuyingItem("".equals(notInterestedInBuyingItem.getText()) ? null : notInterestedInBuyingItem.getText());
+		npc.getDialogue().setCantAffordToBuyItem("".equals(cantAffordToBuyItem.getText()) ? null : cantAffordToBuyItem.getText());
+		npc.getDialogue().setNpcInventoryFull("".equals(npcInventoryFull.getText()) ? null : npcInventoryFull.getText());
+		npc.getDialogue().setDoesntWantItem("".equals(doesntWantItem.getText()) ? null : doesntWantItem.getText());
+		npc.getDialogue().setDoesntKnowAbout("".equals(doesntKnowAbout.getText()) ? null : doesntKnowAbout.getText());
 
 		return npc;
 	}
