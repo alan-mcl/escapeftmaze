@@ -56,7 +56,7 @@ public class MadameHoshiko extends NpcScript
 	@Override
 	public List<MazeEvent> parsePartySpeech(PlayerCharacter pc, String speech)
 	{
-		if (NpcSpeech.sentenceContainsKeywords(speech, "fortune", "future"))
+		if (NpcSpeech.sentenceContainsKeywords(speech, "fortune", "future", "reading", "tarot"))
 		{
 			if (MazeVariables.get(HOSHIKO_HAS_TOLD_FORTUNE) == null)
 			{

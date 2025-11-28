@@ -35,19 +35,19 @@ public class MajorArcanaFactory
 				),
 				Card.SpreadPosition.FUTURE, new Card.Reading(
 					"A new path will open if you embrace risk.\nMovement brings reward.",
-					"If you cling to safety, stagnation will continue.\nA smaller, safer step may break the spell."
+					"If you cling to safety, stagnation will continue.\nA smaller but bolder step may break the spell."
 				)
 			)
 		));
 
-		// II) The Shield (The White Lady)
+		// II) The White Lady (Isolde)
 		cards.add(new Card(
-			"The Shield",
+			"The White Lady",
 			2,
 			"A warrior woman in white, haloed by the light of justice.",
 			Arrays.asList(
 				"You are protected by principle.",
-				"Truth stands beside you.",
+				"Justice stands beside you.",
 				"You are guided toward moral clarity."
 			),
 			Arrays.asList(
@@ -176,7 +176,7 @@ public class MajorArcanaFactory
 			),
 			Arrays.asList(
 				"Emotional drought has set in.",
-				"A season feels barren and dry.",
+				"The season is barren and dry.",
 				"You have withdrawn from caring."
 			),
 			Map.of(
@@ -310,7 +310,7 @@ public class MajorArcanaFactory
 				),
 				Card.SpreadPosition.PRESENT, new Card.Reading(
 					"Clarity pierces the present moment.\nSee motives and act with sight.",
-					"Blind spots persist.\nSeek corroboration before deciding."
+					"Blind spots persist.\nSeek the truth before deciding."
 				),
 				Card.SpreadPosition.FUTURE, new Card.Reading(
 					"A revelation will illuminate a difficult question, guiding you forward.",
@@ -461,14 +461,14 @@ public class MajorArcanaFactory
 			Map.of(
 				Card.SpreadPosition.PAST, new Card.Reading(
 					"You crossed a threshold before that changed your standing.",
-					"You refused an initiation and remained on the old side of the door."
+					"You refused an invitation and remained on the old side of the door."
 				),
 				Card.SpreadPosition.PRESENT, new Card.Reading(
-					"A choice awaits.\nStep through deliberately to gain initiation.",
+					"A choice awaits.\nStep through deliberately to gain what you seek.",
 					"Fear of change keeps you before the closed door. Courage is needed."
 				),
 				Card.SpreadPosition.FUTURE, new Card.Reading(
-					"An initiation or rite will open access to new roles and responsibilities.",
+					"Choosing a change in circumstances will open access to new roles and responsibilities.",
 					"If you decline, you will miss growth that requires passage."
 				)
 			)
@@ -496,7 +496,7 @@ public class MajorArcanaFactory
 				),
 				Card.SpreadPosition.PRESENT, new Card.Reading(
 					"A painful but necessary splitting now clears the way for a truer form.",
-					"If you resist integration, the rupture will become permanent and bitter."
+					"If you do not embrace fate, the rupture will become permanent and bitter."
 				),
 				Card.SpreadPosition.FUTURE, new Card.Reading(
 					"A transformation will cost what it must but will reveal a deeper truth.",
@@ -616,7 +616,7 @@ public class MajorArcanaFactory
 			Map.of(
 				Card.SpreadPosition.PAST, new Card.Reading(
 					"Hard work and steady effort in the past carried you through difficulty.",
-					"Endurance then cost you warmth and connection."
+					"Endurance cost you warmth and connection."
 				),
 				Card.SpreadPosition.PRESENT, new Card.Reading(
 					"Keep disciplined - consistent effort yields lasting results.",
@@ -672,7 +672,7 @@ public class MajorArcanaFactory
 			),
 			Arrays.asList(
 				"You fear the change completion requires.",
-				"An endless cycle traps you in repetition.",
+				"An endless cycle traps you and keeps you from progress.",
 				"You resist the final step to move on."
 			),
 			Map.of(

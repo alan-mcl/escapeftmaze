@@ -4426,10 +4426,25 @@
         {
           "priority": "9",
           "keywords": [
+            "emmons"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "freedom",
             "escape"
           ],
           "speech": "Grrrr. The maze does not permit escape, better to enjoy what frrrreedoms one has here."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -4519,9 +4534,23 @@
         {
           "priority": "9",
           "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "hail"
           ],
           "speech": "That city has fallen, darkness has engulfed the wilder half of this Rrrrealm."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -4540,6 +4569,20 @@
         {
           "priority": "9",
           "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "kay",
             "sir kay"
           ],
@@ -4548,7 +4591,8 @@
         {
           "priority": "9",
           "keywords": [
-            "lady"
+            "white lady",
+            "isolde"
           ],
           "speech": "Patrrron of our White Order."
         },
@@ -4571,6 +4615,13 @@
         {
           "priority": "9",
           "keywords": [
+            "lunara"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "maze"
           ],
           "speech": "Hrrmmm. The maze sees all."
@@ -4585,6 +4636,13 @@
         {
           "priority": "9",
           "keywords": [
+            "mazza"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "mentes"
           ],
           "speech": "Hmm, I know him not."
@@ -4595,6 +4653,13 @@
             "mnesus"
           ],
           "speech": "Brrrrmm, chieftain of the gnomes. I have heard he has a dozen demons bound by dark sorrrcerry to do his bidding."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -4622,9 +4687,23 @@
         {
           "priority": "9",
           "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "red ear"
           ],
           "speech": "I know him not."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -4712,6 +4791,20 @@
         {
           "priority": "9",
           "keywords": [
+            "thyra"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "wasid"
           ],
           "speech": "The warrr god, not to be trrrifled with."
@@ -4724,6 +4817,13 @@
             "wastelands"
           ],
           "speech": "Hrmmmm. Danoas is the end of the civilised lands. Beyond lie the wilds, deadly to the unprepared traveller."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": ""
         }
       ]
     },
@@ -17041,7 +17141,7 @@
     "buysAt": "0",
     "sellsAt": "0",
     "maxPurchasePrice": "0",
-    "willBuyItemTypes": "",
+    "willBuyItemTypes": "0000000000000000000000000001",
     "inventoryTemplate": {
       "rows": []
     },
@@ -17050,7 +17150,502 @@
     "resistSteal": "0",
     "theftCounter": "0",
     "dialogue": {
-      "dialogue": [],
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": "The Messenger, She Who Flies\nThe messenger goddess, she of the wing and the whirlwind, faster than a ray of sunshine. She carries word on swiftly and surely. The gull, the deer and the lion follow in her footsteps.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": "Aenen glows in the dark like a stubborn ember. It endures because its people refuse to stop tinkering with their own destiny."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": "Mistress Of The Rains, Lady Of The Harvest\nThe spring goddesses, patrons of sunshine, fertility, rain and love. They of the shining face bring growth and health on all creatures.\nHer holy places are fertile valleys and spring-fed groves, and the swallow and rabbit are found there."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": "Fate paints him in gold and blood."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "Mm. No. I deal in truths, not wares."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Our thread ends here for now."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "Busy people. Always negotiating, always measuring."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": "The visions paint it green and slow and watchful."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": "I know it as a landmark in other people\u0027s journeys. Strong walls, strong hearts, and strong tempers."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "I know little of his past, but much of his manner. Calm. Focused. A leonal who guards peace instead of battle."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "The cards show him as the Seven of Swords: clever, cautious, and never where you expect him to be"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": "Escaping the Maze... the oldest wish.\nI followed my own fortune out once, long ago. But fates only open doors, they never guarantee a path.\nI left Ponang and the First Realm by trusting the cards, but what worked for me will not work for you.\nSo yes, escape is possible. But the cost is never the same twice. Some pay in time, some in memory, some in blood."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "The Thorn of the Rose. I have not met her, but the cards show a woman carved from motion and grief."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": "Fairie is not a destination. It is a bargain. Step into it, and you must offer something in return - whether you realize it or not."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": "Old hunger, older ambition. A shadow that remembers being a man.\nFate shows a figure rooted deep, like a tree that grew fangs instead of branches.\nHis domain lies hidden for good reason. Be very wary if you seek it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": "The First Realm... yes.\nI was born under its crowded skies, in Ponang where the towers lean like tired giants.\nI escaped the First by following omens until my feet bled.\nCame out here, to Ichiba... and then my fortune became clouded.\nNow it seems here I will remain.\nYet I have no regrets, what will be will be."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "Ah... anger. Always louder than wisdom.\nLet me know when you are finished."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": "The Grey Wayfarer, He Who Wanderers In Shadows\nThe ambivalent patron of heroes, adventurers and wayfarers; the cloaked one who stands guard before those who watch their own backs.\nThe bat, the cat and the spider are his creatures; the road and the alleyway his holy places."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": "The Third Realm lies beyond more than stone or distance.\nThose who pass through change, even if they do not notice at first."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "The cards show the guild as the Two of Coins: balancing risk and opportunity, always spinning, never still."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "Polite, sharp, and surprisingly patient for a gnome."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "A restless people. Their village hums with laughter and hunger in equal measure."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "They are a people who solve problems by inventing three new ones and choosing the one they like best."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "The cards will tolerate your presence. Do you seek a tarot reading?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": "A skald with too many memories and not enough laughter left. The cards show him wrapped in old songs he no longer wants to hear."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": "I have seen visions of it: empty windows, broken walls, and a sky that looks bruised.\nPlaces claimed by the Maze never look the same again."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": "I was born in Ponang, crossed realms by accident and stubbornness, and grew old in Ichiba. That is the simple version."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Everyone arrives by mistake, and most stay longer than they planned.\nI have lived here longer than I meant to."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "The cards whisper of her as the Two of Wands: one hand reaching for power, the other grounding itself in something older and darker."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": "Isolde, The Shield Maiden, Iron Goddess of Justice and Mercy.\nBearing the spear of Truth in one hand and the shield of Faith in the other, she watches over the just and the downtrodden; patron of soldiers, pilgrims and peasants.\nThe stag and the dove are her creatures.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": "The visions paint him as the Seven of Cups: choices, illusions, and a habit of slipping through whichever door you’re not watching."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "The Stone Hand, The Judge\nA stern and implacable god of law, order, and retribution. Kalrath ensures that justice is meted out, regardless of mercy.\nHis sacred places are courtrooms and gallows, and his symbols are the gavel and the iron chain."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "A title worn like a joke, but the power behind it is no laughing matter.\nThe cards show him as the King of Swords: sharp, calculating, and unpredictable"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Strong hearts, louder voices. A leonal will tell you exactly what they think, and usually before you finish the question."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": "She is gentle, but not fragile.\nThink of her as the Page of Pentacles: grounded, observant, and bound to something deeper than she ever says aloud."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": "The Queen Of Moons, Mistress of Dreams\nThe goddess of the moon, dreams, and illusions. Lunara rules over the night, guiding travelers and those who wander in the realm of sleep.\nHer symbols are the crescent moon and the veil, and her creatures are the owl and the wolf."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": "The Maze… mm.\nA living riddle. I have spent my life listening to its echoes, and still it tells me nothing straight.\nWhy are we here? Who and how?\nThe cards show it as a wheel without a center.\nEvery path leads somewhere, but nowhere leads out. Not for free."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "I visit his stall sometimes. His baz cakes are very good."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": "Kings of clever folk must work twice as hard to stay one step ahead of their own subjects."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": "The Tempest, Lord of Storms\nThe god of storms, chaos, and change. Morrath brings destruction but also renewal, as he sweeps away the old to make way for the new.\nHis followers are inventors, rebels, and those who thrive in chaos. His symbols are the lightning bolt and the broken cuff."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": "He Who Sows And He Who Reaps, The Eyeless Face\nThe deathly god of the underworld - a god of emptiness and endings. A desert god, a god of unlife, a god of fire and ice.\nThe jackal, the vulture and the scorpion are his creatures, and his holy places are in the wastelands, deserted tombs and charred ruins.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": "The cards show him as the King of Pentacles upright - prosperous, careful, and difficult to move."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "I have no tasks for you - not ones with clear beginnings, at least.\nPerhaps you would like your fortune told?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": "He keeps to himself, but his presence crackles.\nPeople like him never arrive quietly, even when they say nothing at all."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "The cards show him as the Page of Wands: energetic, impulsive, always chasing the next shiny opportunity."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": "Red Greave... mm. The hero with a smile polished by storytellers."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "I hear many things, but most are only half-shaped truths.\nPerhaps you would like a tarot reading?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "The cards show him as the King of Cups: calm waters on the surface, deeper currents underneath."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": "I have never wandered much further than Ichiba."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": "I have never crossed their path, in vision or in life. Some souls drift outside my sight."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "You are welcome. Fate enjoys a polite traveler."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": "I was born in Ponang, crossed realms by accident and stubbornness, and grew old in Ichiba. That is the simple version."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": "The Third Realm... mm. A place I have only seen in fragments.\nCold colors, sharp edges, and rules that do not match ours."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": "Fate bends oddly around him. \nAs if he and destiny are negotiating. \nAnd neither has won yet."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thyra"
+          ],
+          "speech": "The Weaver, Mistress of Fate, Eldest Of The Seven\nThe goddess who spins the threads of destiny, weaving together the fates of all beings. She is both revered and feared, as her decisions are final and cannot be undone.\nHer creatures are the moth and the owl, and her holy places are crossroads and spinning wheels.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "The Crimson Veil, Lady of Lies\nA mysterious goddess who governs over secrets, lies, and hidden knowledge.\nVireen is invoked by spies, assassins, and those who seek the unknown. Her sacred places are dark alleys and hidden libraries, and her symbols are the mask and the key."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": "The Knight of Swords, the Warbrinder, Defender Of The Broken Wall\nPatron of gladiators and mercenaries, strife and combat. Sometimes he rides to battle on a mighty bull, and the falcons are his eyes and ears."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": "People say nothing lives out there. They are wrong.\nSomething always lives in emptiness; it just prefers not to be seen."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "The Pillar Of Flame, Bringer of Light\nA god of fire, inspiration, and enlightenment. Zerach is both the warmth of the sun and the burning flame of creativity.\nHis followers are artists, scholars, and those seeking inner truth. His sacred symbols are the torch and the sun."
+        }
+      ],
       "friendlyGreeting": "Mmm, welcome back. I felt the tremor of your approach. A pleasant one, for a change.",
       "neutralGreeting": "Back so soon? Very well. The cards will tolerate your presence.",
       "friendlyFarewell": "Until next time, wanderers. May your steps confuse the Maze.",

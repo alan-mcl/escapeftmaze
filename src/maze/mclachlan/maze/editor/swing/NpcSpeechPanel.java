@@ -191,6 +191,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	/*-------------------------------------------------------------------------*/
 	private void quickFill()
 	{
+		// general
 		addSpeech("maze");
 		addSpeech("escape, freedom");
 		addSpeech("rumour,rumours,rumors,rumors");
@@ -199,7 +200,10 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("fuck, fuck you");
 		addSpeech("you, yourself, thou, thee");
 		addSpeech("thank you, thanks");
+		addSpeech("trade,deal,deals,sell,buy");
+		addSpeech("quest,quests");
 
+		// places
 		addSpeech("first realm");
 		addSpeech("second realm");
 		addSpeech("third realm");
@@ -212,28 +216,45 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("wastes, wastelands, wilds");
 		addSpeech("hail");
 
+		// COC
+		addSpeech("we pickett, pickett");
+		addSpeech("scrymgeour");
+
+		// GSC
+		addSpeech("sir kay,kay");
+		addSpeech("emmons");
+
+		// imogen
+		addSpeech("imogen");
+
+		// other Ichiba inhabitants
+		addSpeech("hoshiko");
+		addSpeech("mazza");
+
+		// gnolls
+		addSpeech("three eyes");
+		addSpeech("red ear");
+		addSpeech("broken fang");
+
+		// leonals
+		addSpeech("belisarius");
+		addSpeech("diomedes");
 		addSpeech("agenor");
 		addSpeech("asius");
-		addSpeech("belisarius");
-		addSpeech("broken fang");
-		addSpeech("diomedes");
-		addSpeech("emmons");
-		addSpeech("fangorn");
-		addSpeech("glaucus");
-		addSpeech("imogen");
-		addSpeech("lorelei");
-		addSpeech("mentes");
-		addSpeech("mnesus");
-		addSpeech("red ear");
-		addSpeech("sarpedon");
-		addSpeech("scrymgeour");
 		addSpeech("stenelaus");
-		addSpeech("sir kay,kay");
 		addSpeech("stentor");
-		addSpeech("three eyes");
-		addSpeech("we pickett, pickett");
+
+		// gnomes
+		addSpeech("glaucus");
+		addSpeech("mnesus");
+		addSpeech("mentes");
+		addSpeech("sarpedon");
+
+		// deadly wilderness foes
+		addSpeech("fangorn");
 		addSpeech("maze master");
 
+		// the last accord
 		addSpeech("eva, wingfield");
 		addSpeech("rainmaker");
 		addSpeech("gurney");
@@ -241,21 +262,26 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("red greave");
 		addSpeech("jasker");
 
+		// factions
 		addSpeech("gnomes, gnome");
 		addSpeech("gnolls, gnoll");
 		addSpeech("leonals, white order, leonal");
 		addSpeech("chamber of commerce, coc, c.o.c.");
 		addSpeech("thieves, gentlemen's social club, thieves guild");
 
-		addSpeech("lady");
+		// theology
+		addSpeech("white lady,isolde");
 		addSpeech("garret");
 		addSpeech("wasid");
 		addSpeech("aello");
 		addSpeech("beiweh");
 		addSpeech("nergal");
-
-		addSpeech("trade,deal,deals,sell,buy");
-		addSpeech("quest,quests");
+		addSpeech("thyra");
+		addSpeech("zerach");
+		addSpeech("kalrath");
+		addSpeech("lunara");
+		addSpeech("vireen");
+		addSpeech("morrath");
 
 		dataModel.refresh();
 		SwingEditor.instance.setDirty(dirtyFlag);

@@ -24,7 +24,8 @@ city staircase
 foe rebalancing
 guildmaster button
 NPC-on-same-tile issue
-gate guards
+null NPC faction issue
+temple -> shrine
 
 crater bazaar:
  - Mazza: complete dialog
@@ -34,6 +35,7 @@ crater bazaar:
 
 The Tumbledown
 Library
+Madame Hoshiko: dialog
 random houses: encounters and locked doors
 NPC bedrooms with loot
 Inn kitchen

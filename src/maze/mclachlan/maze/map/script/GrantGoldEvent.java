@@ -44,7 +44,14 @@ public class GrantGoldEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return StringUtil.getEventText("grant.gold", amount);
+		if (amount >= 0)
+		{
+			return StringUtil.getEventText("grant.gold", amount);
+		}
+		else
+		{
+			return StringUtil.getEventText("lose.gold", -amount);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
