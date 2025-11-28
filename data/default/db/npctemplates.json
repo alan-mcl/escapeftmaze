@@ -119,7 +119,7 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "He is in the temple of The Lady, in town."
+          "speech": "He is in the shrine of The Lady, in town."
         },
         {
           "priority": "9",
@@ -3018,7 +3018,7 @@
           "keywords": [
             "glaucus"
           ],
-          "speech": "Yes, the gnome spy here in Ichiba. He runs some sort of brick-a-brac store down an alley somewhere. I have caught him sneaking outside my temple on occasion, but he has never dared more than that."
+          "speech": "Yes, the gnome spy here in Ichiba. He runs some sort of brick-a-brac store down an alley somewhere. I have caught him sneaking outside this shrine on occasion, but he has never dared more than that."
         },
         {
           "priority": "9",
@@ -3216,7 +3216,7 @@
             "thou",
             "you"
           ],
-          "speech": "I am Diomedes, Lieutenant of the White Order, emmisary to Ichiba. I am chief Priest of this temple, a missionary spreading the word of The Lady."
+          "speech": "I am Diomedes, Lieutenant of the White Order, emmisary to Ichiba. I tend this shrine to The Lady in Ichiba."
         },
         {
           "priority": "9",
@@ -3408,7 +3408,7 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "I know of Diomedes who runs the temple in Ichiba. He is a steadfast and honourable soldier. If you see him pass on my regards."
+          "speech": "I know of Diomedes who tends a shrine in Ichiba. He is a steadfast and honourable soldier. If you see him pass on my regards."
         },
         {
           "priority": "9",
@@ -4569,6 +4569,14 @@
         {
           "priority": "9",
           "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": "Patrrron of our White Order."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "jasker"
           ],
           "speech": ""
@@ -4587,14 +4595,6 @@
             "sir kay"
           ],
           "speech": "I know him not."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "white lady",
-            "isolde"
-          ],
-          "speech": "Patrrron of our White Order."
         },
         {
           "priority": "9",
@@ -8584,7 +8584,7 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "That leonal abides in the temple of The Lady. He hee heh. No doubt he will be enthusiastic to tell you of his goddess. *yhhgg*"
+          "speech": "That leonal abides at the shrine of The Lady. He hee heh. No doubt he will be enthusiastic to tell you of his goddess. *yhhgg*"
         },
         {
           "priority": "9",
@@ -10572,7 +10572,7 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "The lion in the Temple? Har har har. Comes here for a beer now and then, tries to convert us all to his faith."
+          "speech": "The lion at the shrine? Har har har. Comes here for a beer now and then, likes to talk theology."
         },
         {
           "priority": "9",
@@ -10991,7 +10991,7 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "He\u0027s the leonal at the temple. Pretty typical of his sort - proud, stiff-upper-lip, all about prayers and soldiering."
+          "speech": "He\u0027s the leonal at the shrine. Pretty typical of his sort - proud, stiff-upper-lip, all about prayers and soldiering."
         },
         {
           "priority": "9",
@@ -17132,12 +17132,11 @@
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
     "name": "Madame Hoshiko",
     "foeName": "Madame Hoshiko",
-    "faction": "Ichiba Chamber Of Commerce",
     "attitude": "NEUTRAL",
     "script": {
       "IMPL": "mclachlan.maze.campaign.def.npc.MadameHoshiko"
     },
-    "alliesOnCall": "ichiba.city.inhabitants",
+    "alliesOnCall": "madame.hoshiko.allies",
     "buysAt": "0",
     "sellsAt": "0",
     "maxPurchasePrice": "0",

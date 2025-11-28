@@ -127,7 +127,7 @@ Notes
 * A verdant garden behind Glaucus the Gnome's shop emanates green magic. Magical
 seeds used there produce surprising results. Mistletoe berries, purchased from
 Glaucus, heal the party when used there.
-* The temple of The Lady emanates strong white magic
+* The shrine of The Lady emanates strong white magic
 * A villa on the waterfront is locked and guarded by golems. It contains a chest with lots of gold
 * The thieves guild maintains two safe houses that include access to the sewers
 * A signboard outside the Chamber of Commerce advertises that mercenaries are wanted.
@@ -372,7 +372,7 @@ Glaucus the gnome runs a small shop in Ichiba that doubles as the gnomish embass
 "The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you. The knight turns and approaches you, gracefully covering the distance in surprisingly few long legged strides..."
 ----
 
-Diomedes the leonal keeps the temple of The Lady in Ichiba. He is the Leonal representative in the city.
+Diomedes the leonal keeps the shrine of The Lady in Ichiba. He is the Leonal representative in the city.
 
 ==== Red Ear
 ----

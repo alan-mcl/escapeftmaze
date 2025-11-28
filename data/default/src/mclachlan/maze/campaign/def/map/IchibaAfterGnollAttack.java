@@ -25,7 +25,7 @@ public class IchibaAfterGnollAttack extends TileScript
 		{
 			// the adventurers inn
 			MazeVariables.set("ichiba.city.portal.12", Portal.State.LOCKED);
-			// the temple of danaos
+			// the shrine to the Lady
 			MazeVariables.set("ichiba.city.portal.16", Portal.State.LOCKED);
 			// glaucus' shop
 			MazeVariables.set("ichiba.city.portal.17", Portal.State.LOCKED);

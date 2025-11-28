@@ -63,7 +63,7 @@ public class StartCombatEvent extends MazeEvent
 		final List<FoeGroup> actors = actorEncounter.getActors();
 		Foe leader = actorEncounter.getLeader();
 
-		// not your friend any more
+		// not your friend anymore
 		if (leader.getFaction() != null)
 		{
 			NpcFaction nf = NpcManager.getInstance().getNpcFaction(leader.getFaction());

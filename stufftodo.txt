@@ -24,7 +24,7 @@ city staircase
 foe rebalancing
 guildmaster button
 NPC-on-same-tile issue
-null NPC faction issue
+torch texture
 temple -> shrine
 
 crater bazaar:

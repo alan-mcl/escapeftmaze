@@ -15026,7 +15026,7 @@
     "identificationDifficulty": "0",
     "foeGroupBannerModifiers": "0,",
     "allFoesBannerModifiers": "0,",
-    "fleeChance": "35",
+    "fleeChance": "50",
     "stealthBehaviour": "2",
     "npc": "true",
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
@@ -15038,9 +15038,9 @@
       ]
     },
     "spellLikeAbilities": [],
-    "focus": "COMBAT",
-    "defaultAttitude": "ATTACKING",
-    "alliesOnCall": "ichiba.city.inhabitants"
+    "focus": "MAGIC",
+    "defaultAttitude": "NEUTRAL",
+    "alliesOnCall": "madame.hoshiko.allies"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",

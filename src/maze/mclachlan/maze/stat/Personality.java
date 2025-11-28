@@ -206,7 +206,7 @@ public class Personality extends DataObject
 
 		ICHIBA_CITY_INTRO("default.ichiba.city.intro"),
 		ICHIBA_CITY_VILLA_DOOR("default.ichiba.villa.door"),
-		ICHIBA_CITY_TEMPLE_OF_THE_LADY_SIGN("default.ichiba.city.temple.of.the_lady.sign"),
+		ICHIBA_CITY_TEMPLE_OF_THE_LADY_SIGN("default.ichiba.city.shrine.of.the_lady.sign"),
 		ICHIBA_CITY_GNOME_GARDEN("default.ichiba.city.gnome.garden"),
 		ICHIBA_CITY_THIEVES_GUILD_DOOR("default.ichiba.thieves.guild.door"),
 		ICHIBA_CITY_IMOGEN_DOOR("default.ichiba.city.imogen.door"),

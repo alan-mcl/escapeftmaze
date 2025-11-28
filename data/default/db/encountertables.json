@@ -715,6 +715,21 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "madame.hoshiko.allies",
+    "encounterTable": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "ITEMS": [
+        "lost.kami.1",
+        "mad.kami.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "dragon.spell.1",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1717,7 +1732,7 @@
       "ITEMS": [
         "call.plants.spell.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1792,7 +1807,7 @@
         "skull.crushers.small",
         "twisted.saplings.small"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1813,7 +1828,7 @@
         "parched.vulture.1",
         "saliopod.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2131,7 +2146,7 @@
       "ITEMS": [
         "coc.sheriffs"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2255,7 +2270,7 @@
       "ITEMS": [
         "shadow.warriors.spell.5"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2595,7 +2610,7 @@
       "ITEMS": [
         "punch.maker.killer"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

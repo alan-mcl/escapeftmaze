@@ -36,8 +36,8 @@ public class Diomedes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Greetings, bold adventurers. I am Diomedes, " +
-				"ambassador of the White Order and high priest of the Temple " +
-				"of The Lady here in Ichiba.", npc),
+				"ambassador of the White Order and keeper of this shrine " +
+				"to The Lady here in Ichiba.", npc),
 			new NpcSpeechEvent("I have heard of your exploits. Few attempt " +
 				"to escape the First Realm, fewer still survive the attempt.", npc));
 	}

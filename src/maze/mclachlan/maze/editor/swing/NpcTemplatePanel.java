@@ -311,6 +311,7 @@ public class NpcTemplatePanel extends EditorPanel
 
 		Vector npcFactions = new Vector(Database.getInstance().getNpcFactionTemplates().keySet());
 		Collections.sort(npcFactions);
+		npcFactions.add(0, EditorPanel.NONE);
 		faction.setModel(new DefaultComboBoxModel(npcFactions));
 
 		Vector encounterTables = new Vector(Database.getInstance().getEncounterTables().keySet());
@@ -357,7 +358,7 @@ public class NpcTemplatePanel extends EditorPanel
 		doesntKnowAbout.removeKeyListener(this);
 
 		foeName.setSelectedItem(npc.getFoeName());
-		faction.setSelectedItem(npc.getFaction());
+		faction.setSelectedItem(npc.getFaction() == null ? EditorPanel.NONE : npc.getFaction());
 		npcScript.setText(npc.getScript().getClass().getName());
 		attitude.setSelectedItem(npc.getAttitude());
 		alliesOnCall.setSelectedItem(npc.getAlliesOnCall());
@@ -538,7 +539,7 @@ public class NpcTemplatePanel extends EditorPanel
 		npc.setWillBuyItemTypes(willBuyItemTypes.getItemTypes());
 		npc.setInventoryTemplate(new NpcInventoryTemplate(npcInventoryTemplate.getList()));
 		npc.setGuildMaster(guildMaster.isSelected());
-		npc.setFaction((String)faction.getSelectedItem());
+		npc.setFaction((String)(faction.getSelectedItem() == EditorPanel.NONE ? null : (String)faction.getSelectedItem()));
 		npc.setDialogue(npcSpeechPanel.getDialogue());
 		npc.setSpeechColour(colourButton.getBackground());
 

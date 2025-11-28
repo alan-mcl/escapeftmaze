@@ -13786,7 +13786,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
-                  "speechKey": "default.ichiba.city.temple.of.the_lady.sign",
+                  "speechKey": "default.ichiba.city.shrine.of.the_lady.sign",
                   "modal": "true"
                 }
               ]
@@ -14277,7 +14277,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it\u0027s back towards you."
+            "text": "The shrine is clean and quiet, although somewhat spartan in design. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it\u0027s back towards you."
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
