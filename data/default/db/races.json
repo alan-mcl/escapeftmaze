@@ -646,6 +646,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Bolga",

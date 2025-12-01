@@ -27,7 +27,10 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.Foe;
+import mclachlan.maze.stat.GameCache;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -38,7 +41,7 @@ public class NpcManager implements GameCache
 	private Map<String, Npc> npcs;
 	private Map<String, NpcFaction> factions;
 
-	private static NpcManager instance = new NpcManager();
+	private static final NpcManager instance = new NpcManager();
 
 	/*-------------------------------------------------------------------------*/
 	public static NpcManager getInstance()
@@ -52,14 +55,14 @@ public class NpcManager implements GameCache
 	 */
 	public void startGame()
 	{
-		this.npcs = new HashMap<String, Npc>();
+		this.npcs = new HashMap<>();
 		Map<String, NpcTemplate> npcTemplates = Database.getInstance().getNpcTemplates();
 		for (NpcTemplate npcTemplate : npcTemplates.values())
 		{
 			initNpc(npcTemplate);
 		}
 
-		this.factions = new HashMap<String, NpcFaction>();
+		this.factions = new HashMap<>();
 		Map<String, NpcFactionTemplate> npcFactionTemplates = Database.getInstance().getNpcFactionTemplates();
 
 		for (NpcFactionTemplate template : npcFactionTemplates.values())
@@ -152,7 +155,7 @@ public class NpcManager implements GameCache
 			return new Npc[]{};
 		}
 
-		ArrayList<Npc> result = new ArrayList<Npc>();
+		ArrayList<Npc> result = new ArrayList<>();
 
 		for (Npc npc : this.npcs.values())
 		{
@@ -162,7 +165,7 @@ public class NpcManager implements GameCache
 			}
 		}
 
-		return result.toArray(new Npc[result.size()]);
+		return result.toArray(new Npc[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -249,6 +252,19 @@ public class NpcManager implements GameCache
 	public Map<String, NpcFaction> getMap()
 	{
 		return factions;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> startOfTurn(long turnNr)
+	{
+		List<MazeEvent> result = new ArrayList<>();
+
+		for (Npc npc : this.npcs.values())
+		{
+			result.addAll(npc.getScript().startOfTurn(turnNr));
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -36,7 +36,7 @@ public class EvaWingfield extends NpcScript
 			new NpcSpeechEvent("For unless I miss my mark you are refugees from the previous Realm.", npc),
 			new NpcSpeechEvent("Yes, it is clear. Your feats in the face of adversity to reach this point are admirable.", npc),
 			new NpcSpeechEvent("Yet be warned that admiration is worth little here.", npc),
-			new FlavourTextEvent("She pauses, and her face sets angrily."),
+			new FlavourTextEvent("She pauses, and her face sets angrily.", MazeEvent.Delay.WAIT_ON_CLICK, false, FlavourTextEvent.Alignment.TOP),
 			new NpcSpeechEvent("I should know, for bitter have the years been since I too walked the path that you have followed.", npc),
 			new NpcSpeechEvent("Yea, we were a merry band who came here, sure of our destiny. Sure that soon we would pass through this Realm and continue our escape!", npc),
 			new NpcSpeechEvent("Yet now... well, here I am. I walk the ways and do my part to keep them open.", npc),
@@ -44,12 +44,10 @@ public class EvaWingfield extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		// by default, Sir Kay wanders in Ichiba City and Ichiba Crossroads
-		// if the party steals anything from a vendor in Ichiba, he tracks them
-		// and appears shortly
 
+	@Override
+	public List<MazeEvent> startOfTurn(long turnNr)
+	{
 		boolean moveTowardsParty = !npc.isFound();
 
 		if (moveTowardsParty)
@@ -61,8 +59,19 @@ public class EvaWingfield extends NpcScript
 			}
 		}
 
+		return new ArrayList<>();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> endOfTurn(long turnNr)
+	{
+		// by default, Eva wanders Ichiba CrossRoads unless she has not been found yet
+
+		boolean moveTowardsParty = !npc.isFound();
+		// move towards party handled in startOfTurn
+
 		// random movement otherwise
-		if (turnNr % 10 == 0)
+		if (!moveTowardsParty && turnNr % 10 == 0)
 		{
 			if (Dice.d20.roll("Eva zone") == 1)
 			{

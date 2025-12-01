@@ -1869,7 +1869,7 @@
     },
     {
       "mazeVariable": "ichiba.city.portal.70",
-      "initialState": "unlocked",
+      "initialState": "locked",
       "from": "19:12",
       "fromFacing": "3",
       "to": "20:12",

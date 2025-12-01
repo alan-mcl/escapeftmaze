@@ -37,8 +37,8 @@ import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
 
 /**
- * Describes a zone in which the party can move around.  Includes the 
- * Crusader Engine map definition.
+ * Describes a zone in which the party can move around.  Includes the Crusader
+ * Engine map definition.
  */
 public class Zone extends DataObject
 {
@@ -49,7 +49,7 @@ public class Zone extends DataObject
 	private int width;
 	private int length;
 	private ZoneScript script;
-	
+
 	private Color shadeTargetColor;
 	private Color transparentColor;
 	private boolean doShading;
@@ -126,7 +126,8 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> encounterTile(Maze maze, Point tile, Point previousTile, int facing)
+	public List<MazeEvent> encounterTile(Maze maze, Point tile,
+		Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
@@ -226,25 +227,50 @@ public class Zone extends DataObject
 			}
 		}
 
-		// then any NPCs present
-		Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(name, tile);
+		//  hook for any NPC scripts that may want to trigger at the "start of turn"
+		result.addAll(NpcManager.getInstance().startOfTurn(maze.getTurnNr()));
 
-		if (npcs != null)
+		result.add(new MazeEvent()
 		{
-			for (Npc npc : npcs)
+			@Override
+			public List<MazeEvent> resolve()
 			{
-				// todo: won't work for more than one NPC?
+				// then any NPCs present, if the player has moved to a new tile
+				Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(name, tile);
 
-				List<FoeGroup> actors = new ArrayList<>();
-				FoeGroup fg = new FoeGroup();
-				fg.add(npc);
-				actors.add(fg);
+				if (npcs != null && npcs.length > 0 && !tile.equals(previousTile))
+				{
+					List<FoeGroup> actors = new ArrayList<>();
+					List<MazeEvent> preApppearance = new ArrayList<>();
 
-				ActorEncounter actorEncounter = new ActorEncounter(
-					actors, null, null, Combat.AmbushStatus.NONE, false, npc.getScript().preAppearance(), null, null, null);
-				result.addAll(Maze.getInstance().encounterActors(actorEncounter));
+					for (Npc npc : npcs)
+					{
+						// all NPC appear together
+						FoeGroup fg = new FoeGroup();
+						fg.add(npc);
+						actors.add(fg);
+
+						if (npc.getScript().preAppearance() != null)
+						{
+							preApppearance.addAll(npc.getScript().preAppearance());
+						}
+					}
+
+					ActorEncounter actorEncounter = new ActorEncounter(
+						actors,
+						null,
+						null,
+						Combat.AmbushStatus.NONE,
+						false,
+						preApppearance,
+						null,
+						null,
+						null);
+					return Maze.getInstance().encounterActors(actorEncounter);
+				}
+				return null;
 			}
-		}
+		});
 
 		return result;
 	}
@@ -312,8 +338,7 @@ public class Zone extends DataObject
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @return
-	 * 	an iterator over all tiles in this zone. order not defined.
+	 * @return an iterator over all tiles in this zone. order not defined.
 	 */
 	public Iterator<Tile> getTilesIterator()
 	{
@@ -353,13 +378,13 @@ public class Zone extends DataObject
 		{
 			return null;
 		}
-		
+
 		return tiles[p.x][p.y];
 	}
 
 	public int getTileIndex(Point p)
 	{
-		return p.y*width+p.x;
+		return p.y * width + p.x;
 	}
 
 	public Portal[] getPortals()
@@ -541,11 +566,10 @@ public class Zone extends DataObject
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @param facing
-	 * 	A constant from {@link mclachlan.crusader.CrusaderEngine.Facing}
-	 * @return
-	 * 	Any Portal that exists if the player steps from the given tile in the
-	 * 	given direction, otherwise null.
+	 * @param facing A constant from
+	 *               {@link mclachlan.crusader.CrusaderEngine.Facing}
+	 * @return Any Portal that exists if the player steps from the given tile in
+	 * the given direction, otherwise null.
 	 */
 	public Portal getPortal(Point oldTile, int facing)
 	{
@@ -581,7 +605,7 @@ public class Zone extends DataObject
 
 					for (TileScript script : scripts)
 					{
-						script.initialise(Maze.getInstance(), new Point(x, y), y*width+x);
+						script.initialise(Maze.getInstance(), new Point(x, y), y * width + x);
 					}
 				}
 			}
@@ -613,13 +637,13 @@ public class Zone extends DataObject
 			p.initialise(turnNr, Maze.getInstance());
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> endOfTurn(long turnNr)
 	{
 //		Maze.log("processing zone end of turn...");
 		List<MazeEvent> mazeEvents = this.script.endOfTurn(this, turnNr);
-		return mazeEvents==null ? new ArrayList<>() : mazeEvents;
+		return mazeEvents == null ? new ArrayList<>() : mazeEvents;
 //		Maze.log("finished zone end of turn");
 	}
 
@@ -638,25 +662,20 @@ public class Zone extends DataObject
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @param t
-	 * 	The given tile
-	 * @param incX
-	 * 	A relative X axis measure (west-east)
-	 * @param incY
-	 * 	A relative Y axis measure (north-south)
-	 * @param checkAccess
-	 * 	true if walls should restrict access, false if not. If the tiles are
-	 * 	not adjacent this has no effect.
-	 *
-	 * @return
-	 * 	The tile relative to the given tile, or null if none exists or one
-	 * 	exists but is not accessible.
+	 * @param t           The given tile
+	 * @param incX        A relative X axis measure (west-east)
+	 * @param incY        A relative Y axis measure (north-south)
+	 * @param checkAccess true if walls should restrict access, false if not. If
+	 *                    the tiles are not adjacent this has no effect.
+	 * @return The tile relative to the given tile, or null if none exists or one
+	 * exists but is not accessible.
 	 */
-	public Tile getTileRelativeTo(Tile t, int incX, int incY, boolean checkAccess)
+	public Tile getTileRelativeTo(Tile t, int incX, int incY,
+		boolean checkAccess)
 	{
 		Point p = t.getCoords();
 
-		Point newP = new Point(p.x+incX, p.y+incY);
+		Point newP = new Point(p.x + incX, p.y + incY);
 
 		if (newP.x < 0 || newP.x >= width || newP.y < 0 || newP.y >= length)
 		{
@@ -682,33 +701,32 @@ public class Zone extends DataObject
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @return
-	 * 	True if there exists a wall between the given tiles, false otherwise
-	 * 	(including if the tiles are not adjacent)
+	 * @return True if there exists a wall between the given tiles, false
+	 * otherwise (including if the tiles are not adjacent)
 	 */
 	public boolean getWallBetween(Tile t1, Tile t2)
 	{
 		Point p1 = t1.getCoords();
 		Point p2 = t2.getCoords();
-		if (p2.x == p1.x && p2.y == p1.y-1)
+		if (p2.x == p1.x && p2.y == p1.y - 1)
 		{
 			// t2 is adjacent to the north
 			Wall wall = map.getHorizontalWalls()[map.getNorthWall(map.getIndex(p1))];
 			return wall.isVisible() || wall.isSolid();
 		}
-		else if (p2.x == p1.x && p2.y == p1.y+1)
+		else if (p2.x == p1.x && p2.y == p1.y + 1)
 		{
 			// t2 is adjacent to the south
 			Wall wall = map.getHorizontalWalls()[map.getSouthWall(map.getIndex(p1))];
 			return wall.isVisible() || wall.isSolid();
 		}
-		else if (p2.y == p1.y && p2.x == p1.x-1)
+		else if (p2.y == p1.y && p2.x == p1.x - 1)
 		{
 			// t2 is adjacent to the west
 			Wall wall = map.getVerticalWalls()[map.getWestWall(map.getIndex(p1))];
 			return wall.isVisible() || wall.isSolid();
 		}
-		else if (p2.y == p1.y && p2.x == p1.x+1)
+		else if (p2.y == p1.y && p2.x == p1.x + 1)
 		{
 			// t2 is adjacent to the east
 			Wall wall = map.getVerticalWalls()[map.getEastWall(map.getIndex(p1))];

@@ -47,9 +47,18 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	protected Foe npc;
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * Called at the end of each turn.  At this point an NPC script is expected
-	 * to take any actions required to move the NPC around and so forth.
+	 * Called at the start of each turn.
+	 */
+	public List<MazeEvent> startOfTurn(long turnNr)
+	{
+		return new ArrayList<>();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Called at the end of each turn.
 	 */
 	public List<MazeEvent> endOfTurn(long turnNr)
 	{
@@ -681,12 +690,24 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 		Point partyTile = Maze.getInstance().getPlayerPos();
 		Point tile = ((Npc)npc).getTile();
 
-		// halve the distance between Kay and the party
+		// halve the distance between the NPC and the party
 		int diffX = (partyTile.x - tile.x) / 2;
 		int diffY = (partyTile.y - tile.y) / 2;
 
-		int nX = diffX<5 ? partyTile.x : tile.x + diffX;
-		int nY = diffY<5 ? partyTile.y : tile.y + diffY;
+		int nX;
+		int nY;
+
+		if (Math.abs(diffX)<=2 && Math.abs(diffY)<=2)
+		{
+			// close enough already
+			nX = partyTile.x;
+			nY = partyTile.y;
+		}
+		else
+		{
+			nX = tile.x + diffX/2;
+			nY = tile.y + diffY/2;
+		}
 
 		return getList(new ChangeNpcLocationEvent(((Npc)npc), new Point(nX, nY), partyZone));
 	}

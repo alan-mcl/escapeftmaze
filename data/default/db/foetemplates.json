@@ -5845,6 +5845,93 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Regnus Scrimshaw",
+    "pluralName": "Regnus",
+    "unidentifiedName": "?dwarf",
+    "unidentifiedPluralName": "?dwarves",
+    "types": [],
+    "race": "Dwarf",
+    "hitPointsRange": "7d10+15",
+    "actionPointsRange": "1d1",
+    "magicPointsRange": "7d10+77",
+    "levelRange": "7d1",
+    "experience": "400",
+    "stats": "3e00000000000000f8,04040808021818181818",
+    "bodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "DEFAULT_HEAD",
+        "DEFAULT_BODY",
+        "DEFAULT_LEG",
+        "human foot",
+        "human hand"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.gurney"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.gurney"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.gurney"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Asius.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "5",
+    "stealthBehaviour": "1",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - marching"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "NEUTRAL"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
     "name": "Bemiropterix",
     "pluralName": "Bemiropteri",
     "unidentifiedName": "?lizard",
@@ -13082,6 +13169,93 @@
     "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Gegnus Scrimshaw",
+    "pluralName": "Gegnus",
+    "unidentifiedName": "?dwarf",
+    "unidentifiedPluralName": "?dwarves",
+    "types": [],
+    "race": "Dwarf",
+    "hitPointsRange": "7d10+15",
+    "actionPointsRange": "1d1",
+    "magicPointsRange": "7d10+77",
+    "levelRange": "7d1",
+    "experience": "400",
+    "stats": "3e00000000000000f8,04040808021818181818",
+    "bodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "DEFAULT_HEAD",
+        "DEFAULT_BODY",
+        "DEFAULT_LEG",
+        "human foot",
+        "human hand"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.gurney"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.gurney"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.gurney"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.gurney"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Asius.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "5",
+    "stealthBehaviour": "1",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - marching"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "NEUTRAL"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",

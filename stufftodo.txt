@@ -7,14 +7,10 @@ ICHIBA CROSSROADS
 
 forgotten path / red moss tree
 other encounters?
-
 chest contents -> MazeScript
 make hidden stuff tile script work again
-
 bug: zone change flickering
-
 zone script: day/night cycle
-
 Eva quest -> Gurney
 
 ICHIBA CITY
@@ -23,9 +19,7 @@ city secret passage button
 city staircase
 foe rebalancing
 guildmaster button
-NPC-on-same-tile issue
 torch texture
-temple -> shrine
 
 crater bazaar:
  - Mazza: complete dialog
@@ -35,7 +29,6 @@ crater bazaar:
 
 The Tumbledown
 Library
-Madame Hoshiko: dialog
 random houses: encounters and locked doors
 NPC bedrooms with loot
 Inn kitchen
