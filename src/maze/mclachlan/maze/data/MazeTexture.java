@@ -34,11 +34,13 @@ public class MazeTexture extends DataObject
 	private String name;
 	private List<String> imageResources;
 	private Texture texture;
-	private int imageWidth; // todo remove
-	private int imageHeight; // todo remove
 	private int animationDelay;
 	private Texture.ScrollBehaviour scrollBehaviour;
 	private int scrollSpeed;
+
+	// dynamically set
+	private int imageWidth;
+	private int imageHeight;
 
 	public MazeTexture()
 	{
@@ -49,16 +51,12 @@ public class MazeTexture extends DataObject
 	public MazeTexture(
 		String name, 
 		List<String> imageResources,
-		int imageWidth,
-		int imageHeight,
 		int animationDelay,
 		Texture.ScrollBehaviour scrollBehaviour,
 		int scrollSpeed)
 	{
 		this.name = name;
 		this.imageResources = imageResources;
-		this.imageWidth = imageWidth;
-		this.imageHeight = imageHeight;
 		this.animationDelay = animationDelay;
 		this.scrollBehaviour = scrollBehaviour;
 		this.scrollSpeed = scrollSpeed;
@@ -76,6 +74,9 @@ public class MazeTexture extends DataObject
 		}
 
 		this.texture = new Texture(this.name, images, this.animationDelay, this.scrollBehaviour, this.scrollSpeed, null);
+
+		this.imageWidth = images[0].getWidth();
+		this.imageHeight = images[0].getHeight();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -167,7 +168,7 @@ public class MazeTexture extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture cloneWithTint(Color tint)
 	{
-		MazeTexture result = new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay, scrollBehaviour, scrollSpeed);
+		MazeTexture result = new MazeTexture(name, imageResources, animationDelay, scrollBehaviour, scrollSpeed);
 		result.texture.setTint(tint);
 		return result;
 	}

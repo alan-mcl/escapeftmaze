@@ -35,7 +35,7 @@ import mclachlan.maze.data.v1.DataObject;
  */
 public class MazeTexturePanel extends EditorPanel
 {
-	private JSpinner imageWidth, imageHeight, animationDelay, scrollSpeed;
+	private JSpinner animationDelay, scrollSpeed;
 	private JComboBox scrollBehaviour;
 	private JTable imageResources;
 	private JButton add, remove;
@@ -53,14 +53,6 @@ public class MazeTexturePanel extends EditorPanel
 		JPanel result = new JPanel(new GridBagLayout());
 
 		GridBagConstraints gbc = createGridBagConstraints();
-
-		imageWidth = new JSpinner(new SpinnerNumberModel(-1, -1, 9999999, 1));
-		imageWidth.addChangeListener(this);
-		dodgyGridBagShite(result, new JLabel("Image Width:"), imageWidth, gbc);
-
-		imageHeight = new JSpinner(new SpinnerNumberModel(-1, -1, 9999999, 1));
-		imageHeight.addChangeListener(this);
-		dodgyGridBagShite(result, new JLabel("Image Height:"), imageHeight, gbc);
 
 		animationDelay = new JSpinner(new SpinnerNumberModel(-1, -1, 9999999, 1));
 		animationDelay.addChangeListener(this);
@@ -115,15 +107,11 @@ public class MazeTexturePanel extends EditorPanel
 	{
 		MazeTexture mt = Database.getInstance().getMazeTexture(name);
 
-		imageHeight.removeChangeListener(this);
-		imageWidth.removeChangeListener(this);
 		animationDelay.removeChangeListener(this);
 		dataModel.removeTableModelListener(this);
 		scrollBehaviour.removeActionListener(this);
 		scrollSpeed.removeChangeListener(this);
 
-		imageHeight.setValue(mt.getImageHeight());
-		imageWidth.setValue(mt.getImageWidth());
 		animationDelay.setValue(mt.getAnimationDelay());
 		scrollBehaviour.setSelectedItem(
 			mt.getScrollBehaviour() == null ? Texture.ScrollBehaviour.NONE : mt.getScrollBehaviour());
@@ -134,8 +122,6 @@ public class MazeTexturePanel extends EditorPanel
 			dataModel.addRow(new String[]{s});
 		}
 
-		imageHeight.addChangeListener(this);
-		imageWidth.addChangeListener(this);
 		animationDelay.addChangeListener(this);
 		dataModel.addTableModelListener(this);
 		scrollBehaviour.addActionListener(this);
@@ -148,8 +134,6 @@ public class MazeTexturePanel extends EditorPanel
 		MazeTexture mt = new MazeTexture(
 			name,
 			new ArrayList<>(),
-			0,
-			0,
 			-1,
 			null,
 			-1);
@@ -172,8 +156,6 @@ public class MazeTexturePanel extends EditorPanel
 		MazeTexture mt = new MazeTexture(
 			newName,
 			new ArrayList<String>(current.getImageResources()),
-			current.getImageWidth(),
-			current.getImageHeight(),
 			current.getAnimationDelay(),
 			current.getScrollBehaviour(),
 			current.getScrollSpeed());
@@ -193,8 +175,6 @@ public class MazeTexturePanel extends EditorPanel
 		MazeTexture mt = Database.getInstance().getMazeTexture(name);
 
 		mt.setAnimationDelay((Integer)animationDelay.getValue());
-		mt.setImageHeight((Integer)imageHeight.getValue());
-		mt.setImageWidth((Integer)imageWidth.getValue());
 		Texture.ScrollBehaviour sb = (Texture.ScrollBehaviour)scrollBehaviour.getSelectedItem();
 		mt.setScrollBehaviour(sb == Texture.ScrollBehaviour.NONE ? null : sb);
 		mt.setScrollSpeed((Integer)scrollSpeed.getValue());

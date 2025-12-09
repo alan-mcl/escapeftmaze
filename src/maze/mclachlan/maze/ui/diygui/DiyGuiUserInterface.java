@@ -770,7 +770,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case 4 -> charLowLeft.refresh();
 			case 5 -> charLowRight.refresh();
 			default -> throw new MazeException("Invalid index " + index);
-		};
+		}
+		;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1610,8 +1611,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				{
 					switch (event.getKeyCode())
 					{
-						case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER, KeyEvent.VK_SPACE, KeyEvent.VK_D ->
-							restingWidget.done();
+						case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER, KeyEvent.VK_SPACE,
+							  KeyEvent.VK_D -> restingWidget.done();
 					}
 				}
 			}
@@ -1731,7 +1732,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actorAttacks(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
+	public void actorAttacks(UnifiedActor attacker, UnifiedActor defender,
+		AttackWith attackWith)
 	{
 		if (attacker instanceof Foe)
 		{
@@ -1785,7 +1787,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		for (int i = maxTiles; i > 0; i--)
 		{
-			int index = recentTiles.size() -1 - i;
+			int index = recentTiles.size() - 1 - i;
 
 			if (index >= 0)
 			{
@@ -1880,11 +1882,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			this.addFoeGroups(others);
 		}
 
-		List<List<double[]>> coordList = placeFoeSprites2(startingRank, others);
+		List<double[]> coordList = placeFoeSprites4(startingRank, others);
 
 		//
 		// Add the foe sprites to the raycasting engine
 		//
+		int coordsIndex = 0;
 		for (int foeGroup = 0; foeGroup < maxFoeGroups; foeGroup++)
 		{
 			List<UnifiedActor> group = others.get(foeGroup).getActors();
@@ -1933,7 +1936,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					int rank = startingRank + foeGroup;
 
 //					double[] coords = placeFoeSprite(group, foe, rank);
-					double[] coords = coordList.get(foeGroup).get(foeIndex);
+					double[] coords = coordList.get(coordsIndex);
+					coordsIndex++;
 
 					this.raycaster.initObjectInFrontOfPlayer(obj, coords[0], coords[1], true);
 
@@ -1980,161 +1984,266 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * Left-to-right spacing
-	 * One FG per rank
+	 * Even spacing, center-out placement, spaced out by sprite size.
+	 * multiple foe groups can be on one rank.
 	 */
-	private double[] placeFoeSprite1(List<UnifiedActor> group, Foe foe, int rank)
+	private List<double[]> placeFoeSprites4(int startingRank, List<FoeGroup> foeGroups)
 	{
-		int foeIndex = group.indexOf(foe);
+		// maximum foes per rank, even if more will fit
+		final int MAX_FOES_PER_RANK = 9;
 
-		double increment = 1.0 / (group.size() + 1);
-		double arc = increment + increment* foeIndex;
-		double distance = 0.51 + (0.2 * rank);
+		// base distance from player (just less than 0.5 tiles to place the sprite
+		// in front of any center-tile-positioned object)
+		final double baseDistance = 0.49;
 
-		double[] coords = new double[]{distance, arc};
-		return coords;
-	}
+		// distance increase per rank
+		final double rankStep = 0.1;
 
-	/*-------------------------------------------------------------------------*/
+		// spacing between sprites (in arc fraction)
+		final double arcMargin = 0.001;
 
-	/**
-	 * Center-out spacing
-	 * One FG per rank
-	 */
-	private List<List<double[]>> placeFoeSprites2(int startingRank,
-		List<FoeGroup> foeGroups)
-	{
-		final double baseDistance = 0.48;
-		final double rankStep = 0.2;
-
-		List<List<double[]>> result = new ArrayList<>();
-
-		for (int g = 0; g < foeGroups.size(); g++)
-		{
-			FoeGroup group = foeGroups.get(g);
-			List<Foe> foes = group.getFoes();
-			int count = foes.size();
-//			int count = group.numAlive(); todo
-
-			List<double[]> groupCoords = new ArrayList<>(count);
-
-			// Compute center-out arc spacing
-			double spacing = 1.0 / (count + 1); // Leaves margin on edges
-			double center = 0.5;
-
-			for (int i = 0; i < count; i++)
-			{
-				int centerIndex = count / 2;
-				double arcOffset = (i - centerIndex + (count % 2 == 0 ? 0.5 : 0)) * spacing;
-				double arc = center + arcOffset;
-
-				arc = Math.max(0.0, Math.min(1.0, arc)); // Clamp to [0,1]
-
-				double distance = baseDistance + (startingRank + g) * rankStep;
-
-				groupCoords.add(new double[]{distance, arc});
-			}
-
-			result.add(groupCoords);
-		}
-
-		return result;
-	}
-
-	/**
-	 * Center-out spacing
-	 * FGs spread across ranks.
-	 * todo: not working!
-	 */
-	private List<List<double[]>> placeFoeSprites3(
-		int startingRank,
-		List<FoeGroup> foeGroups)
-	{
-		final double baseDistance = 0.5;
-		final double rankStep = 0.2;
-		final double arcMargin = 0.01; // spacing between sprites
-
-		// Flatten all foes and track group index
+		// Flatten foes and remember their global indices
 		List<Foe> allFoes = new ArrayList<>();
-		List<Integer> groupIndices = new ArrayList<>();
+//		List<Integer> globalIndices = new ArrayList<>();
 		for (int gi = 0; gi < foeGroups.size(); gi++)
 		{
 			for (Foe f : foeGroups.get(gi).getFoes())
 			{
+//				globalIndices.add(allFoes.size()); // index of this foe in the flattened list
 				allFoes.add(f);
-				groupIndices.add(gi);
 			}
 		}
 
-		// Result placeholder: one list per original group
-		List<List<double[]>> result = new ArrayList<>();
-		for (int i = 0; i < foeGroups.size(); i++)
-		{
-			result.add(new ArrayList<>());
-		}
+		// Prepare result list (same order as allFoes). We'll fill positions by index.
+		List<double[]> placements = new ArrayList<>(Collections.nCopies(allFoes.size(), null));
 
-		int index = 0;
+		// index in flattened allFoes
+		int nextFoeIndex = 0;
 		int currentRank = startingRank;
 
-		while (index < allFoes.size())
+		while (nextFoeIndex < allFoes.size())
 		{
 			double distance = baseDistance + currentRank * rankStep;
 
-			// Try to fit foes in this rank
+			// Try to collect up to MAX_FOES_PER_RANK that also fit in arc space
+
+			// global indices of foes we will place this rank
+			List<Integer> rankGlobalIndices = new ArrayList<>();
 			List<Foe> rankFoes = new ArrayList<>();
-			List<Integer> rankGroups = new ArrayList<>();
-			List<Double> arcWidths = new ArrayList<>();
+			// arc widths (no margin)
+			List<Double> rankWidths = new ArrayList<>();
+			double projectedArcSum = 0.0;
+			int countThisRank = 0;
+			int probeIndex = nextFoeIndex;
 
-			double totalArcUsed = 0.0;
-			int tempIndex = index;
-
-			while (tempIndex < allFoes.size())
+			// We compute widths using the distance for this rank.
+			while (probeIndex < allFoes.size() && countThisRank < MAX_FOES_PER_RANK)
 			{
-				Foe foe = allFoes.get(tempIndex);
-				int spriteWidthPx = foe.getBaseTexture().getImageWidth();
-				double arcWidth = computeArcWidth(spriteWidthPx, distance, SCREEN_WIDTH);
-				double requiredArc = arcWidth + arcMargin;
+				Foe f = allFoes.get(probeIndex);
+				int spritePx = f.getBaseTexture().getImageWidth();
+				double arcWidth = computeArcWidth(spritePx, distance, SCREEN_WIDTH);
 
-				if (totalArcUsed + requiredArc > 1.0)
+				// If we add this sprite we will need margin between sprites: use (n-1)*arcMargin later.
+				double newTotalArc = projectedArcSum + arcWidth + (countThisRank == 0 ? 0.0 : arcMargin);
+
+				if (newTotalArc > 1.0)
 				{
+					// would overflow the available arc for this rank
 					break;
 				}
 
-				totalArcUsed += requiredArc;
-				rankFoes.add(foe);
-				rankGroups.add(groupIndices.get(tempIndex));
-				arcWidths.add(arcWidth);
-				tempIndex++;
+				// Accept this foe for this rank
+				rankGlobalIndices.add(probeIndex);
+				rankFoes.add(f);
+				rankWidths.add(arcWidth);
+				projectedArcSum = newTotalArc;
+				countThisRank++;
+				probeIndex++;
 			}
 
-			// Place foes symmetrically around arc = 0.5
-			double arcStart = 0.5 - (totalArcUsed / 2.0);
-			double currentArc = arcStart;
-
-			for (int i = 0; i < rankFoes.size(); i++)
+			// If for some reason we didn't fit anything (e.g., single sprite too wide), force at least one foe (clamp)
+			if (rankFoes.isEmpty())
 			{
-				double arcWidth = arcWidths.get(i);
-				double arcCenter = currentArc + arcWidth / 2.0;
+				// place the single next foe but clamp its arc width to nearly full-screen
+				Foe f = allFoes.get(nextFoeIndex);
+				int spritePx = f.getBaseTexture().getImageWidth();
+				double arcWidth = computeArcWidth(spritePx, distance, SCREEN_WIDTH);
 
-				result.get(rankGroups.get(i)).add(new double[]{distance, arcCenter});
-				currentArc += arcWidth + arcMargin;
+				// clamp, leave tiny margins
+				arcWidth = Math.min(arcWidth, 0.98);
+
+				rankGlobalIndices.add(nextFoeIndex);
+				rankFoes.add(f);
+				rankWidths.add(arcWidth);
+				projectedArcSum = arcWidth;
+				countThisRank = 1;
+				probeIndex = nextFoeIndex + 1;
 			}
 
-			index += rankFoes.size();
+			// Compute totalArcUsed correctly: sum(widths) + arcMargin*(n-1)
+			double totalWidths = 0.0;
+			for (double w : rankWidths)
+			{
+				totalWidths += w;
+			}
+			double totalArcUsed = totalWidths + Math.max(0, rankWidths.size() - 1) * arcMargin;
+
+			// Compute left-most start (so the whole block is centered on 0.5)
+			double arcStart = 0.5 - totalArcUsed / 2.0;
+
+			// Compute left-to-right slot centers for the block
+			int n = rankWidths.size();
+			double[] slotCenters = new double[n];
+			double cursor = arcStart;
+			for (int s = 0; s < n; s++)
+			{
+				slotCenters[s] = cursor + rankWidths.get(s) / 2.0;
+				cursor += rankWidths.get(s) + arcMargin;
+			}
+
+			// Build the center-out slot assignment sequence (slot indices) so that
+			// the first placed foe goes to the center slot, next to left of center, then right, etc.
+			List<Integer> slotSequence = new ArrayList<>(n);
+			int left = (n - 1) / 2;
+			int right = left + 1;
+			if (n % 2 == 1)
+			{
+				slotSequence.add(left);
+				left--;
+			}
+			while (slotSequence.size() < n)
+			{
+				if (left >= 0)
+				{
+					slotSequence.add(left);
+					left--;
+					if (slotSequence.size() == n)
+					{
+						break;
+					}
+				}
+				if (right < n)
+				{
+					slotSequence.add(right);
+					right++;
+				}
+			}
+
+			// Assign foes (in original flattened order) to slots following slotSequence
+			for (int i = 0; i < n; i++)
+			{
+				int globalFoeIdx = rankGlobalIndices.get(i);
+				int assignedSlot = slotSequence.get(i);
+				double arcCenter = slotCenters[assignedSlot];
+				placements.set(globalFoeIdx, new double[]{distance, arcCenter});
+			}
+
+			// Advance to next batch / rank
+			nextFoeIndex = probeIndex;
 			currentRank++;
 		}
 
-		return result;
+		return placements;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Compute arc width (fraction of screen) from sprite pixel width and distance (in tile units)
+	 */
 	private double computeArcWidth(int imageWidthPx, double distanceInTiles,
 		int screenWidthPx)
 	{
 		if (distanceInTiles <= 0.0)
 		{
-			distanceInTiles = 0.01; // Prevent divide-by-zero or extreme scaling
+			distanceInTiles = 0.01;
 		}
-		return imageWidthPx / (screenWidthPx * distanceInTiles);
+		return (double)imageWidthPx / (screenWidthPx * distanceInTiles);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Even spacing, up to 5 per rank, center-out placement, multiple foe groups
+	 * can be on one rank.
+	 */
+	private List<double[]> placeFoeSprites3(int startingRank,
+		List<FoeGroup> foeGroups)
+	{
+		final int MAX_FOES_PER_RANK = 5;
+		final double baseDistance = 0.49;
+		final double rankStep = 0.2;
+
+		// 1) Flatten foes (preserve flattened order so return list aligns with this)
+		List<Foe> allFoes = new ArrayList<>();
+		for (FoeGroup g : foeGroups)
+		{
+			allFoes.addAll(g.getFoes());
+		}
+
+		// Prepare flattened placements list (one entry per foe)
+		List<double[]> placements = new ArrayList<>(Collections.nCopies(allFoes.size(), null));
+
+		int nextFoeIndex = 0;
+		int currentRank = startingRank;
+
+		while (nextFoeIndex < allFoes.size())
+		{
+			// Decide how many foes to place in this rank (up to MAX_FOES_PER_RANK)
+			int remaining = allFoes.size() - nextFoeIndex;
+			int n = Math.min(remaining, MAX_FOES_PER_RANK);
+
+			double distance = baseDistance + currentRank * rankStep;
+
+			// Compute evenly spaced left-to-right candidate arc positions,
+			// leaving padding at edges by using n+1 gaps:
+			double increment = 1.0 / (n + 1);
+			double[] slotArcs = new double[n];
+			for (int i = 0; i < n; i++)
+			{
+				slotArcs[i] = increment * (i + 1); // positions across [0,1] with margins
+			}
+
+			// Build center-out slot assignment order (slot indices)
+			List<Integer> slotSequence = new ArrayList<>(n);
+			int left = (n - 1) / 2;
+			int right = left + 1;
+			if (n % 2 == 1)
+			{
+				slotSequence.add(left);
+				left--;
+			}
+			while (slotSequence.size() < n)
+			{
+				if (left >= 0)
+				{
+					slotSequence.add(left);
+					left--;
+					if (slotSequence.size() == n)
+					{
+						break;
+					}
+				}
+				if (right < n)
+				{
+					slotSequence.add(right);
+					right++;
+				}
+			}
+
+			// Assign each foe (in flattened input order) to the next slot in slotSequence
+			for (int i = 0; i < n; i++)
+			{
+				int foeFlatIndex = nextFoeIndex + i;
+				int assignedSlot = slotSequence.get(i);
+				double arcCenter = slotArcs[assignedSlot];
+
+				placements.set(foeFlatIndex, new double[]{distance, arcCenter});
+			}
+
+			nextFoeIndex += n;
+			currentRank++;
+		}
+
+		return placements;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2160,10 +2269,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 		}
 
-		List<List<double[]>> coordList = placeFoeSprites2(0, this.getFoeGroups());
+		List<double[]> coordList = placeFoeSprites4(0, this.getFoeGroups());
 
 		// determine locations of live foes and move them there
 		int rank = 0;
+		int coordsIndex = 0;
 		for (FoeGroup fg : combat.getFoes())
 		{
 			int maxFoeIndex = fg.getFoes().size();
@@ -2182,7 +2292,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 //					double distance = 0.51 + (0.2 * rank);
 //					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), distance, arc);
 
-					double[] coords = coordList.get(getFoeGroups().indexOf(fg)).get(foeIndex);
+					double[] coords = coordList.get(coordsIndex);
+					coordsIndex++;
 					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), coords[0], coords[1]);
 				}
 			}
@@ -2279,7 +2390,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		switch (Maze.getInstance().getState())
 		{
-			case MAINMENU, MODIFIERSDISPLAY, STATSDISPLAY, PROPERTIESDISPLAY, INVENTORY, MAGIC ->
+			case MAINMENU, MODIFIERSDISPLAY, STATSDISPLAY, PROPERTIESDISPLAY,
+				  INVENTORY, MAGIC ->
 			{
 				this.modifiersDisplay.setCharacter(pc);
 				this.statsDisplay.setCharacter(pc);
@@ -2324,15 +2436,15 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		int index = Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter);
 
 		return switch (index)
-			{
-				case 0 -> charTopLeft.getBounds();
-				case 1 -> charTopRight.getBounds();
-				case 2 -> charMidLeft.getBounds();
-				case 3 -> charMidRight.getBounds();
-				case 4 -> charLowLeft.getBounds();
-				case 5 -> charLowRight.getBounds();
-				default -> throw new MazeException("Invalid index " + index);
-			};
+		{
+			case 0 -> charTopLeft.getBounds();
+			case 1 -> charTopRight.getBounds();
+			case 2 -> charMidLeft.getBounds();
+			case 3 -> charMidRight.getBounds();
+			case 4 -> charLowLeft.getBounds();
+			case 5 -> charLowRight.getBounds();
+			default -> throw new MazeException("Invalid index " + index);
+		};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2342,15 +2454,15 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		int index = Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter);
 
 		return switch (index)
-			{
-				case 0 -> charTopLeft;
-				case 1 -> charTopRight;
-				case 2 -> charMidLeft;
-				case 3 -> charMidRight;
-				case 4 -> charLowLeft;
-				case 5 -> charLowRight;
-				default -> throw new MazeException("Invalid index " + index);
-			};
+		{
+			case 0 -> charTopLeft;
+			case 1 -> charTopRight;
+			case 2 -> charMidLeft;
+			case 3 -> charMidRight;
+			case 4 -> charLowLeft;
+			case 5 -> charLowRight;
+			default -> throw new MazeException("Invalid index " + index);
+		};
 	}
 
 	/*-------------------------------------------------------------------------*/
