@@ -235,7 +235,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 			// fill by loot entry
 			for (LootEntryComponent comp : d.lootEntryComps)
 			{
-				if (comp.lootEntry.getSelectedItem() != EditorPanel.NONE)
+				if (comp != null && comp.lootEntry.getSelectedItem() != EditorPanel.NONE)
 				{
 					quickFillLootEntry(
 						Database.getInstance().getLootEntry((String)comp.lootEntry.getSelectedItem()),
@@ -280,6 +280,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 
 				// todo: shouldn't this add a Loot Entry? Or maybe be removed?
 				NpcInventoryTemplateRowItem r = new NpcInventoryTemplateRowItem(
+					NpcInventoryTemplateRow.Type.ROTATING_STOCK,
 					it.getName(),
 					spawnChance,
 					lvlAppearing,
@@ -319,6 +320,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 				Dice stack = stackDice==null ? getDefaultStackSize(type) : stackDice;
 
 				NpcInventoryTemplateRowItem r = new NpcInventoryTemplateRowItem(
+					NpcInventoryTemplateRow.Type.ROTATING_STOCK,
 					it.getName(),
 					spawnChance,
 					lvlAppearing,
@@ -626,6 +628,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 
 		private JTabbedPane tabbedPane;
 		private JButton ok, cancel;
+		private JComboBox type1, type2;
 		private JComboBox<String> items, lootEntries;
 		private JSpinner spawnChance, vanishChance, partyLevelAppearing, maxStocked;
 		private DiceField stackSize, itemsToSpawnLE;
@@ -651,6 +654,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 
 				tabbedPane.setSelectedIndex(0);
 
+				type1.setSelectedItem(r.getType());
 				items.setSelectedItem(r.getItemName());
 				spawnChance.setValue(r.getChanceOfSpawning());
 				vanishChance.setValue(r.getChanceOfVanishing());
@@ -664,6 +668,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 
 				tabbedPane.setSelectedIndex(1);
 
+				type2.setSelectedItem(r.getType());
 				items.setSelectedItem(r.getLootEntry());
 				spawnChance.setValue(r.getChanceOfSpawning());
 				vanishChance.setValue(r.getChanceOfVanishing());
@@ -706,7 +711,9 @@ public class NpcInventoryTemplateComponent extends JPanel
 			Vector<String> itemVec = new Vector<String>(
 				Database.getInstance().getItemTemplates().keySet());
 			Collections.sort(itemVec);
-			items = new JComboBox<String>(itemVec);
+			items = new JComboBox<>(itemVec);
+
+			type1 = new JComboBox(NpcInventoryTemplateRow.Type.values());
 
 			spawnChance = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
 			vanishChance = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
@@ -715,6 +722,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 			stackSize = new DiceField();
 
 			return dirtyGridBagCrap(
+				new JLabel("Type:"), type1,
 				new JLabel("Item:"), items,
 				new JLabel("Party Lvl Appearing:"), partyLevelAppearing,
 				new JLabel("Spawn Chance (%):"), spawnChance,
@@ -731,6 +739,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 			Collections.sort(leVec);
 			lootEntries = new JComboBox<String>(leVec);
 
+			type2 = new JComboBox(NpcInventoryTemplateRow.Type.values());
 			spawnChanceLE = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
 			vanishChanceLE = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
 			partyLevelAppearingLE = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
@@ -738,6 +747,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 			itemsToSpawnLE = new DiceField();
 
 			return dirtyGridBagCrap(
+				new JLabel("Type:"), type2,
 				new JLabel("Loot Entry:"), lootEntries,
 				new JLabel("Party Lvl Appearing:"), partyLevelAppearingLE,
 				new JLabel("Spawn Chance (%):"), spawnChanceLE,
@@ -767,6 +777,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 				if (tabbedPane.getSelectedIndex() == 0)
 				{
 					return new NpcInventoryTemplateRowItem(
+						(NpcInventoryTemplateRow.Type)type1.getSelectedItem(),
 						(String)items.getSelectedItem(),
 						(Integer)spawnChance.getValue(),
 						(Integer)partyLevelAppearing.getValue(),
@@ -777,6 +788,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 				else if (tabbedPane.getSelectedIndex() == 1)
 				{
 					return new NpcInventoryTemplateRowLootEntry(
+						(NpcInventoryTemplateRow.Type)type2.getSelectedItem(),
 						(Integer)spawnChance.getValue(),
 						(Integer)partyLevelAppearing.getValue(),
 						(Integer)maxStocked.getValue(),

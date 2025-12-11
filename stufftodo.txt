@@ -20,6 +20,7 @@ city staircase
 foe rebalancing
 guildmaster button
 torch texture
+dwarf textures / scrimshaw bros
 
 crater bazaar:
  - Mazza: complete dialog

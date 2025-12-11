@@ -32,15 +32,28 @@ public abstract class NpcInventoryTemplateRow
 	private int maxStocked;
 	private int chanceOfVanishing;
 
+	private Type type = Type.ROTATING_STOCK;
+
+	/*-------------------------------------------------------------------------*/
+	public enum Type
+	{
+		ALWAYS_AVAILABLE,
+		ROTATING_STOCK,
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplateRow()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected NpcInventoryTemplateRow(int chanceOfSpawning,
+	protected NpcInventoryTemplateRow(
+		Type type,
+		int chanceOfSpawning,
 		int partyLevelAppearing,
 		int maxStocked, int chanceOfVanishing)
 	{
+		this.type = type;
 		this.chanceOfSpawning = chanceOfSpawning;
 		this.partyLevelAppearing = partyLevelAppearing;
 		this.maxStocked = maxStocked;
@@ -107,6 +120,16 @@ public abstract class NpcInventoryTemplateRow
 		this.chanceOfVanishing = chanceOfVanishing;
 	}
 
+	public Type getType()
+	{
+		return type;
+	}
+
+	public void setType(Type type)
+	{
+		this.type = type;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	protected int getNumInStock(String itemName, List<Item> inv)
 	{
@@ -153,45 +176,4 @@ public abstract class NpcInventoryTemplateRow
 
 	/*-------------------------------------------------------------------------*/
 	public abstract int compareTo(NpcInventoryTemplateRow r2);
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		NpcInventoryTemplateRow that = (NpcInventoryTemplateRow)o;
-
-		if (getChanceOfSpawning() != that.getChanceOfSpawning())
-		{
-			return false;
-		}
-		if (getPartyLevelAppearing() != that.getPartyLevelAppearing())
-		{
-			return false;
-		}
-		if (getMaxStocked() != that.getMaxStocked())
-		{
-			return false;
-		}
-		return getChanceOfVanishing() == that.getChanceOfVanishing();
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getChanceOfSpawning();
-		result = 31 * result + getPartyLevelAppearing();
-		result = 31 * result + getMaxStocked();
-		result = 31 * result + getChanceOfVanishing();
-		return result;
-	}
 }

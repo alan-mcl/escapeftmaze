@@ -24,8 +24,11 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.arena.StickManVendor;
+import mclachlan.maze.balance.MockCombat;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
@@ -49,6 +52,9 @@ public class NpcTemplatePanel extends EditorPanel
 		partyCantAffordItem, characterInventoryFull, notInterestedInBuyingItem,
 		cantAffordToBuyItem, npcInventoryFull, doesntWantItem, doesntKnowAbout;
 
+	private JTextArea analysisOutput;
+	private java.util.List<Item> tempInventory = new ArrayList<>();
+
 	/*-------------------------------------------------------------------------*/
 	public NpcTemplatePanel()
 	{
@@ -64,10 +70,62 @@ public class NpcTemplatePanel extends EditorPanel
 		tabs.add("Inventory Template", getInventoryTemplateTab());
 		tabs.add("Interactions", getInteractionsTab());
 		tabs.add("Dialogue", getDialogTab());
+		tabs.add("Analysis", getAnalysisTab());
 
 		return tabs;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	private Component getAnalysisTab()
+	{
+		JPanel result = new JPanel(new BorderLayout());
+
+		analysisOutput = new JTextArea();
+		analysisOutput.setLineWrap(true);
+		analysisOutput.setWrapStyleWord(true);
+		analysisOutput.setEditable(false);
+
+		JPanel buttons = new JPanel();
+
+		JButton equip = new JButton("Update Inventory");
+		equip.addActionListener(e-> updateInventory());
+		buttons.add(equip);
+
+		result.add(buttons, BorderLayout.NORTH);
+		result.add(analysisOutput, BorderLayout.CENTER);
+
+		return result;
+	}
+
+	private void updateInventory()
+	{
+		try
+		{
+			MockCombat mc = new MockCombat();
+			Database db = Database.getInstance();
+			Maze maze = MockCombat.getMockMaze(db);
+
+			NpcTemplate npc = (NpcTemplate)commit(getCurrentName());
+
+			tempInventory = npc.getInventoryTemplate().update(tempInventory, 999);
+
+			analysisOutput.setText("");
+			for (Item item : tempInventory)
+			{
+				analysisOutput.append(item.getName() + " "+item.getStack()+"\n");
+			}
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
+		finally
+		{
+			Maze.destroy();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private Component getInteractionsTab()
 	{
 		JPanel result = new JPanel(new GridBagLayout());
@@ -427,6 +485,11 @@ public class NpcTemplatePanel extends EditorPanel
 		npcInventoryFull.addKeyListener(this);
 		doesntWantItem.addKeyListener(this);
 		doesntKnowAbout.addKeyListener(this);
+
+		if (tempInventory != null)
+		{
+			tempInventory.clear();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

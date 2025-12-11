@@ -86,9 +86,11 @@ public class NpcManager implements GameCache
 	private void initNpc(NpcTemplate npcTemplate)
 	{
 		Npc npc = new Npc(npcTemplate);
-		if (npc.getInventoryTemplate() != null)
+		if (npc.getInventoryTemplate() != null && Maze.getInstance() != null)
 		{
-			List<Item> inv = npc.getInventoryTemplate().update(new ArrayList<>());
+			List<Item> inv = npc.getInventoryTemplate().update(
+				new ArrayList<>(),
+				Maze.getInstance().getParty().getPartyLevel());
 			npc.setTradingInventory(inv);
 			npc.sortInventory();
 		}
@@ -287,7 +289,7 @@ public class NpcManager implements GameCache
 				(turnNr % 200 == 0))
 			{
 				Maze.log(Log.DEBUG, "updating inventory (previous size "+npc.getTradingInventory().size()+")");
-				npc.getInventoryTemplate().update(npc.getTradingInventory());
+				npc.getInventoryTemplate().update(npc.getTradingInventory(), Maze.getInstance().getParty().getPartyLevel());
 				Maze.log(Log.DEBUG, "done (new size "+npc.getTradingInventory().size()+")");
 			}
 

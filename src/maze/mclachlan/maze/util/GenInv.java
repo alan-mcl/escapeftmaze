@@ -29,6 +29,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplate;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
 
 import static mclachlan.maze.stat.ItemTemplate.Type;
 
@@ -67,7 +68,7 @@ public class GenInv
 				case Type.LEG_ARMOUR:
 				case Type.GLOVES:
 				case Type.BOOTS:
-					t.add(item.getName(), 10, clvl, 1, 20, Dice.d1);
+					t.add(item.getName(), NpcInventoryTemplateRow.Type.ROTATING_STOCK, 10, clvl, 1, 20, Dice.d1);
 			}
 		}
 

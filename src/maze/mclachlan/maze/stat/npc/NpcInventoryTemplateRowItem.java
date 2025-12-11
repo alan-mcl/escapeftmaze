@@ -40,6 +40,7 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 
 	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplateRowItem(
+		Type type,
 		String itemName,
 		int chanceOfSpawning,
 		int partyLevelAppearing,
@@ -47,7 +48,7 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 		int chanceOfVanishing,
 		Dice stackSize)
 	{
-		super(chanceOfSpawning, partyLevelAppearing, maxStocked, chanceOfVanishing);
+		super(type, chanceOfSpawning, partyLevelAppearing, maxStocked, chanceOfVanishing);
 		this.itemName = itemName;
 		this.stackSize = stackSize;
 	}
@@ -63,7 +64,7 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 	@Override
 	public List<Item> spawnNewItems(int clvl, List<Item> currentInventory)
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
 		if (getNumInStock(this.getItemName(), currentInventory) < this.getMaxStocked())
 		{
@@ -104,13 +105,14 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 	{
 		StringBuilder s = new StringBuilder();
 
-		s.append("item - "+getItemName());
+		s.append("item - ").append(getItemName()+" ");
+		s.append(getType());
 		s.append(" [");
-		s.append("spawn="+getChanceOfSpawning()+"%, ");
-		s.append("clvl="+getPartyLevelAppearing()+", ");
-		s.append("max="+getMaxStocked()+", ");
-		s.append("vanish="+getChanceOfVanishing()+"%, ");
-		s.append("stack="+ V1Dice.toString(getStackSize()));
+		s.append("spawn=").append(getChanceOfSpawning()).append("%, ");
+		s.append("clvl=").append(getPartyLevelAppearing()).append(", ");
+		s.append("max=").append(getMaxStocked()).append(", ");
+		s.append("vanish=").append(getChanceOfVanishing()).append("%, ");
+		s.append("stack=").append(V1Dice.toString(getStackSize()));
 		s.append("]");
 
 		if (s.length() > 100)
@@ -144,41 +146,5 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 	public void setStackSize(Dice stackSize)
 	{
 		this.stackSize = stackSize;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		NpcInventoryTemplateRowItem that = (NpcInventoryTemplateRowItem)o;
-
-		if (getItemName() != null ? !getItemName().equals(that.getItemName()) : that.getItemName() != null)
-		{
-			return false;
-		}
-		return getStackSize() != null ? getStackSize().equals(that.getStackSize()) : that.getStackSize() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = super.hashCode();
-		result = 31 * result + (getItemName() != null ? getItemName().hashCode() : 0);
-		result = 31 * result + (getStackSize() != null ? getStackSize().hashCode() : 0);
-		return result;
 	}
 }

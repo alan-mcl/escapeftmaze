@@ -377,7 +377,7 @@ public class GameSys
 
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private int calcAttackerToHitModifier(
 		StrikeEvent event)
@@ -450,7 +450,7 @@ public class GameSys
 
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private int calcDefenderToHitModifier(StrikeEvent event)
 	{
@@ -479,11 +479,11 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Calculates an actor's Initiative value
-	 */ 
+	 */
 	public int calcInitiative(UnifiedActor actor)
 	{
 		Maze.log(Log.DEBUG, "calculating initiative for "+actor.getName());
-		
+
 		int actorAgility = actor.getModifier(Stats.Modifier.SKILL);
 		int actorInitiative = actor.getModifier(Stats.Modifier.INITIATIVE);
 		int diceRoll = Dice.d6.roll("initiative ["+actor.getName()+"]");
@@ -492,12 +492,12 @@ public class GameSys
 		Maze.log(Log.DEBUG, actor.getName()+" intiative is "+result);
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Calculates an attacks damage.  Can return a negative number, which should
 	 * be handled by the caller.
-	 */ 
+	 */
 	public DamagePacket calcDamage(StrikeEvent event, List<MazeEvent> events)
 	{
 		Maze.log(Log.DEBUG, "calculating damage");
@@ -534,7 +534,7 @@ public class GameSys
 		{
 			armourSoak += bodyPart.getDamagePrevention();
 		}
-		
+
 		// damage prevention from a shield (helpless actors can't block with shields)
 		int shieldDamagePrevention = 0;
 		if (!GameSys.getInstance().isActorHelpless(defender))
@@ -622,7 +622,7 @@ public class GameSys
 			// double damage time
 			damageMultiplier++;
 		}
-		
+
 		Maze.log(Log.DEBUG, "damageMultiplier is "+damageMultiplier);
 		Maze.log(Log.DEBUG, "damage is "+damage);
 
@@ -882,21 +882,21 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Determines whether or not an attack hits the given armour.
-	 */ 
+	 */
 	public boolean hitArmour(StrikeEvent event, int basePercent)
 	{
 		Maze.log(Log.DEBUG, "determining armour impact");
-		
+
 		basePercent -= event.getAttackWith().getToPenetrate();
 		basePercent -= event.getAttacker().getModifier(Stats.Modifier.BRAWN);
 		basePercent -= event.getAttacker().getModifier(Stats.Modifier.TO_PENETRATE);
 		basePercent += event.getDefender().getModifier(Stats.Modifier.VS_PENETRATE);
-		
+
 		Maze.log(Log.DEBUG, "basePercent is "+basePercent);
-		
+
 		return (Dice.d100.roll("hit armour check") <= basePercent);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return if the defender is using a shield and the attack hits it: the amount
@@ -907,17 +907,17 @@ public class GameSys
 		UnifiedActor defender = event.getDefender();
 
 		Maze.log(Log.DEBUG, "determining shield impact for "+defender.getName());
-		
+
 		if (defender instanceof PlayerCharacter)
 		{
 			PlayerCharacter pc = (PlayerCharacter)defender;
-			
+
 			if (pc.getSecondaryWeapon() != null && pc.getSecondaryWeapon().isShield())
 			{
 				int basePercent = pc.getSecondaryWeapon().getDamagePreventionChance();
 				// Effect of Chivalry: + to shield defence chance
 				basePercent += defender.getModifier(Stats.Modifier.CHIVALRY);
-				
+
 				if (hitArmour(event, basePercent))
 				{
 					int result = pc.getSecondaryWeapon().getDamagePrevention();
@@ -927,9 +927,9 @@ public class GameSys
 				}
 			}
 		}
-		
+
 		Maze.log(Log.DEBUG, "no shield damage prevention");
-		return 0;		
+		return 0;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -984,14 +984,14 @@ public class GameSys
 		Maze.getPerfLog().exit("GameSys::getResistance");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Attempt a saving throw.
-	 * 
+	 *
 	 * @return
 	 * 	True if the actor saves successfully
-	 */ 
+	 */
 	public boolean savingThrow(
 		UnifiedActor source,
 		UnifiedActor target,
@@ -1006,7 +1006,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "spellLevel = [" + spellLevel + "]");
 		Maze.log(Log.DEBUG, "castingLevel = [" + castingLevel + "]");
 		Maze.log(Log.DEBUG, "saveAdjustment = [" + saveAdjustmentVal + "]");
-		
+
 		if (isActorImmuneToSpellEffect(target, subType))
 		{
 			Maze.log(Log.DEBUG, target.getName()+" is immune to this type of attack ("+subType+")");
@@ -1057,27 +1057,27 @@ public class GameSys
 	{
 		Maze.log(Log.DEBUG, "determining spell failure chance for "+
 			caster.getName()+"["+spell.getName()+"] ["+castingLevel+"]");
-		
+
 		if (caster instanceof DummyCaster)
 		{
 			// dummy caster never fails
 			return 0;
 		}
-			
+
 		Stats.Modifier primaryModifier = spell.getPrimaryModifier();
 
 		if (primaryModifier == null)
 		{
 			// no modifier required, this spell always succeeds
-			Maze.log(Log.DEBUG, "no primary modifier required"); 
+			Maze.log(Log.DEBUG, "no primary modifier required");
 			return 0;
 		}
 
 		int difficulty = (spell.getLevel()*2) + (castingLevel*2);
 		Maze.log(Log.DEBUG, "difficulty = [" + difficulty + "]");
-		
+
 		int casterTotal = caster.getLevel()/2;
-		
+
 		Stats.Modifier secondaryModifier = spell.getSecondaryModifier();
 		if (secondaryModifier != null)
 		{
@@ -1199,7 +1199,7 @@ public class GameSys
 
 		// at least 1
 		result = Math.max(result, 1);
-		
+
 		Maze.log(Log.DEBUG, "Item user casting level for ["+user.getName()+
 			"] with ["+item.getName()+"] is ["+result+"]");
 
@@ -1334,7 +1334,7 @@ public class GameSys
 	public int getDodgeCostForAttack(UnifiedActor attacker, UnifiedActor defender)
 	{
 		Maze.log(Log.DEBUG, "determining dodge cost for attack by "+attacker.getName()+" on "+defender.getName());
-		
+
 		int result;
 
 		if (isActorImmobile(defender))
@@ -1360,7 +1360,7 @@ public class GameSys
 	public int getDodgeCostForAmbush(UnifiedActor attacker, UnifiedActor defender)
 	{
 		Maze.log(Log.DEBUG, "determining dodge cost for ambush by "+attacker.getName()+" on "+defender.getName());
-		
+
 		int result;
 		if (isActorImmobile(defender))
 		{
@@ -1386,7 +1386,7 @@ public class GameSys
 	{
 		Maze.log(Log.DEBUG, "determining ambush cost for ambush by "+attacker.getName()+
 			" on "+defender.getName());
-			
+
 		int result = 3;
 		result += defender.getModifier(Stats.Modifier.VS_AMBUSH);
 
@@ -1403,7 +1403,7 @@ public class GameSys
 	public int getHideChance(UnifiedActor actor, List<UnifiedActor> allFoes, List<UnifiedActor> allAllies)
 	{
 		Maze.log(Log.DEBUG, "determining hide chance for "+actor.getName());
-			
+
 		int result = 0;
 
 		// 5% for every potential Action point. // todo: rejig now that these are action points?
@@ -1603,7 +1603,7 @@ public class GameSys
 		result += pc.getModifier(Stats.Modifier.THIEVING, false) * 50;
 		result += pc.getModifier(Stats.Modifier.WILDERNESS_LORE, false) * 100;
 		result += pc.getModifier(Stats.Modifier.SURVIVAL, false) * 100;
-		
+
 		// modify the result by a % specified by the ccPenalty modifier
 		double p = pc.getModifier(Stats.Modifier.CC_PENALTY, false)/100.0;
 		if (p != 0)
@@ -1760,7 +1760,7 @@ public class GameSys
 		{
 			return Trap.DisarmResult.SPRING_TRAP;
 		}
-		
+
 		if (!trap.getRequired().get(tool))
 		{
 			// this tool isn't required: the trap is sprung!
@@ -2477,23 +2477,34 @@ public class GameSys
 	 */
 	public Foe getLeader(List<FoeGroup> groups)
 	{
-		Foe bestSoFar = groups.get(0).getFoes().get(0);
-
+		// flatten the foe groups and sort reverse alphabetically by name
+		List<Foe> flattened = new ArrayList<Foe>();
 		for (FoeGroup ag : groups)
 		{
-			for (Foe actor : ag.getFoes())
-			{
-				// give preference to legendary foes, then the highest level regular actor
+			flattened.addAll(ag.getFoes());
+		}
+		flattened.sort((o1, o2) -> o2.getName().compareTo(o1.getName()));
 
-				if (actor.getTypes().contains(Foe.Type.LEGENDARY) &&
-					!bestSoFar.getTypes().contains(Foe.Type.LEGENDARY))
-				{
-					bestSoFar = actor;
-				}
-				else if (actor.getLevel() > bestSoFar.getLevel())
-				{
-					bestSoFar = actor;
-				}
+		Foe bestSoFar = groups.get(0).getFoes().get(0);
+
+		for (Foe actor : flattened)
+		{
+			// give preference to legendary foes, then NPCs, then
+			// the highest level regular actor. In the case of a tie the
+			// alphabetical sort above will ensure consistency.
+
+			if (actor.getTypes().contains(Foe.Type.LEGENDARY) &&
+				!bestSoFar.getTypes().contains(Foe.Type.LEGENDARY))
+			{
+				bestSoFar = actor;
+			}
+			else if (actor.isNpc() && !bestSoFar.isNpc())
+			{
+				bestSoFar = actor;
+			}
+			else if (actor.getLevel() > bestSoFar.getLevel())
+			{
+				bestSoFar = actor;
 			}
 		}
 
@@ -2796,7 +2807,7 @@ public class GameSys
 		}
 
 		int magicRegenRate = 1 + magicRegenModifier + entertainer;
-		
+
 		int magicRegenTurns = (resting&&magicRegenRate>0) ? 10 : 20;
 
 		return getRegenResult(magicRegenRate, magicRegenTurns, turnNr);
@@ -3089,7 +3100,7 @@ public class GameSys
 		GroupOfPossibilities<SpellEffect> spellEffects = null;
 		int bonusAttacks = 0;
 		int bonusStrikes = 0;
-		
+
 		// debatable if it should be character level or class level.  Leaving it
 		// at class level provides some protection against Ninjas turned Cultists
 		// being too powerful
@@ -3121,7 +3132,7 @@ public class GameSys
 			SpellEffect ko = Database.getInstance().getSpellEffect("MARTIAL_ARTS_KO");
 			spellEffects.add(ko, Math.max(martialArts*2, brawn/2));
 		}
-		
+
 		ItemTemplate result = new ItemTemplate(
 			"unarmed",
 			"unarmed",
@@ -3136,7 +3147,7 @@ public class GameSys
 			1,
 			0,
 			null,
-			spellEffectLevel, 
+			spellEffectLevel,
 			Dice.d1,
 			ItemTemplate.ChargesType.CHARGES_INFINITE,
 			null,
@@ -3293,7 +3304,7 @@ public class GameSys
 
 		return true;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public boolean isActorBlinkedOut(UnifiedActor actor)
 	{
@@ -3301,7 +3312,7 @@ public class GameSys
 		{
 			return false;
 		}
-		
+
 		for (Condition c : actor.getConditions())
 		{
 			if (c.getEffect().isBlinkedOut(actor, c))
@@ -3309,7 +3320,7 @@ public class GameSys
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -3448,7 +3459,7 @@ public class GameSys
 	public CombatAction checkConditions(UnifiedActor actor, CombatAction action)
 	{
 		CombatAction result = action;
-		
+
 		// todo:
 		// this doesn't really cater for weird combinations of immobility
 		// and non-presence and so forth.
@@ -3471,7 +3482,7 @@ public class GameSys
 				}
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -3522,19 +3533,19 @@ public class GameSys
 
 		return Dice.d100.roll("berserk check") <= chance;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	True if the given actor cheats death
-	 */ 
+	 */
 	public boolean actorCheatsDeath(UnifiedActor actor)
 	{
 		if (actor.getModifier(Stats.Modifier.CHEAT_DEATH) <= 0)
 		{
 			return false;
 		}
-		
+
 		// base 10% chance, + "by strength of spirit"
 		int chance = 10
 			+ actor.getLevel()
@@ -3542,17 +3553,17 @@ public class GameSys
 			+ actor.getModifier(Stats.Modifier.POWER)
 			+ actor.getMagicPoints().getCurrent()
 			+ (actor.getHitPoints().getMaximum()/10);
-		
+
 		// max 80%
 		chance = Math.min(80, chance);
-		
+
 		return Dice.d100.roll("cheat death check") <= chance;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Perform the various state changes on an actor who cheats death
-	 */ 
+	 */
 	public void cheatDeath(UnifiedActor actor)
 	{
 		// reset HP to 20%-50%, with equal fatigue
@@ -3562,7 +3573,7 @@ public class GameSys
 		int newHp = hp.getMaximum() * percentHp / 100;
 		hp.setCurrent(newHp);
 		hp.setSub(newHp);
-		
+
 		// drain stealth and magic
 		actor.getActionPoints().setCurrent(0);
 		actor.getMagicPoints().setCurrent(0);
@@ -3572,7 +3583,7 @@ public class GameSys
 	/**
 	 * @return
 	 * 	True if this is a CRITICAL HIT INSTAKILL!
-	 */ 
+	 */
 	public boolean isCriticalHit(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
 		if (attackWith == null)
@@ -3580,7 +3591,7 @@ public class GameSys
 			// no critical possible
 			return false;
 		}
-		
+
 		if (defender.getModifier(Stats.Modifier.IMMUNE_TO_CRITICALS) > 0)
 		{
 			// no critical possible
@@ -3642,7 +3653,7 @@ public class GameSys
 			// no critical possible
 			return false;
 		}
-		
+
 		if (percent < 1)
 		{
 			// no critical possible
@@ -3663,7 +3674,7 @@ public class GameSys
 	/**
 	 * @return
 	 * 	True if the defender successfully saves vs the critical
-	 */ 
+	 */
 	public boolean saveVsCritical(UnifiedActor defender, UnifiedActor attacker)
 	{
 		return this.savingThrow(
@@ -3809,7 +3820,7 @@ public class GameSys
 	/**
 	 * @return
 	 * 	True if this attack is deflected
-	 */ 
+	 */
 	public boolean isAttackDeflected(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
 		if (attackWith.isRanged())
@@ -3857,7 +3868,7 @@ public class GameSys
 	/**
 	 * Applies to the given modifiers any adjustments that an actor gets from
 	 * surprising a foe.
-	 */ 
+	 */
 	public StatModifier getSurpriseModifiers(UnifiedActor attacker)
 	{
 		int ambusher = attacker.getModifier(Stats.Modifier.AMBUSHER);
@@ -3874,7 +3885,7 @@ public class GameSys
 			modifier.setModifier(Stats.Modifier.RANGED_CRITICALS, ambusher);
 			return modifier;
 		}
-		
+
 		return new StatModifier();
 	}
 
@@ -3909,7 +3920,7 @@ public class GameSys
 			// an easy way of providing for the occasional tireless foe.
 			tirelessModifier = Stats.Modifier.TIRELESS_UNARMED;
 		}
-		
+
 		// only deduct fatigue if the attacker is not tireless with this weapon type 
 		if (tirelessModifier == null || event.getAttacker().getModifier(tirelessModifier) <= 0)
 		{
@@ -3924,14 +3935,14 @@ public class GameSys
 	 * two weapons.
 	 */
 	public void setDualWeaponPenalties(
-		CombatAction action, 
+		CombatAction action,
 		UnifiedActor actor,
 		boolean isPrimaryWeapon)
 	{
 		//
 		// Dual weapons skill can alleviate the penalties but not remove them
 		//
-		
+
 		int base = isPrimaryWeapon ? -5 : -10;
 		int modifier = actor.getModifier(Stats.Modifier.DUAL_WEAPONS);
 
@@ -3942,7 +3953,7 @@ public class GameSys
 
 		action.setModifier(Stats.Modifier.ATTACK, Math.min(0, base+modifier));
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return the price in GP to create a character in one of the in-game guilds.
@@ -3951,7 +3962,7 @@ public class GameSys
 	{
 		return 20000;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return the price in GP to recruite a character from on of the in-game guilds.

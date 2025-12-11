@@ -949,10 +949,10 @@ public class V2SerialiserFactory
 		HashMap<Object, Object> npcInvRowItemSerialiser = new HashMap<>();
 		npcInvRowItemSerialiser.put(NpcInventoryTemplateRowItem.class,
 			getReflectiveSerialiser(NpcInventoryTemplateRowItem.class,
-				"chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "itemName", "stackSize"));
+				"type", "chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "itemName", "stackSize"));
 		npcInvRowItemSerialiser.put(NpcInventoryTemplateRowLootEntry.class,
 			getReflectiveSerialiser(NpcInventoryTemplateRowLootEntry.class,
-				"chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "lootEntry", "itemsToSpawn"));
+				"type", "chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "lootEntry", "itemsToSpawn"));
 
 		npcInvTemplateSerialiser.addCustomSerialiser("rows",
 			new ListSerialiser(

@@ -20,7 +20,6 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
 
@@ -59,7 +58,8 @@ public class NpcInventoryTemplate
 	 * 	The number of items stacked, if applicable.
 	 */
 	public void add(
-		String itemName, 
+		String itemName,
+		NpcInventoryTemplateRow.Type type,
 		int chanceOfSpawning, 
 		int partyLevelAppearing,
 		int maxStocked,
@@ -68,6 +68,7 @@ public class NpcInventoryTemplate
 	{
 		this.rows.add(
 			new NpcInventoryTemplateRowItem(
+				type,
 				itemName,
 				chanceOfSpawning,
 				partyLevelAppearing,
@@ -89,7 +90,66 @@ public class NpcInventoryTemplate
 	 * @return
 	 * 	The new inventory of the NPC
 	 */
-	public List<Item> update(List<Item> currentInventory)
+	public List<Item> update(List<Item> currentInventory, int partyLevel)
+	{
+		return updateAlgorithm2(currentInventory, partyLevel);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * An inventory update algorithm based on types of item template rows.
+	 *
+	 * <ul>
+	 *    <li>ALWAYS_AVAILABLE: if the item is absent, spawn it.
+	 *    <li>ROTATING_STOCK_GROUP: for each group of rotating stock, remove
+	 *    all items and spawn a new random selection.
+	 * </ul>
+	 *
+	 * @see NpcInventoryTemplateRow.Type
+	 * @return the new inventory of the NPC
+	 */
+	private List<Item> updateAlgorithm2(List<Item> currentInventory, int partyLevel)
+	{
+		List<Item> result = new ArrayList<>();
+
+		for (NpcInventoryTemplateRow row : rows)
+		{
+			switch (row.getType())
+			{
+				case ALWAYS_AVAILABLE ->
+				{
+					List<Item> items = row.spawnNewItems(partyLevel, result);
+					result.addAll(items);
+				}
+				case ROTATING_STOCK ->
+				{
+					List<Item> items = row.spawnNewItems(partyLevel, result);
+
+					for (Item item : items)
+					{
+						if (!currentInventory.contains(item))
+						{
+							result.add(item);
+						}
+					}
+				}
+				default ->
+					throw new IllegalStateException("Unexpected value: " + row.getType());
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * An inventory update algorithm that removes items based on their
+	 * configured chance of vanishing, then spawns new items based on
+	 * their configured chance of spawning.
+	 *
+	 * @return the new inventory of the NPC
+	 */
+	private List<Item> updateAlgorithm1(List<Item> currentInventory, int partyLevel)
 	{
 		// first remove items from the current inventory
 		Iterator<Item> i = currentInventory.iterator();
@@ -105,27 +165,22 @@ public class NpcInventoryTemplate
 		}
 
 		// now, spawn new items
-		Maze instance = Maze.getInstance();
-		if (instance != null)
+		for (NpcInventoryTemplateRow row : rows)
 		{
-			int clvl = instance.getParty().getPartyLevel();
-			for (NpcInventoryTemplateRow row : rows)
-			{
-				List<Item> spawned = row.spawnNewItems(clvl, currentInventory);
+			List<Item> spawned = row.spawnNewItems(partyLevel, currentInventory);
 
-				currentInventory.addAll(spawned);
-			}
+			currentInventory.addAll(spawned);
+		}
 
-			// limit inventory size to keep NPC inventories from growing endlessly
-			int maxSize = currentInventory.size() / 2;
-			if (maxSize > rows.size())
+		// limit inventory size to keep NPC inventories from growing endlessly
+		int maxSize = currentInventory.size() / 2;
+		if (maxSize > rows.size())
+		{
+			int nrToDelete = maxSize - rows.size();
+			for (int j = 0; j < nrToDelete; j++)
 			{
-				int nrToDelete = maxSize - rows.size();
-				for (int j = 0; j < nrToDelete; j++)
-				{
-					int n = new Dice(1, currentInventory.size(), -1).roll("removing inventory item");
-					currentInventory.remove(n);
-				}
+				int n = new Dice(1, currentInventory.size(), -1).roll("removing inventory item");
+				currentInventory.remove(n);
 			}
 		}
 
@@ -160,30 +215,5 @@ public class NpcInventoryTemplate
 		List<NpcInventoryTemplateRow> rows)
 	{
 		this.rows = rows;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-
-		NpcInventoryTemplate that = (NpcInventoryTemplate)o;
-
-		return getRows() != null ? getRows().equals(that.getRows()) : that.getRows() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return getRows() != null ? getRows().hashCode() : 0;
 	}
 }
