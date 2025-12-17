@@ -309,7 +309,7 @@ public class ActorActionResolver
 				TradeAction a = (TradeAction)action;
 				PlayerCharacter pc = (PlayerCharacter)a.getActor();
 				Foe npc = (Foe)a.getTarget();
-				result.add(new InitiateTradeEvent(npc, pc));
+				result.addAll(npc.getActionScript().initiateTrade(pc));
 			}
 			else if (action instanceof DisarmTrapAction)
 			{

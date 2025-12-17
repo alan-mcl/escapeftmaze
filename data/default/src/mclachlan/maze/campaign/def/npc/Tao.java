@@ -36,10 +36,10 @@ public class Tao extends NpcScript
 
 	public List<MazeEvent> firstGreeting()
 	{
-		return subsequentGreeting();
+		return friendlyGreeting();
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		String var = MazeVariables.get(TAO_LOCATION_VAR);
 		if (var == null)
@@ -70,5 +70,5 @@ public class Tao extends NpcScript
 
 	public List<MazeEvent> neutralGreeting()
 	{
-		return subsequentGreeting();
+		return friendlyGreeting();
 	}}

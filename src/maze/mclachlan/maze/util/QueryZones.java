@@ -21,7 +21,6 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
@@ -44,7 +43,6 @@ public class QueryZones
 		System.out.println("...");
 
 		Database db = new Database(new V2Loader(), new V2Saver(), Maze.getStubCampaign());
-
 		db.initImpls();
 		db.initCaches(null);
 

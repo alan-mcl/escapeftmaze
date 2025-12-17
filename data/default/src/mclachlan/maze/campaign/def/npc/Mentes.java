@@ -32,7 +32,7 @@ public class Mentes extends NpcScript
 				"place in the fine city of Aenen. What are you looking for?", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Greetings once again! What have you for sale?", npc));

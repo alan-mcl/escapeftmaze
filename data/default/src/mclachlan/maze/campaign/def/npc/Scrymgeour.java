@@ -87,7 +87,7 @@ public class Scrymgeour extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(new NpcSpeechEvent("Welcome back! How can I help?", npc));
 

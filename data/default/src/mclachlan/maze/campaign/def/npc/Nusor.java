@@ -69,7 +69,7 @@ public class Nusor extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return firstGreeting();
 	}

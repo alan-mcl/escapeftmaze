@@ -53,7 +53,7 @@ public class RedEar extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),

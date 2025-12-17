@@ -368,7 +368,7 @@ public class Imogen extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Greetings.", npc));

@@ -42,7 +42,7 @@ public class Fangorn extends NpcScript
 			new NpcAttacksEvent(npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return firstGreeting();
 	}

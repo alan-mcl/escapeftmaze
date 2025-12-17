@@ -32,7 +32,7 @@ public class Sarpedon extends NpcScript
 				"for introductions or contracts.", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("You're back. How were yer travels?", npc));

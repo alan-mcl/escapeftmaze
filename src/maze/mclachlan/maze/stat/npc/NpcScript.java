@@ -90,7 +90,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	 * Executed subsequent times after the first that the NPC is friendly and
 	 * greets the party.  This default implementation does nothing.
 	 */
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		if (getNpcSpeech().getFriendlyGreeting() != null)
 		{
@@ -444,6 +444,17 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	public List<MazeEvent> partyWantsToTalk(PlayerCharacter pc)
 	{
 		return getList(new WaitForPlayerSpeech(npc, pc));
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Executed when the given PC wants to trade with this NPC.  This default
+	 * implementation simply returns an Initiate Trade event.
+	 */
+	public List<MazeEvent> initiateTrade(PlayerCharacter pc)
+	{
+		return getList(new InitiateTradeEvent(npc, pc));
 	}
 
 	/*-------------------------------------------------------------------------*/

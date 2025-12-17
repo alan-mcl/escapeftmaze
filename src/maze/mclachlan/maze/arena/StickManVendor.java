@@ -125,7 +125,7 @@ public class StickManVendor extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Hello again!  What can I help you with!", npc));

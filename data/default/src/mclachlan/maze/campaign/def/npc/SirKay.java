@@ -359,7 +359,7 @@ public class SirKay extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Salutations, travellers.", npc));

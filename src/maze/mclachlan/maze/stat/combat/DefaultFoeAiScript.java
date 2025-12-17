@@ -69,7 +69,7 @@ public class DefaultFoeAiScript extends NpcScript
 	}
 
 	@Override
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return firstGreeting();
 	}

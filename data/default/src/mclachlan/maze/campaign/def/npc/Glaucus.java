@@ -1,15 +1,14 @@
 
 package mclachlan.maze.campaign.def.npc;
 
+import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.Item;
-import java.util.*;
 
 /**
  * Gnome merchant and embassy in Ichiba
@@ -39,36 +38,6 @@ public class Glaucus extends NpcScript
 			new NpcSpeechEvent("I am Glaucus - trader, diplomat, tinker, " +
 				"collector and gnome of sundry talents and distinctions. he he " +
 				"*ykgh*. How can I help you?", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
-	{
-		return getList(
-			new NpcSpeechEvent("Greetings, friends. How may I assist you?", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> neutralGreeting()
-	{
-		return getList(
-			new NpcSpeechEvent("Ugh *ykgh* yes? What do you want?", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesNeutral()
-	{
-		return getList(
-			new NpcSpeechEvent("Ah hmmm. *ykgh*", npc),
-			new ActorsLeaveEvent());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesFriendly()
-	{
-		return getList(
-			new NpcSpeechEvent("Fare thee well friends...", npc),
-			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -70,7 +70,7 @@ public class ThreeEyes extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Greetings, travellers.", npc));

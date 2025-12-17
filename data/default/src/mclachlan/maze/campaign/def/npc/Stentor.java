@@ -37,7 +37,7 @@ public class Stentor extends NpcScript
 				"now visiting. How may I serve you?", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Hrrrmmmh, a satisfied customer tends to " +

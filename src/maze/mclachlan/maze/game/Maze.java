@@ -2618,7 +2618,7 @@ public class Maze implements Runnable
 					if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
 						fAttitude == NpcFaction.Attitude.ALLIED)
 					{
-						addAll(result, leader.getActionScript().subsequentGreeting());
+						addAll(result, leader.getActionScript().friendlyGreeting());
 					}
 					else
 					{

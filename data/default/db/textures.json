@@ -1389,6 +1389,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.aromatist",
+    "imageResources": [
+      "crusader/foe/the_aromatist"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "sky.stygios.forest",
     "imageResources": [
       "crusader/scene/stygios_sky"

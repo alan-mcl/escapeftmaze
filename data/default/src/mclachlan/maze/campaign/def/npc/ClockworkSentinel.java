@@ -36,7 +36,7 @@ public class ClockworkSentinel extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return firstGreeting();
 	}
@@ -44,7 +44,7 @@ public class ClockworkSentinel extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
-		return subsequentGreeting();
+		return friendlyGreeting();
 	}
 
 	/*-------------------------------------------------------------------------*/

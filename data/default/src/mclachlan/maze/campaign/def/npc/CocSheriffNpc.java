@@ -44,7 +44,7 @@ public class CocSheriffNpc extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		if (MazeVariables.getBoolean(INVITATION_FROM_COC))
 		{
@@ -61,7 +61,7 @@ public class CocSheriffNpc extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
-		return subsequentGreeting();
+		return friendlyGreeting();
 	}
 
 	/*-------------------------------------------------------------------------*/

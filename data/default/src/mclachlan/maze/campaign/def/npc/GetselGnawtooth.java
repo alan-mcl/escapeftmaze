@@ -38,7 +38,7 @@ public class GetselGnawtooth extends NpcScript
 				new NpcAttacksEvent(npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return firstGreeting();
 	}

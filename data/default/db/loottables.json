@@ -3261,6 +3261,36 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "The.Aromatist.Loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes Of Rejuvenation"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Enchanted Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Stave Of Silence"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "McCavity Ale"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
     "name": "ichiba.domain.north.chest.1",
     "lootEntries": {
       "PERCENTAGES": [

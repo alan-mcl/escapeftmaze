@@ -459,7 +459,7 @@ public class WePickett extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Yes, yes, how are you? Nice to see you again, " +

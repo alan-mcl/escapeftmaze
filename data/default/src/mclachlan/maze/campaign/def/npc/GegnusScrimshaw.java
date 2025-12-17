@@ -69,7 +69,7 @@ public class GegnusScrimshaw extends NpcScript
 	/*-------------------------------------------------------------------------*/
 
 	@Override
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		Foe gegnus = npc;
 		Npc regnus = NpcManager.getInstance().getNpc(REGNUS_SCRIMSHAW);

@@ -109,7 +109,7 @@ public class Belisarius extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Hrmmmmmh. Welcome back.", npc));

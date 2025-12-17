@@ -1530,7 +1530,7 @@
       "ITEMS": [
         "horrifying.phantasm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1558,7 +1558,7 @@
         "terrifying.phantasm.1",
         "horrifying.phantasm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1597,7 +1597,7 @@
       "ITEMS": [
         "chilling.phantasm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1623,7 +1623,7 @@
       "ITEMS": [
         "terrifying.phantasm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1638,7 +1638,7 @@
         "chilling.phantasm.1",
         "terrifying.phantasm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2025,7 +2025,7 @@
       "ITEMS": [
         "mud.spiders.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2106,6 +2106,19 @@
         "feral.familiar.1"
       ],
       "SHOULD_SUM_TO_100": "false"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "the.aromatist.allies.on.call",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "horrifying.phantasm.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2427,7 +2440,7 @@
       "ITEMS": [
         "yenluo.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

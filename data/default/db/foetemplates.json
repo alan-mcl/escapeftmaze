@@ -3243,6 +3243,93 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "The Aromatist",
+    "pluralName": "The Aromatist",
+    "unidentifiedName": "?masked figure",
+    "unidentifiedPluralName": "?masked figure",
+    "types": [],
+    "race": "Human",
+    "hitPointsRange": "19d3+19",
+    "actionPointsRange": "38d4+19",
+    "magicPointsRange": "38d4+19",
+    "levelRange": "19d1",
+    "experience": "1000",
+    "stats": "110000000000000058bfe0788107ff,020202050a0d0b0c0c0c13131313130f0f161616161616161616160905030105",
+    "bodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "human head",
+        "human torso",
+        "human leg",
+        "human hand",
+        "human foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.aromatist"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.aromatist"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.aromatist"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.aromatist"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.aromatist"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "The.Aromatist.Loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "true",
+    "identificationDifficulty": "1",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "5",
+    "stealthBehaviour": "3",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - running"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "STEALTH",
+    "defaultAttitude": "NEUTRAL"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
     "name": "Harvestman Spider",
     "pluralName": "Harvestman Spiders",
     "unidentifiedName": "?spider",

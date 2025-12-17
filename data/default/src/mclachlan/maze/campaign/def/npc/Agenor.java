@@ -33,7 +33,7 @@ public class Agenor extends NpcScript
 				"with other adventurers, I can probably arrange something.", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Grrreetings again, strangers. How can I help?", npc));

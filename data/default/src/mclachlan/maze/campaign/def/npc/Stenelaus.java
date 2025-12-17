@@ -42,7 +42,7 @@ public class Stenelaus extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Welcome back friends.", npc));
@@ -51,7 +51,7 @@ public class Stenelaus extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
-		return subsequentGreeting();
+		return friendlyGreeting();
 	}
 
 	/*-------------------------------------------------------------------------*/

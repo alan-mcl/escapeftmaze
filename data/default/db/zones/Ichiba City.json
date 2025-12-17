@@ -8159,7 +8159,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Glaucus\nGeneral Store"
+            "text": "Glaucus\nGeneral Magical"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -9703,7 +9703,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Bessa\u0027s Lucky Shoes"
+            "text": "Rennik\nCobbler"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9722,7 +9722,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Gerta\u0027s Spices"
+            "text": "Spices Perfumes Aromatics\nUnguents Powders Incense \nTHE AROMATIST"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",

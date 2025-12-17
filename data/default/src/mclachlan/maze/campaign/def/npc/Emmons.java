@@ -42,7 +42,7 @@ public class Emmons extends NpcScript
 			new NpcSpeechEvent("Now mind you I have little time for prattle. Got business to take care of.\n\nNo doubt ye'll be wanting to move on quickly to Ichiba ...", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Hello again!", npc));

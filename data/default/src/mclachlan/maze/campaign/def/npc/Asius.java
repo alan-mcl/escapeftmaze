@@ -33,7 +33,7 @@ public class Asius extends NpcScript
 				"he. How can I help?  he he.", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Hello again!", npc));

@@ -61,7 +61,7 @@ public class Lorelei extends NpcScript
 				"solace, and friend to all those who are friends of the forest.", npc));
 	}
 
-	public List<MazeEvent> subsequentGreeting()
+	public List<MazeEvent> friendlyGreeting()
 	{
 		return getList(
 			new NpcSpeechEvent("Greetings once again. What do you seek?", npc));

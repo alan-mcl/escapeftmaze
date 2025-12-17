@@ -24,9 +24,9 @@ dwarf textures / scrimshaw bros
 
 crater bazaar:
  - Mazza: complete dialog
- - Greta
- - Bessa (rename?)
- - Scrimshaw Bros
+ - Scrimshaw Bros: complete dialog
+ - The Aromatist: complete dialog
+ - Shoe stall vendor
 
 The Tumbledown
 Library
