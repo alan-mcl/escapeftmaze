@@ -36038,18 +36038,16 @@
       "Blackguard",
       "Hero",
       "Courtesan",
-      "Knave",
-      "Shugenja",
       "Burglar",
-      "Warlock",
-      "Scout"
+      "Shugenja",
+      "Warlock"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -36088,6 +36086,7 @@
     "toInitiative": "2",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         20
@@ -54054,8 +54053,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -54080,6 +54079,7 @@
     "attackScript": "bullet stone from player",
     "damage": "2d5+2",
     "defaultDamageType": "BLUDGEONING",
+    "attackTypes": [],
     "twoHanded": "false",
     "ranged": "false",
     "returning": "false",
@@ -54091,6 +54091,7 @@
     "toInitiative": "-4",
     "minRange": "1",
     "maxRange": "4",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         10,
@@ -72091,13 +72092,10 @@
       "Ninja",
       "Acolyte",
       "Enchanter",
-      "Magician",
       "Courtesan",
       "Monk",
       "Paladin",
       "Witch",
-      "Scout",
-      "Cultist",
       "Gadgeteer",
       "Skald",
       "Berserker",
@@ -72105,16 +72103,14 @@
       "Samurai",
       "Shugenja",
       "Hero",
-      "Knave",
-      "Amazon",
-      "Kamunushi"
+      "Amazon"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -72153,6 +72149,7 @@
     "toInitiative": "1",
     "minRange": "1",
     "maxRange": "1",
+    "ammo": [],
     "spellEffects": {
       "PERCENTAGES": [
         50,
@@ -72169,7 +72166,6 @@
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
     "enchantmentCalculation": "PARTY_LEVEL",
-    "enchantmentScheme": "basic",
     "conversionRate": "0.0"
   },
   {
@@ -73008,7 +73004,6 @@
     "description": "Fine powdery white dust, it brings the weight of time down to bear on your foes.",
     "modifiers": "0,",
     "image": "item/powder_white",
-    "equipableSlots": "",
     "weight": "80",
     "maxItemsPerStack": "5",
     "baseCost": "85",
@@ -92309,28 +92304,26 @@
     "invokedSpellLevel": "0",
     "chargesType": "CHARGES_INFINITE",
     "usableByCharacterClass": [
-      "Gadgeteer",
       "Ranger",
-      "Berserker",
+      "Gadgeteer",
       "Troubadour",
+      "Berserker",
       "Blackguard",
       "Shaman",
-      "Shugenja",
       "Burglar",
+      "Shugenja",
       "Warlock",
       "Ninja",
       "Hero",
       "Courtesan",
-      "Knave",
-      "Monk",
-      "Scout"
+      "Monk"
     ],
     "usableByRace": [
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -92372,6 +92365,10 @@
     "ammo": [
       "ARROW"
     ],
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "bonusAttacks": "0",
     "bonusStrikes": "0",
     "damagePrevention": "0",

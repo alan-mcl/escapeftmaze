@@ -818,6 +818,15 @@
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
           "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Knock Pick"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "0",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
@@ -866,29 +875,20 @@
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
           "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tinker\u0027s Carryall Bracers"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "0",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Welding Goggles",
           "stackSize": "1d1"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Knock Pick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Tinker\u0027s Carryall Bracers"
         }
       ]
     },
@@ -897,7 +897,205 @@
     "resistSteal": "0",
     "theftCounter": "0",
     "dialogue": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aromatist"
+          ],
+          "speech": "I respect their craft.\nI keep my distance.\nVery wise, distance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "You’ve come to the right stall!\nWith the right prices.\nNo tricks, no scams, no fakes."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Farewell! The stall\u0027s always here for you.\nWe don\u0027t travel.\nAnymore."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "Ah the Chamber! We\u0027re on their books.\nThey collect fees.\nPermits, fees, taxes, they collect them all.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "He\u0027s the leonal paladin, aye?\nHard to miss.\nHarder to argue with."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "Emmons! Always seems busy, doesn’t he?\nBusy staying useful.\nThat\u0027s a talent in Ichiba, brother."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "Well! That’s uncalled for.\nWatch your mouth.\nWe\u0027re running a stall here, not a flop house!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "If there is a guild of thieves, we have not seen it.\nWe sell goods.\nYou want trouble, ask elsewhere."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "The gnome across the way? Good for potions and powders.\nCharges fair.\nYeah, mostly."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "Gnolls? Plenty of them about. Live in the woods.\nShop in Ichiba.\nBest judged one by one, I say.\nBest kept at a distance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "Gnomes? Clever little folk. Good traders, when focused.\nRarely focussed."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "A polite hello! I like that.\nSo do I.\nStep closer and have a look friends!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Great city this. Best place to trade in the Realm, if you ask me.\nNo one asked.\nStill true!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "The witch keeps to her tower, mostly.\nBetter than way.\nPeople talk about her a lot, but we\u0027ve never met."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "Kay? Never met anyone by that name.\nNeither have I.\nFunny how often people ask, though."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Leonals? Hard to miss them, aren’t they?\nBig lads.\nBig armor, big voices, big sense of duty."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "Mazza! Now there’s a smell you can follow blindfolded.\nGrease.\nDelicious, spicy grease! Have you tried his Baz cakes?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "Quests? Oh no, no.\nWe sell things\nWe don’t send people to risk their lives fetching stuff for us, if that\u0027s what you\u0027re asking!\nOur supply chain is fine thanks."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "We’ve done business a few times.\nNo trouble.\nWhich is saying something, for a gnoll."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "Rumours? Oh, plenty floating around.\nMost of them nonsense.\nEntertaining nonsense though! Did you hear the one about the leonal troop and the fermenting pineapple?\nBrother, please."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "scrimshaw",
+            "thou",
+            "you"
+          ],
+          "speech": "Us? Just two dwarves with a stall and a long memory.\nCame from the First Realm years back.\nWe started out in the First Realm, hauling parts for people braver than us.\nRicher than us you mean.\nCame through the Maze with a cart, two packs, and a bad map.\nLost the map after we got to Ichiba.\nBut found our calling here! Ichiba lets us stay put and still see the world.\nEnough about us brother.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "Scrymgeour runs the tavern. Pours a steady ale.\nAle\u0027s a bit thin.\nWe have left the halls of our homeland, brother! All the ale here is wanting."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "It\u0027s our pleasure!"
+        }
+      ],
+      "doesntKnowAbout": "\u0027%s\u0027? That\u0027s a new one to me."
     },
     "speechColour": "ffcb953e",
     "zone": "Ichiba City",
@@ -3254,7 +3452,509 @@
     "resistSteal": "10",
     "theftCounter": "0",
     "dialogue": {
-      "dialogue": [],
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "0",
+          "keywords": [
+            "aromatist"
+          ],
+          "speech": "If you see \u0027em starin\u0027 at you, don’t panic. They do that to EVERYONE."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "Best deal in Ichiba? BAZ-CAKES, boss!\nTwo hands, one mouth, ZERO REGRETS!\nNo haggling needed! BAZ-CAKES already priced to MOVE!\nTell ya what! Buy Baz-Cakes today, Mazza throws in EXTRA CRUNCH!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Off you go! Don’t forget where the BEST FOOD IN ICHIBA lives!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "They like permits, taxes, and tellin\u0027 Mazza what NOT TO DO. \nMazza just KEEP ON COOKIN\u0027.\nWhat they know about THE FRY?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "Never been to Mazza. Think he CAN\u0027T HANDLE HIS SPICE."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "You don’t like Mazza? Fine! MORE FOOD FOR BETTER PEOPLE!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "Who? What? Mazza knows NOTHING."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "If you need potions, he’s your gnome. If you need LUNCH, you’re ALREADY HERE!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "They come in packs, smell like dust and blood and RAW MEAT.\nNot great for Mazza\u0027s VERY SANITARY FOOD BUSINESS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "Good with tools, bad with FOOD. Too careful, not enough FRYING."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "Step right up, bosses! HOT OIL, HOT FOOD, NO REGRETS!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "People come to Ichiba for business, power, or trouble. \nThey come to MAZZA for LUNCH!\nWhich one you here for boss?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "Tower witch, yeah? BAD VIBES. She never tips. WHO DOES THAT?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "Shhh! That name’s got EARS, boss. Keep it QUIET."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Good fighters. Bad tippers. Can\u0027t handle HOT SPICE.\nDon’t tell \u0027em Mazza said that boss."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "Mazza? Mazza is a VISIONARY! Fry-cook, merchant, ARTIST OF OIL!\nBorn goblin, raised hungry, now HE FEEDS ICHIBA! That’s Mazza’s story!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": "They like permits, taxes, and tellin\u0027 Mazza what NOT TO DO. \nMazza just KEEP ON COOKIN\u0027.\nWhat they know about THE FRY?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "Quests? Nah, boss. Mazza’s quest is FRY YESTERDAY, SELL TODAY, SEE TOMORROW!\nUm, actually fry TODAY. Not yesterday. TODAY. Mazza make mistake."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "Keeps yellin’ about laws and soldiers. Mazza just nods and SELLS HIM SNACKS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "Rumours? Oh I hear things! Oil pops, mouths flap. City’s HUNGRY, boss."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": "People here ALSO HUNGRY TOO. Not so different anywhere."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "You’re welcome! Tell your friends Mazza FED YOU WELL!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": "Mazza? Mazza is a VISIONARY! Fry-cook, merchant, ARTIST OF OIL!\nBorn goblin, raised hungry, now HE FEEDS ICHIBA! That’s Mazza’s story!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thyra"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
+        }
+      ],
       "friendlyGreeting": "You look HUNGRY! Or tired. Or both. Either way, fried bits solve it.",
       "neutralGreeting": "CHEAP? No no, boss, I call it competitively EDIBLE!",
       "friendlyFarewell": "Come back anytime and Mazza gives you the friend price... which is STILL A BARGAIN!",
@@ -3293,53 +3993,35 @@
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "30",
-          "partyLevelAppearing": "8",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "10",
+          "chanceOfVanishing": "15",
           "itemName": "Broadsword"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
+          "type": "ALWAYS_AVAILABLE",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Buckler Shield"
+          "itemName": "Heater Shield"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
-          "itemName": "Holy Water"
+          "itemName": "Iron Helm"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
           "chanceOfSpawning": "15",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Lance"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "30",
-          "partyLevelAppearing": "5",
-          "maxStocked": "2",
-          "chanceOfVanishing": "15",
-          "itemName": "Longsword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Magic Nectar"
@@ -3347,128 +4029,47 @@
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Parma"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Pickmeup Potion"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Barkskin"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "chanceOfSpawning": "33",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Potion Of Bless"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Potion Of Cure Disease"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Potion Of Cure Poison"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Guardian Angel"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Heavy Heal"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Heavy Stamina"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Lesser Curing"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "95",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Potion Of Light Heal"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Mod Heal"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Potion Of Resist Elements"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "0",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "1",
           "maxStocked": "1",
           "chanceOfVanishing": "15",
           "itemName": "Potion Of Stamina"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "15",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "15",
-          "itemName": "Targe"
         }
       ]
     },
@@ -3554,7 +4155,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": "Not much happens here that isn\u0027t sanctioned by the C.O.C.\n\nObey their laws and they will treat you well."
+          "speech": "Not much happens here that isn\u0027t sanctioned by the C.O.C.\nObey their laws and they will treat you well."
         },
         {
           "priority": "9",
@@ -3568,7 +4169,7 @@
           "keywords": [
             "danaos"
           ],
-          "speech": "Danaos, the white castle, home of my order. Have you seen it?\nMighty towers rising above the forest, grim battlements glittering with the helms of my folk. Smoke rising from the forges and ovens, the clatter of arms and the marching footsteps of the faithful going early and eager about their business! O how I long to return!"
+          "speech": "Danaos, the white castle, home of my order. Have you seen it?\nMighty towers rising above the forest, grim battlements glittering with the helms of my folk.\nSmoke rising from the forges and ovens, the clatter of arms and the marching footsteps of the faithful going early and eager about their business!\nO how I long to return!"
         },
         {
           "priority": "9",
@@ -3580,10 +4181,25 @@
         {
           "priority": "9",
           "keywords": [
+            "emmons"
+          ],
+          "speech": "My duties do not extend to such people."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "freedom",
             "escape"
           ],
           "speech": "My loyalty to the Order is paramount."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "A capable warrior, by reputation. I have heard she walks the wilds alone.\nHer path is not mine."
         },
         {
           "priority": "9",
@@ -3604,7 +4220,7 @@
           "keywords": [
             "first realm"
           ],
-          "speech": "Some time you must tell me of your home. Is my lady The Lady worshipped there too?"
+          "speech": "Some time you must tell me of your home. \nIs The White Lady worshipped there too?"
         },
         {
           "priority": "9",
@@ -3626,7 +4242,7 @@
           "keywords": [
             "gate"
           ],
-          "speech": "The Gate to the Third Realm is somewhere in the wastelands. Belisarius, the general of my Order, would know more."
+          "speech": "The Gate to the Third Realm is somewhere in the wastelands.\nBelisarius, the general of my Order, would know more."
         },
         {
           "priority": "9",
@@ -3635,14 +4251,14 @@
             "gentlemen\u0027s social club",
             "thieves guild"
           ],
-          "speech": "Some elements of society tend always towards crime. I do not associate with them."
+          "speech": "Some elements of society tend always towards crime.\nI do not associate with them."
         },
         {
           "priority": "9",
           "keywords": [
             "glaucus"
           ],
-          "speech": "Yes, the gnome spy here in Ichiba. He runs some sort of brick-a-brac store down an alley somewhere. I have caught him sneaking outside this shrine on occasion, but he has never dared more than that."
+          "speech": "Yes, the gnome spy here in Ichiba.\nHe runs some sort of brick-a-brac store down an alley somewhere.\nI have caught him sneaking outside this shrine on occasion, but he has never dared more than that."
         },
         {
           "priority": "9",
@@ -3650,7 +4266,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": "The gnolls have a village near here. They are a fierce and proud people, and few in this Realm can match their woodcraft."
+          "speech": "The gnolls have a village near here.\nThey are a fierce and proud people, and few in this Realm can match their woodcraft."
         },
         {
           "priority": "9",
@@ -3673,23 +4289,60 @@
         {
           "priority": "9",
           "keywords": [
+            "gurney"
+          ],
+          "speech": "Bards cling to the past. Soldiers must look forward."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "hail"
           ],
-          "speech": "Hail was once a great city, but it has fallen. One used to be able to reach it from Danaos, but the way is closed now."
+          "speech": "Hail was once a great city, but it has fallen.\nOne used to be able to reach it from Danaos, but the way is closed now."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": "I do not approve of fortune telling.\nThe future is guided by duty, not cards."
         },
         {
           "priority": "9",
           "keywords": [
             "ichiba"
           ],
-          "speech": "Ichiba. For all it\u0027s squalor and evil, this town has immense promise and energy. I could almost enjoy it here, if it wasn\u0027t for the smell."
+          "speech": "Ichiba. For all it\u0027s squalor and evil, this town has immense promise and energy.\nI could almost enjoy it here, if it wasn\u0027t for the smell."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": "The witch in the tower? She speaks sweetly, but at best she is untrustworthy. At worst... who knows what dark magicks she works in her lair?"
+          "speech": "The witch in the tower?\nShe speaks sweetly, but at best she is untrustworthy.\nAt worst... who knows what dark magicks she works in her lair?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lady",
+            "white lady",
+            "isolde"
+          ],
+          "speech": "She is the White Lady, bearer of spear and shield, mercy and judgment bound together.\nWhere her gaze falls, the innocent are guarded and the guilty are weighed without fear or favor.\nShe is the patron of the White Order, who guard the borders north of here at Danaos castle.\nBy her grace we hold back the darkness from these civilised lands.\nThe Lady does not promise comfort. She promises justice.\nShe teaches us to stand firm when the world trembles, to raise shield for the helpless and spear against the cruel.\nIn her service, doubt is burned away and only duty remains.\nI welcome you to her holy shrine."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": "I do not know him."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "Justice without compassion becomes cruelty."
         },
         {
           "priority": "9",
@@ -3704,7 +4357,7 @@
           "keywords": [
             "lady"
           ],
-          "speech": "Our goddess, The Lady of the spear and shield. To the faithful she is merciful and just. \nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands."
+          "speech": ""
         },
         {
           "priority": "9",
@@ -3713,7 +4366,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": "We are the children of The Lady, her chosen. The White Order has brought law and order to some small portion of this Realm, so that cities such as this may prosper."
+          "speech": "We are the children of The Lady, her chosen.\nThe White Order has brought law and order to some small portion of this Realm, so that cities such as this may prosper."
         },
         {
           "priority": "9",
@@ -3721,6 +4374,13 @@
             "lorelei"
           ],
           "speech": "I do not know of her."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": "Dreams are a poor guide for those who must act."
         },
         {
           "priority": "9",
@@ -3739,6 +4399,13 @@
         {
           "priority": "9",
           "keywords": [
+            "mazza"
+          ],
+          "speech": "I do not concern myself with frying pans and shouting."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "mentes"
           ],
           "speech": "I do not know him."
@@ -3748,7 +4415,14 @@
           "keywords": [
             "mnesus"
           ],
-          "speech": "The king of the gnomes. Deep in his lair in Aenen he broods, hatching plans of mischief and deceptions to harry us."
+          "speech": "The king of the gnomes.\nDeep in his lair in Aenen he broods, hatching plans of mischief and deceptions to harry us."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": "Storms do not build. They only test what stands.\nThe Lady holds the line when tempests pass."
         },
         {
           "priority": "9",
@@ -3763,7 +4437,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": "The Director of the C.O.C. He is man of small spirit, a bean counter of the worst sort."
+          "speech": "The Director of the C.O.C.\nHe is man of small spirit, a bean counter of the worst sort."
         },
         {
           "priority": "9",
@@ -3776,9 +4450,23 @@
         {
           "priority": "9",
           "keywords": [
+            "rainmaker"
+          ],
+          "speech": "A strange man, heavy with secrets.\nI would not trust him except in the direst need."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "red ear"
           ],
           "speech": "The gnoll tinker? He is not the sharpest arrow in the quiver."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": "Glory fades. Deeds remain."
         },
         {
           "priority": "9",
@@ -3801,21 +4489,21 @@
           "keywords": [
             "scrymgeour"
           ],
-          "speech": "The inn keeper across town? Yes, I know him. Occasionally I stop at his establishment for a draught. He is the servant of the Chamber of Commerce though, do not forget that in your dealing with him."
+          "speech": "The inn keeper across town? Yes, I know him.\nOccasionally I stop at his establishment for a draught.\nHe is the servant of the Chamber of Commerce though, do not forget that in your dealing with him."
         },
         {
           "priority": "9",
           "keywords": [
             "second realm"
           ],
-          "speech": "Yes, congratulations on your escape to this Realm. You will find less civilisation that you are used to, i fear. Other than Ichiba here and Danaos to the north, there is little other than deadly wastes and the trickery of the gnomes."
+          "speech": "Yes, congratulations on your escape to this Realm.\nYou will find less civilisation that you are used to, i fear.\nOther than Ichiba here and Danaos to the north, there is little other than deadly wastes and the trickery of the gnomes."
         },
         {
           "priority": "9",
           "keywords": [
             "stenelaus"
           ],
-          "speech": "Stenelaus is the door warden of Danaos Castle. A good soldier. Give him my regards should you meet him."
+          "speech": "Stenelaus is the door warden of Danaos Castle.\nA good soldier. Give him my regards should you meet him."
         },
         {
           "priority": "9",
@@ -3847,7 +4535,7 @@
           "keywords": [
             "third realm"
           ],
-          "speech": "Legends of the Third Realm are few. The Gate is reached through the wastes, few pass that way since the fall of Hail. Of the Realm itself, I can tell little that is not mere heresay."
+          "speech": "Legends of the Third Realm are few.\nThe Gate is reached through the wastes, few pass that way since the fall of Hail.\nOf the Realm itself, I can tell little that is not mere heresay."
         },
         {
           "priority": "9",
@@ -3855,6 +4543,20 @@
             "three eyes"
           ],
           "speech": "I do not know him."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thyra"
+          ],
+          "speech": "Fate may be woven, but duty is chosen.\nThe Lady teaches action, not inevitability."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "Lies are a weapon of cowards.\nSecrets rot the soul that hoards them.\nThe Lady teaches truth and open steel."
         },
         {
           "priority": "9",
@@ -3870,9 +4572,27 @@
             "wilds",
             "wastelands"
           ],
-          "speech": "The wastes, others call them the wilds. There is a large area of this Realm that is uninhabitted save for wild beasts and monsters."
+          "speech": "The wastes, others call them the wilds.\nThere is a large area of this Realm that is uninhabitted save for wild beasts and monsters."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "Wisdom requires more than illumination.\nThe Lady bears the shield when flames rise."
         }
-      ]
+      ],
+      "friendlyGreeting": "Greetings, friends.",
+      "neutralGreeting": "Greetings.",
+      "friendlyFarewell": "The blessing of The Lady go with you, friends. You will find me here should you need me.",
+      "neutralFarewell": "Farewell.",
+      "partyCantAffordItem": "Return when your means match your needs.",
+      "characterInventoryFull": "Set something aside before taking on more.",
+      "notInterestedInBuyingItem": "Such things hold no value to me.",
+      "cantAffordToBuyItem": "Such a purchase is beyond my means.",
+      "npcInventoryFull": "I have no room for more.",
+      "doesntWantItem": "I will not accept this.",
+      "doesntKnowAbout": "I have no knowledge of \u0027%s\u0027."
     },
     "speechColour": "ffffff99",
     "zone": "Ichiba City",
@@ -7381,7 +8101,7 @@
           "keywords": [
             "aenen"
           ],
-          "speech": "Ah, my home Aenen, *ygh* deep beneath the green earth. It is far south of here. You should visit it. Our king Mnesus the Mighty is there."
+          "speech": "Ah, my home Aenen, *ygh* deep beneath the green earth.\nIt is far south of here. You should visit it.\nOur king Mnesus the Mighty is there."
         },
         {
           "priority": "9",
@@ -7409,7 +8129,7 @@
           "keywords": [
             "belisarius"
           ],
-          "speech": "*Yghhh*. Belisarius, General of the White Order, lord of the leonals. He is in Danaos. He he he, I hear he does like gnomes much."
+          "speech": "*Yghhh*. Belisarius, General of the White Order, lord of the leonals.\nHe is in Danaos. He he he, I hear he does not like gnomes much."
         },
         {
           "priority": "9",
@@ -7445,7 +8165,7 @@
             "chamber of commerce",
             "c.o.c."
           ],
-          "speech": "Ah, heh. The Chamber of Commerce, down the road from here is their offices. The big building. They regulate trade here. *yhhg*. The tariffs are not low."
+          "speech": "Ah, heh. The Chamber of Commerce, down the road from here is their offices.\nThe big building.\nThey regulate trade here. *yhhg*. The tariffs are not low."
         },
         {
           "priority": "9",
@@ -7466,14 +8186,14 @@
           "keywords": [
             "diomedes"
           ],
-          "speech": "That leonal abides at the shrine of The Lady. He hee heh. No doubt he will be enthusiastic to tell you of his goddess. *yhhgg*"
+          "speech": "That leonal abides at the shrine of The Lady. He hee heh.\nNo doubt he will be enthusiastic to tell you of his goddess. *yhhgg*"
         },
         {
           "priority": "9",
           "keywords": [
             "emmons"
           ],
-          "speech": "Ah *hygk*. Emmons serves the thieves, yes. A lieutenant, I hear. Best spoken to with measured words."
+          "speech": "Ah *hygk*. Emmons serves the thieves, yes.\nA lieutenant, I hear. Best spoken to with measured words."
         },
         {
           "priority": "9",
@@ -7481,7 +8201,7 @@
             "freedom",
             "escape"
           ],
-          "speech": "Of course, who does not think of freedom? *yghk*. Count your blessings today I say, let tomorrow look after itself."
+          "speech": "Of course, who does not think of freedom? *yghk*.\nCount your blessings today I say, let tomorrow look after itself."
         },
         {
           "priority": "9",
@@ -7510,7 +8230,7 @@
           "keywords": [
             "first realm"
           ],
-          "speech": "*hykg*. I have heard there are many people there. Is it crowded? He he he. Here we have fewer, I wager. But the wastelands are full of uncivilised beasts of all descriptions..."
+          "speech": "*hykg*. I have heard there are many people there. Is it crowded? He he he.\nHere we have fewer, I wager.\nBut the wastelands are full of uncivilised beasts of all descriptions."
         },
         {
           "priority": "9",
@@ -7532,7 +8252,7 @@
           "keywords": [
             "gate"
           ],
-          "speech": "Heh, I thought you might ask. *hgyh* All I know is that the next Great Gate lies somewhere beyond the city of Hail."
+          "speech": "Heh, I thought you might ask. *hgyh*\nAll I know is that the next Great Gate to the Third Realm lies somewhere beyond the city of Hail."
         },
         {
           "priority": "9",
@@ -7564,7 +8284,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": "We gnomes where here in the Second Realm before any others. *yghh* I know not how we came here. *hgyh* In the mists of time it was us against what beasts the maze chose to throw against us. More lately, the haughty leonals harass us. *ghgh!* Our kingdom is small, but we endure. "
+          "speech": "We gnomes were here in the Second Realm before any others. \n*yghh* I know not how our forefathers came here.\n*hgyh* In the mists of time it was us against what beasts the Maze chose to throw against us.\nMore lately, the haughty leonals harass us.\n*ghgh!* Our kingdom is small, but we endure. "
         },
         {
           "priority": "9",
@@ -7588,7 +8308,7 @@
           "keywords": [
             "hail"
           ],
-          "speech": "Och. The city of Hail has fallen to the forces of darkness. *yghy*. A sad day. It was in the midst of what is now the called the wastelands."
+          "speech": "Och. The city of Hail has fallen to the forces of darkness. *yghy*.\nA sad day. It was in the midst of what is now the called the wastelands."
         },
         {
           "priority": "9",
@@ -7602,14 +8322,14 @@
           "keywords": [
             "ichiba"
           ],
-          "speech": "*yhhg* Ichiba, the City in the Crater. The hub of trade in this Realm. My current home. *hygk* Sometimes, a challenging place to abide. But one makes the best of it."
+          "speech": "*yhhg* Ichiba, the City in the Crater.\nThe hub of trade in this Realm. My current home.\n*hygk* Sometimes, a challenging place to abide. But one makes the best of it."
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": "*yghk*. The Sorceress in the Tower? I don\u0027t trust her. Nothing personal, I just mistrust mysterious mages in towers. he he he."
+          "speech": "*yghk*. The Sorceress in the Tower? I don\u0027t trust her.\nNothing personal, I just mistrust mysterious mages in towers. he he he."
         },
         {
           "priority": "9",
@@ -7617,7 +8337,7 @@
             "white lady",
             "isolde"
           ],
-          "speech": "The Iron Goddess, yes. Justice and mercy, they say. He he he. Often in that order."
+          "speech": "The Iron Goddess, yes. Justice and mercy, they say. He he he.\nOften in that order."
         },
         {
           "priority": "9",
@@ -7655,7 +8375,7 @@
             "leonals",
             "leonal"
           ],
-          "speech": "The leonals and their Order continue to harass us. *ykgh*. There is enmity and mistrust... but few open hostilties yet."
+          "speech": "The leonals and their Order continue to harass us gnomes. *ykgh*.\nThere is enmity and mistrust... but few open hostilties, as yet."
         },
         {
           "priority": "9",
@@ -7726,7 +8446,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": "The Director of the C.O.C. is seldom away from his desk. *kygh*. He pays mercenaries to run the city. Yet, something has always troubled me, though I cannot put my finger on it."
+          "speech": "The Director of the C.O.C. is seldom away from his desk. *kygh*.\nHe pays mercenaries to run the city.\nYet, something has always troubled me, though I cannot put my finger on it.\nAll is not as it seems in the Chamber, methinks."
         },
         {
           "priority": "9",
@@ -7734,7 +8454,7 @@
             "quests",
             "quest"
           ],
-          "speech": "He he he. Is the Maze not dangerous enough already? *yghy* Adventure? You could visit Aenen and see what you find..."
+          "speech": "Adventure? He he he. Is the Maze not dangerous enough already? *yghy*\nYou could visit Aenen and see what you find..."
         },
         {
           "priority": "9",
@@ -7785,7 +8505,7 @@
           "keywords": [
             "second realm"
           ],
-          "speech": "Welcome again to this Realm, friends. *yghy* Hope you\u0027re not too disappointed, he he he"
+          "speech": "Welcome again to this Realm, friends. *yghy*\nHope you\u0027re not too disappointed, he he he"
         },
         {
           "priority": "9",
@@ -7861,7 +8581,7 @@
             "wilds",
             "wastelands"
           ],
-          "speech": "Ah *yghh*. Beyond the civilised parts of the Realm are the wastes. Now that Hail has fallen, few pass that way."
+          "speech": "Ah *yghh*. Beyond the civilised parts of the Realm are the wastes.\nNow that Hail has fallen, few pass that way."
         },
         {
           "priority": "9",
@@ -8349,1271 +9069,382 @@
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "100",
-          "partyLevelAppearing": "0",
-          "maxStocked": "3",
-          "chanceOfVanishing": "0",
-          "itemName": "Adventurer\u0027s Armoury Key"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Anointed Flail"
+          "chanceOfVanishing": "15",
+          "itemName": "Baselard",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Armet"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Aspis"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Assegai"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Awl Pike"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bascinet"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bascinet And Camail"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Baselard"
+          "chanceOfVanishing": "15",
+          "itemName": "Bearded War Axe",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bastard Sword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Battleaxe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bearded War Axe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bec De Corbin"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bipennis"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bo Stick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Breastplate"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Broadsword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bronze Cuirass"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bronze Greaves"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Buckler Shield"
+          "chanceOfVanishing": "15",
+          "itemName": "Buckler Shield",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Bullet Stone"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Burgonet"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Buskins"
+          "chanceOfVanishing": "15",
+          "itemName": "Buskins",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Chamois Gloves",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Chamois Skirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Cloth Pants",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Cloth Shirt",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Chain Chausses"
+          "chanceOfVanishing": "15",
+          "itemName": "Cutlass",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Chain Hauberk"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "3",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Chain Hosen"
+          "chanceOfVanishing": "15",
+          "itemName": "Dagger",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Chamois Gloves"
+          "chanceOfVanishing": "15",
+          "itemName": "Feathered Hat",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Chamois Skirt"
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Halter",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
+          "chanceOfSpawning": "25",
+          "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Claymore"
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Leggings",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
+          "chanceOfSpawning": "25",
+          "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Cloth Pants"
+          "chanceOfVanishing": "15",
+          "itemName": "Fur Tunic",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Cloth Shirt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "3",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Club"
+          "chanceOfVanishing": "15",
+          "itemName": "Hammer",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Crook"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Crusader Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "3",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Cuir Guantlets"
+          "chanceOfVanishing": "15",
+          "itemName": "Hand Axe",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Cutlass"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "3",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Dagger"
+          "chanceOfVanishing": "15",
+          "itemName": "Iron Helm",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Gloves",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Helm",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "5",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Do Maru"
+          "chanceOfVanishing": "15",
+          "itemName": "Longsword",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "3",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Fauchard"
+          "chanceOfVanishing": "15",
+          "itemName": "Mace",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Feather Dart"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Feathered Hat"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Flambard"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Flanged Mace"
+          "chanceOfVanishing": "15",
+          "itemName": "Quarterstaff",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "50",
           "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Fur Halter"
+          "chanceOfVanishing": "15",
+          "itemName": "Quilt Leggings",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "50",
           "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Fur Leggings"
+          "chanceOfVanishing": "15",
+          "itemName": "Quilt Tunic",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Fur Tunic"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Garland Of Lilies"
+          "chanceOfVanishing": "15",
+          "itemName": "Robes (L)",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Gnarled Staff"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Hachimaki"
+          "chanceOfVanishing": "15",
+          "itemName": "Robes (U)",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Halberd"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Hammer"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Hand Axe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Haramaki Do"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Heater Shield"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "9",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Heaume"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Horsemans Axe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Horsemans Mace"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "9",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Hotoke Do"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Iron Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Jesters Staff"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Jian"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Jo Stick"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Kabuto"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "5",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Katana"
+          "chanceOfVanishing": "15",
+          "itemName": "Sabre",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sandals",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "2",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Kite Shield"
+          "chanceOfVanishing": "15",
+          "itemName": "Short Bow",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Short Spear",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Kwai"
+          "chanceOfVanishing": "15",
+          "itemName": "Short Sword",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Lance"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Boots"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Cuirass"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Gloves"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Greaves"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Hauberk"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Leather Leggings"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Light Crossbow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Long Bow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Longsword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Mace"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Mace And Chain"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Mail Coif"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Mail Mittens"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Main Guache"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Mitre"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Morningstar"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Naginata"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Ninja Cowl"
+          "chanceOfVanishing": "15",
+          "itemName": "Silk Shirt",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "50",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Ninja Garb (L)"
+          "chanceOfVanishing": "15",
+          "itemName": "Skullcap",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Ninja Garb (U)"
+          "chanceOfVanishing": "15",
+          "itemName": "Sling",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Ninjato"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "No-dachi"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Nunchaku"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Parma"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Phrygian Cap"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Plate Mail (L)"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Plate Mail (U)"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Poignard"
+          "chanceOfVanishing": "15",
+          "itemName": "Spear",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Quarrel"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Quarterstaff"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Quilt Leggings"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Quilt Tunic"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Rapier"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Robes (L)"
+          "chanceOfVanishing": "15",
+          "itemName": "Suede Doublet",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "1",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Robes (U)"
+          "chanceOfVanishing": "15",
+          "itemName": "Suede Pants",
+          "stackSize": "1d1"
         },
         {
           "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
           "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sabre"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sai"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sandals"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "7",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sarissa"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
+          "chanceOfSpawning": "15",
           "partyLevelAppearing": "4",
           "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Scimitar"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "100",
-          "partyLevelAppearing": "0",
-          "maxStocked": "5",
-          "chanceOfVanishing": "50",
-          "itemName": "Scrymgeour\u0027s Bitter"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Shino Suneate"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Short Bow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Short Spear"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Short Sword"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Shuriken"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Silk Shirt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Skullcap"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sling"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "8",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Sollerets"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Spear"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Steel Guantlets"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Steel Helm"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Stiletto"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Suede Doublet"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Suede Pants"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "5",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Suneate And Haidate"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tabi Boots"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tachi"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tanto"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Targe"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tartan Kilt"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "1",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tartan Trews"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Throwing Knife"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "3",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tomahawk"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Tsubo Suneate"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Wakazashi"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "War Hammer"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "War Scepter"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "4",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Willow Arrow"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "2",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Wizard\u0027s Cone"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Zizka Star"
-        },
-        {
-          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
-          "type": "ROTATING_STOCK",
-          "chanceOfSpawning": "10",
-          "partyLevelAppearing": "6",
-          "maxStocked": "1",
-          "chanceOfVanishing": "20",
-          "itemName": "Zweihander"
+          "chanceOfVanishing": "15",
+          "itemName": "War Hammer",
+          "stackSize": "1d1"
         }
       ]
     },
@@ -9725,10 +9556,25 @@
         {
           "priority": "9",
           "keywords": [
+            "emmons"
+          ],
+          "speech": "That little goblin sneak? Runs errands for the thieves, far as I know.\nBest keep one hand on your purse around him."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "freedom",
             "escape"
           ],
           "speech": "I hear it\u0027s to be found in the bottom of a beer mug. Har har."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "A fine fighter, from what I hear.\nToo much fire in her blood to sit easy in a place like Ichiba.\nHer mate Gurney is usually over in the corner, if you\u0027re looking for him."
         },
         {
           "priority": "9",
@@ -9818,9 +9664,23 @@
         {
           "priority": "9",
           "keywords": [
+            "gurney"
+          ],
+          "speech": "He\u0027s welcome here. Doesn\u0027t cause trouble, just drinks and remembers."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "hail"
           ],
           "speech": "Aye, the city in the wastelands. It has fallen now. The makes the Adventurers Arms the best pub in the Realm!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -9835,6 +9695,28 @@
             "imogen"
           ],
           "speech": "\u003cmakes a hand sign of protection against evil\u003e \n\nGods protect us from whatever dark forces that witch is toying with in ther tower! The Chamber should run her out of town, I always say. There\u0027s no place for sorcery in an organised town."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -9870,6 +9752,13 @@
         {
           "priority": "9",
           "keywords": [
+            "lunara"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "maze"
           ],
           "speech": "Honestly, I\u0027m pretty comfortable where I am."
@@ -9884,6 +9773,13 @@
         {
           "priority": "9",
           "keywords": [
+            "mazza"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "mentes"
           ],
           "speech": "Nope, dunno."
@@ -9894,6 +9790,13 @@
             "mnesus"
           ],
           "speech": "He\u0027s the big old King Gnome. I hear he has a dozen wives, there in his undergound harem, and all of them busy brewing beer for him! Har har har."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -9921,9 +9824,23 @@
         {
           "priority": "9",
           "keywords": [
+            "rainmaker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "red ear"
           ],
           "speech": "Damn dirty dog, trying to set up shop in town. He\u0027s got no idea about income tax, levies, rental. Raises a stink every month when he\u0027s due to the Chamber. Don\u0027t know why they still put up with it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -9954,6 +9871,13 @@
             "second realm"
           ],
           "speech": "Most of it is a waste, monsters and beasts and such. Then there\u0027s the leonals and the gnomes, always bickering with eachother. And the damn dog soldiers, sneaking around in the forest. We\u0027ve got a good thing going in Ichiba, stick around here and you\u0027ll be ok."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
         },
         {
           "priority": "9",
@@ -9997,6 +9921,20 @@
         {
           "priority": "9",
           "keywords": [
+            "thyra"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "wasid"
           ],
           "speech": "May his blessing give us strength."
@@ -10009,8 +9947,26 @@
             "wastelands"
           ],
           "speech": "Ah yes. Most of this Realm is a waste. Rather stay here in Ichiba."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": ""
         }
-      ]
+      ],
+      "friendlyGreeting": "Welcome back! How can I help?",
+      "neutralGreeting": "Yes?",
+      "friendlyFarewell": "Farewell, return any time!",
+      "neutralFarewell": "Goodbye",
+      "partyCantAffordItem": "Heh. Looks like your purse is lighter than your thirst.",
+      "characterInventoryFull": "Come back after you\u0027ve lightened your load.",
+      "notInterestedInBuyingItem": "Not my kind of stock. Try the market. Someone there might be desperate.",
+      "cantAffordToBuyItem": "Not at that price.",
+      "npcInventoryFull": "I\u0027ve nowhere to put it.",
+      "doesntWantItem": "No need for that. Take it elsewhere.",
+      "doesntKnowAbout": "\u0027%s\u0027 - thats outside my wheelhouse."
     },
     "speechColour": "ffcc9900",
     "zone": "Ichiba City",
@@ -11781,7 +11737,7 @@
             "coc",
             "chamber of commerce"
           ],
-          "speech": "Bahhhhr. Grrrrr. Laws and soldiers and papers! Red Ear is an honest trader! Why must he be harassed and robbed by these? Brrrrrhrmm!"
+          "speech": "Bahhhhr. Grrrrr.\nLaws and soldiers and papers!\nRed Ear is an honest trader! Why must he be harassed and robbed by these? Brrrrrhrmm!"
         },
         {
           "priority": "9",
@@ -11795,7 +11751,7 @@
           "keywords": [
             "danaos"
           ],
-          "speech": "Hrmmm. White castle of the lion-folk, far north of here. Red Ear does not like the unfriendly lion-folk."
+          "speech": "Hrmmm. White castle of the lion-folk, far north of here.\nRed Ear does not like the unfriendly lion-folk."
         },
         {
           "priority": "9",
@@ -11807,10 +11763,25 @@
         {
           "priority": "9",
           "keywords": [
+            "emmons"
+          ],
+          "speech": "Sniff. Emmons smells of tricks and back doors. Bad trade. No deals for him!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "freedom",
             "escape"
           ],
           "speech": "Red Ear is happy here, food and warmth and trading in safe Ichiba."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "Bahhh. She does not come to trade. Too proud."
         },
         {
           "priority": "9",
@@ -11831,7 +11802,7 @@
           "keywords": [
             "first realm"
           ],
-          "speech": "Red Ear smelled that you come from beyond the Gate! Far journey, few come to Red Ear. This place better than the other place, Red Ear thinks!"
+          "speech": "Red Ear smelled that you come from beyond the Gate!\nFar journey, few come to Red Ear.\nThis place better than the other place, Red Ear thinks!"
         },
         {
           "priority": "9",
@@ -11877,7 +11848,7 @@
             "gnoll",
             "gnolls"
           ],
-          "speech": "Gnoll-folk are mighty in the Realm! War Chief Broken Fang commands a hundred spears, fights with the strength of bear! Gnoll warriors go unseen by anyone through the trees, see and hear all! Famous wizard shaman Three Eyes guides the tribe by his wisdom. Mighty are the Gnoll-folk! Red Ear\u0027s folk!"
+          "speech": "Gnoll-folk are mighty in the Realm!\nWar Chief Broken Fang commands a hundred spears, fights with the strength of bear!\nGnoll warriors go unseen by anyone through the trees, see and hear all!\nFamous wizard shaman Three Eyes guides the tribe by his wisdom.\nMighty are the Gnoll-folk! Red Ear\u0027s folk!"
         },
         {
           "priority": "9",
@@ -11885,7 +11856,7 @@
             "gnomes",
             "gnome"
           ],
-          "speech": "Grrr, shifty gnome folk wizards, always whispering to each other, never doing good deals. Their lair-hole far south of here - Aenen village."
+          "speech": "Grrr, shifty gnome folk wizards, always whispering to each other, never doing good deals.\nTheir lair-hole far south of here - Aenen village."
         },
         {
           "priority": "9",
@@ -11900,6 +11871,13 @@
         {
           "priority": "9",
           "keywords": [
+            "gurney"
+          ],
+          "speech": "Sniff. Smells of ale and regret. Sits in Scrymgeour\u0027s place."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "hail"
           ],
           "speech": "Red Ear has heard of that place, does not know though."
@@ -11907,16 +11885,45 @@
         {
           "priority": "9",
           "keywords": [
+            "hoshiko"
+          ],
+          "speech": "Yarr. People go in worried, come out worried and poor."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "ichiba"
           ],
-          "speech": "Ichiba, biggest town in the Realm. Red Ear\u0027s home. Good trade, even with many criminals and soldiers and men with papers making laws. Remember - Red Ear has the best deals in Ichiba!"
+          "speech": "Ichiba, biggest town in the Realm. Red Ear\u0027s home.\nGood trade, even with many criminals and soldiers and men with papers making laws.\nRemember - Red Ear has the best deals in Ichiba!"
         },
         {
           "priority": "9",
           "keywords": [
             "imogen"
           ],
-          "speech": "Hmmmrrrrrrr. Wizard lady in the tower. Red Ear sells her deals sometimes. She nice."
+          "speech": "Hmmmrrrrrrr. Wizard lady in the tower.\nRed Ear sells her deals sometimes. She nice."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": "Red Ear does not know."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "Red Ear does not know."
         },
         {
           "priority": "9",
@@ -11924,7 +11931,7 @@
             "kay",
             "sir kay"
           ],
-          "speech": "Bah, beggar and criminal. Red Ear wishes him an early end. Complains to the soldiers and law people, they too useless to catch him."
+          "speech": "Bah, beggar and criminal. Red Ear wishes him an early end.\nComplains to the soldiers and law people, they too useless to catch him."
         },
         {
           "priority": "9",
@@ -11940,14 +11947,21 @@
             "leonals",
             "leonal"
           ],
-          "speech": "Grrr, sneering lion-folk. Always all swords, shiny armour. Too good to talk to red Ear. Their place northwards, Danaos big white castle."
+          "speech": "Grrr, sneering lion-folk. Always all swords, shiny armour.\nToo good to talk to Red Ear. \nTheir place northwards, Danaos big white castle."
         },
         {
           "priority": "9",
           "keywords": [
             "lorelei"
           ],
-          "speech": "Forest lady comes sometimes to the village. Red Ear thinks she is gone north now-a-days."
+          "speech": "Forest lady comes sometimes to the village.\nRed Ear thinks she is gone north now-a-days."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": "Red Ear does not know."
         },
         {
           "priority": "9",
@@ -11966,6 +11980,13 @@
         {
           "priority": "9",
           "keywords": [
+            "mazza"
+          ],
+          "speech": "Sniff. Oil, meat, smoke. Always smells of food.\nNot clever trader, but is clever cook."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "mentes"
           ],
           "speech": "Red Ear does not know him."
@@ -11980,6 +12001,13 @@
         {
           "priority": "9",
           "keywords": [
+            "morrath"
+          ],
+          "speech": "Red Ear does not know."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "nergal"
           ],
           "speech": "Red Ear does not know."
@@ -11990,7 +12018,7 @@
             "we pickett",
             "pickett"
           ],
-          "speech": "Brrrgh! High mighty chieftain of the soldiers. He does not come to Red Ear for deals, only sends men with laws and papers to take Red Ear\u0027s money."
+          "speech": "Brrrgh! High mighty chieftain of the soldiers.\nHe does not come to Red Ear for deals, only sends fighters with laws and papers to take Red Ear\u0027s money."
         },
         {
           "priority": "9",
@@ -12002,9 +12030,40 @@
         {
           "priority": "9",
           "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "Yarr. Red Ear not your boss.\nRed Ear does deals, not errands."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": "Sniff sniff. Smells of smoke and oil and magic. Bad mix."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "red ear"
           ],
           "speech": "Red Ear has the best deals!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": "Bahhh! Shiny elf hero. Always posing, always smiling."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "Grrrrrrrr. Red Ear trades goods, not whispers."
         },
         {
           "priority": "9",
@@ -12032,7 +12091,14 @@
           "keywords": [
             "second realm"
           ],
-          "speech": "Yarr, we all in the Second Realm. Ichiba biggest city. Red Ear best deals in Ichiba. Second Realm. Yarr."
+          "speech": "Yarr, we all in the Second Realm. Ichiba biggest city. \nRed Ear best deals in Ichiba. Second Realm. Yarr."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": "Red Ear does not know him."
         },
         {
           "priority": "9",
@@ -12076,6 +12142,20 @@
         {
           "priority": "9",
           "keywords": [
+            "thyra"
+          ],
+          "speech": "Red Ear does not know."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "Red Ear does not know."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "wasid"
           ],
           "speech": "Red Ear does not know."
@@ -12084,11 +12164,26 @@
           "priority": "9",
           "keywords": [
             "wastes",
+            "wilds",
             "wastelands"
           ],
-          "speech": "Yarmmmm. Grrrrr. Further in Second Realm, wastelands. Red Ear not go there. Dangerous and far."
+          "speech": "Grrrhh. Wild places beyond the roads. Teeth, claws, death. No deals."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "Red Ear does not know."
         }
-      ]
+      ],
+      "partyCantAffordItem": "Harrr! No coin, no deal. Come back when purse heavier, yes?",
+      "characterInventoryFull": "Yarr, yarr. Pack bursting like fat tick. Empty it first.",
+      "notInterestedInBuyingItem": "Yarr. Maybe some fool elsewhere buy that. Not Red Ear.",
+      "cantAffordToBuyItem": "Hrrmm. Red Ear would like it... but cannot pay.",
+      "npcInventoryFull": "Sniff sniff. Nowhere to put it. Trade later.",
+      "doesntWantItem": "Hrrmm. Red Ear does not accept strange offerings like that.",
+      "doesntKnowAbout": "Grrrhh. \u0027%s\u0027 not Red Ear\u0027s business."
     },
     "speechColour": "ffff6666",
     "zone": "Ichiba City",
@@ -12141,7 +12236,7 @@
     "buysAt": "0",
     "sellsAt": "0",
     "maxPurchasePrice": "0",
-    "willBuyItemTypes": "000010000001111111111111",
+    "willBuyItemTypes": "1111111111111111111111111111",
     "inventoryTemplate": {
       "rows": []
     },

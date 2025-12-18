@@ -9,7 +9,6 @@ import mclachlan.maze.map.script.GrantItemsEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -89,35 +88,12 @@ public class Scrymgeour extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> friendlyGreeting()
 	{
-		List<MazeEvent> result = getList(new NpcSpeechEvent("Welcome back! How can I help?", npc));
+		List<MazeEvent> result = super.friendlyGreeting();
 
 		checkCocQuest2(result);
 		checkFreeBeer(result);
 
 		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> neutralGreeting()
-	{
-		return getList(
-				new NpcSpeechEvent("Yes?", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesNeutral()
-	{
-		return getList(
-				new NpcSpeechEvent("Goodbye", npc),
-				new ActorsLeaveEvent());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesFriendly()
-	{
-		return getList(
-				new NpcSpeechEvent("Farewell, return any time!", npc),
-				new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

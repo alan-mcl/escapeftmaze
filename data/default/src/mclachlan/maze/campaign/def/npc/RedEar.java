@@ -188,48 +188,4 @@ public class RedEar extends NpcScript
 		MazeVariables.set(SirKay.SIR_KAY_PARTY_DETECTED_STEALING, "true");
 		return super.successfulTheft(pc, item);
 	}
-
-	/*-------------------------------------------------------------------------*/
-/*	@Override
-	public List<MazeEvent> partyCantAffordItem(PlayerParty party, Item item)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public List<MazeEvent> characterInventoryFull(PlayerParty party, Item item)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public List<MazeEvent> notInterestedInBuyingItem(Item item)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public List<MazeEvent> cantAffordToBuyItem(Item item)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public List<MazeEvent> npcInventoryFull(Item item)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public List<MazeEvent> doesntWantItem(Foe leader)
-	{
-		return getList(new NpcSpeechEvent("", npc));
-	}
-
-	@Override
-	public String doesntKnowAbout(String speech)
-	{
-		return "";
-	}*/
-
 }

@@ -1279,7 +1279,7 @@
     "magicPointsRange": "9d10+900",
     "levelRange": "9d1",
     "experience": "900",
-    "stats": "d4001000160,0a0a0a0a0a0a0a0a",
+    "stats": "d4001002160,0a0a0a0a0a0a0a0a0a",
     "bodyParts": {
       "PERCENTAGES": [
         25,
@@ -1292,7 +1292,7 @@
         "human head",
         "human torso",
         "human leg",
-        "human head",
+        "human hand",
         "human foot"
       ],
       "SHOULD_SUM_TO_100": "true"
@@ -1340,6 +1340,7 @@
     "allFoesBannerModifiers": "0,",
     "fleeChance": "25",
     "stealthBehaviour": "1",
+    "faction": "Gnomes",
     "npc": "true",
     "appearanceScript": {
       "NAME": "sound - gnome"

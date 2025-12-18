@@ -9,7 +9,6 @@ import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
@@ -40,37 +39,6 @@ public class Diomedes extends NpcScript
 				"to The Lady here in Ichiba.", npc),
 			new NpcSpeechEvent("I have heard of your exploits. Few attempt " +
 				"to escape the First Realm, fewer still survive the attempt.", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> friendlyGreeting()
-	{
-		return getList(
-			new NpcSpeechEvent("Greetings, friends.", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> neutralGreeting()
-	{
-		return getList(
-			new NpcSpeechEvent("Greetings.", npc));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesNeutral()
-	{
-		return getList(
-			new NpcSpeechEvent("Farewell", npc),
-			new ActorsLeaveEvent());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> partyLeavesFriendly()
-	{
-		return getList(
-			new NpcSpeechEvent("The blessing of The Lady go with you, friends. " +
-				"You will find me here should you need me.", npc),
-			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

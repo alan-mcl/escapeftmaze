@@ -22,6 +22,9 @@ guildmaster button
 torch texture
 dwarf textures / scrimshaw bros
 
+NPCs
+ - WE Pickett
+
 crater bazaar:
  - Mazza: complete dialog
  - Scrimshaw Bros: complete dialog

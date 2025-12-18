@@ -57,10 +57,10 @@ public class NpcSpeechReport
 		list.sort(Comparator.comparing(NpcSpeechRow::getSpeech));
 
 		getNpcSpeechRow(npc, "First Greeting", null, npc.getScript().firstGreeting());
-		getNpcSpeechRow(npc, "Friendly Greeting", npc.getDialogue().getFriendlyGreeting(), npc.getScript().friendlyGreeting());
-		getNpcSpeechRow(npc, "Neutral Greeting", npc.getDialogue().getNeutralGreeting(), npc.getScript().neutralGreeting());
-		getNpcSpeechRow(npc, "Party Leaves Neutral", npc.getDialogue().getNeutralFarewell(), npc.getScript().partyLeavesNeutral());
-		getNpcSpeechRow(npc, "Friendly Farewell", npc.getDialogue().getFriendlyFarewell(), npc.getScript().partyLeavesFriendly());
+//		getNpcSpeechRow(npc, "Friendly Greeting", npc.getDialogue().getFriendlyGreeting(), npc.getScript().friendlyGreeting());
+//		getNpcSpeechRow(npc, "Neutral Greeting", npc.getDialogue().getNeutralGreeting(), npc.getScript().neutralGreeting());
+//		getNpcSpeechRow(npc, "Party Leaves Neutral", npc.getDialogue().getNeutralFarewell(), npc.getScript().partyLeavesNeutral());
+//		getNpcSpeechRow(npc, "Friendly Farewell", npc.getDialogue().getFriendlyFarewell(), npc.getScript().partyLeavesFriendly());
 		getNpcSpeechRow(npc, "Party Can't Afford Item", npc.getDialogue().getPartyCantAffordItem(), null);
 		getNpcSpeechRow(npc, "Character Inventory Full", npc.getDialogue().getCharacterInventoryFull(), null);
 		getNpcSpeechRow(npc, "Not Interested In Buying Item", npc.getDialogue().getNotInterestedInBuyingItem(), null);

@@ -470,7 +470,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 		{
 			String response = dialogue.lookupPlayerSentence(speech);
 
-			if (response == null)
+			if (response == null || response.isEmpty())
 			{
 				response = doesntKnowAbout(speech);
 			}

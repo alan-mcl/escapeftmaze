@@ -451,7 +451,8 @@
       "scoutSecretDifficulty": "-1",
       "clickMaxDistance": "1",
       "encounterTable": "guardian.trap",
-      "mazeVariable": ""
+      "mazeVariable": "",
+      "bypassNpcScriptsOnNonHostile": "false"
     }
   },
   {

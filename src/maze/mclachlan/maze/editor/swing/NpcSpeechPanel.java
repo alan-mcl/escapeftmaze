@@ -230,6 +230,9 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		// other Ichiba inhabitants
 		addSpeech("hoshiko");
 		addSpeech("mazza");
+		addSpeech("aromatist");
+		addSpeech("rennik");
+		addSpeech("scrimshaw");
 
 		// gnolls
 		addSpeech("three eyes");
