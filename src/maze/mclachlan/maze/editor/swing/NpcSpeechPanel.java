@@ -150,11 +150,16 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	/*-------------------------------------------------------------------------*/
 	private void removeListItem()
 	{
-		int index = speechRows.getSelectedIndex();
-		if (dataModel.getSize() > 0 && index > -1)
+		int[] selected = speechRows.getSelectedIndices();
+
+		for (int index = selected.length - 1; index >= 0; index--)
 		{
-			speech.remove(index);
-			dataModel.refresh();
+			if (dataModel.getSize() > 0 && index > -1)
+			{
+				SwingEditor.instance.setDirty(dirtyFlag);
+				speech.remove(index);
+				dataModel.refresh();
+			}
 		}
 	}
 

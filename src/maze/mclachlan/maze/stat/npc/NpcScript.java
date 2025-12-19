@@ -468,26 +468,28 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 
 		if (dialogue != null)
 		{
+			List<MazeEvent> result = new ArrayList<>();
+
 			String response = dialogue.lookupPlayerSentence(speech);
 
 			if (response == null || response.isEmpty())
 			{
-				response = doesntKnowAbout(speech);
+				result = doesntKnowAbout(speech);
 			}
-
-			List<MazeEvent> result = new ArrayList<>();
-
-			String[] rsps = response.split("\n");
-
-			for (String rsp : rsps)
+			else
 			{
-				result.add(new NpcSpeechEvent(npc, rsp.trim(), MazeEvent.Delay.WAIT_ON_CLICK));
-			}
+				String[] rsps = response.split("\n");
 
-			// check if the player wants to end the conversation
-			if (!NpcSpeech.sentenceContainsKeywords(speech, "bye", "goodbye", "farewell"))
-			{
-				result.add(new WaitForPlayerSpeech(npc, pc));
+				for (String rsp : rsps)
+				{
+					result.add(new NpcSpeechEvent(npc, rsp.trim(), MazeEvent.Delay.WAIT_ON_CLICK));
+				}
+
+				// check if the player wants to end the conversation
+				if (!NpcSpeech.sentenceContainsKeywords(speech, "bye", "goodbye", "farewell"))
+				{
+					result.add(new WaitForPlayerSpeech(npc, pc));
+				}
 			}
 
 			return result;
@@ -499,7 +501,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private NpcSpeech getNpcSpeech()
+	public NpcSpeech getNpcSpeech()
 	{
 		NpcSpeech dialogue = null;
 		if (this.npc instanceof Npc)
@@ -670,15 +672,15 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String doesntKnowAbout(String speech)
+	public List<MazeEvent> doesntKnowAbout(String speech)
 	{
 		if (getNpcSpeech().getDoesntKnowAbout() != null)
 		{
-			return String.format(getNpcSpeech().getDoesntKnowAbout(), speech);
+			return getList(new NpcSpeechEvent(String.format(getNpcSpeech().getDoesntKnowAbout(), speech), npc));
 		}
 		else
 		{
-			return StringUtil.getEventText("msg.npc.doesnt.know", speech);
+			return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.npc.doesnt.know", speech), npc));
 		}
 	}
 

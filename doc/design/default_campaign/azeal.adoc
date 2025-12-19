@@ -1,11 +1,11 @@
 = The Tale of Azael
 
-A mysterious man called just "Azael the Half-Blind" or known as "The Escaped One" centuries ago is the only known being to have escaped from the Maze. The tales goes that Azael escaped the First Realm centuries ago, but traded his left eye to do so. He then wandered through this Second Realm for years as a poet until one day he announced that he would escape this Realm too. Some say he had to trade his second eye to escape this Realm, but either way, he one day disappeared. This was shortly before Hail was razed to the ground by the Maze, thus many think that this was simply retaliation to his escape. Azael the Half-blind's clues are everywhere, as well his image subtly permeate society with expressions like "Azael would!" meaning that an impossible task is possible and "To Azael" as a celebratory toast or using the 'half-blind' as colour (e.g. "I'd give my left eye for that!" or "Why should I trust your word? You still have both your eyes!").
+A mysterious man called just "Azael the Half-Blind" or known as "The Escaped One" centuries ago is the said to have escaped from the Maze. The tales goes that Azael escaped the First Realm centuries ago, but traded his left eye to do so. He then wandered through this Second Realm for years as a poet until one day he announced that he would escape this Realm too. Some say he had to trade his second eye to escape this Realm, but either way, he one day disappeared. This was shortly before Hail was razed to the ground by the Maze, thus many think that this was simply retaliation to his escape. Azael the Half-blind's clues are everywhere, as well his image subtly permeate society with expressions like "Azael would!" meaning that an impossible task is possible and "To Azael" as a celebratory toast or using the 'half-blind' as colour (e.g. "I'd give my left eye for that!" or "Why should I trust your word? You still have both your eyes!").
 
 
 Flavour related to Azael:
 
-_Any party searching or closer inspection of the "SECOND REALM" signpost in the GateHouse dungeon reveals that the sentence "A journey of a thousand leagues starts with one step. -A" carved into the back of the sign. This is the Gate that Azael walked through, so it must be his hand that carved that._
+In the Gatehouse intro dungeon a message is carved on a wall "A journey of a thousand miles begins with a single step. - Azael the Half-blind."
 
 _Outside Danaos Castle is an old weather-beaten signpost that reads "True vision needs but one eye." in reference to The Eye of Azael._
 
@@ -25,7 +25,7 @@ _"The Eye of Azael" is a rumoured artefact that surfaced a century or so ago. Th
 
 Flavour related to the Eye
 
-_Drukurus in Danaos Castle discusses legends about The Eye of Azael, if the players bribe him a few coins. In that case, he explains to the players that he believes The Eye of Azael is in Hail, but cautions them as he has come to the conclusion that it is cursed and one should avoid it._
+_Someone in Danaos Castle discusses legends about The Eye of Azael, if the players bribe him a few coins. In that case, he explains to the players that he believes The Eye of Azael is in Hail, but cautions them as he has come to the conclusion that it is cursed and one should avoid it._
 
 _One of the items discovered in Benne O'Corren's chest in Ichiba is a stolen parchment correspondence from within the White Order: "The Eye has surfaced. The Hidden Witch of Hail suspected owner. End. Drackurus of the White Order."_
 

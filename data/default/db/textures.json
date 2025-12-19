@@ -1371,6 +1371,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.rennik",
+    "imageResources": [
+      "crusader/foe/rennik"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.gnoll.1",
     "imageResources": [
       "crusader/foe/gnoll_1"
@@ -1908,6 +1917,15 @@
     "name": "JUNGLE_CLIFF_1",
     "imageResources": [
       "crusader/scene/jungle_cliff_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.dwarf.male.2",
+    "imageResources": [
+      "crusader/foe/dwarf_male_2"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

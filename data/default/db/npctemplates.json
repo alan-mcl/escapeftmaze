@@ -620,7 +620,204 @@
     "resistSteal": "10",
     "theftCounter": "0",
     "dialogue": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "aromatist",
+            "you"
+          ],
+          "speech": "_aromatist_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "_trade_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "_farewell_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "_coc_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "_insult_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "_gsc_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "_glaucus_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "_gnoll_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "_gnome_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "_greeting_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": "_hoshiko_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "_ichiba_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "_imogen_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "_leonal_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": "_maze_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "_mazza_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "_quest_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rennik"
+          ],
+          "speech": "_rennik_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "_rumour_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrimshaw"
+          ],
+          "speech": "_scrimshaw_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "_scrymgeour_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "_thanks_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": "_three_eyes_"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": "_wilds_"
+        }
+      ]
     },
     "speechColour": "ffffffff",
     "zone": "Ichiba City",
@@ -1015,14 +1212,6 @@
         {
           "priority": "9",
           "keywords": [
-            "white lady",
-            "isolde"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "kay",
             "sir kay"
           ],
@@ -1058,6 +1247,13 @@
             "red ear"
           ],
           "speech": "We’ve done business a few times.\nNo trouble.\nWhich is saying something, for a gnoll."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rennik"
+          ],
+          "speech": "Rennik? Solid hands, good craftsman, great boots.\nKnows his trade."
         },
         {
           "priority": "9",
@@ -3381,6 +3577,395 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "name": "Rennik",
+    "foeName": "Rennik",
+    "attitude": "NEUTRAL",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.def.npc.Rennik"
+    },
+    "alliesOnCall": "coc.sheriffs.on.call",
+    "buysAt": "75",
+    "sellsAt": "130",
+    "maxPurchasePrice": "1000",
+    "willBuyItemTypes": "0000000001100000000000011001",
+    "inventoryTemplate": {
+      "rows": [
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Buskins",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "100",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Felt Slippers",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "10",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Goatfoot Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "10",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Jesters Slippers"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "2",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Boots",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "50",
+          "partyLevelAppearing": "3",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Leather Greaves",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "5",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Mantis Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Muckraker Boots",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Piety"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "5",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sacred Slippers"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "100",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sandals",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ALWAYS_AVAILABLE",
+          "chanceOfSpawning": "75",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Sandals"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "10",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Snakeskin Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "5",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Striders"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "15",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Tabi Boots",
+          "stackSize": "1d1"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem",
+          "type": "ROTATING_STOCK",
+          "chanceOfSpawning": "5",
+          "partyLevelAppearing": "1",
+          "maxStocked": "1",
+          "chanceOfVanishing": "15",
+          "itemName": "Winged Boots"
+        }
+      ]
+    },
+    "resistThreats": "0",
+    "resistBribes": "0",
+    "resistSteal": "0",
+    "theftCounter": "0",
+    "dialogue": {
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aromatist"
+          ],
+          "speech": "Quiet one, that.\nNice slippers too."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "I charge what the leather asks.\nQuality isn\u0027t cheap."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Come back before the soles fail."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "The soldiers of the Chamber wear good shoes. Too good.\nSoles soft, heels even, never repaired.\nThey keep the streets busy and their boots clean. And their coffers full."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "Careful. Pride slips easily."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "Soft soles, quiet heels. Always in a hurry."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "Steps careful, like he\u0027s counting each one."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "No shoes, no manners, no patience for roads."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "Small feet, busy paths. Good craftsmen."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "Boots first. Words later."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Ichiba never stops moving.\nStreets crowded, corners sharp, stones loose where no one has time to fix them.\nPeople here walk their soles bare quickly.\nHence, I sell shoes."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "Proud feet, heavy boots."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "I eat there occasionally. Not bad."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "If you need work, walk more.\nThough, I do need the hides of Dun Dracos. I can pay."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you",
+            "rennik"
+          ],
+          "speech": "I am still standing. That is enough.\nBoots are a good trace in Ichiba."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "The road talks quietly. Most do not listen."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrimshaw"
+          ],
+          "speech": "Solid boots. Dwarven sense."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "Good soles. Knows where he belongs."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "Walk well."
+        }
+      ],
+      "friendlyGreeting": "Thee have walked far... and wisely.",
+      "neutralGreeting": "Still on thou feet. Good.",
+      "friendlyFarewell": "Good steps to thee, friend.",
+      "neutralFarewell": "Come back before the leather on those gives up.",
+      "partyCantAffordItem": "Come back when thee can afford quality.",
+      "characterInventoryFull": "Thou carry too much already.",
+      "notInterestedInBuyingItem": "I will not buy it.",
+      "cantAffordToBuyItem": "Ask again after the next market day, maybe I will have the coin.",
+      "npcInventoryFull": "My stall is full, I cannot take that.",
+      "doesntWantItem": "I do not want that.",
+      "doesntKnowAbout": "\u0027%s\u0027? My work does not touch that matter."
+    },
+    "speechColour": "ff790909",
+    "zone": "Ichiba City",
+    "tile": "16:13",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
     "name": "Mazza",
     "foeName": "Mazza",
     "faction": "Ichiba GSC",
@@ -3461,20 +4046,6 @@
           "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
         },
         {
-          "priority": "9",
-          "keywords": [
-            "aenen"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "agenor"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
           "priority": "0",
           "keywords": [
             "aromatist"
@@ -3484,30 +4055,9 @@
         {
           "priority": "9",
           "keywords": [
-            "asius"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "beiweh"
           ],
           "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "belisarius"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "broken fang"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
         },
         {
           "priority": "9",
@@ -3541,30 +4091,9 @@
         {
           "priority": "9",
           "keywords": [
-            "dalen"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "danaos"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "diomedes"
           ],
           "speech": "Never been to Mazza. Think he CAN\u0027T HANDLE HIS SPICE."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "emmons"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -3577,53 +4106,10 @@
         {
           "priority": "9",
           "keywords": [
-            "eva",
-            "wingfield"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "faerie"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "fangorn"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "first realm"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "fuck you",
             "fuck"
           ],
           "speech": "You don’t like Mazza? Fine! MORE FOOD FOR BETTER PEOPLE!"
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "garret"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "gate"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -3670,27 +4156,6 @@
         {
           "priority": "9",
           "keywords": [
-            "gurney"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "hail"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "hoshiko"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "ichiba"
           ],
           "speech": "People come to Ichiba for business, power, or trouble. \nThey come to MAZZA for LUNCH!\nWhich one you here for boss?"
@@ -3709,13 +4174,6 @@
             "isolde"
           ],
           "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "jasker"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -3744,51 +4202,9 @@
         {
           "priority": "9",
           "keywords": [
-            "lorelei"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "lunara"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "maze"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "maze master"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "mazza"
           ],
           "speech": "Mazza? Mazza is a VISIONARY! Fry-cook, merchant, ARTIST OF OIL!\nBorn goblin, raised hungry, now HE FEEDS ICHIBA! That’s Mazza’s story!"
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "mentes"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "mnesus"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -3823,13 +4239,6 @@
         {
           "priority": "9",
           "keywords": [
-            "rainmaker"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "red ear"
           ],
           "speech": "Keeps yellin’ about laws and soldiers. Mazza just nods and SELLS HIM SNACKS."
@@ -3837,9 +4246,9 @@
         {
           "priority": "9",
           "keywords": [
-            "red greave"
+            "rennik"
           ],
-          "speech": ""
+          "speech": "Rennik? BOOTS GUY! Yeah Mazza knows him."
         },
         {
           "priority": "9",
@@ -3853,16 +4262,9 @@
         {
           "priority": "9",
           "keywords": [
-            "sarpedon"
+            "scrimshaw"
           ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "scrymgeour"
-          ],
-          "speech": ""
+          "speech": "If you need odd stuff, they’re solid. If you need food... YOU ALREADY FOUND MAZZA!"
         },
         {
           "priority": "9",
@@ -3870,20 +4272,6 @@
             "second realm"
           ],
           "speech": "People here ALSO HUNGRY TOO. Not so different anywhere."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "stenelaus"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "stentor"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
         },
         {
           "priority": "9",
@@ -3906,20 +4294,6 @@
         {
           "priority": "9",
           "keywords": [
-            "third realm"
-          ],
-          "speech": "Could be real, could be made up. Mazza only tracks PAYING CUSTOMERS."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "three eyes"
-          ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
             "thyra"
           ],
           "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
@@ -3937,15 +4311,6 @@
             "wasid"
           ],
           "speech": "You want meaning of life? Eat something CRISPY. That’s all the wisdom Mazza’s got!"
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "wastes",
-            "wilds",
-            "wastelands"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -4351,13 +4716,6 @@
             "sir kay"
           ],
           "speech": "A shadowy figure. I do not know him."
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "lady"
-          ],
-          "speech": ""
         },
         {
           "priority": "9",
@@ -8113,6 +8471,13 @@
         {
           "priority": "9",
           "keywords": [
+            "aromatist"
+          ],
+          "speech": "*yghh*. Ah. The silent one. He he he.\nTheir wares are effective though."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "asius"
           ],
           "speech": "I an unaware."
@@ -8480,6 +8845,13 @@
         {
           "priority": "9",
           "keywords": [
+            "rennik"
+          ],
+          "speech": "Good wares, steady hands. Ichiba needs more like him."
+        },
+        {
+          "priority": "9",
+          "keywords": [
             "rumours",
             "rumors",
             "rumour"
@@ -8492,6 +8864,13 @@
             "sarpedon"
           ],
           "speech": "He was in Aenen, last I heard."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrimshaw"
+          ],
+          "speech": "Heh. *yghh*. They argue often, but never over the quality of their wares."
         },
         {
           "priority": "9",

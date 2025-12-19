@@ -2556,6 +2556,41 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Rennik.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        20,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Hammer"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Leather Boots"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Pants"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Suede Doublet"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
     "name": "TestingFoeLoot",
     "lootEntries": {
       "PERCENTAGES": [

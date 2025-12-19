@@ -20,16 +20,10 @@ city staircase
 foe rebalancing
 guildmaster button
 torch texture
-dwarf textures / scrimshaw bros
 
 NPCs
- - WE Pickett
-
-crater bazaar:
- - Mazza: complete dialog
- - Scrimshaw Bros: complete dialog
- - The Aromatist: complete dialog
- - Shoe stall vendor
+ - WE Pickett: dialogue
+ - Scrymgeour: dialogue
 
 The Tumbledown
 Library
@@ -38,6 +32,8 @@ NPC bedrooms with loot
 Inn kitchen
 ambient encounters
 complete rando NPC dialog
+
+NPC conversations: player keyword shortcuts
 
 BACKLOG
 ----------

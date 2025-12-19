@@ -59,4 +59,8 @@ _Text in italics is not yet implemented._
 * Dalen: A secret forest Domain of green magic.
 * Castle Fangorn: A secret Domain of black magic.
 * _The Wild Hunt: A secret Domain of gold magic._
+* _The Pit: A secret Domain of red magic._
+* _???: A secret Domain of white magic._
+* _???: A secret Domain of purple magic._
+* _???: A secret Domain of blue magic._
 * Crypt of Atrocities: A secret Domain of unique high level monsters.

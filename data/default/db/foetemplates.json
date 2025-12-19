@@ -288,6 +288,93 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Rennik",
+    "pluralName": "Renniks",
+    "unidentifiedName": "?human",
+    "unidentifiedPluralName": "?humans",
+    "types": [],
+    "race": "Human",
+    "hitPointsRange": "10d4+6",
+    "actionPointsRange": "0d1",
+    "magicPointsRange": "0d1",
+    "levelRange": "10d1+2",
+    "experience": "1200",
+    "stats": "bf,02020203010101",
+    "bodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "human head",
+        "human torso",
+        "human leg",
+        "human hand",
+        "human foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.rennik"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.rennik"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.rennik"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.rennik"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.rennik"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Rennik.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "4",
+    "stealthBehaviour": "1",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - marching"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "NEUTRAL"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
     "name": "Ageyr\u0027s Bones",
     "pluralName": "Ageyr\u0027s Bones",
     "unidentifiedName": "?skeleton",
@@ -5980,19 +6067,19 @@
       "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "castSpellTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "verticalAlignment": "BOTTOM",
     "loot": {
@@ -13307,19 +13394,19 @@
       "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "castSpellTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.gurney"
+      "NAME": "foe.dwarf.male.2"
     },
     "verticalAlignment": "BOTTOM",
     "loot": {
