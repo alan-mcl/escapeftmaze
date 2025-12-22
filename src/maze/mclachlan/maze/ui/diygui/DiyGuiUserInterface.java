@@ -238,7 +238,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Font anon = Database.getInstance().getFont("anonymous/Anonymous.ttf");
 			fonts.put("anonymous", anon);
 
-			Font monaco = Database.getInstance().getFont("m onaco/Monaco.ttf");
+			Font monaco = Database.getInstance().getFont("monaco/Monaco.ttf");
 			fonts.put("monaco", monaco);
 
 			Font excalibur = Database.getInstance().getFont("excalibur/excalib.ttf");

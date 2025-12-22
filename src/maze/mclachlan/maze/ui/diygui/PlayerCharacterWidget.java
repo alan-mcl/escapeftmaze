@@ -496,6 +496,11 @@ public class PlayerCharacterWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	public void refreshPcActionOptions()
 	{
+		if (playerCharacter == null)
+		{
+			return;
+		}
+
 		Combat combat = Maze.getInstance().getCurrentCombat();
 		Maze.State state = Maze.getInstance().getState();
 		if (state == Maze.State.COMBAT && playerCharacter.isAlive())
