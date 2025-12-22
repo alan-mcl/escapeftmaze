@@ -235,19 +235,19 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 
 			// init fonts
-			Font anon = Database.getInstance().getFont("Anonymous/Anonymous.ttf");
+			Font anon = Database.getInstance().getFont("anonymous/Anonymous.ttf");
 			fonts.put("anonymous", anon);
 
-			Font monaco = Database.getInstance().getFont("Monaco/Monaco.ttf");
+			Font monaco = Database.getInstance().getFont("m onaco/Monaco.ttf");
 			fonts.put("monaco", monaco);
 
 			Font excalibur = Database.getInstance().getFont("excalibur/excalib.ttf");
 			fonts.put("excalibur", excalibur);
 
-			Font veramono = Database.getInstance().getFont("VeraMono/VeraMono.ttf");
+			Font veramono = Database.getInstance().getFont("veramono/VeraMono.ttf");
 			fonts.put("veramono", veramono);
 
-			Font quicktypemono = Database.getInstance().getFont("QuickTypeMono/QuickType Mono.ttf");
+			Font quicktypemono = Database.getInstance().getFont("quicktypemono/QuickType Mono.ttf");
 			fonts.put("quicktypemono", quicktypemono);
 
 			Font amaranth = Database.getInstance().getFont("amaranth/Amaranth-Regular.otf");
@@ -271,7 +271,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Font caudex = Database.getInstance().getFont("caudex/Caudex-Regular.ttf");
 			fonts.put("caudex", caudex);
 
-			Font im_fell = Database.getInstance().getFont("IM_Fell_English_SC/IMFellEnglishSC-Regular.ttf");
+			Font im_fell = Database.getInstance().getFont("im_fell_english_sc/IMFellEnglishSC-Regular.ttf");
 			fonts.put("im_fell", im_fell);
 
 			Font goudy = Database.getInstance().getFont("goudy_medieval/Goudy Mediaeval Regular.ttf");
