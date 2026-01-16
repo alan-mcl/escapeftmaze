@@ -51,6 +51,12 @@ public class FlavourTextEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public FlavourTextEvent(String flavourText, Alignment alignment)
+	{
+		this(flavourText, Delay.WAIT_ON_CLICK, false, alignment);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String flavourText, int delay, boolean shouldClearText)
 	{
 		this(flavourText, delay, shouldClearText, Alignment.CENTER);

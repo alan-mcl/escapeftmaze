@@ -675,60 +675,6 @@
       "mazeScript": "generic door creak"
     },
     {
-      "mazeVariable": "ichiba.city.portal.25",
-      "initialState": "unlocked",
-      "from": "13:22",
-      "fromFacing": "2",
-      "to": "13:23",
-      "toFacing": "1",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
-      "mazeVariable": "ichiba.city.portal.26",
-      "initialState": "unlocked",
-      "from": "11:25",
-      "fromFacing": "3",
-      "to": "12:25",
-      "toFacing": "4",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
       "mazeVariable": "ichiba.city.portal.27",
       "initialState": "unlocked",
       "from": "11:26",
@@ -870,33 +816,6 @@
       "fromFacing": "2",
       "to": "24:28",
       "toFacing": "1",
-      "twoWay": "true",
-      "canForce": "true",
-      "canPick": "true",
-      "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
-      "difficulty": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "keyItem": "null",
-      "consumeKeyItem": "true",
-      "mazeScript": "generic door creak"
-    },
-    {
-      "mazeVariable": "ichiba.city.portal.34",
-      "initialState": "unlocked",
-      "from": "26:28",
-      "fromFacing": "3",
-      "to": "27:28",
-      "toFacing": "4",
       "twoWay": "true",
       "canForce": "true",
       "canPick": "true",
@@ -1891,6 +1810,32 @@
         "0"
       ],
       "required": "1010101",
+      "consumeKeyItem": "true",
+      "mazeScript": "generic door creak"
+    },
+    {
+      "mazeVariable": "ichiba.city.portal.23",
+      "initialState": "unlocked",
+      "from": "30:30",
+      "fromFacing": "4",
+      "to": "29:30",
+      "toFacing": "3",
+      "twoWay": "true",
+      "canForce": "true",
+      "canPick": "true",
+      "canSpellPick": "true",
+      "hitPointCostToForce": "5",
+      "resistForce": "0",
+      "difficulty": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
     }
@@ -9853,7 +9798,26 @@
       },
       {
         "coords": "16:25",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "The door is heavily boarded up and impassible.\n\nNailed to the boards at eye level is a neatly written notice...",
+            "alignment": "CENTER"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "BY ORDER OF THE ICHIBA CHAMBER OF COMMERCE\n17–39 Lower Hesper Row Combined Tenements, aka \"The Tumbledown\", is hereby declared comdemned due to: Structural Unsoundness, Illegal Overbuilding, Unregistered Commerce, Water \u0026 Sewerage Violations, Uninsured Fire Risk, and Persistent Public Disturbance.\n\nPursuant to the relevant Civic  Ordinances, the above-listed properties are deemed unfit for habitation, commerce, or lawful assembly.\n\nAll persons are ordered to vacate the premises. Entry, residence, or commercial activity within is prohibited.\n\nThe C.O.C. accepts no liability for injury, loss of property, or death resulting from failure to comply with this order.",
+            "alignment": "CENTER"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02010103020302",
         "terrainType": "URBAN",
@@ -15403,7 +15367,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "library_2"
       },
       {
         "coords": "27:34",
@@ -15414,7 +15379,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "library_2"
       },
       {
         "coords": "27:35",
@@ -15882,7 +15848,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "library_2"
       },
       {
         "coords": "28:34",
@@ -15893,7 +15860,8 @@
         "terrainSubType": "City",
         "randomEncounterChance": "5",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "library_2"
       },
       {
         "coords": "28:35",
@@ -16290,7 +16258,15 @@
       },
       {
         "coords": "29:27",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "ICHIBA LIBRARY"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc.residents",
         "statModifier": "3f800000000000000000,02010203020101",
         "terrainType": "URBAN",
@@ -16773,7 +16749,16 @@
       },
       {
         "coords": "30:30",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": " - private - "
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,02010103030203",
         "terrainType": "URBAN",
@@ -32666,7 +32651,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
@@ -32676,7 +32661,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
@@ -32862,36 +32847,6 @@
       {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -32930,6 +32885,26 @@
         "ceilingHeight": "1"
       },
       {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "GRASS_FLOOR_1",
         "northWallTexture": "No_WAll",
@@ -32940,73 +32915,13 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
         "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_2",
+        "floorTexture": "GRASS_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_2",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "CITY_FLOOR_2",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
         "ceilingHeight": "1"
       },
       {
@@ -33040,13 +32955,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -33077,6 +33002,66 @@
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "CITY_FLOOR_2",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "22",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "30",
         "ceilingHeight": "1"
       },
       {
@@ -33460,23 +33445,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "24",
         "ceilingHeight": "1"
       },
       {
@@ -33860,23 +33845,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "30",
         "ceilingHeight": "1"
       },
       {
@@ -34260,23 +34245,23 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
@@ -34640,8 +34625,28 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -34650,28 +34655,8 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -35040,8 +35025,28 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -35050,28 +35055,8 @@
         "ceilingHeight": "1"
       },
       {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
@@ -44722,7 +44707,24 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1_WINDOW_BOARDED",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -44730,23 +44732,20 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW",
+          "CITY_WALL_1_WINDOW_BOARDED",
           "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
       },
       {
         "textures": [
@@ -46008,11 +46007,20 @@
       },
       {
         "textures": [
+          "CITY_WALL_1_WINDOW_BOARDED",
           "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
       },
       {
         "textures": [
@@ -46455,7 +46463,7 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
+          "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -46471,22 +46479,29 @@
       },
       {
         "textures": [
+          "CITY_WALL_1",
           "CITY_WALL_1"
         ],
         "maskTextures": [
-          "CITY_DOOR_1"
+          "CITY_DOOR_1",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
+          "CITY_WALL_1",
           "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "objects.bookshelf.1",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -46803,9 +46818,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -47150,14 +47163,6 @@
       },
       {
         "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
           "CITY_WALL_1"
         ],
         "visible": "true",
@@ -47178,7 +47183,16 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_ARCH",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "false",
+        "height": "2"
       },
       {
         "textures": [
@@ -47503,10 +47517,10 @@
       },
       {
         "textures": [
-          "CITY_WALL_1"
+          "CITY_WALL_1_ARCH"
         ],
         "visible": "true",
-        "solid": "true",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -48132,34 +48146,40 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -48461,9 +48481,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -48782,32 +48800,28 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -58245,11 +58259,20 @@
       },
       {
         "textures": [
+          "CITY_WALL_1_WINDOW_BOARDED",
           "CITY_WALL_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
       },
       {
         "textures": [
@@ -58856,6 +58879,41 @@
         "textures": [
           "No_WAll"
         ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1",
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "TRANSPARENT",
+          "TRANSPARENT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -58883,6 +58941,313 @@
       },
       {
         "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW_BOARDED",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
+      },
+      {
+        "textures": [
           "No_WAll"
         ],
         "visible": "false",
@@ -58894,6 +59259,797 @@
         "visible": "false",
         "solid": "false",
         "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW_BOARDED",
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The window has been heavily boarded up.",
+          "alignment": "CENTER"
+        }
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1_WINDOW"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [
@@ -58909,1127 +60065,12 @@
           "CITY_WALL_1"
         ],
         "maskTextures": [
-          "CITY_DOOR_1",
+          "objects.bookshelf.1",
           "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
         "height": "2"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "2"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "2"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW",
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "2"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW",
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "2"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1_WINDOW"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "maskTextures": [
-          "CITY_DOOR_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
       },
       {
         "textures": [
@@ -60358,14 +60399,6 @@
       },
       {
         "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
           "CITY_WALL_1"
         ],
         "visible": "true",
@@ -60374,6 +60407,19 @@
       },
       {
         "textures": [
+          "CITY_WALL_1",
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "objects.bookshelf.1",
+          "TRANSPARENT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
           "No_WAll"
         ],
         "visible": "false",
@@ -60382,11 +60428,16 @@
       },
       {
         "textures": [
+          "CITY_WALL_1",
           "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "objects.bookshelf.1",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -60703,9 +60754,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -60720,26 +60769,29 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "CITY_DOOR_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61076,6 +61128,9 @@
         "textures": [
           "CITY_WALL_1"
         ],
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
         "visible": "true",
         "solid": "true",
         "height": "1"
@@ -61090,10 +61145,13 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61428,10 +61486,13 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61444,10 +61505,13 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61750,10 +61814,24 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
         "visible": "false",
         "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61765,25 +61843,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -62078,10 +62138,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -62094,10 +62154,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -62109,9 +62169,7 @@
         "height": "1"
       },
       {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
         "solid": "false",
         "height": "1"
@@ -67779,6 +67837,178 @@
         "xPos": "14080",
         "yPos": "5888",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "15786",
+        "yPos": "14422",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "15446",
+        "yPos": "15274",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "15786",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.table.1",
+        "southTexture": "objects.table.1",
+        "eastTexture": "objects.table.1",
+        "westTexture": "objects.table.1",
+        "xPos": "15104",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "15786",
+        "yPos": "16128",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "15786",
+        "yPos": "16810",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "14934",
+        "yPos": "15958",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "14934",
+        "yPos": "16128",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "14934",
+        "yPos": "16298",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.table.1",
+        "southTexture": "objects.table.1",
+        "eastTexture": "objects.table.1",
+        "westTexture": "objects.table.1",
+        "xPos": "15104",
+        "yPos": "16640",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "CEILING_LIGHT_1",
+        "southTexture": "CEILING_LIGHT_1",
+        "eastTexture": "CEILING_LIGHT_1",
+        "westTexture": "CEILING_LIGHT_1",
+        "xPos": "15616",
+        "yPos": "16128",
+        "lightSource": "false",
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "CEILING_LIGHT_1",
+        "southTexture": "CEILING_LIGHT_1",
+        "eastTexture": "CEILING_LIGHT_1",
+        "westTexture": "CEILING_LIGHT_1",
+        "xPos": "15616",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.ladder.up",
+        "southTexture": "objects.ladder.up",
+        "eastTexture": "objects.ladder.up",
+        "westTexture": "objects.ladder.up",
+        "xPos": "15104",
+        "yPos": "15616",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+                "pos": "27:34",
+                "facing": "0"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.ladder.down",
+        "southTexture": "objects.ladder.down",
+        "eastTexture": "objects.ladder.down",
+        "westTexture": "objects.ladder.down",
+        "xPos": "14080",
+        "yPos": "17664",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+                "pos": "29:30",
+                "facing": "0"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       }
     ],

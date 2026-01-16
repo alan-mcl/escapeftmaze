@@ -344,11 +344,11 @@ public class EncounterActorsStateHandler implements ActionListener
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
-				guild.setVisible(false);
+				guild.setVisible(isGuild);
 
 				buttonLayout = new Widget[][]
 				{
-					{blank, blank, blank, blank},
+					{blank, blank, blank, isGuild?guild:blank},
 					{mayAmbush?ambush:attack, mayAmbush?attack:blank, mayEvade?evade:blank, leave}
 				};
 
@@ -365,8 +365,8 @@ public class EncounterActorsStateHandler implements ActionListener
 
 				buttonLayout = new Widget[][]
 				{
-					{blank, blank, blank, blank},
-					{mayAmbush?ambush:attack, mayAmbush?attack:blank, isGuild?guild:blank, leave}
+					{blank, blank, blank, isGuild?guild:blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, blank, leave}
 				};
 			}
 			default ->

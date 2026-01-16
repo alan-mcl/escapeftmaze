@@ -18,20 +18,21 @@ ICHIBA CITY
 city secret passage button
 city staircase
 foe rebalancing
-guildmaster button
 torch texture
 
 NPCs
- - WE Pickett: dialogue
- - Scrymgeour: dialogue
+ - Gurney: dialogue
+ - Elsibet
 
 The Tumbledown
+ - map
+ - encounters
+ - access: key?secret?
 Library
 random houses: encounters and locked doors
 NPC bedrooms with loot
 Inn kitchen
 ambient encounters
-complete rando NPC dialog
 
 NPC conversations: player keyword shortcuts
 

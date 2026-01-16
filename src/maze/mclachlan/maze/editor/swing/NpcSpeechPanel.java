@@ -38,10 +38,10 @@ import mclachlan.maze.stat.npc.NpcSpeechRow;
 public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListener
 {
 	private List<NpcSpeechRow> speech;
-	private JList speechRows;
-	private NpcSpeechPanel.NpcSpeechListModel dataModel;
-	private JButton add, remove, edit, quickFill, clear;
-	private int dirtyFlag;
+	private final JList speechRows;
+	private final NpcSpeechPanel.NpcSpeechListModel dataModel;
+	private final JButton add, remove, edit, quickFill, clear;
+	private final int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcSpeechPanel(int dirtyFlag)
@@ -52,7 +52,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 
 		dataModel = new NpcSpeechListModel();
 		speechRows = new JList(dataModel);
-		speechRows.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		speechRows.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		speechRows.setSize(200,400);
 		speechRows.setMaximumSize(new Dimension(300, 400));
 		speechRows.addMouseListener(this);
@@ -150,15 +150,33 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	/*-------------------------------------------------------------------------*/
 	private void removeListItem()
 	{
-		int[] selected = speechRows.getSelectedIndices();
-
-		for (int index = selected.length - 1; index >= 0; index--)
+		// remove all selected rows
+		int[] index = speechRows.getSelectedIndices();
+		if (dataModel.getSize() > 0 && index.length > 0)
 		{
-			if (dataModel.getSize() > 0 && index > -1)
+			SwingEditor.instance.setDirty(dirtyFlag);
+
+			// remove from highest index to lowest to avoid shifting
+			Arrays.sort(index);
+			for (int i = index.length - 1; i >= 0; i--)
 			{
-				SwingEditor.instance.setDirty(dirtyFlag);
-				speech.remove(index);
-				dataModel.refresh();
+				speech.remove(index[i]);
+			}
+
+			dataModel.refresh();
+		}
+
+		// set the selected index to the first previously selected index, if possible
+		if (index.length > 0)
+		{
+			int newIndex = index[0];
+			if (newIndex >= speech.size())
+			{
+				newIndex = speech.size() - 1;
+			}
+			if (newIndex >= 0)
+			{
+				speechRows.setSelectedIndex(newIndex);
 			}
 		}
 	}

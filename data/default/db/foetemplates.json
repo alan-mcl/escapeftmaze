@@ -2499,7 +2499,7 @@
         "DEFAULT_BODY",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -2516,7 +2516,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.gnome.clockwork.1"
@@ -2556,6 +2556,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -11096,6 +11097,93 @@
     },
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Elsibet",
+    "pluralName": "Elsibets",
+    "unidentifiedName": "?human",
+    "unidentifiedPluralName": "?humans",
+    "types": [],
+    "race": "Human",
+    "hitPointsRange": "6d2+6",
+    "actionPointsRange": "0d1",
+    "magicPointsRange": "0d1",
+    "levelRange": "2d1",
+    "experience": "100",
+    "stats": "6007e800f7000008001ff,020202020102010301050514051e1e1e02051e1e1e1e321e0505",
+    "bodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "human head",
+        "human torso",
+        "human leg",
+        "human hand",
+        "human foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        26,
+        33,
+        25,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.elsibet"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.elsibet"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.elsibet"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.elsibet"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.elsibet"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Elsibet.loot"
+    },
+    "evasionBehaviour": "4",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "4",
+    "stealthBehaviour": "2",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - accountant"
+    },
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": []
+    },
+    "spellLikeAbilities": [],
+    "focus": "STEALTH",
+    "defaultAttitude": "FRIENDLY"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",

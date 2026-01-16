@@ -2556,6 +2556,41 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "Elsibet.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        20,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Silver Coin"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (L)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Robes (U)"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Buskins"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry",
+          "name": "Tanto"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
     "name": "Rennik.loot",
     "lootEntries": {
       "PERCENTAGES": [

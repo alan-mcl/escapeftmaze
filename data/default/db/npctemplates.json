@@ -5877,6 +5877,558 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "name": "Elsibet",
+    "foeName": "Elsibet",
+    "attitude": "FRIENDLY",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.def.npc.Elsibet"
+    },
+    "alliesOnCall": "coc.sheriffs.on.call",
+    "buysAt": "0",
+    "sellsAt": "0",
+    "maxPurchasePrice": "0",
+    "willBuyItemTypes": "111111111111111011100111",
+    "inventoryTemplate": {
+      "rows": []
+    },
+    "resistThreats": "0",
+    "resistBribes": "0",
+    "resistSteal": "0",
+    "theftCounter": "0",
+    "dialogue": {
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": "If there were a reliable account of Aenen, it would be locked in reference. And argued over constantly.\nI have footnotes, marginalia, contradictory maps. But you will need to befriend the gnomes to know more."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "agenor"
+          ],
+          "speech": "I am sorry, that name means nothing to me."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aromatist"
+          ],
+          "speech": "The Bazaar vendors rarely trouble the library.\nThough on a purely personal note... some of the scents are quite pleasant."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "asius"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "beiweh"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": "Yes, I know of the Leonal general. He is usually at Danoas.\nEvery account of Belisarius reads the same at first: impossible odds, exhausted troops, a line that should have broken. \nAnd yet it never quite does. I find myself imagining the banners, the shouting, the moment where history holds its breath.\nThe books never quite say it, but you can feel it in the margins: an army trusting one voice when everything else fell apart.\nUm. Yes. You there is some material in the reference section, if you are looking."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "broken fang"
+          ],
+          "speech": "He is chieftain of the gnolls.\nHistory tends to flatten figures like Broken Fang into savage antagonists.\nStill, I find myself wondering what kind of leader commands fear and obedience in equal measure in such a society. \nAnd recently! There is a pattern to the gnolls actions. Raids grow bolder, then quieter, then deliberate. That suggests a mind behind the tribes....\nAh. Speculation. Ignore me."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "deal",
+            "trade",
+            "deals",
+            "sell",
+            "buy"
+          ],
+          "speech": "Trade? No. This is a library, not a market stall."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "goodbye",
+            "bye",
+            "farewell"
+          ],
+          "speech": "Farewell. And quietly, if possible."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "coc",
+            "chamber of commerce",
+            "c.o.c."
+          ],
+          "speech": "The Ichiba Chamber of Commerce oversees trade charters, property, and civic compliance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": "Where did you hear of Dalen?\nDalen domain is mentioned the way forests are mentioned in old songs. Never directly, always as something you enter rather than find.\nThe texts describe Dalen as layered rather than hidden. Paths that only exist in spring, doors that open when watched by no one.\nIt sounds dangerous and beautiful... graceful and savage...\nOh. Sorry. That was conjecture."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": "Danaos Castle is the primary seat of Leonal authority. Military, administrative, and ceremonial functions are all conducted there.\nMy sources describe it as defensible first and comfortable second. \nVery little tolerance for surprise visitors."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "diomedes"
+          ],
+          "speech": "Diomedes serves as the Leonal emissary in Ichiba and maintains the shrine to the Lady.\nHe is noted for discretion and regular correspondence with Danaos Castle."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "I am sorry, that name means nothing to me."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "freedom",
+            "escape"
+          ],
+          "speech": "Of course, you wish to escape from The Maze.\nThere are theories. Doors that appear only after choices are made, paths that punish hesitation.\nNone of the sources agree. Some texts insist escape requires knowledge. Others insist action.\nUnfortunately my library does not contain the answer. At least not directly.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "The accounts of Eva describe strength, certainly, but also choice. \nShe leaves when others settle, fights when others retreat.\nThere are long gaps in her chronology. Years where nothing is written, as if the world simply failed to keep up.\nI find those gaps far more interesting than the battles. Eva Wingfield does not linger in the books. She passes through them.\nAh. Sorry. That was... more poetic than necessary."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": "Whenever Faerie appears in a text, the language becomes very imprecise and very confusing.\nThat combination suggests a place that keeps its promises exactly as spoken.\nTime behaves strangely there. Not faster or slower, just... more expensive. You always leave owing something, even if you think you paid in full.\nOh. That sounded ominous, did it not?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fangorn"
+          ],
+          "speech": "Fangorn is one of those names the texts hesitate over.\nA place first, a presence second. Black magic settles there like dust.\nThe domain is described as layered shadow, old stone, and deliberate silence. And within it, the vampire who bears the same name.\nBest approached with preparation rather than bravery, I would say!\n\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": "Ah. Yes. The First Realm is extremely well documented. Agricultural cycles, trade routes, population tables. \nPage after page of stability. The sort of place merchants love and adventurers try to leave.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "fuck you",
+            "fuck"
+          ],
+          "speech": "This is a library. Please conduct yourselves accordingly."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "garret"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": "If I knew where the Great Gate to the Third Realm is, I daresay my library would be much more popular!\nStill, maybe the reference section can help with your research."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thieves",
+            "gentlemen\u0027s social club",
+            "thieves guild"
+          ],
+          "speech": "If you are asking out of academic interest, the information is sparse. If you are asking for other reasons, I cannot help you."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "glaucus"
+          ],
+          "speech": "If you require gnomish goods or formal correspondence, he is the correct point of contact."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "They are organized in packs with shifting leadership. External observers rarely understand the internal structure.\nYet I have noted an unsual amount of coordination between tribes recently. Fascinating and disturbing...\nUm. Forgive my speculation."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnomes",
+            "gnome"
+          ],
+          "speech": "The gnomes of Aenen are insular and highly organized.\nMost information comes from trade records and second-hand diplomatic accounts."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hi",
+            "hello",
+            "greetings",
+            "salutations"
+          ],
+          "speech": "Welcome to the Ichiba Library!\nI\u0027m sure you will find something to read here.\nThe reference section is well stocked, but if you are looking for lighter material I -do- recommend the Red Greave series. My personal favourite!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": "Ah, Gurney. Recent accounts suggest he is no longer traveling with his former companions.\nBut! There was a time when his name was write loud with heroic deeds! Captain of the West Wind! Companion of Red Greave!\nUm. Apologies. You can usually find him at the Adventurer\u0027s Inn."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": "Survivor accounts are rare and inconsistent, but it is clear that Hail town has fallen to the Maze.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": "Madame Hoshiko does visit the library, yes.\nPrimarily the fiction section. She is very well behaved."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Ichiba is a trade city by design. Goods, people, and information pass through it constantly.\nThe city functions through agreements, guilds, and careful tolerance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "Imogen resides in the tower overlooking the southern wall.\nShe keeps largely to herself.\nThere have been complaints over the years. These have all been... retracted."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kay",
+            "sir kay"
+          ],
+          "speech": "They say Kay leads the Thieves Guild.\nHe is called a gentleman, a criminal, and a mercenary, depending on who is holding the pen. \nHe does not appear in civic records. No arrests, no warrants, no public disputes. How mysterious! \nUm, anyway. All of that is just hearsay, really."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white order",
+            "leonals",
+            "leonal"
+          ],
+          "speech": "The Leonals stationed at Danaos Castle form the core of their military and administrative authority."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lorelei"
+          ],
+          "speech": "Lorelei! They say she keeps a secret sanctuary in the crater.\nLorelei does not seek notice, so I do not know the truth."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze"
+          ],
+          "speech": "The Maze. Some texts call it a prison. Others call it a crucible.\nEvery adventurer, such as yourselves, describes a moment when the Maze noticed them personally. Not cruelly. Just… coldly. \nAnd then takes steps to thwart them.\nI can see you too have experienced this!\nAh, apologies, excuse my enthusiasm. Dangers and adventures are always thrilling, from the outside."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze master"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "The Bazaar vendors rarely trouble the library.\nMazza certainly does not, I suspect he is illiterate."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mentes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": "Mnesus is recorded as the current king of Aenen."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "nergal"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "we pickett",
+            "pickett"
+          ],
+          "speech": "W.E. Pickett is the current head of the Ichiba Chamber of Commerce. His authority derives from charter rather than popularity.\nHe is noted for profitable ventures, procedural thoroughness and strict adherence to regulation."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "quests",
+            "quest"
+          ],
+          "speech": "Quests? No. I have nothing heroic for adventurers such as yourselves to tackle!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": "Some accounts praise his ingenuity. Others criticize his detachment.\nI suspect both are true, and that neither tells the whole story."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red ear"
+          ],
+          "speech": "Oh, Red Ear? Yes, he is quite nice. Very polite."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": "Red Greave is a celebrated adventurer, widely recorded in popular serials and eyewitness accounts. \nBut! Those accounts rarely capture the moment he enters a room. The confidence. The inevitability.\nBlade raised, odds impossible, victory earned through sheer refusal to fall.\nBattles turn not because he is strongest, but because he acts when no one else quite dares to.\nThe posture, the restraint, the way victory never seems to surprise him...\nUm. Yes. Apologies.\nThe Red Greave volumes are on the east wall. Alphabetized. Chronologically. We have a -very- complete collection!\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rennik"
+          ],
+          "speech": "The Bazaar vendors rarely trouble the library."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rumours",
+            "rumors",
+            "rumour"
+          ],
+          "speech": "Well, our fiction section is fairly popular. Who needs rumours when you can read volumes of heroic fantasy?"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "sarpedon"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrimshaw"
+          ],
+          "speech": "The Bazaar vendors rarely trouble the library."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrymgeour"
+          ],
+          "speech": "Adventurers tend to congregate at his inn and tavern.\nIf you are looking for news, rumors, or company, that is where you will find them."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": "The Second Realm is comparatively well studied.\nScholars often describe the Second Realm as a warning rather than a mystery."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stentor"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thanks",
+            "thank you"
+          ],
+          "speech": "Oh. I am glad I could help."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thee",
+            "yourself",
+            "thou",
+            "you"
+          ],
+          "speech": "Oh. Me? I am Elsibet Quon. Junior Librarian. \nI am quite content, really. The library needs looking after.\nThat is… mostly the whole of it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": "The Third Realm is poorly documented compared to the First and Second. Surviving sources are fragmentary.\nThere are tales of an epic war between good and evil that never ceases across it\u0027s domains.\nOther tales tell of strange machines that collect travellers for unknown purposes.\nI, um, don\u0027t really know."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "three eyes"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thyra"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": "Very dangerous. Travel through those areas is usually discouraged!\nIn any case as I understand it the gnomes and leonals aren\u0027t letting anyone through these days.\nThere are some reference works here if you are doing research."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": ""
+        }
+      ],
+      "neutralGreeting": "Welcome back. Please be mindful of the rules.",
+      "friendlyFarewell": "Take care. And if you find yourselves in a story, make it a good one.",
+      "neutralFarewell": "Farewell. Quiet is appreciated on the way out as well.",
+      "npcInventoryFull": "Oh dear, no. I physically cannot accept that. There is nowhere left to put it.",
+      "doesntWantItem": "I appreciate the thought, truly, but the library does not accept... donations of that nature.",
+      "doesntKnowAbout": "Well, \u0027%s\u0027 does not ring a bell. Or a footnote. Or an appendix. Try the reference section?"
+    },
+    "speechColour": "ffffcccc",
+    "zone": "Ichiba City",
+    "tile": "29:28",
+    "found": "false",
+    "dead": "false",
+    "guildMaster": "false"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
     "name": "Clockwork Sentinel",
     "foeName": "Clockwork Sentinel",
     "faction": "Gnomes",
@@ -10059,7 +10611,7 @@
           "keywords": [
             "hoshiko"
           ],
-          "speech": ""
+          "speech": "Say what you will, she brings trade. Nervous folk drink more after a reading."
         },
         {
           "priority": "9",
@@ -10081,21 +10633,14 @@
             "white lady",
             "isolde"
           ],
-          "speech": ""
-        },
-        {
-          "priority": "9",
-          "keywords": [
-            "jasker"
-          ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
           "keywords": [
             "kalrath"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
@@ -10133,7 +10678,7 @@
           "keywords": [
             "lunara"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
@@ -10154,7 +10699,7 @@
           "keywords": [
             "mazza"
           ],
-          "speech": ""
+          "speech": "Ha ha ha. Adventurers love him.\nEat there before a crawl, regret it after."
         },
         {
           "priority": "9",
@@ -10175,7 +10720,7 @@
           "keywords": [
             "morrath"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
@@ -10205,7 +10750,7 @@
           "keywords": [
             "rainmaker"
           ],
-          "speech": ""
+          "speech": "If Rainmaker\u0027s in town, something ugly wont be far behind.\nMagic and machines, they say. Thats two things I dont like mixed."
         },
         {
           "priority": "9",
@@ -10219,7 +10764,7 @@
           "keywords": [
             "red greave"
           ],
-          "speech": ""
+          "speech": "Red Greave? Signs autographs better than bar tabs. Ha ha ha!"
         },
         {
           "priority": "9",
@@ -10256,7 +10801,7 @@
           "keywords": [
             "stenelaus"
           ],
-          "speech": ""
+          "speech": "Nope, dunno."
         },
         {
           "priority": "9",
@@ -10302,14 +10847,14 @@
           "keywords": [
             "thyra"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
           "keywords": [
             "vireen"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         },
         {
           "priority": "9",
@@ -10332,7 +10877,7 @@
           "keywords": [
             "zerach"
           ],
-          "speech": ""
+          "speech": "Pray if you like. I just pour the beer."
         }
       ],
       "friendlyGreeting": "Welcome back! How can I help?",
@@ -10763,6 +11308,141 @@
             "wastelands"
           ],
           "speech": "Beyond the Crater lie the wastelands. No civilisation these days, though we used to run caravans out to Hail City, before it fell."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "emmons"
+          ],
+          "speech": "Emmons the Hand? A goblin functionary in Kay\u0027s little criminal enterprise.\nThieves always need someone good with numbers and fingers."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hoshiko"
+          ],
+          "speech": "Madame Hoshiko? Let\u0027s be real, she is a charlatan who profits from superstition.\nStill, people pay her, and she pays our rates and taxes.\nI guess she can predict what\u0027ll happen if she doesn\u0027t, heh!"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mazza"
+          ],
+          "speech": "He runs a small food stall in the Bazaar.\nLow margins, high foot traffic. Exactly the sort of business this city needs more of.\nI recommend Scrymgeour\u0027s place if you need to eat though. Kitchen quality control is much better."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aromatist"
+          ],
+          "speech": "Perfume is just scented water, but people pay a premium for it. I respect the margins.\nDiscretionary spending is a healthy sign for the economy."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rennik"
+          ],
+          "speech": "A small operation, but reliable. Pays his dues, causes no disturbances."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "scrimshaw"
+          ],
+          "speech": "They deal in salvage and curios. Profitable, but not great at compliance.\nIf they spent half as much effort on proper permits as they do on haggling, they would be respectable merchants.\n"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "stenelaus"
+          ],
+          "speech": "Don\u0027t know him."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "eva",
+            "wingfield"
+          ],
+          "speech": "Adventurers come and go.\nShould she decide to establish a commercial presence in Ichiba, she can make an appointment."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "rainmaker"
+          ],
+          "speech": "If Rainmaker ever decides to apply his skills to legitimate enterprise, my door is open. Until then, he is background noise."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gurney"
+          ],
+          "speech": "The dwarf who drinks too much and sings too loudly.\nTalent is wasted if it does not generate revenue. Gurney is a prime example."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "red greave"
+          ],
+          "speech": "Red Greave? Yes, I know of him. A marketable hero, if nothing else."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "jasker"
+          ],
+          "speech": ""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "white lady",
+            "isolde"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "thyra"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "lunara"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "morrath"
+          ],
+          "speech": "I don\u0027t really have time for that sort of thing."
         }
       ]
     },
@@ -13317,7 +13997,7 @@
             "kay",
             "sir kay"
           ],
-          "speech": "He of the silver tongue and iron heart, cloaked in midnight. He robs the rich, cheats the wicked, and smiles while the city bleeds."
+          "speech": "He of the silver tongue and iron heart, cloaked in midnight.\nHe robs the rich, cheats the wicked, and smiles while the city bleeds."
         },
         {
           "priority": "9",
