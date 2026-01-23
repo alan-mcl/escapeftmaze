@@ -21,14 +21,14 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 
 /**
  * A class to store the progression of abilities by level.
  */
-public class LevelAbilityProgression implements V2Seralisable
+public class LevelAbilityProgression implements V2Serialisable
 {
 	public static final int MAX_LEVELS = 20;
 

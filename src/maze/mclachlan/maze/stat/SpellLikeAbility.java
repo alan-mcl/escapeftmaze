@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat;
 
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.ValueList;
@@ -28,7 +28,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class SpellLikeAbility implements V2Seralisable
+public class SpellLikeAbility implements V2Serialisable
 {
 	private Spell spell;
 	private ValueList castingLevel;

@@ -19,13 +19,13 @@
 
 package mclachlan.maze.stat.condition;
 
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 
 /**
  * Represents spell effects that are repeatedly applied to the bearer of
  * this condition.
  */
-public class RepeatedSpellEffect implements V2Seralisable
+public class RepeatedSpellEffect implements V2Serialisable
 {
 	/** turn this effect starts */
 	private int startTurn;

@@ -20,7 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.LockOrTrap;
@@ -33,7 +33,7 @@ import mclachlan.maze.util.MazeException;
 /**
  * The consequences of a spell.
  */
-public abstract class SpellResult implements V2Seralisable
+public abstract class SpellResult implements V2Serialisable
 {
 	/**
 	 * The foe types that this spell result affects, null if all

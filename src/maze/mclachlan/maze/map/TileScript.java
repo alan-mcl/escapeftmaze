@@ -21,7 +21,7 @@ package mclachlan.maze.map;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
@@ -33,7 +33,7 @@ import mclachlan.maze.stat.*;
 /**
  *
  */
-public abstract class TileScript implements V2Seralisable
+public abstract class TileScript implements V2Serialisable
 {
 	// these are optional conditions of execution common to every TileScript
 

@@ -29,6 +29,8 @@ The Tumbledown
  - encounters
  - access: key?secret?
 Library
+ - bookshelf scripts
+ - upstairs
 random houses: encounters and locked doors
 NPC bedrooms with loot
 Inn kitchen

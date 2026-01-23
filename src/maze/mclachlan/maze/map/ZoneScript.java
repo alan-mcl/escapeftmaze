@@ -20,14 +20,14 @@
 package mclachlan.maze.map;
 
 import java.util.*;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.game.MazeEvent;
 
 /**
  * A class for controlling regular transitions to a zone, like day/night cycles
  * and weather.
  */
-public abstract class ZoneScript implements V2Seralisable
+public abstract class ZoneScript implements V2Serialisable
 {
 	/*-------------------------------------------------------------------------*/
 	/**

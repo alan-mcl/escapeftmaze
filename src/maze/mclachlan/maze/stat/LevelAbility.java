@@ -20,13 +20,13 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 
 /**
  * Represents an ability gained at a certain level. Can compose stat modifiers,
  * a spell-like ability, or both.
  */
-public abstract class LevelAbility implements V2Seralisable
+public abstract class LevelAbility implements V2Serialisable
 {
 	/**
 	 * Abilities with a given key are superseded by abilities with the same key

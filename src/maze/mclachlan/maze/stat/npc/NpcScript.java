@@ -23,7 +23,7 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -37,7 +37,7 @@ import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
 /**
  * 
  */
-public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
+public abstract class NpcScript implements GeneralOptionsCallback, V2Serialisable
 {
 	public static final String ICHIBA_CITY = "Ichiba City";
 	public static final String ICHIBA_CROSSROAD= "Ichiba Crossroad";

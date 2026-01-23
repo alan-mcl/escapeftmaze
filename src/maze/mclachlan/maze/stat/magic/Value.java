@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
@@ -33,7 +33,7 @@ import mclachlan.maze.util.MazeException;
  * </ul>
  * This base class just contains a constant.
  */
-public class Value implements V2Seralisable
+public class Value implements V2Serialisable
 {
 	/**
 	 * The base constant

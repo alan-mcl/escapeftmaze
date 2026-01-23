@@ -22,13 +22,13 @@ package mclachlan.maze.ui.diygui;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import mclachlan.maze.data.v2.V2Seralisable;
+import mclachlan.maze.data.v2.V2Serialisable;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
  *
  */
-public abstract class Animation implements V2Seralisable
+public abstract class Animation implements V2Serialisable
 {
 	private Object mutex;
 

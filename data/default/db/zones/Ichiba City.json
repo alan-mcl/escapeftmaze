@@ -46501,7 +46501,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -47524,11 +47530,9 @@
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -47823,11 +47827,9 @@
         "height": "1"
       },
       {
-        "textures": [
-          "CITY_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -48169,7 +48171,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -48180,7 +48188,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -48496,26 +48510,26 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -60070,7 +60084,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -60416,7 +60436,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -60437,7 +60463,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "2",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -61133,7 +61165,13 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
@@ -61152,14 +61190,20 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "2"
+        }
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -61478,6 +61522,31 @@
       },
       {
         "textures": [
+          "CITY_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "CITY_WALL_1"
+        ],
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
+      },
+      {
+        "textures": [
           "No_WAll"
         ],
         "visible": "false",
@@ -61493,33 +61562,20 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryReferenceSection",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1"
+        }
       },
       {
         "textures": [
           "CITY_WALL_1"
         ],
-        "maskTextures": [
-          "objects.bookshelf.1"
-        ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
         "height": "1"
       },
       {
@@ -61850,10 +61906,10 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "CITY_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {

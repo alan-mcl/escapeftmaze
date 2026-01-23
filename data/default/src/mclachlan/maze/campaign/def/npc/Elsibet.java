@@ -33,7 +33,7 @@ public class Elsibet extends NpcScript
 			new NpcSpeechEvent("Oh. Oh! Visitors. Actual visitors.\n\nUm. Welcome to the Ichiba Library!", npc),
 			new NpcSpeechEvent("Hello. I did not expect people today. Or this week. Or ever, really.\nPlease excuse the mess, the quiet, and me.", npc),
 			new NpcSpeechEvent("I am Elsibet Quon, Junior Librarian.\n\nWell, the only Librarian, I suppose. For quite a while now.", npc),
-			new NpcSpeechEvent("Unfortunately we have a deliquency problem and I can't let you take any books out.\nBut you are welcome to take a seat and read here!", npc),
+			new NpcSpeechEvent("Unfortunately we have a delinquency problem and I can't let you take any books out.\nBut you are welcome to take a seat and read here!", npc),
 			new NpcSpeechEvent("Please do not touch the shelves -unless- you intend to read the book!", npc),
 			new NpcSpeechEvent("Fiction section is right here, non-fiction and reference works are in the next chamber.", npc),
 			new NpcSpeechEvent("If you need a book, I know where it is.\nIf you need silence, I can enforce it.", npc),
