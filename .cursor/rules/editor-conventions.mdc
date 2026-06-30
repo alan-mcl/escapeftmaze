@@ -1,0 +1,44 @@
+---
+description: Conventions for the Swing content editor
+globs: src/maze/mclachlan/maze/editor/**/*.java
+alwaysApply: false
+---
+
+# Editor Conventions (SwingEditor)
+
+The editor (`SwingEditor`) reuses the runtime `Database`/V2 persistence layer.
+Static data lives in left-tab panels; save games/guild in a second top tab.
+
+## Data-type panel pattern
+
+A new data-type tab extends `EditorPanel` (implements `IEditorPanel`): a name list
++ detail form.
+
+```java
+public class MyThingPanel extends EditorPanel {
+    public MyThingPanel() { super(SwingEditor.Tab.MY_THING); } // register a dirty bit
+    public Container getEditControls() { /* build form */ }
+    public void loadData() { /* names from Database.getInstance().getMyThings() */ }
+    public void refresh(String name) { /* cache -> UI */ }
+    public DataObject commit(String name) { /* UI -> in-memory cache */ }
+}
+```
+
+- Any edit must flag dirty: `SwingEditor.instance.setDirty(dirtyFlag)`.
+- Switching list selection auto-commits the previous item.
+- Sub-widgets receive a `dirtyFlag` int and propagate `setDirty` upward.
+
+## Save model (two-phase)
+
+1. **Commit**: UI -> in-memory `Database` cache (`commit()` / `commitAll()`).
+2. **Apply / Apply All**: flush dirty categories to disk via
+   `Database.getInstance().saveXxx(...)` -> `V2Saver`.
+
+Zones are special: `MapEditor` / `ZonePanel` persist immediately via
+`Saver.saveZone()`, not via the bulk apply flow.
+
+## Notes
+
+- No undo stack; validation is ad-hoc. Be careful with destructive operations.
+- `MapEditor` edits both the Crusader geometry and game-logic tiles via selection
+  proxies (`SingleTileProxy`/`MultipleTileProxy`, etc.) - keep both layers in sync.

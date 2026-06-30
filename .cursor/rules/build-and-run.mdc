@@ -1,0 +1,39 @@
+---
+description: How to build, run, and (not) test Escape From The Maze
+alwaysApply: true
+---
+
+# Build, Run, Test
+
+Java 21 + Apache Ant. No Maven/Gradle; dependencies are vendored jars in `oem/`.
+Run all commands from the **repo root** (data paths are relative to the CWD).
+
+## Build
+
+```bash
+ant compile   # -> build/classes (engine) and build/default/classes (campaign)
+ant clean     # remove build/
+```
+
+`ant` (default `dist`) builds zipped distributions and needs launch4j/jre config -
+prefer `ant compile` for normal work.
+
+## Run
+
+Game:
+```bash
+java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar mclachlan.maze.game.Launcher
+```
+
+Editor:
+```bash
+java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar mclachlan.maze.editor.swing.SwingEditor
+```
+
+Needs a display (AWT/Swing). Config in `maze.cfg` / `user.cfg`.
+
+## Testing
+
+There is **no JUnit suite**. `*Test*` classes (e.g. under `maze/test/`,
+`jgpgoap/`, `crusader/client/`) are standalone `main()` harnesses run by hand.
+Validate by compiling with `ant compile` and launching where feasible.

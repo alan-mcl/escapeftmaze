@@ -1,0 +1,44 @@
+---
+description: Package responsibilities and the event-thread rule for Java sources
+globs: src/maze/mclachlan/**/*.java
+alwaysApply: false
+---
+
+# Architecture Map
+
+| Package | Responsibility |
+|---------|----------------|
+| `maze/game` | `Maze` orchestrator, `Launcher`, `MazeEvent`, `GameTime`, `GameState`, `game/event/` |
+| `maze/map` | `Zone`, `Tile`, `Portal`, `TileScript` (world model); `map/crusader/` bridges to the raycaster |
+| `maze/stat` | Rules + model: actors, items, `combat/`, `magic/`, `condition/`, `npc/` |
+| `maze/ui/diygui` | Game screens; `MazeWidget` blits the raycaster image |
+| `maze/data` | `Database` facade, `Loader`/`Saver`, V2 JSON serialisers |
+| `maze/editor/swing` | Swing content editor |
+| `crusader` | Raycaster engine (no game knowledge) |
+| `diygui` | Widget toolkit (no game knowledge) |
+
+## Event-thread rule (important)
+
+All game-state changes happen on the single event thread as `MazeEvent`s. From UI
+/ AWT code, enqueue events instead of mutating state directly:
+
+```java
+// Prefer
+Maze.getInstance().appendEvents(new MovePartyEvent(...));
+
+// Avoid: mutating party/zone/combat state directly from a widget/listener
+```
+
+`MazeEvent.resolve()` returns child events processed depth-first. Reusable
+sequences are `MazeScript`s (data in `scripts.json`).
+
+## Dual map model
+
+A `Zone` holds both a Crusader `Map` (render geometry) and a `Tile[][]` (game
+logic). Changes that affect geometry and logic must update both consistently.
+
+## Swappable implementations
+
+`UserInterface`, `GameSys`, `MagicSys`, `Loader`/`Saver`, and the GUI
+`RendererFactory` are selected reflectively from `maze.cfg`. Prefer extending via
+these strategy points over hard-coding.

@@ -1,0 +1,41 @@
+---
+description: What Escape From The Maze is and how its parts fit together
+alwaysApply: true
+---
+
+# Escape From The Maze - Project Overview
+
+A party-based, first-person, phased-combat fantasy CRPG in Java 21 (AWT/Swing, no
+game engine). Code namespace `mclachlan.*` under `src/maze/`. Built with Ant;
+dependencies are vendored jars in `oem/`.
+
+## The five major components
+
+- **Game engine** - `src/maze/mclachlan/maze/game`, `.../map`, `.../stat`.
+  `Maze` orchestrates; logic runs as `MazeEvent`s on one event thread.
+- **Raycaster (Crusader)** - `src/maze/mclachlan/crusader`. Renders a zone map to
+  an AWT `Image`. Game-agnostic.
+- **UI framework (DIYGUI)** - `src/maze/mclachlan/diygui` (toolkit) +
+  `src/maze/mclachlan/maze/ui/diygui` (game screens).
+- **Persistence** - `src/maze/mclachlan/maze/data` (`Database` facade, `Loader`/
+  `Saver`, V2 JSON serialisers).
+- **Editor** - `src/maze/mclachlan/maze/editor/swing` (Swing content tool).
+
+## Read for detail
+
+- Architecture: `doc/design/architecture.md`
+- Data model: `doc/design/data_dictionary.md`
+- RPG rules: `doc/design/rpg_system.md`
+- Backlog: `doc/design/backlog.md`
+- Agent guidance + commands: `AGENTS.md`
+
+## Documentation maintenance
+
+- NEVER edit human-controlled docs: `stufftodo.txt`, `README.md`, `readme.txt` /
+  `doc/readme_*.txt`, and `doc/release_notes.txt`. Surface staleness to the user
+  instead of changing them.
+- DO keep the agent-maintained docs under `doc/design/` current when your changes
+  affect them: `architecture.md` (components/interactions), `data_dictionary.md`
+  (entities/fields/serialisers), `rpg_system.md` (rules/formulas), and `backlog.md`
+  (item status / new work). Fold relevant `stufftodo.txt` items into `backlog.md`
+  rather than editing `stufftodo.txt`.

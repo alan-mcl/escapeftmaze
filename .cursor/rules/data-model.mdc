@@ -1,0 +1,36 @@
+---
+description: Data model and V2 JSON persistence conventions
+globs: src/maze/mclachlan/maze/stat/**/*.java,src/maze/mclachlan/maze/map/**/*.java,src/maze/mclachlan/maze/data/**/*.java,data/**/*.json
+alwaysApply: false
+---
+
+# Data Model & Persistence Conventions
+
+Full reference: `doc/design/data_dictionary.md`.
+
+## Template vs instance
+
+Author content as `*Template` keyed by `name` in `data/<campaign>/db/*.json`
+(e.g. `ItemTemplate`, `FoeTemplate`, `ConditionTemplate`). Runtime objects
+(`Item`, `Foe`, `Condition`) reference a template by name and add mutable state.
+Most authored objects extend `DataObject` and carry a `campaign` tag.
+
+## V2 JSON conventions
+
+- Primitives and enums are serialised **as strings**: `"turnNr": "4"`, not `4`.
+- `CurMax` -> `"current-maximum"` (e.g. `"4-4"`); `CurMaxSub` ->
+  `"current-maximum-sub"` (e.g. `"5-5-0"`, where `sub` is the KO threshold).
+- `StatModifier` -> compact hex-bitmap pair string (e.g. `"1c00...,0107"`).
+- Cross-references stored by **name** (`NameSerialiser`), resolved via `Database`.
+- Polymorphic fields carry `"TYPE_KEY": "<fully.qualified.ClassName>"`.
+
+## Adding or changing a persisted field
+
+1. Add the field + getter/setter on the domain class.
+2. Register it in the matching serialiser in
+   `data/v2/serialisers/V2SerialiserFactory.java` (add to the `ReflectiveSerialiser`
+   field list; add a custom resolver for refs/collections).
+3. For a new cross-reference, use `NameSerialiser` / `NameListSerialiser`.
+4. Existing JSON files lack the field - ensure load tolerates absence (defaults).
+
+Do not hand-edit serialised hex/`CurMax` strings; let the serialisers produce them.
