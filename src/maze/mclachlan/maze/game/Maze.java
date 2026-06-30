@@ -2350,6 +2350,45 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: supply a {@link UserConfig} to a headless {@code Maze} that
+	 * was not bootstrapped through {@link #init()} (which normally loads it
+	 * from the database). Combat reads {@code getUserConfig().getCombatDelay()},
+	 * so the headless harness uses this to install a default config.
+	 */
+	public void setUserConfig(UserConfig userConfig)
+	{
+		this.userConfig = userConfig;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: install a {@link PerfLog} (typically a quiet, no-op one) so
+	 * that rules code calling {@link #getPerfLog()} does not NPE when no
+	 * {@code Maze} has been bootstrapped through {@link #init()}.
+	 */
+	public static void setPerfLog(PerfLog perfLog)
+	{
+		Maze.perfLog = perfLog;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: apply a {@link GameState} like {@link #setGameState(GameState)}
+	 * but without loading a {@link mclachlan.maze.map.Zone} (hermetic tests have
+	 * no zone content). Combat needs the difficulty level, turn number and party
+	 * book-keeping, but not map geometry.
+	 */
+	public void setGameStateNoZone(GameState gs)
+	{
+		GameTime.setTurnNr(gs.getTurnNr());
+		this.difficultyLevel = gs.getDifficultyLevel();
+		this.party.setGold(gs.getPartyGold());
+		this.party.setSupplies(gs.getPartySupplies());
+		this.party.setFormation(gs.getFormation());
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void saveUserConfig()
 	{
 		saveUserConfig(this.userConfig);

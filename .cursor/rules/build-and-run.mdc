@@ -34,6 +34,28 @@ Needs a display (AWT/Swing). Config in `maze.cfg` / `user.cfg`.
 
 ## Testing
 
-There is **no JUnit suite**. `*Test*` classes (e.g. under `maze/test/`,
-`jgpgoap/`, `crusader/client/`) are standalone `main()` harnesses run by hand.
-Validate by compiling with `ant compile` and launching where feasible.
+There is a **JUnit 5 suite** under `testsrc/` (vendored jar:
+`oem/junit/junit-platform-console-standalone-*.jar`).
+
+```bash
+ant compile-tests   # compile testsrc/ -> build/test-classes
+ant test            # run the suite headless; reports in build/test-reports
+```
+
+Conventions for the suite:
+
+- **Hermetic:** tests build synthetic, in-memory fixtures via
+  `mclachlan.maze.test.support.TestData` / `InMemoryLoader`; they must **not**
+  depend on `data/default/` content.
+- **Deterministic:** seed the RNG with `Dice.setRandomSeed(...)` (the
+  `MazeTestSupport` base class does this in `@BeforeEach` and resets the
+  `Maze`/`Database` singletons in `@AfterEach`).
+- Tiers: (1) pure logic, (2) V2 serialisation round-trips (compare serialised
+  JSON maps, not objects), (3) `GameSys`/`MagicSys` rules formulas, (4) a
+  headless engine harness (`HeadlessMaze`) with combat + leveling smoke tests.
+- Test seams in production code are clearly commented (`Dice.setRandomSeed`,
+  `Maze.setPerfLog` / `setUserConfig` / `setGameStateNoZone`,
+  `Database.resetInstanceForTesting`). Keep them minimal.
+
+The old standalone `main()` harnesses (e.g. `maze/balance/MockCombat`,
+`maze/test/`) still exist for manual exploration but are superseded by the suite.

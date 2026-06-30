@@ -317,5 +317,10 @@ See [AGENTS.md](../../AGENTS.md) for exact commands. In brief: Ant `compile` bui
 `build/classes` (engine) and `build/default/classes` (campaign scripts); the game is
 launched via `mclachlan.maze.game.Launcher` and the editor via
 `mclachlan.maze.editor.swing.SwingEditor`, both with `oem/*.jar` on the classpath.
-There is no JUnit suite; the `*Test*` classes under `maze/test/`, `jgpgoap/`, and
-`crusader/client/` are standalone `main()` harnesses.
+A JUnit 5 test suite lives in `testsrc/` (run with `ant compile-tests` / `ant
+test`). It is hermetic (synthetic in-memory fixtures via
+`mclachlan.maze.test.support.TestData`, not `data/default/`) and deterministic
+(seeded `Dice`), and includes a reusable headless engine harness
+(`HeadlessMaze`) for combat/leveling smoke tests. The legacy `*Test*` classes
+under `maze/test/`, `maze/balance/`, `jgpgoap/`, and `crusader/client/` remain as
+standalone `main()` harnesses for manual exploration.

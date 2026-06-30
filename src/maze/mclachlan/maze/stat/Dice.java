@@ -32,7 +32,7 @@ public class Dice
 	private final int numberOfDice;
 	private final int diceMax;
 	private final int modifier;
-	private static final Random r = new Random();
+	private static Random r = new Random();
 	
 	public static final Dice d1 = new Dice(1,1,0);
 	public static final Dice d2 = new Dice(1,2,0);
@@ -178,6 +178,17 @@ public class Dice
 	public static int nextInt(int lessThan)
 	{
 		return r.nextInt(lessThan);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: reseed the shared RNG so that dice rolls (and therefore
+	 * combat and other probabilistic outcomes) are reproducible. Production
+	 * code never calls this; it exists for deterministic unit tests.
+	 */
+	public static void setRandomSeed(long seed)
+	{
+		r = new Random(seed);
 	}
 
 	/*-------------------------------------------------------------------------*/

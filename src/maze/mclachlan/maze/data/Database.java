@@ -546,6 +546,19 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: clear the singleton (and cached campaign list) so that test
+	 * cases do not leak global database state into one another. Production code
+	 * never calls this; the singleton is otherwise assigned in the instance
+	 * initialiser when a {@code Database} is constructed.
+	 */
+	public static void resetInstanceForTesting()
+	{
+		instance = null;
+		campaignMap = null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public synchronized static Map<String, Campaign> getCampaigns() throws IOException
 	{
 		if (campaignMap == null)

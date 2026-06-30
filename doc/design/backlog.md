@@ -32,8 +32,10 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
 | P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |
 
-> No automated test suite exists, so P0 regressions are only caught by manual play.
-> See P1-7 (test harness) - addressing it materially de-risks all other P0/P1 work.
+> A JUnit 5 suite now exists (`ant test`), covering pure logic, V2 serialisation
+> round-trips, `GameSys`/`MagicSys` formulas, and a headless combat/leveling
+> harness (P1-7, done). P0 regressions in these areas can now be caught
+> automatically; broaden combat/AI coverage as those items are addressed.
 
 ---
 
@@ -47,7 +49,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P1-4 | feature | Quicksave / quickload | (stufftodo) | M | todo |
 | P1-5 | feature | Ironman mode (single save) | (stufftodo) | M | todo |
 | P1-6 | code | Comprehensive practising of modifiers | Practice currently fires for a subset of skills; make it consistent across all active modifiers. (stufftodo) | M | todo |
-| P1-7 | code | Introduce a real test harness | No JUnit suite today; `*Test*` classes are manual `main()` harnesses. Add JUnit (or similar) coverage for `GameSys`/combat/magic formulas to lock in balance. (code) | L | todo |
+| P1-7 | code | Introduce a real test harness | **Done.** JUnit 5 suite in `testsrc/` (`ant compile-tests` / `ant test`): hermetic fixtures, seeded RNG, tiers for pure logic, V2 serialisation round-trips, `GameSys`/`MagicSys` formulas, and a `HeadlessMaze` combat/leveling smoke harness. Follow-up: broaden combat/AI/spell coverage. (code) | L | done |
 | P1-8 | code | Different combat ranges | Make engagement-range rules richer/cleaner. (stufftodo) | M | todo |
 | P1-9 | code | Validate PC combat actions on Repeat | Re-validate a repeated action before resolving (target/AP/state may have changed). (stufftodo) | S | todo |
 | P1-10 | code | Berserk replaces in-flight combat actions | Berserk currently overrides intentions but not already-queued actions for the same round. (stufftodo) | S | todo |
@@ -155,7 +157,8 @@ completeness; they live primarily in `stufftodo.txt`.
 
 Engineering concerns surfaced from the source that should inform the above:
 
-- **No automated tests** (P1-7) - the single biggest risk multiplier.
+- **Test coverage breadth** - a JUnit suite now exists (P1-7 done); the remaining
+  risk is breadth, especially deeper combat/AI/spell scenarios.
 - **Single production foe AI** with a dead GOAP path (P1-1, P1-2).
 - **Legacy V1 persistence** partly retired but still load-bearing for strings/config
   (P2-22).

@@ -44,11 +44,37 @@
     <property name="srcdist"
               location="${dist}/maze_${mclachlan.maze.version}_src/maze_${mclachlan.maze.version}_src"/>
 
+    <!-- test source/build locations and the vendored JUnit 5 console-standalone jar -->
+    <property name="testsrc" location="./testsrc"/>
+    <property name="test_build" location="${build_base}/test-classes"/>
+    <property name="test_reports" location="${build_base}/test-reports"/>
+    <property name="junit.jar"
+              location="oem/junit/junit-platform-console-standalone-1.11.4.jar"/>
+
+    <!-- all vendored runtime jars, shared by the game, editor and the test suite -->
+    <path id="oem.classpath">
+        <fileset dir="oem">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- classpath for compiling/running the test suite -->
+    <path id="test.classpath">
+        <pathelement location="${build}"/>
+        <pathelement location="${default_campaign_build}"/>
+        <pathelement location="${test_build}"/>
+        <path refid="oem.classpath"/>
+    </path>
+
     <!-- custom jsmooth task -->
     <!--<taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpath="./oem/jsmooth-0.9.9-7/lib/jsmoothgen-ant.jar"/>-->
     <!-- launch4j -->
+    <!-- launch4j is only needed by the 'zipdist' (Windows distro) target and is
+         installed per build-machine; ignore it when absent so source-level
+         targets (compile, compile-tests, test) still work. -->
     <taskdef name="launch4j"
              classname="net.sf.launch4j.ant.Launch4jTask"
+             onerror="ignore"
              classpath="${launch4j.dir}/launch4j.jar
       :${launch4j.dir}/lib/xstream.jar"/>
 
@@ -68,13 +94,55 @@
     <target name="compile" depends="init">
         <javac includeantruntime="false"
                srcdir="${src}" destdir="${build}"
-               classpath="${build};oem/jorbis/jorbis0.0.17.jar" debug="true"
-               encoding="UTF-8"/>
+               debug="true" encoding="UTF-8">
+            <classpath>
+                <pathelement location="${build}"/>
+                <path refid="oem.classpath"/>
+            </classpath>
+        </javac>
         <javac includeantruntime="false"
                srcdir="${default_campaign_src}"
                destdir="${default_campaign_build}"
-               classpath="${build};oem/jorbis/jorbis0.0.17.jar" debug="true"
+               debug="true" encoding="UTF-8">
+            <classpath>
+                <pathelement location="${build}"/>
+                <path refid="oem.classpath"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <!--======================================================================-->
+    <!-- Compile the JUnit 5 test suite into build/test-classes.            -->
+    <!-- Tests live under testsrc/ mirroring mclachlan.* so they can reach   -->
+    <!-- package-private members; they are never bundled into a distribution.-->
+    <target name="compile-tests" depends="compile">
+        <mkdir dir="${test_build}"/>
+        <javac includeantruntime="false"
+               srcdir="${testsrc}" destdir="${test_build}"
+               classpathref="test.classpath" debug="true"
                encoding="UTF-8"/>
+        <!-- copy any non-java test resources (none today, but future-proof) -->
+        <copy todir="${test_build}" failonerror="false">
+            <fileset dir="${testsrc}" excludes="**/*.java"/>
+        </copy>
+    </target>
+
+    <!--======================================================================-->
+    <!-- Run the JUnit 5 suite headlessly via the vendored console launcher.  -->
+    <!-- Uses a forked JVM (no dependency on Ant's optional junitlauncher     -->
+    <!-- task) and scans build/test-classes for @Test classes.               -->
+    <target name="test" depends="compile-tests">
+        <mkdir dir="${test_reports}"/>
+        <java classname="org.junit.platform.console.ConsoleLauncher"
+              fork="true" failonerror="true">
+            <classpath refid="test.classpath"/>
+            <jvmarg value="-Djava.awt.headless=true"/>
+            <arg value="execute"/>
+            <arg value="--scan-classpath=${test_build}"/>
+            <arg value="--reports-dir=${test_reports}"/>
+            <arg value="--details=tree"/>
+            <arg value="--disable-banner"/>
+        </java>
     </target>
 
     <!--======================================================================-->

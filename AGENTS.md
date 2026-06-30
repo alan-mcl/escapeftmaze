@@ -76,12 +76,35 @@ Notes:
 | `user.cfg` | Per-user audio/UI preferences (Java Properties) |
 | `data/<campaign>/campaign.cfg` | Campaign metadata and inheritance (`parentCampaign`) |
 
-## Testing reality
+## Testing
 
-There is **no JUnit/automated test suite**. Classes named `*Test*` (under
-`maze/test/`, `jgpgoap/`, `crusader/client/`) are standalone `main()` harnesses run
-manually. Do not assume `ant test` exists. Validate changes by compiling
-(`ant compile`) and, where feasible, launching the game/editor.
+There is a **JUnit 5 test suite** in `testsrc/`, driven by Ant (the JUnit jar is
+vendored at `oem/junit/junit-platform-console-standalone-*.jar`):
+
+```bash
+ant compile-tests   # compile testsrc/ -> build/test-classes
+ant test            # run headless; writes build/test-reports
+```
+
+Suite conventions (follow these when adding tests):
+
+- **Hermetic fixtures, not `data/default/`.** Build synthetic in-memory content
+  via `mclachlan.maze.test.support.TestData` and `InMemoryLoader`/`InMemorySaver`.
+  Do not load the default campaign.
+- **Deterministic.** Extend `MazeTestSupport`; it seeds `Dice`
+  (`Dice.setRandomSeed`) before each test and resets the `Maze`/`Database`
+  singletons afterwards.
+- **Tiers:** (1) pure logic, (2) V2 serialisation round-trips (assert equality of
+  serialised JSON maps, since many domain classes lack value `equals`),
+  (3) `GameSys`/`MagicSys` rules formulas with synthetic actors, (4) a reusable
+  headless harness (`HeadlessMaze`) plus combat/leveling smoke tests.
+- **Test seams** added to production code are minimal and clearly commented:
+  `Dice.setRandomSeed`, `Maze.setPerfLog`/`setUserConfig`/`setGameStateNoZone`,
+  `Database.resetInstanceForTesting`. Prefer extending fixtures over adding seams.
+
+The legacy `*Test*` classes (under `maze/test/`, `maze/balance/`, `jgpgoap/`,
+`crusader/client/`) are standalone `main()` harnesses for manual exploration and
+are superseded by the suite for automated checking.
 
 ## Conventions for agents
 
