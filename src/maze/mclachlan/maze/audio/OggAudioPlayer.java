@@ -2,7 +2,6 @@ package mclachlan.maze.audio;
 
 import java.io.*;
 import java.util.*;
-import javax.sound.sampled.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
@@ -25,11 +24,15 @@ public class OggAudioPlayer implements AudioPlayer
 		}
 
 		new Thread(() -> {
-			try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(soundData)))
+			try
 			{
-				playOggStream2(soundName, audioStream, volume);
+				JCraftPlayer player = new JCraftPlayer(
+					new ByteArrayInputStream(soundData),
+					new Object(),
+					volume);
+				player.start();
 			}
-			catch (Exception e)
+			catch (IOException e)
 			{
 				throw new MazeException(e);
 			}
@@ -38,8 +41,13 @@ public class OggAudioPlayer implements AudioPlayer
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void cacheSound(String soundName, InputStream stream)
+	public synchronized void cacheSound(String soundName, InputStream stream)
 	{
+		if (soundCache.containsKey(soundName))
+		{
+			return;
+		}
+
 		try (ByteArrayOutputStream buffer = new ByteArrayOutputStream())
 		{
 			byte[] data = new byte[4096];
@@ -53,68 +61,6 @@ public class OggAudioPlayer implements AudioPlayer
 		catch (IOException e)
 		{
 			throw new MazeException(e);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void playOggStream2(
-		String soundName,
-		AudioInputStream in,
-		int volume) throws Exception
-	{
-		AudioFormat baseFormat = in.getFormat();
-
-		AudioFormat targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(),
-			16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
-
-		AudioInputStream dataIn = AudioSystem.getAudioInputStream(targetFormat, in);
-
-		byte[] buffer = new byte[4096];
-
-		// get a line from a mixer in the system with the wanted format
-		DataLine.Info info = new DataLine.Info(SourceDataLine.class, targetFormat);
-		SourceDataLine line = (SourceDataLine)AudioSystem.getLine(info);
-		setVolume(line, volume);
-
-		if (line != null)
-		{
-			line.open();
-
-			line.start();
-			int nBytesRead = 0, nBytesWritten = 0, totalBytesRead = 0;
-			while (nBytesRead != -1)
-			{
-				nBytesRead = dataIn.read(buffer, 0, buffer.length);
-				totalBytesRead += nBytesRead;
-				if (nBytesRead != -1)
-				{
-					nBytesWritten = line.write(buffer, 0, nBytesRead);
-				}
-			}
-
-			if (totalBytesRead < 0)
-			{
-				System.out.println("ERROR: invalid OGG resource: "+soundName);
-			}
-
-			line.drain();
-			line.stop();
-			line.close();
-
-			dataIn.close();
-		}
-
-		in.close();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void setVolume(SourceDataLine line, int volume)
-	{
-		if (line.isControlSupported(FloatControl.Type.MASTER_GAIN))
-		{
-			FloatControl gainControl = (FloatControl)line.getControl(FloatControl.Type.MASTER_GAIN);
-			float dB = (float)(Math.log(volume / 100.0) * 20.0);
-			gainControl.setValue(dB);
 		}
 	}
 
