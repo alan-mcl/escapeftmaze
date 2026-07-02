@@ -85,6 +85,7 @@ public class InMemorySaver extends Saver
 	@Override public void saveNpcs(String saveGameName, Map<String, Npc> npcs) { }
 	@Override public void saveNpcFactions(String saveGameName, Map<String, NpcFaction> npcFactions) { }
 	@Override public void saveMazeVariables(String saveGameName) { }
+	@Override public void saveMazeVariables(String saveGameName, Map<String, String> vars) { }
 	@Override public void saveItemCaches(String saveGameName, Map<String, Map<Point, List<Item>>> caches) { }
 	@Override public void savePlayerTilesVisited(String name, PlayerTilesVisited playerTilesVisited) { }
 	@Override public void saveConditions(String saveGameName, Map<ConditionBearer, List<Condition>> conditions) { }

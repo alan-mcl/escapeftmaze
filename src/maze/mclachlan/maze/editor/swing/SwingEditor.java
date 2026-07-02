@@ -87,6 +87,7 @@ public class SwingEditor extends JFrame implements WindowListener
 
 	private GuildPanel guildPanel;
 	private List<SaveGamePanel> saveGamePanels;
+	private int suppressSaveGameDirtyDepth;
 
 	/*-------------------------------------------------------------------------*/
 	public SwingEditor() throws Exception
@@ -177,11 +178,14 @@ public class SwingEditor extends JFrame implements WindowListener
 		List<String> saves = Database.getInstance().getLoader().getSaveGames();
 		for (String s : saves)
 		{
-			SaveGamePanel sgp = new SaveGamePanel(s);
-			addDynamicDataTab(s, sgp);
-			sgp.initForeignKeys();
-			sgp.refresh();
-			saveGamePanels.add(sgp);
+			runWithoutSaveGameDirty(() ->
+			{
+				SaveGamePanel sgp = new SaveGamePanel(s);
+				addDynamicDataTab(s, sgp);
+				sgp.initForeignKeys();
+				sgp.refresh();
+				saveGamePanels.add(sgp);
+			});
 		}
 
 		this.setJMenuBar(menuBar);
@@ -463,10 +467,33 @@ public class SwingEditor extends JFrame implements WindowListener
 		{
 			return;
 		}
+
+		if (tab == Tab.SAVE_GAMES && suppressSaveGameDirtyDepth > 0)
+		{
+			return;
+		}
 		
 		dirty.set(tab);
 
 		setDirtyStatusMessage();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Suppresses {@link Tab#SAVE_GAMES} dirty marking while programmatically
+	 * loading save-game panel state (init/refresh).
+	 */
+	public void runWithoutSaveGameDirty(Runnable action)
+	{
+		suppressSaveGameDirtyDepth++;
+		try
+		{
+			action.run();
+		}
+		finally
+		{
+			suppressSaveGameDirtyDepth--;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

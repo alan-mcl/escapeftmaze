@@ -132,6 +132,16 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
+		zone.removeActionListener(this);
+		facing.removeActionListener(this);
+		p1.removeActionListener(this);
+		p2.removeActionListener(this);
+		p3.removeActionListener(this);
+		p4.removeActionListener(this);
+		p5.removeActionListener(this);
+		p6.removeActionListener(this);
+		difficultyLevel.removeActionListener(this);
+
 		Vector<String> v1 = new Vector<String>(Database.getInstance().getZoneNames());
 		Collections.sort(v1);
 		zone.setModel(new DefaultComboBoxModel(v1));
@@ -159,6 +169,16 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 			Database.getInstance().getDifficultyLevels().keySet());
 		Collections.sort(difficultyLevels);
 		difficultyLevel.setModel(new DefaultComboBoxModel(difficultyLevels));
+
+		zone.addActionListener(this);
+		facing.addActionListener(this);
+		p1.addActionListener(this);
+		p2.addActionListener(this);
+		p3.addActionListener(this);
+		p4.addActionListener(this);
+		p5.addActionListener(this);
+		p6.addActionListener(this);
+		difficultyLevel.addActionListener(this);
 	}
 	
 	/*-------------------------------------------------------------------------*/

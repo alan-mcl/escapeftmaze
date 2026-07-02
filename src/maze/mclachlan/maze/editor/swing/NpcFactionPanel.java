@@ -29,7 +29,6 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.stat.npc.NpcFaction;
 
@@ -52,6 +51,7 @@ public class NpcFactionPanel extends JPanel implements ActionListener, ListSelec
 	public NpcFactionPanel(String saveGameName)
 	{
 		this.saveGameName = saveGameName;
+		this.dirtyFlag = SwingEditor.Tab.SAVE_GAMES;
 
 		names = new JList();
 
@@ -215,9 +215,9 @@ public class NpcFactionPanel extends JPanel implements ActionListener, ListSelec
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(NpcManager instance)
+	public void refresh(Map<String, NpcFaction> factions)
 	{
-		map = instance.getMap();
+		map = factions;
 
 		refreshNames(null);
 	}

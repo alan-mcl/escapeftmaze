@@ -364,7 +364,13 @@ public class V2Saver extends Saver
 	@Override
 	public void saveMazeVariables(String saveGameName) throws Exception
 	{
-		v2Crud(MazeVariables.getVars(), getSaveGamePath(saveGameName, MAZE_VARIABLES),
+		saveMazeVariables(saveGameName, MazeVariables.getVars());
+	}
+
+	@Override
+	public void saveMazeVariables(String saveGameName, Map<String, String> vars) throws Exception
+	{
+		v2Crud(vars, getSaveGamePath(saveGameName, MAZE_VARIABLES),
 			new MapSingletonSilo());
 	}
 

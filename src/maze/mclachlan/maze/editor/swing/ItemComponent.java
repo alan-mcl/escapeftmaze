@@ -143,13 +143,14 @@ public class ItemComponent extends JPanel implements ActionListener, ChangeListe
 	/*-------------------------------------------------------------------------*/
 	public Item getItem()
 	{
-		if (itemTemplate.getSelectedItem().equals(EditorPanel.NONE))
+		Object selected = itemTemplate.getSelectedItem();
+		if (selected == null || EditorPanel.NONE.equals(selected))
 		{
 			return null;
 		}
 		else
 		{
-			ItemTemplate template = Database.getInstance().getItemTemplate((String)itemTemplate.getSelectedItem());
+			ItemTemplate template = Database.getInstance().getItemTemplate((String)selected);
 			int cursed = cursedState.getSelectedIndex();
 			int id = identified.isSelected()?Item.IdentificationState.IDENTIFIED:Item.IdentificationState.UNIDENTIFIED;
 			int stackCur = (Integer)stack.getValue();

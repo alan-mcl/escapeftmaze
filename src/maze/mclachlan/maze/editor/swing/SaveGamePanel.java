@@ -26,17 +26,9 @@ import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
-import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.GameState;
-import mclachlan.maze.game.MazeVariables;
-import mclachlan.maze.game.PlayerTilesVisited;
-import mclachlan.maze.game.journal.JournalManager;
-import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.PlayerParty;
-import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.condition.ConditionManager;
-import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -46,8 +38,12 @@ public class SaveGamePanel extends JPanel
 {
 	private String saveGameName;
 	private GameStatePanel gameStatePanel;
+	private MazeVariablesPanel mazeVariablesPanel;
 	private SaveGamePlayerCharactersPanel saveGamePlayerCharacterPanel;
+	private SaveGameItemCachesPanel itemCachesPanel;
 	private NpcFactionPanel npcFactionPanel;
+	private SaveGameNpcPanel npcPanel;
+	private SaveGameJournalsPanel journalsPanel;
 
 	/*-------------------------------------------------------------------------*/
 	public SaveGamePanel(String saveGameName)
@@ -58,6 +54,7 @@ public class SaveGamePanel extends JPanel
 		JTabbedPane tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 		
 		tabs.add("Game State", getGameStatePanel());
+		tabs.add("Maze Variables", getMazeVariablesPanel());
 		tabs.add("Player Characters", getPlayerCharactersPanel());
 
 		// conditions currently configured at the various condition bearer
@@ -77,14 +74,19 @@ public class SaveGamePanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public Component getPlayerTilesVisitedPanel()
 	{
-		// todo (and remember to add to SwingEditor.addDynamicDataTab)
 		return new JLabel("todo");
+	}
+
+	private Component getMazeVariablesPanel()
+	{
+		mazeVariablesPanel = new MazeVariablesPanel();
+		return mazeVariablesPanel;
 	}
 
 	private Component getNpcPanel()
 	{
-		// todo (and remember to add to SwingEditor.addDynamicDataTab)
-		return new JLabel("todo");
+		npcPanel = new SaveGameNpcPanel();
+		return npcPanel;
 	}
 
 	private Component getNpcFactionsPanel()
@@ -95,8 +97,8 @@ public class SaveGamePanel extends JPanel
 
 	private Component getItemCachesPanel()
 	{
-		// todo (and remember to add to SwingEditor.addDynamicDataTab)
-		return new JLabel("todo");
+		itemCachesPanel = new SaveGameItemCachesPanel();
+		return itemCachesPanel;
 	}
 
 	private Component getPlayerCharactersPanel()
@@ -113,80 +115,63 @@ public class SaveGamePanel extends JPanel
 
 //	private Component getConditionsPanel()
 //	{
-//		todo (and remember to add to SwingEditor.addDynamicDataTab)
 //		return new JLabel("todo");
 //	}
 
 	private Component getJournalsPanel()
 	{
-		// todo (and remember to add to SwingEditor.addDynamicDataTab)
-		return new JLabel("todo");
+		journalsPanel = new SaveGameJournalsPanel();
+		return journalsPanel;
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
-		gameStatePanel.initForeignKeys();
+		SwingEditor.instance.runWithoutSaveGameDirty(() ->
+		{
+			gameStatePanel.initForeignKeys();
+			itemCachesPanel.initForeignKeys();
+			npcPanel.initForeignKeys();
+		});
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
-		try
+		SwingEditor.instance.runWithoutSaveGameDirty(() ->
 		{
-			// sync with mclachlan.maze.game.Maze.loadGame()
-
-			Loader loader = Database.getInstance().getLoader();
-
-			// load gamestate
-			GameState gs = loader.loadGameState(saveGameName);
-
-			// construct player party
-			Map<String, PlayerCharacter> playerCharacterCache = loader.loadPlayerCharacters(saveGameName);
-			java.util.List<UnifiedActor> list = new ArrayList<UnifiedActor>();
-			for (String s : gs.getPartyNames())
+			try
 			{
-				list.add(playerCharacterCache.get(s));
+				refreshImpl();
 			}
-			PlayerParty party = new PlayerParty(list);
+			catch (Exception e)
+			{
+				throw new MazeException(e);
+			}
+		});
+	}
 
-			// set difficulty level
-			DifficultyLevel difficultyLevel = gs.getDifficultyLevel();
+	/*-------------------------------------------------------------------------*/
+	private void refreshImpl() throws Exception
+	{
+		// sync with mclachlan.maze.game.Maze.loadGame()
 
-			// load tiles visited
-			PlayerTilesVisited playerTilesVisited = loader.loadPlayerTilesVisited(saveGameName);
+		Loader loader = Database.getInstance().getLoader();
 
-			// clear maze vars
-			MazeVariables.clearAll();
+		GameState gs = loader.loadGameState(saveGameName);
+		Map<String, PlayerCharacter> playerCharacterCache =
+			loader.loadPlayerCharacters(saveGameName);
 
-			// load NPCs
-			NpcManager.getInstance().loadGame(saveGameName, loader, playerCharacterCache);
+		ConditionManager.getInstance().loadGame(
+			saveGameName, loader, playerCharacterCache);
 
-			// load maze vars
-			loader.loadMazeVariables(saveGameName);
-
-			// load item caches
-			ItemCacheManager.getInstance().loadGame(saveGameName, loader, playerCharacterCache);
-
-			// init state
-			// no op
-
-			// load journals
-			JournalManager.getInstance().loadGame(saveGameName, loader);
-
-			// load conditions
-			// done last, so that conditions on tiles can be loaded after the zone has been loaded
-			ConditionManager.getInstance().loadGame(saveGameName, loader, playerCharacterCache);
-
-			// set the UI state
-			gameStatePanel.refresh(gs);
-			saveGamePlayerCharacterPanel.refresh(playerCharacterCache);
-			npcFactionPanel.refresh(NpcManager.getInstance());
-		}
-		catch (Exception e)
-		{
-			throw new MazeException(e);
-		}
+		gameStatePanel.refresh(gs);
+		mazeVariablesPanel.refresh(loader.loadMazeVariablesMap(saveGameName));
+		saveGamePlayerCharacterPanel.refresh(playerCharacterCache);
+		itemCachesPanel.refresh(loader.loadItemCaches(saveGameName));
+		npcFactionPanel.refresh(loader.loadNpcFactions(saveGameName));
+		npcPanel.refresh(loader.loadNpcs(saveGameName), playerCharacterCache.keySet());
+		journalsPanel.refresh(loader, saveGameName);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -197,11 +182,20 @@ public class SaveGamePanel extends JPanel
 		try
 		{
 			saveGamePlayerCharacterPanel.commit(null);
+			mazeVariablesPanel.commit(null);
+			itemCachesPanel.commit(null);
 			npcFactionPanel.commit(null);
+			npcPanel.commit(null);
+			journalsPanel.commit(null);
 
 			saver.saveGameState(saveGameName, gameStatePanel.getGameState());
-			saver.savePlayerCharacters(saveGameName, saveGamePlayerCharacterPanel.getPlayerCharacters());
+			saver.savePlayerCharacters(
+				saveGameName, saveGamePlayerCharacterPanel.getPlayerCharacters());
+			saver.saveMazeVariables(saveGameName, mazeVariablesPanel.getMazeVariables());
+			saver.saveItemCaches(saveGameName, itemCachesPanel.getCaches());
 			saver.saveNpcFactions(saveGameName, npcFactionPanel.getNpcFactions());
+			saver.saveNpcs(saveGameName, npcPanel.getNpcs());
+			journalsPanel.save(saveGameName, saver);
 			ConditionManager.getInstance().saveGame(saveGameName, saver);
 		}
 		catch (Exception e)

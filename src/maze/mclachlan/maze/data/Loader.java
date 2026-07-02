@@ -111,6 +111,7 @@ public abstract class Loader
 	public abstract Map<String, Npc> loadNpcs(String saveGameName) throws Exception;
 	public abstract Map<String, NpcFaction> loadNpcFactions(String saveGameName) throws Exception;
 	public abstract void loadMazeVariables(String saveGameName) throws Exception;
+	public abstract Map<String, String> loadMazeVariablesMap(String saveGameName) throws Exception;
 	public abstract Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception;
 	public abstract PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) throws Exception;
 	public abstract Map<ConditionBearer, List<Condition>> loadConditions(

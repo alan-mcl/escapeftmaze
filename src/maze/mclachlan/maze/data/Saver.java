@@ -92,6 +92,7 @@ public abstract class Saver
 	public abstract void saveNpcs(String saveGameName, Map<String, Npc> npcs) throws Exception;
 	public abstract void saveNpcFactions(String saveGameName, Map<String, NpcFaction> npcFactions) throws Exception;
 	public abstract void saveMazeVariables(String saveGameName) throws Exception;
+	public abstract void saveMazeVariables(String saveGameName, Map<String, String> vars) throws Exception;
 	public abstract void saveItemCaches(String saveGameName, Map<String, Map<Point, List<Item>>> caches) throws Exception;
 	public abstract void savePlayerTilesVisited(String name, PlayerTilesVisited playerTilesVisited) throws Exception;
 	public abstract void saveConditions(String saveGameName, Map<ConditionBearer, List<Condition>> conditions) throws Exception;

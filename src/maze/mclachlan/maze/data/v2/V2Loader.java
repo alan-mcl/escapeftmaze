@@ -519,12 +519,17 @@ public class V2Loader extends Loader
 	@Override
 	public void loadMazeVariables(String saveGameName) throws Exception
 	{
-		MazeVariables.getVars().clear();
+		MazeVariables.clearAll();
+		loadMazeVariablesMap(saveGameName).forEach(MazeVariables::set);
+	}
 
+	@Override
+	public Map<String, String> loadMazeVariablesMap(String saveGameName) throws Exception
+	{
 		Map<String, String> map = (Map<String, String>)v2Crud(
 			getSavePath() + saveGameName + "/" + MAZE_VARIABLES, new MapSingletonSilo());
 
-		map.forEach(MazeVariables::set);
+		return new HashMap<>(map);
 	}
 
 	@Override

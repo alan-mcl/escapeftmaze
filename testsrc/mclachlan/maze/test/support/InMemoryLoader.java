@@ -141,6 +141,7 @@ public class InMemoryLoader extends Loader
 	@Override public Map<String, Npc> loadNpcs(String saveGameName) { return new HashMap<>(); }
 	@Override public Map<String, NpcFaction> loadNpcFactions(String saveGameName) { return new HashMap<>(); }
 	@Override public void loadMazeVariables(String saveGameName) { }
+	@Override public Map<String, String> loadMazeVariablesMap(String saveGameName) { return new HashMap<>(); }
 	@Override public Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) { return new HashMap<>(); }
 	@Override public PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) { return new PlayerTilesVisited(new HashMap<>()); }
 	@Override public Map<ConditionBearer, List<Condition>> loadConditions(
