@@ -39,6 +39,8 @@ Zones are special: `MapEditor` / `ZonePanel` persist immediately via
 
 ## Notes
 
-- No undo stack; validation is ad-hoc. Be careful with destructive operations.
+- MapEditor supports undo/redo (scoped snapshots, Ctrl+Z / Ctrl+Y) for map geometry
+  and portal edits; history clears on Save To DB. Init Zone Script is not undoable.
+- Validation is ad-hoc. Be careful with destructive operations outside MapEditor.
 - `MapEditor` edits both the Crusader geometry and game-logic tiles via selection
   proxies (`SingleTileProxy`/`MultipleTileProxy`, etc.) - keep both layers in sync.

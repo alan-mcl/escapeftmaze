@@ -88,6 +88,6 @@ public class ToolsPanel extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		Tool tool = tools.get(e.getActionCommand());
-		tool.execute(editor, zone);
+		editor.executeTool(tool);
 	}
 }

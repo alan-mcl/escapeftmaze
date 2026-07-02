@@ -296,20 +296,31 @@ public class TileDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void edit(String label, Runnable mutation)
+	{
+		editor.performEdit(label, mutation, MapEditScope.forSelection(editor));
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void keyTyped(KeyEvent e)
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void keyReleased(KeyEvent e)
 	{
 		if (e.getSource() == terrainSubType)
 		{
 			if (tile != null)
 			{
-				tile.setTerrainSubType(terrainSubType.getText());
+				edit("Terrain sub type", () -> tile.setTerrainSubType(terrainSubType.getText()));
 			}
 		}
 		else if (e.getSource() == sector)
 		{
 			if (tile != null)
 			{
-				tile.setSector("".equals(sector.getText()) ? null : sector.getText());
+				edit("Map sector", () -> tile.setSector("".equals(sector.getText()) ? null : sector.getText()));
 			}
 		}
 	}
@@ -321,33 +332,27 @@ public class TileDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void keyReleased(KeyEvent e)
-	{
-		
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void stateChanged(ChangeEvent e)
 	{
 		if (e.getSource() == randomEncounterChance)
 		{
 			if (tile != null)
 			{
-				tile.setRandomEncounterChance((Integer)randomEncounterChance.getValue());
+				edit("Encounter chance", () -> tile.setRandomEncounterChance((Integer)randomEncounterChance.getValue()));
 			}
 		}
 		else if (e.getSource() == lightLevel)
 		{
 			if (tile != null)
 			{
-				tile.setLightLevel((Integer)lightLevel.getValue());
+				edit("Light level", () -> tile.setLightLevel((Integer)lightLevel.getValue()));
 			}
 		}
 		else if (e.getSource() == ceilingHeight)
 		{
 			if (tile != null)
 			{
-				tile.setCeilingHeight((Integer)ceilingHeight.getValue());
+				edit("Ceiling height", () -> tile.setCeilingHeight((Integer)ceilingHeight.getValue()));
 			}
 		}
 	}
@@ -359,94 +364,109 @@ public class TileDetailsPanel extends JPanel
 		{
 			if (tile != null)
 			{
-				String name = (String)randomEncounterTable.getSelectedItem();
-				tile.setRandomEncounters(Database.getInstance().getEncounterTable(name));
+				edit("Encounter table", () ->
+				{
+					String name = (String)randomEncounterTable.getSelectedItem();
+					tile.setRandomEncounters(Database.getInstance().getEncounterTable(name));
+				});
 			}
 		}
 		else if (e.getSource() == terrainType)
 		{
 			if (tile != null)
 			{
-				tile.setTerrainType((Tile.TerrainType)terrainType.getSelectedItem());
+				edit("Terrain type", () -> tile.setTerrainType((Tile.TerrainType)terrainType.getSelectedItem()));
 			}
 		}
 		else if (e.getSource() == restingDanger)
 		{
 			if (tile != null)
 			{
-				tile.setRestingDanger((Tile.RestingDanger)restingDanger.getSelectedItem());
+				edit("Resting danger", () -> tile.setRestingDanger((Tile.RestingDanger)restingDanger.getSelectedItem()));
 			}
 		}
 		else if (e.getSource() == restingEfficiency)
 		{
 			if (tile != null)
 			{
-				tile.setRestingEfficiency((Tile.RestingEfficiency)restingEfficiency.getSelectedItem());
+				edit("Resting efficiency", () -> tile.setRestingEfficiency((Tile.RestingEfficiency)restingEfficiency.getSelectedItem()));
 			}
 		}
 		else if (e.getSource() == floorTexture)
 		{
 			if (tile != null)
 			{
-				String name = (String)floorTexture.getSelectedItem();
-				if (!EditorPanel.NONE.equals(name))
+				edit("Floor texture", () ->
 				{
-					tile.setFloorTexture(Database.getInstance().getMazeTexture(name).getTexture());
-				}
-				else
-				{
-					tile.setFloorTexture(null);
-				}
+					String name = (String)floorTexture.getSelectedItem();
+					if (!EditorPanel.NONE.equals(name))
+					{
+						tile.setFloorTexture(Database.getInstance().getMazeTexture(name).getTexture());
+					}
+					else
+					{
+						tile.setFloorTexture(null);
+					}
+				});
 			}
 		}
 		else if (e.getSource() == floorMaskTexture)
 		{
 			if (tile != null)
 			{
-				String name = (String)floorMaskTexture.getSelectedItem();
-				if (!EditorPanel.NONE.equals(name))
+				edit("Floor mask texture", () ->
 				{
-					tile.setFloorMaskTexture(Database.getInstance().getMazeTexture(name).getTexture());
-				}
-				else
-				{
-					tile.setFloorMaskTexture(null);
-				}
+					String name = (String)floorMaskTexture.getSelectedItem();
+					if (!EditorPanel.NONE.equals(name))
+					{
+						tile.setFloorMaskTexture(Database.getInstance().getMazeTexture(name).getTexture());
+					}
+					else
+					{
+						tile.setFloorMaskTexture(null);
+					}
+				});
 			}
 		}
 		else if (e.getSource() == ceilingTexture)
 		{
 			if (tile != null)
 			{
-				String name = (String)ceilingTexture.getSelectedItem();
-				if (!EditorPanel.NONE.equals(name))
+				edit("Ceiling texture", () ->
 				{
-					tile.setCeilingTexture(Database.getInstance().getMazeTexture(name).getTexture());
-				}
-				else
-				{
-					tile.setCeilingTexture(null);
-				}
+					String name = (String)ceilingTexture.getSelectedItem();
+					if (!EditorPanel.NONE.equals(name))
+					{
+						tile.setCeilingTexture(Database.getInstance().getMazeTexture(name).getTexture());
+					}
+					else
+					{
+						tile.setCeilingTexture(null);
+					}
+				});
 			}
 		}
 		else if (e.getSource() == ceilingMaskTexture)
 		{
 			if (tile != null)
 			{
-				String name = (String)ceilingMaskTexture.getSelectedItem();
-				if (!EditorPanel.NONE.equals(name))
+				edit("Ceiling mask texture", () ->
 				{
-					tile.setCeilingMaskTexture(Database.getInstance().getMazeTexture(name).getTexture());
-				}
-				else
-				{
-					tile.setCeilingMaskTexture(null);
-				}
+					String name = (String)ceilingMaskTexture.getSelectedItem();
+					if (!EditorPanel.NONE.equals(name))
+					{
+						tile.setCeilingMaskTexture(Database.getInstance().getMazeTexture(name).getTexture());
+					}
+					else
+					{
+						tile.setCeilingMaskTexture(null);
+					}
+				});
 			}
 		}
 		else if (e.getSource() == placeObjectButton)
 		{
-			placeObject.execute(editor, zone);
+			editor.executeTool(placeObject);
 		}
 	}
 
@@ -455,7 +475,7 @@ public class TileDetailsPanel extends JPanel
 	{
 		if (component == statModifier)
 		{
-			tile.setStatModifier(statModifier.getModifier());
+			edit("Stat modifier", () -> tile.setStatModifier(statModifier.getModifier()));
 		}
 	}
 
@@ -464,27 +484,27 @@ public class TileDetailsPanel extends JPanel
 	{
 		if (component == tileScript)
 		{
-			tile.setScripts(tileScript.getScripts());
+			edit("Tile scripts", () -> tile.setScripts(tileScript.getScripts()));
 		}
 		else if (component == floorMouseClickScript)
 		{
-			tile.setFloorMouseClickScript(
-				new MouseClickScriptAdapter(floorMouseClickScript.getScript()));
+			edit("Floor click script", () -> tile.setFloorMouseClickScript(
+				new MouseClickScriptAdapter(floorMouseClickScript.getScript())));
 		}
 		else if (component == floorMaskTextureMouseClickScript)
 		{
-			tile.setFloorMaskTextureMouseClickScript(
-				new MouseClickScriptAdapter(floorMaskTextureMouseClickScript.getScript()));
+			edit("Floor mask click script", () -> tile.setFloorMaskTextureMouseClickScript(
+				new MouseClickScriptAdapter(floorMaskTextureMouseClickScript.getScript())));
 		}
 		else if (component == ceilingMouseClickScript)
 		{
-			tile.setCeilingMouseClickScript(
-				new MouseClickScriptAdapter(ceilingMouseClickScript.getScript()));
+			edit("Ceiling click script", () -> tile.setCeilingMouseClickScript(
+				new MouseClickScriptAdapter(ceilingMouseClickScript.getScript())));
 		}
 		else if (component == ceilingMaskTextureMouseClickScript)
 		{
-			tile.setCeilingMaskTextureMouseClickScript(
-				new MouseClickScriptAdapter(ceilingMaskTextureMouseClickScript.getScript()));
+			edit("Ceiling mask click script", () -> tile.setCeilingMaskTextureMouseClickScript(
+				new MouseClickScriptAdapter(ceilingMaskTextureMouseClickScript.getScript())));
 		}
 	}
 }

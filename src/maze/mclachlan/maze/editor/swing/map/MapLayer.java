@@ -65,13 +65,18 @@ public class MapLayer extends Layer
 
 				if (display.displayFeatures.get(MapDisplay.Display.TILES))
 				{
-					g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorTexture().getImages()[0], true), x1, y1, display);
+					Texture floorTexture = tiles[i].getFloorTexture();
+					if (hasDrawableImage(floorTexture))
+					{
+						g2d.drawImage(display.getFloorScaledImage(floorTexture.getImages()[0], true), x1, y1, display);
+					}
 				}
 				if (display.displayFeatures.get(MapDisplay.Display.TILE_MASK_TEXTURES))
 				{
-					if (tiles[i].getFloorMaskTexture() != null)
+					Texture floorMaskTexture = tiles[i].getFloorMaskTexture();
+					if (hasDrawableImage(floorMaskTexture))
 					{
-						g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorMaskTexture().getImages()[0], false), x1, y1, display);
+						g2d.drawImage(display.getFloorScaledImage(floorMaskTexture.getImages()[0], false), x1, y1, display);
 					}
 				}
 			}
@@ -126,7 +131,11 @@ public class MapLayer extends Layer
 	
 					if (wall.isVisible())
 					{
-						g2d.drawImage(display.getHorizScaledImage(wall.getTexture(0).getImages()[0]), x1, y1, display);
+						Texture texture = wall.getTexture(0);
+						if (hasDrawableImage(texture))
+						{
+							g2d.drawImage(display.getHorizScaledImage(texture.getImages()[0]), x1, y1, display);
+						}
 					}
 
 					if (display.displayFeatures.get(MapDisplay.Display.GRID) && (wall.isVisible() || wall.isSolid()))
@@ -160,7 +169,11 @@ public class MapLayer extends Layer
 				
 					if (wall.isVisible())
 					{
-						g2d.drawImage(display.getVertScaledImage(wall.getTexture(0).getImages()[0]), x1, y1, display);
+						Texture texture = wall.getTexture(0);
+						if (hasDrawableImage(texture))
+						{
+							g2d.drawImage(display.getVertScaledImage(texture.getImages()[0]), x1, y1, display);
+						}
 					}
 					if (display.displayFeatures.get(MapDisplay.Display.GRID)&& (wall.isVisible() || wall.isSolid()))
 					{
@@ -196,5 +209,14 @@ public class MapLayer extends Layer
 		g2d.fillOval(x, y, w, h);
 		g2d.setColor(Color.BLACK);
 		g2d.drawOval(x, y, w, h);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean hasDrawableImage(Texture texture)
+	{
+		return texture != null
+			&& texture != Map.NO_WALL
+			&& texture.getImages() != null
+			&& texture.getImages().length > 0;
 	}
 }

@@ -211,59 +211,72 @@ public class ObjectDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void edit(String label, Runnable mutation)
+	{
+		editor.performEdit(label, mutation, MapEditScope.forSelection(editor));
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == northTexture)
 		{
-			object.setNorthTexture(
-				Database.getInstance().getMazeTexture((String)northTexture.getSelectedItem()).getTexture());
+			edit("Object north texture", () -> object.setNorthTexture(
+				Database.getInstance().getMazeTexture((String)northTexture.getSelectedItem()).getTexture()));
 		}
 		else if (e.getSource() == southTexture)
 		{
-			object.setSouthTexture(
-				Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture());
+			edit("Object south texture", () -> object.setSouthTexture(
+				Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture()));
 		}
 		else if (e.getSource() == eastTexture)
 		{
-			object.setEastTexture(
-				Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture());
+			edit("Object east texture", () -> object.setEastTexture(
+				Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture()));
 		}
 		else if (e.getSource() == westTexture)
 		{
-			object.setWestTexture(
-				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
+			edit("Object west texture", () -> object.setWestTexture(
+				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture()));
 		}
 		else if (e.getSource() == verticalAlignment)
 		{
-			object.setVerticalAlignment((EngineObject.Alignment)verticalAlignment.getSelectedItem());
+			edit("Object alignment", () -> object.setVerticalAlignment(
+				(EngineObject.Alignment)verticalAlignment.getSelectedItem()));
 		}
 		else if (e.getSource() == isLightSource)
 		{
-			object.setLightSource(isLightSource.isSelected());
+			edit("Object light source", () -> object.setLightSource(isLightSource.isSelected()));
 		}
 		else if (e.getSource() == quickObjectTexture)
 		{
-			southTexture.setSelectedItem(northTexture.getSelectedItem());
-			eastTexture.setSelectedItem(northTexture.getSelectedItem());
-			westTexture.setSelectedItem(northTexture.getSelectedItem());
+			edit("Object textures", () ->
+			{
+				southTexture.setSelectedItem(northTexture.getSelectedItem());
+				eastTexture.setSelectedItem(northTexture.getSelectedItem());
+				westTexture.setSelectedItem(northTexture.getSelectedItem());
 
-			object.setSouthTexture(
-				Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture());
-			object.setEastTexture(
-				Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture());
-			object.setWestTexture(
-				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
+				object.setSouthTexture(
+					Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture());
+				object.setEastTexture(
+					Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture());
+				object.setWestTexture(
+					Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
+			});
 		}
 		else if (e.getSource() == objectName)
 		{
-			if (objectName.getText().length() > 0)
+			edit("Object name", () ->
 			{
-				object.setName(objectName.getText());
-			}
-			else
-			{
-				object.setName(null);
-			}
+				if (objectName.getText().length() > 0)
+				{
+					object.setName(objectName.getText());
+				}
+				else
+				{
+					object.setName(null);
+				}
+			});
 		}
 	}
 
@@ -272,8 +285,8 @@ public class ObjectDetailsPanel extends JPanel
 	{
 		if (component == mouseClickScript)
 		{
-			object.setMouseClickScript(
-				new MouseClickScriptAdapter(mouseClickScript.getScript()));
+			edit("Object click script", () -> object.setMouseClickScript(
+				new MouseClickScriptAdapter(mouseClickScript.getScript())));
 		}
 	}
 
@@ -283,29 +296,33 @@ public class ObjectDetailsPanel extends JPanel
 	{
 		if (e.getSource() == xPos)
 		{
-			object.setXPos((Integer)xPos.getValue());
-			editor.display.repaint();
-
-			for (Object oo : editor.getSelection())
+			edit("Object X position", () ->
 			{
-				if (oo instanceof EngineObject)
+				object.setXPos((Integer)xPos.getValue());
+
+				for (Object oo : editor.getSelection())
 				{
-					editor.getMap().initObjectFromXY((EngineObject)oo);
+					if (oo instanceof EngineObject)
+					{
+						editor.getMap().initObjectFromXY((EngineObject)oo);
+					}
 				}
-			}
+			});
 		}
 		else if (e.getSource() == yPos)
 		{
-			object.setYPos((Integer)yPos.getValue());
-			editor.display.repaint();
-
-			for (Object oo : editor.getSelection())
+			edit("Object Y position", () ->
 			{
-				if (oo instanceof EngineObject)
+				object.setYPos((Integer)yPos.getValue());
+
+				for (Object oo : editor.getSelection())
 				{
-					editor.getMap().initObjectFromXY((EngineObject)oo);
+					if (oo instanceof EngineObject)
+					{
+						editor.getMap().initObjectFromXY((EngineObject)oo);
+					}
 				}
-			}
+			});
 		}
 	}
 }

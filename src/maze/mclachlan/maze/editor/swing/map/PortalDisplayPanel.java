@@ -45,7 +45,7 @@ public class PortalDisplayPanel extends JPanel implements ActionListener
 
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Portal Details --- "), BorderLayout.NORTH);
-		details = new PortalDetailsPanel(zone);
+		details = new PortalDetailsPanel(zone, editor);
 		add(details, BorderLayout.CENTER);
 		
 		JPanel buttonPanel = new JPanel();
@@ -67,8 +67,11 @@ public class PortalDisplayPanel extends JPanel implements ActionListener
 	{
 		if (e.getSource() == delete)
 		{
-			zone.removePortal(portal);
-			editor.clearSelection();
+			editor.performEdit("Delete portal", () ->
+			{
+				zone.removePortal(portal);
+				editor.clearSelection();
+			}, MapEditScope.forPortals());
 		}
 	}
 }

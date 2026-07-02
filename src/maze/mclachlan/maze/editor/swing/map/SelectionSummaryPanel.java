@@ -177,27 +177,31 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 				mazeScript = null;
 			}
 
-			zone.addPortal(new Portal(
-				"",
-				Portal.State.UNLOCKED,
-				from,
-				CrusaderEngine.Facing.NORTH,
-				to,
-				CrusaderEngine.Facing.NORTH,
-				true,
-				true,
-				true,
-				true,
-				5,
-				0,
-				new int[8],
-				new BitSet(),
-				null, 
-				true,
-				mazeScript,
-				null));
-			
-			editor.refreshSelectionSummary();
+			final String scriptName = mazeScript;
+			editor.performEdit("Add portal", () ->
+			{
+				zone.addPortal(new Portal(
+					"",
+					Portal.State.UNLOCKED,
+					from,
+					CrusaderEngine.Facing.NORTH,
+					to,
+					CrusaderEngine.Facing.NORTH,
+					true,
+					true,
+					true,
+					true,
+					5,
+					0,
+					new int[8],
+					new BitSet(),
+					null,
+					true,
+					scriptName,
+					null));
+
+				editor.refreshSelectionSummary();
+			}, MapEditScope.forPortals());
 		}
 	}
 

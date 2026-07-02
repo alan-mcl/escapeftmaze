@@ -41,6 +41,7 @@ public class PortalDetailsPanel extends JPanel
 {
 	private Portal portal;
 	private Zone zone;
+	private MapEditor editor;
 
 	// portal properties
 	private JTextField mazeVariable;
@@ -66,9 +67,10 @@ public class PortalDetailsPanel extends JPanel
 		};
 
 	/*-------------------------------------------------------------------------*/
-	public PortalDetailsPanel(Zone zone)
+	public PortalDetailsPanel(Zone zone, MapEditor editor)
 	{
 		this.zone = zone;
+		this.editor = editor;
 
 		JPanel content = new JPanel();
 		content.setLayout(new GridBagLayout());
@@ -291,66 +293,78 @@ public class PortalDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void edit(String label, Runnable mutation)
+	{
+		editor.performEdit(label, mutation, MapEditScope.forPortals());
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
 		Object obj = e.getSource();
 		if (obj == twoWay)
 		{
-			portal.setTwoWay(twoWay.isSelected());
+			edit("Portal two way", () -> portal.setTwoWay(twoWay.isSelected()));
 		}
 		else if (obj == initialState)
 		{
-			portal.setInitialState((String)initialState.getSelectedItem());
+			edit("Portal initial state", () -> portal.setInitialState((String)initialState.getSelectedItem()));
 		}
 		else if (obj == stateChangeScript)
 		{
-			portal.setStateChangeScript(stateChangeScript.getScript());
+			edit("Portal state change script", () -> portal.setStateChangeScript(stateChangeScript.getScript()));
 		}
 		else if (obj == fromFacing)
 		{
-			portal.setFromFacing(fromFacing.getSelectedIndex()+1);
+			edit("Portal from facing", () -> portal.setFromFacing(fromFacing.getSelectedIndex()+1));
 		}
 		else if (obj == toFacing)
 		{
-			portal.setToFacing(toFacing.getSelectedIndex()+1);
+			edit("Portal to facing", () -> portal.setToFacing(toFacing.getSelectedIndex()+1));
 		}
 		else if (obj == canPick)
 		{
-			portal.setCanPick(canPick.isSelected());
+			edit("Portal can pick", () -> portal.setCanPick(canPick.isSelected()));
 		}
 		else if (obj == canForce)
 		{
-			portal.setCanForce(canForce.isSelected());
+			edit("Portal can force", () -> portal.setCanForce(canForce.isSelected()));
 		}
 		else if (obj == canSpellPick)
 		{
-			portal.setCanSpellPick(canSpellPick.isSelected());
+			edit("Portal can spell pick", () -> portal.setCanSpellPick(canSpellPick.isSelected()));
 		}
 		else if (obj == keyItem)
 		{
-			if (keyItem.getSelectedItem().equals(EditorPanel.NONE))
+			edit("Portal key item", () ->
 			{
-				portal.setKeyItem(null);
-			}
-			else
-			{
-				portal.setKeyItem((String)keyItem.getSelectedItem());
-			}
+				if (keyItem.getSelectedItem().equals(EditorPanel.NONE))
+				{
+					portal.setKeyItem(null);
+				}
+				else
+				{
+					portal.setKeyItem((String)keyItem.getSelectedItem());
+				}
+			});
 		}
 		else if (obj == consumeKey)
 		{
-			portal.setConsumeKeyItem(consumeKey.isSelected());
+			edit("Portal consume key", () -> portal.setConsumeKeyItem(consumeKey.isSelected()));
 		}
 		else if (obj == mazeScript)
 		{
-			if (mazeScript.getSelectedItem().equals(EditorPanel.NONE))
+			edit("Portal maze script", () ->
 			{
-				portal.setMazeScript(null);
-			}
-			else
-			{
-				portal.setMazeScript((String)mazeScript.getSelectedItem());
-			}
+				if (mazeScript.getSelectedItem().equals(EditorPanel.NONE))
+				{
+					portal.setMazeScript(null);
+				}
+				else
+				{
+					portal.setMazeScript((String)mazeScript.getSelectedItem());
+				}
+			});
 		}
 		else if (obj == quickAssignMazeVar)
 		{
@@ -358,32 +372,33 @@ public class PortalDetailsPanel extends JPanel
 			{
 				return;
 			}
-			
-			Set<String> existingPortalMazeVars = new HashSet<String>();
-			
-			// collect all existing encounter maze vars
-			for (Portal p : zone.getPortals())
+
+			edit("Portal maze variable", () ->
 			{
-				if (p.getMazeVariable() != null)
+				Set<String> existingPortalMazeVars = new HashSet<String>();
+
+				for (Portal p : zone.getPortals())
 				{
-					existingPortalMazeVars.add(p.getMazeVariable());
+					if (p.getMazeVariable() != null)
+					{
+						existingPortalMazeVars.add(p.getMazeVariable());
+					}
 				}
-			}
-			
-			// iterate over our template string and take the first available one
-			String zoneName = zone.getName().toLowerCase();
-			zoneName = zoneName.replaceAll("\\s", ".");
-			int count = 0;
-			while (true)
-			{
-				String s = zoneName + ".portal." + count++;
-				if (!existingPortalMazeVars.contains(s))
+
+				String zoneName = zone.getName().toLowerCase();
+				zoneName = zoneName.replaceAll("\\s", ".");
+				int count = 0;
+				while (true)
 				{
-					mazeVariable.setText(s);
-					portal.setMazeVariable(s);
-					break;
+					String s = zoneName + ".portal." + count++;
+					if (!existingPortalMazeVars.contains(s))
+					{
+						mazeVariable.setText(s);
+						portal.setMazeVariable(s);
+						break;
+					}
 				}
-			}
+			});
 		}
 	}
 
@@ -392,22 +407,27 @@ public class PortalDetailsPanel extends JPanel
 	{
 		if (e.getSource() == hitPointCostToForce)
 		{
-			portal.setHitPointCostToForce((Integer)hitPointCostToForce.getValue());
+			edit("Portal HP cost to force", () -> portal.setHitPointCostToForce((Integer)hitPointCostToForce.getValue()));
 		}
 		else if (e.getSource() == resistForce)
 		{
-			portal.setResistForce((Integer)resistForce.getValue());
+			edit("Portal resist force", () -> portal.setResistForce((Integer)resistForce.getValue()));
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void keyTyped(KeyEvent e)
 	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void keyReleased(KeyEvent e)
+	{
 		if (e.getSource() == mazeVariable)
 		{
 			if (portal != null)
 			{
-				portal.setMazeVariable(mazeVariable.getText());
+				edit("Portal maze variable", () -> portal.setMazeVariable(mazeVariable.getText()));
 			}
 		}
 	}
@@ -418,19 +438,17 @@ public class PortalDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void keyReleased(KeyEvent e)
-	{
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void thiefToolsChanged(ThiefToolsPanel component)
 	{
 		if (component == difficulty)
 		{
 			if (portal != null)
 			{
-				portal.setDifficulty(difficulty.getDifficulties());
-				portal.setRequired(difficulty.getRequired());
+				edit("Portal thief tools", () ->
+				{
+					portal.setDifficulty(difficulty.getDifficulties());
+					portal.setRequired(difficulty.getRequired());
+				});
 			}
 		}
 	}
@@ -438,6 +456,7 @@ public class PortalDetailsPanel extends JPanel
 	@Override
 	public void tileScriptChanged(Component component)
 	{
-		portal.setStateChangeScript(((SingleTileScriptComponent)component).getScript());
+		edit("Portal state change script", () -> portal.setStateChangeScript(
+			((SingleTileScriptComponent)component).getScript()));
 	}
 }

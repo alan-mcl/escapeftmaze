@@ -20,11 +20,8 @@
 package mclachlan.maze.editor.swing.map;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.MouseClickScript;
-import mclachlan.crusader.Texture;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.map.Zone;
@@ -56,8 +53,8 @@ public class MapSelectionPaster
 
 			Tile destCrusaderTile = map.getTiles()[y * width + x];
 			mclachlan.maze.map.Tile destMazeTile = zone.getTiles()[x][y];
-			applyCrusaderTile(destCrusaderTile, entry.crusaderTile);
-			applyMazeTile(destMazeTile, entry.mazeTile);
+			MapElementApplier.applyCrusaderTile(destCrusaderTile, entry.crusaderTile);
+			MapElementApplier.applyMazeTile(destMazeTile, entry.mazeTile);
 			pasted.add(destCrusaderTile);
 		}
 
@@ -71,7 +68,7 @@ public class MapSelectionPaster
 			}
 
 			Wall destWall = getWallAt(map, x, y, entry.side);
-			applyWall(destWall, entry.wall);
+			MapElementApplier.applyWall(destWall, entry.wall);
 			pasted.add(destWall);
 		}
 
@@ -128,69 +125,5 @@ public class MapSelectionPaster
 			default:
 				throw new IllegalStateException("Unknown wall side "+side);
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static void applyCrusaderTile(Tile dest, Tile src)
-	{
-		Tile copy = MapElementCloner.cloneCrusaderTile(src);
-		dest.setFloorTexture(copy.getFloorTexture());
-		dest.setFloorMaskTexture(copy.getFloorMaskTexture());
-		dest.setCeilingTexture(copy.getCeilingTexture());
-		dest.setCeilingMaskTexture(copy.getCeilingMaskTexture());
-		dest.setLightLevel(copy.getLightLevel());
-		dest.setCeilingHeight(copy.getCeilingHeight());
-		dest.setFloorMouseClickScript(copy.getFloorMouseClickScript());
-		dest.setFloorMaskTextureMouseClickScript(copy.getFloorMaskTextureMouseClickScript());
-		dest.setCeilingMouseClickScript(copy.getCeilingMouseClickScript());
-		dest.setCeilingMaskTextureMouseClickScript(copy.getCeilingMaskTextureMouseClickScript());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static void applyMazeTile(
-		mclachlan.maze.map.Tile dest,
-		mclachlan.maze.map.Tile src)
-	{
-		mclachlan.maze.map.Tile copy = MapElementCloner.cloneMazeTile(src);
-		dest.setStatModifier(copy.getStatModifier());
-		dest.setTerrainSubType(copy.getTerrainSubType());
-		dest.setTerrainType(copy.getTerrainType());
-		dest.setRandomEncounterChance(copy.getRandomEncounterChance());
-		dest.setRandomEncounters(copy.getRandomEncounters());
-		dest.setScripts(copy.getScripts());
-		dest.setRestingDanger(copy.getRestingDanger());
-		dest.setRestingEfficiency(copy.getRestingEfficiency());
-		dest.setSector(copy.getSector());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static void applyWall(Wall dest, Wall src)
-	{
-		Wall copy = MapElementCloner.cloneWall(src);
-		dest.setVisible(copy.isVisible());
-		dest.setSolid(copy.isSolid());
-		dest.setHeight(copy.getHeight());
-		dest.setTextures(copyTextureArray(copy.getTextures()));
-		dest.setMaskTextures(copyTextureArray(copy.getMaskTextures()));
-		dest.setMouseClickScript(copyScript(copy.getMouseClickScript()));
-		dest.setMaskTextureMouseClickScript(copyScript(copy.getMaskTextureMouseClickScript()));
-		dest.setInternalScript(copyScript(copy.getInternalScript()));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static Texture[] copyTextureArray(Texture[] textures)
-	{
-		if (textures == null)
-		{
-			return null;
-		}
-
-		return Arrays.copyOf(textures, textures.length);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static MouseClickScript copyScript(MouseClickScript script)
-	{
-		return MapElementCloner.cloneMouseClickScript(script);
 	}
 }

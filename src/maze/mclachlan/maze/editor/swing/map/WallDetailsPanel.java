@@ -51,10 +51,12 @@ public class WallDetailsPanel extends JPanel
 	// the wall being edited
 	private WallProxy wall;
 	private final Zone zone;
+	private final MapEditor editor;
 
 	/*-------------------------------------------------------------------------*/
-	public WallDetailsPanel(boolean multiSelect, Zone zone)
+	public WallDetailsPanel(boolean multiSelect, Zone zone, MapEditor editor)
 	{
+		this.editor = editor;
 		setLayout(new GridBagLayout());
 
 		this.zone = zone;
@@ -192,21 +194,30 @@ public class WallDetailsPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void edit(String label, Runnable mutation)
+	{
+		editor.performEdit(label, mutation, MapEditScope.forSelection(editor));
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == isVisible)
 		{
 			if (wall != null)
 			{
-				wall.setVisible(isVisible.isSelected());
+				edit("Wall visible", () ->
+				{
+					wall.setVisible(isVisible.isSelected());
+					setVisibleState(isVisible.isSelected());
+				});
 			}
-			setVisibleState(isVisible.isSelected());
 		}
 		else if (e.getSource() == isSolid)
 		{
 			if (wall != null)
 			{
-				wall.setSolid(isSolid.isSelected());
+				edit("Wall solid", () -> wall.setSolid(isSolid.isSelected()));
 			}
 		}
 	}
@@ -216,17 +227,18 @@ public class WallDetailsPanel extends JPanel
 	{
 		if (component == mouseClickScript)
 		{
-			wall.setMouseClickScript(
-				new MouseClickScriptAdapter(mouseClickScript.getScript()));
+			edit("Wall click script", () -> wall.setMouseClickScript(
+				new MouseClickScriptAdapter(mouseClickScript.getScript())));
 		}
 		else if (component == maskTextureMouseClickScript)
 		{
-			wall.setMaskTextureMouseClickScript(
-				new MouseClickScriptAdapter(maskTextureMouseClickScript.getScript()));
+			edit("Wall mask script", () -> wall.setMaskTextureMouseClickScript(
+				new MouseClickScriptAdapter(maskTextureMouseClickScript.getScript())));
 		}
 		else if (component == internalScript)
 		{
-			wall.setInternalScript(new MouseClickScriptAdapter(internalScript.getScript()));
+			edit("Wall internal script", () -> wall.setInternalScript(
+				new MouseClickScriptAdapter(internalScript.getScript())));
 		}
 	}
 
@@ -238,13 +250,13 @@ public class WallDetailsPanel extends JPanel
 		{
 			if (wall != null)
 			{
-				wall.setHeight((Integer)height.getValue());
+				edit("Wall height", () -> wall.setHeight((Integer)height.getValue()));
 			}
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static class TexturesPanel extends JPanel implements ActionListener
+	private class TexturesPanel extends JPanel implements ActionListener
 	{
 		private static final int MAX = 9;
 		private final java.util.List<JComboBox<String>> textures, maskTextures;
@@ -310,37 +322,38 @@ public class WallDetailsPanel extends JPanel
 		{
 			if (this.wall != null)
 			{
-				List<Texture> texturesResult, maskTexturesResult;
-
-				texturesResult = new ArrayList<>();
-				maskTexturesResult = new ArrayList<>();
-
-				// wall textures
-				for (JComboBox<String> cb : textures)
+				edit("Wall textures", () ->
 				{
-					if (cb.getSelectedItem() != EditorPanel.NONE)
+					List<Texture> texturesResult, maskTexturesResult;
+
+					texturesResult = new ArrayList<>();
+					maskTexturesResult = new ArrayList<>();
+
+					for (JComboBox<String> cb : textures)
 					{
-						texturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+						if (cb.getSelectedItem() != EditorPanel.NONE)
+						{
+							texturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+						}
 					}
-				}
-				this.wall.setTextures(texturesResult.toArray(new Texture[0]));
+					this.wall.setTextures(texturesResult.toArray(new Texture[0]));
 
-				// mask textures
-				for (JComboBox<String> cb : maskTextures)
-				{
-					if (cb.getSelectedItem() != EditorPanel.NONE)
+					for (JComboBox<String> cb : maskTextures)
 					{
-						maskTexturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+						if (cb.getSelectedItem() != EditorPanel.NONE)
+						{
+							maskTexturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+						}
 					}
-				}
-				if (maskTexturesResult.size() > 0)
-				{
-					this.wall.setMaskTextures(maskTexturesResult.toArray(new Texture[0]));
-				}
-				else
-				{
-					this.wall.setMaskTextures(null);
-				}
+					if (maskTexturesResult.size() > 0)
+					{
+						this.wall.setMaskTextures(maskTexturesResult.toArray(new Texture[0]));
+					}
+					else
+					{
+						this.wall.setMaskTextures(null);
+					}
+				});
 			}
 		}
 

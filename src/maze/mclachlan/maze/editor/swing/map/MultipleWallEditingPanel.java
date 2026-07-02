@@ -34,11 +34,11 @@ public class MultipleWallEditingPanel extends JPanel
 	private final WallDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
-	public MultipleWallEditingPanel(Zone zone)
+	public MultipleWallEditingPanel(Zone zone, MapEditor editor)
 	{
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Edit Multiple Walls --- "), BorderLayout.NORTH);
-		details = new WallDetailsPanel(true, zone);
+		details = new WallDetailsPanel(true, zone, editor);
 		add(details, BorderLayout.CENTER);
 	}
 

@@ -32,11 +32,11 @@ public class WallDisplayPanel extends JPanel
 	private WallDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
-	public WallDisplayPanel(Zone zone)
+	public WallDisplayPanel(Zone zone, MapEditor editor)
 	{
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Wall Details --- "), BorderLayout.NORTH);
-		details = new WallDetailsPanel(false, zone);
+		details = new WallDetailsPanel(false, zone, editor);
 		add(details, BorderLayout.CENTER);
 	}
 

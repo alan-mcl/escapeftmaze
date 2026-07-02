@@ -32,6 +32,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
+import mclachlan.maze.editor.swing.SwingEditor;
 import mclachlan.maze.editor.swing.ZonePanel;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Portal;
@@ -44,7 +45,7 @@ import mclachlan.maze.util.MazeException;
 public class MapEditor extends JPanel implements ActionListener, MouseListener, MouseMotionListener
 {
 	MapDisplay display;
-	JButton save, cancel, zoomIn, zoomOut;
+	JButton save, cancel, undo, redo, zoomIn, zoomOut;
 	Zone zone;
 	Map<JCheckBox, Integer> displayFeatureBoxes = new HashMap<>();
 	Map<JCheckBox, Integer> selectionFeatureBoxes = new HashMap<>();
@@ -73,6 +74,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	private Map<String, Tool> selectionTools = new HashMap<>();
 	private MapSelectionClipboard clipboard;
 	private boolean pasteMode;
+	private final MapEditHistory editHistory = new MapEditHistory();
+	private boolean recordingEdit;
 
 	/*-------------------------------------------------------------------------*/
 	public MapEditor(Zone zone, JDialog dialog, ZonePanel panel)
@@ -98,11 +101,21 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 		save = new JButton("Save To DB");
 		save.addActionListener(this);
+
+		undo = new JButton("Undo");
+		undo.addActionListener(this);
+		undo.setEnabled(false);
+
+		redo = new JButton("Redo");
+		redo.addActionListener(this);
+		redo.setEnabled(false);
 		
 		cancel = new JButton("Exit");
 		cancel.addActionListener(this);
 		
 		JPanel bottom = new JPanel();
+		bottom.add(undo);
+		bottom.add(redo);
 		bottom.add(save);
 		bottom.add(cancel);
 		this.add(bottom, BorderLayout.SOUTH);
@@ -119,6 +132,9 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK), "copySelection");
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK), "pasteSelection");
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelPaste");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK), "undoEdit");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, InputEvent.CTRL_DOWN_MASK), "redoEdit");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK), "redoEdit");
 
 		actionMap.put("copySelection", new AbstractAction()
 		{
@@ -142,6 +158,22 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 			public void actionPerformed(ActionEvent e)
 			{
 				cancelPasteMode();
+			}
+		});
+		actionMap.put("undoEdit", new AbstractAction()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				undo();
+			}
+		});
+		actionMap.put("redoEdit", new AbstractAction()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				redo();
 			}
 		});
 	}
@@ -173,12 +205,12 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		JComponent noSelection = new JPanel(new BorderLayout());
 		noSelection.add(new JLabel("no selection"), BorderLayout.NORTH);
 		tileDisplayPanel = new TileDisplayPanel(zone, this);
-		wallDisplayPanel = new WallDisplayPanel(zone);
+		wallDisplayPanel = new WallDisplayPanel(zone, this);
 		objectDisplayPanel = new ObjectDisplayPanel(this, zone);
 		portalDisplayPanel = new PortalDisplayPanel(zone, this);
 		selectionSummaryPanel = new SelectionSummaryPanel(display, this, zone);
 		multipleTileEditingPanel = new MultipleTileEditingPanel(zone, this);
-		multipleWallEditingPanel = new MultipleWallEditingPanel(zone);
+		multipleWallEditingPanel = new MultipleWallEditingPanel(zone, this);
 		multipleObjectEditingPanel = new MultipleObjectEditingPanel(this, zone);
 		
 		selectionCards.add(noSelection, NO_SELECTION);
@@ -282,11 +314,21 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 				{
 					panel.zoneWasSaved(zone);
 				}
+				editHistory.clear();
+				updateUndoRedoButtons();
 			}
 			catch (Exception x)
 			{
 				throw new MazeException(x);
 			}
+		}
+		else if (e.getSource() == undo)
+		{
+			undo();
+		}
+		else if (e.getSource() == redo)
+		{
+			redo();
 		}
 		else if (e.getSource() == cancel)
 		{
@@ -326,7 +368,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 			if (tool != null)
 			{
-				tool.execute(this, zone);
+				executeTool(tool);
 			}
 		}
 	}
@@ -695,16 +737,200 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		int destX = index % width;
 		int destY = index / width;
 
-		List<Object> pasted = MapSelectionPaster.paste(clipboard, zone, destX, destY);
-		pasteMode = false;
-		display.repaint();
-		refreshClipboardStatus();
+		MapEditScope scope = MapEditScope.forPasteFootprint(
+			clipboard, destX, destY, width, zone.getLength());
 
-		if (!pasted.isEmpty())
+		performEdit("Paste", () ->
 		{
-			setSelection(pasted);
-			refreshSelectionSummary();
+			List<Object> pasted = MapSelectionPaster.paste(clipboard, zone, destX, destY);
+			pasteMode = false;
+			refreshClipboardStatus();
+
+			if (!pasted.isEmpty())
+			{
+				setSelection(pasted);
+				refreshSelectionSummary();
+			}
+		}, scope);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Zone getZone()
+	{
+		return zone;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void performEdit(String label, Runnable mutation, MapEditScope scope)
+	{
+		if (recordingEdit)
+		{
+			mutation.run();
+			return;
 		}
+
+		MapZoneSnapshot before = MapZoneSnapshot.capture(zone, scope, this);
+		mutation.run();
+		MapZoneSnapshot after = MapZoneSnapshot.capture(zone, scope, this);
+		if (!before.sameContentAs(after))
+		{
+			editHistory.record(label, before, after);
+			markZoneDirty();
+			updateUndoRedoButtons();
+			refreshAfterEdit();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void undo()
+	{
+		MapZoneSnapshot snapshot = editHistory.undo();
+		if (snapshot == null)
+		{
+			return;
+		}
+
+		applySnapshot(snapshot);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void redo()
+	{
+		MapZoneSnapshot snapshot = editHistory.redo();
+		if (snapshot == null)
+		{
+			return;
+		}
+
+		applySnapshot(snapshot);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void applySnapshot(MapZoneSnapshot snapshot)
+	{
+		recordingEdit = true;
+		try
+		{
+			snapshot.apply(zone);
+		}
+		finally
+		{
+			recordingEdit = false;
+		}
+
+		markZoneDirty();
+		updateUndoRedoButtons();
+		refreshAfterEdit();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refreshAfterEdit()
+	{
+		List<Object> selection = getSelection();
+		display.repaint();
+
+		if (selection == null || selection.isEmpty())
+		{
+			selectionCardLayout.show(selectionCards, NO_SELECTION);
+			return;
+		}
+
+		if (selection.size() > 1)
+		{
+			refreshSelectionSummary();
+			return;
+		}
+
+		Object obj = selection.get(0);
+		if (obj instanceof EngineObject)
+		{
+			objectDisplayPanel.setObject((EngineObject)obj);
+			selectionCardLayout.show(selectionCards, OBJECT_SELECTED);
+		}
+		else if (obj instanceof Tile)
+		{
+			tileDisplayPanel.setTile((Tile)obj);
+			selectionCardLayout.show(selectionCards, TILE_SELECTED);
+		}
+		else if (obj instanceof Wall)
+		{
+			int index = -1;
+			boolean isHoriz = false;
+			for (int i = 0; i < zone.getMap().getHorizontalWalls().length; i++)
+			{
+				if (zone.getMap().getHorizontalWalls()[i] == obj)
+				{
+					index = i;
+					isHoriz = true;
+				}
+			}
+			if (index == -1)
+			{
+				isHoriz = false;
+				for (int i = 0; i < zone.getMap().getVerticalWalls().length; i++)
+				{
+					if (zone.getMap().getVerticalWalls()[i] == obj)
+					{
+						index = i;
+					}
+				}
+			}
+			wallDisplayPanel.setWall((Wall)obj, index, isHoriz);
+			selectionCardLayout.show(selectionCards, WALL_SELECTED);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void executeTool(Tool tool)
+	{
+		if (isNonMutatingTool(tool))
+		{
+			tool.execute(this, zone);
+			return;
+		}
+
+		if (tool instanceof RunZoneScript)
+		{
+			tool.execute(this, zone);
+			return;
+		}
+
+		MapEditScope scope = tool instanceof AddMapScripts
+			? MapEditScope.forMapScripts()
+			: MapEditScope.forSelection(this);
+
+		performEdit(tool.getName(), () -> tool.execute(this, zone), scope);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean isNonMutatingTool(Tool tool)
+	{
+		return tool instanceof RouteFinder
+			|| tool instanceof InvertSelection
+			|| tool instanceof CopyMapSelection
+			|| tool instanceof PasteMapSelection;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void markZoneDirty()
+	{
+		if (SwingEditor.instance != null)
+		{
+			SwingEditor.instance.setDirty(SwingEditor.Tab.ZONES);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void updateUndoRedoButtons()
+	{
+		undo.setEnabled(editHistory.canUndo());
+		redo.setEnabled(editHistory.canRedo());
+
+		String undoLabel = editHistory.getUndoLabel();
+		undo.setToolTipText(undoLabel == null ? null : "Undo: "+undoLabel);
+
+		String redoLabel = editHistory.getRedoLabel();
+		redo.setToolTipText(redoLabel == null ? null : "Redo: "+redoLabel);
 	}
 
 	/*-------------------------------------------------------------------------*/
