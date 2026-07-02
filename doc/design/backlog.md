@@ -82,6 +82,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |
 | P2-14 | editor | Undo/redo | No `UndoManager` anywhere in the editor; destructive ops are unrecoverable. (code) | L | todo |
 | P2-15 | editor | Validation framework | Validation is ad-hoc; add consistent pre-save validation. (code) | M | todo |
+| P2-16 | editor | Map editor copy/paste | Copy/paste selected tiles (Crusader + maze layers), walls, and objects within a zone via Select-tab tools and Ctrl+C/Ctrl+V. | M | done |
 
 ### Data / crafting systems
 

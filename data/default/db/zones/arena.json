@@ -1193,7 +1193,8 @@
                   "modal": "true"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1724,7 +1725,8 @@
                   "delay": "-1"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2358,7 +2360,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.5",
-            "attitude": "NEUTRAL"
+            "attitude": "NEUTRAL",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2570,7 +2573,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.4",
-            "attitude": "SCARED"
+            "attitude": "SCARED",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2830,7 +2834,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.3",
-            "attitude": "WARY"
+            "attitude": "WARY",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3029,7 +3034,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.2",
-            "attitude": "AGGRESSIVE"
+            "attitude": "AGGRESSIVE",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3275,7 +3281,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.1",
-            "attitude": "ATTACKING"
+            "attitude": "ATTACKING",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3315,7 +3322,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.6",
-            "attitude": "FRIENDLY"
+            "attitude": "FRIENDLY",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3336,7 +3344,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.7",
-            "attitude": "ALLIED"
+            "attitude": "ALLIED",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3379,7 +3388,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.8",
-            "ambushStatus": "FOES_MAY_AMBUSH_PARTY"
+            "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3400,7 +3410,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.9",
-            "ambushStatus": "FOES_MAY_AMBUSH_OR_EVADE_PARTY"
+            "ambushStatus": "FOES_MAY_AMBUSH_OR_EVADE_PARTY",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3421,7 +3432,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.10",
-            "ambushStatus": "PARTY_MAY_AMBUSH_FOES"
+            "ambushStatus": "PARTY_MAY_AMBUSH_FOES",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3442,7 +3454,8 @@
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.11",
-            "ambushStatus": "PARTY_MAY_AMBUSH_OR_EVADE_FOES"
+            "ambushStatus": "PARTY_MAY_AMBUSH_OR_EVADE_FOES",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "TestingTable",

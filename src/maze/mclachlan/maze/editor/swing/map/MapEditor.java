@@ -71,6 +71,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	private JDialog dialog;
 	private ZonePanel panel;
 	private Map<String, Tool> selectionTools = new HashMap<>();
+	private MapSelectionClipboard clipboard;
+	private boolean pasteMode;
 
 	/*-------------------------------------------------------------------------*/
 	public MapEditor(Zone zone, JDialog dialog, ZonePanel panel)
@@ -104,6 +106,44 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		bottom.add(save);
 		bottom.add(cancel);
 		this.add(bottom, BorderLayout.SOUTH);
+
+		registerKeyboardShortcuts();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void registerKeyboardShortcuts()
+	{
+		InputMap inputMap = getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+		ActionMap actionMap = getActionMap();
+
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK), "copySelection");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK), "pasteSelection");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelPaste");
+
+		actionMap.put("copySelection", new AbstractAction()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				copySelection();
+			}
+		});
+		actionMap.put("pasteSelection", new AbstractAction()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				enterPasteMode();
+			}
+		});
+		actionMap.put("cancelPaste", new AbstractAction()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				cancelPasteMode();
+			}
+		});
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -294,6 +334,16 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public void mouseClicked(MouseEvent e)
 	{
+		if (pasteMode)
+		{
+			Tile tile = display.getTileAtPoint(e.getPoint());
+			if (tile != null)
+			{
+				pasteAtTile(tile);
+			}
+			return;
+		}
+
 		if (!((e.getModifiersEx() & MouseEvent.SHIFT_DOWN_MASK) == MouseEvent.SHIFT_DOWN_MASK ||
 			(e.getModifiersEx() & MouseEvent.CTRL_DOWN_MASK) == MouseEvent.CTRL_DOWN_MASK))
 		{
@@ -491,6 +541,11 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public void mousePressed(MouseEvent e)
 	{
+		if (pasteMode)
+		{
+			return;
+		}
+
 		if (!((e.getModifiersEx() & MouseEvent.SHIFT_DOWN_MASK) == MouseEvent.SHIFT_DOWN_MASK ||
 			(e.getModifiersEx() & MouseEvent.CTRL_DOWN_MASK) == MouseEvent.CTRL_DOWN_MASK))
 		{
@@ -521,6 +576,11 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public void mouseDragged(MouseEvent e)
 	{
+		if (pasteMode || mousePressed == null)
+		{
+			return;
+		}
+
 		int x = Math.min(mousePressed.x, e.getX());
 		int y = Math.min(mousePressed.y, e.getY());
 		int width = Math.abs(mousePressed.x - e.getX());
@@ -574,8 +634,77 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 		result.add(new RouteFinder());
 		result.add(new InvertSelection());
+		result.add(new CopyMapSelection());
+		result.add(new PasteMapSelection());
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public MapSelectionClipboard getClipboard()
+	{
+		return clipboard;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setClipboard(MapSelectionClipboard clipboard)
+	{
+		this.clipboard = clipboard;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void copySelection()
+	{
+		new CopyMapSelection().execute(this, zone);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void enterPasteMode()
+	{
+		if (clipboard == null || clipboard.isEmpty())
+		{
+			JOptionPane.showMessageDialog(this, "Nothing to paste — copy a selection first");
+			return;
+		}
+
+		pasteMode = true;
+		refreshClipboardStatus();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void cancelPasteMode()
+	{
+		if (pasteMode)
+		{
+			pasteMode = false;
+			refreshClipboardStatus();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refreshClipboardStatus()
+	{
+		selectionSummaryPanel.refreshClipboardStatus(clipboard, pasteMode);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void pasteAtTile(Tile tile)
+	{
+		int index = getCrusaderIndexOfTile(tile);
+		int width = zone.getWidth();
+		int destX = index % width;
+		int destY = index / width;
+
+		List<Object> pasted = MapSelectionPaster.paste(clipboard, zone, destX, destY);
+		pasteMode = false;
+		display.repaint();
+		refreshClipboardStatus();
+
+		if (!pasted.isEmpty())
+		{
+			setSelection(pasted);
+			refreshSelectionSummary();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

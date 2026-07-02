@@ -388,6 +388,24 @@ public class MapDisplay extends JPanel implements Scrollable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Returns the crusader tile at the given point, or null if no tile was hit.
+	 */
+	public Tile getTileAtPoint(Point point)
+	{
+		Tile[] tiles = zone.getMap().getTiles();
+		for (int i = 0; i < tiles.length; i++)
+		{
+			if (getTileBounds(i).contains(point))
+			{
+				return tiles[i];
+			}
+		}
+
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void clearActiveSelection()
 	{
 		selectionLayer.activeSelection = null;

@@ -26,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
@@ -44,6 +45,9 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 	JLabel tileCount;
 	JLabel horizWallCount;
 	JLabel vertWallCount;
+	JLabel objectCount;
+	JLabel clipboardStatus;
+	JLabel pastePrompt;
 	
 	JButton addPortal;
 
@@ -57,10 +61,16 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 		tileCount = new JLabel();
 		horizWallCount = new JLabel();
 		vertWallCount = new JLabel();
+		objectCount = new JLabel();
+		clipboardStatus = new JLabel("Clipboard: empty");
+		pastePrompt = new JLabel(" ");
 		
 		add(tileCount);
 		add(horizWallCount);
 		add(vertWallCount);
+		add(objectCount);
+		add(clipboardStatus);
+		add(pastePrompt);
 		
 		addPortal = new JButton("Add Portal");
 		addPortal.addActionListener(this);
@@ -70,8 +80,8 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
-		int tiles, horizWalls, vertWalls;
-		tiles = horizWalls = vertWalls = 0;
+		int tiles, horizWalls, vertWalls, objects;
+		tiles = horizWalls = vertWalls = objects = 0;
 		
 		for (Object obj : layer.selected)
 		{
@@ -96,13 +106,44 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 					vertWalls++;
 				}
 			}
+			else if (obj instanceof EngineObject)
+			{
+				objects++;
+			}
 		}
 		
 		tileCount.setText(tiles+" tiles");
 		horizWallCount.setText(horizWalls+" horizontal walls");
 		vertWallCount.setText(vertWalls+" vertical walls");
+		objectCount.setText(objects+" objects");
 		
-		addPortal.setEnabled(tiles == 2 && horizWalls == 0 && vertWalls == 0);
+		addPortal.setEnabled(tiles == 2 && horizWalls == 0 && vertWalls == 0 && objects == 0);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refreshClipboardStatus(MapSelectionClipboard clipboard, boolean pasteMode)
+	{
+		if (clipboard == null || clipboard.isEmpty())
+		{
+			clipboardStatus.setText("Clipboard: empty");
+		}
+		else
+		{
+			clipboardStatus.setText(
+				"Clipboard: "+
+				clipboard.getTiles().size()+" tiles, "+
+				clipboard.getWalls().size()+" walls, "+
+				clipboard.getObjects().size()+" objects");
+		}
+
+		if (pasteMode)
+		{
+			pastePrompt.setText("Click a tile to paste (Esc to cancel)");
+		}
+		else
+		{
+			pastePrompt.setText(" ");
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
