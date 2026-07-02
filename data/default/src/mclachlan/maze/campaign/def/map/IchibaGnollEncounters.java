@@ -15,6 +15,11 @@ import mclachlan.maze.map.script.EncounterActorsEvent;
 public class IchibaGnollEncounters extends TileScript
 {
 	/*-------------------------------------------------------------------------*/
+	public IchibaGnollEncounters()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		if (MazeVariables.getBoolean(Imogen.QUEST_3_COMPLETE))
@@ -33,4 +38,18 @@ public class IchibaGnollEncounters extends TileScript
 		return getList(
 			new EncounterActorsEvent(null, "gnoll.village.allies.on.call", null, null, null, null, null, null, false));
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected IchibaGnollEncounters(IchibaGnollEncounters copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new IchibaGnollEncounters(this);
+	}
+
 }

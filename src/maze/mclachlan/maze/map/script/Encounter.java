@@ -79,6 +79,28 @@ public class Encounter extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected Encounter(Encounter copy)
+	{
+		super(copy);
+		encounterTable = copy.encounterTable;
+		mazeVariable = copy.mazeVariable;
+		attitude = copy.attitude;
+		preScriptEvents = copy.preScriptEvents;
+		postAppearanceScriptEvents = copy.postAppearanceScriptEvents;
+		partyLeavesNeutralScript = copy.partyLeavesNeutralScript;
+		partyLeavesFriendlyScript = copy.partyLeavesFriendlyScript;
+		ambushStatus = copy.ambushStatus;
+		bypassNpcScriptsOnNonHostile = copy.bypassNpcScriptsOnNonHostile;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new Encounter(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void initialise(Maze maze, Point tile, int tileIndex)
 	{

@@ -20,44 +20,42 @@
 package mclachlan.maze.editor.swing.map;
 
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v2.serialisers.V2SerialiserFactory;
 
 /**
- * Deep-clones map elements via V2 serialisation round-trips.
+ * Deep-clones map elements via domain object copy methods.
  */
 public class MapElementCloner
 {
 	/*-------------------------------------------------------------------------*/
 	public static mclachlan.maze.map.Tile cloneMazeTile(mclachlan.maze.map.Tile tile)
 	{
-		return V2SerialiserFactory.cloneMazeTile(tile, Database.getInstance());
+		return tile.copyTile();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static Tile cloneCrusaderTile(Tile tile)
 	{
-		return V2SerialiserFactory.cloneCrusaderTile(tile, Database.getInstance());
+		return tile.copyTile();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static Wall cloneWall(Wall wall)
 	{
-		return V2SerialiserFactory.cloneWall(wall, Database.getInstance());
+		return wall.copyWall();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static EngineObject cloneObject(EngineObject object)
 	{
-		return V2SerialiserFactory.cloneObject(object, Database.getInstance());
+		return object.copyObject();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static mclachlan.crusader.MouseClickScript cloneMouseClickScript(
-		mclachlan.crusader.MouseClickScript script)
+	public static MouseClickScript cloneMouseClickScript(MouseClickScript script)
 	{
-		return V2SerialiserFactory.cloneMouseClickScript(script, Database.getInstance());
+		return script == null ? null : script.copyScript();
 	}
 }

@@ -68,4 +68,11 @@ public class MouseClickScriptAdapter implements MouseClickScript
 	{
 		return script;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public MouseClickScript copyScript()
+	{
+		return script == null ? null : new MouseClickScriptAdapter(script.copyScript());
+	}
 }

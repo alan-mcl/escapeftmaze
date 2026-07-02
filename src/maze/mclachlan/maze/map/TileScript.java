@@ -67,6 +67,39 @@ public abstract class TileScript implements V2Serialisable
 	 */
 	private int clickMaxDistance = 1;
 
+	/*-------------------------------------------------------------------------*/
+	protected TileScript()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected TileScript(TileScript copy)
+	{
+		executeOnceMazeVariable = copy.executeOnceMazeVariable;
+		facings = copy.facings == null ? null : (BitSet)copy.facings.clone();
+		reexecuteOnSameTile = copy.reexecuteOnSameTile;
+		scoutSecretDifficulty = copy.scoutSecretDifficulty;
+		clickMaxDistance = copy.clickMaxDistance;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public abstract TileScript copyScript();
+
+	/*-------------------------------------------------------------------------*/
+	public static List<TileScript> copyScripts(List<TileScript> scripts)
+	{
+		if (scripts == null)
+		{
+			return null;
+		}
+
+		List<TileScript> result = new ArrayList<>(scripts.size());
+		for (TileScript script : scripts)
+		{
+			result.add(script.copyScript());
+		}
+		return result;
+	}
 
 	/** Constant returned by scripts that prevent other player actions (e.g. while swimming) */
 	public static final List<MazeEvent> PREVENT_ACTION = new ArrayList<>();

@@ -46,4 +46,18 @@ public class TempleOfTheGateGholaCoin extends TileScript
 		return null;
 	}
 
+
+	/*-------------------------------------------------------------------------*/
+	protected TempleOfTheGateGholaCoin(TempleOfTheGateGholaCoin copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new TempleOfTheGateGholaCoin(this);
+	}
+
 }

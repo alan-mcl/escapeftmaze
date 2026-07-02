@@ -60,6 +60,26 @@ public class Lever extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected Lever(Lever copy)
+	{
+		super(copy);
+		mazeVariable = copy.mazeVariable;
+		northTexture = copy.northTexture;
+		southTexture = copy.southTexture;
+		eastTexture = copy.eastTexture;
+		westTexture = copy.westTexture;
+		preTransitionScript = copy.preTransitionScript;
+		postTransitionScript = copy.postTransitionScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new Lever(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void initEngineObject()
 	{
 		this.engineObject = new EngineObject(

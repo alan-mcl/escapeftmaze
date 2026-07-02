@@ -42,6 +42,20 @@ public class ExecuteMazeScript extends TileScript
 	{
 		this.script = mazeScript;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected ExecuteMazeScript(ExecuteMazeScript copy)
+	{
+		super(copy);
+		script = copy.script;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new ExecuteMazeScript(this);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)

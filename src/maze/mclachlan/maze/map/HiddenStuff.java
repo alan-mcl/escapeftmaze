@@ -51,6 +51,23 @@ public class HiddenStuff extends TileScript
 		this.preScript = preScript;
 		this.findDifficulty = findDifficulty;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected HiddenStuff(HiddenStuff copy)
+	{
+		super(copy);
+		findDifficulty = copy.findDifficulty;
+		mazeVariable = copy.mazeVariable;
+		preScript = copy.preScript;
+		content = copy.content;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new HiddenStuff(this);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)

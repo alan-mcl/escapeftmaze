@@ -33,4 +33,18 @@ public class CorrosiveSlimeEncounter extends TileScript
 			return null;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected CorrosiveSlimeEncounter(CorrosiveSlimeEncounter copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new CorrosiveSlimeEncounter(this);
+	}
+
 }

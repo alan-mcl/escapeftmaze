@@ -46,6 +46,21 @@ public class PersonalitySpeech extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected PersonalitySpeech(PersonalitySpeech copy)
+	{
+		super(copy);
+		speechKey = copy.speechKey;
+		modal = copy.modal;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new PersonalitySpeech(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();

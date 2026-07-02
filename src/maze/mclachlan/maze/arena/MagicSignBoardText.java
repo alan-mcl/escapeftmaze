@@ -53,4 +53,23 @@ public class MagicSignBoardText extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public MagicSignBoardText()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected MagicSignBoardText(MagicSignBoardText copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new MagicSignBoardText(this);
+	}
+
 }

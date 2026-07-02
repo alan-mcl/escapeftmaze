@@ -21,4 +21,18 @@ public class IchibaLibraryFictionSection extends TileScript
 			new FlavourTextEvent("todo")
 		);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected IchibaLibraryFictionSection(IchibaLibraryFictionSection copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new IchibaLibraryFictionSection(this);
+	}
+
 }

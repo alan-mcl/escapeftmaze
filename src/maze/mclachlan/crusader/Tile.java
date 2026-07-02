@@ -255,4 +255,26 @@ public class Tile
 	{
 		this.ceilingMaskTextureMouseClickScript = ceilingMaskTextureMouseClickScript;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public Tile copyTile()
+	{
+		Tile copy = new Tile();
+		copy.floorTexture = floorTexture;
+		copy.floorMaskTexture = floorMaskTexture;
+		copy.ceilingTexture = ceilingTexture;
+		copy.ceilingMaskTexture = ceilingMaskTexture;
+		copy.lightLevel = lightLevel;
+		copy.currentLightLevel = currentLightLevel;
+		copy.ceilingHeight = ceilingHeight;
+		copy.floorMouseClickScript = floorMouseClickScript == null ?
+			null : floorMouseClickScript.copyScript();
+		copy.floorMaskTextureMouseClickScript = floorMaskTextureMouseClickScript == null ?
+			null : floorMaskTextureMouseClickScript.copyScript();
+		copy.ceilingMouseClickScript = ceilingMouseClickScript == null ?
+			null : ceilingMouseClickScript.copyScript();
+		copy.ceilingMaskTextureMouseClickScript = ceilingMaskTextureMouseClickScript == null ?
+			null : ceilingMaskTextureMouseClickScript.copyScript();
+		return copy;
+	}
 }

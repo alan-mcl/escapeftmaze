@@ -44,6 +44,21 @@ public class SetMazeVariable extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected SetMazeVariable(SetMazeVariable copy)
+	{
+		super(copy);
+		mazeVariable = copy.mazeVariable;
+		value = copy.value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new SetMazeVariable(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();

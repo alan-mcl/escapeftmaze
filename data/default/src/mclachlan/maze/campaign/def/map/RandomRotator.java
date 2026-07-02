@@ -33,4 +33,18 @@ public class RandomRotator extends TileScript
 		return getList(
 			new MovePartyEvent(tile, newFacing));
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected RandomRotator(RandomRotator copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new RandomRotator(this);
+	}
+
 }

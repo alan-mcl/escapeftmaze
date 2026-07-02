@@ -36,4 +36,13 @@ public interface MouseClickScript
 	 * 0 means this is not clickable.
 	 */
 	int getMaxDist();
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Returns a copy of this script suitable for map editing clipboard use.
+	 */
+	default MouseClickScript copyScript()
+	{
+		return this;
+	}
 }

@@ -33,6 +33,24 @@ public class SkillTest extends TileScript
 		this.failureScript = failureScript;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	protected SkillTest(SkillTest copy)
+	{
+		super(copy);
+		keyModifier = copy.keyModifier;
+		skill = copy.skill == null ? null : new ValueList(copy.skill);
+		successValue = copy.successValue == null ? null : new ValueList(copy.successValue);
+		successScript = copy.successScript;
+		failureScript = copy.failureScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new SkillTest(this);
+	}
+
 	@Override
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)

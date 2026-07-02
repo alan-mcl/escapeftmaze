@@ -37,4 +37,18 @@ public class EkirthsTombMedallionOfBelEncounter extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombMedallionOfBelEncounter(EkirthsTombMedallionOfBelEncounter copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombMedallionOfBelEncounter(this);
+	}
+
 }

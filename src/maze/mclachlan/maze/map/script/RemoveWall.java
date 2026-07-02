@@ -48,6 +48,22 @@ public class RemoveWall extends TileScript
 		this.wallIndex = wallIndex;
 		this.horizontalWall = horizontalWall;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected RemoveWall(RemoveWall copy)
+	{
+		super(copy);
+		mazeVariable = copy.mazeVariable;
+		wallIndex = copy.wallIndex;
+		horizontalWall = copy.horizontalWall;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new RemoveWall(this);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public void initialise(Maze maze, Point tile, int tileIndex)

@@ -45,6 +45,21 @@ public class FlavourText extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected FlavourText(FlavourText copy)
+	{
+		super(copy);
+		text = copy.text;
+		alignment = copy.alignment;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new FlavourText(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();

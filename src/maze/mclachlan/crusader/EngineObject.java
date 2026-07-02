@@ -183,6 +183,15 @@ public class EngineObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public EngineObject copyObject()
+	{
+		EngineObject copy = new EngineObject(this);
+		copy.mouseClickScript = mouseClickScript == null ?
+			null : mouseClickScript.copyScript();
+		return copy;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	void prepareForRender(
 		int projectionPlaneWidth,
 		float[] fishbowlTable,

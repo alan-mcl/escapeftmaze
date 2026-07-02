@@ -41,4 +41,18 @@ public class CocMercTeamEncounter extends TileScript
 			return null;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected CocMercTeamEncounter(CocMercTeamEncounter copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new CocMercTeamEncounter(this);
+	}
+
 }

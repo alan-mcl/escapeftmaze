@@ -52,4 +52,18 @@ public class EkirthsTombMedallionOfBel extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombMedallionOfBel(EkirthsTombMedallionOfBel copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombMedallionOfBel(this);
+	}
+
 }

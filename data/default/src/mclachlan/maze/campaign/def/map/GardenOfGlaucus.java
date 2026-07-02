@@ -63,4 +63,18 @@ public class GardenOfGlaucus extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected GardenOfGlaucus(GardenOfGlaucus copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new GardenOfGlaucus(this);
+	}
+
 }

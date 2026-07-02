@@ -81,4 +81,23 @@ public class Water extends TileScript
 	{
 		return true;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public Water()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected Water(Water copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new Water(this);
+	}
+
 }

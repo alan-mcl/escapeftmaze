@@ -338,4 +338,18 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Tile copyTile()
+	{
+		Tile copy = new Tile(
+			TileScript.copyScripts(scripts),
+			randomEncounters,
+			statModifier == null ? null : new StatModifier(statModifier),
+			terrainType,
+			terrainSubType,
+			randomEncounterChance,
+			restingDanger,
+			restingEfficiency);
+		copy.setSector(sector);
+		return copy;
+	}
 }

@@ -72,4 +72,18 @@ public class EkirthsTombGetselsBoneComb extends TileScript
 		return null;
 	}
 
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombGetselsBoneComb(EkirthsTombGetselsBoneComb copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombGetselsBoneComb(this);
+	}
+
 }

@@ -47,6 +47,22 @@ public class CastSpell extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected CastSpell(CastSpell copy)
+	{
+		super(copy);
+		spellName = copy.spellName;
+		castingLevel = copy.castingLevel;
+		casterLevel = copy.casterLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new CastSpell(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();

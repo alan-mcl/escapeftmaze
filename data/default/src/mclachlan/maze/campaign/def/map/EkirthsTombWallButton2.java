@@ -35,4 +35,18 @@ public class EkirthsTombWallButton2 extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombWallButton2(EkirthsTombWallButton2 copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombWallButton2(this);
+	}
+
 }

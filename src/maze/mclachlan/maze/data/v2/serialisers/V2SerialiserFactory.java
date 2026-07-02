@@ -1763,48 +1763,4 @@ public class V2SerialiserFactory
 
 		return result;
 	}
-
-	/*-------------------------------------------------------------------------*/
-	private static <T> T cloneViaSerialiser(
-		V2SerialiserObject<T> serialiser, T object, Database db)
-	{
-		if (object == null)
-		{
-			return null;
-		}
-
-		return serialiser.fromObject(serialiser.toObject(object, db), db);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static Tile cloneMazeTile(Tile tile, Database db)
-	{
-		return cloneViaSerialiser(getTileSerialiser(db), tile, db);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static mclachlan.crusader.Tile cloneCrusaderTile(
-		mclachlan.crusader.Tile tile, Database db)
-	{
-		return cloneViaSerialiser(getCrusaderTileSerialiser(db), tile, db);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static Wall cloneWall(Wall wall, Database db)
-	{
-		return cloneViaSerialiser(getCrusaderWallSerialiser(db), wall, db);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static EngineObject cloneObject(EngineObject object, Database db)
-	{
-		return cloneViaSerialiser(getCrusaderObjectSerialiser2(db), object, db);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static MouseClickScript cloneMouseClickScript(
-		MouseClickScript script, Database db)
-	{
-		return cloneViaSerialiser(getMouseClickScriptSerialiser(db), script, db);
-	}
 }

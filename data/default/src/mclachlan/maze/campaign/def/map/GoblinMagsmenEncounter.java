@@ -45,4 +45,18 @@ public class GoblinMagsmenEncounter extends TileScript
 			return null;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected GoblinMagsmenEncounter(GoblinMagsmenEncounter copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new GoblinMagsmenEncounter(this);
+	}
+
 }

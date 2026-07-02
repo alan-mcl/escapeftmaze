@@ -46,4 +46,18 @@ public class TempleOfTheGateRagDoll extends TileScript
 		return null;
 	}
 
+
+	/*-------------------------------------------------------------------------*/
+	protected TempleOfTheGateRagDoll(TempleOfTheGateRagDoll copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new TempleOfTheGateRagDoll(this);
+	}
+
 }

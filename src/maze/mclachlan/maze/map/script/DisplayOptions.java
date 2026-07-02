@@ -52,6 +52,23 @@ public class DisplayOptions extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected DisplayOptions(DisplayOptions copy)
+	{
+		super(copy);
+		forceSelection = copy.forceSelection;
+		title = copy.title;
+		options = copy.options == null ? null : new ArrayList<>(copy.options);
+		mazeScripts = copy.mazeScripts == null ? null : new ArrayList<>(copy.mazeScripts);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new DisplayOptions(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();

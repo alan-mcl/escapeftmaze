@@ -96,6 +96,36 @@ public class ToggleWall extends TileScript
 		this.postToggleScript = postToggleScript;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	protected ToggleWall(ToggleWall copy)
+	{
+		super(copy);
+		horizontalWall = copy.horizontalWall;
+		wallIndex = copy.wallIndex;
+		mazeVariable = copy.mazeVariable;
+		state1Texture = copy.state1Texture;
+		state1MaskTexture = copy.state1MaskTexture;
+		state1Visible = copy.state1Visible;
+		state1Solid = copy.state1Solid;
+		state1Secret = copy.state1Secret;
+		state1Height = copy.state1Height;
+		state2Texture = copy.state2Texture;
+		state2MaskTexture = copy.state2MaskTexture;
+		state2Visible = copy.state2Visible;
+		state2Solid = copy.state2Solid;
+		state2Secret = copy.state2Secret;
+		state2Height = copy.state2Height;
+		preToggleScript = copy.preToggleScript;
+		postToggleScript = copy.postToggleScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new ToggleWall(this);
+	}
+
 	@Override
 	public void initialise(Maze maze, Point tile, int tileIndex)
 	{

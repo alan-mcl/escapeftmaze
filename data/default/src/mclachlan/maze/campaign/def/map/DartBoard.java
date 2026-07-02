@@ -67,4 +67,18 @@ public class DartBoard extends TileScript
 
 		return events;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected DartBoard(DartBoard copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new DartBoard(this);
+	}
+
 }

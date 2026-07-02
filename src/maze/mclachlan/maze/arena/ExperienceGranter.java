@@ -40,4 +40,23 @@ public class ExperienceGranter extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public ExperienceGranter()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected ExperienceGranter(ExperienceGranter copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new ExperienceGranter(this);
+	}
+
 }

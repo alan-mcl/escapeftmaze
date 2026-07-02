@@ -58,4 +58,23 @@ public class HiddenLoot extends TileScript
 
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public HiddenLoot()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected HiddenLoot(HiddenLoot copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new HiddenLoot(this);
+	}
+
 }

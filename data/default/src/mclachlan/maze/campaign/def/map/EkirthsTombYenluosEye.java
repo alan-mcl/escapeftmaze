@@ -61,4 +61,18 @@ public class EkirthsTombYenluosEye extends TileScript
 			getEvent().resolve();
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombYenluosEye(EkirthsTombYenluosEye copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombYenluosEye(this);
+	}
+
 }

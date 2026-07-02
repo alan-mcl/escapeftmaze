@@ -20,6 +20,7 @@
 package mclachlan.crusader;
 
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.io.StringWriter;
 import java.util.*;
 
@@ -217,6 +218,21 @@ public class Wall
 	public void setHeight(int height)
 	{
 		this.height = height;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Wall copyWall()
+	{
+		return new Wall(
+			textures == null ? null : Arrays.copyOf(textures, textures.length),
+			maskTextures == null ? null : Arrays.copyOf(maskTextures, maskTextures.length),
+			visible,
+			solid,
+			height,
+			mouseClickScript == null ? null : mouseClickScript.copyScript(),
+			maskTextureMouseClickScript == null ? null :
+				maskTextureMouseClickScript.copyScript(),
+			internalScript == null ? null : internalScript.copyScript());
 	}
 
 	/*-------------------------------------------------------------------------*/

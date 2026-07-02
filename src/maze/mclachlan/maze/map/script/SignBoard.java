@@ -41,6 +41,20 @@ public class SignBoard extends TileScript
 	{
 		this.text = text;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected SignBoard(SignBoard copy)
+	{
+		super(copy);
+		text = copy.text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new SignBoard(this);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public java.util.List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)

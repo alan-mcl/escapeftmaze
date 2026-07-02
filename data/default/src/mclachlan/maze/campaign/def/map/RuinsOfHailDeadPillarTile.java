@@ -28,4 +28,18 @@ public class RuinsOfHailDeadPillarTile extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected RuinsOfHailDeadPillarTile(RuinsOfHailDeadPillarTile copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new RuinsOfHailDeadPillarTile(this);
+	}
+
 }

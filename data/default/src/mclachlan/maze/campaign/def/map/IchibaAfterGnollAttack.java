@@ -67,4 +67,18 @@ public class IchibaAfterGnollAttack extends TileScript
 			return null;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected IchibaAfterGnollAttack(IchibaAfterGnollAttack copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new IchibaAfterGnollAttack(this);
+	}
+
 }

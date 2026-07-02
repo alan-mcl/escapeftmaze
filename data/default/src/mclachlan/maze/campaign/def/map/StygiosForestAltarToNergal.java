@@ -47,4 +47,18 @@ public class StygiosForestAltarToNergal extends TileScript
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected StygiosForestAltarToNergal(StygiosForestAltarToNergal copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new StygiosForestAltarToNergal(this);
+	}
+
 }

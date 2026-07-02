@@ -183,4 +183,18 @@ public class EkirthsTombWallOfFire extends TileScript
 		}
 
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombWallOfFire(EkirthsTombWallOfFire copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombWallOfFire(this);
+	}
+
 }

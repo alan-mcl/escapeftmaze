@@ -48,6 +48,20 @@ public class Loot extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected Loot(Loot copy)
+	{
+		super(copy);
+		lootTable = copy.lootTable;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new Loot(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		GroupOfPossibilities<ILootEntry> loot =

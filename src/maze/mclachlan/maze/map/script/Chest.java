@@ -89,6 +89,27 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected Chest(Chest copy)
+	{
+		super(copy);
+		chestContents = copy.chestContents == null ? null : copy.chestContents.copyScript();
+		traps = copy.traps == null ? null : new PercentageTable<>(copy.traps);
+		mazeVariable = copy.mazeVariable;
+		northTexture = copy.northTexture;
+		southTexture = copy.southTexture;
+		eastTexture = copy.eastTexture;
+		westTexture = copy.westTexture;
+		preScript = copy.preScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new Chest(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void initEngineObject()
 	{
 		this.engineObject = new EngineObject(

@@ -45,4 +45,18 @@ public class TempleOfTheGateDragonRod extends TileScript
 		return null;
 	}
 
+
+	/*-------------------------------------------------------------------------*/
+	protected TempleOfTheGateDragonRod(TempleOfTheGateDragonRod copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new TempleOfTheGateDragonRod(this);
+	}
+
 }

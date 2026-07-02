@@ -88,4 +88,18 @@ public class EkirthsTombSpearOfIneoth extends TileScript
 			Maze.getInstance().removeObject(ENGINE_OBJECT_NAME);
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected EkirthsTombSpearOfIneoth(EkirthsTombSpearOfIneoth copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new EkirthsTombSpearOfIneoth(this);
+	}
+
 }

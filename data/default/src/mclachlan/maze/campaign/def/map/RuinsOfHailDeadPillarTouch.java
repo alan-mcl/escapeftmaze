@@ -30,4 +30,18 @@ public class RuinsOfHailDeadPillarTouch extends TileScript
 				"Ruins Of Hail to Castle Fangorn").getEvents();
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected RuinsOfHailDeadPillarTouch(RuinsOfHailDeadPillarTouch copy)
+	{
+		super(copy);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public TileScript copyScript()
+	{
+		return new RuinsOfHailDeadPillarTouch(this);
+	}
+
 }
