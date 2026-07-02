@@ -77,6 +77,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | # | Type | Item | Notes | Effort | Status |
 |---|------|------|-------|--------|--------|
 | P2-10 | editor | Edit save-game item caches, NPCs, maze variables, journals | Round out `SaveGamePanel`. (stufftodo) | M | done |
+| P2-10b | editor | Save-game tiles visited editor | `SaveGamePanel` tab for `tilesvisited.json` | S | done |
 | P2-11 | editor | Proper dynamic FK support (cascading rename & delete) | Cross-reference integrity across data types. (stufftodo) | L | todo |
 | P2-12 | editor | Resize maps | (stufftodo) | M | todo |
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |

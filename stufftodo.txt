@@ -99,7 +99,6 @@ spell: flying??? tie in with character class abilities
 
 ability: favoured terrain (resist surprise etc) 
 
-editor: save games editing of: item caches, npcs, maze variables, journals
 editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones

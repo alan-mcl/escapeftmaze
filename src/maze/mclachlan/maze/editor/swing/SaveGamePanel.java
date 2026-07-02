@@ -44,6 +44,7 @@ public class SaveGamePanel extends JPanel
 	private NpcFactionPanel npcFactionPanel;
 	private SaveGameNpcPanel npcPanel;
 	private SaveGameJournalsPanel journalsPanel;
+	private SaveGameTilesVisitedPanel tilesVisitedPanel;
 
 	/*-------------------------------------------------------------------------*/
 	public SaveGamePanel(String saveGameName)
@@ -74,7 +75,8 @@ public class SaveGamePanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public Component getPlayerTilesVisitedPanel()
 	{
-		return new JLabel("todo");
+		tilesVisitedPanel = new SaveGameTilesVisitedPanel();
+		return tilesVisitedPanel;
 	}
 
 	private Component getMazeVariablesPanel()
@@ -132,6 +134,7 @@ public class SaveGamePanel extends JPanel
 			gameStatePanel.initForeignKeys();
 			itemCachesPanel.initForeignKeys();
 			npcPanel.initForeignKeys();
+			tilesVisitedPanel.initForeignKeys();
 		});
 	}
 
@@ -168,6 +171,7 @@ public class SaveGamePanel extends JPanel
 		gameStatePanel.refresh(gs);
 		mazeVariablesPanel.refresh(loader.loadMazeVariablesMap(saveGameName));
 		saveGamePlayerCharacterPanel.refresh(playerCharacterCache);
+		tilesVisitedPanel.refresh(loader.loadPlayerTilesVisited(saveGameName));
 		itemCachesPanel.refresh(loader.loadItemCaches(saveGameName));
 		npcFactionPanel.refresh(loader.loadNpcFactions(saveGameName));
 		npcPanel.refresh(loader.loadNpcs(saveGameName), playerCharacterCache.keySet());
@@ -182,6 +186,7 @@ public class SaveGamePanel extends JPanel
 		try
 		{
 			saveGamePlayerCharacterPanel.commit(null);
+			tilesVisitedPanel.commit(null);
 			mazeVariablesPanel.commit(null);
 			itemCachesPanel.commit(null);
 			npcFactionPanel.commit(null);
@@ -191,6 +196,8 @@ public class SaveGamePanel extends JPanel
 			saver.saveGameState(saveGameName, gameStatePanel.getGameState());
 			saver.savePlayerCharacters(
 				saveGameName, saveGamePlayerCharacterPanel.getPlayerCharacters());
+			saver.savePlayerTilesVisited(
+				saveGameName, tilesVisitedPanel.getPlayerTilesVisited());
 			saver.saveMazeVariables(saveGameName, mazeVariablesPanel.getMazeVariables());
 			saver.saveItemCaches(saveGameName, itemCachesPanel.getCaches());
 			saver.saveNpcFactions(saveGameName, npcFactionPanel.getNpcFactions());

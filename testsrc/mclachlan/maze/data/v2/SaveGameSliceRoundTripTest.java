@@ -19,9 +19,11 @@
 
 package mclachlan.maze.data.v2;
 
+import java.awt.Point;
 import java.io.*;
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.PlayerTilesVisited;
 import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.game.journal.JournalEntry;
 import mclachlan.maze.test.support.MazeTestSupport;
@@ -31,6 +33,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.getJournalSerialiser;
+import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.getTilesVisitedSerialiser;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -80,6 +83,32 @@ public class SaveGameSliceRoundTripTest extends MazeTestSupport
 		Map before = getJournalSerialiser().toObject(journal, db);
 		Journal restored = getJournalSerialiser().fromObject(before, db);
 		Map after = getJournalSerialiser().toObject(restored, db);
+
+		assertEquals(normalise(before), normalise(after));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void tilesVisitedSerialiserRoundTrip() throws Exception
+	{
+		Map<String, List<Point>> original = new HashMap<>();
+		original.put("Gatehouse", new ArrayList<>(List.of(
+			new Point(14, 30), new Point(14, 29))));
+		original.put(PlayerTilesVisited.RECENT_TILES_KEY, new ArrayList<>(List.of(
+			new Point(35, 21))));
+
+		MapSingletonSilo silo = new MapSingletonSilo(getTilesVisitedSerialiser());
+
+		StringWriter sw = new StringWriter();
+		silo.save(new BufferedWriter(sw), original, db);
+		Map before = V2Utils.getMap(new BufferedReader(new StringReader(sw.toString())));
+
+		Map<String, List<Point>> reloaded = silo.load(
+			new BufferedReader(new StringReader(sw.toString())), db);
+
+		StringWriter sw2 = new StringWriter();
+		silo.save(new BufferedWriter(sw2), reloaded, db);
+		Map after = V2Utils.getMap(new BufferedReader(new StringReader(sw2.toString())));
 
 		assertEquals(normalise(before), normalise(after));
 	}
