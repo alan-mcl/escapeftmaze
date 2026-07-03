@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v2.V2Loader;
@@ -43,7 +45,10 @@ public class SwingEditor extends JFrame implements WindowListener
 {
 	public static SwingEditor instance;
 	private JLabel status;
-	private JTabbedPane tabs, staticDataTabs, dynamicDataTabs;
+	private JTabbedPane categoryTabs;
+	private final EnumMap<EditorCategory, Integer> lastVerticalTabIndex =
+		new EnumMap<>(EditorCategory.class);
+	private final Map<Integer, EditorCategory> dirtyFlagCategory = new HashMap<>();
 	private BitSet dirty = new BitSet();
 	private List<IEditorPanel> editorPanels = new ArrayList<IEditorPanel>();
 
@@ -132,52 +137,52 @@ public class SwingEditor extends JFrame implements WindowListener
 		JPanel bottom = c.getBottomPanel();
 		status = c.getStatus();
 
-		staticDataTabs = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
+		addEditorTab(EditorCategory.CAMPAIGN, "Campaign", getCampaignPanel());
+		addEditorTab(EditorCategory.CAMPAIGN, "Difficulty Levels", getDifficultyLevelPanel());
+		addEditorTab(EditorCategory.CAMPAIGN, "Guild", getGuildPanel(), Tab.GUILD);
 
-		addStaticDataTab("Campaign", getCampaignPanel());
-		addStaticDataTab("Difficulty Levels", getDifficultyLevelPanel());
-		addStaticDataTab("Genders", getGenderPanel());
-		addStaticDataTab("Body Parts", getBodyPartPanel());
-		addStaticDataTab("Experience Tables", getExperienceTablePanel());
-		addStaticDataTab("Starting Kits", getStartingKitsPanel());
-		addStaticDataTab("Character Classes", getCharacterClassesPanel());
-		addStaticDataTab("Personalities", getPersonalitiesPanel());
-		addStaticDataTab("Attack Types", getAttackTypesPanel());
-		addStaticDataTab("Condition Effects", getConditionEffectsPanel());
-		addStaticDataTab("Condition Templates", getConditionTemplatesPanel());
-		addStaticDataTab("Spell Effects", getSpellEffectsPanel());
-		addStaticDataTab("Loot Entries", getLootEntriesPanel());
-		addStaticDataTab("Loot Tables", getLootTablesPanel());
-		addStaticDataTab("Maze Scripts", getMazeScriptPanel());
-		addStaticDataTab("Spells", getSpellsPanel());
-		addStaticDataTab("Player Spell Books", getPlayerSpellBooksPanel());
-		addStaticDataTab("Races", getRacesPanel());
-		addStaticDataTab("Foe Types", getFoeTypesPanel());
-		addStaticDataTab("Maze Textures", getMazeTexturesPanel());
-		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
-		addStaticDataTab("Object Animations", getObjectAnimationsPanel());
-		addStaticDataTab("Foe Speech", getFoeSpeechPanel());
-		addStaticDataTab("Hot Strings", getHotStringsPanel());
-		addStaticDataTab("Cold Strings", getColdStringsPanel());
-		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
-		addStaticDataTab("Traps", getTrapsPanel());
-		addStaticDataTab("Foe Entries", getFoeEntriesPanel());
-		addStaticDataTab("Encounter Tables", getEncounterTablesPanel());
-		addStaticDataTab("Npc Faction Templates", getNpcFactionTemplatesPanel());
-		addStaticDataTab("Npc Templates", getNpcTemplatesPanel());
-		addStaticDataTab("Wielding Combos", getWieldingCombosPanel());
-		addStaticDataTab("Item Templates", getItemTemplatesPanel());
-		addStaticDataTab("Craft Recipes", getCraftRecipePanel());
-		addStaticDataTab("Item Enchantments", getItemEnchantmentsPanel());
-		addStaticDataTab("Zones", getZonesPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Genders", getGenderPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Body Parts", getBodyPartPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Experience Tables", getExperienceTablePanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Starting Kits", getStartingKitsPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Character Classes", getCharacterClassesPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Personalities", getPersonalitiesPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Races", getRacesPanel());
+
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Attack Types", getAttackTypesPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Condition Effects", getConditionEffectsPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Condition Templates", getConditionTemplatesPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Spell Effects", getSpellEffectsPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Spells", getSpellsPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Player Spell Books", getPlayerSpellBooksPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Natural Weapons", getNaturalWeaponsPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Wielding Combos", getWieldingCombosPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Item Enchantments", getItemEnchantmentsPanel());
+
+		addEditorTab(EditorCategory.ITEMS_LOOT, "Loot Entries", getLootEntriesPanel());
+		addEditorTab(EditorCategory.ITEMS_LOOT, "Loot Tables", getLootTablesPanel());
+		addEditorTab(EditorCategory.ITEMS_LOOT, "Item Templates", getItemTemplatesPanel());
+		addEditorTab(EditorCategory.ITEMS_LOOT, "Craft Recipes", getCraftRecipePanel());
+
+		addEditorTab(EditorCategory.CREATURES, "Foe Types", getFoeTypesPanel());
+		addEditorTab(EditorCategory.CREATURES, "Foe Templates", getFoeTemplatesPanel());
+		addEditorTab(EditorCategory.CREATURES, "Foe Entries", getFoeEntriesPanel());
+		addEditorTab(EditorCategory.CREATURES, "Encounter Tables", getEncounterTablesPanel());
+		addEditorTab(EditorCategory.CREATURES, "Foe Speech", getFoeSpeechPanel());
+		addEditorTab(EditorCategory.CREATURES, "Traps", getTrapsPanel());
+		addEditorTab(EditorCategory.CREATURES, "Npc Faction Templates", getNpcFactionTemplatesPanel());
+		addEditorTab(EditorCategory.CREATURES, "Npc Templates", getNpcTemplatesPanel());
+
+		addEditorTab(EditorCategory.WORLD, "Maze Scripts", getMazeScriptPanel());
+		addEditorTab(EditorCategory.WORLD, "Zones", getZonesPanel());
+		addEditorTab(EditorCategory.WORLD, "Maze Textures", getMazeTexturesPanel());
+		addEditorTab(EditorCategory.WORLD, "Object Animations", getObjectAnimationsPanel());
+		addEditorTab(EditorCategory.WORLD, "Hot Strings", getHotStringsPanel());
+		addEditorTab(EditorCategory.WORLD, "Cold Strings", getColdStringsPanel());
 
 		campaignEditorPanel.initForeignKeys();
 		campaignEditorPanel.refresh(currentCampaign);
-		
-		dynamicDataTabs = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
-		
-		addDynamicDataTab("Guild", getGuildPanel());
-		
+
 		saveGamePanels = new ArrayList<>();
 		List<String> saves = Database.getInstance().getLoader().getSaveGames();
 		for (String s : saves)
@@ -185,23 +190,26 @@ public class SwingEditor extends JFrame implements WindowListener
 			runWithoutSaveGameDirty(() ->
 			{
 				SaveGamePanel sgp = new SaveGamePanel(s);
-				addDynamicDataTab(s, sgp);
+				addEditorTab(EditorCategory.SAVE_GAMES, s, sgp, Tab.SAVE_GAMES);
 				sgp.initForeignKeys();
 				sgp.refresh();
 				saveGamePanels.add(sgp);
 			});
 		}
 
+		categoryTabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
+		for (EditorCategory category : EditorCategory.values())
+		{
+			categoryTabs.add(category.label, category.verticalTabs);
+			lastVerticalTabIndex.put(category, 0);
+		}
+		installCategoryTabMemory();
+
 		this.setJMenuBar(menuBar);
 
 		this.setLayout(new BorderLayout(5,5));
-		
-		tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-		
-		tabs.add("Static Data", staticDataTabs);
-		tabs.add("Save Games and Guild Files", dynamicDataTabs);
 
-		this.add(tabs, BorderLayout.CENTER);
+		this.add(categoryTabs, BorderLayout.CENTER);
 		this.add(bottom, BorderLayout.SOUTH);
 
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -243,23 +251,104 @@ public class SwingEditor extends JFrame implements WindowListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addStaticDataTab(String title, Component panel)
+	private void addEditorTab(EditorCategory category, String title, Component panel)
 	{
-		staticDataTabs.addTab(title, panel);
+		int dirtyFlag = panel instanceof IEditorPanel
+			? ((IEditorPanel)panel).getDirtyFlag()
+			: -1;
+		addEditorTab(category, title, panel, dirtyFlag);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void addEditorTab(
+		EditorCategory category, String title, Component panel, int dirtyFlag)
+	{
+		category.verticalTabs.addTab(title, panel);
 		if (panel instanceof IEditorPanel)
 		{
 			this.editorPanels.add((IEditorPanel)panel);
 		}
+		registerDirtyFlag(dirtyFlag, category);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
-	private void addDynamicDataTab(String title, Component panel)
+	private void registerDirtyFlag(int dirtyFlag, EditorCategory category)
 	{
-		dynamicDataTabs.addTab(title, panel);
-		if (panel instanceof IEditorPanel)
+		if (dirtyFlag >= 0)
 		{
-			this.editorPanels.add((EditorPanel)panel);
+			dirtyFlagCategory.put(dirtyFlag, category);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void installCategoryTabMemory()
+	{
+		for (EditorCategory category : EditorCategory.values())
+		{
+			category.verticalTabs.addChangeListener(e ->
+			{
+				lastVerticalTabIndex.put(category, category.verticalTabs.getSelectedIndex());
+			});
+		}
+
+		categoryTabs.addChangeListener(new ChangeListener()
+		{
+			private int previousCategoryIndex = categoryTabs.getSelectedIndex();
+
+			@Override
+			public void stateChanged(ChangeEvent e)
+			{
+				if (previousCategoryIndex >= 0
+					&& previousCategoryIndex < EditorCategory.values().length)
+				{
+					EditorCategory previous =
+						EditorCategory.values()[previousCategoryIndex];
+					lastVerticalTabIndex.put(
+						previous, previous.verticalTabs.getSelectedIndex());
+				}
+
+				int index = categoryTabs.getSelectedIndex();
+				if (index >= 0 && index < EditorCategory.values().length)
+				{
+					EditorCategory category = EditorCategory.values()[index];
+					int savedIndex = lastVerticalTabIndex.get(category);
+					if (savedIndex >= 0 && savedIndex < category.verticalTabs.getTabCount())
+					{
+						category.verticalTabs.setSelectedIndex(savedIndex);
+					}
+				}
+
+				previousCategoryIndex = index;
+			}
+		});
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void updateCategoryTabTitles()
+	{
+		for (int i = 0; i < EditorCategory.values().length; i++)
+		{
+			EditorCategory category = EditorCategory.values()[i];
+			String title = category.label;
+			if (isCategoryDirty(category))
+			{
+				title += "*";
+			}
+			categoryTabs.setTitleAt(i, title);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean isCategoryDirty(EditorCategory category)
+	{
+		for (Map.Entry<Integer, EditorCategory> entry : dirtyFlagCategory.entrySet())
+		{
+			if (entry.getValue() == category && dirty.get(entry.getKey()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -492,6 +581,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		dirty.set(tab);
 
 		setDirtyStatusMessage();
+		updateCategoryTabTitles();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -543,6 +633,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		dirty.clear(tab);
 		setDirtyStatusMessage();
+		updateCategoryTabTitles();
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -972,7 +1063,19 @@ public class SwingEditor extends JFrame implements WindowListener
 	/*-------------------------------------------------------------------------*/
 	public IEditorPanel getEditorPanel()
 	{
-		return (IEditorPanel)staticDataTabs.getSelectedComponent();
+		int index = categoryTabs.getSelectedIndex();
+		if (index < 0 || index >= EditorCategory.values().length)
+		{
+			return null;
+		}
+
+		Component selected =
+			EditorCategory.values()[index].verticalTabs.getSelectedComponent();
+		if (selected instanceof IEditorPanel)
+		{
+			return (IEditorPanel)selected;
+		}
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1019,6 +1122,28 @@ public class SwingEditor extends JFrame implements WindowListener
 	public String getCurrentCampaign()
 	{
 		return currentCampaign.getName();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private enum EditorCategory
+	{
+		CAMPAIGN("Campaign"),
+		CHARACTERS("Characters"),
+		COMBAT_MAGIC("Combat & Magic"),
+		ITEMS_LOOT("Items & Loot"),
+		CREATURES("Creatures"),
+		WORLD("World"),
+		SAVE_GAMES("Save Games");
+
+		final String label;
+		final JTabbedPane verticalTabs;
+
+		EditorCategory(String label)
+		{
+			this.label = label;
+			this.verticalTabs =
+				new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -255,8 +255,12 @@ A single-frame Swing application for authoring all game content. It reuses the s
 `Database`/`V2` persistence layer as the runtime.
 
 - **Shell.** [`SwingEditor`](../../src/maze/mclachlan/maze/editor/swing/SwingEditor.java)
-  presents nested `JTabbedPane`s: "Static Data" (~35 data-type tabs) and "Save Games
-  and Guild Files".
+  presents nested `JTabbedPane`s: seven horizontal **category** tabs (Campaign,
+  Characters, Combat & Magic, Items & Loot, Creatures, World, Save Games), each
+  containing a left-side vertical tab list for related data-type panels. Guild
+  (premade starter characters) lives under Campaign; Save Games holds one tab per
+  save slot. Horizontal category tabs show a `*` when any panel in that group is
+  dirty.
 - **CRUD pattern.** Most tabs extend
   [`EditorPanel`](../../src/maze/mclachlan/maze/editor/swing/EditorPanel.java)
   (implements `IEditorPanel`): a name list + detail form with
