@@ -14,6 +14,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class RuinsOfHailDeadPillarTile extends TileScript
 {
+	public RuinsOfHailDeadPillarTile()
+	{
+	}
+
 	public static final String BLACK_BLOOD_MAZE_VAR = "ruins.of.hail.black.blood.used";
 
 	/*-------------------------------------------------------------------------*/

@@ -1,0 +1,10 @@
+[
+  {
+    "prefix": "ichiba.library.fiction.",
+    "shard": "ichiba-library-fiction"
+  },
+  {
+    "prefix": "ichiba.library.ref.",
+    "shard": "ichiba-library-ref"
+  }
+]

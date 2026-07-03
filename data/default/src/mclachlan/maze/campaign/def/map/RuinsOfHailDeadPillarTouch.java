@@ -14,6 +14,10 @@ import java.util.*;
  */
 public class RuinsOfHailDeadPillarTouch extends TileScript
 {
+	public RuinsOfHailDeadPillarTouch()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)

@@ -17,6 +17,10 @@ public class CocMercTeamEncounter extends TileScript
 {
 	private static final String COC_MERC_TEAM_ENCOUNTER = "coc.merc.team.ambush";
 
+	public CocMercTeamEncounter()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{

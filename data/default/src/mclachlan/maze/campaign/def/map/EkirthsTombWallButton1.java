@@ -14,6 +14,10 @@ import mclachlan.maze.stat.combat.event.SoundEffectEvent;
  */
 public class EkirthsTombWallButton1 extends TileScript
 {
+	public EkirthsTombWallButton1()
+	{
+	}
+
 	public static final String MAZE_VAR = "ekirths.tomb.wall.button.1";
 
 	/*-------------------------------------------------------------------------*/

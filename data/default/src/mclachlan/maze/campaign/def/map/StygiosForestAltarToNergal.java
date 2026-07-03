@@ -16,6 +16,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class StygiosForestAltarToNergal extends TileScript
 {
+	public StygiosForestAltarToNergal()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
 		Item item, UnifiedActor user)

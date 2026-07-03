@@ -9,7 +9,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.StringManager;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;
 import mclachlan.maze.game.*;
@@ -93,10 +92,6 @@ public class V2Saver extends Saver
 		writer.close();
 	}
 
-	public StringManager getStringManager()
-	{
-		throw new RuntimeException("Unimplemented auto generated method!");
-	}
 
 	//
 	// data

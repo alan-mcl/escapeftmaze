@@ -64,7 +64,7 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getTipOfTheDayText(int index)
 	{
-		return Database.getInstance().getString(TIPS, "tip_"+index, true);
+		return Database.getInstance().getHotString(TIPS, "tip_"+index, true);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -94,8 +94,20 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getString(String namespace, String key, boolean allowNull, Object[] args)
 	{
-		String string = Database.getInstance().getString(namespace, key, allowNull);
+		String string = Database.getInstance().getHotString(namespace, key, allowNull);
 		return String.format(string, args);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getColdString(String key)
+	{
+		return getColdString(key, false);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getColdString(String key, boolean allowNull)
+	{
+		return Database.getInstance().getColdString(key, allowNull);
 	}
 
 	/*-------------------------------------------------------------------------*/

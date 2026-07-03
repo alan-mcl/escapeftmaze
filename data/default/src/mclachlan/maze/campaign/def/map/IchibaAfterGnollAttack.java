@@ -18,6 +18,10 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class IchibaAfterGnollAttack extends TileScript
 {
+	public IchibaAfterGnollAttack()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{

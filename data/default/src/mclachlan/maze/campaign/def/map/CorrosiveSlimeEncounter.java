@@ -17,6 +17,10 @@ public class CorrosiveSlimeEncounter extends TileScript
 {
 	private static final String CORROSIVE_SLIME_ENCOUNTER = "corrosive.slime.encounter";
 
+	public CorrosiveSlimeEncounter()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{

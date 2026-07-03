@@ -7,6 +7,7 @@ import java.util.*;
 import mclachlan.crusader.*;
 import mclachlan.crusader.script.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.ColdString;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
 import mclachlan.maze.game.DifficultyLevel;
@@ -439,7 +440,7 @@ public class V2SerialiserFactory
 			"preScript", "postAppearanceScript", "partyLeavesNeutralScript", "partyLeavesFriendlyScript", "bypassNpcScriptsOnNonHostile");
 		map.put(EncounterActorsEvent.class, encounterActorsSerialiser);
 
-		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText", "alignment"));
+		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "coldStringKey", "delay", "shouldClearText", "alignment"));
 		map.put(GrantExperienceEvent.class, getReflectiveSerialiser(GrantExperienceEvent.class, "amount", "pc"));
 		map.put(GrantGoldEvent.class, getReflectiveSerialiser(GrantGoldEvent.class, "amount"));
 		map.put(SignBoardEvent.class, getReflectiveSerialiser(SignBoardEvent.class, "signBoardText"));
@@ -785,7 +786,7 @@ public class V2SerialiserFactory
 		map.put(Encounter.class, encounterSerialiser);
 
 		map.put(FlavourText.class, getReflectiveSerialiser(FlavourText.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "text", "alignment"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "text", "coldStringKey", "alignment"));
 
 		map.put(PersonalitySpeech.class, getReflectiveSerialiser(PersonalitySpeech.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "speechKey", "modal"));
@@ -1762,5 +1763,11 @@ public class V2SerialiserFactory
 				new DirectObjectSerialiser<>(), new ListSerialiser<>(jeSerialiser)));
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static ReflectiveSerialiser<ColdString> getColdStringSerialiser()
+	{
+		return getReflectiveSerialiser(ColdString.class, "name", "body");
 	}
 }

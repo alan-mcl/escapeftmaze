@@ -140,6 +140,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JTextArea flavourText;
 	private JComboBox flavourTextAlignment;
+	private ColdStringKeyPicker flavourTextColdStringKey;
 	private JComboBox lootTable;
 
 	private JTextField removeWallMazeVariable;
@@ -414,8 +415,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
-				flavourText.setText(ft.getText());
+				flavourText.setText(ft.getText() != null ? ft.getText() : "");
 				flavourText.setCaretPosition(0);
+				flavourTextColdStringKey.setColdStringKey(ft.getColdStringKey());
 				flavourTextAlignment.setSelectedItem(ft.getAlignment());
 				break;
 			case PERSONALITY_SPEECH:
@@ -787,14 +789,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JPanel getFlavourTextPanel()
 	{
 		flavourTextAlignment = new JComboBox(FlavourTextEvent.Alignment.values());
+		flavourTextColdStringKey = new ColdStringKeyPicker(dirtyFlag);
 
 		flavourText = new JTextArea(20, 30);
 		flavourText.setLineWrap(true);
 		flavourText.setWrapStyleWord(true);
 
 		return dirtyGridBagCrap(
+			flavourTextColdStringKey, new JLabel(),
 			new JLabel("Alignment:"), flavourTextAlignment,
-			new JScrollPane(flavourText), new JLabel());
+			new JLabel("Inline Text:"), new JScrollPane(flavourText));
 	}
 
 	private JPanel getEncounterPanel()
@@ -1474,7 +1478,10 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					bypassNpcScriptsOnNonHostile.isSelected());
 				break;
 			case FLAVOUR_TEXT:
-				result = new FlavourText(flavourText.getText(), (FlavourTextEvent.Alignment)flavourTextAlignment.getSelectedItem());
+				FlavourText ftResult = new FlavourText(flavourText.getText(),
+					(FlavourTextEvent.Alignment)flavourTextAlignment.getSelectedItem());
+				ftResult.setColdStringKey(flavourTextColdStringKey.getColdStringKey());
+				result = ftResult;
 				break;
 			case PERSONALITY_SPEECH:
 				result = new PersonalitySpeech(psSpeechKey.getText(), psModal.isSelected());

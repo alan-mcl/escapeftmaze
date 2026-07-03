@@ -16,6 +16,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class TempleOfTheGateGholaCoin extends TileScript
 {
+	public TempleOfTheGateGholaCoin()
+	{
+	}
+
 	public static final String GHOLA_COIN_USED = "temple.of.the.gate.ghola.coin.used";
 
 	/*-------------------------------------------------------------------------*/

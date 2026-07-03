@@ -11,9 +11,8 @@ import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.StringManager;
+import mclachlan.maze.data.TextRepository;
 import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1StringManager;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;
 import mclachlan.maze.game.*;
@@ -40,9 +39,9 @@ import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.*;
  */
 public class V2Loader extends Loader
 {
-	// to avoid loading properties files over and over again we still
+	// to avoid loading json files over and over again we still
 	// cache strings at this level
-	private V1StringManager stringManager;
+	private TextRepository textRepository;
 
 	private Campaign campaign;
 	private Database db;
@@ -52,7 +51,7 @@ public class V2Loader extends Loader
 	{
 		this.campaign = campaign;
 		db = Database.getInstance();
-		initStringManager();
+		initTextRepository();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -316,15 +315,15 @@ public class V2Loader extends Loader
 	}
 
 	@Override
-	public StringManager getStringManager()
+	public TextRepository getTextRepository()
 	{
-		return stringManager;
+		return textRepository;
 	}
 
 	@Override
-	public void initStringManager()
+	public void initTextRepository()
 	{
-		stringManager = new V1StringManager(getPath(""));
+		textRepository = new TextRepository(getPath(""), db);
 	}
 
 	@Override

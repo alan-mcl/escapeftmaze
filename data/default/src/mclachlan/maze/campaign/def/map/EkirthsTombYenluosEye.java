@@ -19,6 +19,10 @@ import mclachlan.maze.stat.combat.event.SoundEffectEvent;
  */
 public class EkirthsTombYenluosEye extends TileScript
 {
+	public EkirthsTombYenluosEye()
+	{
+	}
+
 	public static final String ILLUSION_WALL_SPOTTED = "ekirths.tomb.illusion.wall.spotted"; 
 
 	/*-------------------------------------------------------------------------*/

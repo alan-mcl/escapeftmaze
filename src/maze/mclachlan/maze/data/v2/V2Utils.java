@@ -101,6 +101,22 @@ public class V2Utils
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static <T> List<T> getObjectList(BufferedReader reader, Class<T> clazz)
+	{
+		Gson gson = getGsonReader();
+		Type type = TypeToken.getParameterized(List.class, clazz).getType();
+		return gson.fromJson(new JsonReader(reader), type);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void writeJsonList(List<?> list, Writer writer) throws IOException
+	{
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		writer.write(gson.toJson(list));
+		writer.flush();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static Map serialiseMap(Map<?, ?> map, V2SerialiserMap serialiser,
 		Database db)
 	{

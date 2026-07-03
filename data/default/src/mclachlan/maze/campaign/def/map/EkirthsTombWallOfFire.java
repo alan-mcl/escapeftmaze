@@ -20,6 +20,10 @@ import mclachlan.maze.stat.magic.SpellEffect;
  */
 public class EkirthsTombWallOfFire extends TileScript
 {
+	public EkirthsTombWallOfFire()
+	{
+	}
+
 	public static final String WALL_OF_FIRE_DEACTIVATED =
 		"ekirths.tomb.wall.of.fire.deactivated";
 

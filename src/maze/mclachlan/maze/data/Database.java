@@ -112,7 +112,6 @@ public class Database
 	private Map<String, FoeType> foeTypes;
 	private Map<String, NaturalWeapon> naturalWeapons;
 
-	private final Map<String, Map<String, String>> strings = new HashMap<>();
 	private Map<String, PlayerCharacter> characterGuild;
 	private final BufferedImageCache images = new BufferedImageCache();
 	private final Loader loader;
@@ -1749,35 +1748,29 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getString(String namespace, String key, boolean allowNull)
+	public String getHotString(String namespace, String key, boolean allowNull)
 	{
-		// try to load from all campaigns, starting with the current one
 		synchronized (mutex)
 		{
-			if (strings.containsKey(namespace))
-			{
-				Map<String, String> namespaceCache = strings.get(namespace);
-				String s = namespaceCache.get(key);
-				if (s != null)
-				{
-					return s;
-				}
-			}
-			else
-			{
-				strings.put(namespace, new HashMap<>());
-			}
-
-			// not cached yet, attempt to load
 			List<MazeException> errors = new ArrayList<>();
+			boolean sawNamespace = false;
 
 			for (CampaignCache cc : campaignCaches)
 			{
+				TextRepository repository = cc.loader.getTextRepository();
+				if (!repository.hasHotNamespace(namespace))
+				{
+					continue;
+				}
+
+				sawNamespace = true;
 				try
 				{
-					String s = getString(namespace, key, allowNull, cc);
-					strings.get(namespace).put(key, s);
-					return s;
+					String result = repository.getHotString(namespace, key, true);
+					if (result != null)
+					{
+						return result;
+					}
 				}
 				catch (MazeException e)
 				{
@@ -1785,31 +1778,114 @@ public class Database
 				}
 			}
 
-			MazeException me = new MazeException("Can't load [" + key + "]");
+			if (allowNull || !sawNamespace)
+			{
+				if (!allowNull && sawNamespace)
+				{
+					MazeException me = new MazeException("Can't load HotString [" + namespace + "][" + key + "]");
+					errors.forEach(me::addSuppressed);
+					throw me;
+				}
+				return null;
+			}
+
+			MazeException me = new MazeException("Can't load HotString [" + namespace + "][" + key + "]");
 			errors.forEach(me::addSuppressed);
 			throw me;
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String getString(String namespace, String key, boolean allowNull,
-		CampaignCache campaignCache)
+	public String getColdString(String key, boolean allowNull)
 	{
 		synchronized (mutex)
 		{
-			String result = campaignCache.loader.getStringManager().getString(namespace, key);
-			if (result == null)
-			{
-				// special case: retry one time to load the resource bundle
-				campaignCache.loader.initStringManager();
-				result = campaignCache.loader.getStringManager().getString(namespace, key);
+			List<MazeException> errors = new ArrayList<>();
 
-				if (result == null && !allowNull)
+			for (CampaignCache cc : campaignCaches)
+			{
+				try
 				{
-					throw new MazeException("Invalid key [" + key + "]");
+					String result = cc.loader.getTextRepository().getColdString(key, true);
+					if (result != null)
+					{
+						return result;
+					}
+				}
+				catch (MazeException e)
+				{
+					errors.add(e);
 				}
 			}
-			return result;
+
+			if (allowNull)
+			{
+				return null;
+			}
+
+			MazeException me = new MazeException("Can't load ColdString [" + key + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getString(String namespace, String key, boolean allowNull)
+	{
+		return getHotString(namespace, key, allowNull);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public TextRepository getTextRepository(Campaign campaign)
+	{
+		synchronized (mutex)
+		{
+			for (CampaignCache cc : campaignCaches)
+			{
+				if (cc.campaign.getName().equals(campaign.getName()))
+				{
+					return cc.loader.getTextRepository();
+				}
+			}
+			throw new MazeException("Unknown campaign [" + campaign.getName() + "]");
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void saveHotStrings(String namespace, Map<String, String> strings,
+		Campaign campaign) throws Exception
+	{
+		getTextRepository(campaign).saveHotNamespace(namespace, strings);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void saveColdStringsShard(String shard, Map<String, ColdString> strings,
+		Campaign campaign) throws Exception
+	{
+		getTextRepository(campaign).saveColdShard(shard, strings);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void saveColdStringsManifest(List<ColdStringManifestEntry> manifest,
+		Campaign campaign) throws Exception
+	{
+		getTextRepository(campaign).saveColdManifest(manifest);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void reloadTextRepository(Campaign campaign)
+	{
+		synchronized (mutex)
+		{
+			for (CampaignCache cc : campaignCaches)
+			{
+				if (cc.campaign.getName().equals(campaign.getName()))
+				{
+					cc.loader.initTextRepository();
+					return;
+				}
+			}
+			throw new MazeException("Unknown campaign [" + campaign.getName() + "]");
 		}
 	}
 

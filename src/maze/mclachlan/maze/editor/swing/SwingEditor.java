@@ -70,6 +70,8 @@ public class SwingEditor extends JFrame implements WindowListener
 	private NaturalWeaponsPanel naturalWeaponsPanel;
 	private ObjectAnimationPanel objectAnimationPanel;
 	private FoeSpeechPanel foeSpeechPanel;
+	private HotStringsPanel hotStringsPanel;
+	private ColdStringsPanel coldStringsPanel;
 	private FoeTemplatePanel foeTemplatePanel;
 	private TrapsPanel trapsPanel;
 	private FoeEntryPanel foeEntryPanel;
@@ -155,6 +157,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
 		addStaticDataTab("Object Animations", getObjectAnimationsPanel());
 		addStaticDataTab("Foe Speech", getFoeSpeechPanel());
+		addStaticDataTab("Hot Strings", getHotStringsPanel());
+		addStaticDataTab("Cold Strings", getColdStringsPanel());
 		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
 		addStaticDataTab("Traps", getTrapsPanel());
 		addStaticDataTab("Foe Entries", getFoeEntriesPanel());
@@ -340,6 +344,18 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		foeSpeechPanel = new FoeSpeechPanel();
 		return foeSpeechPanel;
+	}
+
+	private Component getHotStringsPanel()
+	{
+		hotStringsPanel = new HotStringsPanel(Tab.HOT_STRINGS);
+		return hotStringsPanel;
+	}
+
+	private EditorPanel getColdStringsPanel()
+	{
+		coldStringsPanel = new ColdStringsPanel();
+		return coldStringsPanel;
 	}
 
 	private EditorPanel getFoeTemplatesPanel()
@@ -592,6 +608,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.TEXTURES)) saveMazeTextures();
 		if (dirty.get(Tab.OBJECT_ANIMATIONS)) saveObjectAnimations();
 		if (dirty.get(Tab.FOE_SPEECH)) saveFoeSpeech();
+		if (dirty.get(Tab.HOT_STRINGS)) saveHotStrings();
+		if (dirty.get(Tab.COLD_STRINGS)) saveColdStrings();
 		if (dirty.get(Tab.FOE_TEMPLATES)) saveFoeTemplates();
 		if (dirty.get(Tab.TRAPS)) saveTraps();
 		if (dirty.get(Tab.FOE_ENTRIES)) saveFoeEntries();
@@ -669,6 +687,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		saveMazeTextures();
 		saveObjectAnimations();
 		saveFoeSpeech();
+		saveHotStrings();
+		saveColdStrings();
 		saveFoeTemplates();
 		saveTraps();
 		saveFoeEntries();
@@ -829,6 +849,16 @@ public class SwingEditor extends JFrame implements WindowListener
 		Database.getInstance().saveFoeSpeech(Database.getInstance().getFoeSpeeches(), currentCampaign);
 	}
 
+	public void saveHotStrings() throws Exception
+	{
+		hotStringsPanel.saveToDisk();
+	}
+
+	public void saveColdStrings() throws Exception
+	{
+		coldStringsPanel.saveToDisk();
+	}
+
 	public void saveFoeTemplates() throws Exception
 	{
 		Database.getInstance().saveFoeTemplates(Database.getInstance().getFoeTemplates(), currentCampaign);
@@ -896,7 +926,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (editor.getCurrentName() != null)
 			{
 				DataObject commit = editor.commit(editor.getCurrentName());
-				commit.setCampaign(this.getCurrentCampaign());
+				if (commit != null)
+				{
+					commit.setCampaign(this.getCurrentCampaign());
+				}
 			}
 		}
 		
@@ -1031,6 +1064,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int STARTING_KITS = 35;
 		public static final int FOE_TYPES = 36;
 		public static final int FOE_SPEECH = 37;
+		public static final int HOT_STRINGS = 38;
+		public static final int COLD_STRINGS = 39;
 
 		public static String valueOf(int tab)
 		{
@@ -1055,6 +1090,8 @@ public class SwingEditor extends JFrame implements WindowListener
 					case OBJECT_ANIMATIONS -> "object animations";
 					case FOE_TEMPLATES -> "foe templates";
 					case FOE_SPEECH -> "foe speech";
+					case HOT_STRINGS -> "hot strings";
+					case COLD_STRINGS -> "cold strings";
 					case TRAPS -> "traps";
 					case FOE_ENTRIES -> "foe entries";
 					case ENCOUNTER_TABLES -> "encounter tables";

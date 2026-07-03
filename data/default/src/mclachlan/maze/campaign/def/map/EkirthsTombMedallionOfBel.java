@@ -17,6 +17,10 @@ import mclachlan.maze.stat.combat.event.SoundEffectEvent;
  */
 public class EkirthsTombMedallionOfBel extends TileScript
 {
+	public EkirthsTombMedallionOfBel()
+	{
+	}
+
 	public static final String MEDALLION_OF_BEL_USED = "ekirths.tomb.medalion.of.bel.used";
 
 	/*-------------------------------------------------------------------------*/

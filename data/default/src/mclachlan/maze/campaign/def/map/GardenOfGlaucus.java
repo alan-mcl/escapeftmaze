@@ -18,6 +18,10 @@ import mclachlan.maze.stat.combat.event.HealingEvent;
  */
 public class GardenOfGlaucus extends TileScript
 {
+	public GardenOfGlaucus()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
 		Item item, UnifiedActor user)

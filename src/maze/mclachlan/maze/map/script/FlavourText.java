@@ -21,6 +21,7 @@ package mclachlan.maze.map.script;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.TileScript;
@@ -31,6 +32,7 @@ import mclachlan.maze.map.TileScript;
 public class FlavourText extends TileScript
 {
 	private String text;
+	private String coldStringKey;
 	private FlavourTextEvent.Alignment alignment;
 
 	public FlavourText()
@@ -49,6 +51,7 @@ public class FlavourText extends TileScript
 	{
 		super(copy);
 		text = copy.text;
+		coldStringKey = copy.coldStringKey;
 		alignment = copy.alignment;
 	}
 
@@ -63,8 +66,19 @@ public class FlavourText extends TileScript
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		result.add(new FlavourTextEvent(text, MazeEvent.Delay.WAIT_ON_CLICK, true, alignment));
+		String resolved = resolveText();
+		result.add(new FlavourTextEvent(resolved, MazeEvent.Delay.WAIT_ON_CLICK, true, alignment));
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private String resolveText()
+	{
+		if (coldStringKey != null && coldStringKey.length() > 0)
+		{
+			return StringUtil.getColdString(coldStringKey);
+		}
+		return text;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -76,6 +90,16 @@ public class FlavourText extends TileScript
 	public void setText(String text)
 	{
 		this.text = text;
+	}
+
+	public String getColdStringKey()
+	{
+		return coldStringKey;
+	}
+
+	public void setColdStringKey(String coldStringKey)
+	{
+		this.coldStringKey = coldStringKey;
 	}
 
 	public FlavourTextEvent.Alignment getAlignment()
@@ -109,6 +133,10 @@ public class FlavourText extends TileScript
 
 		FlavourText that = (FlavourText)o;
 
+		if (getColdStringKey() != null ? !getColdStringKey().equals(that.getColdStringKey()) : that.getColdStringKey() != null)
+		{
+			return false;
+		}
 		return getText() != null ? getText().equals(that.getText()) : that.getText() == null;
 	}
 
@@ -117,6 +145,7 @@ public class FlavourText extends TileScript
 	{
 		int result = super.hashCode();
 		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		result = 31 * result + (getColdStringKey() != null ? getColdStringKey().hashCode() : 0);
 		return result;
 	}
 }

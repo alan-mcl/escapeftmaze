@@ -84,13 +84,13 @@ public abstract class Loader
 	public abstract Map<String, StartingKit> loadStartingKits();
 	public abstract Map<String, FoeType> loadFoeTypes();
 	public abstract Map<String, NaturalWeapon> loadNaturalWeapons();
-	public abstract StringManager getStringManager();
+	public abstract TextRepository getTextRepository();
 
 	/**
-	 * Must reload the resource bundle from disk every time. Caching not to be
-	 * done in this layer.
+	 * Must reload string data from disk every time. Caching is done in
+	 * {@link TextRepository}.
 	 */
-	public abstract void initStringManager();
+	public abstract void initTextRepository();
 
 	// stuff that can be optionally lazy loaded
 	public abstract BufferedImage getImage(String resourceName);

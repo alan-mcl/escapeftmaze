@@ -19,7 +19,41 @@
 
 package mclachlan.maze.data;
 
-public interface StringManager
+/**
+ * Routes a ColdString key prefix to a shard file under db/strings/cold/.
+ */
+public class ColdStringManifestEntry
 {
-	String getString(String namespace, String key);
+	private String prefix;
+	private String shard;
+
+	public ColdStringManifestEntry()
+	{
+	}
+
+	public ColdStringManifestEntry(String prefix, String shard)
+	{
+		this.prefix = prefix;
+		this.shard = shard;
+	}
+
+	public String getPrefix()
+	{
+		return prefix;
+	}
+
+	public void setPrefix(String prefix)
+	{
+		this.prefix = prefix;
+	}
+
+	public String getShard()
+	{
+		return shard;
+	}
+
+	public void setShard(String shard)
+	{
+		this.shard = shard;
+	}
 }

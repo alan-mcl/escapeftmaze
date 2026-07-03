@@ -19,6 +19,10 @@ import mclachlan.maze.stat.combat.event.SoundEffectEvent;
  */
 public class EkirthsTombGetselsBoneComb extends TileScript
 {
+	public EkirthsTombGetselsBoneComb()
+	{
+	}
+
 	public static final String BONE_COMB_USED = "ekirths.tomb.getsels.bone.comb.used";
 
 	/*-------------------------------------------------------------------------*/

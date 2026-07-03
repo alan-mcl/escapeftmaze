@@ -17,6 +17,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class TempleOfTheGateDragonRod extends TileScript
 {
+	public TempleOfTheGateDragonRod()
+	{
+	}
+
 	public static final String DRAGON_ROD_USED = "temple.of.the.gate.dragon.rod.used";
 
 	/*-------------------------------------------------------------------------*/

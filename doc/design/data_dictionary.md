@@ -313,6 +313,8 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
 | ZoneScript | `map/ZoneScript.java` | Zone-level init/end-of-turn ambient script |
 | MazeTexture | `data/MazeTexture.java` | Named image resource -> Crusader `Texture` (frames, animation, scroll, tint) |
+| ColdString | `data/ColdString.java` | Lazy-loaded bulk text: `name` (global key), `body` (multiline prose). Stored in `strings/cold/<shard>.json`. |
+| TextRepository | `data/TextRepository.java` | Per-campaign HotString + ColdStrings cache; API: `getHotString`, `getColdString` |
 
 ### 4.8 Game State
 
@@ -366,7 +368,9 @@ File-to-entity mapping (from
 | `difficultylevels.json` | DifficultyLevel |
 | `guild.json` | Map<String,PlayerCharacter> (reusable created characters) |
 | `zones/<Name>.json` | Zone (one file per zone) |
-| `strings/*.txt` | UI/event/campaign text (Java Properties, not entities) |
+| `strings/strings-*.json` | HotString bundles: `ui`, `event`, `gamesys`, `tips`, `campaign` (flat key→value JSON maps) |
+| `strings/cold/manifest.json` | ColdStrings shard routing (prefix → shard name) |
+| `strings/cold/<shard>.json` | ColdStrings shard: map of `ColdString` (`name`, `body`) for bulk lore/readables |
 
 ### Representative snippets
 

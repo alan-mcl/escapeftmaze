@@ -1817,6 +1817,14 @@
         "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
         "type": "ZONE",
         "journalText": "Test Zone Event"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "",
+        "coldStringKey": "ichiba.library.fiction.sample",
+        "delay": "-1",
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },

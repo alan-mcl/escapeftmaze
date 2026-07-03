@@ -48,7 +48,6 @@ public abstract class EditorPanel
 		this.dirtyFlag = dirtyFlag;
 		names = new JList();
 
-		refreshNames(null);
 		names.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		names.addListSelectionListener(this);
 		names.setFixedCellWidth(100);
@@ -68,16 +67,25 @@ public abstract class EditorPanel
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 
 		editControls = getEditControls();
-		JScrollPane editControlsScroller = new JScrollPane(editControls);
+		Component editPane;
+		if (scrollEditControls())
+		{
+			editPane = new JScrollPane(editControls);
+		}
+		else
+		{
+			editPane = editControls;
+		}
 
 		JSplitPane splitPane = new JSplitPane(
 			JSplitPane.HORIZONTAL_SPLIT,
 			true,
 			nameScroller,
-			editControlsScroller);
+			editPane);
 
 		add(splitPane, gbc);
 
+		refreshNames(null);
 		initForeignKeys();
 		if (currentName != null)
 		{
@@ -157,7 +165,10 @@ public abstract class EditorPanel
 		if (currentName != null)
 		{
 			DataObject dataObject = commit(currentName);
-			dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
+			if (dataObject != null)
+			{
+				dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
+			}
 		}
 
 		currentName = (String)names.getSelectedValue();
@@ -260,6 +271,12 @@ public abstract class EditorPanel
 		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		return gbc;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected boolean scrollEditControls()
+	{
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/

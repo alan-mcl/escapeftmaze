@@ -237,8 +237,9 @@ A strategy-pattern I/O layer behind a caching facade.
   stored by name (`NameSerialiser`) and resolved against the `Database`; polymorphism
   uses a `TYPE_KEY`/`IMPL` class name. Files are wrapped in a silo
   (`SimpleMapSilo` array / `SingletonSilo` object / `MapSingletonSilo`). V1 is a legacy
-  text format; only parsing utilities and a zone-only loader remain, and strings +
-  `user.cfg` are still Java Properties.
+  text format; only parsing utilities and a zone-only loader remain. Player-facing
+  strings use V2 JSON under `db/strings/` (**HotString** bundles and lazy **ColdStrings**
+  shards); `user.cfg` remains Java Properties.
 - **On disk.** `data/<campaign>/db/*.json` (static authored content, plus
   `zones/*.json` and `guild.json`) and `data/<campaign>/save/<slot>/*.json` (runtime
   save state). See the data dictionary for the full file map.

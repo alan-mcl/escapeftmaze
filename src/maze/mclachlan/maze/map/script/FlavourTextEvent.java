@@ -20,6 +20,7 @@
 package mclachlan.maze.map.script;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.ui.diygui.FlavourTextDialog;
@@ -31,6 +32,7 @@ import mclachlan.maze.ui.diygui.FlavourTextDialog;
 public class FlavourTextEvent extends MazeEvent
 {
 	private String flavourText;
+	private String coldStringKey;
 	private int delay;
 	private boolean shouldClearText;
 	private Alignment alignment = Alignment.CENTER;
@@ -80,9 +82,20 @@ public class FlavourTextEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().journalInContext(flavourText);
-		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, flavourText, alignment));
+		String text = resolveText();
+		Maze.getInstance().journalInContext(text);
+		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, text, alignment));
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private String resolveText()
+	{
+		if (coldStringKey != null && coldStringKey.length() > 0)
+		{
+			return StringUtil.getColdString(coldStringKey);
+		}
+		return flavourText;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -102,6 +115,16 @@ public class FlavourTextEvent extends MazeEvent
 	public void setFlavourText(String flavourText)
 	{
 		this.flavourText = flavourText;
+	}
+
+	public String getColdStringKey()
+	{
+		return coldStringKey;
+	}
+
+	public void setColdStringKey(String coldStringKey)
+	{
+		this.coldStringKey = coldStringKey;
 	}
 
 	public void setDelay(int delay)
@@ -152,6 +175,10 @@ public class FlavourTextEvent extends MazeEvent
 		{
 			return false;
 		}
+		if (getColdStringKey() != null ? !getColdStringKey().equals(that.getColdStringKey()) : that.getColdStringKey() != null)
+		{
+			return false;
+		}
 		return getFlavourText() != null ? getFlavourText().equals(that.getFlavourText()) : that.getFlavourText() == null;
 	}
 
@@ -159,6 +186,7 @@ public class FlavourTextEvent extends MazeEvent
 	public int hashCode()
 	{
 		int result = getFlavourText() != null ? getFlavourText().hashCode() : 0;
+		result = 31 * result + (getColdStringKey() != null ? getColdStringKey().hashCode() : 0);
 		result = 31 * result + getDelay();
 		result = 31 * result + (isShouldClearText() ? 1 : 0);
 		return result;

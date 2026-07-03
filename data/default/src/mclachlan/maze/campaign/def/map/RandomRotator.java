@@ -15,6 +15,10 @@ import java.util.*;
  */
 public class RandomRotator extends TileScript
 {
+	public RandomRotator()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{

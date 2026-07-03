@@ -15,6 +15,10 @@ import mclachlan.maze.map.script.FlavourTextEvent;
  */
 public class GoblinMagsmenEncounter extends TileScript
 {
+	public GoblinMagsmenEncounter()
+	{
+	}
+
 	private static final String GOBLIN_MAGSMEN_ENCOUNTER = "goblin.magsmen.encounter";
 
 	/*-------------------------------------------------------------------------*/

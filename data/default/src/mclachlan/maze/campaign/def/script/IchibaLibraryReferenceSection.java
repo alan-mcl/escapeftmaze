@@ -12,14 +12,18 @@ import mclachlan.maze.map.script.FlavourTextEvent;
  */
 public class IchibaLibraryReferenceSection extends TileScript
 {
+	public IchibaLibraryReferenceSection()
+	{
+	}
+
 	@Override
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)
 	{
-		return getList(
-			new FlavourTextEvent("You examine the bookshelves..."),
-			new FlavourTextEvent("todo")
-		);
+		FlavourTextEvent intro = new FlavourTextEvent("You examine the bookshelves...");
+		FlavourTextEvent sample = new FlavourTextEvent();
+		sample.setColdStringKey("ichiba.library.ref.sample");
+		return getList(intro, sample);
 	}
 
 	/*-------------------------------------------------------------------------*/

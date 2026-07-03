@@ -14,6 +14,10 @@ import mclachlan.maze.map.script.FlavourTextEvent;
  */
 public class EkirthsTombMedallionOfBelEncounter extends TileScript
 {
+	public EkirthsTombMedallionOfBelEncounter()
+	{
+	}
+
 	public static final String ENCOUNTER_DONE =
 		"ekirths.tomb.medallion.of.bel.encounter.done";
 

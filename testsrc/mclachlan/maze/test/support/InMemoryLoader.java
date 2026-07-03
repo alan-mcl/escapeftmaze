@@ -27,7 +27,7 @@ import java.util.*;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.StringManager;
+import mclachlan.maze.data.TextRepository;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
@@ -85,7 +85,7 @@ public class InMemoryLoader extends Loader
 	public final Map<String, NaturalWeapon> naturalWeapons = new HashMap<>();
 	public final Map<String, PlayerCharacter> characterGuild = new HashMap<>();
 
-	private final StringManager stringManager = (namespace, key) -> key;
+	public final TestTextRepository textRepository = new TestTextRepository();
 
 	/*-------------------------------------------------------------------------*/
 	@Override public Map<String, Gender> loadGenders() { return genders; }
@@ -121,8 +121,8 @@ public class InMemoryLoader extends Loader
 	@Override public Map<String, FoeType> loadFoeTypes() { return foeTypes; }
 	@Override public Map<String, NaturalWeapon> loadNaturalWeapons() { return naturalWeapons; }
 
-	@Override public StringManager getStringManager() { return stringManager; }
-	@Override public void initStringManager() { }
+	@Override public TextRepository getTextRepository() { return textRepository; }
+	@Override public void initTextRepository() { textRepository.resetCaches(); }
 
 	/*-------------------------------------------------------------------------*/
 	// resources & save games: not needed by the hermetic suite

@@ -13,6 +13,10 @@ import mclachlan.maze.stat.*;
  */
 public class DartBoard extends TileScript
 {
+	public DartBoard()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
 		Item item, UnifiedActor user)

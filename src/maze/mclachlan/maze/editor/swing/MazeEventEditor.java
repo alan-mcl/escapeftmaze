@@ -87,6 +87,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JCheckBox shouldClearText;
 	private JComboBox alignment;
 	private JTextArea flavourText;
+	private ColdStringKeyPicker flavourTextColdStringKey;
 	private JSpinner xpAmount;
 	private JSpinner goldAmount;
 	private JComboBox lootTable;
@@ -250,7 +251,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
-				flavourText.setText(fte.getFlavourText());
+				flavourText.setText(fte.getFlavourText() != null ? fte.getFlavourText() : "");
+				flavourTextColdStringKey.setColdStringKey(fte.getColdStringKey());
 				flavourTextDelay.setValue(fte.getDelay());
 				shouldClearText.setSelected(fte.shouldClearText());
 				alignment.setSelectedItem(fte.getAlignment());
@@ -551,11 +553,13 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					bypassNpcScriptsOnNonHostile.isSelected());
 				break;
 			case _FlavourTextEvent:
-				this.result = new FlavourTextEvent(
+				FlavourTextEvent fteResult = new FlavourTextEvent(
 					flavourText.getText(),
 					(Integer)flavourTextDelay.getValue(),
 					shouldClearText.isSelected(),
 					(FlavourTextEvent.Alignment)alignment.getSelectedItem());
+				fteResult.setColdStringKey(flavourTextColdStringKey.getColdStringKey());
+				this.result = fteResult;
 				break;
 			case _GrantExperienceEvent:
 				this.result = new GrantExperienceEvent(
@@ -1289,6 +1293,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		flavourTextDelay = new JSpinner(new SpinnerNumberModel(-1, -1, 99999, 1));
 		shouldClearText = new JCheckBox("Clear Text?");
 		alignment = new JComboBox(FlavourTextEvent.Alignment.values());
+		flavourTextColdStringKey = new ColdStringKeyPicker(dirtyFlag);
 		flavourText = new JTextArea();
 		flavourText.setWrapStyleWord(true);
 		flavourText.setLineWrap(true);
@@ -1301,7 +1306,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			new JLabel("Alignment: "), alignment,
 			new JLabel("Delay: "), flavourTextDelay,
 			shouldClearText, null,
-			new JLabel("Flavour Text: "), new JScrollPane(flavourText));
+			flavourTextColdStringKey, null,
+			new JLabel("Inline Flavour Text: "), new JScrollPane(flavourText));
 		return result;
 	}
 

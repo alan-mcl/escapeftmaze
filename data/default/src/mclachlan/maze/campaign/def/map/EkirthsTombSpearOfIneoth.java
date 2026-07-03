@@ -19,6 +19,10 @@ import mclachlan.maze.stat.combat.event.SoundEffectEvent;
  */
 public class EkirthsTombSpearOfIneoth extends TileScript
 {
+	public EkirthsTombSpearOfIneoth()
+	{
+	}
+
 	private static final String ENGINE_OBJECT_NAME = "ekirths.tomb.wall.of.fire";
 
 	/*-------------------------------------------------------------------------*/
