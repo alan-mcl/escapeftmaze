@@ -1,0 +1,174 @@
+[
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_11",
+    "imageResources": [
+      "plant128_1"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_12",
+    "imageResources": [
+      "wall128_7"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_13",
+    "imageResources": [
+      "purple_haze"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_14",
+    "imageResources": [
+      "masktest"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_15",
+    "imageResources": [
+      "sky_5"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "DOWN",
+    "scrollSpeed": "5"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_16",
+    "imageResources": [
+      "plant128_2"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_0",
+    "imageResources": [
+      "wall128_2"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_1",
+    "imageResources": [
+      "wall128_2"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_2",
+    "imageResources": [
+      "wall128_3"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_3",
+    "imageResources": [
+      "wall128_4"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_4",
+    "imageResources": [
+      "plant128_1"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_5",
+    "imageResources": [
+      "wall128_5"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_6",
+    "imageResources": [
+      "torch128_1",
+      "torch128_2",
+      "torch128_3"
+    ],
+    "animationDelay": "100",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_7",
+    "imageResources": [
+      "transparent128_1"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_8",
+    "imageResources": [
+      "wall128_6"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "LEFT",
+    "scrollSpeed": "100"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_9",
+    "imageResources": [
+      "wall128_2"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "NoName_texture_10",
+    "imageResources": [
+      "wall128_2"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "NONE",
+    "scrollSpeed": "-1"
+  }
+]

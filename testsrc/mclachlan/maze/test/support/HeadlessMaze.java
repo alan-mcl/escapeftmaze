@@ -60,7 +60,7 @@ public class HeadlessMaze
 		maze.initSystems();
 		maze.initUi(new HeadlessUi());
 
-		maze.setUserConfig(new UserConfig(defaultUserConfigProperties()));
+		maze.setUserConfig(UserConfig.defaultsForTesting());
 
 		// the GUI toolkit is a process-wide singleton some widgets reach for
 		if (DIYToolkit.getInstance() == null)
@@ -69,18 +69,6 @@ public class HeadlessMaze
 		}
 
 		return maze;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static java.util.Properties defaultUserConfigProperties()
-	{
-		java.util.Properties p = new java.util.Properties();
-		p.setProperty(UserConfig.Key.COMBAT_DELAY.getValue(), "0");
-		p.setProperty(UserConfig.Key.PERSONALITY_CHATTINESS.getValue(), "0");
-		p.setProperty(UserConfig.Key.MUSIC_VOLUME.getValue(), "0");
-		p.setProperty(UserConfig.Key.CURRENT_TIP_INDEX.getValue(), "0");
-		p.setProperty(UserConfig.Key.AUTO_ADD_CONSUMABLES.getValue(), "false");
-		return p;
 	}
 
 	/*-------------------------------------------------------------------------*/

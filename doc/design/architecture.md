@@ -179,7 +179,10 @@ returns an image.
   fade-to-black), and per-pixel mouse picking via
   [`MouseClickScript`](../../src/maze/mclachlan/crusader/MouseClickScript.java).
 - **Test harness.** [`CrusaderClient`](../../src/maze/mclachlan/crusader/client/CrusaderClient.java)
-  runs the engine standalone.
+  runs the engine standalone. The default fixture is V2 JSON under
+  [`test/crusader/`](../../test/crusader/) (`testMap.json` + `textures.json`), loaded by
+  [`CrusaderTestZoneLoader`](../../src/maze/mclachlan/crusader/client/CrusaderTestZoneLoader.java).
+  Pass `-zone <name>` to load a production zone from `data/default/db/zones/`.
 
 ### 3.3 UI Framework (DIYGUI)
 
@@ -236,10 +239,12 @@ A strategy-pattern I/O layer behind a caching facade.
   typically a `ReflectiveSerialiser` with custom field resolvers. Cross-references are
   stored by name (`NameSerialiser`) and resolved against the `Database`; polymorphism
   uses a `TYPE_KEY`/`IMPL` class name. Files are wrapped in a silo
-  (`SimpleMapSilo` array / `SingletonSilo` object / `MapSingletonSilo`). V1 is a legacy
-  text format; only parsing utilities and a zone-only loader remain. Player-facing
-  strings use V2 JSON under `db/strings/` (**HotString** bundles and lazy **ColdStrings**
-  shards); `user.cfg` remains Java Properties.
+  (`SimpleMapSilo` array / `SingletonSilo` object / `MapSingletonSilo`). The `data/v1/`
+  package retains **value-type string codecs** (`V1Dice`, `V1CurMax`, `V1StatModifier`, …)
+  and editor display formatters only; full V1 entity/zone persistence is removed.
+  Player-facing strings use V2 JSON under `db/strings/` (**HotString** bundles and lazy
+  **ColdStrings** shards). Per-user preferences are V2 JSON at repo-root
+  [`user.json`](../../user.json) (legacy `user.cfg` Properties upgraded on first load).
 - **On disk.** `data/<campaign>/db/*.json` (static authored content, plus
   `zones/*.json` and `guild.json`) and `data/<campaign>/save/<slot>/*.json` (runtime
   save state). See the data dictionary for the full file map.
@@ -321,7 +326,7 @@ which forwards Crusader clicks to a game `TileScript`.
 | File | Purpose |
 |------|---------|
 | [`maze.cfg`](../../maze.cfg) | App wiring: loader/saver impl, UI impl + renderer, screen size, default campaign, log levels |
-| [`user.cfg`](../../user.cfg) | Per-user preferences (audio/UI), Java Properties |
+| [`user.json`](../../user.json) | Per-user preferences (audio/UI, race unlocks), V2 JSON |
 | `data/<campaign>/campaign.cfg` | Campaign metadata: display name, `parentCampaign`, starting/intro scripts, creation defaults |
 
 ## 7. Build, Run, and Tooling

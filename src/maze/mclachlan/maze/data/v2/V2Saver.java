@@ -9,7 +9,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
@@ -65,10 +64,19 @@ public class V2Saver extends Saver
 
 	/*-------------------------------------------------------------------------*/
 
+	private static void ensureParentDir(File f)
+	{
+		File parent = f.getParentFile();
+		if (parent != null)
+		{
+			parent.mkdirs();
+		}
+	}
+
 	private void v2Crud(Map map, String path, V2SiloMap silo) throws Exception
 	{
 		File f = new File(path);
-		f.getParentFile().mkdirs();
+		ensureParentDir(f);
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));
 
 		silo.save(writer, map, db);
@@ -83,7 +91,7 @@ public class V2Saver extends Saver
 		silo.validate(obj, db);
 
 		File f = new File(path);
-		f.getParentFile().mkdirs();
+		ensureParentDir(f);
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));
 
 		silo.save(writer, obj, db);
@@ -311,7 +319,7 @@ public class V2Saver extends Saver
 	@Override
 	public void deleteZone(String zoneName) throws Exception
 	{
-		String pathname = path + V1Utils.ZONES + zoneName + ".txt";
+		String pathname = getPath(ZONES + zoneName + ".json");
 		File file = new File(pathname);
 		if (!file.delete())
 		{
@@ -424,10 +432,6 @@ public class V2Saver extends Saver
 	@Override
 	public void saveUserConfig(UserConfig userConfig) throws Exception
 	{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CONFIG, StandardCharsets.UTF_8));
-		Properties p = userConfig.toProperties();
-		p.store(writer, "Written by V2Saver");
-		writer.flush();
-		writer.close();
+		v2Crud(userConfig, USER_CONFIG, new SingletonSilo<>(getUserConfigSerialiser()));
 	}
 }

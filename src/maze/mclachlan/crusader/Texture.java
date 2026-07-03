@@ -331,7 +331,7 @@ public class Texture implements Comparable<Texture>
 	 */
 	public int getCurrentImageData(int textureX, int textureY, double timeNow)
 	{
-		if (scrollBehaviour != null)
+		if (scrollBehaviour != null && scrollBehaviour != ScrollBehaviour.NONE)
 		{
 			switch (scrollBehaviour)
 			{

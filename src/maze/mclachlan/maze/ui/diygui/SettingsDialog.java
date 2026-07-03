@@ -51,7 +51,7 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public SettingsDialog()
 	{
-		userConfig = new UserConfig(Maze.getInstance().getUserConfig().toProperties());
+		userConfig = new UserConfig(Maze.getInstance().getUserConfig());
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;

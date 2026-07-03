@@ -156,7 +156,7 @@
         </delete>
 
         <copy file="dist/maze.cfg" tofile="${zipdist}/maze.cfg"/>
-        <copy file="dist/user.cfg" tofile="${zipdist}/user.cfg"/>
+        <copy file="dist/user.json" tofile="${zipdist}/user.json"/>
         <copy file="dist/maze.sh" tofile="${zipdist}/maze.sh"/>
         <copy file="dist/editor.sh" tofile="${zipdist}/editor.sh"/>
         <copy todir="${zipdist}/doc/icon">
@@ -194,7 +194,7 @@
 
         <copy file="build.xml" todir="${srcdist}"/>
         <copy file="maze.cfg" todir="${srcdist}"/>
-        <copy file="user.cfg" todir="${srcdist}"/>
+        <copy file="user.json" todir="${srcdist}"/>
         <copy file="editor.sh" todir="${srcdist}"/>
         <copy file="maze.sh" todir="${srcdist}"/>
         <copy file="run_crusader_client.sh" todir="${srcdist}"/>

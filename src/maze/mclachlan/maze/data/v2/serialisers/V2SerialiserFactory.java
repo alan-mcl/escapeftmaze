@@ -12,6 +12,7 @@ import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
 import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.GameState;
+import mclachlan.maze.game.UserConfig;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
@@ -1674,6 +1675,25 @@ public class V2SerialiserFactory
 			"attitude");
 
 		result.addCustomSerialiser("template", new NameSerialiser<>(db.getNpcFactionTemplates()::get));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<UserConfig> getUserConfigSerialiser()
+	{
+		ReflectiveSerialiser<UserConfig> result = getReflectiveSerialiser(
+			UserConfig.class,
+			"combatDelay",
+			"personalityChattiness",
+			"musicVolume",
+			"currentTipIndex",
+			"autoAddConsumables",
+			"extras");
+
+		result.addCustomSerialiser("extras", new MapSerialiser<>(
+			new DirectObjectSerialiser<>(),
+			new DirectObjectSerialiser<>()));
 
 		return result;
 	}

@@ -24,13 +24,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.MemoryImageSource;
-import java.io.File;
-import java.io.IOException;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.CrusaderException;
-import mclachlan.crusader.Map;
-import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -74,10 +70,8 @@ public class CrusaderClient extends Frame
 	private CrusaderEngine.Filter[] filter = {CrusaderEngine.Filter.DEFAULT};
 	private int nrThreads = 8;
 	private int maxHitDepth = -1;
-	//	private String mapFile = "../maze/data/test/arena/testMap.txt";
-	private String mapFile = "test/crusader/testMap.txt";
 	private boolean eight_bit_mode = false;
-	private String mazeMap;
+	private String productionZoneName;
 
 	/*-------------------------------------------------------------------------*/
 	public CrusaderClient(String[] args) throws Exception
@@ -86,71 +80,36 @@ public class CrusaderClient extends Frame
 		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
 			"test/crusader/img/texture1.gif"));
 		this.engineMode = CrusaderEngine.MovementMode.CONTINUOUS;
-//		this.engineMode = CrusaderEngine.MovementMode.DISCRETE;
 		this.evaluateArgs(args);
 
 		if (eight_bit_mode)
 		{
-//			engine = new CrusaderEngine8(
-//				getMap(),
-//				MAZE_WIN_WIDTH,
-//				MAZE_WIN_HEIGHT,
-//				engineMode,
-//				new Color(0,64,0),
-//				doShading,
-//				doLighting,
-//				shadingDistance,
-//				shadingMultiplier,
-//				this);
 			throw new CrusaderException("8-bit engine no longer supported");
 		}
-		else
-		{
-			if (mazeMap == null)
-			{
-				engine = new CrusaderEngine32(
-					getMap(),
-					MAZE_WIN_WIDTH,
-					MAZE_WIN_HEIGHT,
-					engineMode,
-					Color.BLACK,
-					doShading,
-					doLighting,
-					shadingDistance,
-					shadingMultiplier,
-					filter,
-					-40, //use this for consistency with the Maze UI, for a shooter you'd likely want 0
-					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
-					1,
-					maxHitDepth,
-					nrThreads,
-					this);
-			}
-			else
-			{
-				V1Loader loader = new V1Loader();
 
-				Zone zone = loader.getZone(mazeMap);
+		CrusaderTestZoneLoader zoneLoader = new CrusaderTestZoneLoader();
+		Zone zone = productionZoneName == null
+			? zoneLoader.loadTestZone()
+			: zoneLoader.loadProductionZone(productionZoneName);
 
-				engine = new CrusaderEngine32(
-					zone.getMap(),
-					MAZE_WIN_WIDTH,
-					MAZE_WIN_HEIGHT,
-					engineMode,
-					zone.getShadeTargetColor(),
-					zone.doShading(),
-					zone.doLighting(),
-					zone.getShadingDistance(),
-					zone.getShadingMultiplier(),
-					filter,
-					zone.getProjectionPlaneOffset(),
-					zone.getPlayerFieldOfView(),
-					zone.getScaleDistFromProjPlane(),
-					maxHitDepth,
-					nrThreads,
-					this);
-			}
-		}
+		engine = new CrusaderEngine32(
+			zone.getMap(),
+			MAZE_WIN_WIDTH,
+			MAZE_WIN_HEIGHT,
+			engineMode,
+			zone.getShadeTargetColor(),
+			zone.doShading(),
+			zone.doLighting(),
+			zone.getShadingDistance(),
+			zone.getShadingMultiplier(),
+			filter,
+			zone.getProjectionPlaneOffset(),
+			zone.getPlayerFieldOfView(),
+			zone.getScaleDistFromProjPlane(),
+			maxHitDepth,
+			nrThreads,
+			this);
+
 		engine.setPlayerPos(1, 2, CrusaderEngine.Facing.EAST);
 
 		initPaletteImage();
@@ -169,18 +128,47 @@ public class CrusaderClient extends Frame
         
 		device.setFullScreenWindow(this);
 		this.enableInputMethods(false);
-		DisplayMode dm = new DisplayMode(
-				SCREEN_WIDTH,
-				SCREEN_HEIGHT,
-				32,
-				DisplayMode.REFRESH_RATE_UNKNOWN);
-		System.out.println("Using display mode: " + dm);
-		device.setDisplayMode(dm);
+		DisplayMode dm = pickDisplayMode(device, SCREEN_WIDTH, SCREEN_HEIGHT);
+		if (dm != null)
+		{
+			System.out.println("Using display mode: " + dm);
+			device.setDisplayMode(dm);
+		}
+		else
+		{
+			System.out.println("No supported " + SCREEN_WIDTH + "x" + SCREEN_HEIGHT
+				+ " display mode; using current desktop mode");
+		}
         
 		this.createBufferStrategy(2);
 		
 		// get rid of the cursor
 		new Robot().mouseMove(SCREEN_WIDTH*2, SCREEN_HEIGHT*2);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Picks a supported fullscreen mode for the requested resolution, or null if
+	 * the device does not advertise one (caller keeps the current desktop mode).
+	 */
+	private static DisplayMode pickDisplayMode(
+		GraphicsDevice device, int width, int height)
+	{
+		DisplayMode best = null;
+		for (DisplayMode dm : device.getDisplayModes())
+		{
+			if (dm.getWidth() == width && dm.getHeight() == height)
+			{
+				if (best == null
+					|| dm.getBitDepth() > best.getBitDepth()
+					|| (dm.getBitDepth() == best.getBitDepth()
+						&& dm.getRefreshRate() > best.getRefreshRate()))
+				{
+					best = dm;
+				}
+			}
+		}
+		return best;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -218,17 +206,13 @@ public class CrusaderClient extends Frame
 			{
 				shadingMultiplier = Double.parseDouble(arg.substring(3));
 			}
-			else if (arg.equalsIgnoreCase("-map"))
+			else if (arg.equalsIgnoreCase("-zone"))
 			{
-				this.mapFile = args[++i];
+				this.productionZoneName = args[++i];
 			}
 			else if (arg.equalsIgnoreCase("-8"))
 			{
 				this.eight_bit_mode = true;
-			}
-			else if (arg.equalsIgnoreCase("-mazeMap"))
-			{
-				this.mazeMap = args[++i];
 			}
 			else if (arg.startsWith("-filters:"))
 			{
@@ -239,58 +223,6 @@ public class CrusaderClient extends Frame
 				for (int x = 0; x < fStrs.length; x++)
 				{
 					filter[x] = CrusaderEngine.Filter.valueOf(fStrs[x]);
-/*					if (fStrs[x].equalsIgnoreCase("smooth"))
-					{
-						filter[x] = CrusaderEngine.Filter.SMOOTH;
-					}
-					else if (fStrs[x].equalsIgnoreCase("sharpen"))
-					{
-						filter[x] = CrusaderEngine.Filter.SHARPEN;
-					}
-					else if (fStrs[x].equalsIgnoreCase("raised"))
-					{
-						filter[x] = CrusaderEngine.Filter.RAISED;
-					}
-					else if (fStrs[x].equalsIgnoreCase("motion"))
-					{
-						filter[x] = CrusaderEngine.Filter.MOTION_BLUR;
-					}
-					else if (fStrs[x].equalsIgnoreCase("edge"))
-					{
-						filter[x] = CrusaderEngine.Filter.EDGE_DETECT;
-					}
-					else if (fStrs[x].equalsIgnoreCase("emboss"))
-					{
-						filter[x] = CrusaderEngine.Filter.EMBOSS;
-					}
-					else if (fStrs[x].equalsIgnoreCase("fxaa"))
-					{
-						filter[x] = CrusaderEngine.Filter.FXAA;
-					}
-					else if (fStrs[x].equalsIgnoreCase("wireframe"))
-					{
-						filter[x] = CrusaderEngine.Filter.WIREFRAME;
-					}
-					else if (fStrs[x].equalsIgnoreCase("greyscale"))
-					{
-						filter[x] = CrusaderEngine.Filter.GREYSCALE;
-					}
-					else if (fStrs[x].equalsIgnoreCase("ghost"))
-					{
-						filter[x] = CrusaderEngine.Filter.GHOST;
-					}
-					else if (fStrs[x].equalsIgnoreCase("hex"))
-					{
-						filter[x] = CrusaderEngine.Filter.HEX;
-					}
-					else if (fStrs[x].equalsIgnoreCase("none"))
-					{
-						filter[x] = CrusaderEngine.Filter.NONE;
-					}
-					else
-					{
-						throw new CrusaderException("invalid filter arg: [" + fStrs[x] + "]");
-					}*/
 				}
 			}
 			else if (arg.startsWith("-threads:"))
@@ -481,20 +413,6 @@ public class CrusaderClient extends Frame
 				screenY++;					
 			}
 			screenX++;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	Map getMap()
-	{
-		ClientMapLoader loader = new ClientMapLoader();
-		try
-		{
-			return loader.loadMap(new File(mapFile));
-		}
-		catch (IOException e)
-		{
-			throw new RuntimeException(e);
 		}
 	}
 

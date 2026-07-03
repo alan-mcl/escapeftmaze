@@ -13,7 +13,6 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.TextRepository;
 import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
@@ -411,7 +410,7 @@ public class V2Loader extends Loader
 	public List<String> getZoneNames()
 	{
 		List<String> result = new ArrayList<>();
-		File dir = new File(getPath(V1Utils.ZONES));
+		File dir = new File(getPath(ZONES));
 		if (dir.exists())
 		{
 			File[] files = dir.listFiles();
@@ -597,10 +596,24 @@ public class V2Loader extends Loader
 	@Override
 	public UserConfig loadUserConfig() throws Exception
 	{
-		Reader reader = getReader(USER_CONFIG);
-		Properties p = new Properties();
-		p.load(reader);
-		reader.close();
-		return new UserConfig(p);
+		File jsonFile = new File(USER_CONFIG);
+		File legacyFile = new File("user.cfg");
+
+		if (!jsonFile.exists() && legacyFile.exists())
+		{
+			Properties p = new Properties();
+			try (Reader reader = new BufferedReader(new FileReader(legacyFile, StandardCharsets.UTF_8)))
+			{
+				p.load(reader);
+			}
+			UserConfig upgraded = UserConfig.fromProperties(p);
+			new V2Saver().saveUserConfig(upgraded);
+			return upgraded;
+		}
+
+		try (BufferedReader reader = new BufferedReader(new FileReader(jsonFile, StandardCharsets.UTF_8)))
+		{
+			return (UserConfig)new SingletonSilo<>(getUserConfigSerialiser()).load(reader, db);
+		}
 	}
 }

@@ -2394,7 +2394,7 @@ public class Maze implements Runnable
 			userConfig.getMusicVolume() != this.userConfig.getMusicVolume();
 
 		// copy the new values to memory
-		this.userConfig.fromProperties(userConfig.toProperties());
+		this.userConfig = new UserConfig(userConfig);
 
 		// commit to disk
 		try

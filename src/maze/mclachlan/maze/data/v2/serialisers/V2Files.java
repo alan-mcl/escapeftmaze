@@ -50,5 +50,5 @@ public class V2Files
 	public static final String CONDITIONS = "conditions.json";
 	public static final String JOURNALS = "journals/";
 
-	public static final String USER_CONFIG = "user.cfg";
+	public static final String USER_CONFIG = "user.json";
 }

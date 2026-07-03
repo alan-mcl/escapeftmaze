@@ -25,56 +25,11 @@ import java.io.IOException;
 import java.io.ByteArrayInputStream;
 
 /**
- *
+ * Legacy string-format helpers retained for V2 serialisers and editor display.
  */
 public class V1Utils
 {
 	public static String NEWLINE = "\r\n";
-	public static final String GENDERS = "genders.txt";
-	public static final String RACES = "races.txt";
-	public static final String BODY_PARTS = "bodyparts.txt";
-	public static final String EXPERIENCE_TABLES = "experiencetables.txt";
-	public static final String CHARACTER_CLASSES = "characterclasses.txt";
-	public static final String ATTACK_TYPES = "attacktypes.txt";
-	public static final String CONDITION_EFFECTS = "conditioneffects.txt";
-	public static final String CONDITION_TEMPLATES = "conditiontemplates.txt";
-	public static final String SPELL_EFFECTS = "spelleffects.txt";
-	public static final String LOOT_ENTRIES = "lootentries.txt";
-	public static final String LOOT_TABLES = "loottables.txt";
-	public static final String SPELLS = "spells.txt";
-	public static final String PLAYER_SPELL_BOOKS = "playerspellbooks.txt";
-	public static final String MAZE_TEXTURES = "textures.txt";
-	public static final String MAZE_SCRIPTS = "scripts.txt";
-	public static final String FOE_ATTACKS = "foeattacks.txt";
-	public static final String FOE_TEMPLATES = "foetemplates.txt";
-	public static final String TRAPS = "traps.txt";
-	public static final String FOE_ENTRIES = "foeentries.txt";
-	public static final String ENCOUNTER_TABLES = "encountertables.txt";
-	public static final String NPC_FACTION_TEMPLATES = "npcfactiontemplates.txt";
-	public static final String NPC_TEMPLATES = "npctemplates.txt";
-	public static final String WIELDING_COMBOS = "wieldingcombos.txt";
-	public static final String ITEM_TEMPLATES = "itemtemplates.txt";
-	public static final String CRAFT_RECIPES = "craftrecipes.txt";
-	public static final String ITEM_ENCHANTMENTS = "itemenchantments.txt";
-	public static final String NATURAL_WEAPONS = "naturalweapons.txt";
-	public static final String FOE_TYPES = "foetypes.txt";
-	public static final String PERSONALITIES = "personalities.txt";
-	public static final String STARTING_KITS = "startingkits.txt";
-	public static final String ZONES = "zones/";
-	public static final String DIFFICULTY_LEVELS = "difficultylevels.txt";
-	public static final String CHARACTER_GUILD = "guild.txt";
-
-	public static final String GAME_STATE = "gamestate.txt";
-	public static final String PLAYER_CHARACTERS = "playercharacters.txt";
-	public static final String NPCS = "npcs.txt";
-	public static final String NPC_FACTIONS = "npcfactions.txt";
-	public static final String MAZE_VARIABLES = "mazevariables.txt";
-	public static final String ITEM_CACHES = "itemcaches.txt";
-	public static final String TILES_VISITED = "tilesvisited.txt";
-	public static final String CONDITIONS = "conditions.txt";
-	public static final String JOURNALS = "journals/";
-
-	public static final String USER_CONFIG = "user.cfg";
 
 	/*-------------------------------------------------------------------------*/
 	public static V1List<String> stringList = new V1List<String>()

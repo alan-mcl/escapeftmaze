@@ -326,6 +326,13 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | PlayerParty | `stat/PlayerParty.java` | Runtime party: PCs, gold, supplies, formation |
 | PlayerTilesVisited | `game/PlayerTilesVisited.java` | Auto-map exploration per zone |
 | Journal | `game/journal/Journal.java` | Quest/logbook/zone/npc entries |
+| UserConfig | `game/UserConfig.java` | `combatDelay`, `personalityChattiness`, `musicVolume`, `currentTipIndex`, `autoAddConsumables`, `extras` (Map of arbitrary keys e.g. `unlock.race.*`) |
+
+### 4.9 User preferences (repo root)
+
+| File | Entity | Notes |
+|------|--------|-------|
+| [`user.json`](../../user.json) | UserConfig | V2 `SingletonSilo` JSON. Legacy `user.cfg` (Properties) is upgraded automatically on first load if `user.json` is absent. |
 
 ## 5. DB File Map (`data/<campaign>/db/`)
 

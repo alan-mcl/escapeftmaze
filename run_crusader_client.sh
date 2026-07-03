@@ -1,1 +1,1 @@
-java -Xmx512M -cp build/classes mclachlan.crusader.client.CrusaderClient $*
+java -Xmx512M -cp build/classes:oem/gson/gson-2.8.6.jar mclachlan.crusader.client.CrusaderClient $*

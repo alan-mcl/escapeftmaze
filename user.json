@@ -1,0 +1,11 @@
+{
+  "combatDelay": "400",
+  "personalityChattiness": "1",
+  "musicVolume": "33",
+  "currentTipIndex": "2",
+  "autoAddConsumables": "true",
+  "extras": {
+    "unlock.race.gnome": "true",
+    "unlock.race.pasht": "true"
+  }
+}

@@ -147,5 +147,5 @@ public class InMemoryLoader extends Loader
 	@Override public Map<ConditionBearer, List<Condition>> loadConditions(
 		String saveGameName, Map<String, PlayerCharacter> playerCharacterCache) { return new HashMap<>(); }
 	@Override public Journal loadJournal(String saveGameName, String journalName) { return null; }
-	@Override public UserConfig loadUserConfig() { return new UserConfig(new Properties()); }
+	@Override public UserConfig loadUserConfig() { return UserConfig.defaultsForTesting(); }
 }

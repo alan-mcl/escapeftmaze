@@ -22,7 +22,7 @@ package mclachlan.maze.game;
 import java.util.*;
 
 /**
- *
+ * Per-user preferences persisted as V2 JSON ({@code user.json}).
  */
 public class UserConfig
 {
@@ -54,40 +54,58 @@ public class UserConfig
 	private int currentTipIndex;
 	private boolean autoAddConsumables;
 
-	private Properties properties;
+	private Map<String, String> extras = new HashMap<>();
 
 	/*-------------------------------------------------------------------------*/
-	public UserConfig(Properties p)
+	public UserConfig()
 	{
-		fromProperties(p);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Properties toProperties()
+	public UserConfig(UserConfig other)
 	{
-		Properties result = new Properties();
+		this.combatDelay = other.combatDelay;
+		this.personalityChattiness = other.personalityChattiness;
+		this.musicVolume = other.musicVolume;
+		this.currentTipIndex = other.currentTipIndex;
+		this.autoAddConsumables = other.autoAddConsumables;
+		this.extras = new HashMap<>(other.extras);
+	}
 
-		result.putAll(properties);
+	/*-------------------------------------------------------------------------*/
+	/** Upgrade path from legacy {@code user.cfg} Properties. */
+	public static UserConfig fromProperties(Properties p)
+	{
+		UserConfig result = new UserConfig();
+		result.combatDelay = Integer.parseInt(p.getProperty(Key.COMBAT_DELAY.getValue()));
+		result.personalityChattiness = Integer.parseInt(
+			p.getProperty(Key.PERSONALITY_CHATTINESS.getValue()));
+		result.musicVolume = Integer.parseInt(p.getProperty(Key.MUSIC_VOLUME.getValue()));
+		result.currentTipIndex = Integer.parseInt(
+			p.getProperty(Key.CURRENT_TIP_INDEX.getValue()));
+		result.autoAddConsumables = Boolean.valueOf(
+			p.getProperty(Key.AUTO_ADD_CONSUMABLES.getValue()));
 
-		result.setProperty(Key.COMBAT_DELAY.getValue(), String.valueOf(combatDelay));
-		result.setProperty(Key.PERSONALITY_CHATTINESS.getValue(), String.valueOf(personalityChattiness));
-		result.setProperty(Key.MUSIC_VOLUME.getValue(), String.valueOf(musicVolume));
-		result.setProperty(Key.CURRENT_TIP_INDEX.getValue(), String.valueOf(currentTipIndex));
-		result.setProperty(Key.AUTO_ADD_CONSUMABLES.getValue(), String.valueOf(autoAddConsumables));
-
+		for (String name : p.stringPropertyNames())
+		{
+			if (!result.isKnownKey(name))
+			{
+				result.extras.put(name, p.getProperty(name));
+			}
+		}
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void fromProperties(Properties p)
+	public static UserConfig defaultsForTesting()
 	{
-		combatDelay = Integer.parseInt(p.getProperty(Key.COMBAT_DELAY.getValue()));
-		personalityChattiness = Integer.parseInt(p.getProperty(Key.PERSONALITY_CHATTINESS.getValue()));
-		musicVolume = Integer.parseInt(p.getProperty(Key.MUSIC_VOLUME.getValue()));
-		currentTipIndex = Integer.parseInt(p.getProperty(Key.CURRENT_TIP_INDEX.getValue()));
-		autoAddConsumables = Boolean.valueOf(p.getProperty(Key.AUTO_ADD_CONSUMABLES.getValue()));
-
-		properties = p;
+		UserConfig result = new UserConfig();
+		result.setCombatDelay(0);
+		result.setPersonalityChattiness(0);
+		result.setMusicVolume(0);
+		result.setCurrentTipIndex(0);
+		result.setAutoAddConsumables(false);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -98,7 +116,32 @@ public class UserConfig
 			return false;
 		}
 
-		return Boolean.valueOf(properties.getProperty(var));
+		String value = getProperty(var);
+		return value != null && Boolean.valueOf(value);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getProperty(String var)
+	{
+		if (var == null)
+		{
+			return null;
+		}
+
+		Key key = keyFor(var);
+		if (key != null)
+		{
+			return switch (key)
+			{
+				case COMBAT_DELAY -> String.valueOf(combatDelay);
+				case PERSONALITY_CHATTINESS -> String.valueOf(personalityChattiness);
+				case MUSIC_VOLUME -> String.valueOf(musicVolume);
+				case CURRENT_TIP_INDEX -> String.valueOf(currentTipIndex);
+				case AUTO_ADD_CONSUMABLES -> String.valueOf(autoAddConsumables);
+			};
+		}
+
+		return extras.get(var);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -109,7 +152,50 @@ public class UserConfig
 			return;
 		}
 
-		properties.put(var, value);
+		Key key = keyFor(var);
+		if (key != null)
+		{
+			switch (key)
+			{
+				case COMBAT_DELAY:
+					combatDelay = Integer.parseInt(value);
+					break;
+				case PERSONALITY_CHATTINESS:
+					personalityChattiness = Integer.parseInt(value);
+					break;
+				case MUSIC_VOLUME:
+					musicVolume = Integer.parseInt(value);
+					break;
+				case CURRENT_TIP_INDEX:
+					currentTipIndex = Integer.parseInt(value);
+					break;
+				case AUTO_ADD_CONSUMABLES:
+					autoAddConsumables = Boolean.valueOf(value);
+					break;
+			}
+		}
+		else
+		{
+			extras.put(var, value);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean isKnownKey(String var)
+	{
+		return keyFor(var) != null;
+	}
+
+	private static Key keyFor(String var)
+	{
+		for (Key key : Key.values())
+		{
+			if (key.getValue().equals(var))
+			{
+				return key;
+			}
+		}
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -161,5 +247,15 @@ public class UserConfig
 	public void setAutoAddConsumables(boolean autoAddConsumables)
 	{
 		this.autoAddConsumables = autoAddConsumables;
+	}
+
+	public Map<String, String> getExtras()
+	{
+		return extras;
+	}
+
+	public void setExtras(Map<String, String> extras)
+	{
+		this.extras = extras != null ? new HashMap<>(extras) : new HashMap<>();
 	}
 }

@@ -84,7 +84,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-19 | ability | DIPLOMACY rework + PERSUASION / CODE_OF_DISHONOUR hooks | Make social abilities meaningful. (stufftodo) | M | todo |
 | P2-20 | data | Foe resistances, inventories, mind-read results | Author missing foe data; "Sort out NPC inventories". (stufftodo) | M | todo |
 | P2-21 | data | More wielding combos; puzzle boxes; hidden stashes | Content-data depth. (stufftodo) | M | todo |
-| P2-22 | code | Retire/contain legacy V1 persistence | V1 is reduced to parsers + a zone-only loader; the `DataPorter` migration tool is commented out. Player strings migrated to V2 HotString/ColdStrings under `db/strings/`; `V1StringManager` removed. `user.cfg` still Properties. Remaining: decide on DataPorter / dead V1 code cleanup. (code) | M | in progress |
+| P2-22 | code | Retire/contain legacy V1 persistence | V1 entity loaders, `DataPorter`, zone-only loader, and `ClientMapLoader` removed. Player strings and CrusaderClient test map are V2 JSON. `user.json` replaces Properties `user.cfg` (upgrade on first load). `data/v1/` retains value codecs and editor formatters only. (code) | M | done |
 | P2-23 | code | Wire up or remove `SensitiveStore` | JCEKS keystore wrapper exists but is unreferenced. (code) | S | todo |
 | P2-24 | code | Player-facing distro readme and packaging | Zip distro ships without readme. Write install/run doc for end users (Java 21, `./maze.sh`, save/log paths, bug reporting). Consider AppImage/deb/flatpak or other formats when revisiting packaging. (code) | M | todo |
 
@@ -152,8 +152,7 @@ Engineering concerns surfaced from the source that should inform the above:
 - **Test coverage breadth** - a JUnit suite now exists (P1-7 done); the remaining
   risk is breadth, especially deeper combat/AI/spell scenarios.
 - **Single production foe AI** with a dead GOAP path (P1-1, P1-2).
-- **Legacy V1 persistence** partly retired; player strings now V2 JSON. `user.cfg`
-  still Properties (P2-22 in progress).
+- **Legacy V1 persistence** retired (P2-22 done); `data/v1/` value codecs remain.
 - **No editor undo and ad-hoc validation** (P2-14, P2-15).
 - **Build packaging** - Windows launch4j/JRE bundling removed; `ant dist` now builds a
   portable Unix zip from `dist/` inputs. Player-facing readme and richer packaging
