@@ -32,11 +32,6 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
 | P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |
 
-> A JUnit 5 suite now exists (`ant test`), covering pure logic, V2 serialisation
-> round-trips, `GameSys`/`MagicSys` formulas, and a headless combat/leveling
-> harness (P1-7, done). P0 regressions in these areas can now be caught
-> automatically; broaden combat/AI coverage as those items are addressed.
-
 ---
 
 ## P1 - High value (engine, AI, core systems)
@@ -45,11 +40,9 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 |---|------|------|-------|--------|--------|
 | P1-1 | code | Better Foe AI for harder difficulty | `BasicFoeAi` is the only production AI; Heroic mode needs smarter foes. (stufftodo) | L | todo |
 | P1-2 | code | Finish or remove GOAP foe AI | `game/goapai/GOAPFoeAI` is a stub (`initPossibleActions`/`getCombatIntention` return empty). Decide: complete it (ties into P1-1) or delete the dead path. (code) | L | todo |
-| P1-3 | code | Audio system unification (one Ogg player) | Consolidate to a single Ogg playback path. (stufftodo) | M | done |
 | P1-4 | feature | Quicksave / quickload | (stufftodo) | M | todo |
 | P1-5 | feature | Ironman mode (single save) | (stufftodo) | M | todo |
 | P1-6 | code | Comprehensive practising of modifiers | Practice currently fires for a subset of skills; make it consistent across all active modifiers. (stufftodo) | M | todo |
-| P1-7 | code | Introduce a real test harness | **Done.** JUnit 5 suite in `testsrc/` (`ant compile-tests` / `ant test`): hermetic fixtures, seeded RNG, tiers for pure logic, V2 serialisation round-trips, `GameSys`/`MagicSys` formulas, and a `HeadlessMaze` combat/leveling smoke harness. Follow-up: broaden combat/AI/spell coverage. (code) | L | done |
 | P1-8 | code | Different combat ranges | Make engagement-range rules richer/cleaner. (stufftodo) | M | todo |
 | P1-9 | code | Validate PC combat actions on Repeat | Re-validate a repeated action before resolving (target/AP/state may have changed). (stufftodo) | S | todo |
 | P1-10 | code | Berserk replaces in-flight combat actions | Berserk currently overrides intentions but not already-queued actions for the same round. (stufftodo) | S | todo |
@@ -76,14 +69,10 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 
 | # | Type | Item | Notes | Effort | Status |
 |---|------|------|-------|--------|--------|
-| P2-10 | editor | Edit save-game item caches, NPCs, maze variables, journals | Round out `SaveGamePanel`. (stufftodo) | M | done |
-| P2-10b | editor | Save-game tiles visited editor | `SaveGamePanel` tab for `tilesvisited.json` | S | done |
 | P2-11 | editor | Proper dynamic FK support (cascading rename & delete) | Cross-reference integrity across data types. (stufftodo) | L | todo |
 | P2-12 | editor | Resize maps | (stufftodo) | M | todo |
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |
-| P2-14 | editor | Undo/redo | MapEditor undo/redo via scoped zone snapshots (`MapEditHistory`, Ctrl+Z/Y). Init Zone Script excluded. (code) | L | done |
 | P2-15 | editor | Validation framework | Validation is ad-hoc; add consistent pre-save validation. (code) | M | todo |
-| P2-16 | editor | Map editor copy/paste | Copy/paste selected tiles (Crusader + maze layers), walls, and objects within a zone via Select-tab tools and Ctrl+C/Ctrl+V. | M | done |
 
 ### Data / crafting systems
 
@@ -97,6 +86,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-21 | data | More wielding combos; puzzle boxes; hidden stashes | Content-data depth. (stufftodo) | M | todo |
 | P2-22 | code | Retire/contain legacy V1 persistence | V1 is reduced to parsers + a zone-only loader; the `DataPorter` migration tool is commented out. Decide whether to finish migration tooling or remove dead V1 code. Strings & `user.cfg` still use V1 Properties. (code) | M | todo |
 | P2-23 | code | Wire up or remove `SensitiveStore` | JCEKS keystore wrapper exists but is unreferenced. (code) | S | todo |
+| P2-24 | code | Player-facing distro readme and packaging | Zip distro ships without readme. Write install/run doc for end users (Java 21, `./maze.sh`, save/log paths, bug reporting). Consider AppImage/deb/flatpak or other formats when revisiting packaging. (code) | M | todo |
 
 ---
 
@@ -165,12 +155,12 @@ Engineering concerns surfaced from the source that should inform the above:
 - **Legacy V1 persistence** partly retired but still load-bearing for strings/config
   (P2-22).
 - **No editor undo and ad-hoc validation** (P2-14, P2-15).
-- **Build assumes a developer-specific environment** - `build.xml`'s `dist` target
-  hard-codes launch4j/JRE paths; only `ant compile` is portable. Consider a portable
-  packaging path. (code)
+- **Build packaging** - Windows launch4j/JRE bundling removed; `ant dist` now builds a
+  portable Unix zip from `dist/` inputs. Player-facing readme and richer packaging
+  formats remain (P2-24).
 
 ---
 
 *Maintenance: keep this backlog in sync with the codebase and with
-[`stufftodo.txt`](../../stufftodo.txt). Do not edit `stufftodo.txt` or the readme
-files - they are human-controlled (see [AGENTS.md](../../AGENTS.md)).*
+[`stufftodo.txt`](../../stufftodo.txt). Do not edit `stufftodo.txt` (see
+[AGENTS.md](../../AGENTS.md)).*

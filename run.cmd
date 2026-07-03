@@ -1,1 +1,0 @@
-"%JAVA_HOME%\bin\java" -Xmx2048M -cp build\classes;build\default\classes;oem\jorbis\jorbis0.0.17.jar;oem\gson\gson-2.8.6.jar %*

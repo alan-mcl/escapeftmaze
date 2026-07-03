@@ -94,7 +94,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		instance = this;
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		this.setIconImage(ImageIO.read(new File("maze.png")));
+		this.setIconImage(ImageIO.read(new File("doc/icon/maze.png")));
 
 		config = Launcher.getConfig();
 		campaigns = new ArrayList<>(Database.getCampaigns().values());

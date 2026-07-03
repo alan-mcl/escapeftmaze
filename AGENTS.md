@@ -35,19 +35,29 @@ Read these first for deeper context:
 | `src/maze/mclachlan/diygui/` | DIYGUI widget toolkit (game-agnostic) |
 | `src/maze/mclachlan/dungeongen/`, `jgpgoap/` | Dungeon generation; GOAP planner (experimental) |
 | `data/<campaign>/` | Campaign content: `db/*.json`, `save/<slot>/*.json`, `img/`, `sound/`, `font/`, `src/` |
+| `dist/` | Packaging inputs: distro `maze.cfg`/`user.cfg`, packaged `maze.sh`/`editor.sh` |
+| `doc/icon/` | App branding icons (`maze.png`, `maze.ico`) |
 | `oem/` | Third-party jars |
 | `doc/` | Documentation (`design/` for specs and campaign design) |
 
 ## Build, run, and edit
 
-Build (Ant). The default target builds full distributions; for a plain compile use:
+Build (Ant). The default target compiles; use `ant dist` for zip distributions:
 ```bash
-ant compile        # compiles engine -> build/classes and campaign -> build/default/classes
+ant                # default 'compile': build/classes + build/default/classes
+ant compile        # same as default
 ant clean          # removes build/
-ant                # default 'dist' target: builds zip distributions (needs launch4j/jre config)
+ant dist           # Unix zip distro (requires Java 21 on target machine)
 ```
 
-Run the game (classpath must include the compiled classes and all `oem` jars):
+Run from source (repo root). Dev launchers `./maze.sh` and `./editor.sh` wrap the
+commands below:
+```bash
+./maze.sh          # game from build/classes
+./editor.sh        # editor from build/classes
+```
+
+Or invoke Java directly:
 ```bash
 java -Xmx2048M \
   -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
@@ -64,8 +74,8 @@ java \
 Notes:
 - Both must run from the **repo root** (data paths like `data/<campaign>/...` are
   resolved relative to the working directory).
-- `run.sh` / `maze.sh` / `editor.sh` exist but reference packaged-distribution
-  classpaths; prefer the commands above when running from source.
+- Packaged launchers live under `dist/` and are copied into the zip by `ant dist`;
+  they use `lib/maze.jar` classpaths (`dist/maze.sh`, `dist/editor.sh`).
 - The game requires a display (AWT/Swing); it cannot run fully headless.
 
 ## Configuration
@@ -129,10 +139,9 @@ are superseded by the suite for automated checking.
 
 Two classes of documents, with different rules:
 
-- **Human-controlled (never edit these).** `stufftodo.txt`, `README.md`, and the
-  `doc/readme_*.txt` / `readme.txt` files (and `doc/release_notes.txt`) are owned by
-  the author. Do not modify them. If something in them is outdated, mention it to the
-  user rather than editing.
+- **Human-controlled (never edit these).** `stufftodo.txt`, `README.md`, and
+  `doc/release_notes.txt` are owned by the author. Do not modify them. If something
+  in them is outdated, mention it to the user rather than editing.
 - **Agent-maintained (keep these up to date).** When your changes affect them, update
   the design docs under `doc/design/`:
   - `architecture.md` - when components, packages, or their interactions change.

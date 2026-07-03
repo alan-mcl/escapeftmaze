@@ -1,1 +1,0 @@
-set java_home=c:\utils\jdk-14.0.2
