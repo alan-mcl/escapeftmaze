@@ -26,7 +26,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.maze.audio.AudioPlayer;
-import mclachlan.maze.audio.AudioThread;
 import mclachlan.maze.audio.OggAudioPlayer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
@@ -82,7 +81,6 @@ public class Maze implements Runnable
 
 	/** the current audio player implementation */
 	private AudioPlayer audioPlayer;
-	private final AudioThread audioThread = new AudioThread();
 
 	/** the current zone of play */
 	private Zone zone;
@@ -204,7 +202,6 @@ public class Maze implements Runnable
 		Database.getInstance().initCaches(progress);
 
 		progress.message(StringUtil.getUiLabel("ls.init.audio"));
-//		initAudio(new WavAudioPlayer());
 		initAudio(new OggAudioPlayer());
 		progress.incProgress(1);
 
@@ -313,6 +310,10 @@ public class Maze implements Runnable
 	public void initAudio(AudioPlayer player)
 	{
 		audioPlayer = player;
+		if (ui != null)
+		{
+			ui.getMusic().syncToEngine();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -325,8 +326,6 @@ public class Maze implements Runnable
 		processor.start();
 
 		new Thread(this, "MAZE RENDER THREAD").start();
-
-		audioThread.start();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1241,12 +1240,6 @@ public class Maze implements Runnable
 	public AudioPlayer getAudioPlayer()
 	{
 		return this.audioPlayer;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public AudioThread getAudioThread()
-	{
-		return this.audioThread;
 	}
 
 	/*-------------------------------------------------------------------------*/

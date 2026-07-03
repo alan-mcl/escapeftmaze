@@ -22,12 +22,12 @@ prefer `ant compile` for normal work.
 
 Game:
 ```bash
-java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar mclachlan.maze.game.Launcher
+java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.game.Launcher
 ```
 
 Editor:
 ```bash
-java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar mclachlan.maze.editor.swing.SwingEditor
+java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.editor.swing.SwingEditor
 ```
 
 Needs a display (AWT/Swing). Config in `maze.cfg` / `user.cfg`.

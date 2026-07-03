@@ -463,9 +463,9 @@ public class HeadlessUi implements UserInterface
 			}
 
 			@Override
-			public void playLooped(int volume, String... fileNames)
+			public boolean playLooped(int volume, String... fileNames)
 			{
-
+				return false;
 			}
 
 			@Override

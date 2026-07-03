@@ -935,7 +935,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 	public void showMainMenu()
 	{
-		if (!Maze.State.MAINMENU.name().equals(getMusic().getState()))
+		if (!Maze.State.MAINMENU.name().equals(getMusic().getState())
+			|| !getMusic().isRunning())
 		{
 			executeMazeScript("_MAIN_MENU_MUSIC_");
 		}

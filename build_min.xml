@@ -55,12 +55,12 @@
     <target name="compile" depends="init">
         <javac includeantruntime="false"
                srcdir="${src}" destdir="${build}"
-               classpath="${build};oem/jorbis/jorbis0.0.17.jar;oem/gson/gson-2.8.6.jar;oem/oem/java-vorbis-support/java-vorbis-support-1.2.1.jar" debug="true"
+               classpath="${build};oem/jorbis/jorbis0.0.17.jar;oem/gson/gson-2.8.6.jar" debug="true"
                encoding="UTF-8"/>
         <javac includeantruntime="false"
                srcdir="${default_campaign_src}"
                destdir="${default_campaign_build}"
-               classpath="${build};oem/jorbis/jorbis0.0.17.jaroem/gson/gson-2.8.6.jar;oem/oem/java-vorbis-support/java-vorbis-support-1.2.1.jar" debug="true"
+               classpath="${build};oem/jorbis/jorbis0.0.17.jar;oem/gson/gson-2.8.6.jar" debug="true"
                encoding="UTF-8"/>
     </target>
 

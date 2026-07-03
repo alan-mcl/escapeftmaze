@@ -45,7 +45,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 |---|------|------|-------|--------|--------|
 | P1-1 | code | Better Foe AI for harder difficulty | `BasicFoeAi` is the only production AI; Heroic mode needs smarter foes. (stufftodo) | L | todo |
 | P1-2 | code | Finish or remove GOAP foe AI | `game/goapai/GOAPFoeAI` is a stub (`initPossibleActions`/`getCombatIntention` return empty). Decide: complete it (ties into P1-1) or delete the dead path. (code) | L | todo |
-| P1-3 | code | Audio system unification (one Ogg player) | Consolidate to a single Ogg playback path. (stufftodo) | M | todo |
+| P1-3 | code | Audio system unification (one Ogg player) | Consolidate to a single Ogg playback path. (stufftodo) | M | done |
 | P1-4 | feature | Quicksave / quickload | (stufftodo) | M | todo |
 | P1-5 | feature | Ironman mode (single save) | (stufftodo) | M | todo |
 | P1-6 | code | Comprehensive practising of modifiers | Practice currently fires for a subset of skills; make it consistent across all active modifiers. (stufftodo) | M | todo |

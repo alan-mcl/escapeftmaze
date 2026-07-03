@@ -19,49 +19,37 @@
 
 package mclachlan.maze.audio;
 
-import java.io.InputStream;
-import java.util.*;
-import javax.sound.sampled.BooleanControl;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.Line;
+import java.util.Arrays;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.util.MazeException;
 
 /**
- * Background music player.
+ * Background music facade. Playback is delegated to {@link OggAudioPlayer}.
  */
 public class Music
 {
 	private boolean enabled;
+	private int volume = 100;
 
 	/**
-	 * The background playback thread.
-	 */
-	private PlaybackThread playbackThread;
-	private final Object playbackMutex = new Object();
-
-	/**
-	 * The database.
+	 * The database (retained for construction compatibility).
 	 */
 	private final Database db;
-
-	/**
-	 * music player.
-	 */
-	private JCraftPlayer player;
 
 	/**
 	 * Flag for the current state of music.
 	 */
 	private String state;
 
+	/** Deferred playback when {@link Maze#initAudio} has not run yet. */
+	private String[] pendingTracks;
+	private int pendingVolume = -1;
+
 	/*-------------------------------------------------------------------------*/
 	public Music(Database db, boolean enabled)
 	{
 		this.db = db;
-
 		this.enabled = enabled;
 	}
 
@@ -78,12 +66,11 @@ public class Music
 			return;
 		}
 
+		OggAudioPlayer player = engineOrNull();
 		if (player != null)
 		{
-			player.setPlaying(false);
-			playbackThread.stopPlaying();
+			player.stopMusic();
 		}
-
 		this.state = null;
 	}
 
@@ -101,8 +88,6 @@ public class Music
 		}
 
 		stop();
-		player = null;
-		playbackThread = null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -124,23 +109,32 @@ public class Music
 	 *
 	 * @param fileNames the array of file names to play
 	 * @param volume the initial playback volume
+	 * @return true if playback started (or was deferred until audio init)
 	 */
-	public void playLooped(final int volume, final String... fileNames)
+	public boolean playLooped(final int volume, final String... fileNames)
 	{
 		log("Music.playLooped "+Arrays.asList(fileNames));
 
 		if (!enabled)
 		{
-			return;
+			return false;
 		}
 
-		stop();
-		playbackThread = new PlaybackThread(volume, true, fileNames);
-		playbackThread.start();
+		OggAudioPlayer player = engineOrNull();
+		if (player == null)
+		{
+			this.pendingVolume = volume;
+			this.pendingTracks = fileNames;
+			log("Music.playLooped deferred: audio not initialised");
+			return true;
+		}
+
+		clearPending();
+		player.playMusicLooped(volume, fileNames);
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
-
 	/**
 	 * Set the linear volume.
 	 *
@@ -148,17 +142,20 @@ public class Music
 	 */
 	public void setVolume(int volume)
 	{
+		this.volume = volume;
 		if (!enabled)
 		{
 			return;
 		}
 
+		OggAudioPlayer player = engineOrNull();
 		if (player != null)
 		{
-			setVolume(player.getOutputLine(), volume);
+			player.setMusicVolume(volume);
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return is a music playing?
 	 */
@@ -169,164 +166,69 @@ public class Music
 			return false;
 		}
 
-		return player.isPlaying();
+		OggAudioPlayer player = engineOrNull();
+		return player != null && player.isMusicPlaying();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void setEnabled(boolean enabled)
 	{
 		if (!enabled)
 		{
 			stop();
 		}
-		
+
 		this.enabled = enabled;
+		OggAudioPlayer player = engineOrNull();
+		if (player != null)
+		{
+			player.setMusicEnabled(enabled);
+		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Push buffered music settings to the audio engine after {@link Maze#initAudio}.
+	 */
+	public void syncToEngine()
+	{
+		OggAudioPlayer player = engineOrNull();
+		if (player == null)
+		{
+			return;
+		}
+		player.setMusicEnabled(enabled);
+		if (enabled)
+		{
+			player.setMusicVolume(volume);
+			if (pendingTracks != null)
+			{
+				playLooped(pendingVolume, pendingTracks);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void clearPending()
+	{
+		pendingTracks = null;
+		pendingVolume = -1;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private OggAudioPlayer engineOrNull()
+	{
+		AudioPlayer player = Maze.getInstance().getAudioPlayer();
+		if (player instanceof OggAudioPlayer)
+		{
+			return (OggAudioPlayer)player;
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void log(String s)
 	{
 		Maze.log(Log.DEBUG, s + ":" + Thread.currentThread().getName());
-	}
-
-	/**
-	 * Set the volume on an audio line by trying various controls.
-	 *
-	 * @param line the data line
-	 * @param volume the volume between 0 and 100. 0 means mute
-	 */
-	public static void setVolume(Line line, int volume)
-	{
-		boolean muteFailed = false;
-		try
-		{
-			if (line != null && line.isControlSupported(BooleanControl.Type.MUTE))
-			{
-				BooleanControl bc = (BooleanControl)line.getControl(BooleanControl.Type.MUTE);
-				bc.setValue(volume == 0);
-			}
-			else
-			{
-				muteFailed = volume == 0;
-			}
-		}
-		catch (Exception ex)
-		{
-			// some linux implementation throws exception
-			muteFailed = volume == 0;
-		}
-
-		try
-		{
-			// try master gain
-			if (line != null && line.isControlSupported(FloatControl.Type.MASTER_GAIN))
-			{
-				FloatControl fc = (FloatControl)line.getControl(FloatControl.Type.MASTER_GAIN);
-				if (muteFailed)
-				{
-					// set to the lowest gain possible
-					fc.setValue(fc.getMinimum());
-				}
-				else
-				{
-					fc.setValue(AudioThread.computeGain(fc, volume));
-				}
-				return;
-			}
-		}
-		catch (Exception ex)
-		{
-			// some linux implementation throws exception, give up
-		}
-
-		try
-		{
-			// try volume
-			if (line != null && line.isControlSupported(FloatControl.Type.VOLUME))
-			{
-				FloatControl fc = (FloatControl)line.getControl(FloatControl.Type.VOLUME);
-				if (muteFailed)
-				{
-					fc.setValue(fc.getMinimum());
-				}
-				else
-				{
-					float low = fc.getMinimum();
-					float high = fc.getMaximum();
-					fc.setValue(low + (high - low) * volume / 100);
-				}
-			}
-		}
-		catch (Exception ex)
-		{
-			// some linux implementation throws exception, give up
-		}
-	}
-
-
-	/*-------------------------------------------------------------------------*/
-	private class PlaybackThread extends Thread
-	{
-		private final int startingVolume;
-		private boolean playing;
-		private final boolean looping;
-		private final Queue<String> tracks;
-
-		public PlaybackThread(int startingVolume, boolean looped, String... tracks)
-		{
-			this.startingVolume = startingVolume;
-			this.looping = looped;
-			this.tracks = new LinkedList<>(Arrays.asList(tracks));
-		}
-
-		@Override
-		public void run()
-		{
-			this.playing = true;
-
-			while (playing)
-			{
-				try
-				{
-					// play the next track
-					String track = tracks.poll();
-
-					if (track != null)
-					{
-						try (InputStream is = db.getMusic(track))
-						{
-							player = new JCraftPlayer(is, playbackMutex, startingVolume);
-							player.start();
-
-							synchronized (playbackMutex)
-							{
-								playbackMutex.wait();
-							}
-						}
-					}
-
-					// playing has finished
-					if (looping)
-					{
-						tracks.offer(track);
-					}
-				}
-				catch (Exception e)
-				{
-					throw new MazeException(e);
-				}
-			}
-		}
-
-		public void stopPlaying()
-		{
-			playing = false;
-			if (player != null)
-			{
-				player.setPlaying(false);
-			}
-			synchronized (playbackMutex)
-			{
-				playbackMutex.notifyAll();
-			}
-		}
 	}
 }

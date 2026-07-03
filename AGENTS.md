@@ -11,8 +11,8 @@ custom GUI toolkit.
 
 - Language/runtime: **Java 21**, AWT/Swing.
 - Build: **Apache Ant** (`build.xml`).
-- Dependencies: vendored jars in `oem/` (`gson-2.8.6`, `jorbis`,
-  `java-vorbis-support`). No package manager; do not add Maven/Gradle.
+- Dependencies: vendored jars in `oem/` (`gson-2.8.6`, `jorbis`).
+  No package manager; do not add Maven/Gradle.
 - Code namespace: `mclachlan.*`, rooted at `src/maze/`.
 
 Read these first for deeper context:
@@ -50,14 +50,14 @@ ant                # default 'dist' target: builds zip distributions (needs laun
 Run the game (classpath must include the compiled classes and all `oem` jars):
 ```bash
 java -Xmx2048M \
-  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar \
+  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
   mclachlan.maze.game.Launcher
 ```
 
 Run the content editor:
 ```bash
 java \
-  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar:oem/java-vorbis-support/java-vorbis-support-1.2.1.jar \
+  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
   mclachlan.maze.editor.swing.SwingEditor
 ```
 

@@ -550,7 +550,7 @@ public class JCraftPlayer extends Thread
 		outputLine.start();
 
 		// set starting volume
-		Music.setVolume(outputLine, startingVolume);
+		AudioVolume.setVolume(outputLine, startingVolume);
 
 		/*
 		 * We create the PCM variables. The index is an array with the same

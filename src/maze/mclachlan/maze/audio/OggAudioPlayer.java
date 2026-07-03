@@ -8,9 +8,17 @@ import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.util.MazeException;
 
+/**
+ * Unified Ogg playback engine for sound effects and background music.
+ */
 public class OggAudioPlayer implements AudioPlayer
 {
 	private final Map<String, byte[]> soundCache = new HashMap<>();
+
+	private boolean musicEnabled = true;
+	private MusicPlaybackThread musicPlaybackThread;
+	private final Object musicPlaybackMutex = new Object();
+	private JCraftPlayer musicPlayer;
 
 	/*-------------------------------------------------------------------------*/
 	@Override
@@ -61,6 +69,126 @@ public class OggAudioPlayer implements AudioPlayer
 		catch (IOException e)
 		{
 			throw new MazeException(e);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Play the given track list in sequence, looping indefinitely.
+	 */
+	public void playMusicLooped(final int volume, final String... trackNames)
+	{
+		if (!musicEnabled)
+		{
+			return;
+		}
+
+		stopMusic();
+		musicPlaybackThread = new MusicPlaybackThread(volume, trackNames);
+		musicPlaybackThread.start();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void stopMusic()
+	{
+		if (musicPlayer != null)
+		{
+			musicPlayer.setPlaying(false);
+		}
+		if (musicPlaybackThread != null)
+		{
+			musicPlaybackThread.stopPlaying();
+		}
+		musicPlayer = null;
+		musicPlaybackThread = null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setMusicVolume(int volume)
+	{
+		if (musicPlayer != null)
+		{
+			AudioVolume.setVolume(musicPlayer.getOutputLine(), volume);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isMusicPlaying()
+	{
+		return musicPlayer != null && musicPlayer.isPlaying();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setMusicEnabled(boolean enabled)
+	{
+		if (!enabled)
+		{
+			stopMusic();
+		}
+		this.musicEnabled = enabled;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private class MusicPlaybackThread extends Thread
+	{
+		private final int startingVolume;
+		private boolean playing;
+		private final Queue<String> tracks;
+
+		public MusicPlaybackThread(int startingVolume, String... trackNames)
+		{
+			this.startingVolume = startingVolume;
+			this.tracks = new LinkedList<>(Arrays.asList(trackNames));
+		}
+
+		@Override
+		public void run()
+		{
+			this.playing = true;
+
+			while (playing)
+			{
+				try
+				{
+					String track = tracks.poll();
+
+					if (track != null)
+					{
+						try (InputStream is = Database.getInstance().getMusic(track))
+						{
+							musicPlayer = new JCraftPlayer(is, musicPlaybackMutex, startingVolume);
+							musicPlayer.start();
+
+							synchronized (musicPlaybackMutex)
+							{
+								musicPlaybackMutex.wait();
+							}
+						}
+					}
+
+					if (playing)
+					{
+						tracks.offer(track);
+					}
+				}
+				catch (Exception e)
+				{
+					throw new MazeException(e);
+				}
+			}
+		}
+
+		public void stopPlaying()
+		{
+			playing = false;
+			if (musicPlayer != null)
+			{
+				musicPlayer.setPlaying(false);
+			}
+			synchronized (musicPlaybackMutex)
+			{
+				musicPlaybackMutex.notifyAll();
+			}
 		}
 	}
 

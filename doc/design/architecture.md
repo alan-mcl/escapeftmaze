@@ -13,7 +13,7 @@ editor) written entirely in Java.
 |--------|--------|
 | Language / platform | Java 21, AWT/Swing, no game framework |
 | Build | Apache Ant ([build.xml](../../build.xml)) |
-| Runtime dependencies | Vendored jars in `oem/`: `gson-2.8.6` (JSON), `jorbis` + `java-vorbis-support` (Ogg audio) |
+| Runtime dependencies | Vendored jars in `oem/`: `gson-2.8.6` (JSON), `jorbis` (Ogg decode via `JCraftPlayer`) |
 | Code namespace | `mclachlan.*`, rooted at `src/maze/` |
 | Game entry point | `mclachlan.maze.game.Launcher` -> `mclachlan.maze.game.Maze` |
 | Editor entry point | `mclachlan.maze.editor.swing.SwingEditor` |
@@ -36,17 +36,23 @@ Supporting libraries: `dungeongen` (procedural dungeon generation), `jgpgoap` +
 
 ## 2. Top-Level Architecture
 
-The application runs on three cooperating threads, coordinated by the `Maze`
-singleton. UI input is captured on the AWT thread and handed to a dedicated event
-thread; **all game-state mutation happens on that single event thread** via
-`MazeEvent`s, while a continuous render loop draws the current state.
+The application runs on two long-lived threads plus on-demand audio worker threads,
+coordinated by the `Maze` singleton. UI input is captured on the AWT thread and
+handed to a dedicated event thread; **all game-state mutation happens on that single
+event thread** via `MazeEvent`s, while a continuous render loop draws the current
+state. Sound effects and background music both decode through `OggAudioPlayer`
+(`JCraftPlayer` per playback, spawned as needed).
 
 ```mermaid
 flowchart TB
   subgraph threads [Runtime Threads]
     RenderLoop["Render loop\nMaze.run() -> ui.draw()"]
     EventThread["Event thread\nMaze.EventProcessor"]
-    AudioThread["Audio thread\nOggAudioPlayer"]
+  end
+
+  subgraph audio [Audio on demand]
+    OggPlayer["OggAudioPlayer\nSFX + music via JCraftPlayer"]
+    MusicFacade["Music facade\nstate tracking"]
   end
 
   subgraph engine [Game Engine]
@@ -78,7 +84,9 @@ flowchart TB
   Maze --> Database
   Database --> LoaderSaver --> Disk
   World --> Crusader
-  AudioThread --- Maze
+  Maze --> OggPlayer
+  MusicFacade --> OggPlayer
+  UI --> MusicFacade
   Editor --> Database
 ```
 
