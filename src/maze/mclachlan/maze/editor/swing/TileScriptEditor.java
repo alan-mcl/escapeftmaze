@@ -796,7 +796,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		flavourText.setWrapStyleWord(true);
 
 		return dirtyGridBagCrap(
-			flavourTextColdStringKey, new JLabel(),
+			new JLabel(), flavourTextColdStringKey,
 			new JLabel("Alignment:"), flavourTextAlignment,
 			new JLabel("Inline Text:"), new JScrollPane(flavourText));
 	}

@@ -13735,7 +13735,7 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "facings": "0001",
-            "reexecuteOnSameTile": "false",
+            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
@@ -46503,10 +46503,12 @@
         "solid": "true",
         "height": "2",
         "maskTextureMouseClickScript": {
-          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1"
+          "clickMaxDistance": "1",
+          "text": "You inspect the titles on the bookshelf.\n\nThis appears to be the Romance section. Dog-eared paperbacks promise tales of impossible love between unlikely protagonists.\n",
+          "alignment": "CENTER"
         }
       },
       {
@@ -60438,10 +60440,12 @@
         "solid": "true",
         "height": "2",
         "maskTextureMouseClickScript": {
-          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1"
+          "clickMaxDistance": "1",
+          "text": "You inspect the titles on the bookshelf.\n\nThis section has a collection of literary classics. \n\nYou recognise some from the First Realm: \u0027Ashes Upon the River\u0027, \u0027The Tower at World\u0027s Noon\u0027, \u0027The Letters of Magister Hale\u0027.\n\nOthers are new to you: \u0027Usark\u0027s Journey\u0027, \u0027The Bridge of Hollow Stars\u0027, \u0027Songs for the Long Winter\u0027.",
+          "alignment": "CENTER"
         }
       },
       {
@@ -60465,10 +60469,12 @@
         "solid": "true",
         "height": "2",
         "maskTextureMouseClickScript": {
-          "IMPL": "mclachlan.maze.campaign.def.script.IchibaLibraryFictionSection",
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1"
+          "clickMaxDistance": "1",
+          "text": "You inspect the titles on the bookshelf.\n\nThis section contains theatrical works. Comedies, tragedies and historical dramas by obscure playwrites fill the shelves.",
+          "alignment": "CENTER"
         }
       },
       {

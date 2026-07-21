@@ -270,6 +270,50 @@ public class ColdStringsPanel extends EditorPanel
 		SwingEditor.instance.setDirty(dirtyFlag);
 	}
 
+	private String getCurrentShardPrefix()
+	{
+		ensureState();
+		if (currentShardName == null)
+		{
+			return null;
+		}
+		for (ColdStringManifestEntry entry : manifestEntries)
+		{
+			if (currentShardName.equals(entry.getShard()))
+			{
+				return entry.getPrefix();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @return trimmed key, or null if blank or prefix check fails
+	 */
+	private String validateKeyForCurrentShard(String key)
+	{
+		if (key == null || key.isBlank())
+		{
+			return null;
+		}
+		key = key.trim();
+		String prefix = getCurrentShardPrefix();
+		if (prefix == null)
+		{
+			JOptionPane.showMessageDialog(this, "Select a shard first.",
+				"Cold String Key", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+		if (!key.startsWith(prefix))
+		{
+			JOptionPane.showMessageDialog(this,
+				"Key must start with prefix [" + prefix + "].",
+				"Cold String Key", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+		return key;
+	}
+
 	private void addKey()
 	{
 		if (currentShardName == null)
@@ -277,12 +321,23 @@ public class ColdStringsPanel extends EditorPanel
 			JOptionPane.showMessageDialog(this, "Add a shard first.", "Add Key", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
-		String name = JOptionPane.showInputDialog(this, "Cold string key:", "New Key", JOptionPane.QUESTION_MESSAGE);
-		if (name == null || name.isBlank())
+		String prefix = getCurrentShardPrefix();
+		if (prefix == null)
+		{
+			JOptionPane.showMessageDialog(this, "Shard has no manifest prefix.",
+				"Add Key", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		String name = JOptionPane.showInputDialog(this, "Cold string key:", prefix);
+		if (name == null)
 		{
 			return;
 		}
-		name = name.trim();
+		name = validateKeyForCurrentShard(name);
+		if (name == null)
+		{
+			return;
+		}
 		if (currentShard == null)
 		{
 			currentShard = new LinkedHashMap<>();
@@ -352,6 +407,16 @@ public class ColdStringsPanel extends EditorPanel
 		{
 			currentShard = new LinkedHashMap<>();
 		}
+		name = validateKeyForCurrentShard(name);
+		if (name == null)
+		{
+			return null;
+		}
+		if (currentShard.containsKey(name))
+		{
+			JOptionPane.showMessageDialog(this, "Key already exists.", "New Key", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
 		ColdString coldString = new ColdString(name, "");
 		coldString.setCampaign(SwingEditor.instance.getCurrentCampaign());
 		currentShard.put(name, coldString);
@@ -363,6 +428,16 @@ public class ColdStringsPanel extends EditorPanel
 	{
 		if (currentShard == null)
 		{
+			return;
+		}
+		newName = validateKeyForCurrentShard(newName);
+		if (newName == null)
+		{
+			return;
+		}
+		if (currentShard.containsKey(newName) && !newName.equals(currentName))
+		{
+			JOptionPane.showMessageDialog(this, "Key already exists.", "Rename Key", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		ColdString existing = currentShard.remove(currentName);

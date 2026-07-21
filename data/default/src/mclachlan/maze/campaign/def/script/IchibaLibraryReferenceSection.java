@@ -20,10 +20,15 @@ public class IchibaLibraryReferenceSection extends TileScript
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)
 	{
-		FlavourTextEvent intro = new FlavourTextEvent("You examine the bookshelves...");
+		FlavourTextEvent txt1 = new FlavourTextEvent("Shelves in the Reference " +
+			"Section are stacked with a bewildering profusion of volumes covering " +
+			"a comprehensive range of subjects.");
+		FlavourTextEvent txt2 = new FlavourTextEvent("They look well organised, " +
+			"but you're going to need look for something specific to make progress here.");
+
 		FlavourTextEvent sample = new FlavourTextEvent();
 		sample.setColdStringKey("ichiba.library.ref.sample");
-		return getList(intro, sample);
+		return getList(txt1, txt2, sample);
 	}
 
 	/*-------------------------------------------------------------------------*/

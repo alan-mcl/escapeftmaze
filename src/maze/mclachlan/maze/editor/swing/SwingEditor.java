@@ -1450,6 +1450,10 @@ public class SwingEditor extends JFrame implements WindowListener
 						panel.commit(panel.getCurrentName());
 					}
 					DataObject dataObject = panel.newItem(name);
+					if (dataObject == null)
+					{
+						return;
+					}
 					dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
 
 					panel.refreshNames(name);

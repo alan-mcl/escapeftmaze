@@ -1,5 +1,11 @@
 [
   {
+    "name": "ichiba library reference section",
+    "dialog": {
+      "dialogue": []
+    }
+  },
+  {
     "name": "test",
     "friendlyGreeting": "fg",
     "neutralGreeting": "ng",

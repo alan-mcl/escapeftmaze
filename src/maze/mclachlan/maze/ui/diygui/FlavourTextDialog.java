@@ -24,6 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
@@ -33,9 +34,13 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 
 public class FlavourTextDialog extends GeneralDialog implements ActionListener
 {
-	private final DIYTextArea text;
+	private static final int NARROW_DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH / 3;
+	private static final int WIDE_DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH / 2;
+	private static final int MAX_DIALOG_HEIGHT =
+		DiyGuiUserInterface.SCREEN_HEIGHT - DiyGuiUserInterface.SCREEN_EDGE_INSET * 2;
 
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
+	private final DIYTextArea text;
+	private DIYScrollPane scrollPane;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextDialog(
@@ -45,64 +50,101 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 	{
 		super.setStyle(Style.PANEL_MED);
 
-		// try to guess dialog height
-		int textBoundsWidth = DIALOG_WIDTH - getBorder() * 2;
-		List<String> lines = DIYToolkit.wrapText(
-			text,
-			textBoundsWidth -2,
-			null);
+		int border = getBorder();
+		int titlePaneHeight = title != null ? getTitlePaneHeight() : 0;
+		int maxContentHeight = MAX_DIALOG_HEIGHT - border * 2 - titlePaneHeight;
+		int lineHeight = (int)DIYToolkit.getDimension("|").getHeight();
 
-		int dialogHeight = (int)(lines.size() * (DIYToolkit.getDimension("|").getHeight())) + getBorder() *2;
+		int narrowTextWidth = NARROW_DIALOG_WIDTH - border * 2;
+		int narrowPreferredHeight = measurePreferredTextHeight(text, narrowTextWidth, lineHeight);
+
+		int dialogWidth;
+		int textBoundsWidth;
+		int preferredTextHeight;
+		int contentHeight;
+		boolean useScroll;
+
+		if (narrowPreferredHeight <= maxContentHeight)
+		{
+			dialogWidth = NARROW_DIALOG_WIDTH;
+			textBoundsWidth = narrowTextWidth;
+			preferredTextHeight = narrowPreferredHeight;
+			contentHeight = preferredTextHeight;
+			useScroll = false;
+		}
+		else
+		{
+			dialogWidth = WIDE_DIALOG_WIDTH;
+			textBoundsWidth = dialogWidth - border * 2;
+			preferredTextHeight = measurePreferredTextHeight(text, textBoundsWidth, lineHeight);
+			contentHeight = Math.min(preferredTextHeight, maxContentHeight);
+			useScroll = preferredTextHeight > contentHeight;
+		}
+
+		int dialogHeight = contentHeight + border * 2 + titlePaneHeight;
 
 		if (alignment == null)
 		{
 			alignment = FlavourTextEvent.Alignment.CENTER;
 		}
 
-		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
+		int startX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - dialogWidth / 2;
 		int startY = switch (alignment)
 			{
-				case TOP -> DiyGuiUserInterface.SCREEN_HEIGHT/2 - DiyGuiUserInterface.MAZE_HEIGHT/2;
-				case CENTER -> DiyGuiUserInterface.SCREEN_HEIGHT / 2 - dialogHeight/2;
-				case BOTTOM -> DiyGuiUserInterface.MAZE_WINDOW_BOUNDS.y + DiyGuiUserInterface.MAZE_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET -dialogHeight;
+				case TOP -> DiyGuiUserInterface.SCREEN_HEIGHT / 2 - DiyGuiUserInterface.MAZE_HEIGHT / 2;
+				case CENTER -> DiyGuiUserInterface.SCREEN_HEIGHT / 2 - dialogHeight / 2;
+				case BOTTOM -> DiyGuiUserInterface.MAZE_WINDOW_BOUNDS.y + DiyGuiUserInterface.MAZE_HEIGHT
+					- DiyGuiUserInterface.SCREEN_EDGE_INSET - dialogHeight;
 			};
 
-		this.setBounds(startX, startY, DIALOG_WIDTH, dialogHeight);
+		int minY = DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int maxY = DiyGuiUserInterface.SCREEN_HEIGHT - dialogHeight - DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		startY = Math.max(minY, Math.min(startY, maxY));
 
-		DIYPane titlePane = null;
+		this.setBounds(startX, startY, dialogWidth, dialogHeight);
 
-		Rectangle textBounds;
-
-		if (title != null)
-		{
-			titlePane = getTitlePane(title);
-
-			textBounds = new Rectangle(
-				x + getBorder(),
-				y + getBorder() + getTitlePaneHeight(),
-				textBoundsWidth,
-				height - getBorder() *2 - getTitlePaneHeight());
-		}
-		else
-		{
-			textBounds = new Rectangle(
-				x + getBorder(),
-				y + getBorder(),
-				textBoundsWidth,
-				height - getBorder() *2);
-		}
+		Rectangle contentBounds = new Rectangle(
+			x + border,
+			y + border + titlePaneHeight,
+			textBoundsWidth,
+			contentHeight);
 
 		this.text = new DIYTextArea(text);
 		this.text.setTransparent(true);
-		this.text.setBounds(textBounds);
 		this.text.addActionListener(this);
 
-		if (titlePane != null)
+		if (title != null)
 		{
-			this.add(titlePane);
+			this.add(getTitlePane(title));
 		}
-		this.add(this.text);
+
+		if (useScroll)
+		{
+			this.text.width = textBoundsWidth;
+			this.text.setBounds(
+				this.text.x,
+				this.text.y,
+				textBoundsWidth,
+				this.text.getPreferredSize().height);
+			scrollPane = new DIYScrollPane(contentBounds, this.text);
+			this.add(scrollPane);
+		}
+		else
+		{
+			this.text.setBounds(contentBounds);
+			this.add(this.text);
+		}
+
 		this.doLayout();
+	}
+
+	private static int measurePreferredTextHeight(String text, int textBoundsWidth, int lineHeight)
+	{
+		List<String> lines = DIYToolkit.wrapText(
+			text,
+			textBoundsWidth - 2,
+			null);
+		return lines.size() * lineHeight;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -119,6 +161,10 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 	public void setText(String text)
 	{
 		this.text.setText(text);
+		if (scrollPane != null)
+		{
+			scrollPane.refresh();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
