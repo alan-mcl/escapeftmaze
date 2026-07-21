@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
@@ -66,7 +67,7 @@ public class LocatePersonSpellResult extends SpellResult
 		// this spell result only applies to the caster
 		UserInterface ui = Maze.getInstance().getUi();
 
-		ui.showDialog(new GetPlayerSpeechDialog(source, new TextDialogCallback()
+		ui.showDialog(new GetPlayerSpeechDialog(new TextDialogCallback()
 		{
 			@Override
 			public void textEntered(String text)
@@ -76,7 +77,7 @@ public class LocatePersonSpellResult extends SpellResult
 
 			@Override
 			public void textEntryCancelled() { }
-		}));
+		}, StringUtil.getUiLabel("gps.title", source.getDisplayName())));
 
 		return new ArrayList<>();
 	}

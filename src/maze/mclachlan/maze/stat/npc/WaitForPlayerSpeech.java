@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
@@ -59,7 +60,7 @@ public class WaitForPlayerSpeech extends MazeEvent
 	{
 		UserInterface ui = Maze.getInstance().getUi();
 
-		ui.showDialog(new GetPlayerSpeechDialog(pc, new TextDialogCallback()
+		ui.showDialog(new GetPlayerSpeechDialog(new TextDialogCallback()
 		{
 			@Override
 			public void textEntered(String text)
@@ -69,7 +70,7 @@ public class WaitForPlayerSpeech extends MazeEvent
 
 			@Override
 			public void textEntryCancelled() { }
-		}));
+		}, StringUtil.getUiLabel("gps.title", pc.getDisplayName())));
 
 		return null;
 	}

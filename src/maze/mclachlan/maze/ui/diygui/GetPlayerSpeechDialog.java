@@ -28,7 +28,6 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
@@ -43,8 +42,7 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 
 	/*-------------------------------------------------------------------------*/
 	public GetPlayerSpeechDialog(
-		UnifiedActor pc,
-		TextDialogCallback textDialogCallback)
+		TextDialogCallback textDialogCallback, String titleText)
 	{
 		super();
 		this.textDialogCallback = textDialogCallback;
@@ -63,7 +61,7 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 		this.setBounds(dialogBounds);
 
 
-		DIYPane title = getTitlePane(StringUtil.getUiLabel("gps.title", pc.getDisplayName()));
+		DIYPane title = getTitlePane(titleText);
 
 		inputField = new DIYTextField();
 		inputField.setBounds(
