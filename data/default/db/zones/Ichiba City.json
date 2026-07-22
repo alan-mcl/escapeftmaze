@@ -15366,7 +15366,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE",
         "sector": "library_2"
       },
@@ -15378,7 +15378,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE",
         "sector": "library_2"
       },
@@ -15847,7 +15847,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE",
         "sector": "library_2"
       },
@@ -15859,7 +15859,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE",
         "sector": "library_2"
       },
@@ -16283,7 +16283,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16294,7 +16294,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16305,7 +16305,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16316,7 +16316,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16327,7 +16327,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16733,7 +16733,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16744,7 +16744,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16764,7 +16764,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16775,7 +16775,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {
@@ -16786,7 +16786,7 @@
         "terrainType": "URBAN",
         "terrainSubType": "City",
         "randomEncounterChance": "5",
-        "restingDanger": "MEDIUM",
+        "restingDanger": "NONE",
         "restingEfficiency": "AVERAGE"
       },
       {

@@ -413,233 +413,7 @@
   {
     "template": "Glaucus",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Chamois Skirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Filcher\u0027s Band",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Magic Nectar",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Corrosion Bomb",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Devil Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Smudge Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Script Of Frostbite",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Script Of Mage Shield",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Script Of Flame Blade",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Script Of Slow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Mistletoe Berry",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bone Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Devil Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Fire Stix",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Flash Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Hail Bomb",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Holy Water",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Knock Pick",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Oilskin Cloak",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Pneumatic Piston",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Mod Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Robes (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Ruby Talisman",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Script Of Skullduggery",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Scroll Of Armourplate",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Scroll Of Identify",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Sea Shells",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Tabi Boots",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Vitriolic Warder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "12:13",
     "zone": "Ichiba City",
@@ -651,66 +425,7 @@
   {
     "template": "Scrymgeour",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Ninja Garb (U)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Buskins",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Scrymgeour\u0027s Bitter",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Adventurer\u0027s Armoury Key",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Adventurer\u0027s Armoury Key",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Hachimaki",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Scrymgeour\u0027s Bitter",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "19:14",
     "zone": "Ichiba City",
@@ -722,7 +437,7 @@
   {
     "template": "W E Pickett",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:3",
     "zone": "Ichiba City",
@@ -734,7 +449,7 @@
   {
     "template": "Belisarius",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "2",
     "tile": "22:10",
     "zone": "Danaos Castle",
@@ -746,94 +461,7 @@
   {
     "template": "Pandarus",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Sneeze Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Aenen Sundew",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Mingminder\u0027s Green Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Silver Leaf Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Aenen Cavegrown Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Aenen Cavegrown Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Air Filter",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Dagger",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Mingminder\u0027s Green Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Silver Leaf Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Skullcap",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Time Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "11:24",
     "zone": "Aenen City",
@@ -845,7 +473,7 @@
   {
     "template": "Ren San",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:26",
     "zone": "Dalen",
@@ -857,133 +485,7 @@
   {
     "template": "Red Ear",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Suede Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Wytch Stix",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Gyroscope",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Halogen Lamp",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Herbal Patty",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bread Roll",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Dungore\u0027s Malt Ale",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Feathered Hat",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Knock Pick",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Pneumatic Piston",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Red Mushroom",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Robes (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Robes (U)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Rose Petals",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Small Clockwork Motor",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Tungsten Filament",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "23:20",
     "zone": "Ichiba City",
@@ -995,7 +497,7 @@
   {
     "template": "Fangorn",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "9:51",
     "zone": "Castle Fangorn",
@@ -1007,7 +509,7 @@
   {
     "template": "Getsel Gnawtooth",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:27",
     "zone": "Caves Of Ilast",
@@ -1019,7 +521,7 @@
   {
     "template": "Mnesus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Aenen City",
@@ -1031,7 +533,7 @@
   {
     "template": "Old Igor",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "33:29",
     "zone": "Ruins Of Hail",
@@ -1043,7 +545,7 @@
   {
     "template": "Nusor Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:5",
     "zone": "Stygios Forest",
@@ -1055,7 +557,7 @@
   {
     "template": "Bel Ies",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "17:19",
     "zone": "Writhing Mire",
@@ -1067,15 +569,7 @@
   {
     "template": "Sir Kay",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "15:16",
     "zone": "Ichiba City",
@@ -1087,7 +581,7 @@
   {
     "template": "Ideaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:16",
     "zone": "Aenen Outskirts",
@@ -1099,37 +593,7 @@
   {
     "template": "Stentor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Cloth Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Sandals",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "12:18",
     "zone": "Danaos Village",
@@ -1141,7 +605,7 @@
   {
     "template": "Ghul",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:59",
     "zone": "Plain Of Pillars",
@@ -1153,29 +617,7 @@
   {
     "template": "Stick Man Vendor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Willow Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "36-100",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Musket Ball",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "39-100",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Shrike Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "46-100",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:6",
     "zone": "arena",
@@ -1187,15 +629,7 @@
   {
     "template": "Broken Fang",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Assegai",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:9",
     "zone": "Gnoll Village",
@@ -1207,45 +641,7 @@
   {
     "template": "Asius",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Potion Of Lesser Curing",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Iron Ration",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:11",
     "zone": "Aenen Outskirts",
@@ -1257,7 +653,7 @@
   {
     "template": "Miriam Marrowsucker",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "10:27",
     "zone": "Caves Of Ilast",

@@ -2,7 +2,7 @@
   {
     "template": "Imogen",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "36:3",
     "zone": "Ichiba City",
@@ -14,7 +14,7 @@
   {
     "template": "Tower Guardian NPC",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:30",
     "zone": "Ichiba City",
@@ -26,7 +26,7 @@
   {
     "template": "C.O.C. Sergeant",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:19",
     "zone": "Ichiba City",
@@ -38,36 +38,7 @@
   {
     "template": "Lorelei",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Potion Of Stamina",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Flash Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Bone Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Barkskin",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "18:10",
     "zone": "Danaos Village",
@@ -79,7 +50,7 @@
   {
     "template": "Tao",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "25:10",
     "zone": "Dalen",
@@ -91,44 +62,7 @@
   {
     "template": "Mentes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Cloth Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Chamois Skirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Silk Pantaloons",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Garland Of Lilies",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Hachimaki",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Silk Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "17:26",
     "zone": "Aenen City",
@@ -140,22 +74,7 @@
   {
     "template": "Diomedes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Holy Water",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Heavy Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "26:25",
     "zone": "Ichiba City",
@@ -167,7 +86,7 @@
   {
     "template": "Nhapukom Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:15",
     "zone": "Temple Of The Gate",
@@ -179,7 +98,7 @@
   {
     "template": "Stenelaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Danaos Village",
@@ -191,7 +110,7 @@
   {
     "template": "Saropon Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:9",
     "zone": "Tornado Mountain",
@@ -203,7 +122,7 @@
   {
     "template": "Sarpedon",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "12:26",
     "zone": "Aenen City",
@@ -215,7 +134,7 @@
   {
     "template": "Clockwork Sentinel",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:20",
     "zone": "Aenen City",
@@ -227,7 +146,7 @@
   {
     "template": "Agenor",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "2",
     "tile": "14:6",
     "zone": "Danaos Castle",
@@ -239,7 +158,7 @@
   {
     "template": "Rhys",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "8:14",
     "zone": "Ichiba City Depths",
@@ -251,7 +170,7 @@
   {
     "template": "Kepnasha Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "0:0",
     "zone": "Ichiba City",
@@ -263,54 +182,7 @@
   {
     "template": "Three Eyes",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Ruby Ring",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Invisibility",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Cherry Bomb",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Dreamer Skull",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Bracers Of Defense",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Faerie Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Guardian Angel",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "11:12",
     "zone": "Gnoll Village",
@@ -322,170 +194,7 @@
   {
     "template": "Glaucus",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Caliban\u0027s Cuirass",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Brimstone Ring",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Granite Ring",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "White Standard",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Bottled Mephits",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Bless",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Light Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Magic Nectar",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Smelling Salts",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Script Of Blur",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Script Of Fear",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Scroll Of Identify",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
-        "template": "Scroll Of Mesmerism",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
-        "template": "Mistletoe Berry",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      },
-      {
-        "template": "Aenen Cavegrown Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Anointed Cloak",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Faerie Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Knock Pick",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Cure Paralysis",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Red Gold Ring",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Script Of Stamina",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Scroll Of Identify",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
-        "template": "Scroll Of Mesmerism",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
-        "template": "Silk Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "12:13",
     "zone": "Ichiba City",
@@ -497,7 +206,7 @@
   {
     "template": "Emmons",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "19:5",
     "zone": "Gatehouse",
@@ -509,63 +218,7 @@
   {
     "template": "Scrymgeour",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Hachimaki",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Feathered Hat",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Adventurer\u0027s Armoury Key",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Adventurer\u0027s Armoury Key",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Ninja Cowl",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Ninja Garb (U)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Scrymgeour\u0027s Bitter",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Suede Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "19:14",
     "zone": "Ichiba City",
@@ -577,7 +230,7 @@
   {
     "template": "W E Pickett",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:3",
     "zone": "Ichiba City",
@@ -589,7 +242,7 @@
   {
     "template": "Belisarius",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "2",
     "tile": "22:10",
     "zone": "Danaos Castle",
@@ -601,82 +254,7 @@
   {
     "template": "Pandarus",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Skullcap",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Sneeze Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Aenen Sundew",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Silver Leaf Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Time Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Aenen Cavegrown Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Air Filter",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Brooch",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Chamois Gloves",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Mingminder\u0027s Green Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Silver Leaf Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Time Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "11:24",
     "zone": "Aenen City",
@@ -688,7 +266,7 @@
   {
     "template": "Ren San",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:26",
     "zone": "Dalen",
@@ -700,94 +278,7 @@
   {
     "template": "Red Ear",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Suede Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Trews",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Buskins",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Gyroscope",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Pneumatic Piston",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Capacitor",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Dungore\u0027s Malt Ale",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Halogen Lamp",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Parabolic Reflector",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Roasted Corn",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "charges": "1-1"
-      },
-      {
-        "template": "Robes (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Herbal Patty",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "23:20",
     "zone": "Ichiba City",
@@ -799,7 +290,7 @@
   {
     "template": "Fangorn",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "9:51",
     "zone": "Castle Fangorn",
@@ -811,7 +302,7 @@
   {
     "template": "Getsel Gnawtooth",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:27",
     "zone": "Caves Of Ilast",
@@ -823,7 +314,7 @@
   {
     "template": "Mnesus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Aenen City",
@@ -835,7 +326,7 @@
   {
     "template": "Old Igor",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "33:29",
     "zone": "Ruins Of Hail",
@@ -847,7 +338,7 @@
   {
     "template": "Nusor Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:5",
     "zone": "Stygios Forest",
@@ -859,7 +350,7 @@
   {
     "template": "Bel Ies",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "17:19",
     "zone": "Writhing Mire",
@@ -871,7 +362,7 @@
   {
     "template": "Sir Kay",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "11:23",
     "zone": "Ichiba Crossroad",
@@ -883,7 +374,7 @@
   {
     "template": "Ideaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:16",
     "zone": "Aenen Outskirts",
@@ -895,21 +386,7 @@
   {
     "template": "Stentor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "12:18",
     "zone": "Danaos Village",
@@ -921,7 +398,7 @@
   {
     "template": "Ghul",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:59",
     "zone": "Plain Of Pillars",
@@ -933,32 +410,7 @@
   {
     "template": "Stick Man Vendor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Shrike Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "45-100"
-      },
-      {
-        "template": "Bullet Stone",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "28-100"
-      },
-      {
-        "template": "Fletched Bolt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "35-100"
-      },
-      {
-        "template": "Rhine Stone",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "41-100"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:6",
     "zone": "arena",
@@ -970,14 +422,7 @@
   {
     "template": "Broken Fang",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Assegai",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:9",
     "zone": "Gnoll Village",
@@ -989,65 +434,7 @@
   {
     "template": "Asius",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Stamina",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Cloth Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Bless",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Stamina",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Silk Pantaloons",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Suede Doublet",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Trews",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:11",
     "zone": "Aenen Outskirts",
@@ -1059,7 +446,7 @@
   {
     "template": "Miriam Marrowsucker",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "10:27",
     "zone": "Caves Of Ilast",

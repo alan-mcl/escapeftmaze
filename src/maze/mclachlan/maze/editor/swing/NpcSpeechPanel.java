@@ -26,11 +26,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.util.*;
+import java.util.function.Supplier;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.stat.npc.NpcSpeechRow;
+import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.NpcSpeechCsv;
 
 /**
  *
@@ -40,13 +45,26 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	private List<NpcSpeechRow> speech;
 	private final JList speechRows;
 	private final NpcSpeechPanel.NpcSpeechListModel dataModel;
-	private final JButton add, remove, edit, quickFill, clear;
+	private final JButton add, remove, edit, quickFill, clear, export, importCsv;
 	private final int dirtyFlag;
+	private final String ownerType;
+	private final Supplier<String> ownerNameSupplier;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcSpeechPanel(int dirtyFlag)
 	{
+		this(dirtyFlag, null, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public NpcSpeechPanel(
+		int dirtyFlag,
+		String ownerType,
+		Supplier<String> ownerNameSupplier)
+	{
 		this.dirtyFlag = dirtyFlag;
+		this.ownerType = ownerType;
+		this.ownerNameSupplier = ownerNameSupplier;
 		setBorder(BorderFactory.createEmptyBorder(3,3,3,3));
 		setLayout(new BorderLayout(5,5));
 
@@ -72,12 +90,20 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		clear = new JButton("Clear");
 		clear.addActionListener(this);
 
+		export = new JButton("Export...");
+		export.addActionListener(this);
+
+		importCsv = new JButton("Import...");
+		importCsv.addActionListener(this);
+
 		JPanel buttons = new JPanel();
 		buttons.add(add);
 		buttons.add(remove);
 		buttons.add(edit);
 		buttons.add(quickFill);
 		buttons.add(clear);
+		buttons.add(export);
+		buttons.add(importCsv);
 
 		refresh(null);
 
@@ -136,6 +162,14 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		else if (e.getSource() == clear)
 		{
 			clear();
+		}
+		else if (e.getSource() == export)
+		{
+			exportSpeech();
+		}
+		else if (e.getSource() == importCsv)
+		{
+			importSpeech();
 		}
 	}
 
@@ -399,6 +433,126 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void exportSpeech()
+	{
+		if (ownerType == null || ownerNameSupplier == null)
+		{
+			return;
+		}
+
+		String ownerName = ownerNameSupplier.get();
+		if (ownerName == null || ownerName.isEmpty())
+		{
+			JOptionPane.showMessageDialog(
+				SwingEditor.instance,
+				"Select an item before exporting speech.",
+				"Export Speech",
+				JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+
+		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("Export Speech");
+		chooser.setFileFilter(new FileNameExtensionFilter("CSV files", "csv"));
+		chooser.setSelectedFile(new File(ownerName + "-speech.csv"));
+
+		if (chooser.showSaveDialog(SwingEditor.instance) != JFileChooser.APPROVE_OPTION)
+		{
+			return;
+		}
+
+		File file = chooser.getSelectedFile();
+		if (!file.getName().toLowerCase(Locale.ROOT).endsWith(".csv"))
+		{
+			file = new File(file.getParentFile(), file.getName() + ".csv");
+		}
+
+		try
+		{
+			NpcSpeechCsv.writeFile(
+				file,
+				NpcSpeechCsv.exportRows(ownerType, ownerName, speech));
+		}
+		catch (Exception x)
+		{
+			throw new MazeException(x);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void importSpeech()
+	{
+		if (ownerType == null || ownerNameSupplier == null)
+		{
+			return;
+		}
+
+		String ownerName = ownerNameSupplier.get();
+		if (ownerName == null || ownerName.isEmpty())
+		{
+			JOptionPane.showMessageDialog(
+				SwingEditor.instance,
+				"Select an item before importing speech.",
+				"Import Speech",
+				JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+
+		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("Import Speech");
+		chooser.setFileFilter(new FileNameExtensionFilter("CSV files", "csv"));
+
+		if (chooser.showOpenDialog(SwingEditor.instance) != JFileChooser.APPROVE_OPTION)
+		{
+			return;
+		}
+
+		try
+		{
+			List<NpcSpeechCsv.SpeechCsvRow> allRows =
+				NpcSpeechCsv.readFile(chooser.getSelectedFile());
+			List<NpcSpeechCsv.SpeechCsvRow> rows =
+				NpcSpeechCsv.filterForOwner(allRows, ownerType, ownerName);
+
+			if (rows.isEmpty())
+			{
+				JOptionPane.showMessageDialog(
+					SwingEditor.instance,
+					"No rows found for " + ownerType + " \"" + ownerName + "\".",
+					"Import Speech",
+					JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+
+			int option = JOptionPane.showConfirmDialog(
+				SwingEditor.instance,
+				"Replace " + rows.size() + " keyword dialogue row(s) for \""
+					+ ownerName + "\"?",
+				"Import Speech",
+				JOptionPane.YES_NO_OPTION);
+			if (option != JOptionPane.YES_OPTION)
+			{
+				return;
+			}
+
+			replaceDialogue(NpcSpeechCsv.toNpcSpeechRows(rows));
+			SwingEditor.instance.setDirty(dirtyFlag);
+		}
+		catch (Exception x)
+		{
+			throw new MazeException(x);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void replaceDialogue(List<NpcSpeechRow> rows)
+	{
+		speech = new ArrayList<>(rows);
+		Collections.sort(speech, Comparator.comparing(o -> getKey(o.getKeywords())));
+		dataModel.refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/

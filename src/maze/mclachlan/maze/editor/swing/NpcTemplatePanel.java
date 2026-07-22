@@ -32,6 +32,7 @@ import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.NpcSpeechCsv;
 
 /**
  *
@@ -197,7 +198,10 @@ public class NpcTemplatePanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	private Component getDialogTab()
 	{
-		npcSpeechPanel = new NpcSpeechPanel(this.dirtyFlag);
+		npcSpeechPanel = new NpcSpeechPanel(
+			this.dirtyFlag,
+			NpcSpeechCsv.OWNER_TYPE_NPC,
+			this::getCurrentName);
 		return npcSpeechPanel;
 	}
 

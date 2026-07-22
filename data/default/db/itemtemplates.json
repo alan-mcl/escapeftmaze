@@ -69140,7 +69140,6 @@
     "description": "A potent potion to cure all types of ailments.",
     "modifiers": "0,",
     "image": "item/potion_yellow",
-    "equipableSlots": "",
     "weight": "90",
     "maxItemsPerStack": "5",
     "baseCost": "1000",

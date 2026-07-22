@@ -1439,7 +1439,7 @@
   {
     "template": "Fangorn",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "9:51",
     "zone": "Castle Fangorn",
@@ -1451,7 +1451,7 @@
   {
     "template": "Getsel Gnawtooth",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:27",
     "zone": "Caves Of Ilast",
@@ -1463,7 +1463,7 @@
   {
     "template": "Mnesus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Aenen City",
@@ -1475,7 +1475,7 @@
   {
     "template": "Old Igor",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "33:29",
     "zone": "Ruins Of Hail",
@@ -1487,7 +1487,7 @@
   {
     "template": "Nusor Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:5",
     "zone": "Stygios Forest",
@@ -1499,7 +1499,7 @@
   {
     "template": "Bel Ies",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "17:19",
     "zone": "Writhing Mire",
@@ -1511,14 +1511,7 @@
   {
     "template": "Sir Kay",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "12:25",
     "zone": "Ichiba Crossroad",
@@ -1530,7 +1523,7 @@
   {
     "template": "Ideaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:16",
     "zone": "Aenen Outskirts",
@@ -1542,50 +1535,7 @@
   {
     "template": "Stentor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Bread Roll",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      },
-      {
-        "template": "Beggars Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Buskins",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Chamois Gloves",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Robes (U)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Hachimaki",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "12:18",
     "zone": "Danaos Village",
@@ -1597,7 +1547,7 @@
   {
     "template": "Ghul",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:59",
     "zone": "Plain Of Pillars",
@@ -1609,44 +1559,7 @@
   {
     "template": "Stick Man Vendor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Willow Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "26-100"
-      },
-      {
-        "template": "Spike Stone",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "39-100"
-      },
-      {
-        "template": "Bullet Stone",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "27-100"
-      },
-      {
-        "template": "Quarrel",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-100"
-      },
-      {
-        "template": "Hunter Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "31-100"
-      },
-      {
-        "template": "Quarrel",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "46-100"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:6",
     "zone": "arena",
@@ -1658,44 +1571,7 @@
   {
     "template": "Broken Fang",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Throwing Knife",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      },
-      {
-        "template": "Assegai",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Dagger",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Dagger",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Throwing Knife",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      },
-      {
-        "template": "Throwing Knife",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:9",
     "zone": "Gnoll Village",
@@ -1707,93 +1583,7 @@
   {
     "template": "Asius",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Tartan Trews",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Light Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Herbal Patty",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25"
-      },
-      {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Iron Ration",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25"
-      },
-      {
-        "template": "Bread Roll",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
-      },
-      {
-        "template": "Potion Of Light Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Cloth Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Bless",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:11",
     "zone": "Aenen Outskirts",
@@ -1805,7 +1595,7 @@
   {
     "template": "Miriam Marrowsucker",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "10:27",
     "zone": "Caves Of Ilast",

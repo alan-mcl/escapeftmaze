@@ -2,7 +2,194 @@
   {
     "name": "ichiba library reference section",
     "dialog": {
-      "dialogue": []
+      "dialogue": [
+        {
+          "priority": "9",
+          "keywords": [
+            "aello",
+            "beiweh",
+            "lunara",
+            "garret",
+            "thyra",
+            "isolde",
+            "white lady",
+            "morrath",
+            "nergal"
+          ],
+          "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "aenen"
+          ],
+          "speech": "You locate the library\u0027s small collection on Aenen. Most works are written by travellers who never reached the hidden city, merchants who traded with its emissaries, or scholars who have also clearly never been there.\n\nThere is broad agreement that Aenen is one of the oldest surviving kingdoms in the Realm, south of Ichiba, and famed for its engineering, craftsmanship and independence. Beyond that, details are sketchy. If the gnomes have written definitive histories of their own, they have never found their way onto these shelves."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "belisarius"
+          ],
+          "speech": "Browsing the biographical section, you are slightly surprised to find, an autobiography by the General Belisarius\u0027. It\u0027s a slim volume entitled \u0027The Measure of Victory\u0027.\n\nThe Leonal commander writes tersely with the same austere confidence for which he is famous, presenting every campaign as the inevitable triumph of discipline over sentiment.\n\nHis opinions of allies, rivals and politicians are withering, while his own decisions are seldom questioned. You close the book feeling that, whether or not he was always right, Belisarius has never doubted it."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "c.o.c.",
+            "chamber of commerce",
+            "coc"
+          ],
+          "speech": "Several whole shelves are dedicated to the Chamber\u0027s official histories, annual reports and commemorative volumes. You spend some time browsing them.\n\nThey are impeccably produced and thoroughly self-congratulatory. Together they paint a picture of steady prosperity, civic responsibility and wise stewardship of Ichiba\u0027s affairs. Controversies are mentioned only in passing, troubles are attributed to unfortunate circumstances and are invariably overcome with C.o.C. foresight and coordination.\n\nYou\u0027re left with the feeling that if dissenting accounts exist, they\u0027re not shelved here."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "dalen"
+          ],
+          "speech": "You manage to find a weighty tome with the dry title \u0027The Higher Planes\u0027 in the cosmology section. It has a brief speculative chapter on a place called Dalen.\nBeyond a handful of myths describing an endless forest and abundant Green magic, the author admits that little can be verified. They go on to assert that most modern scholars regard Dalen as symbolic rather than geographical, while a determined minority insists that every legend begins with a real place."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "danaos"
+          ],
+          "speech": "The library maintains a respectable collection on Danaos, though much of it concerns diplomacy, trade and military history rather than daily life.\nHistories describe the warlike Leonals founding their city in defiance of the Maze, while more recent works dwell on disputes with the Gnomes and foreign policy."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "maze",
+            "escape",
+            "freedom"
+          ],
+          "speech": "There are plenty of reference works covering The Maze. Philosophical treatises, travellers\u0027 accounts, historical surveys, speculative theories, cosmology and theology, and so on.\nWhile there is no shortage of material, you find nothing that you did not already know.\nThe Maze is your prison. The Maze moves against those who try to escape. Gates are the means of passage. Realms escalate in danger as your pass outwards. You find no hidden secrets or answers."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "faerie"
+          ],
+          "speech": "The cosmology section contains several treatises on the Realm of Faerie, none of which quite agree.\nSome describe it as a neighbouring plane, others as a hidden kingdom that can only be reached under certain conditions. The books are filled with warnings about strange bargains, unreliable appearances and the danger of applying mortal logic to immortal beings. Frustratingly, every firm conclusion is contradicted by some other reference work.\nOne well-thumbed volume concludes: \"Everything written about Faerie is true, false, or both. The difficulty lies in determining which before it is too late.\""
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "first realm"
+          ],
+          "speech": "You browse a substantial collection of geographical, historical and political works concerning the First Realm.\nIts kingdoms, peoples and trade routes are documented in great detail, though the quality of the information varies considerably compared to your recent first hand experience."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gate"
+          ],
+          "speech": "There are various cosmology, philosophy and physics references, but they turn out not be very useful to you.\nHowever in a few books dedicated to the geography of the Second Realm, you do find some intesting information.\n\nBeyond the civilised Domains of Danaos, Ichiba and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland Domains are haunted by \"seven deadly spirits\", and any wishing to escape from the Realm must defeat them all.\nThe inhabitants of the Realm founded a settlement in a flat place in the wilds - Hail Town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.\nThe traveller passing through the wilds will eventually navigate the dark Caves of Ilast and come to the restful Isle of the Gate. Below the Isle lies the tomb of the dragon Ekirth, and below that the Temple if the Great Gate, the exit to the Third Realm."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnoll",
+            "gnolls"
+          ],
+          "speech": "You consult several ethnographic works on the gnolls, whose authors consistently describe them as savage but indepenent and deeply loyal to their own clans.\nThough often stereotyped as raiders, the more balanced accounts praise their adaptability and resilience.\nMost volumes recount an ancient tradition claiming that the first gnolls were once imprisoned by a cruel tyrant who sought to break their spirits through generations of captivity. The legend ends with the clans shattering their chains and swearing that no gnoll would willingly live beneath another\u0027s yoke again."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "gnome",
+            "gnomes"
+          ],
+          "speech": "You locate several scholarly works on the Gnomes of the Second Realm.\nThough physically slight, they are universally described as hardy, resourceful and resilient. Most accounts dwell on their engineering, craftsmanship and the great underground fortress of Aenen, which has endured against the Maze for generations.\nMany volumes recount the ancient legend that the gnomish race was cursed by a jealous dragon and condemned to wander the Maze for a thousand generations. Historians treat the tale with varying degrees of scepticism, but none can deny that the gnomes have survived hardships that would have destroyed many older kingdoms."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "hail"
+          ],
+          "speech": "You find several references to Hail in travellers\u0027 guides and trade almanacs. The town is consistently described as a modest but prosperous settlement, known for serving merchants and travellers passing through the district.\nOnly one recent periodical makes mention of its destruction; a sobering reminder that even the finest libraries cannot always keep pace with the changing planes of the Maze."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "ichiba"
+          ],
+          "speech": "Several shelves are devoted to Ichiba\u0027s history and administration. You browse civic histories, old maps, census records and collections of municipal ordinances.\n\nTogether they chart the city\u0027s growth from a modest market town to the commercial heart of the Realm, though they tend to emphasise orderly progress over colourful anecdote.\n\nThere is enough information here to satisfy a wide range of questions, but you note some interesting gaps. The Criminal Court archives are referenced, but are not open to the public. The catalogue lists several older histories as \"withdrawn from circulation\" with no explanation given. And while you find references to an underground sewer system and \u0027catacombs\u0027, no maps of such things are to be found."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "imogen"
+          ],
+          "speech": "You find surprisingly little. Imogen is mentioned in only a handful of works on contemporary magic.\nThe references describe her as an accomplished but unconventional sorceress, skilled in Black and Green magic, who has lived apart from polite society for many years. Scholars politely refer to her work as \"unorthodox,\" while carefully avoiding any attempt to explain it.\nYou are left with the feeling that the information here isn\u0027t very comprehensive."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "kalrath"
+          ],
+          "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "leonal",
+            "leonals",
+            "white order"
+          ],
+          "speech": "You find several ethnographic and historical works concerning the Leonals, generally portraying them as a proud and disciplined people.\nTheir society is consistently described as valuing honour, duty and public service, producing generations of accomplished soldiers, magistrates and statesmen. Foreign authors sometimes criticise Leonal pride as arrogance, while Leonal historians dismiss such accusations as the resentment of less disciplined nations.\nLeonal tradition holds that their ancestors were the last defenders of a dying world. Refusing to abandon their posts even as all hope was lost, they fought until the final gate collapsed around them. When they awoke, they found themselves in the Maze."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "mnesus"
+          ],
+          "speech": "In the biographical section you discover an unauthorized biography of King Mnesus entitled \u0027The Hidden Crown\u0027.\n\nThe anonymous author is clearly fascinated by the reclusive monarch, assembling court gossip, travellers\u0027 accounts and second-hand interviews into an somewhat speculative portrait. Mnesus emerges as fiercely proud, intelligent and intensely protective of Aenen\u0027s autonomy. \n\nAn introductory section notes that the book has been dismissed by official gnomish historians."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "second realm"
+          ],
+          "speech": "There is plenty of material on the Second Realm.\nThis Realm is one of warring city-states. Danaos is the bastion of the Leonals of the White Order, who are constantly at war with the gnomes of Aenen, wielders of intricate machines and elemental magic. Between lies prosperous Ichiba, the City in the Crater, who welcomes all comers.\nBeyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland Domains are haunted by \"seven deadly spirits\", and any wishing to escape from the Realm must defeat them all.\nThe inhabitants of the Realm founded a settlement in a flat place in the wilds - Hail Town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.\nThe traveller passing through the wilds will eventually navigate the dark Caves of Ilast and come to the restful Isle of the Gate. Below the Isle lies the tomb of the dragon Ekirth, and below that the Temple if the Great Gate, the exit to the Third Realm."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "third realm"
+          ],
+          "speech": "The library\u0027s holdings on the Third Realm are slight, but more comprehensive than any you were familiar with in the First Realm.\nMost references describe the Third as a bleak and desolate world overshadowed by a vast ruined city, whose crumbling halls are said to be haunted by an ancient order of black-armoured knights. Whether these figures still serve a forgotten master or merely cling to long-abandoned oaths is unknown.\nLittle is said of its ordinary inhabitants, leading some scholars to speculate that the Realm itself has long since fallen into decay. The surviving accounts agree on one point: none who have travelled from the Second Realm have ever returned."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "vireen"
+          ],
+          "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wasid"
+          ],
+          "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "wastes",
+            "wilds",
+            "wastelands"
+          ],
+          "speech": "ichiba.library.ref.wilds"
+        },
+        {
+          "priority": "9",
+          "keywords": [
+            "zerach"
+          ],
+          "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
+        }
+      ]
     }
   },
   {

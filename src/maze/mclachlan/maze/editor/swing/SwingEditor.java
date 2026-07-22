@@ -28,6 +28,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v2.V2Loader;
@@ -37,6 +38,7 @@ import mclachlan.maze.game.Launcher;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.ui.diygui.NullProgressListener;
 import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.NpcSpeechCsv;
 
 /**
  *
@@ -1061,6 +1063,138 @@ public class SwingEditor extends JFrame implements WindowListener
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void exportAllSpeech()
+	{
+		commitCurrentEditorPanel();
+
+		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("Export All Speech");
+		chooser.setFileFilter(new FileNameExtensionFilter("CSV files", "csv"));
+		chooser.setSelectedFile(new File("speech.csv"));
+
+		if (chooser.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
+		{
+			return;
+		}
+
+		File file = chooser.getSelectedFile();
+		if (!file.getName().toLowerCase(Locale.ROOT).endsWith(".csv"))
+		{
+			file = new File(file.getParentFile(), file.getName() + ".csv");
+		}
+
+		try
+		{
+			NpcSpeechCsv.writeFile(
+				file,
+				NpcSpeechCsv.exportAll(Database.getInstance()));
+		}
+		catch (Exception x)
+		{
+			throw new MazeException(x);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void importAllSpeech()
+	{
+		commitCurrentEditorPanel();
+
+		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("Import All Speech");
+		chooser.setFileFilter(new FileNameExtensionFilter("CSV files", "csv"));
+
+		if (chooser.showOpenDialog(this) != JFileChooser.APPROVE_OPTION)
+		{
+			return;
+		}
+
+		try
+		{
+			List<NpcSpeechCsv.SpeechCsvRow> rows =
+				NpcSpeechCsv.readFile(chooser.getSelectedFile());
+			if (rows.isEmpty())
+			{
+				JOptionPane.showMessageDialog(
+					this,
+					"No speech rows found in the selected file.",
+					"Import All Speech",
+					JOptionPane.WARNING_MESSAGE);
+				return;
+			}
+
+			Set<String> owners = new TreeSet<>();
+			for (NpcSpeechCsv.SpeechCsvRow row : rows)
+			{
+				owners.add(row.ownerType() + ":" + row.ownerName());
+			}
+
+			int option = JOptionPane.showConfirmDialog(
+				this,
+				"Replace keyword dialogue for " + owners.size()
+					+ " owner(s) present in this file?",
+				"Import All Speech",
+				JOptionPane.YES_NO_OPTION);
+			if (option != JOptionPane.YES_OPTION)
+			{
+				return;
+			}
+
+			NpcSpeechCsv.ApplyResult result =
+				NpcSpeechCsv.applyToDatabase(Database.getInstance(), rows);
+
+			if (result.npcTemplatesDirty())
+			{
+				setDirty(Tab.NPC_TEMPLATES);
+			}
+			if (result.foeSpeechDirty())
+			{
+				setDirty(Tab.FOE_SPEECH);
+			}
+
+			if (!result.unknownOwners().isEmpty())
+			{
+				JOptionPane.showMessageDialog(
+					this,
+					"Skipped unknown owner(s):\n"
+						+ String.join("\n", result.unknownOwners()),
+					"Import All Speech",
+					JOptionPane.WARNING_MESSAGE);
+			}
+
+			refreshCurrentSpeechPanel();
+		}
+		catch (Exception x)
+		{
+			throw new MazeException(x);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void commitCurrentEditorPanel()
+	{
+		IEditorPanel panel = getEditorPanel();
+		if (panel != null && panel.getCurrentName() != null)
+		{
+			panel.commit(panel.getCurrentName());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshCurrentSpeechPanel()
+	{
+		IEditorPanel panel = getEditorPanel();
+		if (panel instanceof NpcTemplatePanel || panel instanceof FoeSpeechPanel)
+		{
+			String name = panel.getCurrentName();
+			if (name != null)
+			{
+				panel.refresh(name);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public IEditorPanel getEditorPanel()
 	{
 		int index = categoryTabs.getSelectedIndex();
@@ -1250,6 +1384,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			copyItem, renameItem, deleteItem;
 		JMenuItem newMenuItem, copyMenuItem, renameMenuItem, deleteMenuItem,
 			applyMenuItem, applyAllMenuItem, discardMenuItem, exitMenuItem,
+			exportAllSpeechMenuItem, importAllSpeechMenuItem,
 			changeCampaignMenuItem, aboutMenuItem;
 
 		/*----------------------------------------------------------------------*/
@@ -1330,6 +1465,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			discardMenuItem = new JMenuItem("Discard");
 			discardMenuItem.addActionListener(this);
 			discardMenuItem.setMnemonic(KeyEvent.VK_I);
+			exportAllSpeechMenuItem = new JMenuItem("Export All Speech...");
+			exportAllSpeechMenuItem.addActionListener(this);
+			importAllSpeechMenuItem = new JMenuItem("Import All Speech...");
+			importAllSpeechMenuItem.addActionListener(this);
 			exitMenuItem = new JMenuItem("Exit");
 			exitMenuItem.addActionListener(this);
 			exitMenuItem.setMnemonic(KeyEvent.VK_E);
@@ -1342,6 +1481,9 @@ public class SwingEditor extends JFrame implements WindowListener
 			fileMenu.add(applyMenuItem);
 			fileMenu.add(applyAllMenuItem);
 			fileMenu.add(discardMenuItem);
+			fileMenu.addSeparator();
+			fileMenu.add(exportAllSpeechMenuItem);
+			fileMenu.add(importAllSpeechMenuItem);
 			fileMenu.addSeparator();
 			fileMenu.add(exitMenuItem);
 
@@ -1432,6 +1574,14 @@ public class SwingEditor extends JFrame implements WindowListener
 					}
 					parent.clearDirtyStatus();
 				}
+			}
+			else if (e.getSource() == exportAllSpeechMenuItem)
+			{
+				parent.exportAllSpeech();
+			}
+			else if (e.getSource() == importAllSpeechMenuItem)
+			{
+				parent.importAllSpeech();
 			}
 			else if (e.getSource() == exit || e.getSource() == exitMenuItem)
 			{

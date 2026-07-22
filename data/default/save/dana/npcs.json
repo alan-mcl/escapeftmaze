@@ -1318,7 +1318,7 @@
   {
     "template": "Mnesus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "4:16",
     "zone": "Aenen City",
@@ -1330,7 +1330,7 @@
   {
     "template": "Old Igor",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "33:29",
     "zone": "Ruins Of Hail",
@@ -1342,7 +1342,7 @@
   {
     "template": "Nusor Minion Of Usark",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:5",
     "zone": "Stygios Forest",
@@ -1354,7 +1354,7 @@
   {
     "template": "Bel Ies",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "17:19",
     "zone": "Writhing Mire",
@@ -1366,7 +1366,7 @@
   {
     "template": "Sir Kay",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "26:18",
     "zone": "Ichiba Crossroad",
@@ -1378,7 +1378,7 @@
   {
     "template": "Ideaus",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "15:16",
     "zone": "Aenen Outskirts",
@@ -1390,72 +1390,7 @@
   {
     "template": "Stentor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Feathered Hat",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Suede Doublet",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Chamois Gloves",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Tartan Trews",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bread Roll",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Robes (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": "brains"
-      },
-      {
-        "template": "Robes (U)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Skullcap",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "1",
     "tile": "12:18",
     "zone": "Danaos Village",
@@ -1467,7 +1402,7 @@
   {
     "template": "Ghul",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "3:59",
     "zone": "Plain Of Pillars",
@@ -1479,15 +1414,7 @@
   {
     "template": "Stick Man Vendor",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Elm Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "40-100",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "7:6",
     "zone": "arena",
@@ -1499,29 +1426,7 @@
   {
     "template": "Broken Fang",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Assegai",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Dagger",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Throwing Knife",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "14:9",
     "zone": "Gnoll Village",
@@ -1533,84 +1438,7 @@
   {
     "template": "Asius",
     "attitude": "NEUTRAL",
-    "currentInventory": [
-      {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Resist Elements",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Potion Of Cure Poison",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Bunch Of Bananas",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "charges": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1",
-        "enchantmentName": "alchemic"
-      },
-      {
-        "template": "Iron Ration",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25",
-        "enchantmentName": ""
-      },
-      {
-        "template": "Roasted Corn",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50",
-        "charges": "1-1",
-        "enchantmentName": ""
-      }
-    ],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "20:11",
     "zone": "Aenen Outskirts",
@@ -1622,7 +1450,7 @@
   {
     "template": "Miriam Marrowsucker",
     "attitude": "ATTACKING",
-    "currentInventory": [],
+    "tradingInventory": [],
     "theftCounter": "0",
     "tile": "10:27",
     "zone": "Caves Of Ilast",

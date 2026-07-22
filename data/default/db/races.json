@@ -139,6 +139,8 @@
     ],
     "magicDead": "false",
     "specialAbility": "Hynobi Fire Breath",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Thseaa",
@@ -212,6 +214,7 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
     "naturalWeapons": [
       "Mirka Claw"
     ],
@@ -282,6 +285,8 @@
       "None"
     ],
     "magicDead": "true",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "None": [
         "Brokencog",
@@ -407,6 +412,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Antia",
@@ -485,6 +492,8 @@
     ],
     "magicDead": "false",
     "specialAbility": "Naga Poison Spit",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Aadhi",
@@ -575,6 +584,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Barshooka",
@@ -727,6 +738,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Ru Muri",
@@ -787,6 +800,8 @@
       "Male"
     ],
     "magicDead": "false",
+    "startingItems": [],
+    "naturalWeapons": [],
     "suggestedNames": {
       "Female": [
         "Sarsandra",

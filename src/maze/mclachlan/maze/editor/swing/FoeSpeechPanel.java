@@ -26,6 +26,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.npc.FoeSpeech;
 import mclachlan.maze.stat.npc.NpcSpeech;
+import mclachlan.maze.util.NpcSpeechCsv;
 
 /**
  *
@@ -55,7 +56,10 @@ public class FoeSpeechPanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	private Component getDialogPanel()
 	{
-		dialog = new NpcSpeechPanel(dirtyFlag);
+		dialog = new NpcSpeechPanel(
+			dirtyFlag,
+			NpcSpeechCsv.OWNER_TYPE_FOE_SPEECH,
+			this::getCurrentName);
 		return dialog;
 	}
 

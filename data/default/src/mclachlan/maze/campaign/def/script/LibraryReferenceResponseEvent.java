@@ -67,6 +67,7 @@ public class LibraryReferenceResponseEvent extends MazeEvent
 		if (speech.startsWith(COLD_STRING_PREFIX))
 		{
 			FlavourTextEvent event = new FlavourTextEvent();
+			event.setDelay(Delay.WAIT_ON_CLICK);
 			event.setColdStringKey(speech);
 			return event;
 		}

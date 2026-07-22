@@ -72,6 +72,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-11 | editor | Proper dynamic FK support (cascading rename & delete) | Cross-reference integrity across data types. (stufftodo) | L | todo |
 | P2-12 | editor | Resize maps | (stufftodo) | M | todo |
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |
+| P2-14 | editor | NPC / FoeSpeech CSV export & import | Bulk-edit keyword dialogue rows via UTF-8 CSV from NpcSpeechPanel and File menu. (code) | S | done |
 | P2-15 | editor | Validation framework | Validation is ad-hoc; add consistent pre-save validation. (code) | M | todo |
 
 ### Data / crafting systems
