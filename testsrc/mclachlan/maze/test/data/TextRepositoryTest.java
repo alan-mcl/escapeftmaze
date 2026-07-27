@@ -38,6 +38,26 @@ public class TextRepositoryTest extends MazeTestSupport
 	}
 
 	@Test
+	void literalBackslashNInHotStringIsNormalized()
+	{
+		loader.textRepository.putHotString("ui", "test.newline", "Line one\\nLine two");
+
+		assertEquals(
+			"Line one" + System.lineSeparator() + "Line two",
+			StringUtil.getUiLabel("test.newline"));
+	}
+
+	@Test
+	void literalBackslashNInColdStringIsNormalized()
+	{
+		loader.textRepository.putColdString("test.newline", "Line one\\nLine two");
+
+		assertEquals(
+			"Line one" + System.lineSeparator() + "Line two",
+			StringUtil.getColdString("test.newline"));
+	}
+
+	@Test
 	void coldStringLookupReturnsBody()
 	{
 		loader.textRepository.putColdString("test.book", "A long book body.");

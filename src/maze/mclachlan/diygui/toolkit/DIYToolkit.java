@@ -1106,7 +1106,7 @@ public class DIYToolkit
 		}
 
 		FontMetrics fm = g.getFontMetrics();
-		String[] lines = text.split("\n"); // Split the text by newlines
+		String[] lines = text.split("\\R"); // Split the text by newlines
 
 		for (String rawLine : lines)
 		{

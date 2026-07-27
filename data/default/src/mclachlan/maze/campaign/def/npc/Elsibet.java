@@ -39,7 +39,7 @@ public class Elsibet extends NpcScript
 			new NpcSpeechEvent("If you need a book, I know where it is.\nIf you need silence, I can enforce it.", npc),
 			new NpcSpeechEvent("If you need adventure, well... those are shelved under Fiction. Obviously.", npc),
 			new NpcSpeechEvent("And yes, that -is- the very popular Red Greave serials over on the east wall. The complete set, so far.", npc),
-			new FlavourTextEvent("She pauses, slight breathless. After a moment it's apparent that she has nothing else to say right away.", FlavourTextEvent.Alignment.BOTTOM)
+			new FlavourTextEvent("She pauses, slightly breathless. After a moment it's apparent that she has nothing else to say right away.", FlavourTextEvent.Alignment.BOTTOM)
 			);
 	}
 

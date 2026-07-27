@@ -1815,7 +1815,7 @@
     },
     {
       "mazeVariable": "ichiba.city.portal.23",
-      "initialState": "unlocked",
+      "initialState": "locked",
       "from": "30:30",
       "fromFacing": "4",
       "to": "29:30",
@@ -1824,18 +1824,19 @@
       "canForce": "true",
       "canPick": "true",
       "canSpellPick": "true",
-      "hitPointCostToForce": "5",
-      "resistForce": "0",
+      "hitPointCostToForce": "10",
+      "resistForce": "2",
       "difficulty": [
         "0",
         "0",
+        "5",
         "0",
         "0",
         "0",
-        "0",
-        "0",
-        "0"
+        "7",
+        "7"
       ],
+      "required": "00100011",
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
     }
@@ -15372,7 +15373,18 @@
       },
       {
         "coords": "27:34",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "executeOnceMazeVariable": "ichiba.city.execute.once.6",
+            "facings": "0101",
+            "reexecuteOnSameTile": "true",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "Clearly Elsibet\u0027s living quarters, this room occupies the library\u0027s attic above the main building.\n\nThe ceiling follows the pitch of the roof. A narrow bed with a handmade quilt is pushed in one corder, and a very prim writing desk stands against the far wall.\n\nThe room smells faintly of paper, cedar, and lamp oil.\n\n",
+            "alignment": "CENTER"
+          }
+        ],
         "randomEncounters": "ichiba.city.random.enc",
         "statModifier": "3f800000000000000000,01020101020203",
         "terrainType": "URBAN",
@@ -34631,6 +34643,147 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
+        "lightLevel": "30",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "22",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "CITY_CEILING_1",
+        "floorTexture": "CITY_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
         "lightLevel": "24",
         "ceilingHeight": "1"
       },
@@ -34651,146 +34804,6 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "24",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "CITY_CEILING_1",
-        "floorTexture": "CITY_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
         "lightLevel": "24",
         "ceilingHeight": "1"
       },
@@ -35031,17 +35044,18 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
         "ceilingTexture": "CITY_CEILING_1",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "CARPETS_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "24",
+        "lightLevel": "22",
         "ceilingHeight": "1"
       },
       {
@@ -48160,9 +48174,44 @@
         "textures": [
           "CITY_WALL_1"
         ],
+        "maskTextures": [
+          "objects.bookshelf.1"
+        ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "1",
+        "maskTextureMouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "ExecuteMazeScript.script",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Various files, documents, and stacks of paper are stacked on the shelf here.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Leafing through them expecting accounts and diaries, you are surprised to instead find dozens of draft paragraphs of Red Greave heroic fantasy, character sketches, maps of imaginary kingdoms and plot outlines, all written in a neat cursive.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "It slowly dawns on you that these are the real thing - the material includes drafts and revisions of published novels in the library downstairs.\n\nYou appear to have discovered who is behind the \"Dame Eleanor Cross\" pen name.",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              }
+            ]
+          }
+        }
       },
       {
         "textures": [
@@ -68045,7 +68094,7 @@
             ]
           }
         },
-        "verticalAlignment": "BOTTOM"
+        "verticalAlignment": "TOP"
       },
       {
         "northTexture": "objects.ladder.down",
@@ -68071,6 +68120,54 @@
             ]
           }
         },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bed.1.side",
+        "southTexture": "objects.bed.1.side",
+        "eastTexture": "objects.bed.1",
+        "westTexture": "objects.bed.1",
+        "xPos": "14592",
+        "yPos": "17664",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "CEILING_LIGHT_1",
+        "southTexture": "CEILING_LIGHT_1",
+        "eastTexture": "CEILING_LIGHT_1",
+        "westTexture": "CEILING_LIGHT_1",
+        "xPos": "14080",
+        "yPos": "17152",
+        "lightSource": "true",
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.table.1",
+        "southTexture": "objects.table.1",
+        "eastTexture": "objects.table.1",
+        "westTexture": "objects.table.1",
+        "xPos": "14080",
+        "yPos": "17026",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "text": "The writing desk is neatly laid out at with stacked foolscap, sharpened quills, bottles of ink arranged by colour, sealing wax, rulers and other stationary. The quills look well used.",
+          "alignment": "CENTER"
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.chair.1",
+        "southTexture": "objects.chair.1",
+        "eastTexture": "objects.chair.1",
+        "westTexture": "objects.chair.1",
+        "xPos": "14164",
+        "yPos": "17203",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }
     ],

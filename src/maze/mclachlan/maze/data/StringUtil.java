@@ -64,7 +64,8 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getTipOfTheDayText(int index)
 	{
-		return Database.getInstance().getHotString(TIPS, "tip_"+index, true);
+		return normalizeLineBreaks(
+			Database.getInstance().getHotString(TIPS, "tip_"+index, true));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -94,7 +95,12 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getString(String namespace, String key, boolean allowNull, Object[] args)
 	{
-		String string = Database.getInstance().getHotString(namespace, key, allowNull);
+		String string = normalizeLineBreaks(
+			Database.getInstance().getHotString(namespace, key, allowNull));
+		if (string == null)
+		{
+			return null;
+		}
 		return String.format(string, args);
 	}
 
@@ -107,7 +113,17 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getColdString(String key, boolean allowNull)
 	{
-		return Database.getInstance().getColdString(key, allowNull);
+		return normalizeLineBreaks(Database.getInstance().getColdString(key, allowNull));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	static String normalizeLineBreaks(String string)
+	{
+		if (string == null || string.indexOf('\\') < 0)
+		{
+			return string;
+		}
+		return string.replace("\\n", System.lineSeparator());
 	}
 
 	/*-------------------------------------------------------------------------*/

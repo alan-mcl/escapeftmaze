@@ -664,6 +664,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			reloadAll();
 			dirty.clear();
 			setDirtyStatusMessage();
+			updateCategoryTabTitles();
 
 			campaignEditorPanel.initForeignKeys();
 			campaignEditorPanel.refresh(currentCampaign);
@@ -1043,6 +1044,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		dirty.clear();
 		setDirtyStatusMessage();
+		updateCategoryTabTitles();
 	}
 
 	/*-------------------------------------------------------------------------*/

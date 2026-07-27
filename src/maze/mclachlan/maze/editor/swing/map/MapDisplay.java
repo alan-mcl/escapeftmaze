@@ -84,6 +84,7 @@ public class MapDisplay extends JPanel implements Scrollable
 		{
 			zoomLevel += i;
 			rescaleImages();
+			revalidate();
 			repaint();
 		}
 	}
@@ -91,9 +92,9 @@ public class MapDisplay extends JPanel implements Scrollable
 	/*-------------------------------------------------------------------------*/
 	public void paintComponent(Graphics g)
 	{
-		g.setColor(getBackground());
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
-		
+		// Graphics origin is component-local; do not use getX()/getY() (parent space).
+		super.paintComponent(g);
+
 		for (Layer l : layers)
 		{
 			l.paint(g);
@@ -430,17 +431,17 @@ public class MapDisplay extends JPanel implements Scrollable
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
+		int ts = tileSize * zoomLevel;
+		int ws = wallSize + zoomLevel;
 		return new Dimension(
-			zone.getWidth()*tileSize*MAX_ZOOM_LEVEL, 
-			zone.getLength()*tileSize*MAX_ZOOM_LEVEL);
+			zone.getWidth() * (ws + ts) + ws,
+			zone.getLength() * (ws + ts) + ws);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredScrollableViewportSize()
 	{
-		return new Dimension(
-			zone.getWidth()*tileSize*zoomLevel, 
-			zone.getLength()*tileSize*zoomLevel);
+		return getPreferredSize();
 	}
 
 	/*-------------------------------------------------------------------------*/

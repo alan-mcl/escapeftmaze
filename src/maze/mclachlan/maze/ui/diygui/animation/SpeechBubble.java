@@ -157,7 +157,7 @@ public class SpeechBubble
 		textWidth = Math.min(fm.stringWidth(text), maxWidth);
 
 		strings = new ArrayList<>();
-		String[] paragraphs = text.split("\\n");
+		String[] paragraphs = text.split("\\R");
 
 		for (int i = 0; i < paragraphs.length; i++)
 		{
