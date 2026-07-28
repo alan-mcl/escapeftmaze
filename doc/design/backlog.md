@@ -31,6 +31,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P0-2 | bug | Damage multipliers applied after armour soak | Should be applied **before** soak per design; current order in `GameSys` damage calc changes balance. Affects every hit. (stufftodo/code) | M | todo |
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
 | P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |
+| P0-5 | bug | JCraftPlayer SFX infinite exception spin | EOF (`read` returns -1) was not treated as end-of-stream in `readBody`; corrupt `SyncState` and stale `wrote()` caused busy-loop `IndexOutOfBoundsException` on SFX threads, heap exhaustion, apparent hang. Fixed in `JCraftPlayer`. (code) | S | done |
 
 ---
 

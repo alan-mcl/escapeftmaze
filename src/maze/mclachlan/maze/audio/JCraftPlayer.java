@@ -280,6 +280,15 @@ public class JCraftPlayer extends Thread
 				throw new MazeException(exception);
 			}
 
+			if(count <= 0)
+			{
+				if(needMoreData)
+				{
+					throw new MazeException("Not enough header data was supplied.");
+				}
+				break;
+			}
+
 			// We let SyncState know how many bytes we read.
 			joggSyncState.wrote(count);
 
@@ -649,22 +658,32 @@ public class JCraftPlayer extends Thread
 				index = joggSyncState.buffer(bufferSize);
 				buffer = joggSyncState.data;
 
-				// Read from the InputStream.
-				try
+				if(index < 0)
 				{
-					count = inputStream.read(buffer, index, bufferSize);
+					playing = false;
 				}
-				catch(Exception e)
+				else
 				{
-//						throw new MazeException(e);
-					// we stop in the face of an error
+					// Read from the InputStream.
+					try
+					{
+						count = inputStream.read(buffer, index, bufferSize);
+					}
+					catch(Exception e)
+					{
+						playing = false;
+						count = -1;
+					}
+
+					if(count <= 0)
+					{
+						playing = false;
+					}
+					else
+					{
+						joggSyncState.wrote(count);
+					}
 				}
-
-				// We let SyncState know how many bytes we read.
-				joggSyncState.wrote(count);
-
-				// There's no more data in the stream.
-				if(count == 0) playing = false;
 			}
 		}
 		debugOutput("Done reading the body.");

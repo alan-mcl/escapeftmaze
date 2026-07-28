@@ -18,7 +18,6 @@ ICHIBA CITY
 city secret passage button
 city staircase
 foe rebalancing
-torch texture
 
 NPCs
  - Gurney: dialogue
