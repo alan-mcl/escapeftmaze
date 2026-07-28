@@ -67947,7 +67947,7 @@
         "westTexture": "objects.torch.1",
         "xPos": "14080",
         "yPos": "5888",
-        "lightSource": "false",
+        "lightSource": "true",
         "verticalAlignment": "BOTTOM"
       },
       {

@@ -74,6 +74,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |
 | P2-14 | editor | NPC / FoeSpeech CSV export & import | Bulk-edit keyword dialogue rows via UTF-8 CSV from NpcSpeechPanel and File menu. (code) | S | done |
 | P2-15 | editor | Validation framework | Validation is ad-hoc; add consistent pre-save validation. (code) | M | todo |
+| P2-25 | editor | Maze Textures animated preview | Live preview beside image-resource list: frame cycle, scroll, per-frame thumbnails (`TexturePreviewPanel`). (code) | S | done |
 
 ### Data / crafting systems
 

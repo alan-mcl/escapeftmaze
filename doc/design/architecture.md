@@ -281,6 +281,10 @@ A single-frame Swing application for authoring all game content. It reuses the s
   two-phase save: "commit" pushes UI -> cache, then "Apply"/"Apply All" flushes dirty
   categories to disk via `Database.saveXxx()` / `V2Saver`. Zones save immediately via
   `Saver.saveZone()`. There is no undo stack and only ad-hoc validation.
+- **Texture preview.** The Maze Textures tab (`MazeTexturePanel`) shows an animated
+  preview beside the image-resource list: frame cycling when `animationDelay > -1`,
+  scroll behaviour when configured, and a strip of per-frame thumbnails driven by the
+  current (uncommitted) form values via `TexturePreviewPanel`.
 
 ## 4. Cross-Cutting Data & Control Flow
 

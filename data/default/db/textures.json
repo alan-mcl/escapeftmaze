@@ -561,10 +561,14 @@
       "crusader/scene/torch_2",
       "crusader/scene/torch_3",
       "crusader/scene/torch_4",
+      "crusader/scene/torch_5",
+      "crusader/scene/torch_6",
+      "crusader/scene/torch_5",
+      "crusader/scene/torch_4",
       "crusader/scene/torch_3",
       "crusader/scene/torch_2"
     ],
-    "animationDelay": "100",
+    "animationDelay": "120",
     "scrollSpeed": "-1"
   },
   {
