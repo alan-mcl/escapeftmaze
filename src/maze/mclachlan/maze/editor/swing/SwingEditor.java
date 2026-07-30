@@ -143,13 +143,13 @@ public class SwingEditor extends JFrame implements WindowListener
 		addEditorTab(EditorCategory.CAMPAIGN, "Difficulty Levels", getDifficultyLevelPanel());
 		addEditorTab(EditorCategory.CAMPAIGN, "Guild", getGuildPanel(), Tab.GUILD);
 
+		addEditorTab(EditorCategory.CHARACTERS, "Character Classes", getCharacterClassesPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Starting Kits", getStartingKitsPanel());
+		addEditorTab(EditorCategory.CHARACTERS, "Races", getRacesPanel());
 		addEditorTab(EditorCategory.CHARACTERS, "Genders", getGenderPanel());
 		addEditorTab(EditorCategory.CHARACTERS, "Body Parts", getBodyPartPanel());
 		addEditorTab(EditorCategory.CHARACTERS, "Experience Tables", getExperienceTablePanel());
-		addEditorTab(EditorCategory.CHARACTERS, "Starting Kits", getStartingKitsPanel());
-		addEditorTab(EditorCategory.CHARACTERS, "Character Classes", getCharacterClassesPanel());
 		addEditorTab(EditorCategory.CHARACTERS, "Personalities", getPersonalitiesPanel());
-		addEditorTab(EditorCategory.CHARACTERS, "Races", getRacesPanel());
 
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Attack Types", getAttackTypesPanel());
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Condition Effects", getConditionEffectsPanel());
@@ -158,12 +158,12 @@ public class SwingEditor extends JFrame implements WindowListener
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Spells", getSpellsPanel());
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Player Spell Books", getPlayerSpellBooksPanel());
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Natural Weapons", getNaturalWeaponsPanel());
-		addEditorTab(EditorCategory.COMBAT_MAGIC, "Wielding Combos", getWieldingCombosPanel());
 		addEditorTab(EditorCategory.COMBAT_MAGIC, "Item Enchantments", getItemEnchantmentsPanel());
+		addEditorTab(EditorCategory.COMBAT_MAGIC, "Wielding Combos", getWieldingCombosPanel());
 
+		addEditorTab(EditorCategory.ITEMS_LOOT, "Item Templates", getItemTemplatesPanel());
 		addEditorTab(EditorCategory.ITEMS_LOOT, "Loot Entries", getLootEntriesPanel());
 		addEditorTab(EditorCategory.ITEMS_LOOT, "Loot Tables", getLootTablesPanel());
-		addEditorTab(EditorCategory.ITEMS_LOOT, "Item Templates", getItemTemplatesPanel());
 		addEditorTab(EditorCategory.ITEMS_LOOT, "Craft Recipes", getCraftRecipePanel());
 
 		addEditorTab(EditorCategory.CREATURES, "Foe Types", getFoeTypesPanel());
@@ -175,8 +175,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		addEditorTab(EditorCategory.CREATURES, "Npc Faction Templates", getNpcFactionTemplatesPanel());
 		addEditorTab(EditorCategory.CREATURES, "Npc Templates", getNpcTemplatesPanel());
 
-		addEditorTab(EditorCategory.WORLD, "Maze Scripts", getMazeScriptPanel());
 		addEditorTab(EditorCategory.WORLD, "Zones", getZonesPanel());
+		addEditorTab(EditorCategory.WORLD, "Maze Scripts", getMazeScriptPanel());
 		addEditorTab(EditorCategory.WORLD, "Maze Textures", getMazeTexturesPanel());
 		addEditorTab(EditorCategory.WORLD, "Object Animations", getObjectAnimationsPanel());
 		addEditorTab(EditorCategory.WORLD, "Hot Strings", getHotStringsPanel());
