@@ -4803,7 +4803,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.depths.random.enc",
-            "mazeVariable": "ichiba.city.depths.encounter.4"
+            "mazeVariable": "ichiba.city.depths.encounter.4",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.depths.random.enc",
@@ -5594,7 +5595,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gnoll.village.placed.enc",
-            "mazeVariable": "ichiba.city.depths.encounter.0"
+            "mazeVariable": "ichiba.city.depths.encounter.0",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.depths.random.enc",
@@ -6993,7 +6995,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gnoll.village.placed.enc",
-            "mazeVariable": "ichiba.city.depths.encounter.1"
+            "mazeVariable": "ichiba.city.depths.encounter.1",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.depths.random.enc",
@@ -7403,7 +7406,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.depths.random.enc",
-            "mazeVariable": "ichiba.city.depths.encounter.3"
+            "mazeVariable": "ichiba.city.depths.encounter.3",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.depths.random.enc",
@@ -8112,7 +8116,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "gnoll.village.placed.enc",
-            "mazeVariable": "ichiba.city.depths.encounter.2"
+            "mazeVariable": "ichiba.city.depths.encounter.2",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.depths.random.enc",

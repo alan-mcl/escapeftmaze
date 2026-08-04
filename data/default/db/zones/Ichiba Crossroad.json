@@ -1879,12 +1879,12 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
-              "name": "Ichiba Crossroad to Domain North",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
                   "zone": "Ichiba Domain North",
-                  "pos": "28:26",
+                  "pos": "27:26",
                   "facing": "0"
                 }
               ]
@@ -4228,7 +4228,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -4615,7 +4616,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -5296,7 +5298,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -5368,7 +5371,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -5535,7 +5539,8 @@
                   "alignment": "CENTER"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -5785,7 +5790,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -5857,7 +5863,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -6272,7 +6279,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -6355,7 +6363,8 @@
                   "modal": "false"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -8857,7 +8866,8 @@
             "encounterTable": "ichiba.crossroad.dun.draco.1",
             "mazeVariable": "ichiba.crossroad.encounter.2",
             "attitude": "ATTACKING",
-            "ambushStatus": "NONE"
+            "ambushStatus": "NONE",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -9077,7 +9087,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.crossroad.mantis",
-            "mazeVariable": "ichiba.crossroad.encounter.14"
+            "mazeVariable": "ichiba.crossroad.encounter.14",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -10485,7 +10496,8 @@
                   "alignment": "CENTER"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
@@ -11661,7 +11673,8 @@
                   "facing": "0"
                 }
               ]
-            }
+            },
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.snail.cave.random.enc",
@@ -11859,7 +11872,8 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.crossroad.random.enc",
-            "mazeVariable": "ichiba.crossroad.encounter.17"
+            "mazeVariable": "ichiba.crossroad.encounter.17",
+            "bypassNpcScriptsOnNonHostile": "false"
           }
         ],
         "randomEncounters": "ichiba.crossroad.random.enc",
@@ -31216,8 +31230,12 @@
       },
       {
         "textures": [
-          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_THICKET_3_SOLID",
           "JUNGLE_TREE_BIG_TOP_LEFT"
+        ],
+        "maskTextures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "TRANSPARENT"
         ],
         "visible": "true",
         "solid": "true",
@@ -53568,7 +53586,8 @@
                       "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
                       "mazeVariable": "",
                       "encounterTable": "ichiba.crossroad.swarming.roach.1",
-                      "ambushStatus": "FOES_MAY_AMBUSH_PARTY"
+                      "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
+                      "bypassNpcScriptsOnNonHostile": "false"
                     }
                   ],
                   [
@@ -54216,16 +54235,6 @@
         "westTexture": "objects.plant.2",
         "xPos": "4182",
         "yPos": "2646",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.2",
-        "southTexture": "objects.plant.2",
-        "eastTexture": "objects.plant.2",
-        "westTexture": "objects.plant.2",
-        "xPos": "3670",
-        "yPos": "1110",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
