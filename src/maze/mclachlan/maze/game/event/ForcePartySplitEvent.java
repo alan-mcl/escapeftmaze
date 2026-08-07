@@ -22,21 +22,42 @@ package mclachlan.maze.game.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.CharacterSelection;
 import mclachlan.maze.stat.PlayerCharacter;
 
 /**
- * Forces a party split: the given characters remain in the field party; everyone
- * else is moved into a camp at the current tile. Intended for custom Java scripts
- * only (not serialised or editor-authored).
+ * Forces a party split: selected characters remain in the field party; everyone
+ * else is moved into a camp at the current tile.
  */
 public class ForcePartySplitEvent extends MazeEvent
 {
-	private final List<PlayerCharacter> retainInParty;
+	private CharacterSelection characterSelection;
+	private transient List<PlayerCharacter> retainInParty;
+
+	public ForcePartySplitEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public ForcePartySplitEvent(List<PlayerCharacter> retainInParty)
 	{
 		this.retainInParty = retainInParty;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public ForcePartySplitEvent(CharacterSelection characterSelection)
+	{
+		this.characterSelection = characterSelection;
+	}
+
+	public CharacterSelection getCharacterSelection()
+	{
+		return characterSelection;
+	}
+
+	public void setCharacterSelection(CharacterSelection characterSelection)
+	{
+		this.characterSelection = characterSelection;
 	}
 
 	@Override
@@ -49,9 +70,33 @@ public class ForcePartySplitEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze maze = Maze.getInstance();
-		if (retainInParty == null || retainInParty.isEmpty() || maze.getParty() == null)
+		if (maze.getParty() == null)
 		{
 			return null;
+		}
+
+		if (retainInParty != null)
+		{
+			applySplit(maze, retainInParty);
+			return null;
+		}
+
+		if (characterSelection == null)
+		{
+			return null;
+		}
+
+		return characterSelection.select(
+			maze.getParty().getPlayerCharacters(),
+			selected -> applySplit(maze, selected));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	static void applySplit(Maze maze, List<PlayerCharacter> retainInParty)
+	{
+		if (retainInParty == null || retainInParty.isEmpty())
+		{
+			return;
 		}
 
 		Set<String> retainNames = new HashSet<>();
@@ -76,10 +121,9 @@ public class ForcePartySplitEvent extends MazeEvent
 
 		if (!anyRetainInParty || leavers.isEmpty())
 		{
-			return null;
+			return;
 		}
 
 		maze.forceTransferPlayerCharactersToCamp(leavers);
-		return null;
 	}
 }

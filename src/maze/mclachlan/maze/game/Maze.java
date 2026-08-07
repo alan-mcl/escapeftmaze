@@ -330,6 +330,21 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 	/**
+	 * Test seam: install an event queue without starting the background event
+	 * thread, so {@link #appendEvents} and {@link #resolveQueuedEventsForTesting}
+	 * work synchronously in headless harness tests.
+	 */
+	public void initEventProcessorForTesting()
+	{
+		if (processor == null)
+		{
+			BlockingQueue<MazeEvent> q = new ArrayBlockingQueue<>(9999);
+			processor = new EventProcessor(q);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
 	 * Logs the given message at the {@link Log#MEDIUM} level.
 	 */
 	public static void log(String msg)
@@ -2667,6 +2682,12 @@ public class Maze implements Runnable
 		List<MazeEvent> pending = new ArrayList<>(processor.queue);
 		processor.queue.clear();
 		resolveEventsForTesting(pending);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isEventQueueEmptyForTesting()
+	{
+		return processor == null || processor.queue == null || processor.queue.isEmpty();
 	}
 
 	/*-------------------------------------------------------------------------*/

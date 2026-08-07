@@ -132,6 +132,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField displayOptionsTitle;
 	private List<JTextField> displayOptionsOptions;
 	private List<MazeEventsComponent> displayOptionsScripts;
+	private CharacterSelectionComponent forcePartySplitSelection;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
@@ -392,6 +393,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 						displayOptionsScripts.get(i).refresh(null);
 					}
 				}
+				break;
+			case _ForcePartySplitEvent:
+				ForcePartySplitEvent fpse = (ForcePartySplitEvent)e;
+				forcePartySplitSelection.refresh(fpse.getCharacterSelection());
 				break;
 
 
@@ -681,6 +686,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					options,
 					scripts);
 				break;
+			case _ForcePartySplitEvent:
+				this.result = new ForcePartySplitEvent(forcePartySplitSelection.getSelection());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -822,6 +830,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getJournalEntryEventPanel();
 			case _DisplayOptionsEvent:
 				return getDisplayOptionsPanel();
+			case _ForcePartySplitEvent:
+				return getForcePartySplitPanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -935,6 +945,15 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			BorderLayout.CENTER);
 
 		return result;
+	}
+
+	private JPanel getForcePartySplitPanel()
+	{
+		forcePartySplitSelection = new CharacterSelectionComponent(dirtyFlag);
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("Retain in party:"));
+		panel.add(forcePartySplitSelection);
+		return panel;
 	}
 
 	private JPanel getJournalEntryEventPanel()
@@ -1545,6 +1564,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Journal Entry";
 			case _DisplayOptionsEvent:
 				return "Display Options";
+			case _ForcePartySplitEvent:
+				return "Force Party Split";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -1677,6 +1698,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _SoundEffectEvent = 138;
 	public static final int _JournalEntryEvent = 24;
 	public static final int _DisplayOptionsEvent = 25;
+	public static final int _ForcePartySplitEvent = 26;
 	public static final int _ActorsLeaveEvent = 205;
 	public static final int _BackPartyUpEvent = 150;
 
@@ -1776,6 +1798,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(SkillTestEvent.class, _SkillTestEvent);
 		types.put(JournalEntryEvent.class, _JournalEntryEvent);
 		types.put(DisplayOptionsEvent.class, _DisplayOptionsEvent);
+		types.put(ForcePartySplitEvent.class, _ForcePartySplitEvent);
 		types.put(ActorsLeaveEvent.class, _ActorsLeaveEvent);
 		types.put(BackPartyUpEvent.class, _BackPartyUpEvent);
 

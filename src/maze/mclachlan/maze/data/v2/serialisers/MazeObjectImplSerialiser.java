@@ -37,8 +37,11 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 		if (serialisers.containsKey(typeKey))
 		{
 			Map map = serialisers.get(typeKey).toObject(t, db);
-			map.put(TYPE_KEY, typeKey);
-			return map;
+			// Copy out of the field-ordered TreeMap before adding TYPE_KEY; that
+			// comparator treats unknown keys as equal (see ReflectiveSerialiser).
+			Map result = new HashMap<>(map);
+			result.put(TYPE_KEY, typeKey);
+			return result;
 		}
 		else
 		{

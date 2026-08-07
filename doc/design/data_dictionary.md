@@ -275,6 +275,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | FoeGroup | `stat/FoeGroup.java` | Combat group of `Foe`s with formation |
 | ExperienceTable | `stat/ExperienceTable.java` | Level <-> XP thresholds |
 | LevelAbility / LevelAbilityProgression | `stat/LevelAbility*.java` | Class abilities granted per level |
+| CharacterSelection | `stat/CharacterSelection.java` | Ordered party selector: `methods` (inclusions) + `exclusions`; each step is a polymorphic `CharacterSelectionMethod` (player Who pick, lowest/highest/random modifier, modifier comparison, or custom `IMPL`) |
 | SpellLikeAbility | `stat/SpellLikeAbility.java` | A `Spell` + `ValueList` usable as an ability |
 | CraftRecipe | `stat/CraftRecipe.java` | Item crafting definition |
 

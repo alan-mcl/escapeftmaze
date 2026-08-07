@@ -122,7 +122,11 @@ all state changes. Reusable, authorable sequences are
 `scripts.json`). `GameTime.incTurn()` performs end-of-turn housekeeping (conditions,
 regen, NPC/zone updates, 300 turns/day) and rolls random encounters on movement.
 Representative events live in `game/event/` (`MovePartyEvent`, `ZoneChangeEvent`,
-`StartCombatEvent`, `ResolveCombatActionEvent`, `EndCombatRoundEvent`, `SetStateEvent`).
+`StartCombatEvent`, `ResolveCombatActionEvent`, `EndCombatRoundEvent`, `SetStateEvent`,
+`ForcePartySplitEvent`). Reusable party targeting for events is
+[`CharacterSelection`](../../src/maze/mclachlan/maze/stat/CharacterSelection.java)
+(ordered inclusion methods plus exclusions; player picks use the Who dialog via
+`RunCharacterSelectionEvent`).
 
 **World model.** A [`Zone`](../../src/maze/mclachlan/maze/map/Zone.java) wraps a
 Crusader `Map` (rendering geometry) plus a parallel game-logic layer

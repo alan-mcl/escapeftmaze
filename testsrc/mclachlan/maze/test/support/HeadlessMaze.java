@@ -59,6 +59,7 @@ public class HeadlessMaze
 
 		maze.initSystems();
 		maze.initUi(new HeadlessUi());
+		maze.initEventProcessorForTesting();
 
 		maze.setUserConfig(UserConfig.defaultsForTesting());
 

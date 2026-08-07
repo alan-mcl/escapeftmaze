@@ -1,6 +1,5 @@
 [
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "necromanis.2",
     "contains": {
       "PERCENTAGES": [
@@ -17,10 +16,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.warlocks.party",
     "contains": {
       "PERCENTAGES": [
@@ -42,10 +41,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "necromanis.1",
     "contains": {
       "PERCENTAGES": [
@@ -62,10 +61,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.fire.1",
     "contains": {
       "PERCENTAGES": [
@@ -77,10 +76,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.fire.3",
     "contains": {
       "PERCENTAGES": [
@@ -92,10 +91,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "skull.crushers.small",
     "contains": {
       "PERCENTAGES": [
@@ -112,10 +111,10 @@
           "quantity": "1d4"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.fire.2",
     "contains": {
       "PERCENTAGES": [
@@ -127,10 +126,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "groaning.bones.small",
     "contains": {
       "PERCENTAGES": [
@@ -147,10 +146,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "will-o-wisp.small",
     "contains": {
       "PERCENTAGES": [
@@ -172,10 +171,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "coc.sheriffs",
     "contains": {
       "PERCENTAGES": [
@@ -192,10 +191,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.beggar.small",
     "contains": {
       "PERCENTAGES": [
@@ -212,10 +211,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.warlocks.small",
     "contains": {
       "PERCENTAGES": [
@@ -237,10 +236,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lurching.omnifid.small",
     "contains": {
       "PERCENTAGES": [
@@ -257,10 +256,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "toothy.velox.small.pack",
     "contains": {
       "PERCENTAGES": [
@@ -272,10 +271,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "kolidra.1",
     "contains": {
       "PERCENTAGES": [
@@ -292,10 +291,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "harvestman.spiders.small",
     "contains": {
       "PERCENTAGES": [
@@ -307,10 +306,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "goldcrown.bats.1",
     "contains": {
       "PERCENTAGES": [
@@ -322,10 +321,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "kolidra.2",
     "contains": {
       "PERCENTAGES": [
@@ -342,10 +341,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "master.thieves.1",
     "contains": {
       "PERCENTAGES": [
@@ -362,10 +361,10 @@
           "quantity": "2d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "viridifids.1",
     "contains": {
       "PERCENTAGES": [
@@ -397,10 +396,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.air.2",
     "contains": {
       "PERCENTAGES": [
@@ -412,10 +411,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.air.1",
     "contains": {
       "PERCENTAGES": [
@@ -427,10 +426,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.air.3",
     "contains": {
       "PERCENTAGES": [
@@ -442,10 +441,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mud.spiders.1",
     "contains": {
       "PERCENTAGES": [
@@ -457,10 +456,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "leonal.champions",
     "contains": {
       "PERCENTAGES": [
@@ -477,10 +476,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lost.kami.1",
     "contains": {
       "PERCENTAGES": [
@@ -497,10 +496,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "seeding.omnifid.small",
     "contains": {
       "PERCENTAGES": [
@@ -517,10 +516,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "seraph.1",
     "contains": {
       "PERCENTAGES": [
@@ -537,10 +536,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "aboroth.1",
     "contains": {
       "PERCENTAGES": [
@@ -557,10 +556,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bonebrood.1",
     "contains": {
       "PERCENTAGES": [
@@ -577,10 +576,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "clockwork.diggers",
     "contains": {
       "PERCENTAGES": [
@@ -597,10 +596,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shadow.warriors.spell.1",
     "contains": {
       "PERCENTAGES": [
@@ -612,10 +611,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shadow.warriors.spell.2",
     "contains": {
       "PERCENTAGES": [
@@ -627,10 +626,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shadow.warriors.spell.3",
     "contains": {
       "PERCENTAGES": [
@@ -647,10 +646,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shadow.warriors.spell.4",
     "contains": {
       "PERCENTAGES": [
@@ -667,10 +666,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "human.hirebrand.small",
     "contains": {
       "PERCENTAGES": [
@@ -687,10 +686,10 @@
           "quantity": "1d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "stone.bear.summon",
     "contains": {
       "PERCENTAGES": [
@@ -707,10 +706,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fruit.bats.small",
     "contains": {
       "PERCENTAGES": [
@@ -722,10 +721,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "old.igor.encounter",
     "contains": {
       "PERCENTAGES": [
@@ -737,10 +736,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "moulders.small",
     "contains": {
       "PERCENTAGES": [
@@ -757,10 +756,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "creeping.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
@@ -782,10 +781,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "creeping.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
@@ -807,10 +806,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.water.1",
     "contains": {
       "PERCENTAGES": [
@@ -822,10 +821,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnoll.hunters.small",
     "contains": {
       "PERCENTAGES": [
@@ -842,10 +841,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "rhys.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -862,10 +861,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.water.2",
     "contains": {
       "PERCENTAGES": [
@@ -877,10 +876,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "maneater.mantis.1",
     "contains": {
       "PERCENTAGES": [
@@ -897,10 +896,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.water.3",
     "contains": {
       "PERCENTAGES": [
@@ -912,10 +911,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "leonal.peers",
     "contains": {
       "PERCENTAGES": [
@@ -932,10 +931,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ulgoth.1",
     "contains": {
       "PERCENTAGES": [
@@ -947,10 +946,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "orngog",
     "contains": {
       "PERCENTAGES": [
@@ -962,10 +961,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.robbers.small",
     "contains": {
       "PERCENTAGES": [
@@ -982,10 +981,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.knaves.small",
     "contains": {
       "PERCENTAGES": [
@@ -1007,10 +1006,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "vampire.vulture.1",
     "contains": {
       "PERCENTAGES": [
@@ -1032,10 +1031,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "angry.swarm.2",
     "contains": {
       "PERCENTAGES": [
@@ -1047,10 +1046,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "angry.swarm.1",
     "contains": {
       "PERCENTAGES": [
@@ -1062,10 +1061,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "frozen.skeletons.1",
     "contains": {
       "PERCENTAGES": [
@@ -1087,10 +1086,10 @@
           "quantity": "2d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "haunts.small",
     "contains": {
       "PERCENTAGES": [
@@ -1112,10 +1111,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.troopers.party",
     "contains": {
       "PERCENTAGES": [
@@ -1137,10 +1136,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.med.2",
     "contains": {
       "PERCENTAGES": [
@@ -1157,10 +1156,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "river.serpents.summon",
     "contains": {
       "PERCENTAGES": [
@@ -1187,10 +1186,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "zombie.mantis.1",
     "contains": {
       "PERCENTAGES": [
@@ -1212,10 +1211,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.med.1",
     "contains": {
       "PERCENTAGES": [
@@ -1232,10 +1231,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.med.4",
     "contains": {
       "PERCENTAGES": [
@@ -1252,10 +1251,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.med.3",
     "contains": {
       "PERCENTAGES": [
@@ -1272,10 +1271,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "archangel.1",
     "contains": {
       "PERCENTAGES": [
@@ -1292,10 +1291,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "napier\u0027s.bones.1",
     "contains": {
       "PERCENTAGES": [
@@ -1322,10 +1321,10 @@
           "quantity": "1d4"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "angry.swarm.3",
     "contains": {
       "PERCENTAGES": [
@@ -1337,10 +1336,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "clockwork.terrors",
     "contains": {
       "PERCENTAGES": [
@@ -1357,10 +1356,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "rogue.clockwork",
     "contains": {
       "PERCENTAGES": [
@@ -1372,10 +1371,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bemiropteric.small.pack",
     "contains": {
       "PERCENTAGES": [
@@ -1387,10 +1386,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "yenluo.1",
     "contains": {
       "PERCENTAGES": [
@@ -1412,10 +1411,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.vermin.1",
     "contains": {
       "PERCENTAGES": [
@@ -1487,10 +1486,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "winter.wolf.1",
     "contains": {
       "PERCENTAGES": [
@@ -1502,10 +1501,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "serra.angel.1",
     "contains": {
       "PERCENTAGES": [
@@ -1522,10 +1521,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spagyric.spirit",
     "contains": {
       "PERCENTAGES": [
@@ -1537,10 +1536,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnoll.braves.small",
     "contains": {
       "PERCENTAGES": [
@@ -1557,10 +1556,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "nightstalkers.small",
     "contains": {
       "PERCENTAGES": [
@@ -1577,10 +1576,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "paper.tiger.1",
     "contains": {
       "PERCENTAGES": [
@@ -1602,10 +1601,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.earth.3",
     "contains": {
       "PERCENTAGES": [
@@ -1617,10 +1616,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "glacier.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -1632,10 +1631,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.earth.2",
     "contains": {
       "PERCENTAGES": [
@@ -1647,10 +1646,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "living.hive.1",
     "contains": {
       "PERCENTAGES": [
@@ -1667,10 +1666,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.earth.1",
     "contains": {
       "PERCENTAGES": [
@@ -1682,10 +1681,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "sawtooth.snails.med",
     "contains": {
       "PERCENTAGES": [
@@ -1702,10 +1701,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lorelei.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -1737,10 +1736,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "manky.moulders.small",
     "contains": {
       "PERCENTAGES": [
@@ -1757,10 +1756,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "antidiluvomorph.pack.1",
     "contains": {
       "PERCENTAGES": [
@@ -1777,10 +1776,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "clockwork.vengeance",
     "contains": {
       "PERCENTAGES": [
@@ -1797,10 +1796,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnoll.heroes.small",
     "contains": {
       "PERCENTAGES": [
@@ -1817,10 +1816,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shamblers.1",
     "contains": {
       "PERCENTAGES": [
@@ -1842,10 +1841,25 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "skyrazor.1",
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Skyrazor",
+          "quantity": "1d1"
+        }
+      ]
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
+  },
+  {
     "name": "gnoll.thugs.small",
     "contains": {
       "PERCENTAGES": [
@@ -1862,10 +1876,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "paper.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -1877,10 +1891,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ninja.group",
     "contains": {
       "PERCENTAGES": [
@@ -1902,10 +1916,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "plague.bats.1",
     "contains": {
       "PERCENTAGES": [
@@ -1927,10 +1941,10 @@
           "quantity": "3d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "hungry.mist.1",
     "contains": {
       "PERCENTAGES": [
@@ -1947,10 +1961,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "angry.swarm.party",
     "contains": {
       "PERCENTAGES": [
@@ -1967,10 +1981,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "human.footpads.1",
     "contains": {
       "PERCENTAGES": [
@@ -1987,10 +2001,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shadow.warriors.spell.5",
     "contains": {
       "PERCENTAGES": [
@@ -2007,10 +2021,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spotted.cruds.small",
     "contains": {
       "PERCENTAGES": [
@@ -2022,10 +2036,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "imogen.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -2047,10 +2061,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "leonal.paladins",
     "contains": {
       "PERCENTAGES": [
@@ -2067,10 +2081,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mud.spiders.small",
     "contains": {
       "PERCENTAGES": [
@@ -2082,10 +2096,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ghul.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -2102,10 +2116,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "swarming.roach.swarm",
     "contains": {
       "PERCENTAGES": [
@@ -2117,10 +2131,10 @@
           "quantity": "2d3+3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "shades.1",
     "contains": {
       "PERCENTAGES": [
@@ -2137,10 +2151,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "rock.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -2152,10 +2166,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "tower.guardians",
     "contains": {
       "PERCENTAGES": [
@@ -2172,10 +2186,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bloated.spiders.medium",
     "contains": {
       "PERCENTAGES": [
@@ -2187,10 +2201,10 @@
           "quantity": "2d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "crag.faeries.1",
     "contains": {
       "PERCENTAGES": [
@@ -2207,10 +2221,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "harvestman.spiders.medium",
     "contains": {
       "PERCENTAGES": [
@@ -2227,10 +2241,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "exposition.machine.1",
     "contains": {
       "PERCENTAGES": [
@@ -2242,10 +2256,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gigantopithecus.small",
     "contains": {
       "PERCENTAGES": [
@@ -2272,10 +2286,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fantasmagora.1",
     "contains": {
       "PERCENTAGES": [
@@ -2292,10 +2306,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "jumping.roaches.small",
     "contains": {
       "PERCENTAGES": [
@@ -2307,10 +2321,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fantasmagora.2",
     "contains": {
       "PERCENTAGES": [
@@ -2327,10 +2341,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "scarab.of.bel.swarm",
     "contains": {
       "PERCENTAGES": [
@@ -2362,10 +2376,10 @@
           "quantity": "4d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spotted.cruds.medium",
     "contains": {
       "PERCENTAGES": [
@@ -2382,10 +2396,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "punch.maker.killer",
     "contains": {
       "PERCENTAGES": [
@@ -2397,10 +2411,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "tsurayogoshi",
     "contains": {
       "PERCENTAGES": [
@@ -2412,10 +2426,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mirror.image.spell.1",
     "contains": {
       "PERCENTAGES": [
@@ -2427,10 +2441,10 @@
           "quantity": "1d4+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mirror.image.spell.3",
     "contains": {
       "PERCENTAGES": [
@@ -2442,10 +2456,10 @@
           "quantity": "3d4+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mirror.image.spell.2",
     "contains": {
       "PERCENTAGES": [
@@ -2457,10 +2471,10 @@
           "quantity": "2d4+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "braided.moth.small",
     "contains": {
       "PERCENTAGES": [
@@ -2477,10 +2491,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mottled.boas.small",
     "contains": {
       "PERCENTAGES": [
@@ -2497,10 +2511,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "twisted.saplings.small",
     "contains": {
       "PERCENTAGES": [
@@ -2512,10 +2526,10 @@
           "quantity": "2d2+3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "hunting.mantis.2",
     "contains": {
       "PERCENTAGES": [
@@ -2532,10 +2546,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "hunting.mantis.1",
     "contains": {
       "PERCENTAGES": [
@@ -2552,10 +2566,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.vermin.3",
     "contains": {
       "PERCENTAGES": [
@@ -2627,10 +2641,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.vermin.2",
     "contains": {
       "PERCENTAGES": [
@@ -2702,10 +2716,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "black.stalkers.1",
     "contains": {
       "PERCENTAGES": [
@@ -2722,10 +2736,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ageyrs.bones.1",
     "contains": {
       "PERCENTAGES": [
@@ -2737,10 +2751,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "einherjar.berserkers.1",
     "contains": {
       "PERCENTAGES": [
@@ -2752,10 +2766,10 @@
           "quantity": "6d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "frost.wyrm.1",
     "contains": {
       "PERCENTAGES": [
@@ -2767,10 +2781,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.scouts.small",
     "contains": {
       "PERCENTAGES": [
@@ -2792,10 +2806,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "inferno.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -2807,10 +2821,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bat.vampires.1",
     "contains": {
       "PERCENTAGES": [
@@ -2832,10 +2846,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "naba.uga.gobo.1",
     "contains": {
       "PERCENTAGES": [
@@ -2847,10 +2861,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "tornado.moutain.elementals",
     "contains": {
       "PERCENTAGES": [
@@ -2877,10 +2891,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lord.of.eight.banners",
     "contains": {
       "PERCENTAGES": [
@@ -2892,10 +2906,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "nhapukom.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -2917,10 +2931,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "force.of.nature.1",
     "contains": {
       "PERCENTAGES": [
@@ -2937,10 +2951,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "black.panthers.1",
     "contains": {
       "PERCENTAGES": [
@@ -2967,10 +2981,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.scouts.party",
     "contains": {
       "PERCENTAGES": [
@@ -2992,10 +3006,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spotted.boas.small",
     "contains": {
       "PERCENTAGES": [
@@ -3012,10 +3026,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "patient.mantis.1",
     "contains": {
       "PERCENTAGES": [
@@ -3032,10 +3046,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "feral.familiar.1",
     "contains": {
       "PERCENTAGES": [
@@ -3047,10 +3061,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "griffon.1",
     "contains": {
       "PERCENTAGES": [
@@ -3062,10 +3076,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "goblin.magsmen.encounter",
     "contains": {
       "PERCENTAGES": [
@@ -3087,10 +3101,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.air.1",
     "contains": {
       "PERCENTAGES": [
@@ -3102,10 +3116,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "tower.guardians.small",
     "contains": {
       "PERCENTAGES": [
@@ -3117,10 +3131,10 @@
           "quantity": "1d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.air.2",
     "contains": {
       "PERCENTAGES": [
@@ -3132,10 +3146,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "terrifying.phantasm.1",
     "contains": {
       "PERCENTAGES": [
@@ -3152,10 +3166,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.air.3",
     "contains": {
       "PERCENTAGES": [
@@ -3167,10 +3181,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.water.3",
     "contains": {
       "PERCENTAGES": [
@@ -3182,10 +3196,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.water.1",
     "contains": {
       "PERCENTAGES": [
@@ -3197,10 +3211,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.water.2",
     "contains": {
       "PERCENTAGES": [
@@ -3212,10 +3226,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "resolution.engine.1",
     "contains": {
       "PERCENTAGES": [
@@ -3227,10 +3241,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "parched.vulture.1",
     "contains": {
       "PERCENTAGES": [
@@ -3257,10 +3271,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bloodwyrm.2",
     "contains": {
       "PERCENTAGES": [
@@ -3282,10 +3296,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bloodwyrm.1",
     "contains": {
       "PERCENTAGES": [
@@ -3297,10 +3311,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.med.4",
     "contains": {
       "PERCENTAGES": [
@@ -3312,10 +3326,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.med.2",
     "contains": {
       "PERCENTAGES": [
@@ -3327,10 +3341,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.med.3",
     "contains": {
       "PERCENTAGES": [
@@ -3342,10 +3356,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.med.1",
     "contains": {
       "PERCENTAGES": [
@@ -3357,10 +3371,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "thorn.elemental.1",
     "contains": {
       "PERCENTAGES": [
@@ -3377,10 +3391,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ren.san.allies.on.call",
     "contains": {
       "PERCENTAGES": [
@@ -3417,10 +3431,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "coc.merc.team.1",
     "contains": {
       "PERCENTAGES": [
@@ -3457,10 +3471,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "scaled.wyrm.1",
     "contains": {
       "PERCENTAGES": [
@@ -3472,10 +3486,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "hawk.moth.small",
     "contains": {
       "PERCENTAGES": [
@@ -3492,10 +3506,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "leonal.knights",
     "contains": {
       "PERCENTAGES": [
@@ -3512,10 +3526,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "emerald.spiders.small",
     "contains": {
       "PERCENTAGES": [
@@ -3542,10 +3556,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spawn.of.ekirth.1",
     "contains": {
       "PERCENTAGES": [
@@ -3562,10 +3576,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "alpha.ominifids.1",
     "contains": {
       "PERCENTAGES": [
@@ -3587,10 +3601,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "revenants.1",
     "contains": {
       "PERCENTAGES": [
@@ -3612,10 +3626,10 @@
           "quantity": "1d4"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.fire.1",
     "contains": {
       "PERCENTAGES": [
@@ -3627,10 +3641,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.fire.2",
     "contains": {
       "PERCENTAGES": [
@@ -3642,10 +3656,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "laughing.puppet.1",
     "contains": {
       "PERCENTAGES": [
@@ -3667,10 +3681,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "TestingFoeEntry",
     "contains": {
       "PERCENTAGES": [
@@ -3687,10 +3701,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "rabid.gnolls.small",
     "contains": {
       "PERCENTAGES": [
@@ -3707,10 +3721,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elemental.swarm.fire.3",
     "contains": {
       "PERCENTAGES": [
@@ -3722,10 +3736,10 @@
           "quantity": "3d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fruit.bats.medium",
     "contains": {
       "PERCENTAGES": [
@@ -3742,10 +3756,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "malignant.widow.party",
     "contains": {
       "PERCENTAGES": [
@@ -3762,10 +3776,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "block.golem.1",
     "contains": {
       "PERCENTAGES": [
@@ -3777,10 +3791,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "spore.moth.small",
     "contains": {
       "PERCENTAGES": [
@@ -3797,10 +3811,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "invisible.stalker.1",
     "contains": {
       "PERCENTAGES": [
@@ -3812,10 +3826,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "nejd.golems.1",
     "contains": {
       "PERCENTAGES": [
@@ -3827,10 +3841,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "invisible.stalker.2",
     "contains": {
       "PERCENTAGES": [
@@ -3842,10 +3856,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "goblin.cutpurse.small",
     "contains": {
       "PERCENTAGES": [
@@ -3862,10 +3876,10 @@
           "quantity": "1d5"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fiero.2",
     "contains": {
       "PERCENTAGES": [
@@ -3882,10 +3896,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "fiero.1",
     "contains": {
       "PERCENTAGES": [
@@ -3902,10 +3916,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "treants.3",
     "contains": {
       "PERCENTAGES": [
@@ -3917,10 +3931,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "invisible.stalker.3",
     "contains": {
       "PERCENTAGES": [
@@ -3932,10 +3946,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "tornado.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -3947,10 +3961,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "angry.puppet.1",
     "contains": {
       "PERCENTAGES": [
@@ -3972,10 +3986,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "sewer.cruds.medium",
     "contains": {
       "PERCENTAGES": [
@@ -3992,10 +4006,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "treants.1",
     "contains": {
       "PERCENTAGES": [
@@ -4007,10 +4021,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "treants.2",
     "contains": {
       "PERCENTAGES": [
@@ -4022,10 +4036,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.plants.spell.2",
     "contains": {
       "PERCENTAGES": [
@@ -4042,10 +4056,10 @@
           "quantity": "1d4"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.plants.spell.3",
     "contains": {
       "PERCENTAGES": [
@@ -4062,10 +4076,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.plants.spell.1",
     "contains": {
       "PERCENTAGES": [
@@ -4082,10 +4096,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ichneumorax",
     "contains": {
       "PERCENTAGES": [
@@ -4097,10 +4111,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "avenging.angel.3",
     "contains": {
       "PERCENTAGES": [
@@ -4117,10 +4131,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "minion.of.usark",
     "contains": {
       "PERCENTAGES": [
@@ -4132,10 +4146,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "feral.familiar.pack.1",
     "contains": {
       "PERCENTAGES": [
@@ -4162,10 +4176,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "owlbear.1",
     "contains": {
       "PERCENTAGES": [
@@ -4177,10 +4191,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "verdant.force.1",
     "contains": {
       "PERCENTAGES": [
@@ -4197,10 +4211,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "screaming.bat.small",
     "contains": {
       "PERCENTAGES": [
@@ -4222,10 +4236,10 @@
           "quantity": "3d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ghosts.1",
     "contains": {
       "PERCENTAGES": [
@@ -4242,10 +4256,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "ineoth.encounter",
     "contains": {
       "PERCENTAGES": [
@@ -4272,10 +4286,10 @@
           "quantity": "1d6+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "avenging.angel.1",
     "contains": {
       "PERCENTAGES": [
@@ -4292,10 +4306,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "morrigan",
     "contains": {
       "PERCENTAGES": [
@@ -4307,10 +4321,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lava.wolf.summon",
     "contains": {
       "PERCENTAGES": [
@@ -4322,10 +4336,10 @@
           "quantity": "1d3+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "inghean.shades",
     "contains": {
       "PERCENTAGES": [
@@ -4347,10 +4361,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.low.2",
     "contains": {
       "PERCENTAGES": [
@@ -4362,10 +4376,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.low.3",
     "contains": {
       "PERCENTAGES": [
@@ -4377,10 +4391,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mud.spiders.medium",
     "contains": {
       "PERCENTAGES": [
@@ -4397,10 +4411,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.low.4",
     "contains": {
       "PERCENTAGES": [
@@ -4412,10 +4426,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "summon.mephit.spell.low.1",
     "contains": {
       "PERCENTAGES": [
@@ -4427,10 +4441,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "yreguoth.2",
     "contains": {
       "PERCENTAGES": [
@@ -4447,10 +4461,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "yreguoth.1",
     "contains": {
       "PERCENTAGES": [
@@ -4467,10 +4481,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "bel.ies.encounter",
     "contains": {
       "PERCENTAGES": [
@@ -4497,10 +4511,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "dog.soldiers.small",
     "contains": {
       "PERCENTAGES": [
@@ -4517,10 +4531,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "rockeater.1",
     "contains": {
       "PERCENTAGES": [
@@ -4537,10 +4551,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mad.kami.1",
     "contains": {
       "PERCENTAGES": [
@@ -4557,10 +4571,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "foxfire.small",
     "contains": {
       "PERCENTAGES": [
@@ -4587,10 +4601,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "clockwork.soldiers",
     "contains": {
       "PERCENTAGES": [
@@ -4607,10 +4621,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "brooding.willow.1",
     "contains": {
       "PERCENTAGES": [
@@ -4627,10 +4641,10 @@
           "quantity": "1d4"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "corrosive.slime.encounter",
     "contains": {
       "PERCENTAGES": [
@@ -4652,10 +4666,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "slithering.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
@@ -4677,10 +4691,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "slithering.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
@@ -4702,10 +4716,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "flying.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
@@ -4727,10 +4741,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "force.of.fury.1",
     "contains": {
       "PERCENTAGES": [
@@ -4747,10 +4761,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "storm.crows.1",
     "contains": {
       "PERCENTAGES": [
@@ -4767,10 +4781,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "stasis.machine.1",
     "contains": {
       "PERCENTAGES": [
@@ -4787,10 +4801,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.army.spell.4",
     "contains": {
       "PERCENTAGES": [
@@ -4837,10 +4851,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.army.spell.5",
     "contains": {
       "PERCENTAGES": [
@@ -4887,10 +4901,10 @@
           "quantity": "2d3+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.army.spell.2",
     "contains": {
       "PERCENTAGES": [
@@ -4937,10 +4951,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.army.spell.3",
     "contains": {
       "PERCENTAGES": [
@@ -4987,10 +5001,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "lost.souls.1",
     "contains": {
       "PERCENTAGES": [
@@ -5012,10 +5026,10 @@
           "quantity": "1d3"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.army.spell.1",
     "contains": {
       "PERCENTAGES": [
@@ -5062,10 +5076,10 @@
           "quantity": "1d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "flying.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
@@ -5087,10 +5101,10 @@
           "quantity": "2d2+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "crying.puppet.1",
     "contains": {
       "PERCENTAGES": [
@@ -5112,10 +5126,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.wyrms.spell.1",
     "contains": {
       "PERCENTAGES": [
@@ -5152,10 +5166,10 @@
           "quantity": "1d6"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.wyrms.spell.3",
     "contains": {
       "PERCENTAGES": [
@@ -5192,10 +5206,10 @@
           "quantity": "1d6"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.wyrms.spell.2",
     "contains": {
       "PERCENTAGES": [
@@ -5232,10 +5246,10 @@
           "quantity": "1d6"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.wyrms.spell.5",
     "contains": {
       "PERCENTAGES": [
@@ -5272,10 +5286,10 @@
           "quantity": "1d6"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "gnome.troopers.small",
     "contains": {
       "PERCENTAGES": [
@@ -5297,10 +5311,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "call.wyrms.spell.4",
     "contains": {
       "PERCENTAGES": [
@@ -5337,10 +5351,10 @@
           "quantity": "1d6"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.low.1",
     "contains": {
       "PERCENTAGES": [
@@ -5357,10 +5371,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.earth.2",
     "contains": {
       "PERCENTAGES": [
@@ -5372,10 +5386,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.low.2",
     "contains": {
       "PERCENTAGES": [
@@ -5392,10 +5406,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.earth.3",
     "contains": {
       "PERCENTAGES": [
@@ -5407,10 +5421,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.low.3",
     "contains": {
       "PERCENTAGES": [
@@ -5427,10 +5441,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "clockwork.beast.1",
     "contains": {
       "PERCENTAGES": [
@@ -5442,10 +5456,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "mephit.swarm.spell.low.4",
     "contains": {
       "PERCENTAGES": [
@@ -5462,10 +5476,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "red.spotted.snail.small",
     "contains": {
       "PERCENTAGES": [
@@ -5482,10 +5496,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "saliopod.1",
     "contains": {
       "PERCENTAGES": [
@@ -5512,10 +5526,10 @@
           "quantity": "2d2+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "elementals.earth.1",
     "contains": {
       "PERCENTAGES": [
@@ -5527,10 +5541,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "boulder.dragon.1",
     "contains": {
       "PERCENTAGES": [
@@ -5542,10 +5556,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "storm.kestrel.summon",
     "contains": {
       "PERCENTAGES": [
@@ -5562,10 +5576,10 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "dun.draco.small.pack",
     "contains": {
       "PERCENTAGES": [
@@ -5577,10 +5591,10 @@
           "quantity": "1d4+2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "temple.of.the.gate.ghost.of.igor",
     "contains": {
       "PERCENTAGES": [
@@ -5592,10 +5606,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "chilling.phantasm.1",
     "contains": {
       "PERCENTAGES": [
@@ -5612,10 +5626,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "horrifying.phantasm.1",
     "contains": {
       "PERCENTAGES": [
@@ -5632,10 +5646,10 @@
           "quantity": "1d1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "hawk.moth.med",
     "contains": {
       "PERCENTAGES": [
@@ -5652,10 +5666,10 @@
           "quantity": "2d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "colonizer.ominifids.1",
     "contains": {
       "PERCENTAGES": [
@@ -5677,10 +5691,10 @@
           "quantity": "1d2"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   },
   {
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "jumping.roaches.medium",
     "contains": {
       "PERCENTAGES": [
@@ -5702,6 +5716,7 @@
           "quantity": "1d3+1"
         }
       ]
-    }
+    },
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry"
   }
 ]

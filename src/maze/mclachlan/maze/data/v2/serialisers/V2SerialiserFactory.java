@@ -492,6 +492,14 @@ public class V2SerialiserFactory
 
 		map.put(NpcSpeechEvent.class, getReflectiveSerialiser(NpcSpeechEvent.class, "speechText", "delay"));
 
+		ReflectiveSerialiser forcePartySplitSerialiser = getReflectiveSerialiser(
+			ForcePartySplitEvent.class, "characterSelection");
+		forcePartySplitSerialiser.addCustomSerialiser(
+			"characterSelection", getCharacterSelectionSerialiser());
+		map.put(ForcePartySplitEvent.class, forcePartySplitSerialiser);
+
+		map.put(ActorsLeaveEvent.class, getReflectiveSerialiser(ActorsLeaveEvent.class));
+
 		// final result map
 		MazeObjectImplSerialiser<MazeEvent> result = new MazeObjectImplSerialiser<>(map);
 
@@ -502,9 +510,48 @@ public class V2SerialiserFactory
 		encounterActorsSerialiser.addCustomSerialiser("partyLeavesFriendlyScript", result);
 		displayOptionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(new ListSerialiser(result)));
 
-		map.put(ActorsLeaveEvent.class, getReflectiveSerialiser(ActorsLeaveEvent.class));
-
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<CharacterSelectionMethod> getCharacterSelectionMethodSerialiser()
+	{
+		HashMap<Class, V2SerialiserMap<CharacterSelectionMethod>> map = new HashMap<>();
+
+		map.put(PlayerCharacterSelection.class,
+			getReflectiveSerialiser(PlayerCharacterSelection.class));
+		map.put(LowestModifierSelection.class,
+			getReflectiveSerialiser(LowestModifierSelection.class, "targetModifier"));
+		map.put(HighestModifierSelection.class,
+			getReflectiveSerialiser(HighestModifierSelection.class, "targetModifier"));
+		map.put(RandomCharacterSelection.class,
+			getReflectiveSerialiser(RandomCharacterSelection.class));
+		map.put(ModifierComparisonSelection.class, getReflectiveSerialiser(
+			ModifierComparisonSelection.class, "targetModifier", "op", "value"));
+
+		return new MazeObjectImplSerialiser<>(map);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<CharacterSelection> getCharacterSelectionSerialiser()
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			CharacterSelection.class, "methods", "exclusions");
+		V2SerialiserMap<CharacterSelectionMethod> methodSerialiser =
+			getCharacterSelectionMethodSerialiser();
+		result.addCustomSerialiser("methods", new ListSerialiser(methodSerialiser));
+		result.addCustomSerialiser("exclusions", new ListSerialiser(methodSerialiser));
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<MazeEvent> getRegisteredMazeEventSerialiser(
+		Database db,
+		Class<? extends MazeEvent> type)
+	{
+		MazeObjectImplSerialiser<MazeEvent> serialiser =
+			(MazeObjectImplSerialiser<MazeEvent>)getMazeEventSerialiser(db);
+		return serialiser.getSerialisers().get(type.getName());
 	}
 
 	private static MazeObjectImplSerialiser<MazeEvent> getAnimationSerialiser()

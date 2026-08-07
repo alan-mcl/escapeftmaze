@@ -58,8 +58,6 @@ class WhoDialog extends DIYPane
 		{
 			destroy();
 		}
-
-		callback.afterCharacterChosen();
 	}
 
 	/*----------------------------------------------------------------------*/
@@ -113,5 +111,6 @@ class WhoDialog extends DIYPane
 	{
 		DIYToolkit.getInstance().clearCursor();
 		DIYToolkit.getInstance().clearDialog(this);
+		callback.afterCharacterChosen();
 	}
 }

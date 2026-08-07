@@ -21,11 +21,19 @@ package mclachlan.maze.game;
 
 import java.awt.Point;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.balance.HeadlessUi;
 import mclachlan.maze.game.event.ForcePartySplitEvent;
+import mclachlan.maze.stat.CharacterSelection;
+import mclachlan.maze.stat.HighestModifierSelection;
 import mclachlan.maze.stat.PartyCampManager;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.PlayerCharacterSelection;
+import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
+import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
 import mclachlan.maze.test.support.HeadlessMaze;
 import mclachlan.maze.test.support.InMemoryLoader;
 import mclachlan.maze.test.support.MazeTestSupport;
@@ -198,5 +206,127 @@ public class PartyCampTransferTest extends MazeTestSupport
 		assertNull(mgr.findCampAt("Woods", new Point(1, 1)));
 		assertTrue(mgr.isCampAt("Caves", new Point(2, 2)));
 		assertEquals(List.of("Beta"), campB.getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitViaCharacterSelectionAutomatic()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+
+		StatModifier sm = new StatModifier();
+		sm.setModifier(Stats.Modifier.BRAWN, 10);
+		leader.applyPermanentStatModifier(sm);
+
+		CharacterSelection selection = new CharacterSelection(
+			List.of(new HighestModifierSelection(Stats.Modifier.BRAWN)),
+			List.of());
+
+		resolveSplitEvent(new ForcePartySplitEvent(selection));
+
+		assertEquals(1, maze.getParty().size());
+		assertEquals("Leader", maze.getParty().getPlayerCharacter(0).getName());
+		assertEquals(1, mgr.getCamps().size());
+		assertEquals(List.of("Scout", "Guard"), mgr.getMostRecentCamp().getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitViaCharacterSelectionPlayerPicks() throws Exception
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+		PlayerCharacter scout = maze.getParty().getPlayerCharacter(1);
+
+		maze.initUi(new AutoPickUi(new ArrayDeque<>(List.of(leader, scout))));
+
+		CharacterSelection selection = new CharacterSelection(
+			List.of(new PlayerCharacterSelection(), new PlayerCharacterSelection()),
+			List.of());
+
+		resolveSplitEvent(new ForcePartySplitEvent(selection));
+
+		assertEquals(2, maze.getParty().size());
+		assertEquals("Leader", maze.getParty().getPlayerCharacter(0).getName());
+		assertEquals("Scout", maze.getParty().getPlayerCharacter(1).getName());
+		assertEquals(1, mgr.getCamps().size());
+		assertEquals(List.of("Guard"), mgr.getMostRecentCamp().getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitViaCharacterSelectionBlocksUntilWhoComplete() throws Exception
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+
+		maze.initUi(new AutoPickUi(new ArrayDeque<>(List.of(leader))));
+
+		CharacterSelection selection = new CharacterSelection(
+			List.of(new PlayerCharacterSelection()),
+			List.of());
+
+		AtomicBoolean markerRan = new AtomicBoolean(false);
+		List<MazeEvent> script = new ArrayList<>();
+		List<MazeEvent> splitEvents = new ForcePartySplitEvent(selection).resolve();
+		if (splitEvents != null)
+		{
+			script.addAll(splitEvents);
+		}
+		script.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				markerRan.set(true);
+				assertEquals(1, maze.getParty().size(),
+					"split must finish before the next script event runs");
+				assertEquals(1, mgr.getCamps().size());
+				return null;
+			}
+		});
+
+		maze.resolveEventsForTesting(script);
+
+		assertTrue(markerRan.get());
+		assertTrue(maze.isEventQueueEmptyForTesting(),
+			"Who selection must not queue continuation events");
+		assertEquals("Leader", maze.getParty().getPlayerCharacter(0).getName());
+		assertEquals(List.of("Scout", "Guard"), mgr.getMostRecentCamp().getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void resolveSplitEvent(ForcePartySplitEvent event)
+	{
+		List<MazeEvent> pending = event.resolve();
+		if (pending != null)
+		{
+			maze.resolveEventsForTesting(pending);
+		}
+		for (int i = 0; i < 8 && !maze.isEventQueueEmptyForTesting(); i++)
+		{
+			maze.resolveQueuedEventsForTesting();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class AutoPickUi extends HeadlessUi
+	{
+		private final Deque<PlayerCharacter> picks;
+
+		AutoPickUi(Deque<PlayerCharacter> picks)
+		{
+			this.picks = picks;
+		}
+
+		@Override
+		public void chooseACharacter(ChooseCharacterCallback callback)
+		{
+			PlayerCharacter pc = picks.removeFirst();
+			int index = Maze.getInstance().getParty().getPlayerCharacterIndex(pc);
+			callback.characterChosen(pc, index);
+			callback.afterCharacterChosen();
+		}
 	}
 }
