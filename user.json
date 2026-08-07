@@ -2,7 +2,7 @@
   "combatDelay": "400",
   "personalityChattiness": "1",
   "musicVolume": "33",
-  "currentTipIndex": "9",
+  "currentTipIndex": "1",
   "autoAddConsumables": "true",
   "extras": {
     "unlock.race.gnome": "true",

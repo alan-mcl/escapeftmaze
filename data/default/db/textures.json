@@ -781,6 +781,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_VINE_1",
+    "imageResources": [
+      "crusader/scene/vine_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.elemental.earth",
     "imageResources": [
       "crusader/foe/earth_elemental"
