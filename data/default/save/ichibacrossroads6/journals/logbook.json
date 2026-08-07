@@ -1,0 +1,19 @@
+{
+  "name": "logbook",
+  "contents": {
+    "Logbook": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "585",
+        "text": "Departed Ichiba Crossroad"
+      },
+      {
+        "turnNr": "585",
+        "text": "Arrived in Ichiba Crossroad"
+      }
+    ]
+  }
+}

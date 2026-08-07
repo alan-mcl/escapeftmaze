@@ -42,7 +42,7 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 	private final int buttonRows;
 	private final int inset;
 
-	private DIYButton rest, formation;
+	private DIYButton rest, formation, camp;
 
 	/*-------------------------------------------------------------------------*/
 	public MovementStateHandler(Maze maze, int buttonRows, int inset)
@@ -66,18 +66,22 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 		formation.setTooltip(StringUtil.getUiLabel("poatw.formation.tooltip"));
 		formation.addActionListener(this);
 
+		camp = new DIYButton(StringUtil.getUiLabel("poatw.camp"));
+		camp.setTooltip(StringUtil.getUiLabel("poatw.camp.tooltip"));
+		camp.addActionListener(this);
+
 //		hide = new DIYButton(StringUtil.getUiLabel("poatw.hide"));
 //		hide.addActionListener(this);
 
 //		locks = new DIYButton(StringUtil.getUiLabel("poatw.open"));
 //		locks.addActionListener(this);
 //
-		result.add(new DIYLabel());
+		result.add(rest);
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 
-		result.add(rest);
+		result.add(camp);
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 		result.add(formation);
@@ -112,6 +116,11 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 			rest();
 			return true;
 		}
+		else if (obj == camp)
+		{
+			camp();
+			return true;
+		}
 //		else if (obj == map)
 //		{
 //			showMap();
@@ -143,6 +152,14 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 			DiyGuiUserInterface.instance.raycaster.getPlayerFacing()))
 		{
 			maze.setState(Maze.State.RESTING);
+		}
+	}
+
+	public void camp()
+	{
+		if (maze.getState() == Maze.State.MOVEMENT)
+		{
+			maze.initiatePartyCamp();
 		}
 	}
 
@@ -196,6 +213,7 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 				Maze.getInstance().setState(Maze.State.INVENTORY);
 			}
 			case KeyEvent.VK_R -> rest();
+			case KeyEvent.VK_S -> camp();
 			case KeyEvent.VK_F -> formation();
 //			case KeyEvent.VK_O -> open();
 //			case KeyEvent.VK_H -> hide();

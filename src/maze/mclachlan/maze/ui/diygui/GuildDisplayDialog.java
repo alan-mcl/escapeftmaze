@@ -56,7 +56,8 @@ public class GuildDisplayDialog extends GeneralDialog
 	public enum Mode
 	{
 		MAIN_MENU,
-		NPC
+		NPC,
+		CAMP
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -165,6 +166,16 @@ public class GuildDisplayDialog extends GeneralDialog
 			removeFromParty.setEnabled(party.size() > 1 && partyGold >= recruitPrice);
 			createCharacter.setEnabled(partyGold >= createPrice);
 			gdWidget.refresh();
+		}
+		else if (mode == Mode.CAMP)
+		{
+			PlayerParty party = Maze.getInstance().getParty();
+
+			// reselect a remaining camp PC before gating the button, otherwise
+			// Add stays disabled after the first transfer (remove clears selection)
+			gdWidget.refresh();
+			addToParty.setEnabled(party.size() < 6 && gdWidget.getSelected() != null);
+			removeFromParty.setEnabled(party.size() > 1);
 		}
 		else
 		{

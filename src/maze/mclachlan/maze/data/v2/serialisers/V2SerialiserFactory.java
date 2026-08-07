@@ -12,6 +12,7 @@ import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
 import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.GameState;
+import mclachlan.maze.game.PartyCamp;
 import mclachlan.maze.game.UserConfig;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
@@ -1706,6 +1707,21 @@ public class V2SerialiserFactory
 		V2SerialiserObject<List> valueSerialiser = new ListSerialiser(getItemSerialiser(db));
 
 		return new MapSerialiser<>(keySerialiser, valueSerialiser);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<PartyCamp> getPartyCampSerialiser()
+	{
+		ReflectiveSerialiser<PartyCamp> result = getReflectiveSerialiser(
+			PartyCamp.class,
+			"zone",
+			"tile",
+			"characterNames");
+
+		result.addCustomSerialiser("characterNames",
+			new ListSerialiser(new DirectObjectSerialiser<String>()));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

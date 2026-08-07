@@ -1394,6 +1394,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "PARTY_CAMP",
+    "imageResources": [
+      "crusader/scene/party_camp"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.altar.1",
     "imageResources": [
       "crusader/scene/altar_1"

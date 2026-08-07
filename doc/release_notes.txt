@@ -4,6 +4,7 @@ v0.919 (???)
 Features
  - MF UI
  - Tooltips
+ - Split party
 
 ---------------------------------------
 v0.918 (6 September 2024)

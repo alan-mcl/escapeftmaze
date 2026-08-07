@@ -84,6 +84,7 @@ public class InMemoryLoader extends Loader
 	public final Map<String, FoeType> foeTypes = new HashMap<>();
 	public final Map<String, NaturalWeapon> naturalWeapons = new HashMap<>();
 	public final Map<String, PlayerCharacter> characterGuild = new HashMap<>();
+	public final Map<String, PartyCamp> partyCamps = new HashMap<>();
 
 	public final TestTextRepository textRepository = new TestTextRepository();
 
@@ -143,6 +144,7 @@ public class InMemoryLoader extends Loader
 	@Override public void loadMazeVariables(String saveGameName) { }
 	@Override public Map<String, String> loadMazeVariablesMap(String saveGameName) { return new HashMap<>(); }
 	@Override public Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) { return new HashMap<>(); }
+	@Override public PartyCamp loadPartyCamp(String saveGameName) { return partyCamps.get(saveGameName); }
 	@Override public PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) { return new PlayerTilesVisited(new HashMap<>()); }
 	@Override public Map<ConditionBearer, List<Condition>> loadConditions(
 		String saveGameName, Map<String, PlayerCharacter> playerCharacterCache) { return new HashMap<>(); }

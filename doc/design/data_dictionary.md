@@ -465,6 +465,7 @@ File-to-entity mapping (from
 | `npcs.json` | List<Npc> | Runtime NPC instances (position, attitude, stock, flags) |
 | `mazevariables.json` | Map<String,String> | Quest counters, portal lock states, one-shot flags |
 | `itemcaches.json` | Map<zone, Map<Point, List<Item>>> | Items left on the ground |
+| `partycamp.json` | PartyCamp | Temporary camp: zone, tile, character names left behind |
 | `tilesvisited.json` | PlayerTilesVisited | Auto-map exploration |
 | `journals/*.json` | Journal | `quest.json`, `logbook.json`, `zone.json`, `npc.json` |
 

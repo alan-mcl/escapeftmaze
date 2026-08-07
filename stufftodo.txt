@@ -75,7 +75,6 @@ code: validate PC combat actions on a Repeat
 code: different combat ranges
 code: guilds bury dead characters in graveyards
 code: character creation: restrict character portraits to race
-code: party camps, leave some characters behind
 code: designate party spokesman, assayer and scout
 code: Matyr ability should drop character items on the ground
 code: berserk should replace combat actions (for same round things in flight) as well as intentions
@@ -97,6 +96,7 @@ ability: favoured terrain (resist surprise etc)
 editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones
+editor: party camp editing in save games
 
 raycaster: ceiling height
 raycaster: proper FXAA implementation

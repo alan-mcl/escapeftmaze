@@ -432,6 +432,7 @@ public class Maze implements Runnable
 			NpcManager.getInstance().saveGame(name, saver);
 			saver.saveMazeVariables(name);
 			ItemCacheManager.getInstance().saveGame(name, saver);
+			PartyCampManager.getInstance().saveGame(name, saver);
 			JournalManager.getInstance().saveGame(name, saver);
 			ConditionManager.getInstance().saveGame(name, saver);
 			
@@ -550,6 +551,7 @@ public class Maze implements Runnable
 			// clear maze vars
 			progress.message(StringUtil.getUiLabel("ls.clear.maze.vars"));
 			MazeVariables.clearAll();
+			PartyCampManager.getInstance().clear();
 			progress.incProgress(1);
 		
 			// load NPCs
@@ -594,7 +596,7 @@ public class Maze implements Runnable
 			ui.getMusic().stop();
 			ui.getMusic().setState(null);
 
-			final int MAX_PROGRESS = 11;
+			final int MAX_PROGRESS = 12;
 
 			// loading screen
 			LoadingScreen screen = new LoadingScreen(MAX_PROGRESS);
@@ -647,6 +649,11 @@ public class Maze implements Runnable
 			// load item caches
 			progress.message(StringUtil.getUiLabel("ls.item.caches"));
 			ItemCacheManager.getInstance().loadGame(name, loader, playerCharacterCache);
+			progress.incProgress(1);
+
+			// load party camp
+			progress.message(StringUtil.getUiLabel("ls.party.camp"));
+			PartyCampManager.getInstance().loadGame(name, loader, playerCharacterCache);
 			progress.incProgress(1);
 
 			// init state
@@ -871,6 +878,7 @@ public class Maze implements Runnable
 		currentPortal = null;
 		currentActorEncounter = null;
 		MazeVariables.clearAll();
+		PartyCampManager.getInstance().clear();
 		if (processor != null)
 		{
 			processor.queue.clear();
@@ -1508,6 +1516,65 @@ public class Maze implements Runnable
 		removePlayerCharacterFromParty(pc);
 		addPlayerCharacterToGuild(pc, npc);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean transferPlayerCharacterToCamp(PlayerCharacter pc)
+	{
+		if (party == null || party.size() <= 1)
+		{
+			return false;
+		}
+
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		if (mgr.hasCamp() && !mgr.isCampAt(zone, getTile()))
+		{
+			return false;
+		}
+
+		if (!mgr.hasCamp())
+		{
+			mgr.createCamp(zone.getName(), getTile());
+		}
+
+		removePlayerCharacterFromParty(pc);
+		mgr.addCharacter(pc.getName());
+		mgr.syncVisual(this);
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean transferPlayerCharacterFromCamp(PlayerCharacter pc)
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		if (!mgr.hasCamp() || !mgr.getCamp().getCharacterNames().contains(pc.getName()))
+		{
+			return false;
+		}
+
+		if (!addPlayerCharacterToParty(pc))
+		{
+			return false;
+		}
+
+		mgr.removeCharacter(pc.getName());
+		mgr.clearIfEmpty();
+		mgr.syncVisual(this);
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initiatePartyCamp()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		if (mgr.hasCamp() && !mgr.isCampAt(zone, getTile()))
+		{
+			ui.clearMessages();
+			ui.addMessage(StringUtil.getEventText("camp.already.exists"), true);
+			return;
+		}
+
+		appendEvents(new InitiatePartyCampEvent());
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public void removePlayerCharacterFromGuild(PlayerCharacter pc, Foe npc)
@@ -2085,6 +2152,7 @@ public class Maze implements Runnable
 
 				ui.setZone(zone, pos, newFacing);
 				zone.initialise(getTurnNr());
+				PartyCampManager.getInstance().syncVisual(Maze.getInstance());
 				getPlayerTilesVisited().resetRecentTiles();
 				ui.refreshPcActionOptions();
 				return null;
@@ -2379,6 +2447,18 @@ public class Maze implements Runnable
 		this.party.setGold(gs.getPartyGold());
 		this.party.setSupplies(gs.getPartySupplies());
 		this.party.setFormation(gs.getFormation());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: set the current zone name and tile without loading map content.
+	 */
+	public void setZoneAndTileForTesting(String zoneName, Point tile)
+	{
+		Zone z = new Zone();
+		z.setName(zoneName);
+		this.zone = z;
+		this.playerPos = tile;
 	}
 
 	/*-------------------------------------------------------------------------*/

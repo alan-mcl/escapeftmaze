@@ -46,6 +46,7 @@ public class V2Files
 	public static final String NPC_FACTIONS = "npcfactions.json";
 	public static final String MAZE_VARIABLES = "mazevariables.json";
 	public static final String ITEM_CACHES = "itemcaches.json";
+	public static final String PARTY_CAMP = "partycamp.json";
 	public static final String TILES_VISITED = "tilesvisited.json";
 	public static final String CONDITIONS = "conditions.json";
 	public static final String JOURNALS = "journals/";

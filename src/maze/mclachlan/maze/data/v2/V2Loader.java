@@ -539,6 +539,30 @@ public class V2Loader extends Loader
 	}
 
 	@Override
+	public PartyCamp loadPartyCamp(String saveGameName) throws Exception
+	{
+		File file = new File(getSavePath() + saveGameName + "/" + PARTY_CAMP);
+		if (!file.exists())
+		{
+			return null;
+		}
+
+		PartyCamp camp = (PartyCamp)v2Crud(
+			getSavePath() + saveGameName + "/" + PARTY_CAMP,
+			new SingletonSilo<>(getPartyCampSerialiser()));
+
+		if (camp == null
+			|| camp.getZone() == null
+			|| camp.getCharacterNames() == null
+			|| camp.getCharacterNames().isEmpty())
+		{
+			return null;
+		}
+
+		return camp;
+	}
+
+	@Override
 	public PlayerTilesVisited loadPlayerTilesVisited(
 		String saveGameName) throws Exception
 	{

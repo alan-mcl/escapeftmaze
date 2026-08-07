@@ -25706,7 +25706,7 @@
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
-        "solid": "false",
+        "solid": "true",
         "height": "2"
       },
       {
