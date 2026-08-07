@@ -1725,6 +1725,12 @@ public class V2SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static ListSerialiser<PartyCamp> getPartyCampListSerialiser()
+	{
+		return new ListSerialiser<>(getPartyCampSerialiser());
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static V2SerialiserObject<List> getTilesVisitedSerialiser()
 	{
 		return new ListSerialiser(new PointSerialiser());

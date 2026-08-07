@@ -45,7 +45,7 @@ import mclachlan.maze.stat.npc.*;
  */
 public class InMemorySaver extends Saver
 {
-	public final Map<String, PartyCamp> partyCamps = new HashMap<>();
+	public final Map<String, List<PartyCamp>> partyCamps = new HashMap<>();
 
 	@Override public void saveGenders(Map<String, Gender> genders) { }
 	@Override public void saveBodyParts(Map<String, BodyPart> bodyParts) { }
@@ -89,7 +89,7 @@ public class InMemorySaver extends Saver
 	@Override public void saveMazeVariables(String saveGameName) { }
 	@Override public void saveMazeVariables(String saveGameName, Map<String, String> vars) { }
 	@Override public void saveItemCaches(String saveGameName, Map<String, Map<Point, List<Item>>> caches) { }
-	@Override public void savePartyCamp(String saveGameName, PartyCamp camp) { partyCamps.put(saveGameName, camp); }
+	@Override public void savePartyCamps(String saveGameName, List<PartyCamp> camps) { partyCamps.put(saveGameName, camps); }
 	@Override public void savePlayerTilesVisited(String name, PlayerTilesVisited playerTilesVisited) { }
 	@Override public void saveConditions(String saveGameName, Map<ConditionBearer, List<Condition>> conditions) { }
 	@Override public void saveJournal(String saveGameName, Journal journal) { }

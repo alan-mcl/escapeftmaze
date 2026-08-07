@@ -32,6 +32,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.getPartyCampListSerialiser;
 import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.getPartyCampSerialiser;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,12 +78,12 @@ public class PartyCampManagerTest extends MazeTestSupport
 	{
 		PartyCampManager mgr = PartyCampManager.getInstance();
 
-		mgr.createCamp("Woods", new Point(4, 7));
-		mgr.addCharacter("Scout");
+		PartyCamp camp = mgr.createCamp("Woods", new Point(4, 7));
+		mgr.addCharacter(camp, "Scout");
 
 		assertTrue(mgr.hasCamp());
 		assertTrue(mgr.isCampAt("Woods", new Point(4, 7)));
-		assertEquals(List.of("Scout"), mgr.getCamp().getCharacterNames());
+		assertEquals(List.of("Scout"), camp.getCharacterNames());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -91,27 +92,45 @@ public class PartyCampManagerTest extends MazeTestSupport
 	{
 		PartyCampManager mgr = PartyCampManager.getInstance();
 
-		mgr.createCamp("Woods", new Point(1, 2));
-		mgr.addCharacter("Alpha");
-		mgr.removeCharacter("Alpha");
-		mgr.clearIfEmpty();
+		PartyCamp camp = mgr.createCamp("Woods", new Point(1, 2));
+		mgr.addCharacter(camp, "Alpha");
+		mgr.removeCharacter(camp, "Alpha");
+		mgr.removeCampIfEmpty(camp);
 
 		assertFalse(mgr.hasCamp());
-		assertNull(mgr.getCamp());
+		assertNull(mgr.findCampAt("Woods", new Point(1, 2)));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Test
-	void rejectsSecondCampAtDifferentLocation()
+	void allowsMultipleCampsAtDifferentLocations()
 	{
 		PartyCampManager mgr = PartyCampManager.getInstance();
 
-		mgr.createCamp("Woods", new Point(1, 1));
-		mgr.addCharacter("Alpha");
+		PartyCamp campA = mgr.createCamp("Woods", new Point(1, 1));
+		mgr.addCharacter(campA, "Alpha");
+		PartyCamp campB = mgr.createCamp("Caves", new Point(9, 9));
+		mgr.addCharacter(campB, "Beta");
 
 		assertTrue(mgr.hasCamp());
-		assertFalse(mgr.isCampAt("Woods", new Point(9, 9)));
-		assertFalse(mgr.isCampAt("Caves", new Point(1, 1)));
+		assertTrue(mgr.isCampAt("Woods", new Point(1, 1)));
+		assertTrue(mgr.isCampAt("Caves", new Point(9, 9)));
+		assertEquals(2, mgr.getCamps().size());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void ensureCampAtReusesExistingCamp()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+
+		PartyCamp first = mgr.ensureCampAt("Woods", new Point(3, 3));
+		mgr.addCharacter(first, "Scout");
+		PartyCamp second = mgr.ensureCampAt("Woods", new Point(3, 3));
+
+		assertSame(first, second);
+		assertEquals(List.of("Scout"), second.getCharacterNames());
+		assertEquals(1, mgr.getCamps().size());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -133,5 +152,42 @@ public class PartyCampManagerTest extends MazeTestSupport
 		assertEquals("Gatehouse", restored.getZone());
 		assertEquals(new Point(12, 8), restored.getTile());
 		assertEquals(List.of("Brunswick", "Wa Na"), restored.getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void partyCampListSerialiserRoundTrip()
+	{
+		List<PartyCamp> original = List.of(
+			new PartyCamp("Woods", new Point(1, 2), new ArrayList<>(List.of("Alpha"))),
+			new PartyCamp("Caves", new Point(9, 9), new ArrayList<>(List.of("Beta", "Gamma"))));
+
+		Object before = getPartyCampListSerialiser().toObject(original, db);
+		List<PartyCamp> restored = getPartyCampListSerialiser().fromObject(before, db);
+		Object after = getPartyCampListSerialiser().toObject(restored, db);
+
+		assertEquals(before, after);
+		assertEquals(2, restored.size());
+		assertEquals("Woods", restored.get(0).getZone());
+		assertEquals(List.of("Beta", "Gamma"), restored.get(1).getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void legacySingletonJsonLoadsAsOneElementList()
+	{
+		PartyCamp original = new PartyCamp(
+			"Gatehouse",
+			new Point(5, 6),
+			new ArrayList<>(List.of("Rowan")));
+
+		Map<String, Object> singleton = getPartyCampSerialiser().toObject(original, db);
+		ArrayList<Object> list = new ArrayList<>();
+		list.add(singleton);
+		List<PartyCamp> asList = getPartyCampListSerialiser().fromObject(list, db);
+
+		assertEquals(1, asList.size());
+		assertEquals("Gatehouse", asList.get(0).getZone());
+		assertEquals(List.of("Rowan"), asList.get(0).getCharacterNames());
 	}
 }

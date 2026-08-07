@@ -1,9 +1,10 @@
-{
-  "zone": "Ichiba Crossroad",
-  "tile": "5:11",
-  "characterNames": [
-    "Rowan",
-    "Sreka",
-    "Khalif"
-  ]
-}
+[
+  {
+    "zone": "Ichiba Crossroad",
+    "tile": "5:11",
+    "characterNames": [
+      "Sreka",
+      "Khalif"
+    ]
+  }
+]

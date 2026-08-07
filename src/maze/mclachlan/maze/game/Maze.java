@@ -1520,24 +1520,32 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public boolean transferPlayerCharacterToCamp(PlayerCharacter pc)
 	{
+		return transferPlayerCharacterToCamp(pc, null, false);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean transferPlayerCharacterToCamp(PlayerCharacter pc, PartyCamp targetCamp,
+		boolean forced)
+	{
 		if (party == null || party.size() <= 1)
 		{
 			return false;
 		}
 
 		PartyCampManager mgr = PartyCampManager.getInstance();
-		if (mgr.hasCamp() && !mgr.isCampAt(zone, getTile()))
+		if (!forced && mgr.hasAnyCamp() && !mgr.isCampAt(zone, getTile()))
 		{
 			return false;
 		}
 
-		if (!mgr.hasCamp())
+		PartyCamp camp = targetCamp;
+		if (camp == null)
 		{
-			mgr.createCamp(zone.getName(), getTile());
+			camp = mgr.ensureCampAt(zone.getName(), getTile());
 		}
 
 		removePlayerCharacterFromParty(pc);
-		mgr.addCharacter(pc.getName());
+		mgr.addCharacter(camp, pc.getName());
 		mgr.syncVisual(this);
 		return true;
 	}
@@ -1546,7 +1554,21 @@ public class Maze implements Runnable
 	public boolean transferPlayerCharacterFromCamp(PlayerCharacter pc)
 	{
 		PartyCampManager mgr = PartyCampManager.getInstance();
-		if (!mgr.hasCamp() || !mgr.getCamp().getCharacterNames().contains(pc.getName()))
+		for (PartyCamp camp : mgr.getCamps())
+		{
+			if (camp.getCharacterNames().contains(pc.getName()))
+			{
+				return transferPlayerCharacterFromCamp(pc, camp);
+			}
+		}
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean transferPlayerCharacterFromCamp(PlayerCharacter pc, PartyCamp camp)
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		if (camp == null || !camp.getCharacterNames().contains(pc.getName()))
 		{
 			return false;
 		}
@@ -1556,17 +1578,47 @@ public class Maze implements Runnable
 			return false;
 		}
 
-		mgr.removeCharacter(pc.getName());
-		mgr.clearIfEmpty();
+		mgr.removeCharacter(camp, pc.getName());
+		mgr.removeCampIfEmpty(camp);
 		mgr.syncVisual(this);
 		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void forceTransferPlayerCharactersToCamp(Collection<PlayerCharacter> leavers)
+	{
+		if (leavers == null || leavers.isEmpty() || party == null)
+		{
+			return;
+		}
+
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PartyCamp camp = mgr.ensureCampAt(zone.getName(), getTile());
+
+		for (PlayerCharacter pc : leavers)
+		{
+			if (party.getPlayerCharacters().contains(pc))
+			{
+				removePlayerCharacterFromParty(pc);
+				mgr.addCharacter(camp, pc.getName());
+			}
+		}
+
+		mgr.syncVisual(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void initiatePartyCamp()
 	{
 		PartyCampManager mgr = PartyCampManager.getInstance();
-		if (mgr.hasCamp() && !mgr.isCampAt(zone, getTile()))
+		PartyCamp atTile = mgr.findCampAt(zone, getTile());
+		if (atTile != null && !atTile.getCharacterNames().isEmpty())
+		{
+			appendEvents(new InitiatePartyCampEvent(zone.getName(), getTile()));
+			return;
+		}
+
+		if (mgr.hasAnyCamp())
 		{
 			ui.clearMessages();
 			ui.addMessage(StringUtil.getEventText("camp.already.exists"), true);

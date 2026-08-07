@@ -23,6 +23,7 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.game.event.ForcePartySplitEvent;
 import mclachlan.maze.stat.PartyCampManager;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.test.support.HeadlessMaze;
@@ -111,10 +112,91 @@ public class PartyCampTransferTest extends MazeTestSupport
 		PartyCampManager mgr = PartyCampManager.getInstance();
 		PlayerCharacter scout = maze.getParty().getPlayerCharacter(1);
 
-		mgr.createCamp("Elsewhere", new Point(0, 0));
-		mgr.addCharacter("Leftover");
+		PartyCamp elsewhere = mgr.createCamp("Elsewhere", new Point(0, 0));
+		mgr.addCharacter(elsewhere, "Leftover");
 
 		assertFalse(maze.transferPlayerCharacterToCamp(scout));
 		assertEquals(3, maze.getParty().size());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitCreatesSecondCampWhileVoluntaryCampRemains()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+		PlayerCharacter scout = maze.getParty().getPlayerCharacter(1);
+		PlayerCharacter guard = maze.getParty().getPlayerCharacter(2);
+
+		PartyCamp voluntaryCamp = mgr.createCamp("Woods", new Point(1, 1));
+		mgr.addCharacter(voluntaryCamp, "Leftover");
+
+		maze.setZoneAndTileForTesting("Caves", new Point(7, 8));
+		new ForcePartySplitEvent(List.of(leader)).resolve();
+
+		assertEquals(1, maze.getParty().size());
+		assertEquals("Leader", maze.getParty().getPlayerCharacter(0).getName());
+		assertEquals(2, mgr.getCamps().size());
+
+		PartyCamp forcedCamp = mgr.findCampAt("Caves", new Point(7, 8));
+		assertNotNull(forcedCamp);
+		assertEquals(List.of("Scout", "Guard"), forcedCamp.getCharacterNames());
+		assertEquals(List.of("Leftover"), voluntaryCamp.getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitWithNoPriorCamp()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+
+		new ForcePartySplitEvent(List.of(leader)).resolve();
+
+		assertEquals(1, maze.getParty().size());
+		assertEquals(1, mgr.getCamps().size());
+		PartyCamp camp = mgr.findCampAt("Woods", new Point(3, 4));
+		assertNotNull(camp);
+		assertEquals(List.of("Scout", "Guard"), camp.getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void forcedSplitOnExistingCampTileAppendsToThatCamp()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PlayerCharacter leader = maze.getParty().getPlayerCharacter(0);
+		PlayerCharacter scout = maze.getParty().getPlayerCharacter(1);
+
+		PartyCamp existing = mgr.createCamp("Woods", new Point(3, 4));
+		mgr.addCharacter(existing, "AlreadyHere");
+
+		new ForcePartySplitEvent(List.of(leader)).resolve();
+
+		assertEquals(1, maze.getParty().size());
+		assertEquals(1, mgr.getCamps().size());
+		assertEquals(List.of("AlreadyHere", "Scout", "Guard"), existing.getCharacterNames());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void emptyingOneCampLeavesOther()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+
+		maze.setZoneAndTileForTesting("Woods", new Point(1, 1));
+		PlayerCharacter alpha = TestData.newLevel1Pc("Alpha");
+		maze.addPlayerCharacterToParty(alpha);
+		assertTrue(maze.transferPlayerCharacterToCamp(alpha));
+
+		PartyCamp campA = mgr.findCampAt("Woods", new Point(1, 1));
+		PartyCamp campB = mgr.createCamp("Caves", new Point(2, 2));
+		mgr.addCharacter(campB, "Beta");
+
+		assertTrue(maze.transferPlayerCharacterFromCamp(alpha, campA));
+
+		assertNull(mgr.findCampAt("Woods", new Point(1, 1)));
+		assertTrue(mgr.isCampAt("Caves", new Point(2, 2)));
+		assertEquals(List.of("Beta"), campB.getCharacterNames());
 	}
 }

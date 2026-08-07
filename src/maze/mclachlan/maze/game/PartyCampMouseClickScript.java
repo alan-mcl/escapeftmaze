@@ -19,6 +19,7 @@
 
 package mclachlan.maze.game;
 
+import java.awt.Point;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.MouseClickScript;
 import mclachlan.maze.game.event.InitiatePartyCampEvent;
@@ -28,6 +29,16 @@ import mclachlan.maze.game.event.InitiatePartyCampEvent;
  */
 public class PartyCampMouseClickScript implements MouseClickScript
 {
+	private final String zoneName;
+	private final Point tile;
+
+	/*-------------------------------------------------------------------------*/
+	public PartyCampMouseClickScript(String zoneName, Point tile)
+	{
+		this.zoneName = zoneName;
+		this.tile = new Point(tile);
+	}
+
 	@Override
 	public void initialise(Map map)
 	{
@@ -36,7 +47,7 @@ public class PartyCampMouseClickScript implements MouseClickScript
 	@Override
 	public void execute(Map map)
 	{
-		Maze.getInstance().appendEvents(new InitiatePartyCampEvent());
+		Maze.getInstance().appendEvents(new InitiatePartyCampEvent(zoneName, tile));
 	}
 
 	@Override
@@ -49,6 +60,6 @@ public class PartyCampMouseClickScript implements MouseClickScript
 	@Override
 	public MouseClickScript copyScript()
 	{
-		return new PartyCampMouseClickScript();
+		return new PartyCampMouseClickScript(zoneName, tile);
 	}
 }

@@ -539,27 +539,59 @@ public class V2Loader extends Loader
 	}
 
 	@Override
-	public PartyCamp loadPartyCamp(String saveGameName) throws Exception
+	public List<PartyCamp> loadPartyCamps(String saveGameName) throws Exception
 	{
 		File file = new File(getSavePath() + saveGameName + "/" + PARTY_CAMP);
 		if (!file.exists())
 		{
-			return null;
+			return new ArrayList<>();
 		}
 
-		PartyCamp camp = (PartyCamp)v2Crud(
-			getSavePath() + saveGameName + "/" + PARTY_CAMP,
-			new SingletonSilo<>(getPartyCampSerialiser()));
-
-		if (camp == null
-			|| camp.getZone() == null
-			|| camp.getCharacterNames() == null
-			|| camp.getCharacterNames().isEmpty())
+		try (BufferedReader reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
 		{
-			return null;
+			reader.mark(1);
+			int firstChar = reader.read();
+			reader.reset();
+
+			if (firstChar == '[')
+			{
+				List<Map> list = V2Utils.getObjects(reader);
+				List<PartyCamp> camps = getPartyCampListSerialiser().fromObject(list, db);
+				return filterLoadedPartyCamps(camps);
+			}
+
+			Map map = V2Utils.getMap(reader);
+			if (map == null || map.isEmpty())
+			{
+				return new ArrayList<>();
+			}
+
+			PartyCamp camp = getPartyCampSerialiser().fromObject(map, db);
+			List<PartyCamp> camps = camp == null ? new ArrayList<>() : List.of(camp);
+			return filterLoadedPartyCamps(camps);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<PartyCamp> filterLoadedPartyCamps(List<PartyCamp> camps)
+	{
+		if (camps == null)
+		{
+			return new ArrayList<>();
 		}
 
-		return camp;
+		List<PartyCamp> result = new ArrayList<>();
+		for (PartyCamp camp : camps)
+		{
+			if (camp != null
+				&& camp.getZone() != null
+				&& camp.getCharacterNames() != null
+				&& !camp.getCharacterNames().isEmpty())
+			{
+				result.add(camp);
+			}
+		}
+		return result;
 	}
 
 	@Override

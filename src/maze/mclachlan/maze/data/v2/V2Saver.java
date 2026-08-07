@@ -386,19 +386,20 @@ public class V2Saver extends Saver
 	}
 
 	@Override
-	public void savePartyCamp(String saveGameName, PartyCamp camp) throws Exception
+	public void savePartyCamps(String saveGameName, List<PartyCamp> camps) throws Exception
 	{
 		File f = new File(getSaveGamePath(saveGameName, PARTY_CAMP));
 		ensureParentDir(f);
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8)))
 		{
-			if (camp == null)
+			if (camps == null || camps.isEmpty())
 			{
-				writer.write("{}");
+				writer.write("[]");
 			}
 			else
 			{
-				new SingletonSilo<>(getPartyCampSerialiser()).save(writer, camp, db);
+				Object list = getPartyCampListSerialiser().toObject(camps, db);
+				V2Utils.writeJsonList((List)list, writer);
 			}
 		}
 	}
