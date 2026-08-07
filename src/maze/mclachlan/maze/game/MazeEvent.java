@@ -72,6 +72,17 @@ public abstract class MazeEvent implements V2Serialisable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Whether {@link Maze} should run {@link Maze#checkPartyStatus()} after this
+	 * event resolves. Resume-from-camp and similar sequences return false so a
+	 * dead field party mid-fade does not re-trigger wipe handling.
+	 */
+	public boolean shouldCheckPartyStatus()
+	{
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	protected static List<MazeEvent> getList(MazeEvent... events)
 	{
 		return new ArrayList<>(Arrays.asList(events));

@@ -112,6 +112,23 @@ public class PartyCampManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * The last non-empty camp in creation order ({@link #ensureCampAt} append order).
+	 */
+	public PartyCamp getMostRecentCamp()
+	{
+		for (int i = camps.size() - 1; i >= 0; i--)
+		{
+			PartyCamp camp = camps.get(i);
+			if (!camp.getCharacterNames().isEmpty())
+			{
+				return camp;
+			}
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public PartyCamp findCampAt(Zone zone, Point tile)
 	{
 		return findCampAt(zone.getName(), tile);
@@ -210,6 +227,24 @@ public class PartyCampManager implements GameCache
 		{
 			camps.remove(camp);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Removes a camp record and its current-zone visual object (if any).
+	 */
+	public void removeCamp(PartyCamp camp, Maze maze)
+	{
+		if (camp == null)
+		{
+			return;
+		}
+
+		if (maze != null)
+		{
+			maze.removeObject(engineObjectName(camp));
+		}
+		camps.remove(camp);
 	}
 
 	/*-------------------------------------------------------------------------*/

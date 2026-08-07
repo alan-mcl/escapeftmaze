@@ -1125,13 +1125,30 @@ public class Maze implements Runnable
 	{
 		if (party != null && party.numAlive() == 0)
 		{
-			// party is all dead
+			// A camp-resume fade/rebuild is already in the event queue; do not
+			// clear it or start another. State lives on ResumeFromPartyCampEvent.
+			if (alreadyQueued(ResumeFromPartyCampEvent.class))
+			{
+				return false;
+			}
 
-			// clear all other pending events
-			processor.queue.clear();
-
-			// clear any animations
+			if (processor != null)
+			{
+				processor.queue.clear();
+			}
 			getUi().stopAllAnimations();
+
+			if (PartyCampManager.getInstance().hasAnyCamp())
+			{
+				List<MazeEvent> resumeEvents = partyResumesFromMostRecentCamp();
+				if (processor != null)
+				{
+					appendEvents(resumeEvents);
+				}
+				return false;
+			}
+
+			// party is all dead — no camps left to resume from
 
 			// grab the party death script
 			MazeScript script = Database.getInstance().getMazeScript("_PARTY_DEAD_");
@@ -1325,6 +1342,110 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 	/**
+	 * After a field-party wipe, resume at the most recently created camp: drop
+	 * the dead party's gear on the current tile, fade to black, then reconstitute
+	 * the party from that camp, remove the camp, and warp to its location.
+	 * Sequence: death prep → fade → party populated → camp removed → warp.
+	 */
+	public List<MazeEvent> partyResumesFromMostRecentCamp()
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+		PartyCamp camp = mgr.getMostRecentCamp();
+		if (camp == null || party == null)
+		{
+			return Collections.emptyList();
+		}
+
+		String resumeZone = camp.getZone();
+		Point resumeTile = new Point(camp.getTile());
+		List<PlayerCharacter> campPcs = new ArrayList<>(mgr.getCampPlayerCharacters(this, camp));
+		int gold = party.getGold();
+		int supplies = party.getSupplies();
+		int formation = party.getFormation();
+
+		List<Item> droppedItems = new ArrayList<>();
+		for (PlayerCharacter pc : new ArrayList<>(party.getPlayerCharacters()))
+		{
+			for (Item item : new ArrayList<>(pc.getAllItems()))
+			{
+				droppedItems.add(item);
+				pc.removeItem(item, true);
+			}
+		}
+		if (!droppedItems.isEmpty())
+		{
+			dropItemsOnCurrentTile(droppedItems);
+		}
+
+		if (currentCombat != null)
+		{
+			currentCombat.endCombat();
+		}
+
+		if (processor != null)
+		{
+			processor.queue.clear();
+		}
+		ui.setFoes(null, false);
+		setState(State.MOVEMENT);
+		ui.enableInput();
+		currentCombat = null;
+
+		return List.of(new ResumeFromPartyCampEvent(
+			camp, campPcs, gold, supplies, formation, resumeZone, resumeTile));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Post-fade half of camp resume: rebuild the party from the camp, remove the
+	 * camp (and its visual), then warp to the camp tile.
+	 */
+	public List<MazeEvent> completePartyResumeFromCamp(
+		PartyCamp camp,
+		List<PlayerCharacter> campPcs,
+		int gold,
+		int supplies,
+		int formation,
+		String resumeZone,
+		Point resumeTile)
+	{
+		PartyCampManager mgr = PartyCampManager.getInstance();
+
+		ArrayList<UnifiedActor> actors = new ArrayList<>(campPcs);
+		party = new PlayerParty(actors, gold, supplies, formation);
+		if (party.size() < 3)
+		{
+			party.setFormation(1);
+		}
+		ui.setParty(party);
+		if (!campPcs.isEmpty())
+		{
+			ui.characterSelected(campPcs.get(0));
+		}
+
+		mgr.removeCamp(camp, this);
+		mgr.syncVisual(this);
+
+		if (zone == null || !zone.getName().equals(resumeZone))
+		{
+			return changeZone(resumeZone, resumeTile, ZoneChangeEvent.Facing.UNCHANGED);
+		}
+
+		playerPos = resumeTile;
+		ui.setPlayerPos(resumeTile, ui.getFacing());
+		setState(State.MOVEMENT);
+		ui.showMovementScreen();
+		ui.clearBlockingScreen();
+		ui.enableInput();
+		if (getPlayerTilesVisited() != null)
+		{
+			getPlayerTilesVisited().resetRecentTiles();
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
 	 * @param maxTiles
 	 * 	The maximum number of player tiles visited to reverse; may turn out to
 	 * 	be less if there is less tile history available.
@@ -1382,7 +1503,7 @@ public class Maze implements Runnable
 	 */
 	public void appendEvents(List<MazeEvent> events)
 	{
-		if (events != null)
+		if (events != null && processor != null)
 		{
 			processor.queue.addAll(events);
 		}
@@ -1464,9 +1585,9 @@ public class Maze implements Runnable
 			}
 		}
 
-		if (checkPartyStatus())
+		if (event.shouldCheckPartyStatus() ? checkPartyStatus() : true)
 		{
-			// only execute these if the party is still going
+			// only execute these if the party is still going (or event opted out of wipe check)
 
 			if (subEvents != null && !subEvents.isEmpty())
 			{
@@ -2514,6 +2635,41 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: true when a field wipe would resume at a camp instead of ending the game.
+	 */
+	public boolean wouldResumeFromCampOnWipe()
+	{
+		return party != null
+			&& party.numAlive() == 0
+			&& PartyCampManager.getInstance().hasAnyCamp();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: synchronously resolve a list of maze events (including nested sub-events).
+	 */
+	public void resolveEventsForTesting(List<MazeEvent> events)
+	{
+		resolveEvents(events, false);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: drain and synchronously resolve all queued maze events.
+	 */
+	public void resolveQueuedEventsForTesting()
+	{
+		if (processor == null)
+		{
+			return;
+		}
+		List<MazeEvent> pending = new ArrayList<>(processor.queue);
+		processor.queue.clear();
+		resolveEventsForTesting(pending);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void saveUserConfig()
 	{
 		saveUserConfig(this.userConfig);
@@ -2555,9 +2711,14 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public boolean alreadyQueued(Class eventClass)
 	{
+		if (processor == null || processor.queue == null)
+		{
+			return false;
+		}
+
 		for (MazeEvent e : processor.queue)
 		{
-			if (e.getClass() == eventClass)
+			if (eventClass.isInstance(e))
 			{
 				return true;
 			}

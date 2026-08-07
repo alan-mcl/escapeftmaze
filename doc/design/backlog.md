@@ -58,7 +58,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 |---|------|------|-------|--------|--------|
 | P2-1 | feature | Scavenger mode | Start with nothing; loot replaced with trash; crafting is survival. (stufftodo) | L | todo |
 | P2-2 | feature | Secure chests (leave items safely) | Player-owned storage. (stufftodo) | M | todo |
-| P2-3 | feature | Party camps: leave characters behind | (stufftodo) | M | done |
+| P2-3 | feature | Party camps: leave characters behind | Voluntary split + forced multi-camp; field wipe with camps resumes at most recent camp (gear left on death tile); full wipe only if no camps remain | M | done |
 | P2-4 | feature | Designate spokesman / assayer / scout | Roles that pick which PC performs social/identify/scouting checks. (stufftodo) | M | todo |
 | P2-5 | feature | Guilds bury dead characters in graveyards | (stufftodo) | M | todo |
 | P2-6 | code | Martyr ability drops items on the ground | (stufftodo) | S | todo |
