@@ -91,11 +91,14 @@ Notes
 * _Sections of the path are flooded, adjacent to swampy areas. Several enormous snails slowly graze while clouds of insects buzz overhead._
 * _A beautiful patch of enormous flowers. The flowers are rooted around several walking plants. The flowers attract insects._
 * _A skeleton slumped beneath a tree - dead explorer._
-* _A group of colourful moths is gathered under a thick area of the canopy. Beautiful. Until disturbed._
+* A group of colourful moths is gathered under a thick area of the canopy. Beautiful. Until disturbed.
 * _Predator vs Predator. The party arrives just as mantis fighting velociraptor._
 * _Strange Feeding Ground. Dozens of empty snail shells. Broken mantis limbs.Large footprints.Whatever feeds here is absent._
 * _Giant termite mounds taller than a person._
 * _A freshwater pool containing tiny brilliantly coloured fish._
+* _Predator Redirect: the Maze sents waves of local predators_
+* _In an isolated crevasse in a rocky outcrop, a Shrine to Zerach features an ever-burning torch. A giant snake has set up a nest for the warmth._
+
 
 ==== Ichiba Domain South
 

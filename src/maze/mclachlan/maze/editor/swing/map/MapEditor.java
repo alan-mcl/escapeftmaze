@@ -46,6 +46,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 {
 	MapDisplay display;
 	JButton save, cancel, undo, redo, zoomIn, zoomOut;
+	JLabel zoomLevelLabel;
 	Zone zone;
 	Map<JCheckBox, Integer> displayFeatureBoxes = new HashMap<>();
 	Map<JCheckBox, Integer> selectionFeatureBoxes = new HashMap<>();
@@ -186,13 +187,17 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 		zoomIn = new JButton("+");
 		zoomIn.addActionListener(this);
-		
+
+		zoomLevelLabel = new JLabel();
+
 		zoomOut = new JButton("-");
 		zoomOut.addActionListener(this);
 
 		zoomers.add(new JLabel("Zoom:"));
-		zoomers.add(zoomIn);
 		zoomers.add(zoomOut);
+		zoomers.add(zoomLevelLabel);
+		zoomers.add(zoomIn);
+		updateZoomControls();
 		left.add(zoomers, BorderLayout.NORTH);
 		
 		JTabbedPane tabs = new JTabbedPane();
@@ -345,10 +350,12 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		else if (e.getSource() == zoomIn)
 		{
 			display.incrementZoomLevel(1);
+			updateZoomControls();
 		}
 		else if (e.getSource() == zoomOut)
 		{
 			display.incrementZoomLevel(-1);
+			updateZoomControls();
 		}
 		else if (displayFeatureBoxes.containsKey(e.getSource()))
 		{
@@ -918,6 +925,14 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		{
 			SwingEditor.instance.setDirty(SwingEditor.Tab.ZONES);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void updateZoomControls()
+	{
+		zoomLevelLabel.setText(display.getZoomLevel()+" / "+display.getMaxZoomLevel());
+		zoomOut.setEnabled(display.getZoomLevel() > display.getMinZoomLevel());
+		zoomIn.setEnabled(display.getZoomLevel() < display.getMaxZoomLevel());
 	}
 
 	/*-------------------------------------------------------------------------*/

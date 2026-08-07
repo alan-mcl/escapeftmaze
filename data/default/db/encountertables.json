@@ -22,7 +22,7 @@
       "ITEMS": [
         "lord.of.eight.banners"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -58,7 +58,7 @@
         "toothy.velox.small.pack",
         "hunting.mantis.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -79,7 +79,7 @@
         "swarming.roach.swarm",
         "human.footpads.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1043,7 +1043,7 @@
         "bemiropteric.small.pack",
         "hunting.mantis.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1295,7 +1295,7 @@
         "haunts.small",
         "foxfire.small"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1745,7 +1745,7 @@
       "ITEMS": [
         "ichneumorax"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1926,7 +1926,7 @@
       "ITEMS": [
         "ineoth.encounter"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2198,7 +2198,7 @@
       "ITEMS": [
         "frost.wyrm.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2414,7 +2414,7 @@
       "ITEMS": [
         "leonal.knights"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2594,6 +2594,19 @@
       ],
       "ITEMS": [
         "call.wyrms.spell.4"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.domain.north.hawk.moth.2",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "hawk.moth.med"
       ],
       "SHOULD_SUM_TO_100": "true"
     }
@@ -2802,7 +2815,7 @@
       "ITEMS": [
         "invisible.stalker.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2815,7 +2828,7 @@
       "ITEMS": [
         "invisible.stalker.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2828,7 +2841,7 @@
       "ITEMS": [
         "invisible.stalker.3"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

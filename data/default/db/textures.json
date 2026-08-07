@@ -600,6 +600,16 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "WATER_2_FLOW_LEFT",
+    "imageResources": [
+      "crusader/scene/water_2_1"
+    ],
+    "animationDelay": "500",
+    "scrollBehaviour": "LEFT",
+    "scrollSpeed": "100"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.hynobi.female",
     "imageResources": [
       "crusader/foe/hynobi_female"

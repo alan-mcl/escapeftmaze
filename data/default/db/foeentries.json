@@ -5636,6 +5636,26 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "hawk.moth.med",
+    "contains": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Hawk Moth",
+          "quantity": "2d2"
+        },
+        {
+          "foeName": "Hawk Moth",
+          "quantity": "2d2"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
     "name": "colonizer.ominifids.1",
     "contains": {
       "PERCENTAGES": [

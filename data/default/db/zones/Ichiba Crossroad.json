@@ -757,7 +757,7 @@
         "coords": "2:1",
         "scripts": [],
         "randomEncounters": "ichiba.crossroad.random.enc",
-        "statModifier": "3f800000000000000000,01010201020302",
+        "statModifier": "3f800000000000000000,01010201020201",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Forest",
         "randomEncounterChance": "5",
@@ -779,7 +779,7 @@
         "coords": "2:3",
         "scripts": [],
         "randomEncounters": "ichiba.crossroad.random.enc",
-        "statModifier": "3f800000000000000000,01010202020202",
+        "statModifier": "3f800000000000000000,01010201020201",
         "terrainType": "WILDERNESS",
         "terrainSubType": "Forest",
         "randomEncounterChance": "5",
@@ -30931,10 +30931,8 @@
         "height": "1"
       },
       {
-        "textures": [
-          "JUNGLE_THICKET_3_SOLID"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -31440,10 +31438,8 @@
         "height": "1"
       },
       {
-        "textures": [
-          "JUNGLE_THICKET_3_SOLID"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -56905,6 +56901,86 @@
         "westTexture": "objects.plant.1",
         "xPos": "6270",
         "yPos": "4092",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1280",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1110",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1450",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1280",
+        "yPos": "1962",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1280",
+        "yPos": "598",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1110",
+        "yPos": "768",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1450",
+        "yPos": "768",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "xPos": "1280",
+        "yPos": "938",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

@@ -55,7 +55,26 @@ public class MapDisplay extends JPanel implements Scrollable
 	private final java.util.Map<Image, Image> horizScaledImages = new HashMap<>();
 	private final java.util.Map<Image, Image> vertScaledImages = new HashMap<>();
 	
-	private static final int MAX_ZOOM_LEVEL = 4;
+	private static final int MIN_ZOOM_LEVEL = 1;
+	private static final int MAX_ZOOM_LEVEL = 5;
+
+	/*-------------------------------------------------------------------------*/
+	public int getZoomLevel()
+	{
+		return zoomLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getMinZoomLevel()
+	{
+		return MIN_ZOOM_LEVEL;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getMaxZoomLevel()
+	{
+		return MAX_ZOOM_LEVEL;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public MapDisplay(Zone zone)
@@ -78,15 +97,18 @@ public class MapDisplay extends JPanel implements Scrollable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void incrementZoomLevel(int i)
+	public boolean incrementZoomLevel(int i)
 	{
-		if (zoomLevel+i >= 1 && zoomLevel+i <= MAX_ZOOM_LEVEL)
+		if (zoomLevel + i >= MIN_ZOOM_LEVEL && zoomLevel + i <= MAX_ZOOM_LEVEL)
 		{
 			zoomLevel += i;
 			rescaleImages();
 			revalidate();
 			repaint();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
