@@ -31667,6 +31667,12 @@
                     "methods": [
                       {
                         "TYPE_KEY": "mclachlan.maze.stat.PlayerCharacterSelection"
+                      },
+                      {
+                        "op": "GT",
+                        "targetModifier": "FLIER",
+                        "TYPE_KEY": "mclachlan.maze.stat.ModifierComparisonSelection",
+                        "value": "0"
                       }
                     ],
                     "exclusions": [
@@ -57041,17 +57047,17 @@
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.plant.1",
-        "southTexture": "objects.plant.1",
-        "eastTexture": "objects.plant.1",
-        "westTexture": "objects.plant.1",
-        "xPos": "7834",
-        "yPos": "15941",
+        "northTexture": "objects.plant.4",
+        "southTexture": "objects.plant.4",
+        "eastTexture": "objects.plant.4",
+        "westTexture": "objects.plant.4",
+        "xPos": "7787",
+        "yPos": "15870",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
           "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1",
+          "clickMaxDistance": "2",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [

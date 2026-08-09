@@ -2303,13 +2303,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private float getEffectiveWallDistance(int castColumn, int depth)
+	{
+		float distance = blockHitRecord[castColumn][depth].distance;
+		return distance < 0 ? Float.MAX_VALUE : distance;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void drawObjects(int castColumn, int depth)
 	{
-		float wallDistance = blockHitRecord[castColumn][depth].distance;
-		if (wallDistance < 0)
-		{
-			wallDistance = Float.MAX_VALUE;
-		}
+		float wallDistance = getEffectiveWallDistance(castColumn, depth);
 
 		int objectCount = objects.length - 1;
 		for (; objectCount >= 0; objectCount--)
@@ -3143,7 +3146,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int castColumn,
 		int depth)
 	{
-		if (blockHitRecord[castColumn][depth].distance > obj.apparentDistance)
+		if (getEffectiveWallDistance(castColumn, depth) > obj.apparentDistance)
 		{
 			int startScreenY;
 			int topY = projectionPlaneHeight/2 -obj.projectedWallHeight/2 +obj.projectedTextureOffset;
