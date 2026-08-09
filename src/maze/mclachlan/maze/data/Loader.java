@@ -69,7 +69,7 @@ public abstract class Loader
 
 	public abstract Map<String, ObjectAnimations> loadObjectAnimations();
 	public abstract Map<String, FoeTemplate> loadFoeTemplates();
-	public abstract Map<String, FoeSpeech> loadFoeSpeech();
+	public abstract Map<String, FoeInteraction> loadFoeInteractions();
 	public abstract Map<String, Trap> loadTraps();
 	public abstract Map<String, FoeEntry> loadFoeEntries();
 	public abstract Map<String, EncounterTable> loadEncounterTables();

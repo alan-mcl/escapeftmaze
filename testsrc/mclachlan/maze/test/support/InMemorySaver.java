@@ -64,7 +64,7 @@ public class InMemorySaver extends Saver
 	@Override public void saveMazeTextures(Map<String, MazeTexture> map) { }
 	@Override public void saveObjectAnimations(Map<String, ObjectAnimations> map) { }
 	@Override public void saveFoeTemplates(Map<String, FoeTemplate> map) { }
-	@Override public void saveFoeSpeech(Map<String, FoeSpeech> map) { }
+	@Override public void saveFoeInteractions(Map<String, FoeInteraction> map) { }
 	@Override public void saveTraps(Map<String, Trap> map) { }
 	@Override public void saveFoeEntries(Map<String, FoeEntry> map) { }
 	@Override public void saveEncounterTables(Map<String, EncounterTable> map) { }

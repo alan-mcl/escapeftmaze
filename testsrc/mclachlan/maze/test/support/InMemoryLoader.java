@@ -68,7 +68,7 @@ public class InMemoryLoader extends Loader
 	public final Map<String, MazeTexture> mazeTextures = new HashMap<>();
 	public final Map<String, ObjectAnimations> objectAnimations = new HashMap<>();
 	public final Map<String, FoeTemplate> foeTemplates = new HashMap<>();
-	public final Map<String, FoeSpeech> foeSpeech = new HashMap<>();
+	public final Map<String, FoeInteraction> foeInteractions = new HashMap<>();
 	public final Map<String, Trap> traps = new HashMap<>();
 	public final Map<String, FoeEntry> foeEntries = new HashMap<>();
 	public final Map<String, EncounterTable> encounterTables = new HashMap<>();
@@ -106,7 +106,7 @@ public class InMemoryLoader extends Loader
 	@Override public Map<String, MazeTexture> loadMazeTextures() { return mazeTextures; }
 	@Override public Map<String, ObjectAnimations> loadObjectAnimations() { return objectAnimations; }
 	@Override public Map<String, FoeTemplate> loadFoeTemplates() { return foeTemplates; }
-	@Override public Map<String, FoeSpeech> loadFoeSpeech() { return foeSpeech; }
+	@Override public Map<String, FoeInteraction> loadFoeInteractions() { return foeInteractions; }
 	@Override public Map<String, Trap> loadTraps() { return traps; }
 	@Override public Map<String, FoeEntry> loadFoeEntries() { return foeEntries; }
 	@Override public Map<String, EncounterTable> loadEncounterTables() { return encounterTables; }

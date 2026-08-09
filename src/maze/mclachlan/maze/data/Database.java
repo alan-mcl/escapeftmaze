@@ -40,7 +40,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.FoeSpeech;
+import mclachlan.maze.stat.npc.FoeInteraction;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
 import mclachlan.maze.stat.npc.NpcTemplate;
 import mclachlan.maze.ui.diygui.ProgressListener;
@@ -97,7 +97,7 @@ public class Database
 	private Map<String, MazeTexture> mazeTextures;
 	private Map<String, ObjectAnimations> objectAnimations;
 	private Map<String, FoeTemplate> foeTemplates;
-	private Map<String, FoeSpeech> foeSpeech;
+	private Map<String, FoeInteraction> foeInteractions;
 	private Map<String, Trap> traps;
 	private Map<String, FoeEntry> foeEntries;
 	private Map<String, EncounterTable> encounterTables;
@@ -365,7 +365,7 @@ public class Database
 		{
 			p.message(StringUtil.getUiLabel("ls.load.foe.speech"));
 		}
-		getFoeSpeeches();
+		getFoeInteractions();
 		if (p != null)
 		{
 			p.incProgress(1);
@@ -1125,34 +1125,34 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public FoeSpeech getFoeSpeech(String s)
+	public FoeInteraction getFoeInteraction(String s)
 	{
 		synchronized (mutex)
 		{
-			if (foeSpeech == null)
+			if (foeInteractions == null)
 			{
-				foeSpeech = (Map<String, FoeSpeech>)mergeMaps(Loader::loadFoeSpeech);
+				foeInteractions = (Map<String, FoeInteraction>)mergeMaps(Loader::loadFoeInteractions);
 			}
-			return foeSpeech.get(s);
+			return foeInteractions.get(s);
 		}
 	}
 
-	public Map<String, FoeSpeech> getFoeSpeeches()
+	public Map<String, FoeInteraction> getFoeInteractions()
 	{
 		synchronized (mutex)
 		{
-			if (foeSpeech == null)
+			if (foeInteractions == null)
 			{
-				foeSpeech = (Map<String, FoeSpeech>)mergeMaps(Loader::loadFoeSpeech);
+				foeInteractions = (Map<String, FoeInteraction>)mergeMaps(Loader::loadFoeInteractions);
 			}
-			return foeSpeech;
+			return foeInteractions;
 		}
 	}
 
-	public void saveFoeSpeech(Map<String, FoeSpeech> map,
+	public void saveFoeInteractions(Map<String, FoeInteraction> map,
 		Campaign campaign) throws Exception
 	{
-		getSaver(campaign).saveFoeSpeech((Map<String, FoeSpeech>)filterMap(map, campaign));
+		getSaver(campaign).saveFoeInteractions((Map<String, FoeInteraction>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/

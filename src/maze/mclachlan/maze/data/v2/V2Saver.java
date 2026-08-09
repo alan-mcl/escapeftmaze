@@ -214,9 +214,9 @@ public class V2Saver extends Saver
 	}
 
 	@Override
-	public void saveFoeSpeech(Map<String, FoeSpeech> map) throws Exception
+	public void saveFoeInteractions(Map<String, FoeInteraction> map) throws Exception
 	{
-		v2Crud(map, getPath(FOE_SPEECH), new SimpleMapSilo<>(getFoeSpeechSerialiser(db)));
+		v2Crud(map, getPath(FOE_INTERACTIONS), new SimpleMapSilo<>(getFoeInteractionSerialiser(db)));
 	}
 
 	@Override

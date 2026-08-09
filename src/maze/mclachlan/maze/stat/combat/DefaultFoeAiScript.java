@@ -24,6 +24,8 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.StartCombatEvent;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.npc.*;
 
 /**
@@ -43,25 +45,13 @@ public class DefaultFoeAiScript extends NpcScript
 	@Override
 	public List<MazeEvent> firstGreeting()
 	{
-		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
-		if (foeSpeech != null)
+		FoeInteraction foeInteraction = npc.getFoeTemplate().getFoeInteraction();
+		if (foeInteraction != null)
 		{
 			switch (npc.getAttitude())
 			{
-				case NEUTRAL ->
-				{
-					if (foeSpeech.getNeutralGreeting() != null)
-					{
-						return getList(new NpcSpeechEvent(foeSpeech.getNeutralGreeting(), npc));
-					}
-				}
-				case FRIENDLY, ALLIED ->
-				{
-					if (foeSpeech.getFriendlyGreeting() != null)
-					{
-						return getList(new NpcSpeechEvent(foeSpeech.getFriendlyGreeting(), npc));
-					}
-				}
+				case NEUTRAL -> { return FoeInteraction.eventsOrNull(foeInteraction.getNeutralGreeting()); }
+				case FRIENDLY, ALLIED -> { return FoeInteraction.eventsOrNull(foeInteraction.getFriendlyGreeting()); }
 			}
 		}
 
@@ -84,24 +74,55 @@ public class DefaultFoeAiScript extends NpcScript
 	@Override
 	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
-		Maze maze = Maze.getInstance();
-
-		return getList(new StartCombatEvent(
-			maze,
-			maze.getParty(),
-			actorEncounter));
+		return startCombatWithOptionalPrologue();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> attackedByParty()
 	{
-		Maze maze = Maze.getInstance();
+		return startCombatWithOptionalPrologue();
+	}
 
-		return getList(new StartCombatEvent(
+	private List<MazeEvent> startCombatWithOptionalPrologue()
+	{
+		Maze maze = Maze.getInstance();
+		List<MazeEvent> result = new ArrayList<>();
+
+		FoeInteraction foeInteraction = npc.getFoeTemplate().getFoeInteraction();
+		if (foeInteraction != null)
+		{
+			List<MazeEvent> prologue = FoeInteraction.eventsOrNull(foeInteraction.getAttacksParty());
+			if (prologue != null)
+			{
+				result.addAll(prologue);
+			}
+		}
+
+		result.add(new StartCombatEvent(
 			maze,
 			maze.getParty(),
 			actorEncounter));
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> givenItemByParty(PlayerCharacter owner, Item item)
+	{
+		FoeInteraction foeInteraction = npc.getFoeTemplate().getFoeInteraction();
+		if (foeInteraction != null
+			&& foeInteraction.getGivenItemName() != null
+			&& foeInteraction.getGivenItemName().equals(item.getName()))
+		{
+			List<MazeEvent> result = FoeInteraction.eventsOrNull(foeInteraction.getGivenItemScript());
+			if (result != null)
+			{
+				return result;
+			}
+		}
+
+		return super.givenItemByParty(owner, item);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -109,10 +130,14 @@ public class DefaultFoeAiScript extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
-		if (foeSpeech != null && foeSpeech.getFriendlyFarewell() != null)
+		FoeInteraction foeInteraction = npc.getFoeTemplate().getFoeInteraction();
+		if (foeInteraction != null)
 		{
-			result.add(new NpcSpeechEvent(foeSpeech.getFriendlyFarewell(), npc));
+			List<MazeEvent> farewell = FoeInteraction.eventsOrNull(foeInteraction.getFriendlyFarewell());
+			if (farewell != null)
+			{
+				result.addAll(farewell);
+			}
 		}
 		if (actorEncounter.getPartyLeavesFriendlyScript() != null)
 		{
@@ -127,10 +152,14 @@ public class DefaultFoeAiScript extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		FoeSpeech foeSpeech = npc.getFoeTemplate().getFoeSpeech();
-		if (foeSpeech != null && foeSpeech.getNeutralFarewell() != null)
+		FoeInteraction foeInteraction = npc.getFoeTemplate().getFoeInteraction();
+		if (foeInteraction != null)
 		{
-			result.add(new NpcSpeechEvent(foeSpeech.getNeutralFarewell(), npc));
+			List<MazeEvent> farewell = FoeInteraction.eventsOrNull(foeInteraction.getNeutralFarewell());
+			if (farewell != null)
+			{
+				result.addAll(farewell);
+			}
 		}
 		if (actorEncounter.getPartyLeavesNeutralScript() != null)
 		{

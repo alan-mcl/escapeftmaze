@@ -222,9 +222,9 @@ public class V2Loader extends Loader
 	}
 
 	@Override
-	public Map<String, FoeSpeech> loadFoeSpeech()
+	public Map<String, FoeInteraction> loadFoeInteractions()
 	{
-		return v2Crud(getPath(FOE_SPEECH), new SimpleMapSilo<>(getFoeSpeechSerialiser(db)));
+		return v2Crud(getPath(FOE_INTERACTIONS), new SimpleMapSilo<>(getFoeInteractionSerialiser(db)));
 	}
 
 	@Override

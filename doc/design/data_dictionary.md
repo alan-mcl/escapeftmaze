@@ -173,6 +173,20 @@ DB definition for an enemy type.
 | `stealthBehaviour`, `evasionBehaviour`, `fleeChance`, `focus`, `defaultAttitude`, `alliesOnCall` | AI | Behaviour |
 | `faction` | String | Faction id |
 | `npc` | boolean | Is an NPC |
+| `foeInteraction` | FoeInteraction | Optional data-driven encounter hooks |
+
+#### FoeInteraction - `stat/npc/FoeInteraction.java`
+DB definition for anonymous-foe encounter scripting (via `DefaultFoeAiScript`).
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `name` | String | Pack key |
+| `friendlyGreeting`, `neutralGreeting` | MazeScript | Greeting event lists by attitude |
+| `friendlyFarewell`, `neutralFarewell` | MazeScript | Leave event lists (`ActorsLeaveEvent` still appended by runtime) |
+| `attacksParty` | MazeScript | Optional prologue before combat |
+| `givenItemName` | String | Exact item name for a custom gift reaction |
+| `givenItemScript` | MazeScript | Events when the party gives `givenItemName` |
+| `dialog` | NpcSpeech | Keyword dialogue for talk |
 
 #### Npc - `stat/npc/Npc.java`
 Persistent NPC (extends `Foe`), saved per slot.
@@ -360,7 +374,7 @@ File-to-entity mapping (from
 | `scripts.json` | MazeScript |
 | `foetypes.json` | FoeType |
 | `foetemplates.json` | FoeTemplate |
-| `foespeech.json` | FoeSpeech |
+| `foeinteractions.json` | FoeInteraction |
 | `foeentries.json` | FoeEntry |
 | `encountertables.json` | EncounterTable |
 | `traps.json` | Trap |

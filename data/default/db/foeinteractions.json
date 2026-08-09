@@ -6,15 +6,15 @@
         {
           "priority": "9",
           "keywords": [
-            "aello",
-            "beiweh",
             "lunara",
             "garret",
             "thyra",
-            "isolde",
             "white lady",
-            "morrath",
-            "nergal"
+            "aello",
+            "isolde",
+            "nergal",
+            "beiweh",
+            "morrath"
           ],
           "speech": "You browse through various volumes in the theology and religion section, but fail to find anything you don\u0027t already know.\n\nThe pantheon of gods worshipped in the Maze is a rather distant and abstract one. There are a lot of mythological tales about them bickering with each other or warring with an antagonistic race of giants, but less material offering moral or spiritual guidance."
         },
@@ -35,9 +35,9 @@
         {
           "priority": "9",
           "keywords": [
-            "c.o.c.",
+            "coc",
             "chamber of commerce",
-            "coc"
+            "c.o.c."
           ],
           "speech": "Several whole shelves are dedicated to the Chamber\u0027s official histories, annual reports and commemorative volumes. You spend some time browsing them.\n\nThey are impeccably produced and thoroughly self-congratulatory. Together they paint a picture of steady prosperity, civic responsibility and wise stewardship of Ichiba\u0027s affairs. Controversies are mentioned only in passing, troubles are attributed to unfortunate circumstances and are invariably overcome with C.o.C. foresight and coordination.\n\nYou\u0027re left with the feeling that if dissenting accounts exist, they\u0027re not shelved here."
         },
@@ -58,9 +58,9 @@
         {
           "priority": "9",
           "keywords": [
+            "freedom",
             "maze",
-            "escape",
-            "freedom"
+            "escape"
           ],
           "speech": "There are plenty of reference works covering The Maze. Philosophical treatises, travellers\u0027 accounts, historical surveys, speculative theories, cosmology and theology, and so on.\nWhile there is no shortage of material, you find nothing that you did not already know.\nThe Maze is your prison. The Maze moves against those who try to escape. Gates are the means of passage. Realms escalate in danger as your pass outwards. You find no hidden secrets or answers."
         },
@@ -96,8 +96,8 @@
         {
           "priority": "9",
           "keywords": [
-            "gnome",
-            "gnomes"
+            "gnomes",
+            "gnome"
           ],
           "speech": "You locate several scholarly works on the Gnomes of the Second Realm.\nThough physically slight, they are universally described as hardy, resourceful and resilient. Most accounts dwell on their engineering, craftsmanship and the great underground fortress of Aenen, which has endured against the Maze for generations.\nMany volumes recount the ancient legend that the gnomish race was cursed by a jealous dragon and condemned to wander the Maze for a thousand generations. Historians treat the tale with varying degrees of scepticism, but none can deny that the gnomes have survived hardships that would have destroyed many older kingdoms."
         },
@@ -132,9 +132,9 @@
         {
           "priority": "9",
           "keywords": [
-            "leonal",
+            "white order",
             "leonals",
-            "white order"
+            "leonal"
           ],
           "speech": "You find several ethnographic and historical works concerning the Leonals, generally portraying them as a proud and disciplined people.\nTheir society is consistently described as valuing honour, duty and public service, producing generations of accomplished soldiers, magistrates and statesmen. Foreign authors sometimes criticise Leonal pride as arrogance, while Leonal historians dismiss such accusations as the resentment of less disciplined nations.\nLeonal tradition holds that their ancestors were the last defenders of a dying world. Refusing to abandon their posts even as all hope was lost, they fought until the final gate collapsed around them. When they awoke, they found themselves in the Maze."
         },
@@ -194,10 +194,46 @@
   },
   {
     "name": "test",
-    "friendlyGreeting": "fg",
-    "neutralGreeting": "ng",
-    "friendlyFarewell": "ff",
-    "neutralFarewell": "nf",
+    "friendlyGreeting": {
+      "name": "test.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "fg",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "test.neutralGreeting",
+      "events": [
+        {
+          "speechText": "ng",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "test.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "ff",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "test.neutralFarewell",
+      "events": [
+        {
+          "speechText": "nf",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {
@@ -212,10 +248,46 @@
   },
   {
     "name": "gnomes",
-    "friendlyGreeting": "Good tidings, good trades, good tales, to you good day.",
-    "neutralGreeting": "Long shadows cross our path today. Mind where your steps fall, travelers.",
-    "friendlyFarewell": "Go well, friends of Aenen... may luck skip ahead of you.",
-    "neutralFarewell": "The road forgets no footsteps.",
+    "friendlyGreeting": {
+      "name": "gnomes.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "Good tidings, good trades, good tales, to you good day.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "gnomes.neutralGreeting",
+      "events": [
+        {
+          "speechText": "Long shadows cross our path today. Mind where your steps fall, travelers.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "gnomes.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "Go well, friends of Aenen... may luck skip ahead of you.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "gnomes.neutralFarewell",
+      "events": [
+        {
+          "speechText": "The road forgets no footsteps.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {
@@ -660,10 +732,46 @@
   },
   {
     "name": "leonals",
-    "friendlyGreeting": "Blessings upon thee; thy presence is ever a welcome sight.",
-    "neutralGreeting": "Move aside, stranger, lest thou hinder the Lady\u0027s own work.",
-    "friendlyFarewell": "Go in the Lady\u0027s grace, friends, and return when thou hast need.",
-    "neutralFarewell": "Go thy way, and may no folly follow thee.",
+    "friendlyGreeting": {
+      "name": "leonals.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "Blessings upon thee; thy presence is ever a welcome sight.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "leonals.neutralGreeting",
+      "events": [
+        {
+          "speechText": "Move aside, stranger, lest thou hinder the Lady\u0027s own work.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "leonals.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "Go in the Lady\u0027s grace, friends, and return when thou hast need.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "leonals.neutralFarewell",
+      "events": [
+        {
+          "speechText": "Go thy way, and may no folly follow thee.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {
@@ -1108,10 +1216,46 @@
   },
   {
     "name": "chamber of commerce",
-    "friendlyGreeting": "Heard good things about you. Keep that up and we\u0027ll get along fine.",
-    "neutralGreeting": "Slow it down, outsider. We keep order here, for everyone.",
-    "friendlyFarewell": "See you around. Holler if you need backup.",
-    "neutralFarewell": "We\u0027re done here. Stay out of trouble.",
+    "friendlyGreeting": {
+      "name": "chamber of commerce.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "Heard good things about you. Keep that up and we\u0027ll get along fine.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "chamber of commerce.neutralGreeting",
+      "events": [
+        {
+          "speechText": "Slow it down, outsider. We keep order here, for everyone.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "chamber of commerce.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "See you around. Holler if you need backup.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "chamber of commerce.neutralFarewell",
+      "events": [
+        {
+          "speechText": "We\u0027re done here. Stay out of trouble.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {
@@ -1555,11 +1699,80 @@
     }
   },
   {
+    "name": "skyrazor brood mother",
+    "givenItemName": "Leathery Egg",
+    "givenItemScript": {
+      "name": "skyrazor brood mother.givenItemScript",
+      "events": [
+        {
+          "flavourText": "The beast freezes as you present the large egg, it\u0027s glinting eyes fixed on yours.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+          "alignment": "CENTER",
+          "shouldClearText": "false"
+        },
+        {
+          "flavourText": "In a flash it snatches the egg in it\u0027s beak and shuffles back into the cave, cawing angrily.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+          "alignment": "CENTER",
+          "shouldClearText": "false"
+        },
+        {
+          "TYPE_KEY": "mclachlan.maze.stat.npc.ActorsLeaveEvent"
+        },
+        {
+          "amount": "250",
+          "TYPE_KEY": "mclachlan.maze.map.script.GrantExperienceEvent"
+        }
+      ]
+    },
+    "dialog": {
+      "dialogue": []
+    }
+  },
+  {
     "name": "gnolls",
-    "friendlyGreeting": "Heh, I smell you from far. Is good smell today.",
-    "neutralGreeting": "You no enemy... maybe. We watch you close.",
-    "friendlyFarewell": "Go safe, friend-pack. We howl for your return.",
-    "neutralFarewell": "Strangers go now. Good.",
+    "friendlyGreeting": {
+      "name": "gnolls.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "Heh, I smell you from far. Is good smell today.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "gnolls.neutralGreeting",
+      "events": [
+        {
+          "speechText": "You no enemy... maybe. We watch you close.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "gnolls.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "Go safe, friend-pack. We howl for your return.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "gnolls.neutralFarewell",
+      "events": [
+        {
+          "speechText": "Strangers go now. Good.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {
@@ -2004,10 +2217,46 @@
   },
   {
     "name": "goblins",
-    "friendlyGreeting": "No blades for these in the alleys, lads.",
-    "neutralGreeting": "Fog and shadows to you, stranger. Stay tidy in the lanes.",
-    "friendlyFarewell": "Catch you in the lanes later. Drinks if we both survive.",
-    "neutralFarewell": "Off you trot, and mind the eyes in the brickwork.",
+    "friendlyGreeting": {
+      "name": "goblins.friendlyGreeting",
+      "events": [
+        {
+          "speechText": "No blades for these in the alleys, lads.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralGreeting": {
+      "name": "goblins.neutralGreeting",
+      "events": [
+        {
+          "speechText": "Fog and shadows to you, stranger. Stay tidy in the lanes.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "friendlyFarewell": {
+      "name": "goblins.friendlyFarewell",
+      "events": [
+        {
+          "speechText": "Catch you in the lanes later. Drinks if we both survive.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
+    "neutralFarewell": {
+      "name": "goblins.neutralFarewell",
+      "events": [
+        {
+          "speechText": "Off you trot, and mind the eyes in the brickwork.",
+          "delay": "-1",
+          "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
+        }
+      ]
+    },
     "dialog": {
       "dialogue": [
         {

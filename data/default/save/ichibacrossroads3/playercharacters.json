@@ -1501,16 +1501,14 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Hand Axe",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -1520,16 +1518,21 @@
           "cursedState": "1",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Willow Arrow",
           "cursedState": "1",
           "identificationState": "2",
           "stack": "50-100",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
+        },
+        {
+          "template": "Leathery Egg",
+          "cursedState": "0",
+          "identificationState": "1",
+          "stack": "0-1",
+          "charges": "0-0"
         }
       ]
     },

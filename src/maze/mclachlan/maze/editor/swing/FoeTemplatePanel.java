@@ -65,7 +65,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private SpellLikeAbilitiesWidget spellLikeAbilitiesWidget;
 	private LootTableDisplayWidget lootTable;
 
-	private JComboBox foeSpeech;
+	private JComboBox foeInteraction;
 
 	static String[] evasionBehaviours =
 		{
@@ -527,9 +527,9 @@ public class FoeTemplatePanel extends EditorPanel
 		alliesOnCall.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Allies On Call:"), alliesOnCall, gbc);
 
-		foeSpeech = new JComboBox();
-		foeSpeech.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Speech:"), foeSpeech, gbc);
+		foeInteraction = new JComboBox();
+		foeInteraction.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Interaction:"), foeInteraction, gbc);
 
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
@@ -583,10 +583,10 @@ public class FoeTemplatePanel extends EditorPanel
 		animations.add(0, NONE);
 		spriteAnimations.setModel(new DefaultComboBoxModel<>(animations));
 
-		Vector<String> foeSpeeches = new Vector<>(Database.getInstance().getFoeSpeeches().keySet());
-		Collections.sort(foeSpeeches);
-		foeSpeeches.add(0, NONE);
-		foeSpeech.setModel(new DefaultComboBoxModel<>(foeSpeeches));
+		Vector<String> foeInteractions = new Vector<>(Database.getInstance().getFoeInteractions().keySet());
+		Collections.sort(foeInteractions);
+		foeInteractions.add(0, NONE);
+		foeInteraction.setModel(new DefaultComboBoxModel<>(foeInteractions));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -615,7 +615,7 @@ public class FoeTemplatePanel extends EditorPanel
 		characterClass.removeActionListener(this);
 		alliesOnCall.removeActionListener(this);
 		spriteAnimations.removeActionListener(this);
-		foeSpeech.removeActionListener(this);
+		foeInteraction.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -674,7 +674,7 @@ public class FoeTemplatePanel extends EditorPanel
 		focus.setSelectedItem(ft.getFocus());
 		attitude.setSelectedItem(ft.getDefaultAttitude());
 		alliesOnCall.setSelectedItem(ft.getAlliesOnCall()==null?NONE:ft.getAlliesOnCall());
-		foeSpeech.setSelectedItem(ft.getFoeSpeech() == null ? EditorPanel.NONE : ft.getFoeSpeech().getName());
+		foeInteraction.setSelectedItem(ft.getFoeInteraction() == null ? EditorPanel.NONE : ft.getFoeInteraction().getName());
 
 		analysisOutput.setText("");
 
@@ -699,7 +699,7 @@ public class FoeTemplatePanel extends EditorPanel
 		characterClass.addActionListener(this);
 		alliesOnCall.addActionListener(this);
 		spriteAnimations.addActionListener(this);
-		foeSpeech.addActionListener(this);
+		foeInteraction.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -837,7 +837,7 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getFocus(),
 			current.getDefaultAttitude(),
 			current.getAlliesOnCall(),
-			current.getFoeSpeech());
+			current.getFoeInteraction());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 
@@ -931,7 +931,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 		ft.setAlliesOnCall(NONE==alliesOnCall.getSelectedItem()?null: (String)alliesOnCall.getSelectedItem());
 
-		ft.setFoeSpeech(EditorPanel.NONE.equals(foeSpeech.getSelectedItem()) ? null : Database.getInstance().getFoeSpeech((String)foeSpeech.getSelectedItem()));
+		ft.setFoeInteraction(EditorPanel.NONE.equals(foeInteraction.getSelectedItem()) ? null : Database.getInstance().getFoeInteraction((String)foeInteraction.getSelectedItem()));
 
 		return ft;
 	}

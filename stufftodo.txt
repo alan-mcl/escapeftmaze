@@ -40,6 +40,7 @@ bug: should not be able to evade foes while resting (really?  maybe just adjust 
 
 icon: wilderness veil
 icon: aura of regeneration
+icon: leathery egg
 
 sound: all musical instruments
 

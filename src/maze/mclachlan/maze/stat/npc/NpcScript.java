@@ -509,9 +509,9 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Serialisabl
 			Npc npc1 = (Npc)this.npc;
 			dialogue = npc1.getTemplate().getDialogue();
 		}
-		else if (this.npc.getFoeTemplate().getFoeSpeech() != null)
+		else if (this.npc.getFoeTemplate().getFoeInteraction() != null)
 		{
-			dialogue = this.npc.getFoeTemplate().getFoeSpeech().getDialog();
+			dialogue = this.npc.getFoeTemplate().getFoeInteraction().getDialog();
 		}
 		return dialogue;
 	}

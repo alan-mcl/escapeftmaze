@@ -641,17 +641,27 @@ public class V2SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<FoeSpeech> getFoeSpeechSerialiser(Database db)
+	public static V2SerialiserMap<FoeInteraction> getFoeInteractionSerialiser(Database db)
 	{
+		var mazeScriptSerialiser = getMazeScriptSerialiser(db);
 		var result = getReflectiveSerialiser(
-			FoeSpeech.class,
+			FoeInteraction.class,
 			"name",
 			"friendlyGreeting",
 			"neutralGreeting",
 			"friendlyFarewell",
 			"neutralFarewell",
+			"attacksParty",
+			"givenItemName",
+			"givenItemScript",
 			"dialog");
 
+		result.addCustomSerialiser("friendlyGreeting", mazeScriptSerialiser);
+		result.addCustomSerialiser("neutralGreeting", mazeScriptSerialiser);
+		result.addCustomSerialiser("friendlyFarewell", mazeScriptSerialiser);
+		result.addCustomSerialiser("neutralFarewell", mazeScriptSerialiser);
+		result.addCustomSerialiser("attacksParty", mazeScriptSerialiser);
+		result.addCustomSerialiser("givenItemScript", mazeScriptSerialiser);
 		result.addCustomSerialiser("dialog", getNpcSpeechSerialiser());
 
 		return result;
@@ -704,7 +714,7 @@ public class V2SerialiserFactory
 				"focus",
 				"defaultAttitude",
 				"alliesOnCall",
-				"foeSpeech");
+				"foeInteraction");
 
 		defaultSerialiser.addCustomSerialiser("types", new ListSerialiser(new NameSerialiser<>(db::getFoeType)));
 		defaultSerialiser.addCustomSerialiser("race", new NameSerialiser<>(db::getRace));
@@ -724,7 +734,7 @@ public class V2SerialiserFactory
 		defaultSerialiser.addCustomSerialiser("naturalWeapons", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		defaultSerialiser.addCustomSerialiser("spellBook", getSpellBookSerialiser(db));
 		defaultSerialiser.addCustomSerialiser("spellLikeAbilities", new ListSerialiser(getSpellLikeAbilitySerialiser(db)));
-		defaultSerialiser.addCustomSerialiser("foeSpeech", new NameSerialiser<>(db::getFoeSpeech));
+		defaultSerialiser.addCustomSerialiser("foeInteraction", new NameSerialiser<>(db::getFoeInteraction));
 
 		HashMap<Class, V2SerialiserMap<FoeTemplate>> map = new HashMap<>();
 		map.put(FoeTemplate.class, defaultSerialiser);

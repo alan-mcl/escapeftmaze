@@ -27,7 +27,7 @@ import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
-import mclachlan.maze.stat.npc.FoeSpeech;
+import mclachlan.maze.stat.npc.FoeInteraction;
 import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
@@ -122,8 +122,8 @@ public class FoeTemplate extends DataObject
 	private NpcFaction.Attitude defaultAttitude;
 	/** any allies that this foe can summon at the start of combat */
 	private String alliesOnCall;
-	/** speech pack in case of non-hostile interaction */
-	private FoeSpeech foeSpeech;
+	/** interaction pack in case of non-hostile interaction */
+	private FoeInteraction foeInteraction;
 
 	public FoeTemplate()
 	{
@@ -173,7 +173,7 @@ public class FoeTemplate extends DataObject
 		CharacterClass.Focus focus,
 		NpcFaction.Attitude defaultAttitude,
 		String alliesOnCall,
-		FoeSpeech foeSpeech)
+		FoeInteraction foeInteraction)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.types = types;
@@ -217,7 +217,7 @@ public class FoeTemplate extends DataObject
 		this.focus = focus;
 		this.defaultAttitude = defaultAttitude;
 		this.alliesOnCall = alliesOnCall;
-		this.foeSpeech = foeSpeech;
+		this.foeInteraction = foeInteraction;
 
 		init();
 	}
@@ -682,14 +682,14 @@ public class FoeTemplate extends DataObject
 		return cannotBeEvaded;
 	}
 
-	public FoeSpeech getFoeSpeech()
+	public FoeInteraction getFoeInteraction()
 	{
-		return foeSpeech;
+		return foeInteraction;
 	}
 
-	public void setFoeSpeech(FoeSpeech foeSpeech)
+	public void setFoeInteraction(FoeInteraction foeInteraction)
 	{
-		this.foeSpeech = foeSpeech;
+		this.foeInteraction = foeInteraction;
 	}
 
 	/*-------------------------------------------------------------------------*/

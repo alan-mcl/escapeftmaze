@@ -29,12 +29,12 @@ import mclachlan.maze.stat.npc.*;
 
 /**
  * RFC 4180 CSV import/export for keyword dialogue rows on NPC templates and
- * FoeSpeech packs.
+ * FoeInteraction packs.
  */
 public class NpcSpeechCsv
 {
 	public static final String OWNER_TYPE_NPC = "npc";
-	public static final String OWNER_TYPE_FOE_SPEECH = "foespeech";
+	public static final String OWNER_TYPE_FOE_INTERACTION = "foeinteraction";
 
 	private static final String[] HEADER =
 		{"owner_type", "owner_name", "priority", "keywords", "speech"};
@@ -52,7 +52,7 @@ public class NpcSpeechCsv
 	/*-------------------------------------------------------------------------*/
 	public record ApplyResult(
 		boolean npcTemplatesDirty,
-		boolean foeSpeechDirty,
+		boolean foeInteractionDirty,
 		int ownersUpdated,
 		List<String> unknownOwners)
 	{
@@ -76,14 +76,14 @@ public class NpcSpeechCsv
 			}
 		}
 
-		for (FoeSpeech foeSpeech : db.getFoeSpeeches().values())
+		for (FoeInteraction foeInteraction : db.getFoeInteractions().values())
 		{
-			if (foeSpeech.getDialog() != null)
+			if (foeInteraction.getDialog() != null)
 			{
 				rows.addAll(exportOne(
-					OWNER_TYPE_FOE_SPEECH,
-					foeSpeech.getName(),
-					foeSpeech.getDialog()));
+					OWNER_TYPE_FOE_INTERACTION,
+					foeInteraction.getName(),
+					foeInteraction.getDialog()));
 			}
 		}
 
@@ -142,7 +142,7 @@ public class NpcSpeechCsv
 		}
 
 		boolean npcDirty = false;
-		boolean foeSpeechDirty = false;
+		boolean foeInteractionDirty = false;
 		int ownersUpdated = 0;
 		List<String> unknownOwners = new ArrayList<>();
 
@@ -172,23 +172,23 @@ public class NpcSpeechCsv
 				npcDirty = true;
 				ownersUpdated++;
 			}
-			else if (OWNER_TYPE_FOE_SPEECH.equals(first.ownerType()))
+			else if (OWNER_TYPE_FOE_INTERACTION.equals(first.ownerType()))
 			{
-				FoeSpeech foeSpeech = db.getFoeSpeeches().get(first.ownerName());
-				if (foeSpeech == null)
+				FoeInteraction foeInteraction = db.getFoeInteractions().get(first.ownerName());
+				if (foeInteraction == null)
 				{
 					unknownOwners.add(first.ownerType() + ":" + first.ownerName());
 					continue;
 				}
 
-				NpcSpeech dialog = foeSpeech.getDialog();
+				NpcSpeech dialog = foeInteraction.getDialog();
 				if (dialog == null)
 				{
 					dialog = new NpcSpeech();
-					foeSpeech.setDialog(dialog);
+					foeInteraction.setDialog(dialog);
 				}
 				dialog.setDialogue(dialogue);
-				foeSpeechDirty = true;
+				foeInteractionDirty = true;
 				ownersUpdated++;
 			}
 			else
@@ -197,7 +197,7 @@ public class NpcSpeechCsv
 			}
 		}
 
-		return new ApplyResult(npcDirty, foeSpeechDirty, ownersUpdated, unknownOwners);
+		return new ApplyResult(npcDirty, foeInteractionDirty, ownersUpdated, unknownOwners);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -343,7 +343,7 @@ public class NpcSpeechCsv
 		}
 
 		String ownerType = record.get(0).trim();
-		if (!OWNER_TYPE_NPC.equals(ownerType) && !OWNER_TYPE_FOE_SPEECH.equals(ownerType))
+		if (!OWNER_TYPE_NPC.equals(ownerType) && !OWNER_TYPE_FOE_INTERACTION.equals(ownerType))
 		{
 			throw new MazeException("Line " + lineNumber + ": unknown owner_type: "
 				+ ownerType);

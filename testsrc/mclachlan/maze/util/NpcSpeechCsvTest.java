@@ -23,6 +23,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.test.support.InMemoryLoader;
 import mclachlan.maze.test.support.MazeTestSupport;
@@ -48,7 +50,7 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 				new LinkedHashSet<>(List.of("deal", "trade", "buy")),
 				"Line one.\nHe said \"hello\", friend."),
 			new NpcSpeechCsv.SpeechCsvRow(
-				NpcSpeechCsv.OWNER_TYPE_FOE_SPEECH,
+				NpcSpeechCsv.OWNER_TYPE_FOE_INTERACTION,
 				"gnomes",
 				0,
 				new LinkedHashSet<>(List.of("aenen")),
@@ -95,11 +97,13 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 		npc.setDialogue(npcDialogue);
 		loader.npcTemplates.put(npc.getName(), npc);
 
-		FoeSpeech foeSpeech = new FoeSpeech();
-		foeSpeech.setName("test-foespeech");
-		foeSpeech.setNeutralGreeting("Halt.");
-		foeSpeech.setDialog(new NpcSpeech());
-		loader.foeSpeech.put(foeSpeech.getName(), foeSpeech);
+		FoeInteraction foeInteraction = new FoeInteraction();
+		foeInteraction.setName("test-foeinteraction");
+		foeInteraction.setNeutralGreeting(new MazeScript(
+			"test-foeinteraction.neutralGreeting",
+			List.of(new NpcSpeechEvent("Halt.", null))));
+		foeInteraction.setDialog(new NpcSpeech());
+		loader.foeInteractions.put(foeInteraction.getName(), foeInteraction);
 
 		Database db = TestData.buildDatabase(loader);
 
@@ -111,8 +115,8 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 				Set.of("quest"),
 				"New quest line."),
 			new NpcSpeechCsv.SpeechCsvRow(
-				NpcSpeechCsv.OWNER_TYPE_FOE_SPEECH,
-				"test-foespeech",
+				NpcSpeechCsv.OWNER_TYPE_FOE_INTERACTION,
+				"test-foeinteraction",
 				2,
 				Set.of("parley"),
 				"We can talk."));
@@ -120,7 +124,7 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 		NpcSpeechCsv.ApplyResult result = NpcSpeechCsv.applyToDatabase(db, rows);
 
 		assertTrue(result.npcTemplatesDirty());
-		assertTrue(result.foeSpeechDirty());
+		assertTrue(result.foeInteractionDirty());
 		assertEquals(2, result.ownersUpdated());
 		assertTrue(result.unknownOwners().isEmpty());
 
@@ -131,8 +135,10 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 			updatedNpcDialogue.getDialogue().iterator().next().getSpeech());
 
 		NpcSpeech updatedFoeDialogue =
-			db.getFoeSpeeches().get("test-foespeech").getDialog();
-		assertEquals("Halt.", db.getFoeSpeeches().get("test-foespeech").getNeutralGreeting());
+			db.getFoeInteractions().get("test-foeinteraction").getDialog();
+		assertEquals("Halt.",
+			((NpcSpeechEvent)db.getFoeInteractions().get("test-foeinteraction")
+				.getNeutralGreeting().getEvents().get(0)).getSpeechText());
 		assertEquals(1, updatedFoeDialogue.getDialogue().size());
 		assertEquals("We can talk.",
 			updatedFoeDialogue.getDialogue().iterator().next().getSpeech());
@@ -155,7 +161,7 @@ public class NpcSpeechCsvTest extends MazeTestSupport
 		NpcSpeechCsv.ApplyResult result = NpcSpeechCsv.applyToDatabase(db, rows);
 
 		assertFalse(result.npcTemplatesDirty());
-		assertFalse(result.foeSpeechDirty());
+		assertFalse(result.foeInteractionDirty());
 		assertEquals(0, result.ownersUpdated());
 		assertEquals(List.of("npc:missing-npc"), result.unknownOwners());
 	}

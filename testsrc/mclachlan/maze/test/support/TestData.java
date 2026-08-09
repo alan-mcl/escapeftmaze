@@ -152,7 +152,7 @@ public class TestData
 			CharacterClass.Focus.COMBAT,
 			NpcFaction.Attitude.ATTACKING,
 			null,                  // allies on call
-			null);                 // foe speech
+			null);                 // foe interaction
 
 		return new Foe(ft);
 	}

@@ -76,7 +76,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private MazeTexturePanel mazeTexturePanel;
 	private NaturalWeaponsPanel naturalWeaponsPanel;
 	private ObjectAnimationPanel objectAnimationPanel;
-	private FoeSpeechPanel foeSpeechPanel;
+	private FoeInteractionPanel foeInteractionPanel;
 	private HotStringsPanel hotStringsPanel;
 	private ColdStringsPanel coldStringsPanel;
 	private FoeTemplatePanel foeTemplatePanel;
@@ -170,7 +170,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		addEditorTab(EditorCategory.CREATURES, "Foe Templates", getFoeTemplatesPanel());
 		addEditorTab(EditorCategory.CREATURES, "Foe Entries", getFoeEntriesPanel());
 		addEditorTab(EditorCategory.CREATURES, "Encounter Tables", getEncounterTablesPanel());
-		addEditorTab(EditorCategory.CREATURES, "Foe Speech", getFoeSpeechPanel());
+		addEditorTab(EditorCategory.CREATURES, "Foe Interaction", getFoeInteractionPanel());
 		addEditorTab(EditorCategory.CREATURES, "Traps", getTrapsPanel());
 		addEditorTab(EditorCategory.CREATURES, "Npc Faction Templates", getNpcFactionTemplatesPanel());
 		addEditorTab(EditorCategory.CREATURES, "Npc Templates", getNpcTemplatesPanel());
@@ -431,10 +431,10 @@ public class SwingEditor extends JFrame implements WindowListener
 		return trapsPanel;
 	}
 
-	private EditorPanel getFoeSpeechPanel()
+	private EditorPanel getFoeInteractionPanel()
 	{
-		foeSpeechPanel = new FoeSpeechPanel();
-		return foeSpeechPanel;
+		foeInteractionPanel = new FoeInteractionPanel();
+		return foeInteractionPanel;
 	}
 
 	private Component getHotStringsPanel()
@@ -701,7 +701,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.RACES)) saveRaces();
 		if (dirty.get(Tab.TEXTURES)) saveMazeTextures();
 		if (dirty.get(Tab.OBJECT_ANIMATIONS)) saveObjectAnimations();
-		if (dirty.get(Tab.FOE_SPEECH)) saveFoeSpeech();
+		if (dirty.get(Tab.FOE_INTERACTION)) saveFoeInteraction();
 		if (dirty.get(Tab.HOT_STRINGS)) saveHotStrings();
 		if (dirty.get(Tab.COLD_STRINGS)) saveColdStrings();
 		if (dirty.get(Tab.FOE_TEMPLATES)) saveFoeTemplates();
@@ -780,7 +780,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		saveRaces();
 		saveMazeTextures();
 		saveObjectAnimations();
-		saveFoeSpeech();
+		saveFoeInteraction();
 		saveHotStrings();
 		saveColdStrings();
 		saveFoeTemplates();
@@ -938,9 +938,9 @@ public class SwingEditor extends JFrame implements WindowListener
 		Database.getInstance().saveObjectAnimations(Database.getInstance().getObjectAnimations(), currentCampaign);
 	}
 
-	public void saveFoeSpeech() throws Exception
+	public void saveFoeInteraction() throws Exception
 	{
-		Database.getInstance().saveFoeSpeech(Database.getInstance().getFoeSpeeches(), currentCampaign);
+		Database.getInstance().saveFoeInteractions(Database.getInstance().getFoeInteractions(), currentCampaign);
 	}
 
 	public void saveHotStrings() throws Exception
@@ -1149,9 +1149,9 @@ public class SwingEditor extends JFrame implements WindowListener
 			{
 				setDirty(Tab.NPC_TEMPLATES);
 			}
-			if (result.foeSpeechDirty())
+			if (result.foeInteractionDirty())
 			{
-				setDirty(Tab.FOE_SPEECH);
+				setDirty(Tab.FOE_INTERACTION);
 			}
 
 			if (!result.unknownOwners().isEmpty())
@@ -1186,7 +1186,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private void refreshCurrentSpeechPanel()
 	{
 		IEditorPanel panel = getEditorPanel();
-		if (panel instanceof NpcTemplatePanel || panel instanceof FoeSpeechPanel)
+		if (panel instanceof NpcTemplatePanel || panel instanceof FoeInteractionPanel)
 		{
 			String name = panel.getCurrentName();
 			if (name != null)
@@ -1324,7 +1324,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int NATURAL_WEAPONS = 34;
 		public static final int STARTING_KITS = 35;
 		public static final int FOE_TYPES = 36;
-		public static final int FOE_SPEECH = 37;
+		public static final int FOE_INTERACTION = 37;
 		public static final int HOT_STRINGS = 38;
 		public static final int COLD_STRINGS = 39;
 
@@ -1350,7 +1350,7 @@ public class SwingEditor extends JFrame implements WindowListener
 					case TEXTURES -> "textures";
 					case OBJECT_ANIMATIONS -> "object animations";
 					case FOE_TEMPLATES -> "foe templates";
-					case FOE_SPEECH -> "foe speech";
+					case FOE_INTERACTION -> "foe interaction";
 					case HOT_STRINGS -> "hot strings";
 					case COLD_STRINGS -> "cold strings";
 					case TRAPS -> "traps";
@@ -1517,7 +1517,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (e.getSource() == apply || e.getSource() == applyMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
-				if (panel.getCurrentName() != null)
+				if (panel != null && panel.getCurrentName() != null)
 				{
 					panel.commit(panel.getCurrentName());
 				}
@@ -1540,7 +1540,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (e.getSource() == applyAll || e.getSource() == applyAllMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
-				if (panel.getCurrentName() != null)
+				if (panel != null && panel.getCurrentName() != null)
 				{
 					panel.commit(panel.getCurrentName());
 				}
@@ -1597,6 +1597,10 @@ public class SwingEditor extends JFrame implements WindowListener
 				if (name != null)
 				{
 					IEditorPanel panel = getEditorPanel();
+					if (panel == null)
+					{
+						return;
+					}
 					if (panel.getCurrentName() != null)
 					{
 						panel.commit(panel.getCurrentName());
@@ -1616,6 +1620,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			else if (e.getSource() == renameItem || e.getSource() == renameMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
+				if (panel == null)
+				{
+					return;
+				}
 
 				String name = (String)JOptionPane.showInputDialog(
 					parent, "New Name:", "Rename Item", JOptionPane.QUESTION_MESSAGE,
@@ -1633,6 +1641,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			else if (e.getSource() == copyItem || e.getSource() == copyMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
+				if (panel == null)
+				{
+					return;
+				}
 
 				String name = (String)JOptionPane.showInputDialog(
 					parent, "New Name:", "Copy Item", JOptionPane.QUESTION_MESSAGE,
@@ -1651,6 +1663,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			else if (e.getSource() == deleteItem || e.getSource() == deleteMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
+				if (panel == null)
+				{
+					return;
+				}
 
 				if (panel.getCurrentName() != null)
 				{

@@ -4,16 +4,16 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.FoeSpeech;
+import mclachlan.maze.stat.npc.FoeInteraction;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.util.MazeException;
 
 /**
- * Resolves a library reference lookup against FoeSpeech keyword dialogue.
+ * Resolves a library reference lookup against FoeInteraction keyword dialogue.
  */
 public class LibraryReferenceResponseEvent extends MazeEvent
 {
-	static final String FOE_SPEECH_KEY = "ichiba library reference section";
+	static final String FOE_INTERACTION_KEY = "ichiba library reference section";
 	private static final String COLD_STRING_PREFIX = "ichiba.library.ref.";
 
 	private final String query;
@@ -28,13 +28,13 @@ public class LibraryReferenceResponseEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		FoeSpeech foeSpeech = Database.getInstance().getFoeSpeech(FOE_SPEECH_KEY);
-		if (foeSpeech == null || foeSpeech.getDialog() == null)
+		FoeInteraction foeInteraction = Database.getInstance().getFoeInteraction(FOE_INTERACTION_KEY);
+		if (foeInteraction == null || foeInteraction.getDialog() == null)
 		{
-			throw new MazeException("invalid: "+FOE_SPEECH_KEY);
+			throw new MazeException("invalid: "+FOE_INTERACTION_KEY);
 		}
 
-		NpcSpeech dialog = foeSpeech.getDialog();
+		NpcSpeech dialog = foeInteraction.getDialog();
 		String response = dialog.lookupPlayerSentence(query);
 
 		if (response == null || response.isEmpty())

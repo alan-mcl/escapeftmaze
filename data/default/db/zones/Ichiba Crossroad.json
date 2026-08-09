@@ -6107,7 +6107,29 @@
       },
       {
         "coords": "15:29",
-        "scripts": [],
+        "scripts": [
+          {
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "encounterTable": "skyrazor.1",
+            "mazeVariable": "ichiba.crossroad.encounter.6",
+            "postAppearanceScriptEvents": {
+              "name": "Encounter.postAppearanceScript",
+              "events": [
+                {
+                  "flavourText": "This time the creature has no hesitation about attacking you!",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "false"
+                }
+              ]
+            },
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
+          }
+        ],
         "randomEncounters": "ichiba.crossroad.random.enc",
         "statModifier": "3f800000000000000000,02010102020201",
         "terrainType": "WILDERNESS",
