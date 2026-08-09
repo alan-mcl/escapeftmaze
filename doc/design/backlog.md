@@ -32,6 +32,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
 | P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |
 | P0-5 | bug | JCraftPlayer SFX infinite exception spin | EOF (`read` returns -1) was not treated as end-of-stream in `readBody`; corrupt `SyncState` and stale `wrote()` caused busy-loop `IndexOutOfBoundsException` on SFX threads, heap exhaustion, apparent hang. Fixed in `JCraftPlayer`. (code) | S | done |
+| P0-6 | bug | Raycaster OOB columns skip floor/ceiling | When a cast column ray exits map bounds with no wall hit, `drawColumn` returned before floor/ceiling cast, leaving sky-only voids on clifftop views. Fixed open-horizon floor/ceiling path and OOB sample handling in `CrusaderEngine32`. (code) | S | done |
 
 ---
 

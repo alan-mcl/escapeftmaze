@@ -2305,11 +2305,17 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private void drawObjects(int castColumn, int depth)
 	{
+		float wallDistance = blockHitRecord[castColumn][depth].distance;
+		if (wallDistance < 0)
+		{
+			wallDistance = Float.MAX_VALUE;
+		}
+
 		int objectCount = objects.length - 1;
 		for (; objectCount >= 0; objectCount--)
 		{
 			if (this.objects[objectCount].distance > 0 &&
-				this.objects[objectCount].apparentDistance < blockHitRecord[castColumn][depth].distance)
+				this.objects[objectCount].apparentDistance < wallDistance)
 			{
 				if (this.objects[objectCount].projectedObjectWidth > 0 &&
 					this.objects[objectCount].endScreenX > 0)
@@ -2342,7 +2348,17 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		if (blockHit == -1 || wall == null || textures == null)
 		{
-			// no block hit at this depth, prob out of bounds
+			// Ray exited the map without a wall hit; cast floor/ceiling to the horizon
+			int horizon = Math.round(Math.min(
+				playerHeight + projPlaneOffset, projectionPlaneHeight));
+			if (horizon > 0)
+			{
+				drawCeiling(castArc, screenX, 0, depth, horizon, outputBuffer);
+			}
+			if (horizon + 1 < projectionPlaneHeight)
+			{
+				drawFloor(castArc, screenX, 0, depth, horizon + 1, outputBuffer);
+			}
 			return false;
 		}
 
@@ -2543,16 +2559,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 					xIntersection = (int)(playerX + xDistance);
 					yIntersection = (int)(playerY + yDistance);
 
-					//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-					xIntersection = Math.min(xIntersection, mapWidth* tileSize -1);
-					yIntersection = Math.min(yIntersection, mapLength* tileSize -1);
-					//---
-					xIntersection = Math.max(xIntersection, 0);
-					yIntersection = Math.max(yIntersection, 0);
-					//---
-
 					gridX = xIntersection / tileSize;
 					gridY = yIntersection / tileSize;
+
+					if (gridX < 0 || gridY < 0 || gridX >= mapWidth || gridY >= mapLength)
+					{
+						screenY++;
+						continue;
+					}
+
 					mapIndex = gridX + gridY*mapWidth;
 
 					textureX = Math.abs(xIntersection % tileSize);
@@ -2730,16 +2745,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 				xIntersection = (int)(playerX + xDistance);
 				yIntersection = (int)(playerY + yDistance);
 
-				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-				xIntersection = Math.min(xIntersection, mapWidth * tileSize - 1);
-				yIntersection = Math.min(yIntersection, mapLength * tileSize - 1);
-				//---
-				xIntersection = Math.max(xIntersection, 0);
-				yIntersection = Math.max(yIntersection, 0);
-				//---
-
 				gridX = xIntersection / tileSize;
 				gridY = yIntersection / tileSize;
+
+				if (gridX < 0 || gridY < 0 || gridX >= mapWidth || gridY >= mapLength)
+				{
+					screenY++;
+					continue;
+				}
+
 				mapIndex = gridX + gridY * mapWidth;
 
 				textureX = Math.abs(xIntersection % tileSize);
