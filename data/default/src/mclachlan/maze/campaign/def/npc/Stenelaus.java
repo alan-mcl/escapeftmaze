@@ -148,7 +148,7 @@ public class Stenelaus extends NpcScript
 					"the chance or the main come up.", npc));
 				result.add(new NpcSpeechEvent("Got it? Good! As I said, you're " +
 					"the caster, stake is a hundred gold. Call and roll!", npc));
-				result.add(new DisplayOptionsEvent(this, false, "Call the main:",
+				result.add(new DisplayOptionsEvent(this, false, "Call the main:", null,
 					"Five", "Six", "Seven", "Eight", "Nine"));
 			}
 

@@ -38,6 +38,7 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 	private List<String> options;
 	private List<List<MazeEvent>> mazeScripts;
 	private String title;
+	private String description;
 
 	private transient String optionChosen;
 
@@ -46,16 +47,33 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public DisplayOptionsEvent(GeneralOptionsCallback callback, boolean forceSelection, String title, String... options)
+	public DisplayOptionsEvent(
+		GeneralOptionsCallback callback,
+		boolean forceSelection,
+		String title,
+		String description,
+		String... options)
 	{
 		this.callback = callback;
 		this.forceSelection = forceSelection;
 		this.options = Arrays.asList(options);
 		this.title = title;
+		this.description = description;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public DisplayOptionsEvent(boolean forceSelection, String title, List<String> options, List<MazeScript> scripts)
+	{
+		this(forceSelection, title, null, options, scripts);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DisplayOptionsEvent(
+		boolean forceSelection,
+		String title,
+		String description,
+		List<String> options,
+		List<MazeScript> scripts)
 	{
 		this.forceSelection = forceSelection;
 		this.options = options;
@@ -72,6 +90,7 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 
 		createCallback(forceSelection, options, mazeScripts);
 		this.title = title;
+		this.description = description;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -89,7 +108,8 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		GeneralOptionsDialog dialog = new GeneralOptionsDialog(this, forceSelection, title, options.toArray(new String[0]));
+		GeneralOptionsDialog dialog = new GeneralOptionsDialog(
+			this, forceSelection, title, description, options.toArray(new String[0]));
 		Maze.getInstance().getUi().showDialog(dialog);
 
 		synchronized(Maze.getInstance().getEventMutex())
@@ -160,5 +180,15 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 	public void setTitle(String title)
 	{
 		this.title = title;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 }

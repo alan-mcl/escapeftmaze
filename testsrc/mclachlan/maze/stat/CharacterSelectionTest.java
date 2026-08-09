@@ -20,8 +20,13 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
-import mclachlan.maze.stat.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.test.support.HeadlessMaze;
 import mclachlan.maze.test.support.MazeTestSupport;
+import mclachlan.maze.test.support.TestData;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,11 +36,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CharacterSelectionTest extends MazeTestSupport
 {
+	private Database db;
+	private Maze maze;
+
+	@BeforeEach
+	void setUp() throws Exception
+	{
+		// Modifier selection uses getModifier(), which needs live Maze/GameSys/DB.
+		db = TestData.buildEmptyDatabase();
+		maze = HeadlessMaze.boot(db);
+	}
+
+	@AfterEach
+	void tearDownLocal()
+	{
+		db = null;
+		maze = null;
+	}
+
 	private static PlayerCharacter pc(String name, Stats.Modifier mod, int value)
 	{
-		PlayerCharacter pc = new PlayerCharacter();
-		pc.setName(name);
-		pc.setStats(new Stats());
+		PlayerCharacter pc = TestData.newLevel1Pc(name);
 		StatModifier sm = new StatModifier();
 		sm.setModifier(mod, value);
 		pc.applyPermanentStatModifier(sm);
@@ -133,6 +154,38 @@ public class CharacterSelectionTest extends MazeTestSupport
 
 		assertEquals(2, candidates.size());
 		assertFalse(candidates.contains(party.get(0)));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void raceLargeSizeExcludedFromPlayerCandidates()
+	{
+		PlayerCharacter large = pc("Neotroll", Stats.Modifier.BRAWN, 1);
+		PlayerCharacter normal = pc("Human", Stats.Modifier.BRAWN, 1);
+
+		Gender gender = TestData.basicGender("Neuter");
+		Race largeRace = TestData.basicRace("Neotroll", gender);
+		largeRace.getConstantModifiers().setModifier(Stats.Modifier.LARGE_SIZE, 1);
+		large.setRace(largeRace);
+
+		// race LARGE_SIZE is not a base modifier — selection must use getModifier()
+		assertEquals(0, large.getBaseModifier(Stats.Modifier.LARGE_SIZE));
+		assertTrue(large.getModifier(Stats.Modifier.LARGE_SIZE) > 0);
+
+		List<PlayerCharacter> party = List.of(large, normal);
+		CharacterSelection selection = new CharacterSelection(
+			List.of(new PlayerCharacterSelection()),
+			List.of(new ModifierComparisonSelection(
+				Stats.Modifier.LARGE_SIZE, ComparisonOperator.GT, 0)));
+
+		List<PlayerCharacter> excluded = selection.getExcluded(party);
+		assertEquals(1, excluded.size());
+		assertEquals("Neotroll", excluded.get(0).getName());
+
+		List<PlayerCharacter> candidates = CharacterSelection.candidatesFor(
+			new PlayerCharacterSelection(), party, excluded, Set.of());
+		assertEquals(1, candidates.size());
+		assertEquals("Human", candidates.get(0).getName());
 	}
 
 	/*-------------------------------------------------------------------------*/

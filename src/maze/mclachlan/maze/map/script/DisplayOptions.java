@@ -35,6 +35,7 @@ public class DisplayOptions extends TileScript
 {
 	private boolean forceSelection;
 	private String title;
+	private String description;
 	private List<String> options;
 	private List<MazeScript> mazeScripts;
 
@@ -45,8 +46,20 @@ public class DisplayOptions extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public DisplayOptions(boolean forceSelection, String title, List<String> options, List<MazeScript> scripts)
 	{
+		this(forceSelection, title, null, options, scripts);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DisplayOptions(
+		boolean forceSelection,
+		String title,
+		String description,
+		List<String> options,
+		List<MazeScript> scripts)
+	{
 		this.forceSelection = forceSelection;
 		this.title = title;
+		this.description = description;
 		this.options = options;
 		this.mazeScripts = scripts;
 	}
@@ -57,6 +70,7 @@ public class DisplayOptions extends TileScript
 		super(copy);
 		forceSelection = copy.forceSelection;
 		title = copy.title;
+		description = copy.description;
 		options = copy.options == null ? null : new ArrayList<>(copy.options);
 		mazeScripts = copy.mazeScripts == null ? null : new ArrayList<>(copy.mazeScripts);
 	}
@@ -80,7 +94,11 @@ public class DisplayOptions extends TileScript
 		}
 
 		result.add(new DisplayOptionsEvent(
-			new MazeScriptOptions(optionsMap, forceSelection), forceSelection, title, options.toArray(new String[0])));
+			new MazeScriptOptions(optionsMap, forceSelection),
+			forceSelection,
+			title,
+			description,
+			options.toArray(new String[0])));
 
 		return result;
 	}
@@ -90,6 +108,11 @@ public class DisplayOptions extends TileScript
 	public String getTitle()
 	{
 		return title;
+	}
+
+	public String getDescription()
+	{
+		return description;
 	}
 
 	public List<String> getOptions()
@@ -110,6 +133,11 @@ public class DisplayOptions extends TileScript
 	public void setTitle(String title)
 	{
 		this.title = title;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 
 	public void setOptions(List<String> options)

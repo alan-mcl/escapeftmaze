@@ -487,7 +487,7 @@ public class V2SerialiserFactory
 		map.put(JournalEntryEvent.class, getReflectiveSerialiser(JournalEntryEvent.class, "type", "key", "journalText"));
 
 		ReflectiveSerialiser displayOptionsSerialiser = getReflectiveSerialiser(DisplayOptionsEvent.class,
-			"forceSelection", "title", "options", "mazeScripts");
+			"forceSelection", "title", "description", "options", "mazeScripts");
 		displayOptionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		map.put(DisplayOptionsEvent.class, displayOptionsSerialiser);
 
@@ -853,7 +853,7 @@ public class V2SerialiserFactory
 
 		ReflectiveSerialiser optionsSerialiser = getReflectiveSerialiser(DisplayOptions.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
-			"forceSelection", "title", "options", "mazeScripts");
+			"forceSelection", "title", "description", "options", "mazeScripts");
 		optionsSerialiser.addCustomSerialiser("options", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		optionsSerialiser.addCustomSerialiser("mazeScripts", new ListSerialiser(getMazeScriptSerialiser(db)));
 

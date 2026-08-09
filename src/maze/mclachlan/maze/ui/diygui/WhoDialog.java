@@ -70,7 +70,7 @@ class WhoDialog extends DIYPane
 			if (Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(pc).contains(e.getPoint()))
 			{
 				chooseCharacter(pc);
-				break;
+				return;
 			}
 		}
 

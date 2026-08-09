@@ -18,14 +18,14 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Fey Needle",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -35,8 +35,7 @@
           "cursedState": "1",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         }
       ]
     },
@@ -47,7 +46,7 @@
     },
     "spellPicks": "0",
     "stats": {
-      "modifiers": "3e00003400020005f8,03020207010501020201010606060606",
+      "modifiers": "20000000000000000000000000000000003e00003400020005f8,0302020701050102020101060606060601",
       "hitPoints": "5-5-0",
       "actionPoints": "0-0",
       "magicPoints": "4-4"
@@ -284,40 +283,35 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "torsoArmour": {
       "template": "Ameratsu\u0027s Gown",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "legArmour": {
       "template": "Shino Suneate",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "boots": {
       "template": "Mantis Boots",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Cascade",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -327,136 +321,119 @@
           "cursedState": "0",
           "identificationState": "2",
           "stack": "3-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Claymore",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Club",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Wakazashi",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Scrymgeour\u0027s Bitter",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Aenen Sundew",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Dungore\u0027s Malt Ale",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Hail Cider",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "McCavity Ale",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Potion Of Light Heal",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "3-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Potion Of Mod Heal",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "4-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Potion Of Mod Heal",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "3-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Potion Of Mod Heal",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "2-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Fire Bomb",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "2-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Ice Bomb",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "2-5",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Knock Pick",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-25",
-          "charges": "1-1",
-          "enchantmentName": ""
+          "charges": "1-1"
         },
         {
           "template": "Aenen Cavegrown Tobacco",
           "cursedState": "0",
           "identificationState": "1",
           "stack": "0-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         }
       ]
     },
@@ -484,7 +461,7 @@
     },
     "spellPicks": "7",
     "stats": {
-      "modifiers": "442880401f18,120c010f040807030102060706",
+      "modifiers": "4000000000000000000000000000000000442880401f18,120c010f04080703010206070601",
       "hitPoints": "13-148-0",
       "actionPoints": "10-10",
       "magicPoints": "32-41"
@@ -586,40 +563,35 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "0-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "torsoArmour": {
       "template": "Robes Of Rejuvenation",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "legArmour": {
       "template": "Enchanted Robes (L)",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "boots": {
       "template": "Glass Slippers",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Flamestaff",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -629,56 +601,49 @@
           "cursedState": "0",
           "identificationState": "2",
           "stack": "5-25",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Silver Ring",
           "cursedState": "0",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Conjurers Gloves",
           "cursedState": "2",
           "identificationState": "2",
           "stack": "1-1",
-          "charges": "2-4",
-          "enchantmentName": ""
+          "charges": "2-4"
         },
         {
           "template": "Valentine Necklace",
           "cursedState": "1",
           "identificationState": "2",
           "stack": "0-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Brooch",
           "cursedState": "1",
           "identificationState": "2",
           "stack": "0-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Bat Necklace",
           "cursedState": "1",
           "identificationState": "2",
           "stack": "0-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         },
         {
           "template": "Blarneystone Amulet",
           "cursedState": "1",
           "identificationState": "2",
           "stack": "0-1",
-          "charges": "0-0",
-          "enchantmentName": ""
+          "charges": "0-0"
         }
       ]
     },
@@ -814,21 +779,21 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Short Bow",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "secondaryWeapon": {
       "template": "Willow Arrow",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "30-100",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -1018,42 +983,42 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "torsoArmour": {
       "template": "Silk Shirt",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "legArmour": {
       "template": "Tartan Trews",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "miscItem1": {
       "template": "Pewter Cross",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Rapier",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "enchantmentName": ""
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",

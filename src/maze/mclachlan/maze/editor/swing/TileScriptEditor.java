@@ -174,6 +174,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private int maxOptions = 5;
 	private JCheckBox displayOptionsForceSelection;
 	private JTextField displayOptionsTitle;
+	private JTextArea displayOptionsDescription;
 	private List<JTextField> displayOptionsOptions;
 	private List<MazeEventsComponent> displayOptionsScripts;
 
@@ -431,6 +432,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				displayOptionsForceSelection.setSelected(dop.isForceSelection());
 
 				displayOptionsTitle.setText(dop.getTitle());
+				displayOptionsDescription.setText(dop.getDescription() == null ? "" : dop.getDescription());
 
 				List<String> options = dop.getOptions();
 				List<MazeScript> scripts = dop.getMazeScripts();
@@ -584,6 +586,10 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		displayOptionsTitle = new JTextField(20);
 
+		displayOptionsDescription = new JTextArea(4, 40);
+		displayOptionsDescription.setLineWrap(true);
+		displayOptionsDescription.setWrapStyleWord(true);
+
 		displayOptionsOptions = new ArrayList<>(maxOptions);
 		displayOptionsScripts = new ArrayList<>(maxOptions);
 		for (int i = 0; i < maxOptions; i++)
@@ -593,9 +599,26 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		}
 
 		JPanel result = new JPanel(new BorderLayout());
-		JPanel header = new JPanel();
-		header.add(new JLabel("Title:"));
-		header.add(displayOptionsTitle);
+		JPanel header = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+		gbc.insets = new Insets(3, 3, 3, 3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+		header.add(new JLabel("Title:"), gbc);
+		gbc.gridx = 1;
+		gbc.weightx = 1.0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		header.add(displayOptionsTitle, gbc);
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.weightx = 0.0;
+		gbc.fill = GridBagConstraints.NONE;
+		header.add(new JLabel("Description:"), gbc);
+		gbc.gridx = 1;
+		gbc.weightx = 1.0;
+		gbc.fill = GridBagConstraints.BOTH;
+		header.add(new JScrollPane(displayOptionsDescription), gbc);
 
 		result.add(header, BorderLayout.NORTH);
 		result.add(
@@ -1508,6 +1531,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				result = new DisplayOptions(
 					displayOptionsForceSelection.isSelected(),
 					displayOptionsTitle.getText(),
+					"".equals(displayOptionsDescription.getText()) ? null : displayOptionsDescription.getText(),
 					options,
 					scripts);
 				break;

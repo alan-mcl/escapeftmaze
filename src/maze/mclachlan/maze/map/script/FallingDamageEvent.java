@@ -20,11 +20,15 @@
 package mclachlan.maze.map.script;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.UiMessageEvent;
-import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.DamagePacket;
+import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.DamageEvent;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.NullActor;
@@ -58,7 +62,8 @@ public class FallingDamageEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		int amount = damage.roll("falling damage");
+
+		result.addAll(Database.getInstance().getMazeScript("_OUCH_").getEvents());
 
 		for (UnifiedActor actor : Maze.getInstance().getParty().getActors())
 		{
@@ -72,6 +77,7 @@ public class FallingDamageEvent extends MazeEvent
 				continue;
 			}
 
+			int amount = damage.roll("falling damage");
 			result.add(new DamageEvent(
 				null,
 				actor,

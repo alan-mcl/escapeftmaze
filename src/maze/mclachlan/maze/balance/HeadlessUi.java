@@ -153,17 +153,38 @@ public class HeadlessUi implements UserInterface
 
 	public void addObject(EngineObject obj)
 	{
-		
+		Zone zone = Maze.getInstance().getCurrentZone();
+		if (zone != null && zone.getMap() != null)
+		{
+			zone.getMap().addObject(obj);
+		}
 	}
 
 	public void removeObject(EngineObject obj)
 	{
-		
+		Zone zone = Maze.getInstance().getCurrentZone();
+		if (zone != null && zone.getMap() != null)
+		{
+			zone.getMap().removeObject(obj);
+		}
 	}
 
 	public void removeObject(String objectName)
 	{
-		
+		Zone zone = Maze.getInstance().getCurrentZone();
+		if (zone == null || zone.getMap() == null)
+		{
+			return;
+		}
+
+		List<EngineObject> objects = zone.getMap().getExpandedObjects();
+		for (int i = objects.size() - 1; i >= 0; i--)
+		{
+			if (objectName.equals(objects.get(i).getName()))
+			{
+				objects.remove(i);
+			}
+		}
 	}
 
 	public void signBoard(String message, MazeEvent event)

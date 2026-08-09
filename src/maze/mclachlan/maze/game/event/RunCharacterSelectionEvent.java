@@ -21,6 +21,7 @@ package mclachlan.maze.game.event;
 
 import java.util.*;
 import java.util.function.Consumer;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.CharacterSelection;
@@ -189,6 +190,9 @@ public class RunCharacterSelectionEvent extends MazeEvent implements ChooseChara
 
 		if (!pendingCandidates.contains(pc))
 		{
+			Maze.getInstance().getUi().addMessage(
+				StringUtil.getEventText("msg.character.cannot.be.chosen", pc.getDisplayName()),
+				false);
 			return false;
 		}
 

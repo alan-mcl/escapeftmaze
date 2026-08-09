@@ -86,7 +86,7 @@ public class ModifierComparisonSelection extends CharacterSelectionMethod
 		List<PlayerCharacter> result = new ArrayList<>();
 		for (PlayerCharacter pc : candidates)
 		{
-			if (op.compare(pc.getBaseModifier(targetModifier), value))
+			if (op.compare(pc.getModifier(targetModifier), value))
 			{
 				result.add(pc);
 			}

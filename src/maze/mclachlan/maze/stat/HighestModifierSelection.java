@@ -63,7 +63,7 @@ public class HighestModifierSelection extends CharacterSelectionMethod
 		int bestValue = Integer.MIN_VALUE;
 		for (PlayerCharacter pc : shuffled)
 		{
-			int value = pc.getBaseModifier(targetModifier);
+			int value = pc.getModifier(targetModifier);
 			if (value > bestValue)
 			{
 				bestValue = value;

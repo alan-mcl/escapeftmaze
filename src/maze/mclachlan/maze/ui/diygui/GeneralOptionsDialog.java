@@ -21,8 +21,10 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.game.Maze;
 
@@ -41,9 +43,11 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		GeneralOptionsCallback callback,
 		boolean forceSelection,
 		String title,
+		String description,
 		String... options)
 	{
-		boolean hasTitle = title != null && title.length() > 0;
+		boolean hasTitle = title != null && !title.isEmpty();
+		boolean hasDescription = description != null && !description.isBlank();
 		if (!hasTitle)
 		{
 			this.setStyle(Style.PANEL_MED);
@@ -58,7 +62,19 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		int titlePaneHeight = hasTitle ? getTitlePaneHeight() : 0;
 
 		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
-		int dialogHeight = buttonHeight*options.length +titlePaneHeight +inset*4 +border*2;
+		int contentWidth = dialogWidth - border*2 - inset*2;
+		int descriptionBlockHeight = 0;
+		if (hasDescription)
+		{
+			int lineHeight = (int)DIYToolkit.getDimension("|").getHeight();
+			descriptionBlockHeight = measureDescriptionHeight(description, contentWidth, lineHeight) + inset;
+		}
+
+		int dialogHeight = buttonHeight*options.length
+			+ titlePaneHeight
+			+ descriptionBlockHeight
+			+ inset*4
+			+ border*2;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -67,12 +83,14 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 
 		this.setBounds(dialogBounds);
 
+		int optionsTop = y + border + inset + titlePaneHeight + descriptionBlockHeight;
+
 		DIYPane optionsPane = new DIYPane(new DIYGridLayout(1,options.length,5,5));
 		optionsPane.setBounds(
 			x +border +inset,
-			y +border +inset +titlePaneHeight,
+			optionsTop,
 			width -border*2 -inset*2,
-			height -border*2 -inset*2 -titlePaneHeight);
+			height -border*2 -inset*2 - titlePaneHeight - descriptionBlockHeight);
 
 		optionButtons = new DIYButton[options.length];
 		for (int i=0; i<options.length; i++)
@@ -88,6 +106,18 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 			this.add(titlePane);
 		}
 
+		if (hasDescription)
+		{
+			DIYTextArea descriptionArea = new DIYTextArea(description);
+			descriptionArea.setTransparent(true);
+			descriptionArea.setBounds(
+				x + border + inset,
+				y + border + inset + titlePaneHeight,
+				contentWidth,
+				descriptionBlockHeight - inset);
+			this.add(descriptionArea);
+		}
+
 		this.add(optionsPane);
 
 		close = getCloseButton();
@@ -99,6 +129,13 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		}
 
 		this.doLayout();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int measureDescriptionHeight(String text, int contentWidth, int lineHeight)
+	{
+		List<String> lines = DIYToolkit.wrapText(text, contentWidth - 2, null);
+		return lines.size() * lineHeight;
 	}
 
 	/*-------------------------------------------------------------------------*/

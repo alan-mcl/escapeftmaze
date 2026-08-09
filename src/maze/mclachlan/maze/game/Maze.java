@@ -1715,8 +1715,14 @@ public class Maze implements Runnable
 		}
 
 		mgr.removeCharacter(camp, pc.getName());
-		mgr.removeCampIfEmpty(camp);
-		mgr.syncVisual(this);
+		if (camp.getCharacterNames().isEmpty())
+		{
+			mgr.removeCamp(camp, this);
+		}
+		else
+		{
+			mgr.syncVisual(this);
+		}
 		return true;
 	}
 
@@ -2645,6 +2651,11 @@ public class Maze implements Runnable
 	{
 		Zone z = new Zone();
 		z.setName(zoneName);
+		z.setWidth(16);
+		z.setLength(16);
+		mclachlan.crusader.Map map = new mclachlan.crusader.Map();
+		map.setExpandedObjects(new ArrayList<>());
+		z.setMap(map);
 		this.zone = z;
 		this.playerPos = tile;
 	}

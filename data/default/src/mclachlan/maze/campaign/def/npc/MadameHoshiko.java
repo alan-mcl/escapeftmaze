@@ -70,7 +70,7 @@ public class MadameHoshiko extends NpcScript
 					return getList(
 						new NpcSpeechEvent("There is a price for my services. Will you pay?", npc),
 						new DisplayOptionsEvent(this, true,
-							"Pay Madame Hoshiko 50gp?", YES, NO));
+							"Pay Madame Hoshiko 50gp?", null, YES, NO));
 				}
 			}
 			else
