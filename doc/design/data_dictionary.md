@@ -326,6 +326,8 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | LootEntry | `lootentries.json` | Single loot roll: item name + quantity dice |
 | Trap | `map/Trap.java` | `name`, difficulty, spell effects, disarm params |
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
+| MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs) |
+| FallingDamageEvent | `map/script/FallingDamageEvent.java` | Authored script event: `damage` (Dice); rolls once and applies bludgeoning damage to each living party member without `Stats.Modifier.FLIER` |
 | ZoneScript | `map/ZoneScript.java` | Zone-level init/end-of-turn ambient script |
 | MazeTexture | `data/MazeTexture.java` | Named image resource -> Crusader `Texture` (frames, animation, scroll, tint) |
 | ColdString | `data/ColdString.java` | Lazy-loaded bulk text: `name` (global key), `body` (multiline prose). Stored in `strings/cold/<shard>.json`. |

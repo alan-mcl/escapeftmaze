@@ -445,6 +445,7 @@ public class V2SerialiserFactory
 		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "coldStringKey", "delay", "shouldClearText", "alignment"));
 		map.put(GrantExperienceEvent.class, getReflectiveSerialiser(GrantExperienceEvent.class, "amount", "pc"));
 		map.put(GrantGoldEvent.class, getReflectiveSerialiser(GrantGoldEvent.class, "amount"));
+		map.put(FallingDamageEvent.class, getReflectiveSerialiser(FallingDamageEvent.class, "damage"));
 		map.put(SignBoardEvent.class, getReflectiveSerialiser(SignBoardEvent.class, "signBoardText"));
 
 		ReflectiveSerialiser ltes = getReflectiveSerialiser(LootTableEvent.class, "lootTable");

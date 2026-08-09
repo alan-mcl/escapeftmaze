@@ -76,6 +76,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-13 | editor | Copy / rename zones | Currently shows "Not supported". (stufftodo/code) | M | todo |
 | P2-14 | editor | NPC / FoeInteraction CSV export & import | Bulk-edit keyword dialogue rows via UTF-8 CSV from NpcSpeechPanel and File menu. (code) | S | done |
 | P2-26 | code | Data-driven NPC interaction construct | Parallel to `FoeInteraction` for named NPCs: replace simple Java `NpcScript` classes (e.g. Asius, Stentor fixed greetings; SkyRazor single-item gift) with editor-configured hooks. (code) | M | todo |
+| P2-27 | feature | Falling Damage maze event | Authored `FallingDamageEvent` with configurable Dice damage; skips flying party members (`Stats.Modifier.FLIER`); editor + V2 serialisation. (code) | S | done |
 | P2-15 | editor | Validation framework | Validation is ad-hoc; add consistent pre-save validation. (code) | M | todo |
 | P2-25 | editor | Maze Textures animated preview | Live preview beside image-resource list: frame cycle, scroll, per-frame thumbnails (`TexturePreviewPanel`). (code) | S | done |
 

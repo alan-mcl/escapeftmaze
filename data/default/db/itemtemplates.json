@@ -464,7 +464,7 @@
     "defaultDamageType": "NONE",
     "name": "Leathery Egg",
     "rechargeDifficulty": "1",
-    "identificationDifficulty": "1",
+    "identificationDifficulty": "15",
     "toPenetrate": "0",
     "minRange": "1",
     "description": "A large, heavy egg. The shell is thick and slightly rough, with a subtle leathery texture. Its base colour is a deep blue-green, almost like oxidized copper, overlaid with irregular dark emerald and black markings.",
@@ -39581,7 +39581,6 @@
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
-    "equipableSlots": "",
     "image": "item/powder_white",
     "spellEffects": {
       "PERCENTAGES": [],
@@ -52803,7 +52802,6 @@
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
-    "equipableSlots": "",
     "image": "item/potion_red",
     "spellEffects": {
       "PERCENTAGES": [],
@@ -60798,7 +60796,6 @@
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
-    "equipableSlots": "",
     "image": "item/powder_white",
     "spellEffects": {
       "PERCENTAGES": [],
@@ -68023,7 +68020,6 @@
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
-    "equipableSlots": "",
     "image": "item/powder_white",
     "spellEffects": {
       "PERCENTAGES": [],
@@ -78880,7 +78876,6 @@
     "damagePrevention": "0",
     "damagePreventionChance": "0",
     "enchantmentChance": "2",
-    "equipableSlots": "",
     "image": "item/potion_yellow",
     "spellEffects": {
       "PERCENTAGES": [],
@@ -87133,10 +87128,15 @@
     "enchantmentChance": "0",
     "equipableSlots": "000000001",
     "image": "item/amulet1_sapphire",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "pluralName": "Amulets Of Ice",
     "curseStrength": "0",
     "questItem": "false",
     "weight": "1000",
+    "attackTypes": [],
     "maxRange": "1",
     "charges": "2d4+1",
     "defaultDamageType": "NONE",
@@ -87204,6 +87204,7 @@
       "Amazon"
     ],
     "baseCost": "10000",
+    "ammo": [],
     "chargesType": "CHARGES_FATAL",
     "conversionRate": "0.0",
     "unidentifiedName": "?jewelry",
@@ -90605,10 +90606,15 @@
     "enchantmentChance": "0",
     "equipableSlots": "000000001",
     "image": "item/amulet1_emerald",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "pluralName": "Amulets Of Illusions",
     "curseStrength": "0",
     "questItem": "false",
     "weight": "1000",
+    "attackTypes": [],
     "maxRange": "1",
     "charges": "1d3+2",
     "defaultDamageType": "NONE",
@@ -90676,6 +90682,7 @@
       "Amazon"
     ],
     "baseCost": "5000",
+    "ammo": [],
     "chargesType": "CHARGES_FATAL",
     "conversionRate": "0.0",
     "unidentifiedName": "?jewelry",
@@ -92206,10 +92213,15 @@
     "enchantmentChance": "0",
     "equipableSlots": "000000001",
     "image": "item/amulet1_ruby",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "pluralName": "Amulet Of Health",
     "curseStrength": "0",
     "questItem": "false",
     "weight": "1000",
+    "attackTypes": [],
     "maxRange": "1",
     "defaultDamageType": "NONE",
     "name": "Amulet Of Health",
@@ -92276,6 +92288,7 @@
       "Amazon"
     ],
     "baseCost": "2000",
+    "ammo": [],
     "chargesType": "CHARGES_INFINITE",
     "conversionRate": "0.0",
     "unidentifiedName": "?jewelry",
@@ -92778,6 +92791,10 @@
     "enchantmentChance": "2",
     "equipableSlots": "1",
     "image": "item/lance",
+    "spellEffects": {
+      "PERCENTAGES": [],
+      "POSSIBILITIES": []
+    },
     "pluralName": "Lance",
     "curseStrength": "0",
     "questItem": "false",
@@ -92810,8 +92827,8 @@
       "Human",
       "Hynobi",
       "Mirka",
-      "Mata",
       "Goblin",
+      "Mata",
       "Triton",
       "Naga",
       "Neotroll",
@@ -92832,6 +92849,7 @@
       "Amazon"
     ],
     "baseCost": "550",
+    "ammo": [],
     "chargesType": "CHARGES_INFINITE",
     "conversionRate": "0.0",
     "unidentifiedName": "?lance",

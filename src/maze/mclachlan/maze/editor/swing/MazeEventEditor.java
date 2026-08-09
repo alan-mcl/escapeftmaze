@@ -122,6 +122,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JSpinner npcSpeechDelay;
 	private DiceField backupPartyUpMaxTiles;
 	private JComboBox backupPartyUpFacing;
+	private DiceField fallingDamageAmount;
 
 	private JComboBox journalType;
 	private JTextField journalKey;
@@ -265,6 +266,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _GrantGoldEvent:
 				GrantGoldEvent gge = (GrantGoldEvent)e;
 				goldAmount.setValue(gge.getAmount());
+				break;
+			case _FallingDamageEvent:
+				FallingDamageEvent fde = (FallingDamageEvent)e;
+				fallingDamageAmount.setDice(fde.getDamage());
 				break;
 			case _GrantItemsEvent:
 				break;
@@ -575,6 +580,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				this.result = new GrantGoldEvent(
 					(Integer)goldAmount.getValue());
 				break;
+			case _FallingDamageEvent:
+				this.result = new FallingDamageEvent(
+					fallingDamageAmount.getDice());
+				break;
 			case _GrantItemsEvent:
 				break;
 			case _SignBoardEvent:
@@ -788,6 +797,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getGrantExperiencePanel();
 			case _GrantGoldEvent:
 				return getGrantGoldPanel();
+			case _FallingDamageEvent:
+				return getFallingDamagePanel();
 			case _GrantItemsEvent:
 				return null;
 			case _SignBoardEvent:
@@ -1295,6 +1306,17 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private JPanel getFallingDamagePanel()
+	{
+		fallingDamageAmount = new DiceField();
+		JPanel result = new JPanel();
+		dirtyGridLayoutCrap(
+			result,
+			new JLabel("Damage: "), fallingDamageAmount);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private JPanel getGrantExperiencePanel()
 	{
 		xpAmount = new JSpinner(new SpinnerNumberModel(0, 0, 999999999, 1));
@@ -1522,6 +1544,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Grant Experience";
 			case _GrantGoldEvent:
 				return "Grant Gold";
+			case _FallingDamageEvent:
+				return "Falling Damage";
 			case _GrantItemsEvent:
 				return null;
 			case _SignBoardEvent:
@@ -1699,6 +1723,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _JournalEntryEvent = 24;
 	public static final int _DisplayOptionsEvent = 25;
 	public static final int _ForcePartySplitEvent = 26;
+	public static final int _FallingDamageEvent = 27;
 	public static final int _ActorsLeaveEvent = 205;
 	public static final int _BackPartyUpEvent = 150;
 
@@ -1770,6 +1795,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(FlavourTextEvent.class, _FlavourTextEvent);
 		types.put(GrantExperienceEvent.class, _GrantExperienceEvent);
 		types.put(GrantGoldEvent.class, _GrantGoldEvent);
+		types.put(FallingDamageEvent.class, _FallingDamageEvent);
 		types.put(GrantItemsEvent.class, _GrantItemsEvent);
 		types.put(SignBoardEvent.class, _SignBoardEvent);
 		types.put(LootTableEvent.class, _LootTableEvent);

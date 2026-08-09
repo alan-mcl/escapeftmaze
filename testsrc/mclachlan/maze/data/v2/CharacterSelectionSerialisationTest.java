@@ -24,6 +24,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.serialisers.V2SerialiserFactory;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ForcePartySplitEvent;
+import mclachlan.maze.map.script.FallingDamageEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.test.support.MazeTestSupport;
 import mclachlan.maze.test.support.TestData;
@@ -106,6 +107,19 @@ public class CharacterSelectionSerialisationTest extends MazeTestSupport
 			new CharacterSelection(
 				List.of(new LowestModifierSelection(Stats.Modifier.BRAWN)),
 				List.of()));
+
+		assertRoundTrips(eventSerialiser, original);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void fallingDamageEventRoundTrip()
+	{
+		V2SerialiserMap<MazeEvent> eventSerialiser =
+			V2SerialiserFactory.getRegisteredMazeEventSerialiser(
+				db, FallingDamageEvent.class);
+
+		FallingDamageEvent original = new FallingDamageEvent(new Dice(2, 6, 3));
 
 		assertRoundTrips(eventSerialiser, original);
 	}

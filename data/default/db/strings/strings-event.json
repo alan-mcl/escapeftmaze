@@ -5,6 +5,8 @@
   "event.success": "SUCCESS!",
   "event.failed": "FAILED!",
   "event.ouch": "OUCH!",
+  "msg.falling.damage": "The party takes falling damage!",
+  "msg.avoids.falling.damage": "%s avoids falling damage!",
   "event.locked": "LOCKED!",
   "msg.grant.experience.single": "%s gets %s experience",
   "msg.grant.experience.all": "All survivors get %s experience",
