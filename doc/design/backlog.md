@@ -27,7 +27,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 
 | # | Type | Item | Notes | Effort | Status |
 |---|------|------|-------|--------|--------|
-| P0-1 | bug | Zone-change flickering | Visible flicker on zone transitions; engine is recreated per zone in `DiyGuiUserInterface.setZone()`. (stufftodo) | M | todo |
+| P0-1 | bug | Zone-change flickering | Visible flicker on zone transitions; engine is recreated per zone in `DiyGuiUserInterface.setZone()`. Workaround: `MazeWidget` image-rendering mode holds the last frame across `Maze.changeZone()` until the new engine is ready. (stufftodo) | M | done |
 | P0-2 | bug | Damage multipliers applied after armour soak | Should be applied **before** soak per design; current order in `GameSys` damage calc changes balance. Affects every hit. (stufftodo/code) | M | todo |
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
 | P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |

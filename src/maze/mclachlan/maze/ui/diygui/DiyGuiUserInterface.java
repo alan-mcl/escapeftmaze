@@ -1713,6 +1713,27 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void startMazeImageRendering()
+	{
+		this.mazeWidget.enterImageRendering();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void startMazeImageRendering(String mazeTextureName)
+	{
+		this.mazeWidget.enterImageRendering(mazeTextureName);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void stopMazeImageRendering()
+	{
+		this.mazeWidget.exitImageRendering();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setPlayerPos(Point pos, int facing)
 	{
 		raycaster.setPlayerPos(pos.x, pos.y, facing);

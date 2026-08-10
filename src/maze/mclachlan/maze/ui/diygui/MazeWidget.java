@@ -24,11 +24,14 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.MouseClickScript;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ActorGroup;
 import mclachlan.maze.stat.FoeGroup;
@@ -41,6 +44,10 @@ public class MazeWidget extends ContainerWidget
 {
 	private CrusaderEngine engine;
 	private final Rectangle bounds;
+
+	private boolean imageRendering;
+	private Image imageRenderingImage;
+	private BufferedImage lastRaycasterFrame;
 
 	private final FoeGroupWidget[] foeGroupWidgets =
 		new FoeGroupWidget[Constants.MAX_FOE_GROUPS];
@@ -85,6 +92,149 @@ public class MazeWidget extends ContainerWidget
 	public void setEngine(CrusaderEngine raycaster)
 	{
 		this.engine = raycaster;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void enterImageRendering()
+	{
+		if (lastRaycasterFrame != null)
+		{
+			enterImageRendering(copyImage(lastRaycasterFrame));
+		}
+		else if (this.engine != null)
+		{
+			Image temp;
+			synchronized (this.engine)
+			{
+				temp = this.engine.render();
+			}
+			enterImageRendering(copyImage(temp));
+		}
+		else
+		{
+			this.imageRendering = true;
+			this.imageRenderingImage = null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void enterImageRendering(Image image)
+	{
+		this.imageRendering = true;
+		this.imageRenderingImage = image;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void enterImageRendering(String mazeTextureName)
+	{
+		MazeTexture mazeTexture = Database.getInstance().getMazeTexture(mazeTextureName);
+		enterImageRendering(mazeTexture.getTexture().getImages()[0]);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void exitImageRendering()
+	{
+		this.imageRendering = false;
+		this.imageRenderingImage = null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isImageRendering()
+	{
+		return imageRendering;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static BufferedImage copyImage(Image source)
+	{
+		if (source == null)
+		{
+			return null;
+		}
+
+		int width = source.getWidth(null);
+		int height = source.getHeight(null);
+		if (width <= 0 || height <= 0)
+		{
+			return null;
+		}
+
+		BufferedImage copy = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		Graphics2D g = copy.createGraphics();
+		g.drawImage(source, 0, 0, Maze.getInstance().getComponent());
+		g.dispose();
+		return copy;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void retainRaycasterFrame(Image frame)
+	{
+		if (frame == null)
+		{
+			return;
+		}
+
+		int width = frame.getWidth(null);
+		int height = frame.getHeight(null);
+		if (width <= 0 || height <= 0)
+		{
+			return;
+		}
+
+		if (lastRaycasterFrame == null
+			|| lastRaycasterFrame.getWidth() != width
+			|| lastRaycasterFrame.getHeight() != height)
+		{
+			lastRaycasterFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		}
+
+		Graphics2D g = lastRaycasterFrame.createGraphics();
+		g.drawImage(frame, 0, 0, Maze.getInstance().getComponent());
+		g.dispose();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawMazeImage(Graphics2D g, Image image)
+	{
+		if (image == null)
+		{
+			return;
+		}
+
+		g.drawImage(
+			image,
+			bounds.x,
+			bounds.y,
+			bounds.width,
+			bounds.height,
+			Maze.getInstance().getComponent());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawFoeOverlays(Graphics2D g)
+	{
+		// draw this first so that any text overlays the rectangle
+		if (selectedFoeGroupWidget != -1)
+		{
+			Rectangle b = foeGroupWidgets[selectedFoeGroupWidget].getBounds();
+			g.setColor(Color.BLUE);
+			g.drawRect(b.x,  b.y, b.width, b.height);
+		}
+
+		for (FoeGroupWidget foeGroupWidget : foeGroupWidgets)
+		{
+			foeGroupWidget.draw(g);
+		}
+		for (FoeGroupWidget partyAllyWidget : partyAllyWidgets)
+		{
+			partyAllyWidget.draw(g);
+		}
+
+		if (DIYToolkit.debug)
+		{
+			g.setColor(Color.BLUE);
+			g.drawRect(bounds.x+1, bounds.y+1, bounds.width-2, bounds.height-2);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -210,47 +360,27 @@ public class MazeWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void draw(Graphics2D g)
 	{
+		if (imageRendering)
+		{
+			drawMazeImage(g, imageRenderingImage);
+			drawFoeOverlays(g);
+			return;
+		}
+
 		if (this.engine == null)
 		{
 			return;
 		}
-		
+
 		Image temp;
 		synchronized (this.engine)
 		{
 			temp = this.engine.render();
 		}
 
-		g.drawImage(
-			temp, 
-			bounds.x, 
-			bounds.y, 
-			bounds.width, 
-			bounds.height, 
-			Maze.getInstance().getComponent());
-
-		// draw this first so that any text overlays the rectangle
-		if (selectedFoeGroupWidget != -1)
-		{
-			Rectangle b = foeGroupWidgets[selectedFoeGroupWidget].getBounds();
-			g.setColor(Color.BLUE);
-			g.drawRect(b.x,  b.y, b.width, b.height);
-		}
-
-		for (FoeGroupWidget foeGroupWidget : foeGroupWidgets)
-		{
-			foeGroupWidget.draw(g);
-		}
-		for (FoeGroupWidget partyAllyWidget : partyAllyWidgets)
-		{
-			partyAllyWidget.draw(g);
-		}
-
-		if (DIYToolkit.debug)
-		{
-			g.setColor(Color.BLUE);
-			g.drawRect(bounds.x+1, bounds.y+1, bounds.width-2, bounds.height-2);
-		}
+		drawMazeImage(g, temp);
+		retainRaycasterFrame(temp);
+		drawFoeOverlays(g);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -271,7 +401,7 @@ public class MazeWidget extends ContainerWidget
 		int x = e.getX()-super.x;
 		int y = e.getY()-super.y;
 
-		if (x >= 0 && x < width && y >= 0 && y < height)
+		if (x >= 0 && x < width && y >= 0 && y < height && !imageRendering)
 		{
 			MouseClickScript script = engine.handleMouseClickAndReturnScript(x, y);
 

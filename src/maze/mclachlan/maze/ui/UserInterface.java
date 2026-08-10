@@ -170,6 +170,15 @@ public interface UserInterface
 	void setZone(Zone zone, Point pos, int facing);
 
 	/*-------------------------------------------------------------------------*/
+	void startMazeImageRendering();
+
+	/*-------------------------------------------------------------------------*/
+	void startMazeImageRendering(String mazeTextureName);
+
+	/*-------------------------------------------------------------------------*/
+	void stopMazeImageRendering();
+
+	/*-------------------------------------------------------------------------*/
 	void setPlayerPos(Point pos, int facing);
 
 	/*-------------------------------------------------------------------------*/

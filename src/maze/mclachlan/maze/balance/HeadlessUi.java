@@ -314,6 +314,18 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
+	public void startMazeImageRendering()
+	{
+	}
+
+	public void startMazeImageRendering(String mazeTextureName)
+	{
+	}
+
+	public void stopMazeImageRendering()
+	{
+	}
+
 	public void setPlayerPos(Point pos, int facing)
 	{
 	}

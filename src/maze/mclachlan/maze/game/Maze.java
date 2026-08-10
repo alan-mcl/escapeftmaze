@@ -2332,6 +2332,8 @@ public class Maze implements Runnable
 			newFacing = facing;
 		}
 
+		ui.startMazeImageRendering();
+
 		this.zone = Database.getInstance().getZone(zoneName);
 
 		List<MazeEvent> result = new ArrayList<>();
@@ -2349,6 +2351,7 @@ public class Maze implements Runnable
 				PartyCampManager.getInstance().syncVisual(Maze.getInstance());
 				getPlayerTilesVisited().resetRecentTiles();
 				ui.refreshPcActionOptions();
+				ui.stopMazeImageRendering();
 				return null;
 			}
 		});

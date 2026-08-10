@@ -219,7 +219,10 @@ every frame.
 - **Raycaster integration.** The 3D view is a widget:
   [`MazeWidget`](../../src/maze/mclachlan/maze/ui/diygui/MazeWidget.java) overrides
   `draw()` to call `engine.render()` and blit the returned `Image`, and forwards mouse
-  clicks to the engine's picking (`handleMouseClickAndReturnScript`).
+  clicks to the engine's picking (`handleMouseClickAndReturnScript`). It can enter an
+  **image-rendering mode** that blits a frozen frame (last render or a `MazeTexture`)
+  instead of calling the raycaster; `Maze.changeZone()` uses this to hold the old view
+  while the new `CrusaderEngine` is created in `setZone()`.
 
 ### 3.4 Persistence
 
