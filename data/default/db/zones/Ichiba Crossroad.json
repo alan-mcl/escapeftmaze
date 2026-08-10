@@ -8824,7 +8824,7 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
-              "name": "Ichiba Crossroad dun draco enc",
+              "name": "ExecuteMazeScript.script",
               "events": [
                 {
                   "flavourText": "A shadow suddenly passes rapidly over the forest around you, and a distant shriek echoes from above. ",
