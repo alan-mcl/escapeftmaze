@@ -673,6 +673,31 @@ or **disassemble** items with a disassembly table into components.
 You explore a grid of tiles in first person. **Each step costs one turn**, and there
 are **300 turns per day**. Walking into a wall still costs the turn.
 
+Turn 0 is the start of a new day (morning). The engine exposes a global
+**time-of-day** derived from `turnNr % 300`:
+
+| Phase | Turn-of-day range |
+|-------|-------------------|
+| Dawn | 0-36 |
+| Day | 37-186 |
+| Dusk | 187-224 |
+| Night | 225-299 |
+
+Outdoor zones that opt in via `DefaultZoneScript` (`turnsBetweenChange != -1`) apply **cosmetic**
+presentation from this clock: ambient light and sky textures darken toward midnight,
+the distance fog shade target shifts from the authored colour (often white mist)
+toward a muted cool slate by default (still hazy, not black), and the sky gradient shifts
+toward a night palette. Optional per-zone night palette overrides on
+`DefaultZoneScript` (`nightShadeTargetColor`, `nightSkyBottomColor`,
+`nightSkyTopColor`) replace engine defaults when set. Night darkness is authored per
+zone as **Night Light Amplitude** (`lightLevelDiff`). The phase is recomputed on zone
+entry and each end-of-turn, so it survives zone changes and save/load without
+persisting light maps. Gameplay rules do not yet key off time of day, but
+`GameTime.getTimeOfDay()` and related helpers are available for future scripts.
+The `AdvanceToTurnOfDayEvent` maze event can advance the global clock forward to
+the next occurrence of a target turn-of-day (optionally once per save via a maze
+variable) without running end-of-turn logic for skipped turns.
+
 ### Terrain
 
 Every tile has a **terrain type** that determines which stealth skill applies there:

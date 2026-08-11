@@ -1,7 +1,9 @@
 {
   "name": "Ichiba City",
   "script": {
-    "IMPL": "mclachlan.maze.campaign.def.zone.IchibaCity"
+    "IMPL": "mclachlan.maze.campaign.def.zone.IchibaCity",
+    "turnsBetweenChange": "1",
+    "lightLevelDiff": "24"
   },
   "shadeTargetColor": "ff666666",
   "transparentColor": "ffffffff",

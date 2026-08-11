@@ -3124,6 +3124,11 @@
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
       },
       {
+        "turnOfDay": "150",
+        "onceMazeVariable": "ichiba.first.outdoor.daylight",
+        "TYPE_KEY": "mclachlan.maze.game.event.AdvanceToTurnOfDayEvent"
+      },
+      {
         "facing": "3",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Ichiba Domain South",
@@ -3149,6 +3154,11 @@
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
       },
       {
+        "turnOfDay": "150",
+        "onceMazeVariable": "ichiba.first.outdoor.daylight",
+        "TYPE_KEY": "mclachlan.maze.game.event.AdvanceToTurnOfDayEvent"
+      },
+      {
         "facing": "4",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Ichiba Crossroad",
@@ -3172,6 +3182,11 @@
           "24003__Erdie__mega_thunder"
         ],
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "turnOfDay": "150",
+        "onceMazeVariable": "ichiba.first.outdoor.daylight",
+        "TYPE_KEY": "mclachlan.maze.game.event.AdvanceToTurnOfDayEvent"
       },
       {
         "facing": "2",

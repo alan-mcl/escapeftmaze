@@ -1,5 +1,6 @@
 package mclachlan.maze.data.v2.serialisers;
 
+import java.lang.reflect.Method;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.ReflectiveSerialiser;
@@ -45,7 +46,9 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 		}
 		else
 		{
-			ReflectiveSerialiser serialiser = new ReflectiveSerialiser(t.getClass(), defaultFields);
+			ReflectiveSerialiser serialiser = new ReflectiveSerialiser(
+				t.getClass(),
+				fieldsSupportedBy(t.getClass()));
 			Map result = serialiser.toObject(t, db);
 			result.put(IMPL, typeKey);
 			return result;
@@ -67,7 +70,10 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 			String className = (String)map.get(IMPL);
 			try
 			{
-				ReflectiveSerialiser serialiser = new ReflectiveSerialiser(Class.forName(className), defaultFields);
+				Class<?> clazz = Class.forName(className);
+				ReflectiveSerialiser serialiser = new ReflectiveSerialiser(
+					clazz,
+					fieldsSupportedBy(clazz));
 				return (T)serialiser.fromObject(obj, db);
 			}
 			catch (Exception e)
@@ -90,5 +96,65 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 	public Map<String, V2SerialiserMap<T>> getSerialisers()
 	{
 		return serialisers;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * IMPL classes only persist {@code defaultFields} that they actually expose
+	 * (getter+setter). Pure custom scripts without those properties stay fieldless.
+	 */
+	private String[] fieldsSupportedBy(Class<?> clazz)
+	{
+		if (defaultFields == null || defaultFields.length == 0)
+		{
+			return new String[0];
+		}
+
+		List<String> supported = new ArrayList<>();
+		for (String field : defaultFields)
+		{
+			if (hasAccessor(clazz, "get", field) || hasAccessor(clazz, "is", field))
+			{
+				if (hasSetter(clazz, field))
+				{
+					supported.add(field);
+				}
+			}
+		}
+		return supported.toArray(new String[0]);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean hasAccessor(Class<?> clazz, String prefix, String field)
+	{
+		try
+		{
+			clazz.getMethod(prefix + capitalize(field));
+			return true;
+		}
+		catch (NoSuchMethodException e)
+		{
+			return false;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean hasSetter(Class<?> clazz, String field)
+	{
+		String name = "set" + capitalize(field);
+		for (Method m : clazz.getMethods())
+		{
+			if (m.getName().equals(name) && m.getParameterTypes().length == 1)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static String capitalize(String field)
+	{
+		return Character.toUpperCase(field.charAt(0)) + field.substring(1);
 	}
 }

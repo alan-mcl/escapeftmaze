@@ -19,6 +19,7 @@
 
 package mclachlan.maze.map;
 
+import java.awt.Color;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
@@ -34,20 +35,39 @@ public class DefaultZoneScript extends ZoneScript
 {
 	/**
 	 * The number of game turns before the texture changes to the next one.
+	 * When not {@code -1}, enables the day/night cycle (value is legacy; timing
+	 * follows global {@link mclachlan.maze.game.GameTime}).
 	 */
 	private int turnsBetweenChange;
 
 	/**
-	 * The zone light level diff with each change in sky texture. Sky textures
-	 * are assumed to follow a light...dark...light cycle
+	 * Maximum ambient light reduction at midnight when day/night is enabled.
 	 */
 	private int lightLevelDiff;
+
+	/**
+	 * Optional night fog shade target; null uses engine default.
+	 */
+	private Color nightShadeTargetColor;
+
+	/**
+	 * Optional night sky gradient bottom colour; null uses engine default.
+	 */
+	private Color nightSkyBottomColor;
+
+	/**
+	 * Optional night sky gradient top colour; null uses engine default.
+	 */
+	private Color nightSkyTopColor;
 
 	/**
 	 * Any ambient sounds/animations/etc scripts.
 	 * Should not sum to 100.
 	 */
 	private PercentageTable<String> ambientScripts;
+
+	/** Captured sky gradient anchors for this zone instance; not persisted. */
+	private transient DayNightPresentation.GradientAnchors gradientAnchors;
 
 	public DefaultZoneScript()
 	{
@@ -76,37 +96,7 @@ public class DefaultZoneScript extends ZoneScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> endOfTurn(Zone zone, long turnNr)
 	{
-		if (turnsBetweenChange != -1)
-		{
-			//
-			// Sky texture change: todo
-			//
-/*
-			int nrSkyImages = zone.getMap().getSkyTexture().getNrFrames();
-			int skyImageIndex = (int)((turnNr/turnsBetweenChange)%nrSkyImages);
-
-			zone.getMap().getSkyTexture().setCurrentFrame(skyImageIndex);
-
-			//
-			// Light level adjustments
-			// This relies on there being an even nr of skyImages
-			//
-			if (lightLevelDiff > 0 && (turnNr % turnsBetweenChange == 0))
-			{
-				double half = nrSkyImages/2.0;
-				if (skyImageIndex < half)
-				{
-					// dec light level
-					zone.getMap().incLightLevel(-lightLevelDiff);
-				}
-				else
-				{
-					// inc light level
-					zone.getMap().incLightLevel(lightLevelDiff);
-				}
-			}
-*/
-		}
+		applyDayNight(zone, turnNr);
 
 		//
 		// Ambient scripts, only when the party is moving
@@ -127,11 +117,32 @@ public class DefaultZoneScript extends ZoneScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
-		this.endOfTurn(zone, turnNr);
+		applyDayNight(zone, turnNr);
 
 		return null;
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	private void applyDayNight(Zone zone, long turnNr)
+	{
+		if (turnsBetweenChange == -1 || lightLevelDiff <= 0)
+		{
+			return;
+		}
+
+		if (gradientAnchors == null)
+		{
+			gradientAnchors = DayNightPresentation.captureGradientAnchors(zone.getMap());
+		}
+
+		DayNightPresentation.apply(
+			zone,
+			turnNr,
+			lightLevelDiff,
+			gradientAnchors,
+			DayNightPresentation.NightPalette.from(this));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public int getTurnsBetweenChange()
 	{
@@ -144,6 +155,21 @@ public class DefaultZoneScript extends ZoneScript
 		return lightLevelDiff;
 	}
 
+	public Color getNightShadeTargetColor()
+	{
+		return nightShadeTargetColor;
+	}
+
+	public Color getNightSkyBottomColor()
+	{
+		return nightSkyBottomColor;
+	}
+
+	public Color getNightSkyTopColor()
+	{
+		return nightSkyTopColor;
+	}
+
 	public void setTurnsBetweenChange(int turnsBetweenChange)
 	{
 		this.turnsBetweenChange = turnsBetweenChange;
@@ -152,6 +178,21 @@ public class DefaultZoneScript extends ZoneScript
 	public void setLightLevelDiff(int lightLevelDiff)
 	{
 		this.lightLevelDiff = lightLevelDiff;
+	}
+
+	public void setNightShadeTargetColor(Color nightShadeTargetColor)
+	{
+		this.nightShadeTargetColor = nightShadeTargetColor;
+	}
+
+	public void setNightSkyBottomColor(Color nightSkyBottomColor)
+	{
+		this.nightSkyBottomColor = nightSkyBottomColor;
+	}
+
+	public void setNightSkyTopColor(Color nightSkyTopColor)
+	{
+		this.nightSkyTopColor = nightSkyTopColor;
 	}
 
 	public void setAmbientScripts(
@@ -190,6 +231,18 @@ public class DefaultZoneScript extends ZoneScript
 		{
 			return false;
 		}
+		if (!Objects.equals(getNightShadeTargetColor(), that.getNightShadeTargetColor()))
+		{
+			return false;
+		}
+		if (!Objects.equals(getNightSkyBottomColor(), that.getNightSkyBottomColor()))
+		{
+			return false;
+		}
+		if (!Objects.equals(getNightSkyTopColor(), that.getNightSkyTopColor()))
+		{
+			return false;
+		}
 		return getAmbientScripts() != null ? getAmbientScripts().equals(that.getAmbientScripts()) : that.getAmbientScripts() == null;
 	}
 
@@ -198,6 +251,9 @@ public class DefaultZoneScript extends ZoneScript
 	{
 		int result = getTurnsBetweenChange();
 		result = 31 * result + getLightLevelDiff();
+		result = 31 * result + (getNightShadeTargetColor() != null ? getNightShadeTargetColor().hashCode() : 0);
+		result = 31 * result + (getNightSkyBottomColor() != null ? getNightSkyBottomColor().hashCode() : 0);
+		result = 31 * result + (getNightSkyTopColor() != null ? getNightSkyTopColor().hashCode() : 0);
 		result = 31 * result + (getAmbientScripts() != null ? getAmbientScripts().hashCode() : 0);
 		return result;
 	}

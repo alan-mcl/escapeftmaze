@@ -2,8 +2,8 @@
   "name": "Ichiba Domain South",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
-    "turnsBetweenChange": "-1",
-    "lightLevelDiff": "-1",
+    "turnsBetweenChange": "1",
+    "lightLevelDiff": "24",
     "ambientScripts": {
       "PERCENTAGES": [
         1,

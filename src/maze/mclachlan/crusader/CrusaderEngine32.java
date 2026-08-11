@@ -51,11 +51,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	private Texture[] textures;
 
-	/** The color to shade with */
-	private final int shadeRed;
-	private final int shadeGreen;
-	private final int shadeBlue;
-	
 	/** The distance (in units) at which shading starts */
 	private final int shadingDistance;
 	/** The distance (in units) for the shading effect to double */
@@ -251,9 +246,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		this.shadingDistance = (int)(tileSize * shadingDistance);
 		this.shadingThickness = (int)(tileSize * shadingMultiplier);
-		this.shadeRed = shadeTargetColour.getRed();
-		this.shadeGreen = shadeTargetColour.getGreen();
-		this.shadeBlue = shadeTargetColour.getBlue();
+		// Prefer a shade already applied by day/night on zone init; otherwise
+		// seed from the authored zone colour. colourPixel reads from the map.
+		this.map.ensureShadeTarget(shadeTargetColour);
 		
 		this.projectionPlaneWidth = screenWidth;
 		this.projectionPlaneHeight = screenHeight;
@@ -2924,7 +2919,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int skyTextureX = (int)(u * texture.imageWidth);
 		int skyTextureY = (int)(screenY * texture.imageHeight / projectionPlaneHeight);
-		return texture.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+		return applySkyLight(
+			texture.getCurrentImageData(skyTextureX, skyTextureY, timeNow));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2957,7 +2953,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int skyTextureX = castArc % image.imageWidth;
 		int skyTextureY = screenY * image.imageHeight / playerHeight;
 
-		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+		return applySkyLight(
+			image.getCurrentImageData(skyTextureX, skyTextureY, timeNow));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2999,7 +2996,34 @@ public class CrusaderEngine32 implements CrusaderEngine
 		skyTextureX = (xIntersection/skyConfig.imageScale +image.imageWidth/2) % image.imageWidth;
 		skyTextureY = (yIntersection/skyConfig.imageScale +image.imageHeight/2) % image.imageHeight;
 
-		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+		return applySkyLight(
+			image.getCurrentImageData(skyTextureX, skyTextureY, timeNow));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Scales texture-based sky pixels by the map's runtime sky light level.
+	 * At {@link #NORMAL_LIGHT_LEVEL} this is a no-op.
+	 */
+	private int applySkyLight(int colour)
+	{
+		int skyLightLevel = map.getSkyLightLevel();
+		if (skyLightLevel == NORMAL_LIGHT_LEVEL)
+		{
+			return colour;
+		}
+
+		int alpha = (colour >> 24) & 0xFF;
+		int red = (colour >> 16) & 0xFF;
+		int green = (colour >> 8) & 0xFF;
+		int blue = colour & 0xFF;
+
+		// >> 5 is "/ NORMAL_LIGHT_LEVEL"
+		red = red * skyLightLevel >> 5;
+		green = green * skyLightLevel >> 5;
+		blue = blue * skyLightLevel >> 5;
+
+		return (alpha << 24) | (red << 16) | (green << 8) | blue;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3276,9 +3300,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (green > 0xFF) green = 0xFF;
 		if (blue > 0xFF) blue = 0xFF;
 
-		red = shade(red, shadeRed, shadingMult);
-		green = shade(green, shadeGreen, shadingMult);
-		blue = shade(blue, shadeBlue, shadingMult);
+		red = shade(red, map.getShadeTargetRed(), shadingMult);
+		green = shade(green, map.getShadeTargetGreen(), shadingMult);
+		blue = shade(blue, map.getShadeTargetBlue(), shadingMult);
 
 		result = (alpha<<24) | (red<<16) | (green<<8) | blue;
 

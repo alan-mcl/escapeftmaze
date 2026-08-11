@@ -121,6 +121,8 @@ all state changes. Reusable, authorable sequences are
 [`MazeScript`](../../src/maze/mclachlan/maze/game/MazeScript.java)s (stored in
 `scripts.json`). `GameTime.incTurn()` performs end-of-turn housekeeping (conditions,
 regen, NPC/zone updates, 300 turns/day) and rolls random encounters on movement.
+[`GameTime`](../../src/maze/mclachlan/maze/game/GameTime.java) also exposes global
+time-of-day helpers (`getTurnOfDay`, `getTimeOfDay`, `getNightAmount`) for scripts.
 Representative events live in `game/event/` (`MovePartyEvent`, `ZoneChangeEvent`,
 `StartCombatEvent`, `ResolveCombatActionEvent`, `EndCombatRoundEvent`, `SetStateEvent`,
 `ForcePartySplitEvent`). Reusable party targeting for events is
@@ -137,6 +139,19 @@ Stepping onto a tile runs `Zone.encounterTile(...)`, which executes the tile's
 `Chest`, `Lever`, `FlavourText`, `ExecuteMazeScript`, `ToggleWall`) and may trigger
 NPC encounters. This **dual map model** (render geometry vs game logic) is kept in
 sync by `Zone`.
+
+**Day/night (cosmetic).** Opt-in outdoor zones apply presentation from the global
+turn clock via [`DayNightPresentation`](../../src/maze/mclachlan/maze/map/DayNightPresentation.java):
+on `ZoneScript.init` and each `endOfTurn`, absolute tile light levels,
+texture-based sky light (`Map.skyLightLevel`), fog shade target, and
+`CYLINDER_GRADIENT` colours are set from `GameTime.getTurnNr()` (not accumulated
+with `incLightLevel`). Zones reload from JSON on every entry, so visuals must be
+derived, not stored in saves.
+[`DefaultZoneScript`](../../src/maze/mclachlan/maze/map/DefaultZoneScript.java)
+uses `turnsBetweenChange != -1` as the enable flag and `lightLevelDiff` as night
+darkening amplitude; optional `nightShadeTargetColor`, `nightSkyBottomColor`, and
+`nightSkyTopColor` override engine night palette defaults. Custom IMPL subclasses
+inherit those fields.
 
 **Rules & combat.** `stat/` holds the rules engine:
 [`GameSys`](../../src/maze/mclachlan/maze/stat/GameSys.java) (initiative, stealth,

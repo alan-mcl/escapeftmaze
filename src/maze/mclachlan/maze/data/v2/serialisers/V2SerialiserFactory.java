@@ -462,6 +462,8 @@ public class V2SerialiserFactory
 		map.put(BlockingScreenEvent.class, getReflectiveSerialiser(BlockingScreenEvent.class, "imageResource", "mode"));
 		map.put(EndGameEvent.class, getReflectiveSerialiser(EndGameEvent.class));
 		map.put(SetMazeVariableEvent.class, getReflectiveSerialiser(SetMazeVariableEvent.class, "mazeVariable", "value"));
+		map.put(AdvanceToTurnOfDayEvent.class, getReflectiveSerialiser(
+			AdvanceToTurnOfDayEvent.class, "turnOfDay", "onceMazeVariable"));
 		map.put(PersonalitySpeechBubbleEvent.class, getReflectiveSerialiser(PersonalitySpeechBubbleEvent.class, "speechKey", "modal"));
 		map.put(StoryboardEvent.class, getReflectiveSerialiser(StoryboardEvent.class, "imageResource", "textResource", "textPlacement"));
 		map.put(SetUserConfigEvent.class, getReflectiveSerialiser(SetUserConfigEvent.class, "var", "value"));
@@ -1412,6 +1414,9 @@ public class V2SerialiserFactory
 			DefaultZoneScript.class,
 			"turnsBetweenChange",
 			"lightLevelDiff",
+			"nightShadeTargetColor",
+			"nightSkyBottomColor",
+			"nightSkyTopColor",
 			"ambientScripts");
 
 		defaultSerialiser.addCustomSerialiser("ambientScripts",
@@ -1419,7 +1424,12 @@ public class V2SerialiserFactory
 
 		HashMap<Class, V2SerialiserMap<ZoneScript>> map = new HashMap<>();
 		map.put(DefaultZoneScript.class, defaultSerialiser);
-		return new MazeObjectImplSerialiser<>(map);
+		return new MazeObjectImplSerialiser<>(map,
+			"turnsBetweenChange",
+			"lightLevelDiff",
+			"nightShadeTargetColor",
+			"nightSkyBottomColor",
+			"nightSkyTopColor");
 	}
 
 	private static V2SerialiserObject<Portal> getPortalSerialiser(Database db)

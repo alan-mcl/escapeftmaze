@@ -329,6 +329,11 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs) |
 | FallingDamageEvent | `map/script/FallingDamageEvent.java` | Authored script event: `damage` (Dice); rolls once and applies bludgeoning damage to each living party member without `Stats.Modifier.FLIER` |
 | ZoneScript | `map/ZoneScript.java` | Zone-level init/end-of-turn ambient script |
+| DefaultZoneScript | `map/DefaultZoneScript.java` | `turnsBetweenChange` (≠ `-1` enables day/night; timing follows global `GameTime`), `lightLevelDiff` (max night ambient/sky-light reduction), optional `nightShadeTargetColor`, `nightSkyBottomColor`, `nightSkyTopColor` (null = engine defaults), `ambientScripts` (PercentageTable of maze script names). Custom IMPL subclasses may inherit these fields. |
+| DayNightPresentation | `map/DayNightPresentation.java` | Applies cosmetic tile light, `Map.skyLightLevel`, fog shade target, and sky gradient from `GameTime` turn; optional `NightPalette` overrides from zone script; not persisted |
+| AdvanceToTurnOfDayEvent | `game/event/AdvanceToTurnOfDayEvent.java` | `turnOfDay`, optional `onceMazeVariable`; forward-only `GameTime.setTurnNr` jump to next matching turn-of-day |
+| TimeOfDay | `game/TimeOfDay.java` | `DAWN`/`DAY`/`DUSK`/`NIGHT` bands over 300-turn day |
+| GameTime | `game/GameTime.java` | Global turn counter (`TURNS_PER_DAY` = 300); `getTurnOfDay`, `getDayFraction`, `getNightAmount`, `getTimeOfDay`; nested `GameDate` with `getDayNr`/`getTurnOfDay` |
 | MazeTexture | `data/MazeTexture.java` | Named image resource -> Crusader `Texture` (frames, animation, scroll, tint) |
 | ColdString | `data/ColdString.java` | Lazy-loaded bulk text: `name` (global key), `body` (multiline prose). Stored in `strings/cold/<shard>.json`. |
 | TextRepository | `data/TextRepository.java` | Per-campaign HotString + ColdStrings cache; API: `getHotString`, `getColdString` |

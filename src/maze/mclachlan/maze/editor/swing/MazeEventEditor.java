@@ -30,6 +30,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
+import mclachlan.maze.game.GameTime;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
@@ -113,6 +114,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField blockingScreenImage;
 	private JSpinner blockingScreenMode;
 	private JTextField setMazeVarMazeVar, setMazeVarValue;
+	private JSpinner advanceToTurnOfDayTurn;
+	private JTextField advanceToTurnOfDayOnceVar;
 	private JSpinner fromX, fromY;
 	private JComboBox facing;
 	private JComboBox steKeyModifier;
@@ -349,6 +352,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				SetMazeVariableEvent sme = (SetMazeVariableEvent)e;
 				setMazeVarMazeVar.setText(sme.getMazeVariable());
 				setMazeVarValue.setText(sme.getValue());
+				break;
+			case _AdvanceToTurnOfDayEvent:
+				AdvanceToTurnOfDayEvent atde = (AdvanceToTurnOfDayEvent)e;
+				advanceToTurnOfDayTurn.setValue(atde.getTurnOfDay());
+				advanceToTurnOfDayOnceVar.setText(
+					atde.getOnceMazeVariable() == null ? "" : atde.getOnceMazeVariable());
 				break;
 			case _TogglePortalStateEvent:
 				TogglePortalStateEvent tpse = (TogglePortalStateEvent)e;
@@ -659,6 +668,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _SetMazeVariableEvent:
 				this.result = new SetMazeVariableEvent(setMazeVarMazeVar.getText(), setMazeVarValue.getText());
 				break;
+			case _AdvanceToTurnOfDayEvent:
+				String onceVar = advanceToTurnOfDayOnceVar.getText().trim();
+				this.result = new AdvanceToTurnOfDayEvent(
+					(Integer)advanceToTurnOfDayTurn.getValue(),
+					onceVar.isEmpty() ? null : onceVar);
+				break;
 			case _TogglePortalStateEvent:
 				this.result = new TogglePortalStateEvent(new Point((Integer)fromX.getValue(), (Integer)fromY.getValue()), facing.getSelectedIndex());
 				break;
@@ -834,6 +849,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getEndGamePanel();
 			case _SetMazeVariableEvent:
 				return getSetMazeVarPanel();
+			case _AdvanceToTurnOfDayEvent:
+				return getAdvanceToTurnOfDayPanel();
 			case _TogglePortalStateEvent:
 				return getTogglePortalStatePanel();
 			case _RemoveObjectEvent:
@@ -1071,6 +1088,18 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		return dirtyGridBagCrap(
 			new JLabel("Maze Variable:"), setMazeVarMazeVar,
 			new JLabel("Value:"), setMazeVarValue);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getAdvanceToTurnOfDayPanel()
+	{
+		advanceToTurnOfDayTurn = new JSpinner(
+			new SpinnerNumberModel(150, 0, GameTime.TURNS_PER_DAY - 1, 1));
+		advanceToTurnOfDayOnceVar = new JTextField(25);
+
+		return dirtyGridBagCrap(
+			new JLabel("Turn of day (0-299):"), advanceToTurnOfDayTurn,
+			new JLabel("Once maze variable (optional):"), advanceToTurnOfDayOnceVar);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1602,6 +1631,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "End Game";
 			case _SetMazeVariableEvent:
 				return "Set Maze Variable";
+			case _AdvanceToTurnOfDayEvent:
+				return "Advance To Turn Of Day";
 			case _TogglePortalStateEvent:
 				return "Toggle Portal State";
 			case _RemoveObjectEvent:
@@ -1734,6 +1765,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _BlockingScreen = 15;
 	public static final int _EndGame = 16;
 	public static final int _SetMazeVariableEvent = 17;
+	public static final int _AdvanceToTurnOfDayEvent = 28;
 	public static final int _PersonalitySpeechEvent = 18;
 	public static final int _NpcSpeechEvent = 206;
 	public static final int _StoryboardEvent = 19;
@@ -1899,6 +1931,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(NpcTakesItemEvent.class, _NpcTakesItemEvent);
 		types.put(WaitForPlayerSpeech.class, _WaitForPlayerSpeech);
 		types.put(SetMazeVariableEvent.class, _SetMazeVariableEvent);
+		types.put(AdvanceToTurnOfDayEvent.class, _AdvanceToTurnOfDayEvent);
 		types.put(ChangeNpcFactionAttitudeEvent.class, _ChangeNpcFactionAttitudeEvent);
 	}
 

@@ -46,6 +46,7 @@ public class ZonePanel extends EditorPanel
 	private JCheckBox isCustomZoneScript;
 	private JSpinner defaultZoneScriptTurns;
 	private JSpinner defaultZoneScriptLightLevelDiff;
+	private JButton nightShadeTargetColour, nightSkyBottomColour, nightSkyTopColour;
 	private JTextField customZoneScript;
 	private SkyConfigsPanel skyConfigsPanel;
 	private JButton editMap;
@@ -162,7 +163,7 @@ public class ZonePanel extends EditorPanel
 		gbc.gridx = 0;
 		gbc.gridy++;
 		gbc.weightx = 0.0;
-		result.add(new JLabel("Turns Before Sky Changes:"), gbc);
+		result.add(new JLabel("Day/Night Cycle (-1 = off):"), gbc);
 
 		gbc.gridx++;
 		gbc.weightx = 1.0;
@@ -173,13 +174,43 @@ public class ZonePanel extends EditorPanel
 		gbc.gridx = 0;
 		gbc.gridy++;
 		gbc.weightx = 0.0;
-		result.add(new JLabel("Light Level Diff:"), gbc);
+		result.add(new JLabel("Night Light Amplitude:"), gbc);
 
 		gbc.gridx++;
 		gbc.weightx = 1.0;
 		defaultZoneScriptLightLevelDiff = new JSpinner(new SpinnerNumberModel(-1, -1, 32, 1));
 		defaultZoneScriptLightLevelDiff.addChangeListener(this);
 		result.add(defaultZoneScriptLightLevelDiff, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.weightx = 0.0;
+		result.add(new JLabel("Night Fog Shade (optional):"), gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+		nightShadeTargetColour = newOptionalNightColourButton();
+		result.add(nightShadeTargetColour, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.weightx = 0.0;
+		result.add(new JLabel("Night Sky Bottom (optional):"), gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+		nightSkyBottomColour = newOptionalNightColourButton();
+		result.add(nightSkyBottomColour, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.weightx = 0.0;
+		result.add(new JLabel("Night Sky Top (optional):"), gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+		nightSkyTopColour = newOptionalNightColourButton();
+		result.add(nightSkyTopColour, gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy++;
@@ -191,6 +222,53 @@ public class ZonePanel extends EditorPanel
 		result.add(ambientScripts, gbc);
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JButton newOptionalNightColourButton()
+	{
+		JButton button = new JButton("engine default");
+		button.addActionListener(this);
+		setOptionalNightColourButton(button, null);
+		return button;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void setOptionalNightColourButton(JButton button, Color color)
+	{
+		button.putClientProperty("optionalNightColour", color);
+		if (color == null)
+		{
+			button.setText("engine default");
+			button.setBackground(new Color(0xCCCCCC));
+		}
+		else
+		{
+			button.setText("...");
+			button.setBackground(color);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Color getOptionalNightColour(JButton button)
+	{
+		return (Color)button.getClientProperty("optionalNightColour");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void applyDefaultZoneScriptNightColours(DefaultZoneScript dzs)
+	{
+		dzs.setNightShadeTargetColor(getOptionalNightColour(nightShadeTargetColour));
+		dzs.setNightSkyBottomColor(getOptionalNightColour(nightSkyBottomColour));
+		dzs.setNightSkyTopColor(getOptionalNightColour(nightSkyTopColour));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshDefaultZoneScriptNightColours(DefaultZoneScript dzs)
+	{
+		setOptionalNightColourButton(nightShadeTargetColour, dzs.getNightShadeTargetColor());
+		setOptionalNightColourButton(nightSkyBottomColour, dzs.getNightSkyBottomColor());
+		setOptionalNightColourButton(nightSkyTopColour, dzs.getNightSkyTopColor());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -398,7 +476,7 @@ public class ZonePanel extends EditorPanel
 		width.setText(""+zone.getWidth());
 		length.setText(""+zone.getLength());
 		
-		if (zone.getScript() instanceof DefaultZoneScript)
+		if (zone.getScript().getClass() == DefaultZoneScript.class)
 		{
 			DefaultZoneScript dzs = (DefaultZoneScript)zone.getScript();
 
@@ -408,12 +486,37 @@ public class ZonePanel extends EditorPanel
 			customZoneScript.setEditable(false);
 			defaultZoneScriptTurns.setEnabled(true);
 			defaultZoneScriptLightLevelDiff.setEnabled(true);
+			nightShadeTargetColour.setEnabled(true);
+			nightSkyBottomColour.setEnabled(true);
+			nightSkyTopColour.setEnabled(true);
 			ambientScripts.setEnabled(true);
 
 			defaultZoneScriptTurns.setValue(dzs.getTurnsBetweenChange());
 			defaultZoneScriptLightLevelDiff.setValue(dzs.getLightLevelDiff());
+			refreshDefaultZoneScriptNightColours(dzs);
 			PercentageTable<String> s = dzs.getAmbientScripts();
 			ambientScripts.refresh(s);
+		}
+		else if (zone.getScript() instanceof DefaultZoneScript)
+		{
+			// Custom subclass that still carries day/night config fields
+			DefaultZoneScript dzs = (DefaultZoneScript)zone.getScript();
+
+			isCustomZoneScript.setSelected(true);
+			customZoneScript.setText(zone.getScript().getClass().getName());
+			customZoneScript.setEnabled(true);
+			customZoneScript.setEditable(true);
+			defaultZoneScriptTurns.setEnabled(true);
+			defaultZoneScriptLightLevelDiff.setEnabled(true);
+			nightShadeTargetColour.setEnabled(true);
+			nightSkyBottomColour.setEnabled(true);
+			nightSkyTopColour.setEnabled(true);
+			ambientScripts.setEnabled(true);
+
+			defaultZoneScriptTurns.setValue(dzs.getTurnsBetweenChange());
+			defaultZoneScriptLightLevelDiff.setValue(dzs.getLightLevelDiff());
+			refreshDefaultZoneScriptNightColours(dzs);
+			ambientScripts.refresh(dzs.getAmbientScripts());
 		}
 		else
 		{
@@ -423,8 +526,14 @@ public class ZonePanel extends EditorPanel
 			customZoneScript.setEditable(true);
 			defaultZoneScriptTurns.setEnabled(false);
 			defaultZoneScriptLightLevelDiff.setEnabled(false);
+			nightShadeTargetColour.setEnabled(false);
+			nightSkyBottomColour.setEnabled(false);
+			nightSkyTopColour.setEnabled(false);
 			defaultZoneScriptTurns.setValue(0);
 			defaultZoneScriptLightLevelDiff.setValue(0);
+			setOptionalNightColourButton(nightShadeTargetColour, null);
+			setOptionalNightColourButton(nightSkyBottomColour, null);
+			setOptionalNightColourButton(nightSkyTopColour, null);
 			ambientScripts.setEnabled(false);
 			ambientScripts.refresh(null);
 		}
@@ -473,8 +582,9 @@ public class ZonePanel extends EditorPanel
 			{
 				customZoneScript.setEnabled(true);
 				customZoneScript.setEditable(true);
-				defaultZoneScriptTurns.setEnabled(false);
-				defaultZoneScriptLightLevelDiff.setEnabled(false);
+				// Day/night fields stay editable for DefaultZoneScript subclasses.
+				defaultZoneScriptTurns.setEnabled(true);
+				defaultZoneScriptLightLevelDiff.setEnabled(true);
 			}
 			else
 			{
@@ -496,6 +606,38 @@ public class ZonePanel extends EditorPanel
 
 			dialog.setBounds(centerX-width/2, centerY-height/2, width, height);
 			dialog.setVisible(true);
+		}
+		else if (e.getSource() == nightShadeTargetColour
+			|| e.getSource() == nightSkyBottomColour
+			|| e.getSource() == nightSkyTopColour)
+		{
+			JButton button = (JButton)e.getSource();
+			String[] options = {"Choose colour", "Use engine default", "Cancel"};
+			int choice = JOptionPane.showOptionDialog(
+				SwingEditor.instance,
+				"Optional night palette override. Leave unset to use engine defaults.",
+				"Night Colour",
+				JOptionPane.DEFAULT_OPTION,
+				JOptionPane.PLAIN_MESSAGE,
+				null,
+				options,
+				options[0]);
+			if (choice == 0)
+			{
+				Color current = getOptionalNightColour(button);
+				Color c = JColorChooser.showDialog(
+					SwingEditor.instance,
+					"Night Colour",
+					current != null ? current : Color.BLACK);
+				if (c != null)
+				{
+					setOptionalNightColourButton(button, c);
+				}
+			}
+			else if (choice == 1)
+			{
+				setOptionalNightColourButton(button, null);
+			}
 		}
 		else if (e.getSource() == shadeTargetColour)
 		{
@@ -747,7 +889,16 @@ public class ZonePanel extends EditorPanel
 				try
 				{
 					Class clazz = Class.forName(customZoneScript.getText());
-					zone.setScript((ZoneScript)clazz.newInstance());
+					ZoneScript script = (ZoneScript)clazz.getDeclaredConstructor().newInstance();
+					if (script instanceof DefaultZoneScript)
+					{
+						DefaultZoneScript dzs = (DefaultZoneScript)script;
+						dzs.setTurnsBetweenChange((Integer)defaultZoneScriptTurns.getValue());
+						dzs.setLightLevelDiff((Integer)defaultZoneScriptLightLevelDiff.getValue());
+						applyDefaultZoneScriptNightColours(dzs);
+						dzs.setAmbientScripts(ambientScripts.getPercentageTable(false));
+					}
+					zone.setScript(script);
 				}
 				catch (Exception x)
 				{
@@ -756,11 +907,12 @@ public class ZonePanel extends EditorPanel
 			}
 			else
 			{
-				zone.setScript(
-					new DefaultZoneScript(
-						(Integer)defaultZoneScriptTurns.getValue(),
-						(Integer)defaultZoneScriptLightLevelDiff.getValue(),
-						ambientScripts.getPercentageTable(false)));
+				DefaultZoneScript dzs = new DefaultZoneScript(
+					(Integer)defaultZoneScriptTurns.getValue(),
+					(Integer)defaultZoneScriptLightLevelDiff.getValue(),
+					ambientScripts.getPercentageTable(false));
+				applyDefaultZoneScriptNightColours(dzs);
+				zone.setScript(dzs);
 			}
 
 			zone.getMap().setScripts(

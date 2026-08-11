@@ -174,12 +174,75 @@ public class GameTime
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static long getDayNr(long turnNr)
+	{
+		return 1 + turnNr / TURNS_PER_DAY;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Turn index within the current day, 0 .. {@link #TURNS_PER_DAY}-1.
+	 */
+	public static long getTurnOfDay(long turnNr)
+	{
+		return turnNr % TURNS_PER_DAY;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Position within the day as a fraction 0..1 (turn 0 = start of day).
+	 */
+	public static double getDayFraction(long turnNr)
+	{
+		return getTurnOfDay(turnNr) / (double)TURNS_PER_DAY;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Smooth night weight: 0 at noon, 1 at midnight (turn 0 / end of day).
+	 */
+	public static double getNightAmount(long turnNr)
+	{
+		double radians = 2.0 * Math.PI * getTurnOfDay(turnNr) / TURNS_PER_DAY;
+		return (1.0 + Math.cos(radians)) / 2.0;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static TimeOfDay getTimeOfDay(long turnNr)
+	{
+		return TimeOfDay.fromTurnOfDay(getTurnOfDay(turnNr));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Smallest {@code newTurnNr >= turnNr} whose turn-of-day equals
+	 * {@code targetTurnOfDay}. Never decreases {@code turnNr}.
+	 */
+	public static long computeForwardAdvanceToTurnOfDay(long turnNr, int targetTurnOfDay)
+	{
+		long tod = getTurnOfDay(turnNr);
+		if (tod == targetTurnOfDay)
+		{
+			return turnNr;
+		}
+
+		long delta;
+		if (tod < targetTurnOfDay)
+		{
+			delta = targetTurnOfDay - tod;
+		}
+		else
+		{
+			delta = TURNS_PER_DAY - tod + targetTurnOfDay;
+		}
+
+		return turnNr + delta;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static GameDate getGameDate(long turnNr)
 	{
-		long dn = 1+ turnNr / TURNS_PER_DAY;
-		long tn = turnNr % TURNS_PER_DAY;
-
-		return new GameDate(dn, tn);
+		return new GameDate(getDayNr(turnNr), getTurnOfDay(turnNr));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -197,17 +260,32 @@ public class GameTime
 	/*-------------------------------------------------------------------------*/
 	public static class GameDate
 	{
-		private final long dayNr, turnNr;
+		private final long dayNr, turnOfDay;
 
-		public GameDate(long dayNr, long turnNr)
+		public GameDate(long dayNr, long turnOfDay)
 		{
 			this.dayNr = dayNr;
-			this.turnNr = turnNr;
+			this.turnOfDay = turnOfDay;
+		}
+
+		public long getDayNr()
+		{
+			return dayNr;
+		}
+
+		public long getTurnOfDay()
+		{
+			return turnOfDay;
+		}
+
+		public TimeOfDay getTimeOfDay()
+		{
+			return TimeOfDay.fromTurnOfDay(turnOfDay);
 		}
 
 		public String toFormattedString()
 		{
-			return StringUtil.getUiLabel("common.gametime", dayNr, turnNr);
+			return StringUtil.getUiLabel("common.gametime", dayNr, turnOfDay);
 		}
 	}
 

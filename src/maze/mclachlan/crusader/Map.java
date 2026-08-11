@@ -54,6 +54,28 @@ public class Map
 	/** Sky configs, in render order */
 	Map.SkyConfig[] skyConfigs;
 
+	/**
+	 * Runtime light level applied to texture-based sky layers (cylinder image,
+	 * high ceiling, cubemap). Authored/default is
+	 * {@link CrusaderEngine#NORMAL_LIGHT_LEVEL}; day/night presentation may lower
+	 * it at night. Gradients are adjusted separately.
+	 */
+	int skyLightLevel = CrusaderEngine.NORMAL_LIGHT_LEVEL;
+
+	/**
+	 * Runtime distance-fog shade target (RGB). Day/night may shift this; the
+	 * raycaster reads these each pixel. Unset until
+	 * {@link #ensureShadeTarget(java.awt.Color)} or {@link #setShadeTargetColor(int)}.
+	 */
+	private boolean shadeTargetSet;
+	private int shadeTargetRed;
+	private int shadeTargetGreen;
+	private int shadeTargetBlue;
+
+	/** Authored/daytime shade target ARGB, captured once for day/night lerps. */
+	private boolean dayShadeCaptured;
+	private int dayShadeArgb;
+
 	Texture[] textures;
 	MapScript[] scripts;
 
@@ -662,6 +684,90 @@ public class Map
 		this.skyConfigs = skyConfigs;
 	}
 
+	public int getSkyLightLevel()
+	{
+		return skyLightLevel;
+	}
+
+	public void setSkyLightLevel(int skyLightLevel)
+	{
+		if (skyLightLevel < 0)
+		{
+			skyLightLevel = 0;
+		}
+		else if (skyLightLevel > CrusaderEngine.MAX_LIGHT_LEVEL)
+		{
+			skyLightLevel = CrusaderEngine.MAX_LIGHT_LEVEL;
+		}
+		this.skyLightLevel = skyLightLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean hasShadeTarget()
+	{
+		return shadeTargetSet;
+	}
+
+	public int getShadeTargetRed()
+	{
+		return shadeTargetRed;
+	}
+
+	public int getShadeTargetGreen()
+	{
+		return shadeTargetGreen;
+	}
+
+	public int getShadeTargetBlue()
+	{
+		return shadeTargetBlue;
+	}
+
+	/**
+	 * Sets the runtime fog shade target from an ARGB colour.
+	 */
+	public void setShadeTargetColor(int argb)
+	{
+		shadeTargetRed = (argb >> 16) & 0xFF;
+		shadeTargetGreen = (argb >> 8) & 0xFF;
+		shadeTargetBlue = argb & 0xFF;
+		shadeTargetSet = true;
+	}
+
+	/**
+	 * Initializes the runtime shade target from the authored zone colour if
+	 * day/night (or another caller) has not already set one.
+	 */
+	public void ensureShadeTarget(java.awt.Color colour)
+	{
+		if (!shadeTargetSet && colour != null)
+		{
+			setShadeTargetColor(colour.getRGB());
+		}
+	}
+
+	public boolean isDayShadeCaptured()
+	{
+		return dayShadeCaptured;
+	}
+
+	public int getDayShadeArgb()
+	{
+		return dayShadeArgb;
+	}
+
+	/**
+	 * Remembers the authored daytime shade target for later night lerps.
+	 */
+	public void captureDayShade(java.awt.Color colour)
+	{
+		if (!dayShadeCaptured && colour != null)
+		{
+			dayShadeArgb = colour.getRGB();
+			dayShadeCaptured = true;
+		}
+	}
+
 	public int addTexture(Texture txt)
 	{
 		Texture[] temp = new Texture[textures.length+1];
@@ -764,6 +870,29 @@ public class Map
 		for (int i = 0; i < tiles.length; i++)
 		{
 			tiles[i].setCurrentLightLevel(tiles[i].getCurrentLightLevel()+inc);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Sets each tile's current light level from its authored baseline plus
+	 * {@code delta}, clamped to {@link CrusaderEngine#MAX_LIGHT_LEVEL}.
+	 */
+	public void setLightLevelFromBaseline(int delta)
+	{
+		for (int i = 0; i < tiles.length; i++)
+		{
+			Tile t = tiles[i];
+			int level = t.getLightLevel() + delta;
+			if (level < 0)
+			{
+				level = 0;
+			}
+			else if (level > CrusaderEngine.MAX_LIGHT_LEVEL)
+			{
+				level = CrusaderEngine.MAX_LIGHT_LEVEL;
+			}
+			t.setCurrentLightLevel(level);
 		}
 	}
 
