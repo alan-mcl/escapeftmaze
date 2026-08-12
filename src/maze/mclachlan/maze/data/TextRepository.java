@@ -103,7 +103,14 @@ public class TextRepository
 			return true;
 		}
 		File file = getHotStringFile(namespace);
-		return file.exists();
+		if (!file.exists())
+		{
+			// Cache the miss so sparse child campaigns (e.g. temple with only
+			// strings-campaign.json) do not pay File.exists on every UI lookup.
+			missingHotNamespaces.add(namespace);
+			return false;
+		}
+		return true;
 	}
 
 	public String getColdString(String key, boolean allowNull)

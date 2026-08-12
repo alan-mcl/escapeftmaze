@@ -1651,31 +1651,29 @@ public class Database
 	/*-------------------------------------------------------------------------*/
 	public void cacheSound(String soundName)
 	{
-		// try to load from all campaigns, starting with the current one
+		// try to load from all campaigns, starting with the current one.
+		// First success wins (same contract as getMusic / getFont) — a missing
+		// clip in a child campaign must not fail the load after the parent has it.
 		synchronized (mutex)
 		{
 			List<MazeException> errors = new ArrayList<>();
 
-			boolean hadErrors = false;
 			for (CampaignCache cc : campaignCaches)
 			{
 				try
 				{
 					cc.loader.cacheSound(soundName, Maze.getInstance().getAudioPlayer());
+					return;
 				}
 				catch (MazeException e)
 				{
-					hadErrors = true;
 					errors.add(e);
 				}
 			}
 
-			if (hadErrors)
-			{
-				MazeException me = new MazeException("Can't load [" + soundName + "]");
-				errors.forEach(me::addSuppressed);
-				throw me;
-			}
+			MazeException me = new MazeException("Can't load [" + soundName + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
 		}
 	}
 

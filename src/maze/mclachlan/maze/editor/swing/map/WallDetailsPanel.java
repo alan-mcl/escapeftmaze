@@ -121,7 +121,11 @@ public class WallDetailsPanel extends JPanel
 		}
 		isVisible.setSelected(wall.isVisible());
 		isSolid.setSelected(wall.isSolid());
-		height.setValue(wall.getHeight());
+		int wallHeight = wall.getHeight();
+		if (wallHeight >= 1)
+		{
+			height.setValue(wallHeight);
+		}
 
 		texturesPanel.refresh(wall);
 
@@ -206,11 +210,12 @@ public class WallDetailsPanel extends JPanel
 		{
 			if (wall != null)
 			{
-				edit("Wall visible", () ->
-				{
-					wall.setVisible(isVisible.isSelected());
-					setVisibleState(isVisible.isSelected());
-				});
+				boolean visible = isVisible.isSelected();
+				edit("Wall visible", () -> wall.setVisible(visible));
+				// Match the checkbox even if refreshAfterEdit races or skips;
+				// do not clear texture combo selections here (that used to fire
+				// nested texture commits and leave enable state inconsistent).
+				setVisibleState(visible);
 			}
 		}
 		else if (e.getSource() == isSolid)
@@ -251,6 +256,10 @@ public class WallDetailsPanel extends JPanel
 			if (wall != null)
 			{
 				edit("Wall height", () -> wall.setHeight((Integer)height.getValue()));
+				if (isVisible.isSelected())
+				{
+					texturesPanel.setVisibleState(true);
+				}
 			}
 		}
 	}
@@ -261,6 +270,7 @@ public class WallDetailsPanel extends JPanel
 		private static final int MAX = 9;
 		private final java.util.List<JComboBox<String>> textures, maskTextures;
 		private WallProxy wall;
+		private boolean suppressCommit;
 
 		/*-------------------------------------------------------------------------*/
 		public TexturesPanel()
@@ -274,7 +284,6 @@ public class WallDetailsPanel extends JPanel
 			for (int i = 0; i < MAX; i++)
 			{
 				JComboBox<String> cb = new JComboBox<>();
-				cb.addActionListener(this);
 				textures.add(cb);
 				left.add(cb);
 			}
@@ -284,7 +293,6 @@ public class WallDetailsPanel extends JPanel
 			for (int i = 0; i < MAX; i++)
 			{
 				JComboBox<String> cb = new JComboBox<>();
-				cb.addActionListener(this);
 				maskTextures.add(cb);
 				right.add(cb);
 			}
@@ -300,13 +308,15 @@ public class WallDetailsPanel extends JPanel
 			Collections.sort(vec);
 			vec.insertElementAt(EditorPanel.NONE, 0);
 
+			// Each combo needs its own model+vector. Sharing one Vector across
+			// DefaultComboBoxModel instances couples their backing data.
 			for (JComboBox<String> cb : textures)
 			{
-				cb.setModel(new DefaultComboBoxModel<>(vec));
+				cb.setModel(new DefaultComboBoxModel<>(new Vector<>(vec)));
 			}
 			for (JComboBox<String> cb : maskTextures)
 			{
-				cb.setModel(new DefaultComboBoxModel<>(vec));
+				cb.setModel(new DefaultComboBoxModel<>(new Vector<>(vec)));
 			}
 		}
 
@@ -320,41 +330,53 @@ public class WallDetailsPanel extends JPanel
 		/*-------------------------------------------------------------------------*/
 		public void commit()
 		{
-			if (this.wall != null)
+			if (suppressCommit || this.wall == null)
 			{
-				edit("Wall textures", () ->
-				{
-					List<Texture> texturesResult, maskTexturesResult;
-
-					texturesResult = new ArrayList<>();
-					maskTexturesResult = new ArrayList<>();
-
-					for (JComboBox<String> cb : textures)
-					{
-						if (cb.getSelectedItem() != EditorPanel.NONE)
-						{
-							texturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
-						}
-					}
-					this.wall.setTextures(texturesResult.toArray(new Texture[0]));
-
-					for (JComboBox<String> cb : maskTextures)
-					{
-						if (cb.getSelectedItem() != EditorPanel.NONE)
-						{
-							maskTexturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
-						}
-					}
-					if (maskTexturesResult.size() > 0)
-					{
-						this.wall.setMaskTextures(maskTexturesResult.toArray(new Texture[0]));
-					}
-					else
-					{
-						this.wall.setMaskTextures(null);
-					}
-				});
+				return;
 			}
+
+			edit("Wall textures", () ->
+			{
+				Texture[] texturesResult = new Texture[MAX];
+				Texture[] maskTexturesResult = new Texture[MAX];
+				int lastTexture = -1;
+				int lastMask = -1;
+
+				for (int i = 0; i < MAX; i++)
+				{
+					Object selected = textures.get(i).getSelectedItem();
+					if (selected != null && !EditorPanel.NONE.equals(selected))
+					{
+						texturesResult[i] = Database.getInstance().getMazeTexture((String)selected).getTexture();
+						lastTexture = i;
+					}
+
+					Object maskSelected = maskTextures.get(i).getSelectedItem();
+					if (maskSelected != null && !EditorPanel.NONE.equals(maskSelected))
+					{
+						maskTexturesResult[i] = Database.getInstance().getMazeTexture((String)maskSelected).getTexture();
+						lastMask = i;
+					}
+				}
+
+				if (lastTexture < 0)
+				{
+					this.wall.setTextures(new Texture[0]);
+				}
+				else
+				{
+					this.wall.setTextures(Arrays.copyOf(texturesResult, lastTexture + 1));
+				}
+
+				if (lastMask < 0)
+				{
+					this.wall.setMaskTextures(null);
+				}
+				else
+				{
+					this.wall.setMaskTextures(Arrays.copyOf(maskTexturesResult, lastMask + 1));
+				}
+			});
 		}
 
 		/*-------------------------------------------------------------------------*/
@@ -382,22 +404,33 @@ public class WallDetailsPanel extends JPanel
 		{
 			this.wall = wall;
 
-			if (wall != null)
+			if (wall == null)
 			{
+				return;
+			}
+
+			suppressCommit = true;
+			try
+			{
+				Texture[] wallTextures = wall.getTextures();
+				Texture[] wallMasks = wall.getMaskTextures();
+				int texLen = wallTextures == null ? 0 : wallTextures.length;
+				int maskLen = wallMasks == null ? 0 : wallMasks.length;
+
 				for (int i = 0; i < MAX; i++)
 				{
-					if (wall.getTextures().length > i)
+					if (i < texLen && wallTextures[i] != null)
 					{
-						textures.get(i).setSelectedItem(wall.getTexture(i).getName());
+						textures.get(i).setSelectedItem(wallTextures[i].getName());
 					}
 					else
 					{
 						textures.get(i).setSelectedItem(EditorPanel.NONE);
 					}
 
-					if (wall.getMaskTextures() != null && wall.getMaskTextures().length > i)
+					if (i < maskLen && wallMasks[i] != null)
 					{
-						maskTextures.get(i).setSelectedItem(wall.getMaskTexture(i).getName());
+						maskTextures.get(i).setSelectedItem(wallMasks[i].getName());
 					}
 					else
 					{
@@ -405,26 +438,34 @@ public class WallDetailsPanel extends JPanel
 					}
 				}
 			}
+			finally
+			{
+				suppressCommit = false;
+			}
 		}
 
 		/*-------------------------------------------------------------------------*/
-		public void setVisibleState(boolean b)
+		public void setVisibleState(boolean visible)
 		{
-			for (JComboBox<String> cb : textures)
+			suppressCommit = true;
+			try
 			{
-				if (!b)
+				// When visible, enable every height slot so the author can assign
+				// textures for the current (and future) wall height. Previously,
+				// clearing selections here while listeners were attached fired
+				// nested "Wall textures" edits and left a subset of combos enabled.
+				for (JComboBox<String> cb : textures)
 				{
-					cb.setSelectedItem(EditorPanel.NONE);
+					cb.setEnabled(visible);
 				}
-				cb.setEnabled(b);
+				for (JComboBox<String> cb : maskTextures)
+				{
+					cb.setEnabled(visible);
+				}
 			}
-			for (JComboBox<String> cb : maskTextures)
+			finally
 			{
-				if (!b)
-				{
-					cb.setSelectedItem(EditorPanel.NONE);
-				}
-				cb.setEnabled(b);
+				suppressCommit = false;
 			}
 		}
 	}

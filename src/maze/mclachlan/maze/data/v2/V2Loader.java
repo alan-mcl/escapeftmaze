@@ -369,18 +369,17 @@ public class V2Loader extends Loader
 	@Override
 	public void cacheSound(String soundName, AudioPlayer audioPlayer)
 	{
-		try
+		File file = new File("data/"+campaign.getName()+"/sound/"+soundName+".ogg");
+		if (!file.exists())
 		{
-			File file = new File("data/"+campaign.getName()+"/sound/"+soundName+".ogg");
-			if (!file.exists())
-			{
-				throw new MazeException("invalid audio resource ["+file+"]");
-			}
+			throw new MazeException("invalid audio resource ["+file+"]");
+		}
 
-			FileInputStream fis = new FileInputStream(file);
+		try (FileInputStream fis = new FileInputStream(file))
+		{
 			audioPlayer.cacheSound(soundName, fis);
 		}
-		catch (FileNotFoundException e)
+		catch (IOException e)
 		{
 			throw new MazeException(e);
 		}
@@ -446,7 +445,16 @@ public class V2Loader extends Loader
 		{
 			String path = "data/"+campaign.getName()+"/font/";
 			File fontFile = new File(path, name);
+			if (!fontFile.exists())
+			{
+				// cheap miss for parent-campaign fallthrough in Database.getFont
+				throw new MazeException("font not found: ["+fontFile+"]");
+			}
 			return Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		}
+		catch (MazeException e)
+		{
+			throw e;
 		}
 		catch (Exception e)
 		{

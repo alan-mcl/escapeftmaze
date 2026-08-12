@@ -1,0 +1,80 @@
+[
+  {
+    "name": "campaign.start",
+    "events": [
+      {
+        "textPlacement": "CENTER",
+        "imageResource": "screen/aurora",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "temple.intro.1"
+      },
+      {
+        "trackNames": [],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent"
+      },
+      {
+        "facing": "4",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Temple Hub",
+        "pos": "8:8"
+      },
+      {
+        "flavourText": "You stand in the entrance hall of Wasud\u0027s temple. Ahead, stone stairs lead into darkness.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "temple.descend.1",
+    "events": [
+      {
+        "mazeVariable": "temple.depth",
+        "value": "1",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
+        "flavourText": "Worn stone stairs spiral down into the temple depths. The air grows cold.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "true"
+      },
+      {
+        "facing": "1",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "temple.1",
+        "pos": "-1:-1"
+      }
+    ]
+  },
+  {
+    "name": "temple.main.menu",
+    "events": [
+      {
+        "script": "_MAIN_MENU_MUSIC_",
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent"
+      }
+    ]
+  },
+  {
+    "name": "temple.ascend.1",
+    "events": [
+      {
+        "flavourText": "Stone stairs lead back up toward the temple entrance.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "true"
+      },
+      {
+        "facing": "2",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Temple Hub",
+        "pos": "8:8"
+      }
+    ]
+  }
+]

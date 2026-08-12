@@ -17,7 +17,7 @@ editor) written entirely in Java.
 | Code namespace | `mclachlan.*`, rooted at `src/maze/` |
 | Game entry point | `mclachlan.maze.game.Launcher` -> `mclachlan.maze.game.Maze` |
 | Editor entry point | `mclachlan.maze.editor.swing.SwingEditor` |
-| Content/data | `data/<campaign>/` (campaign DB + save games + assets) |
+| Content/data | `data/<campaign>/` (campaign DB + save games + assets). Active campaigns: `default`, `temple` (see [temple_campaign.md](temple_campaign.md)) |
 | Scale | ~1,060 Java files, ~200K LOC |
 
 The runtime is built from five major components:
@@ -360,7 +360,9 @@ which forwards Crusader clicks to a game `TileScript`.
 ## 7. Build, Run, and Tooling
 
 See [AGENTS.md](../../AGENTS.md) for exact commands. In brief: Ant `compile` builds
-`build/classes` (engine) and `build/default/classes` (campaign scripts); the game is
+`build/classes` (engine), `build/default/classes` (default campaign scripts), and
+`build/temple/classes` (Temple of Wasud campaign scripts when that campaign is
+present); the game is
 launched via `mclachlan.maze.game.Launcher` and the editor via
 `mclachlan.maze.editor.swing.SwingEditor`, both with `oem/*.jar` on the classpath.
 A JUnit 5 test suite lives in `testsrc/` (run with `ant compile-tests` / `ant

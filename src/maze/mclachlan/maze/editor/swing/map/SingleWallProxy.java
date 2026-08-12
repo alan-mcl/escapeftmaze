@@ -38,7 +38,12 @@ public class SingleWallProxy extends WallProxy
 	@Override
 	public Texture getMaskTexture(int index)
 	{
-		return wall.getMaskTexture(index);
+		Texture[] masks = wall.getMaskTextures();
+		if (masks == null || masks.length <= index)
+		{
+			return null;
+		}
+		return masks[index];
 	}
 
 	@Override
@@ -56,7 +61,12 @@ public class SingleWallProxy extends WallProxy
 	@Override
 	public Texture getTexture(int index)
 	{
-		return wall.getTexture(index); // todo wall height
+		Texture[] textures = wall.getTextures();
+		if (textures == null || textures.length <= index)
+		{
+			return null;
+		}
+		return textures[index];
 	}
 
 	@Override

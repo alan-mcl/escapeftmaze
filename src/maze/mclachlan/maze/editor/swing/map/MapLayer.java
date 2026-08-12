@@ -131,7 +131,7 @@ public class MapLayer extends Layer
 	
 					if (wall.isVisible())
 					{
-						Texture texture = wall.getTexture(0);
+						Texture texture = textureAt(wall, 0);
 						if (hasDrawableImage(texture))
 						{
 							g2d.drawImage(display.getHorizScaledImage(texture.getImages()[0]), x1, y1, display);
@@ -169,7 +169,7 @@ public class MapLayer extends Layer
 				
 					if (wall.isVisible())
 					{
-						Texture texture = wall.getTexture(0);
+						Texture texture = textureAt(wall, 0);
 						if (hasDrawableImage(texture))
 						{
 							g2d.drawImage(display.getVertScaledImage(texture.getImages()[0]), x1, y1, display);
@@ -209,6 +209,17 @@ public class MapLayer extends Layer
 		g2d.fillOval(x, y, w, h);
 		g2d.setColor(Color.BLACK);
 		g2d.drawOval(x, y, w, h);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Texture textureAt(Wall wall, int height)
+	{
+		Texture[] textures = wall.getTextures();
+		if (textures == null || textures.length <= height)
+		{
+			return null;
+		}
+		return textures[height];
 	}
 
 	/*-------------------------------------------------------------------------*/

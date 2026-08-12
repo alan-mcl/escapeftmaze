@@ -11,7 +11,7 @@ Run all commands from the **repo root** (data paths are relative to the CWD).
 ## Build
 
 ```bash
-ant compile   # default; -> build/classes (engine) and build/default/classes (campaign)
+ant compile   # default; -> build/classes + build/default/classes + build/temple/classes
 ant clean     # remove build/
 ant dist      # Unix zip distro -> build/dist/maze_<version>.zip
 ```
@@ -26,8 +26,8 @@ From source (dev):
 
 Or directly:
 ```bash
-java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.game.Launcher
-java -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.editor.swing.SwingEditor
+java -cp build/classes:build/default/classes:build/temple/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.game.Launcher
+java -cp build/classes:build/default/classes:build/temple/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.editor.swing.SwingEditor
 ```
 
 Packaged distro launchers are in `dist/` (`dist/maze.sh`, `dist/editor.sh`) and

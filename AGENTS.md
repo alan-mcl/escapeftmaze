@@ -44,7 +44,7 @@ Read these first for deeper context:
 
 Build (Ant). The default target compiles; use `ant dist` for zip distributions:
 ```bash
-ant                # default 'compile': build/classes + build/default/classes
+ant                # default 'compile': build/classes + build/default/classes + build/temple/classes
 ant compile        # same as default
 ant clean          # removes build/
 ant dist           # Unix zip distro (requires Java 21 on target machine)
@@ -60,15 +60,15 @@ commands below:
 Or invoke Java directly:
 ```bash
 java -Xmx2048M \
-  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
-  mclachlan.maze.game.Launcher
+ -cp build/classes:build/default/classes:build/temple/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
+ mclachlan.maze.game.Launcher
 ```
 
 Run the content editor:
 ```bash
 java \
-  -cp build/classes:build/default/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
-  mclachlan.maze.editor.swing.SwingEditor
+ -cp build/classes:build/default/classes:build/temple/classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar \
+ mclachlan.maze.editor.swing.SwingEditor
 ```
 
 Notes:

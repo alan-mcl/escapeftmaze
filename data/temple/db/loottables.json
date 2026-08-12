@@ -1,0 +1,27 @@
+[
+  {
+    "name": "temple.depth.1.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        40,
+        30,
+        30
+      ],
+      "POSSIBILITIES": [
+        {
+          "NAME": "low.level.gold",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.1.food",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.1.magic.trinkets",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        }
+      ]
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootTable"
+  }
+]

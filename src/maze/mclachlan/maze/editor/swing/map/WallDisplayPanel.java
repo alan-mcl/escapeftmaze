@@ -37,7 +37,7 @@ public class WallDisplayPanel extends JPanel
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Wall Details --- "), BorderLayout.NORTH);
 		details = new WallDetailsPanel(false, zone, editor);
-		add(details, BorderLayout.CENTER);
+		add(new JScrollPane(details), BorderLayout.CENTER);
 	}
 
 	/*-------------------------------------------------------------------------*/

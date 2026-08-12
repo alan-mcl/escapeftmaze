@@ -4,7 +4,6 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
-
 Skyrazor egg placement
 forgotten path / red moss tree
 Eva quest -> Gurney
@@ -27,6 +26,9 @@ random houses: encounters and locked doors
 NPC bedrooms with loot
 Inn kitchen
 ambient encounters
+
+ICHIBA CROSSROADS
+-----------------
 
 NPC conversations: player keyword shortcuts
 

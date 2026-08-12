@@ -41,11 +41,18 @@ public class MultipleWallProxy extends WallProxy
 	@Override
 	public Texture getMaskTexture(int index)
 	{
-		Texture x = walls.get(0).getMaskTexture(index);
+		Texture[] firstMasks = walls.get(0).getMaskTextures();
+		if (firstMasks == null || firstMasks.length <= index)
+		{
+			return null;
+		}
+
+		Texture x = firstMasks[index];
 
 		for (Wall w : walls)
 		{
-			if (w.getMaskTexture(index) != x)
+			Texture[] masks = w.getMaskTextures();
+			if (masks == null || masks.length <= index || masks[index] != x)
 			{
 				return null;
 			}
@@ -57,69 +64,55 @@ public class MultipleWallProxy extends WallProxy
 	@Override
 	public Texture[] getTextures()
 	{
-		List<Texture> result = new ArrayList<>();
-
-		for (int i = 0; i < walls.get(0).getTextures().length; i++)
+		Texture[] first = walls.get(0).getTextures();
+		if (first == null)
 		{
-			Texture refTex = walls.get(0).getTexture(i);
-			boolean allSame = true;
-			for (Wall w : walls)
-			{
-				if (!(w.getTextures().length > i && refTex == w.getTexture(i)))
-				{
-					allSame = false;
-					break;
-				}
-			}
-			if (allSame)
-			{
-				result.add(refTex);
-			}
+			return new Texture[0];
 		}
 
-		return result.toArray(new Texture[0]);
+		// Preserve height indices. Skipping mismatched slots used to pack
+		// surviving textures toward index 0 and desync the editor dropdowns.
+		Texture[] result = new Texture[first.length];
+		for (int i = 0; i < first.length; i++)
+		{
+			result[i] = getTexture(i);
+		}
+		return result;
 	}
 
 	@Override
 	public Texture[] getMaskTextures()
 	{
-		List<Texture> result = new ArrayList<>();
-
-		if (walls.get(0).getMaskTextures() == null)
+		Texture[] first = walls.get(0).getMaskTextures();
+		if (first == null)
 		{
 			return null;
 		}
 
-		for (int i = 0; i < walls.get(0).getMaskTextures().length; i++)
+		Texture[] result = new Texture[first.length];
+		for (int i = 0; i < first.length; i++)
 		{
-			Texture refTex = walls.get(0).getMaskTexture(i);
-			boolean allSame = true;
-			for (Wall w : walls)
-			{
-				if (!(w.getMaskTextures() != null && w.getMaskTextures().length > i && refTex == w.getMaskTexture(i)))
-				{
-					allSame = false;
-					break;
-				}
-			}
-			if (allSame)
-			{
-				result.add(refTex);
-			}
+			result[i] = getMaskTexture(i);
 		}
-
-		return result.toArray(new Texture[0]);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public Texture getTexture(int index)
 	{
-		Texture x = walls.get(0).getTexture(index);
+		Texture[] firstTextures = walls.get(0).getTextures();
+		if (firstTextures == null || firstTextures.length <= index)
+		{
+			return null;
+		}
+
+		Texture x = firstTextures[index];
 
 		for (Wall w : walls)
 		{
-			if (w.getTexture(index) != x)
+			Texture[] textures = w.getTextures();
+			if (textures == null || textures.length <= index || textures[index] != x)
 			{
 				return null;
 			}

@@ -31,6 +31,9 @@
     <property name="default_campaign_build"
               location="${build_base}/default/classes"/>
     <property name="default_campaign_src" location="./data/default/src"/>
+    <property name="temple_campaign_build"
+              location="${build_base}/temple/classes"/>
+    <property name="temple_campaign_src" location="./data/temple/src"/>
     <property name="dist" location="${build_base}/dist"/>
     <property name="zipdist"
               location="${dist}/maze_${mclachlan.maze.version}/maze_${mclachlan.maze.version}"/>
@@ -55,6 +58,7 @@
     <path id="test.classpath">
         <pathelement location="${build}"/>
         <pathelement location="${default_campaign_build}"/>
+        <pathelement location="${temple_campaign_build}"/>
         <pathelement location="${test_build}"/>
         <path refid="oem.classpath"/>
     </path>
@@ -69,6 +73,7 @@
         <tstamp/>
         <mkdir dir="${build}"/>
         <mkdir dir="${default_campaign_build}"/>
+        <mkdir dir="${temple_campaign_build}"/>
     </target>
 
     <!--======================================================================-->
@@ -84,6 +89,15 @@
         <javac includeantruntime="false"
                srcdir="${default_campaign_src}"
                destdir="${default_campaign_build}"
+               debug="true" encoding="UTF-8">
+            <classpath>
+                <pathelement location="${build}"/>
+                <path refid="oem.classpath"/>
+            </classpath>
+        </javac>
+        <javac includeantruntime="false"
+               srcdir="${temple_campaign_src}"
+               destdir="${temple_campaign_build}"
                debug="true" encoding="UTF-8">
             <classpath>
                 <pathelement location="${build}"/>

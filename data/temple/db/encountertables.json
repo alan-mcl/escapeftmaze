@@ -1,0 +1,29 @@
+[
+  {
+    "name": "temple.depth.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        5,
+        5,
+        5,
+        5
+      ],
+      "ITEMS": [
+        "fruit.bats.small",
+        "mud.spiders.small",
+        "spotted.cruds.small",
+        "jumping.roaches.small",
+        "mud.spiders.medium",
+        "spotted.cruds.medium",
+        "fruit.bats.medium",
+        "jumping.roaches.medium"
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
+  }
+]
