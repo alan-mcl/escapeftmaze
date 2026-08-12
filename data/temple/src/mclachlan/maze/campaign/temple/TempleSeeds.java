@@ -25,14 +25,14 @@ import mclachlan.maze.game.MazeVariables;
 /**
  * Temple-campaign seed helpers. Run seed is chosen once per new game; floor
  * seeds are derived so layouts are reproducible for saves and balance runs.
- * Mutation-key helpers are stubs for Phase 2–3.
+ * Mutation keys are per-depth maze variables for cleared encounters / loot.
  */
 public final class TempleSeeds
 {
 	public static final String RUN_SEED = "temple.run.seed";
 	public static final String DEPTH = "temple.depth";
 	public static final String FLOOR_SEED_PREFIX = "temple.floor.seed.";
-	public static final String MUTATIONS_PREFIX = "temple.mutations.";
+	public static final String MUTATIONS_PREFIX = "temple.d.";
 
 	private TempleSeeds()
 	{
@@ -100,9 +100,23 @@ public final class TempleSeeds
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/** Cleared-encounter mutation key (stable across regen of the same depth). */
+	public static String encounterVar(int depth, int index)
+	{
+		return MUTATIONS_PREFIX + depth + ".enc." + index;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/** Once-only loot mutation key. */
+	public static String lootVar(int depth, int index)
+	{
+		return MUTATIONS_PREFIX + depth + ".loot." + index;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/** Stub namespace for future per-floor mutation blobs. */
 	public static String mutationsKey(int depth)
 	{
-		return MUTATIONS_PREFIX + depth;
+		return MUTATIONS_PREFIX + depth + ".blob";
 	}
 }

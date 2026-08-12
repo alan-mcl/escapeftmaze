@@ -68,10 +68,9 @@ Create character, guild, load game, and settings are campaign-agnostic and must 
 Authored zone **`Temple Hub`**: framing, safe resting, stairs into the delve.
 Later phases may add identify/sell/heal services as economy sinks.
 
-**Phase 1–2 placeholder:** hub and `temple.1` shells were cloned from the Default
-`arena` test map so the campaign could boot. They look like the arena until
-replaced. Preferred: author a proper temple entrance (and a blank floor palette
-shell) in the Swing editor under campaign `temple`. Required hooks:
+**Phase 1–2:** Hub is player-authored. `temple.1` is a **31×31 indoor dungeon
+palette shell** (dungeon floor/ceiling, `DEFAULT_SKY`); gen replaces walls/doors
+and dresses encounters/loot/stairs. Required hooks:
 
 | Zone | Must keep |
 |------|-----------|
@@ -101,50 +100,70 @@ every UI label lookup (critical for Quick Start spell rolling).
 | Variable | Role |
 |----------|------|
 | `temple.run.seed` | One seed per run (new game) |
-| `temple.depth` | Current delve depth |
+| `temple.depth` | Current delve depth (`0` = hub) |
 | `temple.floor.seed.<depth>` | Derived from `(runSeed, depth)`; used for Noise4j |
-| Mutation keys (later) | Looted caches, cleared encounters, door state |
+| `temple.d.<depth>.enc.<i>` | Cleared-encounter mutation (boolean) |
+| `temple.d.<depth>.loot.<i>` | Once-only loot mutation |
 
-Pure regen-from-seed is not enough once loot/encounters matter — track mutations
-in maze variables / item caches (Phase 2–3).
+Pure regen-from-seed is not enough once loot/encounters matter — mutation keys
+above persist across re-entry of the same depth.
 
 Helper: `mclachlan.maze.campaign.temple.TempleSeeds`.
 
 ## 8. Depth model
 
-`TempleDepthScaler` (temple package, Phase 3): encounter tier, foe packing, loot
-multiplier, trap chance by depth. **Orthogonal** to inherited Easy/Normal/Hard/
-Heroic `DifficultyLevel`. Soft-cap / asymptotic curve; story win at depth bands
-with optional endless delve after victory.
+`TempleDepthScaler` (temple package): maps depth → content band (1–3 soft-cap),
+encounter/loot table names, loot placement count, foe-pack multiplier hint.
+**Orthogonal** to inherited Easy/Normal/Hard/Heroic `DifficultyLevel`. Depths
+beyond band 3 reuse band-3 tables (endless until Phase 5 quest bands).
+
+Multi-depth loop (single palette shell `temple.1`, no `temple.2`…`N` JSON):
+
+```
+Hub --temple.descend.1--> depth 1 floor
+floor --temple.descend--> depth+1 (regen shell)
+floor --temple.ascend--> depth-1 floor, or Hub if leaving depth 1
+```
+
+`TempleDescendEvent` / `TempleAscendEvent` adjust `temple.depth` then
+`ZoneChangeEvent` to `temple.1` (`-1:-1`) or `Temple Hub`.
 
 ## 9. Encounters and loot
 
-- Phase 2: temple tables `temple.depth.1` / `temple.depth.1.loot` reference
-  inherited Default foe entries and loot entries by name (gatehouse-tier vermin /
-  gold/food/trinkets). `TempleDecorator.getEncounter` looks up the depth table;
-  `TempleFloorDressing` places once-only `Loot` scripts on room-door tiles.
-- Stairs: hub `temple.descend.1` ↔ floor `temple.ascend.1` (`ZoneChangeEvent`).
-  Ascend is dressed onto an open tile beside spawn (or closest encounter tile).
-- Later: optional threat-budget picker in temple package (may read existing
-  scorers; must not modify them).
+- Tables `temple.depth.{1,2,3}` / `.loot` reference inherited Default foe/loot
+  entries by name. Scaler picks the band; decorator/dressing apply it.
+- Stairs: hub `temple.descend.1`; floors dress `temple.ascend` (near spawn) and
+  `temple.descend` (far encounter tile).
+- Optional threat-budget picker later (may read scorers; must not modify them).
 
 ### Phase 2 playtest checklist
 
-1. Select temple campaign → main menu (create/guild/quick start/load all work).
-2. Start / quick start → aurora storyboard → Temple Hub.
-3. Step onto stairs north of spawn → generated `temple.1` with doors/encounters.
-4. Fight a door encounter (Fruit Bat / Mud Spider / Crud / Roach mix).
-5. Step onto a loot tile → gold/food/trinkets once.
-6. Step onto ascend stairs near spawn → return to Temple Hub.
-7. Descend again → same layout for this run (seeded).
+1. Select temple campaign → main menu. **done**
+2. Start / quick start → aurora → Temple Hub. **done**
+3. Descend → generated `temple.1`. **done**
+4–7. Fight / loot / ascend / re-descend seeded. Manual / smoke.
 
-Automated: `TempleFloorGenTest` (gen reachability + thin combat).
+Automated: `TempleFloorGenTest`.
+
+### Phase 3 playtest checklist
+
+1. Depth 1 floor has stairs **up** (hub) and **down** (deeper).
+2. Take stairs down → depth 2 layout (different seed), tougher table foes.
+3. Clear an encounter / loot on depth 2; leave and return → stays cleared/looted.
+4. Ascend from depth 1 → Temple Hub.
+5. Depth 4+ still generates (soft-caps to band-3 tables).
+
+Automated: `TempleDepthPhase3Test`.
 ## 10. Map fragments
 
 Authored fragment zones under `data/temple/db/zones/` plus temple-only
 `fragments.json` (depthMin/Max, role, weight, maxPerFloor).
-`TempleFragmentAssembler` stamps into Noise4j floors (Phase 4). Roles:
+`TempleFragmentAssembler` stamps into **Noise4j base floors** (Phase 4 hybrid:
+Noise4j rooms/corridors + authored guardian/loot/quest/flavour stamps). Roles:
 `guardian`, `loot`, `quest`, `flavour`.
+
+Noise4j alone is the Phase 2–3 floor engine; fragments layer on once depth-1
+crawl feel is solid.
 
 ## 11. Quest: reassemble Wasud
 
@@ -177,7 +196,7 @@ writes `data/default/`.
 | 0 | This design doc + backlog row | done |
 | 1 | Loadable sparse campaign: intro → hub → generating `temple.1` | done |
 | 2 | Playable depth-1 crawl + early tests | done |
-| 3 | Multi-depth + `TempleDepthScaler` + mutations | todo |
+| 3 | Multi-depth + `TempleDepthScaler` + mutations | **done** — scaler bands 1–3, stairs down/up, per-depth enc/loot vars |
 | 4 | Fragments + assembler | todo |
 | 5 | Wasud quest + victory / endless | todo |
 | 6 | Full balance harness | todo |
@@ -189,5 +208,5 @@ writes `data/default/`.
 - No coupling to Default story progression or Temple of the Gate.
 - GOAP / Heroic AI opportunistic only (backlog P1-1).
 - Dist packaging of temple deferred until Phase 2+ is stable.
-- Floor prototype size is currently 16×16 (arena-derived); enlarge when delve
-  feel needs it.
+- Floor prototype size is **31×31** (odd, Noise4j-friendly); enlarge further if
+  delve feel needs it.

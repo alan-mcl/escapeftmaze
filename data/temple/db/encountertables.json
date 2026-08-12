@@ -25,5 +25,59 @@
       "SHOULD_SUM_TO_100": "false"
     },
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
+  },
+  {
+    "name": "temple.depth.2",
+    "encounterTable": {
+      "PERCENTAGES": [
+        18,
+        18,
+        14,
+        14,
+        12,
+        12,
+        6,
+        6
+      ],
+      "ITEMS": [
+        "gnoll.hunters.small",
+        "gnoll.thugs.small",
+        "harvestman.spiders.small",
+        "goblin.cutpurse.small",
+        "mud.spiders.medium",
+        "jumping.roaches.medium",
+        "gnoll.braves.small",
+        "sewer.cruds.medium"
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
+  },
+  {
+    "name": "temple.depth.3",
+    "encounterTable": {
+      "PERCENTAGES": [
+        16,
+        16,
+        14,
+        14,
+        12,
+        12,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "dog.soldiers.small",
+        "gnoll.heroes.small",
+        "emerald.spiders.small",
+        "goblin.magsmen.encounter",
+        "bloated.spiders.medium",
+        "harvestman.spiders.medium",
+        "rabid.gnolls.small",
+        "screaming.bat.small"
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
   }
 ]

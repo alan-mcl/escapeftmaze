@@ -2917,12 +2917,12 @@
         "topColour": "0",
         "ceilingImage": "sky.ichiba.flat.2",
         "imageScale": "64",
-        "ceilingHeight": "30"
+        "ceilingHeight": "10"
       },
       {
         "type": "CYLINDER_GRADIENT",
-        "bottomColour": "-8611387",
-        "topColour": "-12499367",
+        "bottomColour": "-2941924",
+        "topColour": "-11193035",
         "imageScale": "0",
         "ceilingHeight": "0"
       }

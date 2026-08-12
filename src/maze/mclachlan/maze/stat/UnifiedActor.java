@@ -1119,17 +1119,25 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 	{
 		Item ammoItem;
 
-		if (event.getAttackWith().getAmmoRequired().contains(ItemTemplate.AmmoType.SELF))
+		AttackWith attackWith = event.getAttackWith();
+		if (attackWith.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF))
 		{
-			ammoItem = (Item)event.getAttackWith();
+			// may be a wrapper (BackstabSnipeAttack, AttackWithProxy)
+			ammoItem = attackWith.getSelfAmmoItem();
 		}
 		else
 		{
 			ammoItem = getEquippedItem(SECONDARY_WEAPON, 0);
 		}
 
+		if (ammoItem == null)
+		{
+			throw new MazeException("Attempt to deduct ammo when there is no " +
+				"ammo.  Something is fuxored.");
+		}
+
 		// returning items do not deduct ammo
-		if (ammoItem != null && !ammoItem.isReturning())
+		if (!ammoItem.isReturning())
 		{
 			ammoItem.getStack().decCurrent(1);
 
@@ -1138,11 +1146,6 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 				// Ammo expended, destroy item.
 				removeItem(ammoItem, true);
 			}
-		}
-		else
-		{
-			throw new MazeException("Attempt to deduct ammo when there is no " +
-				"ammo.  Something is fuxored.");
 		}
 
 		return ammoItem;

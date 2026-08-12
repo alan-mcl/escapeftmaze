@@ -69,6 +69,9 @@ public class TempleFloorGenTest extends MazeTestSupport
 		Point origin = zone.getPlayerOrigin();
 		assertNotNull(origin);
 
+		assertEquals(31, zone.getWidth(), "temple.1 palette shell should be 31 wide");
+		assertEquals(31, zone.getLength(), "temple.1 palette shell should be 31 long");
+
 		List<Point> encounters = TempleFloorDressing.findEncounterTiles(zone);
 		assertFalse(encounters.isEmpty(), "expected door-room encounters");
 
@@ -80,6 +83,15 @@ public class TempleFloorGenTest extends MazeTestSupport
 
 		assertTrue(canReach(zone, origin, stairs),
 			"spawn should reach stairs via open tiles/portals");
+
+		// Same floor seed must reproduce the same spawn (no unseeded Random).
+		Point origin2 = generateDepth1(db).getPlayerOrigin();
+		assertEquals(origin, origin2, "spawn should be deterministic for a fixed run seed");
+
+		// ZoneChangeEvent pos (-1,-1) must resolve to the generated origin —
+		// otherwise the raycaster spawns off-map and the floor looks ungenerated.
+		assertEquals(origin, Maze.resolveSpawnPos(new Point(-1, -1), zone));
+		assertEquals(new Point(3, 4), Maze.resolveSpawnPos(new Point(3, 4), zone));
 
 		assertEquals("1", MazeVariables.get(TempleSeeds.DEPTH));
 		assertNotNull(MazeVariables.get(TempleSeeds.RUN_SEED));
@@ -172,10 +184,11 @@ public class TempleFloorGenTest extends MazeTestSupport
 	{
 		int n = 0;
 		Tile[][] tiles = zone.getTiles();
-		for (Tile[] row : tiles)
+		for (int x = 0; x < tiles.length; x++)
 		{
-			for (Tile tile : row)
+			for (int y = 0; y < tiles[x].length; y++)
 			{
+				Tile tile = tiles[x][y];
 				if (tile == null || tile.getScripts() == null)
 				{
 					continue;

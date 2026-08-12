@@ -185,6 +185,12 @@ public class BackstabSnipeAttack implements AttackWith
 	}
 
 	@Override
+	public Item getSelfAmmoItem()
+	{
+		return weapon.getSelfAmmoItem();
+	}
+
+	@Override
 	public int getWeaponType()
 	{
 		return weapon.getWeaponType();

@@ -153,14 +153,15 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		@Override
 		public Encounter getEncounter(Zone zone, int x, int y, int dungeonLevel)
 		{
-			String mazeVar = zone.getName() + ".encounter." + (encounterCounter++);
-			String tableName = TempleFloorDressing.encounterTableName(dungeonLevel);
+			int index = encounterCounter++;
+			String mazeVar = TempleSeeds.encounterVar(dungeonLevel, index);
+			String tableName = TempleDepthScaler.encounterTableName(dungeonLevel);
 			EncounterTable table = Database.getInstance().getEncounterTables().get(tableName);
 			if (table == null)
 			{
 				// fall back to depth 1 if a deeper table is not authored yet
 				table = Database.getInstance().getEncounterTable(
-					TempleFloorDressing.encounterTableName(1));
+					TempleDepthScaler.encounterTableName(1));
 			}
 			if (table == null)
 			{

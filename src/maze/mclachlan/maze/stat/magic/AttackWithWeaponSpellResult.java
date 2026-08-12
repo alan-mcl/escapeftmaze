@@ -589,6 +589,12 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		}
 
 		@Override
+		public Item getSelfAmmoItem()
+		{
+			return weapon.getSelfAmmoItem();
+		}
+
+		@Override
 		public int getToInitiative()
 		{
 			return weapon.getToInitiative();

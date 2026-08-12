@@ -93,6 +93,16 @@ public interface AttackWith
 	/** @return the ammo required by this, null if none required */
 	List<ItemTemplate.AmmoType> getAmmoRequired();
 
+	/**
+	 * Item whose stack is consumed when ammo required includes
+	 * {@link ItemTemplate.AmmoType#SELF}. Wrappers that delegate to a weapon
+	 * must return that weapon's item.
+	 */
+	default Item getSelfAmmoItem()
+	{
+		return (this instanceof Item) ? (Item)this : null;
+	}
+
 	/** @return a constant from {@link mclachlan.maze.stat.ItemTemplate.WeaponSubType} */
 	int getWeaponType();
 

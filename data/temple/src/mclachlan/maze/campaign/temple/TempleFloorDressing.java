@@ -37,16 +37,13 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.Loot;
 
 /**
- * Post-processes a Noise4j-generated temple floor: stairs back to the hub and
- * depth-keyed loot on room-door tiles. Temple-only; does not modify the engine
- * generator.
+ * Post-processes a Noise4j-generated temple floor: stairs (up/down), depth-keyed
+ * loot. Mutation keys are per-depth so regen restores cleared/looted state.
  */
 public final class TempleFloorDressing
 {
-	public static final String ASCEND_SCRIPT = "temple.ascend.1";
-	public static final String LOOT_TABLE_PREFIX = "temple.depth.";
-	public static final String LOOT_TABLE_SUFFIX = ".loot";
-	public static final int LOOT_PLACEMENTS = 2;
+	public static final String ASCEND_SCRIPT = "temple.ascend";
+	public static final String DESCEND_SCRIPT = "temple.descend";
 
 	private TempleFloorDressing()
 	{
@@ -58,28 +55,36 @@ public final class TempleFloorDressing
 		Point origin = zone.getPlayerOrigin();
 		List<Point> encounterTiles = findEncounterTiles(zone);
 
-		Point stairs = pickStairsTile(zone, origin, encounterTiles);
-		placeStairsUp(zone, stairs);
+		Point stairsUp = pickStairsUpTile(zone, origin, encounterTiles);
+		placeScript(zone, stairsUp, ASCEND_SCRIPT, buildAscendFallback());
 
-		List<Point> lootTiles = pickLootTiles(origin, encounterTiles, stairs, LOOT_PLACEMENTS);
-		String lootTable = lootTableName(dungeonLevel);
+		Point stairsDown = pickStairsDownTile(origin, encounterTiles, stairsUp);
+		if (stairsDown != null)
+		{
+			placeScript(zone, stairsDown, DESCEND_SCRIPT, buildDescendFallback());
+		}
+
+		int lootCount = TempleDepthScaler.lootPlacements(dungeonLevel);
+		List<Point> lootTiles = pickLootTiles(
+			origin, encounterTiles, stairsUp, stairsDown, lootCount);
+		String lootTable = TempleDepthScaler.lootTableName(dungeonLevel);
 		int i = 0;
 		for (Point p : lootTiles)
 		{
-			placeLoot(zone, p, lootTable, zone.getName() + ".loot." + (i++));
+			placeLoot(zone, p, lootTable, TempleSeeds.lootVar(dungeonLevel, i++));
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static String encounterTableName(int dungeonLevel)
 	{
-		return "temple.depth." + Math.max(1, dungeonLevel);
+		return TempleDepthScaler.encounterTableName(dungeonLevel);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static String lootTableName(int dungeonLevel)
 	{
-		return LOOT_TABLE_PREFIX + Math.max(1, dungeonLevel) + LOOT_TABLE_SUFFIX;
+		return TempleDepthScaler.lootTableName(dungeonLevel);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -87,11 +92,11 @@ public final class TempleFloorDressing
 	{
 		List<Point> result = new ArrayList<>();
 		Tile[][] tiles = zone.getTiles();
-		for (int y = 0; y < tiles.length; y++)
+		for (int x = 0; x < tiles.length; x++)
 		{
-			for (int x = 0; x < tiles[y].length; x++)
+			for (int y = 0; y < tiles[x].length; y++)
 			{
-				Tile tile = tiles[y][x];
+				Tile tile = tiles[x][y];
 				if (tile == null || tile.getScripts() == null)
 				{
 					continue;
@@ -110,21 +115,43 @@ public final class TempleFloorDressing
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static Point findStairsUpTile(Zone zone)
+	{
+		return findScriptTile(zone, true, false);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Point findStairsDownTile(Zone zone)
+	{
+		return findScriptTile(zone, false, true);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static Point findStairsTile(Zone zone)
 	{
+		return findStairsUpTile(zone);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Point findScriptTile(Zone zone, boolean ascend, boolean descend)
+	{
 		Tile[][] tiles = zone.getTiles();
-		for (int y = 0; y < tiles.length; y++)
+		for (int x = 0; x < tiles.length; x++)
 		{
-			for (int x = 0; x < tiles[y].length; x++)
+			for (int y = 0; y < tiles[x].length; y++)
 			{
-				Tile tile = tiles[y][x];
+				Tile tile = tiles[x][y];
 				if (tile == null || tile.getScripts() == null)
 				{
 					continue;
 				}
 				for (TileScript script : tile.getScripts())
 				{
-					if (isAscendScript(script))
+					if (ascend && isAscendScript(script))
+					{
+						return new Point(x, y);
+					}
+					if (descend && isDescendScript(script))
 					{
 						return new Point(x, y);
 					}
@@ -135,42 +162,70 @@ public final class TempleFloorDressing
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static boolean isAscendScript(TileScript script)
+	private static boolean scriptMatches(
+		TileScript script,
+		String primaryName,
+		String legacyName,
+		Class<? extends MazeEvent> depthEventType,
+		String hubZoneName)
 	{
 		if (!(script instanceof ExecuteMazeScript))
 		{
 			return false;
 		}
 		MazeScript ms = ((ExecuteMazeScript)script).getScript();
-		if (ms == null || ms.getEvents() == null)
+		if (ms == null)
+		{
+			return false;
+		}
+		if (primaryName.equals(ms.getName()) || legacyName.equals(ms.getName()))
+		{
+			return true;
+		}
+		if (ms.getEvents() == null)
 		{
 			return false;
 		}
 		for (MazeEvent event : ms.getEvents())
 		{
-			if (event instanceof ZoneChangeEvent)
+			if (depthEventType.isInstance(event))
 			{
-				ZoneChangeEvent zce = (ZoneChangeEvent)event;
-				if ("Temple Hub".equals(zce.getZone()))
+				return true;
+			}
+			if (hubZoneName != null && event instanceof ZoneChangeEvent)
+			{
+				if (hubZoneName.equals(((ZoneChangeEvent)event).getZone()))
 				{
 					return true;
 				}
 			}
 		}
-		return ASCEND_SCRIPT.equals(ms.getName());
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Point pickStairsTile(Zone zone, Point origin, List<Point> encounterTiles)
+	public static boolean isAscendScript(TileScript script)
 	{
-		// Prefer an open adjacent floor tile in the spawn room (reachable, no fight).
+		return scriptMatches(
+			script, ASCEND_SCRIPT, "temple.ascend.1", TempleAscendEvent.class, "Temple Hub");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static boolean isDescendScript(TileScript script)
+	{
+		return scriptMatches(
+			script, DESCEND_SCRIPT, "temple.descend.1", TempleDescendEvent.class, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Point pickStairsUpTile(Zone zone, Point origin, List<Point> encounterTiles)
+	{
 		Point openAdjacent = firstOpenAdjacent(zone, origin);
 		if (openAdjacent != null && !openAdjacent.equals(origin))
 		{
 			return openAdjacent;
 		}
 
-		// Otherwise the closest room-door encounter tile (walkable from spawn).
 		if (!encounterTiles.isEmpty())
 		{
 			return closest(origin, encounterTiles);
@@ -180,16 +235,35 @@ public final class TempleFloorDressing
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private static Point pickStairsDownTile(Point origin, List<Point> encounterTiles, Point stairsUp)
+	{
+		List<Point> candidates = new ArrayList<>();
+		for (Point p : encounterTiles)
+		{
+			if (!p.equals(origin) && !p.equals(stairsUp))
+			{
+				candidates.add(p);
+			}
+		}
+		if (candidates.isEmpty())
+		{
+			return null;
+		}
+		return farthest(origin, candidates);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private static List<Point> pickLootTiles(
 		Point origin,
 		List<Point> encounterTiles,
-		Point stairs,
+		Point stairsUp,
+		Point stairsDown,
 		int count)
 	{
 		List<Point> candidates = new ArrayList<>();
 		for (Point p : encounterTiles)
 		{
-			if (!p.equals(origin) && !p.equals(stairs))
+			if (!p.equals(origin) && !p.equals(stairsUp) && !p.equals(stairsDown))
 			{
 				candidates.add(p);
 			}
@@ -292,31 +366,40 @@ public final class TempleFloorDressing
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void placeStairsUp(Zone zone, Point tile)
+	private static void placeScript(Zone zone, Point tile, String scriptName, MazeScript fallback)
 	{
-		MazeScript script = Database.getInstance().getMazeScripts().get(ASCEND_SCRIPT);
+		MazeScript script = Database.getInstance().getMazeScripts().get(scriptName);
 		if (script == null)
 		{
-			script = buildAscendScript();
+			script = fallback;
 		}
-		ExecuteMazeScript exec = new ExecuteMazeScript(script);
-		zone.getTile(tile).getScripts().add(0, exec);
+		zone.getTile(tile).getScripts().add(0, new ExecuteMazeScript(script));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static MazeScript buildAscendScript()
+	private static MazeScript buildAscendFallback()
 	{
 		List<MazeEvent> events = new ArrayList<>();
 		events.add(new FlavourTextEvent(
-			"Stone stairs lead back up toward the temple entrance.",
+			"Stone stairs lead upward.",
 			-1,
 			true,
 			FlavourTextEvent.Alignment.CENTER));
-		events.add(new ZoneChangeEvent(
-			"Temple Hub",
-			new Point(8, 8),
-			CrusaderEngine.Facing.SOUTH));
+		events.add(new TempleAscendEvent());
 		return new MazeScript(ASCEND_SCRIPT, events);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static MazeScript buildDescendFallback()
+	{
+		List<MazeEvent> events = new ArrayList<>();
+		events.add(new FlavourTextEvent(
+			"Stone stairs spiral deeper.",
+			-1,
+			true,
+			FlavourTextEvent.Alignment.CENTER));
+		events.add(new TempleDescendEvent());
+		return new MazeScript(DESCEND_SCRIPT, events);
 	}
 
 	/*-------------------------------------------------------------------------*/

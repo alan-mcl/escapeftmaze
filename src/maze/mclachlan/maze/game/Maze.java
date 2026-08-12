@@ -2338,7 +2338,12 @@ public class Maze implements Runnable
 
 		List<MazeEvent> result = new ArrayList<>();
 
+		// Zone scripts (e.g. Noise4j MapGen) may set playerOrigin during init.
 		addAll(result, this.zone.initZoneScript(getTurnNr()));
+
+		// pos (-1,-1) means "use the zone's origin after script init" — used by
+		// procedural floors so the raycaster is not created at an invalid tile.
+		Point spawnPos = resolveSpawnPos(pos, this.zone);
 
 		result.add(new MazeEvent()
 		{
@@ -2346,7 +2351,7 @@ public class Maze implements Runnable
 			public List<MazeEvent> resolve()
 			{
 
-				ui.setZone(zone, pos, newFacing);
+				ui.setZone(zone, spawnPos, newFacing);
 				zone.initialise(getTurnNr());
 				PartyCampManager.getInstance().syncVisual(Maze.getInstance());
 				getPlayerTilesVisited().resetRecentTiles();
@@ -2356,12 +2361,31 @@ public class Maze implements Runnable
 			}
 		});
 
-		if (pos.x >= 0 || pos.y >= 0)
+		if (spawnPos.x >= 0 || spawnPos.y >= 0)
 		{
-			addAll(result, setPlayerPos(pos, newFacing));
+			addAll(result, setPlayerPos(spawnPos, newFacing));
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * When a {@link ZoneChangeEvent} passes a negative coordinate sentinel,
+	 * prefer the zone's {@link Zone#getPlayerOrigin()} (set by map-gen scripts).
+	 */
+	public static Point resolveSpawnPos(Point requested, Zone zone)
+	{
+		if (requested != null && requested.x >= 0 && requested.y >= 0)
+		{
+			return requested;
+		}
+		Point origin = zone == null ? null : zone.getPlayerOrigin();
+		if (origin != null && origin.x >= 0 && origin.y >= 0)
+		{
+			return origin;
+		}
+		return requested == null ? new Point(0, 0) : requested;
 	}
 
 	/*-------------------------------------------------------------------------*/

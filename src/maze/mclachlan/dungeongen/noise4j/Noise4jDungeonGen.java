@@ -53,6 +53,10 @@ public class Noise4jDungeonGen implements DungeonGen
 		// random dungeon generation
 		dg.generate(grid);
 
+		// Fresh layout each generate(): drop shell leftovers / prior-run dress.
+		clearTileScripts(zone);
+		zone.setPortals(new Portal[0]);
+
 		// create the Crusader Engine objects
 
 		// walls
@@ -110,18 +114,23 @@ public class Noise4jDungeonGen implements DungeonGen
 			baseMap.getScripts());
 		map.setHorizontalWalls(horizWalls);
 		map.setVerticalWalls(vertWalls);
+		// Ensure texture atlas / wall validation match a freshly-loaded zone.
+		map.init();
 
 		zone.setMap(map);
 
-		// add Portals to the Maze zone
-		for (Portal p : portals)
-		{
-			zone.addPortal(p);
-		}
+		// Replace portals wholesale so regen cannot accumulate shell/prior doors.
+		zone.setPortals(portals.toArray(new Portal[0]));
 
-		// set the player origin
+		// set the player origin (seeded — same Generators Random as the dungeon)
 		List<AbstractRoomGenerator.Room> rooms = dg.getRooms();
-		AbstractRoomGenerator.Room room = rooms.get(new Random().nextInt(rooms.size()));
+		if (rooms == null || rooms.isEmpty())
+		{
+			throw new IllegalStateException(
+				"Noise4jDungeonGen produced no rooms for zone [" + zone.getName()
+					+ "] seed=" + seed);
+		}
+		AbstractRoomGenerator.Room room = Generators.randomElement(rooms);
 
 		Point playerOrigin = new Point(
 			room.getX() + room.getWidth() / 2,
@@ -365,6 +374,30 @@ public class Noise4jDungeonGen implements DungeonGen
 	private int getGrid(Grid grid, int x, int y)
 	{
 		return (int)(grid.get(x, y) * 10);
+	}
+
+	private void clearTileScripts(Zone zone)
+	{
+		mclachlan.maze.map.Tile[][] tiles = zone.getTiles();
+		if (tiles == null)
+		{
+			return;
+		}
+		for (int x = 0; x < tiles.length; x++)
+		{
+			if (tiles[x] == null)
+			{
+				continue;
+			}
+			for (int y = 0; y < tiles[x].length; y++)
+			{
+				mclachlan.maze.map.Tile tile = tiles[x][y];
+				if (tile != null && tile.getScripts() != null)
+				{
+					tile.getScripts().clear();
+				}
+			}
+		}
 	}
 
 	public void addTexture(java.util.Map<String, Texture> textures, Texture t)
