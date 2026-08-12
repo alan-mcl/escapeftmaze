@@ -12,7 +12,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.TextRepository;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.data.v2.serialisers.ListSerialiser;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
@@ -618,7 +618,7 @@ public class V2Loader extends Loader
 
 			for (Object key : map.keySet())
 			{
-				ConditionBearer cb = V1ConditionBearer.fromString((String)key, playerCharacterCache);
+				ConditionBearer cb = ConditionBearerKey.fromString((String)key, playerCharacterCache);
 				List<Condition> list = conditionsSerialiser.fromObject(map.get(key), db);
 
 				if (cb != null)

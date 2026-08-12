@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
@@ -158,7 +158,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			modifierValue.setEnabled(false);
 			colourMagicValue.setEnabled(false);
 
-			diceValue.setText(V1Dice.toString(((DiceValue)v).getDice()));
+			diceValue.setText(DiceCodec.toString(((DiceValue)v).getDice()));
 		}
 		else if (v instanceof ModifierValue)
 		{
@@ -222,7 +222,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			}
 			else if (dice.isSelected())
 			{
-				this.value = new DiceValue(V1Dice.fromString(diceValue.getText()));
+				this.value = new DiceValue(DiceCodec.fromString(diceValue.getText()));
 			}
 			else if (modifier.isSelected())
 			{

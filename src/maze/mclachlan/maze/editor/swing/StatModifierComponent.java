@@ -21,7 +21,7 @@ package mclachlan.maze.editor.swing;
 
 import javax.swing.*;
 import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.data.v1.V1StatModifier;
+import mclachlan.maze.data.codec.StatModifierCodec;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.*;
@@ -79,7 +79,7 @@ public class StatModifierComponent extends JButton implements ActionListener
 		}
 		else
 		{
-			String text = V1StatModifier.toString(modifier);
+			String text = StatModifierCodec.toString(modifier);
 
 			String toolTipText = createToolTipText(modifier);
 

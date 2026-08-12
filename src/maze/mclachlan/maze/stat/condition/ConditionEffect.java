@@ -20,7 +20,7 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.*;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.Personality;

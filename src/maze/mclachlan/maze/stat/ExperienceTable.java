@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  * A table describing the experience required for a character to advance a

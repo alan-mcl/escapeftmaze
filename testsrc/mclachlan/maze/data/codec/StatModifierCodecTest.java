@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
@@ -27,10 +27,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * String round-trip tests for {@link V1StatModifier}, including the signed-byte
+ * String round-trip tests for {@link StatModifierCodec}, including the signed-byte
  * boundary behaviour of the hex encoding.
  */
-public class V1StatModifierTest
+public class StatModifierCodecTest
 {
 	/*-------------------------------------------------------------------------*/
 	@Test
@@ -40,8 +40,8 @@ public class V1StatModifierTest
 		sm.setModifier(Stats.Modifier.BRAWN, 5);
 		sm.setModifier(Stats.Modifier.SWING, -3);
 
-		String s = V1StatModifier.toString(sm);
-		assertEquals(sm, V1StatModifier.fromString(s));
+		String s = StatModifierCodec.toString(sm);
+		assertEquals(sm, StatModifierCodec.fromString(s));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -52,7 +52,7 @@ public class V1StatModifierTest
 		sm.setModifier(Stats.Modifier.BRAWN, 127);
 		sm.setModifier(Stats.Modifier.SWING, -128);
 
-		StatModifier result = V1StatModifier.fromString(V1StatModifier.toString(sm));
+		StatModifier result = StatModifierCodec.fromString(StatModifierCodec.toString(sm));
 		assertEquals(127, result.getModifier(Stats.Modifier.BRAWN));
 		assertEquals(-128, result.getModifier(Stats.Modifier.SWING));
 	}
@@ -61,9 +61,9 @@ public class V1StatModifierTest
 	@Test
 	void nullAndEmpty()
 	{
-		assertEquals("", V1StatModifier.toString((StatModifier)null));
-		assertNull(V1StatModifier.fromString(""));
-		assertNull(V1StatModifier.fromString(null));
+		assertEquals("", StatModifierCodec.toString((StatModifier)null));
+		assertNull(StatModifierCodec.fromString(""));
+		assertNull(StatModifierCodec.fromString(null));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -72,7 +72,7 @@ public class V1StatModifierTest
 	{
 		StatModifier sm = new StatModifier();
 		sm.setModifier(Stats.Modifier.BRAWN, 200);
-		assertThrows(MazeException.class, () -> V1StatModifier.toString(sm));
+		assertThrows(MazeException.class, () -> StatModifierCodec.toString(sm));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -81,8 +81,8 @@ public class V1StatModifierTest
 	{
 		// an empty modifier still produces a (bitmap-only) string that round-trips
 		StatModifier sm = new StatModifier();
-		String s = V1StatModifier.toString(sm);
-		StatModifier result = V1StatModifier.fromString(s);
+		String s = StatModifierCodec.toString(sm);
+		StatModifier result = StatModifierCodec.fromString(s);
 		assertTrue(result == null || result.isEmpty());
 	}
 }

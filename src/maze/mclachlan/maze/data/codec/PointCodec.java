@@ -17,41 +17,63 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
-import mclachlan.maze.stat.CurMax;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.awt.*;
 
 /**
- * String round-trip tests for {@link V1CurMax} and {@link V1CurMaxSub}.
+ *
  */
-public class V1CurMaxTest
+public class PointCodec
 {
+	public static final String SEP = ":";
+
 	/*-------------------------------------------------------------------------*/
-	@Test
-	void curMaxRoundTrip()
+	public static String toString(Point t)
 	{
-		CurMax cm = new CurMax(3, 10);
-		assertEquals("3-10", V1CurMax.toString(cm));
-		assertEquals(cm, V1CurMax.fromString("3-10"));
+		return toString(t, SEP);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Test
-	void curMaxNullAndEmpty()
+	public static String toString(Point t, String sep)
 	{
-		assertEquals("", V1CurMax.toString(null));
-		assertNull(V1CurMax.fromString(""));
+		if (t == null)
+		{
+			return "";
+		}
+
+		StringBuilder s = new StringBuilder();
+
+		s.append(t.x);
+		s.append(sep);
+		s.append(t.y);
+
+		return s.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Test
-	void curMaxSubRoundTrip()
+	public static Point fromString(String s)
 	{
-		mclachlan.maze.stat.CurMaxSub cms = new mclachlan.maze.stat.CurMaxSub(3, 10, 2);
-		String s = V1CurMaxSub.toString(cms);
-		assertEquals(cms, V1CurMaxSub.fromString(s));
+		return fromString(s, SEP);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Point fromString(String s, String sep)
+	{
+		if (s == null || s.equals(""))
+		{
+			return null;
+		}
+
+		String[] strs = s.split(sep);
+		return new Point(Integer.parseInt(strs[0]), Integer.parseInt(strs[1]));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * for testing only
+	 */
+	public static void main(String[] args)
+	{
 	}
 }

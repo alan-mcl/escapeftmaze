@@ -29,7 +29,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.magic.*;
 
 /**
@@ -244,7 +244,7 @@ public class ValueListDialog extends JDialog
 		}
 		else if (v instanceof DiceValue)
 		{
-			result = V1Dice.toString(((DiceValue)v).getDice());
+			result = DiceCodec.toString(((DiceValue)v).getDice());
 		}
 		else if (v instanceof ModifierValue)
 		{

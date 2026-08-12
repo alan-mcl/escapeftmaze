@@ -32,7 +32,7 @@ import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.editor.swing.SwingEditor;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.stat.Dice;
@@ -246,7 +246,7 @@ public class PlaceObjects extends Tool implements ActionListener
 		
 		try
 		{
-			return V1Dice.fromString(s);
+			return DiceCodec.fromString(s);
 		}
 		catch (Exception x)
 		{

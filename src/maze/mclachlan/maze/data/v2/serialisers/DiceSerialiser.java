@@ -1,7 +1,7 @@
 package mclachlan.maze.data.v2.serialisers;
 
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.data.v2.V2SerialiserObject;
 import mclachlan.maze.stat.Dice;
 
@@ -17,7 +17,7 @@ public class DiceSerialiser implements V2SerialiserObject<Dice>
 		{
 			return null;
 		}
-		return V1Dice.toString(dice);
+		return DiceCodec.toString(dice);
 	}
 
 	@Override
@@ -27,6 +27,6 @@ public class DiceSerialiser implements V2SerialiserObject<Dice>
 		{
 			return null;
 		}
-		return V1Dice.fromString((String)obj);
+		return DiceCodec.fromString((String)obj);
 	}
 }

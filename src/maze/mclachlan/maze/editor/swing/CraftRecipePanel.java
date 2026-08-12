@@ -28,7 +28,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.CraftRecipe;
 import mclachlan.maze.stat.StatModifier;
 

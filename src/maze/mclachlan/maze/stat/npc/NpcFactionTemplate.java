@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  * Represents an NPC faction, a group of NPC's and Foes that feel the same

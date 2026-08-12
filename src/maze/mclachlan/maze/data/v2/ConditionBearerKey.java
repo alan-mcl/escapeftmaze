@@ -21,7 +21,7 @@ package mclachlan.maze.data.v2;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.data.v1.V1Point;
+import mclachlan.maze.data.codec.PointCodec;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -32,7 +32,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class V1ConditionBearer
+public class ConditionBearerKey
 {
 	public static final String SEP = "~";
 
@@ -57,7 +57,7 @@ public class V1ConditionBearer
 			s.append(SEP);
 			s.append(tile.getZone());
 			s.append(SEP);
-			s.append(V1Point.toString(tile.getCoords()));
+			s.append(PointCodec.toString(tile.getCoords()));
 		}
 		else
 		{
@@ -86,7 +86,7 @@ public class V1ConditionBearer
 			}
 			else if (type == TILE)
 			{
-				Point coords = V1Point.fromString(strs[2]);
+				Point coords = PointCodec.fromString(strs[2]);
 				if (instance != null && instance.getCurrentZone().getName().equals(name))
 				{
 					// a condition on a tile in the current zone

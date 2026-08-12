@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +27,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class V1Dice
+public class DiceCodec
 {
 	static Pattern diceRegex;
 

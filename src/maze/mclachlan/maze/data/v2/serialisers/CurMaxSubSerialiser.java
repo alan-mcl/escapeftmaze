@@ -1,7 +1,7 @@
 package mclachlan.maze.data.v2.serialisers;
 
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1CurMaxSub;
+import mclachlan.maze.data.codec.CurMaxSubCodec;
 import mclachlan.maze.data.v2.V2SerialiserObject;
 import mclachlan.maze.stat.CurMaxSub;
 
@@ -18,7 +18,7 @@ public class CurMaxSubSerialiser implements V2SerialiserObject<CurMaxSub>
 			return null;
 		}
 
-		return V1CurMaxSub.toString(curMax);
+		return CurMaxSubCodec.toString(curMax);
 	}
 
 	@Override
@@ -29,6 +29,6 @@ public class CurMaxSubSerialiser implements V2SerialiserObject<CurMaxSub>
 			return null;
 		}
 
-		return V1CurMaxSub.fromString((String)obj);
+		return CurMaxSubCodec.fromString((String)obj);
 	}
 }

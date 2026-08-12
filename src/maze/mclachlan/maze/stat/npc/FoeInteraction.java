@@ -1,7 +1,7 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 

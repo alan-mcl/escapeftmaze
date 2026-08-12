@@ -21,7 +21,7 @@ package mclachlan.maze.test;
 
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.data.v1.V1StatModifier;
+import mclachlan.maze.data.codec.StatModifierCodec;
 
 /**
  *
@@ -30,7 +30,7 @@ public class TestStatModifier
 {
 	public static void main(String[] args)
 	{
-//		StatModifier sm = V1StatModifier.fromString("fe000000000000000,02020202020202");
+//		StatModifier sm = StatModifierCodec.fromString("fe000000000000000,02020202020202");
 		StatModifier sm = new StatModifier();
 		sm.setModifier(Stats.Modifier.BLACK_MAGIC_GEN, 2);
 		sm.setModifier(Stats.Modifier.BLUE_MAGIC_GEN, 2);
@@ -39,7 +39,7 @@ public class TestStatModifier
 		sm.setModifier(Stats.Modifier.GREEN_MAGIC_GEN, 2);
 		sm.setModifier(Stats.Modifier.PURPLE_MAGIC_GEN, 2);
 		sm.setModifier(Stats.Modifier.GOLD_MAGIC_GEN, 2);
-		String s = V1StatModifier.toString(sm);
+		String s = StatModifierCodec.toString(sm);
 		
 		System.out.println("s = [" + s + "]");
 	}

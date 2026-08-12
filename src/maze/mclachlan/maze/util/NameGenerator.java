@@ -45,7 +45,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.Dice;
 
 public class NameGenerator
@@ -471,7 +471,7 @@ public class NameGenerator
 		}
 		String fileName = args[0];
 		int count = Integer.parseInt(args[1]);
-		Dice d = V1Dice.fromString(args[2]);
+		Dice d = DiceCodec.fromString(args[2]);
 
 		NameGenerator ng = new NameGenerator(fileName);
 

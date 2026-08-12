@@ -32,7 +32,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.codec.CodecUtils;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.util.MazeException;
 
@@ -151,14 +151,14 @@ public class MapScriptEditor extends JDialog implements ActionListener
 				impl.setText(ms.getClass().getName()); break;
 			case RANDOM_LIGHTING:
 				RandomLightingScript rls = (RandomLightingScript)ms;
-				randomLightScriptTiles.setText(V1Utils.toStringInts(rls.getAffectedTiles(), SEP));
+				randomLightScriptTiles.setText(CodecUtils.toStringInts(rls.getAffectedTiles(), SEP));
 				randomLightScriptFreq.setValue(rls.getFrequency());
 				randomLightScriptMinLightLevel.setValue(rls.getMinLightLevel());
 				randomLightScriptMaxLightLevel.setValue(rls.getMaxLightLevel());
 				break;
 			case SINE_LIGHTING:
 				SinusoidalLightingScript sls = (SinusoidalLightingScript)ms;
-				sineLightScriptTiles.setText(V1Utils.toStringInts(sls.getAffectedTiles(), SEP));
+				sineLightScriptTiles.setText(CodecUtils.toStringInts(sls.getAffectedTiles(), SEP));
 				sineLightScriptFreq.setValue(sls.getFrequency());
 				sineLightScriptMinLightLevel.setValue(sls.getMinLightLevel());
 				sineLightScriptMaxLightLevel.setValue(sls.getMaxLightLevel());
@@ -344,14 +344,14 @@ public class MapScriptEditor extends JDialog implements ActionListener
 				break;
 			case RANDOM_LIGHTING:
 				result = new RandomLightingScript(
-					V1Utils.fromStringInts(randomLightScriptTiles.getText(), SEP),
+					CodecUtils.fromStringInts(randomLightScriptTiles.getText(), SEP),
 					(Integer)randomLightScriptFreq.getValue(),
 					(Integer)randomLightScriptMinLightLevel.getValue(),
 					(Integer)randomLightScriptMaxLightLevel.getValue());
 				break;
 			case SINE_LIGHTING:
 				result = new SinusoidalLightingScript(
-					V1Utils.fromStringInts(sineLightScriptTiles.getText(), SEP),
+					CodecUtils.fromStringInts(sineLightScriptTiles.getText(), SEP),
 					(Integer)sineLightScriptFreq.getValue(),
 					(Integer)sineLightScriptMinLightLevel.getValue(),
 					(Integer)sineLightScriptMaxLightLevel.getValue());

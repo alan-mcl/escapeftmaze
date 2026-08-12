@@ -22,7 +22,7 @@ package mclachlan.maze.stat;
 import java.util.Random;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.Log;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 
 /**
  *
@@ -194,7 +194,7 @@ public class Dice
 	/*-------------------------------------------------------------------------*/
 	public static void main(String[] args)
 	{
-		Dice d = V1Dice.fromString(args[0]);
+		Dice d = DiceCodec.fromString(args[0]);
 		int i = d.roll("test");
 		System.out.println("d = [" + d + "]");
 		System.out.println("i = [" + i + "]");

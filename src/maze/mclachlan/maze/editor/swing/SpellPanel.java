@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.StatModifier;

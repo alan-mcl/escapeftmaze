@@ -17,48 +17,69 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
-import mclachlan.maze.stat.Dice;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.BitSet;
 
 /**
- * String round-trip tests for {@link V1Dice}.
+ *
  */
-public class V1DiceTest
+public class BitSetCodec
 {
-	private void roundTrip(int n, int sides, int mod)
+	/*-------------------------------------------------------------------------*/
+	public static String toString(BitSet b)
 	{
-		Dice d = new Dice(n, sides, mod);
-		String s = V1Dice.toString(d);
-		assertEquals(d, V1Dice.fromString(s), "round trip for " + s);
+		if (b == null)
+		{
+			return "";
+		}
+
+		StringBuilder s = new StringBuilder();
+
+		int max = b.length();
+		for (int i=0; i<max; i++)
+		{
+			s.append(b.get(i)?'1':'0');
+		}
+
+		return s.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Test
-	void roundTrips()
+	public static BitSet fromString(String s)
 	{
-		roundTrip(1, 6, 0);
-		roundTrip(2, 6, 3);
-		roundTrip(1, 4, -1);
-		roundTrip(10, 100, 25);
+		if (s.equals(""))
+		{
+			return null;
+		}
+
+		int max = s.length();
+		BitSet result = new BitSet(max);
+		for (int i=0; i<max; i++)
+		{
+			result.set(i, s.charAt(i)=='1');
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Test
-	void nullAndEmpty()
+	/**
+	 * for testing only
+	 */
+	public static void main(String[] args)
 	{
-		assertEquals("", V1Dice.toString(null));
-		assertNull(V1Dice.fromString(""));
-	}
+		BitSet test = new BitSet();
+		test.set(2);
+		test.set(4);
+		test.set(7);
+		String s = toString(test);
+		System.out.println("s = [" + s + "]");
 
-	/*-------------------------------------------------------------------------*/
-	@Test
-	void canonicalStrings()
-	{
-		assertEquals("2d6+3", V1Dice.toString(new Dice(2, 6, 3)));
-		assertEquals("1d4-1", V1Dice.toString(new Dice(1, 4, -1)));
+		test = fromString(s);
+		System.out.println("test = [" + test + "]");
+
+		s = toString(test);
+		System.out.println("s = [" + s + "]");
 	}
 }

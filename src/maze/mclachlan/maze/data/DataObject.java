@@ -1,4 +1,4 @@
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data;
 
 import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.util.MazeException;

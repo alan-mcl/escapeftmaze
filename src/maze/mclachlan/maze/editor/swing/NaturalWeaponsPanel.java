@@ -25,9 +25,9 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Dice;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.DataObject;
+import mclachlan.maze.data.codec.DiceCodec;
+import mclachlan.maze.data.codec.CodecUtils;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -175,9 +175,9 @@ public class NaturalWeaponsPanel extends EditorPanel
 		isRanged.removeActionListener(this);
 		slaysFoeType.removeActionListener(this);
 
-		damage.setText(V1Dice.toString(nw.getDamage()));
+		damage.setText(DiceCodec.toString(nw.getDamage()));
 		damageType.setSelectedItem(nw.getDefaultDamageType());
-		attacks.setText(V1Utils.toStringInts(nw.getAttacks(), ","));
+		attacks.setText(CodecUtils.toStringInts(nw.getAttacks(), ","));
 		modifiers.setModifier(nw.getModifiers());
 		isRanged.setSelected(nw.isRanged());
 		minRange.setSelectedItem(ItemTemplate.WeaponRange.describe(nw.getMinRange()));
@@ -277,9 +277,9 @@ public class NaturalWeaponsPanel extends EditorPanel
 
 		nw.setDescription(description.getText());
 
-		nw.setDamage(V1Dice.fromString(damage.getText()));
+		nw.setDamage(DiceCodec.fromString(damage.getText()));
 		nw.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
-		nw.setAttacks(V1Utils.fromStringInts(attacks.getText(), ","));
+		nw.setAttacks(CodecUtils.fromStringInts(attacks.getText(), ","));
 		nw.setModifiers(modifiers.getModifier());
 		nw.setRanged(isRanged.isSelected());
 		nw.setMinRange(ItemTemplate.WeaponRange.valueOf((String)minRange.getSelectedItem()));

@@ -17,39 +17,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import mclachlan.maze.map.TileScript;
 
 /**
- *
+ * Editor-only display helper for tile scripts (tooltips / list labels).
  */
-public class V1Colour
+public final class TileScriptDisplay
 {
-	/*-------------------------------------------------------------------------*/
-	public static String toString(Color c)
+	private TileScriptDisplay()
 	{
-		if (c == null)
+	}
+
+	public static String toString(TileScript script)
+	{
+		if (script == null)
 		{
 			return "";
 		}
-		else
+
+		String name = script.getClass().getSimpleName();
+		String executeOnce = script.getExecuteOnceMazeVariable();
+		if (executeOnce != null && !executeOnce.isEmpty())
 		{
-			int i = c.getAlpha() << 24 | c.getRGB();
-			return Integer.toHexString(i);
+			return name + " once=" + executeOnce;
 		}
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public static Color fromString(String s)
-	{
-		if (s == null || "".equals(s))
-		{
-			return null;
-		}
-		else
-		{
-			return new Color(Long.valueOf(s, 16).intValue(), true);
-		}
+		return name;
 	}
 }

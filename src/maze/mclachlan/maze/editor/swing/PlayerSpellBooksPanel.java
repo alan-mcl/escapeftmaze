@@ -24,7 +24,7 @@ import java.util.List;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.PlayerSpellBook;

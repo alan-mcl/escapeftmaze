@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**

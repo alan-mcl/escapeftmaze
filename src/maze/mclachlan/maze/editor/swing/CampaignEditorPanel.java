@@ -31,7 +31,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.util.MazeException;
 

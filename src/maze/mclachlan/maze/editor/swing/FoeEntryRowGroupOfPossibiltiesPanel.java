@@ -30,7 +30,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.map.FoeEntryRow;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.GroupOfPossibilities;
@@ -100,7 +100,7 @@ public class FoeEntryRowGroupOfPossibiltiesPanel extends JPanel implements Actio
 		for (int i=0; i<dataModel.percentages.size(); i++)
 		{
 			result.add(
-				new FoeEntryRow(dataModel.foeNames.get(i), V1Dice.fromString(dataModel.quantities.get(i))),
+				new FoeEntryRow(dataModel.foeNames.get(i), DiceCodec.fromString(dataModel.quantities.get(i))),
 				dataModel.percentages.get(i));
 		}
 
@@ -226,7 +226,7 @@ public class FoeEntryRowGroupOfPossibiltiesPanel extends JPanel implements Actio
 		{
 			percentages.add(perc);
 			foeNames.add(fer.getFoeName());
-			quantities.add(V1Dice.toString(fer.getQuantity()));
+			quantities.add(DiceCodec.toString(fer.getQuantity()));
 			fireTableDataChanged();
 		}
 

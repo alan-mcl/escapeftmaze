@@ -17,28 +17,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
-import mclachlan.maze.stat.CurMaxSub;
+import mclachlan.maze.stat.CurMax;
 
 /**
  *
  */
-public class V1CurMaxSub
+public class CurMaxCodec
 {
 	public static final String SEP = "-";
 
-	public static String toString(CurMaxSub cm)
+	public static String toString(CurMax cm)
 	{
-		return cm.getCurrent()+SEP+cm.getMaximum()+SEP+cm.getSub();
+		if (cm == null)
+		{
+			return "";
+		}
+		return cm.getCurrent()+SEP+cm.getMaximum();
 	}
 
-	public static CurMaxSub fromString(String s)
+	public static CurMax fromString(String s)
 	{
+		if (s.equals(""))
+		{
+			return null;
+		}
 		String[] strs = s.split(SEP);
-		return new CurMaxSub(
-			Integer.parseInt(strs[0]),
-			Integer.parseInt(strs[1]),
-			Integer.parseInt(strs[2]));
+		return new CurMax(Integer.parseInt(strs[0]), Integer.parseInt(strs[1]));
 	}
 }

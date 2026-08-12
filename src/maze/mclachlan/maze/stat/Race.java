@@ -20,7 +20,7 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.util.MazeException;

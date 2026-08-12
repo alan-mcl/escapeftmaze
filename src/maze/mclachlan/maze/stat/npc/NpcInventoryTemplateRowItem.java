@@ -21,7 +21,7 @@ package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
@@ -112,7 +112,7 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 		s.append("clvl=").append(getPartyLevelAppearing()).append(", ");
 		s.append("max=").append(getMaxStocked()).append(", ");
 		s.append("vanish=").append(getChanceOfVanishing()).append("%, ");
-		s.append("stack=").append(V1Dice.toString(getStackSize()));
+		s.append("stack=").append(DiceCodec.toString(getStackSize()));
 		s.append("]");
 
 		if (s.length() > 100)

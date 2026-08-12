@@ -13,14 +13,19 @@ Full reference: `doc/design/data_dictionary.md`.
 Author content as `*Template` keyed by `name` in `data/<campaign>/db/*.json`
 (e.g. `ItemTemplate`, `FoeTemplate`, `ConditionTemplate`). Runtime objects
 (`Item`, `Foe`, `Condition`) reference a template by name and add mutable state.
-Most authored objects extend `DataObject` and carry a `campaign` tag.
+Most authored objects extend `mclachlan.maze.data.DataObject` and carry a
+`campaign` tag.
 
 ## V2 JSON conventions
 
 - Primitives and enums are serialised **as strings**: `"turnNr": "4"`, not `4`.
 - `CurMax` -> `"current-maximum"` (e.g. `"4-4"`); `CurMaxSub` ->
   `"current-maximum-sub"` (e.g. `"5-5-0"`, where `sub` is the KO threshold).
-- `StatModifier` -> compact hex-bitmap pair string (e.g. `"1c00...,0107"`).
+  Produced by `mclachlan.maze.data.codec.CurMaxCodec` /
+  `CurMaxSubCodec`.
+- `Dice` -> `"NdM+K"` via `DiceCodec`.
+- `StatModifier` -> compact hex-bitmap pair string (e.g. `"1c00...,0107"`) via
+  `StatModifierCodec`.
 - Cross-references stored by **name** (`NameSerialiser`), resolved via `Database`.
 - Polymorphic fields carry `"TYPE_KEY": "<fully.qualified.ClassName>"`.
 
@@ -33,4 +38,5 @@ Most authored objects extend `DataObject` and carry a `campaign` tag.
 3. For a new cross-reference, use `NameSerialiser` / `NameListSerialiser`.
 4. Existing JSON files lack the field - ensure load tolerates absence (defaults).
 
-Do not hand-edit serialised hex/`CurMax` strings; let the serialisers produce them.
+Do not hand-edit serialised hex/`CurMax`/`Dice` strings; let the
+`data.codec` codecs / V2 serialisers produce them.

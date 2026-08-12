@@ -23,7 +23,7 @@ import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;

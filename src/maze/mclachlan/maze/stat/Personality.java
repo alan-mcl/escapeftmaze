@@ -2,7 +2,7 @@ package mclachlan.maze.stat;
 
 import java.awt.Color;
 import java.util.*;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  *

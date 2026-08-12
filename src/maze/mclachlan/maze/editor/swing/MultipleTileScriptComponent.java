@@ -26,7 +26,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1TileScript;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.FlavourText;
@@ -256,7 +255,7 @@ public class MultipleTileScriptComponent extends JButton implements ActionListen
 		public Object getElementAt(int index)
 		{
 			TileScript event = data.get(index);
-			String s = event.getClass().getSimpleName() + " [" + V1TileScript.toString(event) + "]";
+			String s = event.getClass().getSimpleName() + " [" + TileScriptDisplay.toString(event) + "]";
 			if (s.length() > 75)
 			{
 				s = s.substring(0, 73)+"...";

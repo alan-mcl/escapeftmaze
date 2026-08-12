@@ -427,7 +427,7 @@ public class V2Saver extends Saver
 		{
 			if (cb != null)
 			{
-				String key = V1ConditionBearer.toString(cb);
+				String key = ConditionBearerKey.toString(cb);
 				Object value = conditionsSerialiser.toObject(conditions.get(cb), db);
 
 				temp.put(key, value);

@@ -26,7 +26,7 @@ import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;

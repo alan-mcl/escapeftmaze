@@ -27,7 +27,6 @@ import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.ObjectScript;
-import mclachlan.maze.data.v1.V1CrusaderObjectScript;
 
 /**
  *
@@ -190,7 +189,7 @@ public class ObjectScriptListPanel extends JPanel
 		public String getElementAt(int index)
 		{
 			ObjectScript s = data.get(index);
-			return s.getClass().getSimpleName()+"("+ V1CrusaderObjectScript.toString(s) +")";
+			return s.getClass().getSimpleName()+"("+ ObjectScriptDisplay.toString(s) +")";
 		}
 
 		public int getSize()

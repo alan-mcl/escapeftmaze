@@ -24,8 +24,8 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.DataObject;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.*;
 
 /**
@@ -445,9 +445,9 @@ public class CharacterClassPanel extends EditorPanel
 		c.setLevelUpAssignableModifiers((Integer)levelUpAssignableModifiers.getValue());
 		c.setLevelUpModifiers(levelUpModifiers.getModifier());
 		c.setUnlockModifiers(unlockModifiers.getModifier());
-		c.setLevelUpHitPoints(V1Dice.fromString(levelUpHitPoints.getText()));
-		c.setLevelUpActionPoints(V1Dice.fromString(levelUpActionPoints.getText()));
-		c.setLevelUpMagicPoints(V1Dice.fromString(levelUpMagicPoints.getText()));
+		c.setLevelUpHitPoints(DiceCodec.fromString(levelUpHitPoints.getText()));
+		c.setLevelUpActionPoints(DiceCodec.fromString(levelUpActionPoints.getText()));
+		c.setLevelUpMagicPoints(DiceCodec.fromString(levelUpMagicPoints.getText()));
 
 		c.setAllowedGenders(allowedGenders.getAllowedGenders());
 		c.setAllowedRaces(allowedRaces.getAllowedRaces());

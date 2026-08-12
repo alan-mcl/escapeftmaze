@@ -28,7 +28,7 @@ import java.awt.event.KeyListener;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.codec.CodecUtils;
 import mclachlan.maze.stat.Gender;
 
 /**
@@ -106,7 +106,7 @@ public class GenderSelection extends JPanel implements ActionListener, KeyListen
 				if (names != null)
 				{
 					List<String> n = names.get(s);
-					t = V1Utils.stringList.toString(n);
+					t = CodecUtils.stringListToString(n);
 				}
 				else
 				{
@@ -210,7 +210,7 @@ public class GenderSelection extends JPanel implements ActionListener, KeyListen
 			if (checkBoxes.get(s).isSelected())
 			{
 				JTextField tf = suggestedNames.get(s);
-				List<String> strings = V1Utils.stringList.fromString(tf.getText());
+				List<String> strings = CodecUtils.stringListFromString(tf.getText());
 
 				if (strings != null)
 				{

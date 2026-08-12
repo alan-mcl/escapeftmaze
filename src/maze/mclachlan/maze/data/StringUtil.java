@@ -20,7 +20,7 @@
 package mclachlan.maze.data;
 
 import java.util.*;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
@@ -212,7 +212,7 @@ public class StringUtil
 		}
 		else if (v instanceof DiceValue)
 		{
-			result = V1Dice.toString(((DiceValue)v).getDice());
+			result = DiceCodec.toString(((DiceValue)v).getDice());
 		}
 		else if (v.getClass() == Value.class)
 		{

@@ -21,7 +21,7 @@ package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
@@ -144,7 +144,7 @@ public class NpcInventoryTemplateRowLootEntry extends NpcInventoryTemplateRow
 		s.append("clvl="+getPartyLevelAppearing()+", ");
 		s.append("max="+getMaxStocked()+", ");
 		s.append("vanish="+getChanceOfVanishing()+"%, ");
-		s.append("#toSpawn="+ V1Dice.toString(getItemsToSpawn()));
+		s.append("#toSpawn="+ DiceCodec.toString(getItemsToSpawn()));
 		s.append("]");
 
 		if (s.length() > 100)

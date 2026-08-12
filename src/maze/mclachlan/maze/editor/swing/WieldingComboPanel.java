@@ -23,7 +23,7 @@ import java.awt.*;
 import java.util.Vector;
 import java.util.Collections;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.combat.WieldingCombo;
 import mclachlan.maze.stat.StatModifier;
 import javax.swing.*;

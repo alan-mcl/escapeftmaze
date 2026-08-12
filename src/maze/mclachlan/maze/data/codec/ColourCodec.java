@@ -17,33 +17,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
-import mclachlan.maze.stat.CurMax;
+import java.awt.*;
 
 /**
  *
  */
-public class V1CurMax
+public class ColourCodec
 {
-	public static final String SEP = "-";
-
-	public static String toString(CurMax cm)
+	/*-------------------------------------------------------------------------*/
+	public static String toString(Color c)
 	{
-		if (cm == null)
+		if (c == null)
 		{
 			return "";
 		}
-		return cm.getCurrent()+SEP+cm.getMaximum();
+		else
+		{
+			int i = c.getAlpha() << 24 | c.getRGB();
+			return Integer.toHexString(i);
+		}
 	}
-
-	public static CurMax fromString(String s)
+	
+	/*-------------------------------------------------------------------------*/
+	public static Color fromString(String s)
 	{
-		if (s.equals(""))
+		if (s == null || "".equals(s))
 		{
 			return null;
 		}
-		String[] strs = s.split(SEP);
-		return new CurMax(Integer.parseInt(strs[0]), Integer.parseInt(strs[1]));
+		else
+		{
+			return new Color(Long.valueOf(s, 16).intValue(), true);
+		}
 	}
 }

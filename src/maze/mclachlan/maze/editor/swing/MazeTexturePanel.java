@@ -33,7 +33,7 @@ import javax.swing.table.DefaultTableModel;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  *

@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.Vector;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
 

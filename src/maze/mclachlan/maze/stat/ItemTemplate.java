@@ -22,7 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;

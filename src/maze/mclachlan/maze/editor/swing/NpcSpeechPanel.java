@@ -31,7 +31,7 @@ import java.util.*;
 import java.util.function.Supplier;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.codec.CodecUtils;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.stat.npc.NpcSpeechRow;
 import mclachlan.maze.util.MazeException;
@@ -119,7 +119,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 	{
 		String[] arr = keywords.toArray(new String[keywords.size()]);
 		Arrays.sort(arr);
-		return V1Utils.toStringStrings(arr,",");
+		return CodecUtils.toStringStrings(arr,",");
 	}
 
 	/*-------------------------------------------------------------------------*/

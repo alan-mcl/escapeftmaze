@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.codec.CodecUtils;
 import mclachlan.maze.stat.npc.*;
 
 /**
@@ -304,7 +304,7 @@ public class NpcSpeechCsv
 
 		String[] arr = keywords.toArray(new String[keywords.size()]);
 		Arrays.sort(arr);
-		return V1Utils.toStringStrings(arr, ",");
+		return CodecUtils.toStringStrings(arr, ",");
 	}
 
 	/*-------------------------------------------------------------------------*/

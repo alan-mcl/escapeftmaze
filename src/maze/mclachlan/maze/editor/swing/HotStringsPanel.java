@@ -26,7 +26,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.TextRepository;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.util.MazeException;
 

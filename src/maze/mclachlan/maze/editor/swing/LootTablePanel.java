@@ -31,7 +31,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.PercentageTable;

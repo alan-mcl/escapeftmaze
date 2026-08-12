@@ -241,8 +241,8 @@ every frame.
 
 ### 3.4 Persistence
 
-Files: `src/maze/mclachlan/maze/data/` (`Database`, `Loader`, `Saver`), `data/v2/`
-(JSON serialisers), `data/v1/` (legacy parsers).
+Files: `src/maze/mclachlan/maze/data/` (`Database`, `Loader`, `Saver`, `DataObject`),
+`data/v2/` (JSON serialisers), `data/codec/` (value-type string codecs).
 
 A strategy-pattern I/O layer behind a caching facade.
 
@@ -261,9 +261,11 @@ A strategy-pattern I/O layer behind a caching facade.
   typically a `ReflectiveSerialiser` with custom field resolvers. Cross-references are
   stored by name (`NameSerialiser`) and resolved against the `Database`; polymorphism
   uses a `TYPE_KEY`/`IMPL` class name. Files are wrapped in a silo
-  (`SimpleMapSilo` array / `SingletonSilo` object / `MapSingletonSilo`). The `data/v1/`
-  package retains **value-type string codecs** (`V1Dice`, `V1CurMax`, `V1StatModifier`, …)
-  and editor display formatters only; full V1 entity/zone persistence is removed.
+  (`SimpleMapSilo` array / `SingletonSilo` object / `MapSingletonSilo`). Value fields
+  such as `Dice`, `CurMax`, and `StatModifier` are stored as compact strings via
+  [`data/codec`](../../src/maze/mclachlan/maze/data/codec/) (`DiceCodec`, `CurMaxCodec`,
+  `StatModifierCodec`, …); authored entities extend
+  [`DataObject`](../../src/maze/mclachlan/maze/data/DataObject.java).
   Player-facing strings use V2 JSON under `db/strings/` (**HotString** bundles and lazy
   **ColdStrings** shards). Per-user preferences are V2 JSON at repo-root
   [`user.json`](../../user.json) (legacy `user.cfg` Properties upgraded on first load).

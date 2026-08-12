@@ -6,7 +6,7 @@
 ## 1. Conventions
 
 - **Base type.** Most persisted authored objects extend
-  [`DataObject`](../../src/maze/mclachlan/maze/data/v1/DataObject.java) and carry a
+  [`DataObject`](../../src/maze/mclachlan/maze/data/DataObject.java) and carry a
   `campaign` string (used for campaign-inheritance filtering). Runtime instances
   (`Item`, `Foe`, `Condition`, ...) are serialised inside save games.
 - **Template vs instance.** Authored DB entities are usually templates keyed by

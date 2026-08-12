@@ -20,7 +20,7 @@
 
 package mclachlan.maze.game;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.Foe;
 

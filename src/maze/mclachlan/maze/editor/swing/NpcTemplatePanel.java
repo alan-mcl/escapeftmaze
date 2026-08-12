@@ -26,7 +26,7 @@ import javax.swing.*;
 import mclachlan.maze.arena.StickManVendor;
 import mclachlan.maze.balance.MockCombat;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.npc.*;

@@ -21,7 +21,7 @@ package mclachlan.maze.map;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PercentageTable;

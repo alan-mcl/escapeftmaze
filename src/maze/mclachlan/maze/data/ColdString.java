@@ -19,7 +19,7 @@
 
 package mclachlan.maze.data;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  * A lazily loaded bulk text entry (ColdStrings tier).

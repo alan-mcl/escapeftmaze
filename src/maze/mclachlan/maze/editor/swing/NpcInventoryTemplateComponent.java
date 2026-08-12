@@ -28,7 +28,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootEntryRow;
 import mclachlan.maze.stat.Dice;
@@ -359,7 +359,7 @@ public class NpcInventoryTemplateComponent extends JPanel
 		{
 			try
 			{
-				return V1Dice.fromString(txt);
+				return DiceCodec.fromString(txt);
 			}
 			catch (Exception e)
 			{

@@ -17,63 +17,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
-import java.awt.*;
+import mclachlan.maze.stat.CurMax;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- *
+ * String round-trip tests for {@link CurMaxCodec} and {@link CurMaxSubCodec}.
  */
-public class V1Point
+public class CurMaxCodecTest
 {
-	public static final String SEP = ":";
-
 	/*-------------------------------------------------------------------------*/
-	public static String toString(Point t)
+	@Test
+	void curMaxRoundTrip()
 	{
-		return toString(t, SEP);
+		CurMax cm = new CurMax(3, 10);
+		assertEquals("3-10", CurMaxCodec.toString(cm));
+		assertEquals(cm, CurMaxCodec.fromString("3-10"));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String toString(Point t, String sep)
+	@Test
+	void curMaxNullAndEmpty()
 	{
-		if (t == null)
-		{
-			return "";
-		}
-
-		StringBuilder s = new StringBuilder();
-
-		s.append(t.x);
-		s.append(sep);
-		s.append(t.y);
-
-		return s.toString();
+		assertEquals("", CurMaxCodec.toString(null));
+		assertNull(CurMaxCodec.fromString(""));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Point fromString(String s)
+	@Test
+	void curMaxSubRoundTrip()
 	{
-		return fromString(s, SEP);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static Point fromString(String s, String sep)
-	{
-		if (s == null || s.equals(""))
-		{
-			return null;
-		}
-
-		String[] strs = s.split(sep);
-		return new Point(Integer.parseInt(strs[0]), Integer.parseInt(strs[1]));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * for testing only
-	 */
-	public static void main(String[] args)
-	{
+		mclachlan.maze.stat.CurMaxSub cms = new mclachlan.maze.stat.CurMaxSub(3, 10, 2);
+		String s = CurMaxSubCodec.toString(cms);
+		assertEquals(cms, CurMaxSubCodec.fromString(s));
 	}
 }

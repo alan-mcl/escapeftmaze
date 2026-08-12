@@ -28,8 +28,8 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.DataObject;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootEntryRow;
 import mclachlan.maze.stat.Dice;
@@ -135,7 +135,7 @@ public class LootEntryPanel extends EditorPanel
 		dataModel.clear();
 		for (int i=0; i<percentages.size(); i++)
 		{
-			dataModel.add(percentages.get(i), items.get(i).getItemName(), V1Dice.toString(items.get(i).getQuantity()));
+			dataModel.add(percentages.get(i), items.get(i).getItemName(), DiceCodec.toString(items.get(i).getQuantity()));
 		}
 	}
 
@@ -188,7 +188,7 @@ public class LootEntryPanel extends EditorPanel
 		{
 			int precent = dataModel.percentages.get(i);
 			String itemName = dataModel.items.get(i);
-			Dice quantity = V1Dice.fromString(dataModel.quantities.get(i));
+			Dice quantity = DiceCodec.fromString(dataModel.quantities.get(i));
 			pt.add(new LootEntryRow(itemName, quantity), precent);
 		}
 

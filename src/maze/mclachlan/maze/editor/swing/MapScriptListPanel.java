@@ -27,7 +27,6 @@ import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.MapScript;
-import mclachlan.maze.data.v1.V1CrusaderMapScript;
 
 /**
  *
@@ -186,7 +185,7 @@ public class MapScriptListPanel extends JPanel
 		public Object getElementAt(int index)
 		{
 			MapScript s = data.get(index);
-			return s.getClass().getSimpleName()+"("+ V1CrusaderMapScript.toString(s) +")";
+			return s.getClass().getSimpleName()+"("+ MapScriptDisplay.toString(s) +")";
 		}
 
 		public int getSize()

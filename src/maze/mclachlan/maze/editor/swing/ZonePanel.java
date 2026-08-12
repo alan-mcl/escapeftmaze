@@ -30,7 +30,7 @@ import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.editor.swing.map.MapEditor;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.StatModifier;

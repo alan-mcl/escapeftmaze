@@ -26,8 +26,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Value;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
 
@@ -348,14 +347,13 @@ public class SpellEffectPanel extends EditorPanel
 				ValueList actionDamage = d.getActionPointDamage();
 				ValueList magicDamage = d.getMagicPointDamage();
 
-				// cheap shitty way of cloning
 				double multiplier = d.getMultiplier();
 
 				DamageSpellResult result = new DamageSpellResult(
-					V1Value.fromString(V1Value.toString(hpDamage)), 
-					V1Value.fromString(V1Value.toString(fatigueDamage)),
-					V1Value.fromString(V1Value.toString(actionDamage)),
-					V1Value.fromString(V1Value.toString(magicDamage)),
+					new ValueList(hpDamage),
+					new ValueList(fatigueDamage),
+					new ValueList(actionDamage),
+					new ValueList(magicDamage),
 					multiplier==0?0.5:multiplier/2,
 					d.isTransferToCaster());
 
@@ -366,11 +364,7 @@ public class SpellEffectPanel extends EditorPanel
 			else if (sr instanceof DamageFoeTypeSpellResult)
 			{
 				DamageFoeTypeSpellResult d = (DamageFoeTypeSpellResult)sr;
-				ValueList damage = d.getDamage();
-
-				// cheap shitty way of cloning
-				String s = V1Value.toString(damage);
-				ValueList cloneValue = V1Value.fromString(s);
+				ValueList cloneValue = new ValueList(d.getDamage());
 				double multiplier = d.getMultiplier();
 
 				DamageFoeTypeSpellResult result = new DamageFoeTypeSpellResult(

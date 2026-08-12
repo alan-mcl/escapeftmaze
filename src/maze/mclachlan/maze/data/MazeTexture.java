@@ -23,7 +23,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.crusader.Texture;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  * The textures used by the raycaster to render walls, floors, ceilings and

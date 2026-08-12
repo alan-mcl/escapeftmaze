@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.combat;
 
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;

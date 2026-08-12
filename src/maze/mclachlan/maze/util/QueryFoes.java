@@ -21,7 +21,7 @@ package mclachlan.maze.util;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
@@ -51,7 +51,7 @@ public class QueryFoes
 		{
 			if (ft.getTypes() != null && ft.getTypes().contains(vermin))
 			{
-				System.out.println(ft.getName()+" ("+ V1Dice.toString(ft.getLevelRange())+")");
+				System.out.println(ft.getName()+" ("+ DiceCodec.toString(ft.getLevelRange())+")");
 			}
 		}
 	}

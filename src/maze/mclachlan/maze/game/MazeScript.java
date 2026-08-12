@@ -20,7 +20,7 @@
 package mclachlan.maze.game;
 
 import java.util.*;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 
 /**
  *

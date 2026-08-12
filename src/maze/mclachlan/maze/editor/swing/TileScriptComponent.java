@@ -22,7 +22,6 @@ package mclachlan.maze.editor.swing;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1TileScript;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 
@@ -72,7 +71,7 @@ public class TileScriptComponent extends JButton implements ActionListener
 		}
 		else
 		{
-			String tooltip = V1TileScript.toString(script);
+			String tooltip = TileScriptDisplay.toString(script);
 			this.setToolTipText(tooltip);
 
 			String text = script.getClass().getSimpleName();

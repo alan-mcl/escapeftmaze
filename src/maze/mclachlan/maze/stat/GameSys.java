@@ -1637,7 +1637,7 @@ public class GameSys
 			if (result > Byte.MAX_VALUE)
 			{
 				// todo: this is a bug, max values should scale up.
-				// alas, the V1StatModifier implementation does not allow for this
+				// alas, the StatModifier bitmap encoding does not allow for this
 				result = Byte.MAX_VALUE;
 			}
 

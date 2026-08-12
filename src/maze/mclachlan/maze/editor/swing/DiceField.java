@@ -21,7 +21,7 @@ package mclachlan.maze.editor.swing;
 
 import javax.swing.*;
 import mclachlan.maze.stat.Dice;
-import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.data.codec.DiceCodec;
 
 /**
  *
@@ -38,12 +38,12 @@ public class DiceField extends JFormattedTextField
 	/*-------------------------------------------------------------------------*/
 	public void setDice(Dice d)
 	{
-		setText(V1Dice.toString(d));
+		setText(DiceCodec.toString(d));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Dice getDice()
 	{
-		return V1Dice.fromString(getText());
+		return DiceCodec.fromString(getText());
 	}
 }

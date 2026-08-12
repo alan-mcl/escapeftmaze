@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.data.v1;
+package mclachlan.maze.data.codec;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -28,7 +28,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class V1StatModifier
+public class StatModifierCodec
 {
 	private static final int MAX_MODIFIER = Byte.MAX_VALUE;
 	private static final int MIN_MODIFIER = Byte.MIN_VALUE;

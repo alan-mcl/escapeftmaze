@@ -28,8 +28,8 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1StatModifier;
+import mclachlan.maze.data.DataObject;
+import mclachlan.maze.data.codec.StatModifierCodec;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.stat.ItemEnchantment;
 import mclachlan.maze.stat.ItemEnchantments;
@@ -404,7 +404,7 @@ public class ItemEnchantmentsPanel extends EditorPanel
 				case 1: return enchantments.get(rowIndex).getName();
 				case 2: return enchantments.get(rowIndex).getPrefix();
 				case 3: return enchantments.get(rowIndex).getSuffix();
-				case 4: return V1StatModifier.toString(enchantments.get(rowIndex).getModifiers());
+				case 4: return StatModifierCodec.toString(enchantments.get(rowIndex).getModifiers());
 				case 5: return enchantments.get(rowIndex).getCostModifier();
 				default: throw new MazeException("Invalid columnIndex "+columnIndex);
 			}

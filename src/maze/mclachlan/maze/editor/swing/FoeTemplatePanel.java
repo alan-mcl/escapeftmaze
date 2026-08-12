@@ -28,7 +28,7 @@ import mclachlan.crusader.EngineObject;
 import mclachlan.maze.balance.CharacterBuilder;
 import mclachlan.maze.balance.MockCombat;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
