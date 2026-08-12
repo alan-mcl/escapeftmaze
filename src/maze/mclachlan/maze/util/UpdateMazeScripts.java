@@ -57,8 +57,6 @@ public class UpdateMazeScripts
 		"Encounter.preScript",
 		"Encounter.postAppearanceScript",
 		"Chest.preScript",
-		"HiddenStuff.preScript",
-		"HiddenStuff.contents",
 		"Lever.preTransScript",
 		"Lever.postTransScript",
 		"ExecuteMazeScript.script",

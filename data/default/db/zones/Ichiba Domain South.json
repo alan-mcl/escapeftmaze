@@ -7183,30 +7183,6 @@
                 }
               ]
             }
-          },
-          {
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "findDifficulty": "0",
-            "mazeVariable": "ichiba.domain.south.hidden.stuff.antenor",
-            "content": {
-              "name": "Ichiba Domain South antenor loot",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "Your eyes are drawn to a bright gold ring on the finger of the skeleton.",
-                  "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
-                },
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "gnome.antenor.loot"
-                }
-              ]
-            }
           }
         ],
         "randomEncounters": "ichiba.domain.south.random.enc",
@@ -33763,6 +33739,39 @@
         "xPos": "7936",
         "yPos": "3328",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bones.2",
+        "southTexture": "objects.bones.2",
+        "eastTexture": "objects.bones.2",
+        "westTexture": "objects.bones.2",
+        "xPos": "3328",
+        "yPos": "7936",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ichiba.domain.south.hidden.stuff.antenor",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "0",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "Ichiba Domain South antenor loot",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "Your eyes are drawn to a bright gold ring on the finger of the skeleton.",
+                "delay": "-1",
+                "shouldClearText": "true",
+                "alignment": "CENTER"
+              },
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "gnome.antenor.loot"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       }
     ],

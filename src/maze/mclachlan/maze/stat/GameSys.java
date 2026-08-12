@@ -4241,29 +4241,6 @@ public class GameSys
 
 	/**
 	 * @return
-	 * 	The actor (if any) who finds the given hidden stash. If no one finds
-	 * 	it, return null.
-	 */
-	public PlayerCharacter scoutingFindsStash(Maze maze, int findDifficulty)
-	{
-		PlayerParty party = maze.getParty();
-
-		for (PlayerCharacter pc : party.getPlayerCharacters())
-		{
-			if (isActorAware(pc) && pc.getModifier(Stats.Modifier.SCOUTING) >= findDifficulty)
-			{
-				practice(pc, Stats.Modifier.SCOUTING, 1);
-				return pc;
-			}
-		}
-
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	/**
-	 * @return
 	 * 	The fatigue point cost of every move on a water tile.
 	 */
 	public int getSwimmingFatigueCost(UnifiedActor a)

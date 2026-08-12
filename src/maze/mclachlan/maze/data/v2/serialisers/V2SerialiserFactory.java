@@ -879,13 +879,6 @@ public class V2SerialiserFactory
 		map.put(SetMazeVariable.class, getReflectiveSerialiser(SetMazeVariable.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance", "mazeVariable", "value"));
 
-		ReflectiveSerialiser hiddenStuffSerialiser = getReflectiveSerialiser(HiddenStuff.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance",
-			"findDifficulty", "mazeVariable", "preScript", "content");
-		hiddenStuffSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
-		hiddenStuffSerialiser.addCustomSerialiser("content", getMazeScriptSerialiser(db));
-		map.put(HiddenStuff.class, hiddenStuffSerialiser);
-
 		map.put(Water.class, getReflectiveSerialiser(Water.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance"));
 

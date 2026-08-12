@@ -59,15 +59,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private static final int EXECUTE_MAZE_EVENTS = 7;
 	private static final int SIGNBOARD = 8;
 	private static final int SET_MAZE_VARIABLE = 9;
-	private static final int HIDDEN_STUFF = 10;
-	private static final int WATER = 11;
-	private static final int LEVER = 12;
-	private static final int TOGGLE_WALL = 13;
-	private static final int PERSONALITY_SPEECH = 14;
-	private static final int DISPLAY_OPTIONS = 15;
-	private static final int SKILL_TEST = 16;
+	private static final int WATER = 10;
+	private static final int LEVER = 11;
+	private static final int TOGGLE_WALL = 12;
+	private static final int PERSONALITY_SPEECH = 13;
+	private static final int DISPLAY_OPTIONS = 14;
+	private static final int SKILL_TEST = 15;
 
-	private static final int MAX = 17;
+	private static final int MAX = 16;
 
 	static Map<Class<?>, Integer> types;
 
@@ -88,7 +87,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		types.put(ExecuteMazeScript.class, EXECUTE_MAZE_EVENTS);
 		types.put(SignBoard.class, SIGNBOARD);
 		types.put(SetMazeVariable.class, SET_MAZE_VARIABLE);
-		types.put(HiddenStuff.class, HIDDEN_STUFF);
 		types.put(Water.class, WATER);
 		types.put(SkillTest.class, SKILL_TEST);
 	}
@@ -162,11 +160,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JTextField setMazeVariableVariable;
 	private JTextField setMazeVariableValue;
-
-	private JTextField hiddenStuffVariable;
-	private MazeEventsComponent hiddenStuffContents;
-	private MazeEventsComponent hiddenStuffPreScript;
-	private JSpinner hiddenStuffFindDifficulty;
 
 	private JTextField psSpeechKey;
 	private JCheckBox psModal;
@@ -506,13 +499,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				setMazeVariableVariable.setText(smv.getMazeVariable());
 				setMazeVariableValue.setText(smv.getValue());
 				break;
-			case HIDDEN_STUFF:
-				HiddenStuff hs = (HiddenStuff)ts;
-				hiddenStuffContents.refresh(hs.getContent() == null ? null : hs.getContent().getEvents());
-				hiddenStuffPreScript.refresh(hs.getPreScript() == null ? null : hs.getPreScript().getEvents());
-				hiddenStuffVariable.setText(hs.getMazeVariable());
-				hiddenStuffFindDifficulty.setValue(hs.getFindDifficulty());
-				break;
 			case WATER:
 				break;
 			case SKILL_TEST:
@@ -547,7 +533,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				case EXECUTE_MAZE_EVENTS -> getExecuteMazeEventsPanel();
 				case SIGNBOARD -> getSignBoardPanel();
 				case SET_MAZE_VARIABLE -> getSetMazeVariablePanel();
-				case HIDDEN_STUFF -> getHiddenStuffPanel();
 				case WATER -> new JPanel();
 				case SKILL_TEST -> getSkillTestPanel();
 				default -> throw new MazeException("Invalid type " + type);
@@ -633,20 +618,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			BorderLayout.CENTER);
 
 		return result;
-	}
-
-	private JPanel getHiddenStuffPanel()
-	{
-		hiddenStuffContents = new MazeEventsComponent(dirtyFlag);
-		hiddenStuffPreScript = new MazeEventsComponent(dirtyFlag);
-		hiddenStuffVariable = new JTextField(20);
-		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1, 0, 127, 1));
-
-		return dirtyGridBagCrap(
-			new JLabel("Maze Variable:"), hiddenStuffVariable,
-			new JLabel("Contents:"), hiddenStuffContents,
-			new JLabel("Pre Script:"), hiddenStuffPreScript,
-			new JLabel("Find Difficulty:"), hiddenStuffFindDifficulty);
 	}
 
 	private JPanel getSetMazeVariablePanel()
@@ -1050,7 +1021,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				case EXECUTE_MAZE_EVENTS -> "Execute Maze Script";
 				case SIGNBOARD -> "Sign Board";
 				case SET_MAZE_VARIABLE -> "Set Maze Variable";
-				case HIDDEN_STUFF -> "Hidden Stuff";
 				case WATER -> "Water";
 				case SKILL_TEST -> "Skill Test";
 				default -> throw new MazeException("Invalid type " + type);
@@ -1582,22 +1552,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				result = new SetMazeVariable(
 					setMazeVariableVariable.getText(),
 					setMazeVariableValue.getText());
-				break;
-			case HIDDEN_STUFF:
-				String mazeVar = hiddenStuffVariable.getText();
-				int findDifficulty = (Integer)hiddenStuffFindDifficulty.getValue();
-				MazeScript content = null;
-				if (hiddenStuffContents.getEvents() != null && !hiddenStuffContents.getEvents().isEmpty())
-				{
-					content = new MazeScript("HiddenStuff.contents", hiddenStuffContents.getEvents());
-				}
-				MazeScript preScript = null;
-				if (hiddenStuffPreScript.getEvents() != null && !hiddenStuffPreScript.getEvents().isEmpty())
-				{
-					preScript = new MazeScript("HiddenStuff.preScript", hiddenStuffPreScript.getEvents());
-				}
-
-				result = new HiddenStuff(content, preScript, mazeVar, findDifficulty);
 				break;
 			case WATER:
 				result = new Water();

@@ -1872,7 +1872,7 @@
               "name": "Chest.preScript",
               "events": [
                 {
-                  "flavourText": "yeah there\u0027s a chest here",
+                  "flavourText": "yeah there's a chest here",
                   "delay": "-1",
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "alignment": "CENTER",
@@ -2083,37 +2083,7 @@
       },
       {
         "coords": "9:1",
-        "scripts": [
-          {
-            "findDifficulty": "1",
-            "mazeVariable": "arena.hidden.stuff.1",
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "preScript": {
-              "name": "HiddenStuff.preScript",
-              "events": [
-                {
-                  "flavourText": "lol yeah hidden stuffs",
-                  "delay": "-1",
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "alignment": "CENTER",
-                  "shouldClearText": "false"
-                }
-              ]
-            },
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "content": {
-              "name": "HiddenStuff.contents",
-              "events": [
-                {
-                  "lootTable": "Dog.Soldier.loot",
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
-                }
-              ]
-            },
-            "reexecuteOnSameTile": "false"
-          }
-        ],
+        "scripts": [],
         "randomEncounters": "TestingTable",
         "statModifier": "3f800000000000000000,07080807080708",
         "terrainType": "URBAN",
@@ -11082,6 +11052,39 @@
         "xPos": "768",
         "yPos": "6912",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.crate.1",
+        "southTexture": "objects.crate.1",
+        "eastTexture": "objects.crate.1",
+        "westTexture": "objects.crate.1",
+        "xPos": "768",
+        "yPos": "4864",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "arena.hidden.stuff.1",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "1",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "Arena hidden stuff 1 contents",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "flavourText": "lol yeah hidden stuffs",
+                "delay": "-1",
+                "shouldClearText": "false",
+                "alignment": "CENTER"
+              },
+              {
+                "lootTable": "Dog.Soldier.loot",
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       }
     ],

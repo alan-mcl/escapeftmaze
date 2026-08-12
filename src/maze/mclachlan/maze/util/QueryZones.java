@@ -25,7 +25,6 @@ import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.*;
@@ -72,17 +71,6 @@ public class QueryZones
 					if (((Chest)ts).getPreScript() != null)
 					{
 						System.out.println(((Chest)ts).getPreScript().getName());
-					}
-				}
-				else if (ts instanceof HiddenStuff)
-				{
-					if (((HiddenStuff)ts).getPreScript() != null)
-					{
-						System.out.println(((HiddenStuff)ts).getPreScript().getName());
-					}
-					if (((HiddenStuff)ts).getContent() != null)
-					{
-						System.out.println(((HiddenStuff)ts).getContent().getName());
 					}
 				}
 				else if (ts instanceof ExecuteMazeScript)

@@ -7584,22 +7584,6 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "text": "You step over the bones of some poor scribe who appears to have died in defence of his books."
-          },
-          {
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "findDifficulty": "0",
-            "mazeVariable": "ruins.of.hail.hidden.stuff.1",
-            "content": {
-              "name": "Ruins Of Hail hidden stuff 1",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ruins.of.hail.hidden.stuff.1"
-                }
-              ]
-            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",
@@ -15009,22 +14993,6 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "text": "The area around these remains is blackened and scorched."
-          },
-          {
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "findDifficulty": "0",
-            "mazeVariable": "ruins.of.hail.damla's.bones.hidden.stuff",
-            "content": {
-              "name": "Ruins Of Hail damla's bones hidden stuff",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ruins.of.hail.damla's.bones"
-                }
-              ]
-            }
           }
         ],
         "randomEncounters": "ruins.of.hail.random.enc",
@@ -60604,6 +60572,58 @@
         "xPos": "3328",
         "yPos": "6058",
         "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bones.2",
+        "southTexture": "objects.bones.2",
+        "eastTexture": "objects.bones.2",
+        "westTexture": "objects.bones.2",
+        "xPos": "15104",
+        "yPos": "8448",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ruins.of.hail.hidden.stuff.1",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "0",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "Ruins Of Hail hidden stuff 1",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ruins.of.hail.hidden.stuff.1"
+              }
+            ]
+          }
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bones.2",
+        "southTexture": "objects.bones.2",
+        "eastTexture": "objects.bones.2",
+        "westTexture": "objects.bones.2",
+        "xPos": "12032",
+        "yPos": "17664",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "executeOnceMazeVariable": "ruins.of.hail.damla's.bones.hidden.stuff",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "0",
+          "clickMaxDistance": "1",
+          "script": {
+            "name": "Ruins Of Hail damla's bones hidden stuff",
+            "events": [
+              {
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                "lootTable": "ruins.of.hail.damla's.bones"
+              }
+            ]
+          }
+        },
         "verticalAlignment": "BOTTOM"
       }
     ],

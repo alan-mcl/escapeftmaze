@@ -452,7 +452,7 @@
         "0"
       ],
       "required": "1011001",
-      "keyItem": "Adventurer's Armoury Key",
+      "keyItem": "Adventurer\u0027s Armoury Key",
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
     },
@@ -2327,10 +2327,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Accounts"
+            "text": "Accounts",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -2789,10 +2789,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "W E Pickett\n\nDirector"
+            "text": "W E Pickett\n\nDirector",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -3156,10 +3156,10 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.imogens.tower.flava2",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Dankness and humidity are your first impressions as you emerge from the stairway. In the dim light, you see that this level of the tower is overgrown with bulbous plants. The tiled floor has been cracked and broken by the burrowing of sinuous roots.\n\nFor a moment you have the oddest feeling, as if you had just walked into a crowded room where people who were talking about you have just fallen silent. But the chamber is empty..."
+            "text": "Dankness and humidity are your first impressions as you emerge from the stairway. In the dim light, you see that this level of the tower is overgrown with bulbous plants. The tiled floor has been cracked and broken by the burrowing of sinuous roots.\n\nFor a moment you have the oddest feeling, as if you had just walked into a crowded room where people who were talking about you have just fallen silent. But the chamber is empty...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -3235,19 +3235,18 @@
         "coords": "3:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.coc.chest"
+                  "lootTable": "ichiba.city.coc.chest",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_FRONT",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 25,
@@ -3265,9 +3264,10 @@
             },
             "mazeVariable": "ichiba.city.coc.chest",
             "northTexture": "CHEST_1_SIDE",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_SIDE",
             "eastTexture": "CHEST_1_BACK",
-            "westTexture": "CHEST_1_FRONT"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -5270,13 +5270,13 @@
         "coords": "7:19",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.human.footpads",
             "mazeVariable": "ichiba.city.encounter.23",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -5724,20 +5724,20 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.execute.once.1",
-            "facings": "00001",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.thieves.guild.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "00001",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -6200,10 +6200,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Dept Information \nand Statistics"
+            "text": "Dept Information \nand Statistics",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -6573,19 +6573,19 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.gnome.garden.cck",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City gnome garden cck",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.city.gnome.garden",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           },
           {
             "IMPL": "mclachlan.maze.campaign.def.map.GardenOfGlaucus",
@@ -6722,10 +6722,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Barracks B"
+            "text": "Barracks B",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -6740,8 +6740,6 @@
         "coords": "10:23",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
@@ -6750,29 +6748,30 @@
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "This is C.O.C. quarters. You don't just stroll in here.",
-                  "delay": "-1"
+                  "speechText": "This is C.O.C. quarters. You don\u0027t just stroll in here.",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "If you’re lost, turn around and leave now.",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "If you’re not lost, well, I'd say it's time to reconsider your life choices!",
-                  "delay": "-1"
+                  "speechText": "If you’re not lost, well, I\u0027d say it\u0027s time to reconsider your life choices!",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 }
               ]
             },
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "partyLeavesNeutralScript": {
               "name": "EncounterActorsEvent.partyLeavesNeutral",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
@@ -6780,13 +6779,14 @@
               "name": "EncounterActorsEvent.partyLeavesFriendly",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "true"
+            "bypassNpcScriptsOnNonHostile": "true",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -7514,19 +7514,18 @@
         "coords": "12:8",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.chest.2"
+                  "lootTable": "ichiba.city.chest.2",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_SIDE",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 34,
@@ -7542,9 +7541,10 @@
             },
             "mazeVariable": "ichiba.city.chest.2",
             "northTexture": "CHEST_1_FRONT",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_BACK",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -7625,8 +7625,6 @@
         "coords": "12:15",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
@@ -7635,24 +7633,25 @@
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "Hey! This is a barracks, not a market stall.",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "Outsiders aren’t welcome unless summoned. Which you weren’t. Get out!",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 }
               ]
             },
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "partyLeavesNeutralScript": {
               "name": "EncounterActorsEvent.partyLeavesNeutral",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
@@ -7660,13 +7659,14 @@
               "name": "EncounterActorsEvent.partyLeavesFriendly",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "true"
+            "bypassNpcScriptsOnNonHostile": "true",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -8108,10 +8108,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Glaucus\nGeneral Magical"
+            "text": "Glaucus\nGeneral Magical",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8138,10 +8138,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Barracks A"
+            "text": "Barracks A",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8179,10 +8179,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Ports Authority"
+            "text": "Ports Authority",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -8211,10 +8211,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Conference Room 1"
+            "text": "Conference Room 1",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -8603,10 +8603,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+            "text": "CRATER BAZAAR\nThe King Of Markets\n",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8644,34 +8644,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The notice board has a single sheet of paper nailed to it-\n\n\"Notice #18. Mercenaries Wanted. Take One And Apply Within.\"\n\nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone."
-          },
-          {
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "findDifficulty": "0",
-            "mazeVariable": "",
-            "content": {
-              "name": "Ichiba City COC tear off paper slip",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": " You tear off one of the small paper slips...",
-                  "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
-                },
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.coc.paper.slip"
-                }
-              ]
-            }
+            "text": "The notice board has a single sheet of paper nailed to it-\n\n\"Notice #18. Mercenaries Wanted. Take One And Apply Within.\"\n\nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone.",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8721,46 +8697,46 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.SignBoardEvent",
-                  "signBoardText": "WANTED\nDEAD OR ALIVE\nBounty collectable at C.O.C."
+                  "signBoardText": "WANTED\nDEAD OR ALIVE\nBounty collectable at C.O.C.",
+                  "TYPE_KEY": "mclachlan.maze.map.script.SignBoardEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "The signboard has several paper posters bearing sketched portraits nailed to it.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, 'SIR' KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
+                  "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, \u0027SIR\u0027 KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "\"For Murder, Kidnapping, Banditry, Rape, Assault With Deadly Intent, VIRGILIO PATRICO. Reward 9000\"\n\nThe portrait shows a sneering human male with sharp features and long dark hair.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS 'THE HAND'. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
+                  "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS \u0027THE HAND\u0027. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -8894,26 +8870,26 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.imogens.tower.flava1",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City Imogens tower lvl1",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn't been used in a while.",
+                  "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn\u0027t been used in a while.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.city.imogen.tower.1",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -9142,10 +9118,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "SCRIMSHAW BROS"
+            "text": "SCRIMSHAW BROS",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9183,10 +9159,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "MAZZA'S\nFRIED\nANYTHING"
+            "text": "MAZZA\u0027S\nFRIED\nANYTHING",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9235,20 +9211,20 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "facings": "00001",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Chamber of\nCommerce"
+            "text": "Chamber of\nCommerce",
+            "facings": "00001",
+            "reexecuteOnSameTile": "false"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.execute.once.5",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "text": "Nailed to the door is an official looking notice. It reads:\n\nTHE MERCHANT CHARTER\nSummary of Section 4: Penalties And Enforcement\n\nTheft, burglary, assault, banditry, murder, arson, kidnapping, rape, treason, and other major and capital offenses: The penalty is death.\n\nSmuggling, forgery, disorderly behaviour and other minor and illegal behaviours: The penalty is asset siezure and banishment.\n\nNo appeals.\nNo leniency for first offenses.\nIgnorance of the Charter is not a defense.",
-            "alignment": "CENTER"
+            "alignment": "CENTER",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -9367,10 +9343,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Imogen"
+            "text": "Imogen",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -9622,10 +9598,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+            "text": "CRATER BAZAAR\nThe King Of Markets\n",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -9652,10 +9628,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Rennik\nCobbler"
+            "text": "Rennik\nCobbler",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9671,10 +9647,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Spices Perfumes Aromatics\nUnguents Powders Incense \nTHE AROMATIST"
+            "text": "Spices Perfumes Aromatics\nUnguents Powders Incense \nTHE AROMATIST",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9701,10 +9677,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+            "text": "CRATER BAZAAR\nThe King Of Markets\n",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -9808,21 +9784,21 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "facings": "00001",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "text": "The door is heavily boarded up and impassible.\n\nNailed to the boards at eye level is a neatly written notice...",
-            "alignment": "CENTER"
+            "alignment": "CENTER",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "facings": "00001",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "BY ORDER OF THE ICHIBA CHAMBER OF COMMERCE\n17–39 Lower Hesper Row Combined Tenements, aka \"The Tumbledown\", is hereby declared comdemned due to: Structural Unsoundness, Illegal Overbuilding, Unregistered Commerce, Water & Sewerage Violations, Uninsured Fire Risk, and Persistent Public Disturbance.\n\nPursuant to the relevant Civic  Ordinances, the above-listed properties are deemed unfit for habitation, commerce, or lawful assembly.\n\nAll persons are ordered to vacate the premises. Entry, residence, or commercial activity within is prohibited.\n\nThe C.O.C. accepts no liability for injury, loss of property, or death resulting from failure to comply with this order.",
-            "alignment": "CENTER"
+            "text": "BY ORDER OF THE ICHIBA CHAMBER OF COMMERCE\n17–39 Lower Hesper Row Combined Tenements, aka \"The Tumbledown\", is hereby declared comdemned due to: Structural Unsoundness, Illegal Overbuilding, Unregistered Commerce, Water \u0026 Sewerage Violations, Uninsured Fire Risk, and Persistent Public Disturbance.\n\nPursuant to the relevant Civic  Ordinances, the above-listed properties are deemed unfit for habitation, commerce, or lawful assembly.\n\nAll persons are ordered to vacate the premises. Entry, residence, or commercial activity within is prohibited.\n\nThe C.O.C. accepts no liability for injury, loss of property, or death resulting from failure to comply with this order.",
+            "alignment": "CENTER",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -10159,10 +10135,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "CRATER BAZAAR\nThe King Of Markets\n"
+            "text": "CRATER BAZAAR\nThe King Of Markets\n",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -10199,10 +10175,10 @@
         "coords": "17:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10217,10 +10193,10 @@
         "coords": "17:19",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10589,12 +10565,12 @@
         "coords": "18:12",
         "scripts": [
           {
+            "mazeVariable": "ichiba.city.portal.15",
             "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariable",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "mazeVariable": "ichiba.city.portal.15",
-            "value": "locked"
+            "value": "locked",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10609,12 +10585,12 @@
         "coords": "18:13",
         "scripts": [
           {
+            "mazeVariable": "ichiba.city.portal.14",
             "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariable",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "mazeVariable": "ichiba.city.portal.14",
-            "value": "locked"
+            "value": "locked",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10629,12 +10605,12 @@
         "coords": "18:14",
         "scripts": [
           {
+            "mazeVariable": "ichiba.city.portal.13",
             "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariable",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "mazeVariable": "ichiba.city.portal.13",
-            "value": "locked"
+            "value": "locked",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10671,10 +10647,10 @@
         "coords": "18:17",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10689,10 +10665,10 @@
         "coords": "18:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10707,10 +10683,10 @@
         "coords": "18:19",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10725,10 +10701,10 @@
         "coords": "18:20",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10744,19 +10720,19 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City villa cck",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.villa.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -10773,10 +10749,10 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.villa.flavour.1",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The interior of the villa is luxuriously furnished, and eerily quiet."
+            "text": "The interior of the villa is luxuriously furnished, and eerily quiet.",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -10879,19 +10855,18 @@
         "coords": "18:31",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.chest.1"
+                  "lootTable": "ichiba.city.chest.1",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_SIDE",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 33,
@@ -10907,9 +10882,10 @@
             },
             "mazeVariable": "ichiba.city.chest.1",
             "northTexture": "CHEST_1_BACK",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_FRONT",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11137,20 +11113,20 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.execute.once.0",
-            "facings": "0001",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City thieves guild cck doors",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.thieves.guild.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "0001",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -11199,10 +11175,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The Adventurer's Armoury\nby\nScrymgeour "
+            "text": "The Adventurer\u0027s Armoury\nby\nScrymgeour ",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -11228,10 +11204,10 @@
         "coords": "19:17",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11246,10 +11222,10 @@
         "coords": "19:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11264,10 +11240,10 @@
         "coords": "19:19",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11282,10 +11258,10 @@
         "coords": "19:20",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11706,10 +11682,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "NO SWIMMING"
+            "text": "NO SWIMMING",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11724,10 +11700,10 @@
         "coords": "20:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11742,10 +11718,10 @@
         "coords": "20:19",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Water",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1"
+            "clickMaxDistance": "1",
+            "TYPE_KEY": "mclachlan.maze.map.script.Water",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11804,13 +11780,13 @@
         "coords": "20:24",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.villa.guardians",
             "mazeVariable": "ichiba.city.encounter.3",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -11825,19 +11801,18 @@
         "coords": "20:25",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.chest.4"
+                  "lootTable": "ichiba.city.chest.4",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_SIDE",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 100
@@ -11849,9 +11824,10 @@
             },
             "mazeVariable": "ichiba.city.chest.4",
             "northTexture": "CHEST_1_BACK",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_FRONT",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -12995,28 +12971,28 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Gentlemen's Social Club"
+            "text": "Gentlemen\u0027s Social Club",
+            "reexecuteOnSameTile": "false"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.execute.once.3",
-            "facings": "001",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City thieves guild cck doors",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.thieves.guild.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "001",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -13032,10 +13008,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.\n\nDoesn't look like your idea of a good time."
+            "text": "The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.\n\nDoesn\u0027t look like your idea of a good time.",
+            "reexecuteOnSameTile": "false"
           },
           {
             "IMPL": "mclachlan.maze.campaign.def.map.DartBoard",
@@ -13109,20 +13085,20 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "facings": "0001",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City Imogen Door cck",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.city.imogen.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "0001",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -13182,10 +13158,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "RED EAR HAS \nTHE BEST DEALS!"
+            "text": "RED EAR HAS \nTHE BEST DEALS!",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -13527,19 +13503,18 @@
             "clickMaxDistance": "1"
           },
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.incense.chest"
+                  "lootTable": "ichiba.city.incense.chest",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_BACK",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [],
               "ITEMS": [],
@@ -13547,9 +13522,10 @@
             },
             "mazeVariable": "ichiba.city.incense.chest",
             "northTexture": "CHEST_1_SIDE",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_SIDE",
             "eastTexture": "CHEST_1_FRONT",
-            "westTexture": "CHEST_1_BACK"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -13615,13 +13591,13 @@
         "coords": "24:14",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.imogen.inghean.shades",
             "mazeVariable": "ichiba.city.encounter.9",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -13747,27 +13723,27 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "facings": "0001",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Over the doorway there is etched a striking ikon of crossed spears before a round shield.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.city.shrine.of.the_lady.sign",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "0001",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -14092,19 +14068,18 @@
         "coords": "25:14",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.imogen.room.chest"
+                  "lootTable": "ichiba.city.imogen.room.chest",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_BACK",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 20,
@@ -14124,9 +14099,10 @@
             },
             "mazeVariable": "ichiba.city.imogen.room.chest",
             "northTexture": "CHEST_1_SIDE",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_SIDE",
             "eastTexture": "CHEST_1_FRONT",
-            "westTexture": "CHEST_1_BACK"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -14253,10 +14229,10 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.execute.once.4",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The shrine is clean and quiet, although somewhat spartan in design. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you."
+            "text": "The shrine is clean and quiet, although somewhat spartan in design. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it\u0027s back towards you.",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -14625,19 +14601,18 @@
         "coords": "26:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.chest.3"
+                  "lootTable": "ichiba.city.chest.3",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_SIDE",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 34,
@@ -14653,9 +14628,10 @@
             },
             "mazeVariable": "ichiba.city.chest.3",
             "northTexture": "CHEST_1_BACK",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_FRONT",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15047,12 +15023,12 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "facings": "01",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "A short price list is attached to the door. It reads:\n\nMadame Hoshiko's personal tarot reading, 50gp\nLet the cards fall where they may.\n",
-            "alignment": "CENTER"
+            "text": "A short price list is attached to the door. It reads:\n\nMadame Hoshiko\u0027s personal tarot reading, 50gp\nLet the cards fall where they may.\n",
+            "alignment": "CENTER",
+            "facings": "01",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15068,10 +15044,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "MADAME HOSHIKO\nYour Future Foretold Today"
+            "text": "MADAME HOSHIKO\nYour Future Foretold Today",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -15108,8 +15084,6 @@
         "coords": "27:17",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.human.footpads",
@@ -15118,29 +15092,30 @@
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Oi! Ever heard of knockin', culley, or did your manners die young?",
-                  "delay": "-1"
+                  "speechText": "Oi! Ever heard of knockin\u0027, culley, or did your manners die young?",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Wrong door to kick in! This is our pad, and we got connections, if you savvy 'bout what I mean!\n",
-                  "delay": "-1"
+                  "speechText": "Wrong door to kick in! This is our pad, and we got connections, if you savvy \u0027bout what I mean!\n",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "Now beat it or else!",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 }
               ]
             },
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "partyLeavesNeutralScript": {
               "name": "EncounterActorsEvent.partyLeavesNeutral",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
@@ -15148,13 +15123,14 @@
               "name": "EncounterActorsEvent.partyLeavesFriendly",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "true"
+            "bypassNpcScriptsOnNonHostile": "true",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15191,8 +15167,6 @@
         "coords": "27:20",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.gnome.beggars",
@@ -15201,24 +15175,25 @@
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "If you wished to visit, a knock costs less than an apology.",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Door's behind you. Use it and leave now please.",
-                  "delay": "-1"
+                  "speechText": "Door\u0027s behind you. Use it and leave now please.",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 }
               ]
             },
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "partyLeavesNeutralScript": {
               "name": "EncounterActorsEvent.partyLeavesNeutral",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
@@ -15226,13 +15201,14 @@
               "name": "EncounterActorsEvent.partyLeavesFriendly",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent",
+                  "facing": "0",
                   "maxTiles": "1d1",
-                  "facing": "0"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.BackPartyUpEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "true"
+            "bypassNpcScriptsOnNonHostile": "true",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15393,12 +15369,12 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.execute.once.6",
-            "facings": "0101",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Clearly Elsibet's living quarters, this room occupies the library's attic above the main building.\n\nThe ceiling follows the pitch of the roof. A narrow bed with a handmade quilt is pushed in one corder, and a very prim writing desk stands against the far wall.\n\nThe room smells faintly of paper, cedar, and lamp oil.\n\n",
-            "alignment": "CENTER"
+            "text": "Clearly Elsibet\u0027s living quarters, this room occupies the library\u0027s attic above the main building.\n\nThe ceiling follows the pitch of the roof. A narrow bed with a handmade quilt is pushed in one corder, and a very prim writing desk stands against the far wall.\n\nThe room smells faintly of paper, cedar, and lamp oil.\n\n",
+            "alignment": "CENTER",
+            "facings": "0101",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15581,13 +15557,13 @@
         "coords": "28:10",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.inhabitants.human.footpads",
             "mazeVariable": "ichiba.city.encounter.8",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -15604,20 +15580,20 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.execute.once.2",
-            "facings": "01",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.ichiba.thieves.guild.door",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "facings": "01",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -15776,10 +15752,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "A low stone altar stands at the far end of the temple, covered with a plain white cloth."
+            "text": "A low stone altar stands at the far end of the temple, covered with a plain white cloth.",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -16152,40 +16128,40 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.cck",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "Ichiba City cck",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "The inhabitants hurry about their business, many casting you curious glances but none approaching. Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
-                },
-                {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don't recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
-                  "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+                  "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don\u0027t recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
+                },
+                {
                   "speechKey": "default.ichiba.city.intro",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -16289,10 +16265,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "ICHIBA LIBRARY"
+            "text": "ICHIBA LIBRARY",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -16640,10 +16616,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "ICHIBA\nCity In The Crater"
+            "text": "ICHIBA\nCity In The Crater",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -16780,11 +16756,11 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "facings": "00001",
-            "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": " - private - "
+            "text": " - private - ",
+            "facings": "00001",
+            "reexecuteOnSameTile": "true"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -17098,64 +17074,64 @@
         "coords": "31:18",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
-            "mazeVariable": "ichiba.city.encounter.0",
-            "ambushStatus": "NONE",
             "preScriptEvents": {
               "name": "Encounter.preScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Lounging in a disorderly fashion near the gate, several heavily armed guards accost you as you approach...",
                   "delay": "-1",
-                  "shouldClearText": "false",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "false"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "encounterTable": "ichiba.city.inhabitants.human.hirebrands",
+            "mazeVariable": "ichiba.city.encounter.0",
             "postAppearanceScriptEvents": {
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "Hold it, strangers!",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "Ichiba is open for trade. By the terms of the Merchant Charter, you have right of passage for the purpose of commerce.",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "The Chamber of Commerce guarantees the Charter in this town.\n\nThe penalty for breaking the peace is death!",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "So if you bring commerce and goodwill, welcome.\n\nIf not, best you leave now and make your way elsewhere in The Maze.",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "We're done here. Stay out of trouble.",
-                  "delay": "-1"
+                  "speechText": "We\u0027re done here. Stay out of trouble.",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
                   "mazeVariable": "ichiba.city.encounter.0",
-                  "value": "true"
+                  "value": "true",
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
                 },
                 {
-                  "IMPL": "mclachlan.maze.stat.npc.ActorsLeaveEvent"
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.ActorsLeaveEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "true"
+            "ambushStatus": "NONE",
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "true",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -17603,28 +17579,28 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
             "executeOnceMazeVariable": "ichiba.city.intro",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.\n",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "The ancient gates lie open, lightly guarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -19160,10 +19136,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "\n\n... i m o g e n ..."
+            "text": "\n\n... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -19180,10 +19156,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "... i m o g e n ..."
+            "text": "... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -19461,20 +19437,20 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
+                  "facing": "0",
                   "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
                   "zone": "Ichiba Crossroad",
-                  "pos": "3:29",
-                  "facing": "0"
+                  "pos": "3:29"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -19635,10 +19611,10 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.imogens.tower.flava4",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The susurration growns louder, and you pause to listen...\n\nA chill runs down your spine as it suddenly resolves into a word... a name....\n\n... i m o g e n ..."
+            "text": "The susurration growns louder, and you pause to listen...\n\nA chill runs down your spine as it suddenly resolves into a word... a name....\n\n... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -19654,19 +19630,18 @@
         "coords": "36:36",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "ichiba.city.imogen.chest.loot"
+                  "lootTable": "ichiba.city.imogen.chest.loot",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_FRONT",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 20,
@@ -19686,9 +19661,10 @@
             },
             "mazeVariable": "ichiba.city.imogen.loot",
             "northTexture": "CHEST_1_SIDE",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_SIDE",
             "eastTexture": "CHEST_1_BACK",
-            "westTexture": "CHEST_1_FRONT"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -19705,10 +19681,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "\n... i m o g e n ..."
+            "text": "\n... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -19725,10 +19701,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "\n\n.... i m o g e n ..."
+            "text": "\n\n.... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -20150,10 +20126,10 @@
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
             "executeOnceMazeVariable": "ichiba.city.imogens.tower.flava3",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The sinister vegetation chokes this level thicker than ever... stalks and bulbs sway gently, leaves and creepers stir slowly, vines and tendrils furl and unfurl. A sibilant rustle becomes apparent at the edge of your hearing."
+            "text": "The sinister vegetation chokes this level thicker than ever... stalks and bulbs sway gently, leaves and creepers stir slowly, vines and tendrils furl and unfurl. A sibilant rustle becomes apparent at the edge of your hearing.",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -20169,13 +20145,13 @@
         "coords": "37:36",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "ichiba.city.imogen.allies.on.call",
             "mazeVariable": "ichiba.city.encounter.15",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -20192,10 +20168,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "... i m o g e n ..."
+            "text": "... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -20652,10 +20628,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "\n... i m o g e n ..."
+            "text": "\n... i m o g e n ...",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "ichiba.city.imogen.tower.random.enc",
@@ -38832,13 +38808,13 @@
         "solid": "true",
         "height": "1",
         "maskTextureMouseClickScript": {
+          "mazeVariable": "ichiba.city.remove.wall.3",
           "TYPE_KEY": "mclachlan.maze.map.script.RemoveWall",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "mazeVariable": "ichiba.city.remove.wall.3",
+          "horizontalWall": "true",
           "wallIndex": "203",
-          "horizontalWall": "true"
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -40331,13 +40307,13 @@
         "solid": "true",
         "height": "1",
         "maskTextureMouseClickScript": {
+          "mazeVariable": "ichiba.city.remove.wall.2",
           "TYPE_KEY": "mclachlan.maze.map.script.RemoveWall",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "mazeVariable": "ichiba.city.remove.wall.2",
+          "horizontalWall": "true",
           "wallIndex": "387",
-          "horizontalWall": "true"
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -44747,11 +44723,11 @@
         "height": "1",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -44772,11 +44748,11 @@
         "height": "2",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -46047,11 +46023,11 @@
         "height": "2",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -46536,11 +46512,11 @@
         "height": "2",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "You inspect the titles on the bookshelf.\n\nThis appears to be the Romance section. Dog-eared paperbacks promise tales of impossible love between unlikely protagonists.\n",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -48200,35 +48176,35 @@
         "height": "1",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                 "flavourText": "Various files, documents, and stacks of paper are stacked on the shelf here.",
                 "delay": "-1",
-                "shouldClearText": "false",
-                "alignment": "CENTER"
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "alignment": "CENTER",
+                "shouldClearText": "false"
               },
               {
-                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                 "flavourText": "Leafing through them expecting accounts and diaries, you are surprised to instead find dozens of draft paragraphs of Red Greave heroic fantasy, character sketches, maps of imaginary kingdoms and plot outlines, all written in a neat cursive.",
                 "delay": "-1",
-                "shouldClearText": "false",
-                "alignment": "CENTER"
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "alignment": "CENTER",
+                "shouldClearText": "false"
               },
               {
-                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                 "flavourText": "It slowly dawns on you that these are the real thing - the material includes drafts and revisions of published novels in the library downstairs.\n\nYou appear to have discovered who is behind the \"Dame Eleanor Cross\" pen name.",
                 "delay": "-1",
-                "shouldClearText": "false",
-                "alignment": "CENTER"
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "alignment": "CENTER",
+                "shouldClearText": "false"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -55431,10 +55407,10 @@
         "height": "1",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "The wooden door feels strangely warm to the touch..."
+          "text": "The wooden door feels strangely warm to the touch...",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -56940,13 +56916,13 @@
         "solid": "true",
         "height": "1",
         "maskTextureMouseClickScript": {
+          "mazeVariable": "ichiba.city.remove.wall.1",
           "TYPE_KEY": "mclachlan.maze.map.script.RemoveWall",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "mazeVariable": "ichiba.city.remove.wall.1",
+          "horizontalWall": "false",
           "wallIndex": "785",
-          "horizontalWall": "false"
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -58350,11 +58326,11 @@
         "height": "2",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -59322,11 +59298,11 @@
         "height": "2",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -59361,11 +59337,11 @@
         "height": "2",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The window has been heavily boarded up.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -60508,11 +60484,11 @@
         "height": "2",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You inspect the titles on the bookshelf.\n\nThis section has a collection of literary classics. \n\nYou recognise some from the First Realm: 'Ashes Upon the River', 'The Tower at World's Noon', 'The Letters of Magister Hale'.\n\nOthers are new to you: 'Usark's Journey', 'The Bridge of Hollow Stars', 'Songs for the Long Winter'.",
-          "alignment": "CENTER"
+          "text": "You inspect the titles on the bookshelf.\n\nThis section has a collection of literary classics. \n\nYou recognise some from the First Realm: \u0027Ashes Upon the River\u0027, \u0027The Tower at World\u0027s Noon\u0027, \u0027The Letters of Magister Hale\u0027.\n\nOthers are new to you: \u0027Usark\u0027s Journey\u0027, \u0027The Bridge of Hollow Stars\u0027, \u0027Songs for the Long Winter\u0027.",
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -60537,11 +60513,11 @@
         "height": "2",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "You inspect the titles on the bookshelf.\n\nThis section contains theatrical works. Comedies, tragedies and historical dramas by obscure playwrites fill the shelves.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -64780,18 +64756,18 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
-                "script": "Ichiba Crossroad berry forage"
+                "script": "Ichiba Crossroad berry forage",
+                "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -66005,20 +65981,20 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "Ichiba City to Depths (gnolls)",
             "events": [
               {
+                "facing": "0",
                 "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
                 "zone": "Ichiba City Depths",
-                "pos": "13:6",
-                "facing": "0"
+                "pos": "13:6"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -66032,25 +66008,25 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
-            "name": "Ichiba City COC tear off paper slip",
+            "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                 "flavourText": " You tear off one of the small paper slips...",
                 "delay": "-1",
-                "shouldClearText": "true",
-                "alignment": "CENTER"
+                "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                "alignment": "CENTER",
+                "shouldClearText": "true"
               },
               {
-                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                "lootTable": "ichiba.city.coc.paper.slip"
+                "lootTable": "ichiba.city.coc.paper.slip",
+                "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -66064,20 +66040,20 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "Ichiba City to Depths (gsc1)",
             "events": [
               {
+                "facing": "0",
                 "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
                 "zone": "Ichiba City Depths",
-                "pos": "2:16",
-                "facing": "0"
+                "pos": "2:16"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -66091,20 +66067,20 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "Ichiba City to Depths (gsc2)",
             "events": [
               {
+                "facing": "0",
                 "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
                 "zone": "Ichiba City Depths",
-                "pos": "28:8",
-                "facing": "0"
+                "pos": "28:8"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -68098,19 +68074,19 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
                 "pos": "27:34",
-                "facing": "0"
+                "facing": "0",
+                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "TOP"
       },
@@ -68124,19 +68100,19 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
                 "pos": "29:30",
-                "facing": "0"
+                "facing": "0",
+                "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -68170,11 +68146,11 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "The writing desk is neatly laid out at with stacked foolscap, sharpened quills, bottles of ink arranged by colour, sealing wax, rulers and other stationary. The quills look well used.",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },
@@ -68191,13 +68167,13 @@
     ],
     "scripts": [
       {
-        "TYPE_KEY": "mclachlan.crusader.script.RandomLightingScript",
         "affectedTiles": [
           "467"
         ],
-        "frequency": "5",
+        "TYPE_KEY": "mclachlan.crusader.script.RandomLightingScript",
         "minLightLevel": "16",
-        "maxLightLevel": "28"
+        "maxLightLevel": "28",
+        "frequency": "5"
       }
     ]
   }

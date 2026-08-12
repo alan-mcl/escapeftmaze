@@ -22,7 +22,6 @@ package mclachlan.maze.data.v1;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.SkillTest;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
@@ -104,7 +103,6 @@ public class V1TileScript
 		types.put(ExecuteMazeScript.class, EXECUTE_MAZE_SCRIPT);
 		types.put(SignBoard.class, SIGNBOARD);
 		types.put(SetMazeVariable.class, SET_MAZE_VARIABLE);
-		types.put(HiddenStuff.class, HIDDEN_STUFF);
 		types.put(Water.class, WATER);
 		types.put(Lever.class, LEVER);
 		types.put(ToggleWall.class, TOGGLE_WALL);
@@ -297,15 +295,7 @@ public class V1TileScript
 				s.append(smv.getValue());
 				break;
 			case HIDDEN_STUFF:
-				HiddenStuff hs = (HiddenStuff)t;
-				s.append(hs.getMazeVariable()==null?"":hs.getMazeVariable());
-				s.append(sep);
-				s.append(hs.getContent().getName());
-				s.append(sep);
-				s.append(hs.getPreScript()== null?"":hs.getPreScript().getName());
-				s.append(sep);
-				s.append(hs.getFindDifficulty());
-				break;
+				throw new MazeException("HiddenStuff tile script was removed; use object/wall click ExecuteMazeScript with scoutSecretDifficulty");
 			case WATER:
 				break;
 			case SKILL_TEST:
@@ -514,14 +504,7 @@ public class V1TileScript
 				result = new SetMazeVariable(strs[i++], strs[i++]);
 				break;
 			case HIDDEN_STUFF:
-				String mazeVar = strs[i++];
-				String contentStr = strs[i++];
-				String preStr = strs[i++];
-				int findDifficulty = Integer.parseInt(strs[i++]);
-				MazeScript content = ("".equals(contentStr)) ? null : Database.getInstance().getMazeScript(contentStr);
-				MazeScript preScript = ("".equals(preStr)) ? null : Database.getInstance().getMazeScript(preStr);
-				result = new HiddenStuff(content, preScript, mazeVar, findDifficulty);
-				break;
+				throw new MazeException("HiddenStuff tile script was removed; use object/wall click ExecuteMazeScript with scoutSecretDifficulty");
 			case WATER:
 				result = new Water();
 				break;

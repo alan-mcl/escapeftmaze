@@ -30,7 +30,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P0-1 | bug | Zone-change flickering | Visible flicker on zone transitions; engine is recreated per zone in `DiyGuiUserInterface.setZone()`. Workaround: `MazeWidget` image-rendering mode holds the last frame across `Maze.changeZone()` until the new engine is ready. (stufftodo) | M | done |
 | P0-2 | bug | Damage multipliers applied after armour soak | Should be applied **before** soak per design; current order in `GameSys` damage calc changes balance. Affects every hit. (stufftodo/code) | M | todo |
 | P0-3 | bug | Foes can be evaded while resting | Resting evasion should not be possible (or stealth should be adjusted). (stufftodo) | S | todo |
-| P0-4 | bug | "Hidden stuff" tile script broken | Secret/hidden discovery no longer triggers; see `HiddenStuff` / Scouting path. (stufftodo) | M | todo |
+| P0-4 | bug | "Hidden stuff" tile script broken | Retired HiddenStuff; hidden loot authored as object/wall click ExecuteMazeScript + scoutSecretDifficulty (Gatehouse pattern). | M | done |
 | P0-5 | bug | JCraftPlayer SFX infinite exception spin | EOF (`read` returns -1) was not treated as end-of-stream in `readBody`; corrupt `SyncState` and stale `wrote()` caused busy-loop `IndexOutOfBoundsException` on SFX threads, heap exhaustion, apparent hang. Fixed in `JCraftPlayer`. (code) | S | done |
 | P0-6 | bug | Raycaster OOB columns skip floor/ceiling | When a cast column ray exits map bounds with no wall hit, `drawColumn` returned before floor/ceiling cast, leaving sky-only voids on clifftop views. Fixed open-horizon floor/ceiling path and OOB sample handling in `CrusaderEngine32`. (code) | S | done |
 | P0-7 | bug | Objects missing on transparent-floor columns | `drawObjectColumn` still rejected `blockHitRecord.distance == -1` after OOB fix; open/`No_WAll` columns never painted sprites. Fixed via shared `getEffectiveWallDistance` in `CrusaderEngine32`. (code) | S | done |
@@ -138,7 +138,6 @@ completeness; they live primarily in `stufftodo.txt`.
 
 ### Ichiba Crossroads
 - Forgotten path / red moss tree; additional encounters.
-- Restore hidden-stuff tile script (see P0-4).
 - Eva quest -> Gurney.
 
 ### Ichiba City
