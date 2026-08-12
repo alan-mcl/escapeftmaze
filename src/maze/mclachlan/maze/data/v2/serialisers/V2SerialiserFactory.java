@@ -808,7 +808,7 @@ public class V2SerialiserFactory
 			"payload");
 
 		defaultSerialiser.addCustomSerialiser("difficulty", new IntArraySerialiser());
-		defaultSerialiser.addCustomSerialiser("payload", getTileScriptSerialiser(db));
+		defaultSerialiser.addCustomSerialiser("payload", getMazeScriptSerialiser(db));
 
 		HashMap<Class, V2SerialiserMap<Trap>> map = new HashMap<>();
 		map.put(Trap.class, defaultSerialiser);

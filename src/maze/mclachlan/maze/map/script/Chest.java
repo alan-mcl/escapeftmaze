@@ -338,16 +338,12 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 
 		java.util.List<MazeEvent> result = new ArrayList<>();
 
-		Point tile = maze.getTile();
-		int facing = maze.getFacing();
-
 		if (getTraps() != null &&
 			getTraps().size()>0 &&
-			getCurrentTrap() != null)
+			getCurrentTrap() != null &&
+			getCurrentTrap().getPayload() != null)
 		{
-			result.addAll(
-				getCurrentTrap().getPayload().execute(
-					maze, tile, tile, facing));
+			result.addAll(getCurrentTrap().getPayload().getEvents());
 		}
 
 		if (maze.getCurrentCombat() != null)

@@ -2,13 +2,13 @@
   "name": "arena",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
-    "turnsBetweenChange": "-1",
-    "lightLevelDiff": "0",
     "ambientScripts": {
       "PERCENTAGES": [],
       "ITEMS": [],
       "SHOULD_SUM_TO_100": "false"
-    }
+    },
+    "lightLevelDiff": "0",
+    "turnsBetweenChange": "-1"
   },
   "shadeTargetColor": "ff000000",
   "transparentColor": "ffffffff",
@@ -218,24 +218,24 @@
       "consumeKeyItem": "true",
       "mazeScript": "ghul laugh",
       "stateChangeScript": {
-        "TYPE_KEY": "mclachlan.maze.map.script.ToggleWall",
-        "reexecuteOnSameTile": "false",
+        "state2Texture": "DUNGEON_PORTCULLIS_1_UP",
+        "state1Texture": "DUNGEON_PORTCULLIS_1",
+        "state2Secret": "false",
         "scoutSecretDifficulty": "-1",
         "clickMaxDistance": "1",
-        "mazeVariable": "arena.toggle.wall.0",
+        "state2Solid": "true",
         "wallIndex": "154",
-        "horizontalWall": "true",
-        "state1Texture": "DUNGEON_PORTCULLIS_1",
-        "state1Visible": "true",
+        "state1Height": "1",
+        "mazeVariable": "arena.toggle.wall.0",
+        "state2MaskTexture": "BLOOD_SPLAT_1",
+        "TYPE_KEY": "mclachlan.maze.map.script.ToggleWall",
+        "state2Height": "1",
         "state1Solid": "true",
         "state1Secret": "false",
-        "state1Height": "1",
-        "state2Texture": "DUNGEON_PORTCULLIS_1_UP",
-        "state2MaskTexture": "BLOOD_SPLAT_1",
-        "state2Visible": "true",
-        "state2Solid": "true",
-        "state2Secret": "false",
-        "state2Height": "1"
+        "horizontalWall": "true",
+        "reexecuteOnSameTile": "false",
+        "state1Visible": "true",
+        "state2Visible": "true"
       }
     }
   ],
@@ -578,35 +578,35 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.SkillTest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
+            "successValue": [
+              {
+                "shouldNegate": "false",
+                "scaling": "NONE",
+                "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+                "value": "10"
+              }
+            ],
             "keyModifier": "SKILL",
             "skill": [
               {
+                "shouldNegate": "false",
+                "scaling": "NONE",
                 "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
                 "value": "0",
-                "scaling": "NONE",
-                "shouldNegate": "false",
                 "modifier": "SKILL"
               },
               {
-                "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
-                "value": "0",
-                "scaling": "NONE",
+                "dice": "2d6",
                 "shouldNegate": "false",
-                "dice": "2d6"
-              }
-            ],
-            "successValue": [
-              {
-                "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
-                "value": "10",
                 "scaling": "NONE",
-                "shouldNegate": "false"
+                "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+                "value": "0"
               }
             ],
-            "successScript": "pennywhistle animation"
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "successScript": "pennywhistle animation",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -700,11 +700,11 @@
         "coords": "2:6",
         "scripts": [
           {
+            "lootTable": "gatehouse.supplies.1.ambercaps",
             "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "lootTable": "gatehouse.supplies.1.ambercaps"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -797,21 +797,16 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "test script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
                   "animation": {
-                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
                     "duration": "500",
-                    "startX": "7",
-                    "startY": "3",
-                    "endX": "14",
                     "endY": "5",
+                    "endX": "14",
                     "lightLevels": [
                       [
                         "-1",
@@ -828,11 +823,16 @@
                         "15",
                         "15"
                       ]
-                    ]
-                  }
+                    ],
+                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+                    "startY": "3",
+                    "startX": "7"
+                  },
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1137,64 +1137,64 @@
         "coords": "4:9",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
-            "encounterTable": "ichiba.crossroad.toothy.velox.1",
-            "mazeVariable": "arena.encounter.12",
-            "attitude": "AGGRESSIVE",
             "preScriptEvents": {
               "name": "Encounter.preScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+                  "die": "1d1",
                   "clipNames": [
                     "24003__Erdie__mega_thunder"
                   ],
-                  "die": "1d1"
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "lol yeah",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "text 2",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "encounterTable": "ichiba.crossroad.toothy.velox.1",
+            "mazeVariable": "arena.encounter.12",
             "postAppearanceScriptEvents": {
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "look",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "some foes",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.aenen.city.intro",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "AGGRESSIVE"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1710,8 +1710,6 @@
         "coords": "7:7",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
@@ -1720,13 +1718,15 @@
               "name": "Encounter.postAppearanceScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
                   "speechText": "HA HA HA HA\nLOL\nWHAT",
-                  "delay": "-1"
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent"
                 }
               ]
             },
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1842,19 +1842,18 @@
         "coords": "8:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "chestContents": {
               "name": "Chest.chestContents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "TestLootTable"
+                  "lootTable": "TestLootTable",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "westTexture": "CHEST_1_SIDE",
+            "clickMaxDistance": "1",
             "traps": {
               "PERCENTAGES": [
                 100
@@ -1866,28 +1865,29 @@
             },
             "mazeVariable": "arena.chest.1",
             "northTexture": "CHEST_1_FRONT",
+            "TYPE_KEY": "mclachlan.maze.map.script.Chest",
             "southTexture": "CHEST_1_BACK",
             "eastTexture": "CHEST_1_SIDE",
-            "westTexture": "CHEST_1_SIDE",
             "preScript": {
               "name": "Chest.preScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "yeah there's a chest here",
+                  "flavourText": "yeah there\u0027s a chest here",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "um yeah. chest",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1947,10 +1947,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "NPC + Vendor + Guild"
+            "text": "NPC + Vendor + Guild",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -1966,10 +1966,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- default attitude"
+            "text": "Actors- default attitude",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2085,33 +2085,33 @@
         "coords": "9:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "-1",
-            "clickMaxDistance": "1",
             "findDifficulty": "1",
             "mazeVariable": "arena.hidden.stuff.1",
+            "TYPE_KEY": "mclachlan.maze.map.HiddenStuff",
             "preScript": {
               "name": "HiddenStuff.preScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "lol yeah hidden stuffs",
                   "delay": "-1",
-                  "shouldClearText": "false",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "false"
                 }
               ]
             },
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
             "content": {
               "name": "HiddenStuff.contents",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "Dog.Soldier.loot"
+                  "lootTable": "Dog.Soldier.loot",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2148,11 +2148,11 @@
         "coords": "9:4",
         "scripts": [
           {
+            "lootTable": "TestLootTable",
             "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "lootTable": "TestLootTable"
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2211,39 +2211,18 @@
         "coords": "9:9",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Lever",
-            "reexecuteOnSameTile": "false",
-            "scoutSecretDifficulty": "1",
-            "clickMaxDistance": "1",
-            "northTexture": "objects.lever.front",
-            "southTexture": "objects.lever.back",
-            "eastTexture": "objects.lever.right",
-            "westTexture": "objects.lever.left",
-            "mazeVariable": "arena.lever-state.0",
-            "preTransitionScript": {
-              "name": "Lever.preTransScript",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "yar me lever",
-                  "delay": "-1",
-                  "shouldClearText": "false",
-                  "alignment": "CENTER"
-                }
-              ]
-            },
             "postTransitionScript": {
               "name": "Lever.postTransScript",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
                   "tile": "10:9",
-                  "facing": "1"
+                  "facing": "1",
+                  "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
                   "mazeVariable": "arena.stick.man.vendor.quest.1.completed",
-                  "value": "true"
+                  "value": "true",
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
@@ -2260,6 +2239,27 @@
                   "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
                   "type": "ZONE",
                   "journalText": "Test Zone Event"
+                }
+              ]
+            },
+            "scoutSecretDifficulty": "1",
+            "westTexture": "objects.lever.left",
+            "clickMaxDistance": "1",
+            "mazeVariable": "arena.lever-state.0",
+            "northTexture": "objects.lever.front",
+            "TYPE_KEY": "mclachlan.maze.map.script.Lever",
+            "southTexture": "objects.lever.back",
+            "eastTexture": "objects.lever.right",
+            "reexecuteOnSameTile": "false",
+            "preTransitionScript": {
+              "name": "Lever.preTransScript",
+              "events": [
+                {
+                  "flavourText": "yar me lever",
+                  "delay": "-1",
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "false"
                 }
               ]
             }
@@ -2356,14 +2356,14 @@
         "coords": "10:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.5",
-            "attitude": "NEUTRAL",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "NEUTRAL"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2379,10 +2379,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Neutral"
+            "text": "Actors- Neutral",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2431,18 +2431,18 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
-                  "script": "_MAZE_INTERVENTION_"
+                  "script": "_MAZE_INTERVENTION_",
+                  "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2569,14 +2569,14 @@
         "coords": "11:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.4",
-            "attitude": "SCARED",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "SCARED"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2592,10 +2592,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Scared"
+            "text": "Actors- Scared",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2644,45 +2644,40 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "text": "FLAVOUR TEXT TOP\nHELLO",
-            "alignment": "TOP"
+            "alignment": "TOP",
+            "reexecuteOnSameTile": "false"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "text": "FLAVA TEXT CENTER\nWORLD",
-            "alignment": "CENTER"
+            "alignment": "CENTER",
+            "reexecuteOnSameTile": "false"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "text": "FLAVAR TEXXT BOTTOM\nYEAH",
-            "alignment": "BOTTOM"
+            "alignment": "BOTTOM",
+            "reexecuteOnSameTile": "false"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "script": {
               "name": "ExecuteMazeScript.script",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
                   "animation": {
-                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
                     "duration": "500",
-                    "startX": "7",
-                    "startY": "3",
-                    "endX": "14",
                     "endY": "5",
+                    "endX": "14",
                     "lightLevels": [
                       [
                         "-1",
@@ -2699,11 +2694,16 @@
                         "15",
                         "15"
                       ]
-                    ]
-                  }
+                    ],
+                    "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+                    "startY": "3",
+                    "startX": "7"
+                  },
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent"
                 }
               ]
-            }
+            },
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2830,14 +2830,14 @@
         "coords": "12:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.3",
-            "attitude": "WARY",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "WARY"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -2853,10 +2853,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Wary"
+            "text": "Actors- Wary",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3030,14 +3030,14 @@
         "coords": "13:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.2",
-            "attitude": "AGGRESSIVE",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "AGGRESSIVE"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3053,10 +3053,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Aggressive"
+            "text": "Actors- Aggressive",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3072,10 +3072,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Friendly"
+            "text": "Actors- Friendly",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3091,10 +3091,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Allied"
+            "text": "Actors- Allied",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3132,10 +3132,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "actors may ambush party"
+            "text": "actors may ambush party",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3151,10 +3151,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "actors may ambush or evade party"
+            "text": "actors may ambush or evade party",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3170,10 +3170,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "party may ambush"
+            "text": "party may ambush",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3189,10 +3189,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "party may ambush or evade"
+            "text": "party may ambush or evade",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3277,14 +3277,14 @@
         "coords": "14:1",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.1",
-            "attitude": "ATTACKING",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "ATTACKING"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3300,10 +3300,10 @@
         "scripts": [
           {
             "TYPE_KEY": "mclachlan.maze.map.script.SignBoard",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Actors- Attacking"
+            "text": "Actors- Attacking",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3318,14 +3318,14 @@
         "coords": "14:3",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.6",
-            "attitude": "FRIENDLY",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "FRIENDLY"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3340,14 +3340,14 @@
         "coords": "14:4",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.7",
-            "attitude": "ALLIED",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false",
+            "attitude": "ALLIED"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3384,14 +3384,14 @@
         "coords": "14:7",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.8",
             "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3406,14 +3406,14 @@
         "coords": "14:8",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.9",
             "ambushStatus": "FOES_MAY_AMBUSH_OR_EVADE_PARTY",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3428,14 +3428,14 @@
         "coords": "14:9",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.10",
             "ambushStatus": "PARTY_MAY_AMBUSH_FOES",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -3450,14 +3450,14 @@
         "coords": "14:10",
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
-            "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "encounterTable": "TestingTable",
             "mazeVariable": "arena.encounter.11",
             "ambushStatus": "PARTY_MAY_AMBUSH_OR_EVADE_FOES",
-            "bypassNpcScriptsOnNonHostile": "false"
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "bypassNpcScriptsOnNonHostile": "false",
+            "reexecuteOnSameTile": "false"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -5389,11 +5389,11 @@
         "ceilingHeight": "1",
         "floorMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "click on floor",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -5409,33 +5409,31 @@
         "ceilingHeight": "1",
         "floorMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "click on the floor",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         },
         "floorMaskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1",
-          "forceSelection": "true",
-          "title": "FLLOR MASK OPTIONS",
           "options": [
             "opt1 1 11 :)",
             "opt2"
           ],
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "title": "FLLOR MASK OPTIONS",
           "mazeScripts": [
             {
               "name": "DisplayOptions.mazeScripts",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "yeah 1",
                   "delay": "-1",
-                  "shouldClearText": "false",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "false"
                 }
               ]
             },
@@ -5443,60 +5441,62 @@
               "name": "DisplayOptions.mazeScripts",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.GrantExperienceEvent",
-                  "amount": "4001"
+                  "amount": "4001",
+                  "TYPE_KEY": "mclachlan.maze.map.script.GrantExperienceEvent"
                 }
               ]
             }
-          ]
+          ],
+          "forceSelection": "true",
+          "reexecuteOnSameTile": "false"
         },
         "ceilingMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "click the ceiling",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         },
         "ceilingMaskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "script": {
             "name": "ExecuteMazeScript.script",
             "events": [
               {
-                "TYPE_KEY": "mclachlan.maze.game.event.DisplayOptionsEvent",
-                "forceSelection": "false",
-                "title": "hgfhgfh",
                 "options": [
                   "hgfgh",
                   "fhgf"
                 ],
+                "TYPE_KEY": "mclachlan.maze.game.event.DisplayOptionsEvent",
+                "title": "hgfhgfh",
                 "mazeScripts": [
                   [
                     {
-                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                       "flavourText": "hgfhgf",
                       "delay": "-1",
-                      "shouldClearText": "false",
-                      "alignment": "CENTER"
+                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                      "alignment": "CENTER",
+                      "shouldClearText": "false"
                     }
                   ],
                   [
                     {
-                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                       "flavourText": "jhgjhgh",
                       "delay": "-1",
-                      "shouldClearText": "false",
-                      "alignment": "CENTER"
+                      "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                      "alignment": "CENTER",
+                      "shouldClearText": "false"
                     }
                   ]
-                ]
+                ],
+                "forceSelection": "false"
               }
             ]
-          }
+          },
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -5533,19 +5533,19 @@
         "ceilingHeight": "1",
         "floorMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "you click the floor near the road",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         },
         "floorMaskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "you click on the road corner",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -7556,11 +7556,11 @@
         "height": "1",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
           "text": "click a bat",
-          "alignment": "CENTER"
+          "alignment": "CENTER",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -7687,10 +7687,10 @@
         "height": "1",
         "maskTextureMouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
-          "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "DING DONG"
+          "text": "DING DONG",
+          "reexecuteOnSameTile": "false"
         }
       },
       {
@@ -10894,34 +10894,32 @@
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
-          "reexecuteOnSameTile": "false",
-          "scoutSecretDifficulty": "-1",
-          "clickMaxDistance": "1",
-          "forceSelection": "true",
-          "title": "Yo Pick one pls",
           "options": [
             "Option 1",
             "Another Option",
             "Yeah Yeah",
             "What"
           ],
+          "scoutSecretDifficulty": "-1",
+          "clickMaxDistance": "1",
+          "title": "Yo Pick one pls",
           "mazeScripts": [
             {
               "name": "DisplayOptions.mazeScripts",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 }
               ]
             },
@@ -10929,58 +10927,60 @@
               "name": "DisplayOptions.mazeScripts",
               "events": [
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "You reach your arm deep into the cold, dark water...",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
                   "flavourText": "Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
-                },
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
-                  "lootTable": "gatehouse.potion.chest"
-                },
-                {
-                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
-                  "mazeVariable": "gatehouse.pool.cache.found",
-                  "value": "1"
-                }
-              ]
-            },
-            {
-              "name": "DisplayOptions.mazeScripts",
-              "events": [
-                {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
-                  "speechKey": "default.ichiba.villa.door",
-                  "modal": "true"
-                }
-              ]
-            },
-            {
-              "name": "DisplayOptions.mazeScripts",
-              "events": [
-                {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
+                },
+                {
+                  "lootTable": "gatehouse.potion.chest",
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+                },
+                {
+                  "mazeVariable": "gatehouse.pool.cache.found",
+                  "value": "1",
+                  "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
+                  "speechKey": "default.ichiba.villa.door",
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
+                }
+              ]
+            },
+            {
+              "name": "DisplayOptions.mazeScripts",
+              "events": [
+                {
                   "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
                   "delay": "-1",
-                  "shouldClearText": "true",
-                  "alignment": "CENTER"
+                  "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+                  "alignment": "CENTER",
+                  "shouldClearText": "true"
                 },
                 {
-                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
                   "speechKey": "default.aenen.outskirts.solar.panel.discovery",
-                  "modal": "true"
+                  "modal": "true",
+                  "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent"
                 }
               ]
             }
-          ]
+          ],
+          "forceSelection": "true",
+          "reexecuteOnSameTile": "false"
         },
         "verticalAlignment": "BOTTOM"
       },

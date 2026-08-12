@@ -324,7 +324,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | FoeEntry | `map/FoeEntry.java` | Encounter composition: rows of foe template + count dice |
 | LootTable | `map/LootTable.java` | `name`, `lootEntries` (GroupOfPossibilities<ILootEntry>) |
 | LootEntry | `lootentries.json` | Single loot roll: item name + quantity dice |
-| Trap | `map/Trap.java` | `name`, difficulty, spell effects, disarm params |
+| Trap | `map/Trap.java` | `name`, `difficulty`, `required`, embedded `MazeScript` `payload` (spring effects) |
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
 | Chest | `map/script/Chest.java` | `chestContents` and `preScript` are embedded `MazeScript`s (event lists); `traps`, textures, `mazeVariable` |
 | MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs; also embedded inline on Chest, Lever, Encounter, HiddenStuff, etc.) |

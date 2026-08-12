@@ -25,6 +25,7 @@ import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.Trap;
 
 /**
@@ -33,7 +34,7 @@ import mclachlan.maze.map.Trap;
 public class TrapsPanel extends EditorPanel
 {
 	ThiefToolsPanel tools;
-	SingleTileScriptComponent payload;
+	MazeEventsComponent payload;
 
 	/*-------------------------------------------------------------------------*/
 	public TrapsPanel()
@@ -47,7 +48,7 @@ public class TrapsPanel extends EditorPanel
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
 
-		payload = new SingleTileScriptComponent(dirtyFlag, null);
+		payload = new MazeEventsComponent(dirtyFlag);
 		dodgyGridBagShite(result, new JLabel("Payload:"), payload, gbc);
 
 		tools = new ThiefToolsPanel("Thief Tools To Disarm", dirtyFlag, null);
@@ -73,7 +74,7 @@ public class TrapsPanel extends EditorPanel
 	{
 		Trap trap = Database.getInstance().getTrap(name);
 		tools.refresh(trap.getDifficulty(), trap.getRequired());
-		payload.refresh(trap.getPayload(), null);
+		payload.refresh(trap.getPayload() == null ? null : trap.getPayload().getEvents());
 	}
 
 	public DataObject newItem(String name)
@@ -110,7 +111,12 @@ public class TrapsPanel extends EditorPanel
 
 		trap.setDifficulty(tools.getDifficulties());
 		trap.setRequired(tools.getRequired());
-		trap.setPayload(payload.getScript());
+		MazeScript payloadScript = null;
+		if (payload.getEvents() != null && !payload.getEvents().isEmpty())
+		{
+			payloadScript = new MazeScript("Trap.payload", payload.getEvents());
+		}
+		trap.setPayload(payloadScript);
 
 		return trap;
 	}

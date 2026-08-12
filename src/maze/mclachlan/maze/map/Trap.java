@@ -21,6 +21,7 @@ package mclachlan.maze.map;
 
 import java.util.*;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -47,14 +48,14 @@ public class Trap extends DataObject
 	/**
 	 * The nasty effects of this trap
 	 */
-	private TileScript payload;
+	private MazeScript payload;
 
 	public Trap()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Trap(String name, int[] difficulty, BitSet required, TileScript payload)
+	public Trap(String name, int[] difficulty, BitSet required, MazeScript payload)
 	{
 		this.difficulty = difficulty;
 		this.name = name;
@@ -78,7 +79,7 @@ public class Trap extends DataObject
 		return name;
 	}
 
-	public TileScript getPayload()
+	public MazeScript getPayload()
 	{
 		return payload;
 	}
@@ -94,7 +95,7 @@ public class Trap extends DataObject
 		this.name = name;
 	}
 
-	public void setPayload(TileScript payload)
+	public void setPayload(MazeScript payload)
 	{
 		this.payload = payload;
 	}
