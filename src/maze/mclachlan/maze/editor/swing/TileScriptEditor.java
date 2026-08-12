@@ -113,7 +113,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox spell;
 	private JSpinner castingLevel;
 	private JSpinner casterLevel;
-	private SingleTileScriptComponent chestContents;
+	private MazeEventsComponent chestContents;
 	private TrapPercentageTablePanel trap;
 	private JTextField chestMazeVariable;
 	private JComboBox chestNorthTexture;
@@ -383,7 +383,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case CHEST:
 				Chest c = (Chest)ts;
-				chestContents.refresh(c.getChestContents(), zone);
+				chestContents.refresh(c.getChestContents() == null ? null : c.getChestContents().getEvents());
 				chestMazeVariable.setText(c.getMazeVariable());
 				trap.refresh(c.getTraps());
 				chestNorthTexture.setSelectedItem(c.getNorthTexture());
@@ -872,7 +872,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		Collections.sort(vec);
 		trap = new TrapPercentageTablePanel("Trap", SwingEditor.Tab.SCRIPTS, 0.5, 0.5);
 		trap.initForeignKeys();
-		chestContents = new SingleTileScriptComponent(dirtyFlag, zone);
+		chestContents = new MazeEventsComponent(dirtyFlag);
 
 		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
@@ -1433,8 +1433,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					script = new MazeScript("Chest.preScript", chestPreScript.getEvents());
 				}
 
+				MazeScript contents = null;
+				if (chestContents.getEvents() != null && !chestContents.getEvents().isEmpty())
+				{
+					contents = new MazeScript("Chest.chestContents", chestContents.getEvents());
+				}
+
 				result = new Chest(
-					chestContents.getScript(),
+					contents,
 					trap.getPercentageTable(),
 					chestMazeVariable.getText(),
 					(String)chestNorthTexture.getSelectedItem(),

@@ -4408,11 +4408,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "aenen.city.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "aenen.city.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -6370,7 +6372,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Storyteller\u0027s Market"
+            "text": "Storyteller's Market"
           }
         ],
         "randomEncounters": "aenen.city.random.enc",
@@ -6644,7 +6646,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Westwards - The Throne Room\nSouthwards - The Storyteller\u0027s Market\nNorthwards - Kin Chambers\nEastwards - Delvings (restricted)"
+            "text": "Westwards - The Throne Room\nSouthwards - The Storyteller's Market\nNorthwards - Kin Chambers\nEastwards - Delvings (restricted)"
           }
         ],
         "randomEncounters": "aenen.city.random.enc",
@@ -7187,11 +7189,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "aenen.city.apothecary.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "aenen.city.apothecary.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -9170,11 +9174,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "aenen.city.chest.2"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "aenen.city.chest.2"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [

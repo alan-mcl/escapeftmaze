@@ -2569,10 +2569,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "tornado.mountain.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "tornado.mountain.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [

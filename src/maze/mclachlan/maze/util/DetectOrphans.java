@@ -143,10 +143,16 @@ public class DetectOrphans
 						{
 							if (ms instanceof Chest)
 							{
-								TileScript chestContents = ((Chest)ms).getChestContents();
-								if (chestContents instanceof Loot)
+								MazeScript chestContents = ((Chest)ms).getChestContents();
+								if (chestContents != null && chestContents.getEvents() != null)
 								{
-									used.add(((Loot)chestContents).getLootTable());
+									for (MazeEvent me : chestContents.getEvents())
+									{
+										if (me instanceof LootTableEvent)
+										{
+											used.add(((LootTableEvent)me).getLootTable().getName());
+										}
+									}
 								}
 							}
 							else if (ms instanceof Loot)

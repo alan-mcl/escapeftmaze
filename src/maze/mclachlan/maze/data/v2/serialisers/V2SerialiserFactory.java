@@ -830,6 +830,7 @@ public class V2SerialiserFactory
 			"chestContents", "traps", "mazeVariable", "northTexture", "southTexture", "eastTexture", "westTexture", "preScript");
 		chestSerialiser.addCustomSerialiser("traps", new PercentageTableSerialiser<>(new NameSerialiser<>(db::getTrap)));
 		chestSerialiser.addCustomSerialiser("preScript", getMazeScriptSerialiser(db));
+		chestSerialiser.addCustomSerialiser("chestContents", getMazeScriptSerialiser(db));
 
 		map.put(Chest.class, chestSerialiser);
 
@@ -927,9 +928,6 @@ public class V2SerialiserFactory
 
 		MazeObjectImplSerialiser<TileScript> result = new MazeObjectImplSerialiser<>(map,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "clickMaxDistance");
-
-		// dubiousness
-		chestSerialiser.addCustomSerialiser("chestContents", result);
 
 		return result;
 	}

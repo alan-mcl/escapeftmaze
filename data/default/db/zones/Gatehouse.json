@@ -4081,7 +4081,7 @@
             "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The pool of water in the alcove is deeper than the rest. You can\u0027t see the bottom, but you can see some movement beneath the surface..."
+            "text": "The pool of water in the alcove is deeper than the rest. You can't see the bottom, but you can see some movement beneath the surface..."
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -4090,7 +4090,7 @@
             "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Peering through the gloom, you can make out several large, pale eels circling lazily in the dark waters. \n\nThey don\u0027t look dangerous. If you\u0027re quick enough, you may be able to grab one of them."
+            "text": "Peering through the gloom, you can make out several large, pale eels circling lazily in the dark waters. \n\nThey don't look dangerous. If you're quick enough, you may be able to grab one of them."
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
@@ -6974,11 +6974,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "gatehouse.potion.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.potion.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -9055,11 +9057,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "gatehouse.potion.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.potion.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -11868,11 +11872,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "gatehouse.minor.loot.2"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.minor.loot.2"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -12115,7 +12121,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature\u0027s eyes blaze with fury and it moves to attack!",
+                  "flavourText": "It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature's eyes blaze with fury and it moves to attack!",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "TOP"
@@ -12517,11 +12523,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "gatehouse.key.loot"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "gatehouse.key.loot"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -42770,7 +42778,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You poke the slime. It\u0027s disgusting."
+          "text": "You poke the slime. It's disgusting."
         },
         "verticalAlignment": "TOP"
       },
@@ -42787,7 +42795,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You poke the slime. It\u0027s disgusting."
+          "text": "You poke the slime. It's disgusting."
         },
         "verticalAlignment": "TOP"
       },
@@ -42804,7 +42812,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You poke the slime. It\u0027s disgusting."
+          "text": "You poke the slime. It's disgusting."
         },
         "verticalAlignment": "TOP"
       },
@@ -42821,7 +42829,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You poke the slime. It\u0027s disgusting."
+          "text": "You poke the slime. It's disgusting."
         },
         "verticalAlignment": "TOP"
       },
@@ -42838,7 +42846,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You poke the slime. It\u0027s disgusting."
+          "text": "You poke the slime. It's disgusting."
         },
         "verticalAlignment": "TOP"
       },

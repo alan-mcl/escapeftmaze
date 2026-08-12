@@ -326,7 +326,8 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | LootEntry | `lootentries.json` | Single loot roll: item name + quantity dice |
 | Trap | `map/Trap.java` | `name`, difficulty, spell effects, disarm params |
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
-| MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs) |
+| Chest | `map/script/Chest.java` | `chestContents` and `preScript` are embedded `MazeScript`s (event lists); `traps`, textures, `mazeVariable` |
+| MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs; also embedded inline on Chest, Lever, Encounter, HiddenStuff, etc.) |
 | FallingDamageEvent | `map/script/FallingDamageEvent.java` | Authored script event: `damage` (Dice); rolls once and applies bludgeoning damage to each living party member without `Stats.Modifier.FLIER` |
 | ZoneScript | `map/ZoneScript.java` | Zone-level init/end-of-turn ambient script |
 | DefaultZoneScript | `map/DefaultZoneScript.java` | `turnsBetweenChange` (≠ `-1` enables day/night; timing follows global `GameTime`), `lightLevelDiff` (max night ambient/sky-light reduction), optional `nightShadeTargetColor`, `nightSkyBottomColor`, `nightSkyTopColor` (null = engine defaults), `ambientScripts` (PercentageTable of maze script names). Custom IMPL subclasses may inherit these fields. |

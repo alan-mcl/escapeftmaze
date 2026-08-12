@@ -163,9 +163,8 @@ public class V1TileScript
 				break;
 			case CHEST:
 				Chest c = (Chest)t;
-				String chestContents = toString(c.getChestContents());
-				chestContents = chestContents.replaceAll(sep, SUB_SEP);
-				s.append(chestContents);
+				MazeScript contents = c.getChestContents();
+				s.append(contents == null ? "" : contents.getName());
 				s.append(sep);
 				s.append(traps.toString(c.getTraps(), "`", "~"));
 				s.append(sep);
@@ -376,8 +375,8 @@ public class V1TileScript
 				result = new CastSpell(spellName, castingLevel, casterLevel);
 				break;
 			case CHEST:
-				String contents = strs[i++].replaceAll(SUB_SEP, sep);
-				TileScript chestContents = fromString(contents);
+				MazeScript chestContents = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i]);
+				i++;
 				PercentageTable<Trap> t = traps.fromString(strs[i++], "`", "~");
 				String mazeVariable = strs[i++];
 				String northTexture = strs[i++];

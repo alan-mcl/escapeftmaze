@@ -237,7 +237,7 @@
       ],
       "keyItem": "null",
       "consumeKeyItem": "true",
-      "mazeScript": "Crypt Of Atrocities to Ekirth\u0027s Tomb"
+      "mazeScript": "Crypt Of Atrocities to Ekirth's Tomb"
     }
   ],
   "tiles": [
@@ -1390,10 +1390,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -1582,10 +1585,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -2150,10 +2156,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -2336,10 +2345,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -2900,10 +2912,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -3086,10 +3101,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "crypt.of.atrocities.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "crypt.of.atrocities.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [

@@ -452,7 +452,7 @@
         "0"
       ],
       "required": "1011001",
-      "keyItem": "Adventurer\u0027s Armoury Key",
+      "keyItem": "Adventurer's Armoury Key",
       "consumeKeyItem": "true",
       "mazeScript": "generic door creak"
     },
@@ -3240,11 +3240,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.coc.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.coc.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -6749,7 +6751,7 @@
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "This is C.O.C. quarters. You don\u0027t just stroll in here.",
+                  "speechText": "This is C.O.C. quarters. You don't just stroll in here.",
                   "delay": "-1"
                 },
                 {
@@ -6759,7 +6761,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "If you’re not lost, well, I\u0027d say it\u0027s time to reconsider your life choices!",
+                  "speechText": "If you’re not lost, well, I'd say it's time to reconsider your life choices!",
                   "delay": "-1"
                 }
               ]
@@ -7517,11 +7519,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.chest.2"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.chest.2"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -8736,7 +8740,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, \u0027SIR\u0027 KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
+                  "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, 'SIR' KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"
@@ -8750,7 +8754,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS \u0027THE HAND\u0027. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
+                  "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS 'THE HAND'. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"
@@ -8898,7 +8902,7 @@
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn\u0027t been used in a while.",
+                  "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn't been used in a while.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"
@@ -9182,7 +9186,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "MAZZA\u0027S\nFRIED\nANYTHING"
+            "text": "MAZZA'S\nFRIED\nANYTHING"
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -9817,7 +9821,7 @@
             "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "BY ORDER OF THE ICHIBA CHAMBER OF COMMERCE\n17–39 Lower Hesper Row Combined Tenements, aka \"The Tumbledown\", is hereby declared comdemned due to: Structural Unsoundness, Illegal Overbuilding, Unregistered Commerce, Water \u0026 Sewerage Violations, Uninsured Fire Risk, and Persistent Public Disturbance.\n\nPursuant to the relevant Civic  Ordinances, the above-listed properties are deemed unfit for habitation, commerce, or lawful assembly.\n\nAll persons are ordered to vacate the premises. Entry, residence, or commercial activity within is prohibited.\n\nThe C.O.C. accepts no liability for injury, loss of property, or death resulting from failure to comply with this order.",
+            "text": "BY ORDER OF THE ICHIBA CHAMBER OF COMMERCE\n17–39 Lower Hesper Row Combined Tenements, aka \"The Tumbledown\", is hereby declared comdemned due to: Structural Unsoundness, Illegal Overbuilding, Unregistered Commerce, Water & Sewerage Violations, Uninsured Fire Risk, and Persistent Public Disturbance.\n\nPursuant to the relevant Civic  Ordinances, the above-listed properties are deemed unfit for habitation, commerce, or lawful assembly.\n\nAll persons are ordered to vacate the premises. Entry, residence, or commercial activity within is prohibited.\n\nThe C.O.C. accepts no liability for injury, loss of property, or death resulting from failure to comply with this order.",
             "alignment": "CENTER"
           }
         ],
@@ -10880,11 +10884,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -11196,7 +11202,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The Adventurer\u0027s Armoury\nby\nScrymgeour "
+            "text": "The Adventurer's Armoury\nby\nScrymgeour "
           }
         ],
         "randomEncounters": "ichiba.city.random.enc.residents",
@@ -11824,11 +11830,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.chest.4"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.chest.4"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -12990,7 +12998,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Gentlemen\u0027s Social Club"
+            "text": "Gentlemen's Social Club"
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -13027,7 +13035,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.\n\nDoesn\u0027t look like your idea of a good time."
+            "text": "The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.\n\nDoesn't look like your idea of a good time."
           },
           {
             "IMPL": "mclachlan.maze.campaign.def.map.DartBoard",
@@ -13524,11 +13532,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.incense.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.incense.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [],
@@ -14087,11 +14097,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.imogen.room.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.imogen.room.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -14244,7 +14256,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "The shrine is clean and quiet, although somewhat spartan in design. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it\u0027s back towards you."
+            "text": "The shrine is clean and quiet, although somewhat spartan in design. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you."
           }
         ],
         "randomEncounters": "ichiba.city.random.enc",
@@ -14618,11 +14630,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.chest.3"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.chest.3"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -15037,7 +15051,7 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "A short price list is attached to the door. It reads:\n\nMadame Hoshiko\u0027s personal tarot reading, 50gp\nLet the cards fall where they may.\n",
+            "text": "A short price list is attached to the door. It reads:\n\nMadame Hoshiko's personal tarot reading, 50gp\nLet the cards fall where they may.\n",
             "alignment": "CENTER"
           }
         ],
@@ -15105,12 +15119,12 @@
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Oi! Ever heard of knockin\u0027, culley, or did your manners die young?",
+                  "speechText": "Oi! Ever heard of knockin', culley, or did your manners die young?",
                   "delay": "-1"
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Wrong door to kick in! This is our pad, and we got connections, if you savvy \u0027bout what I mean!\n",
+                  "speechText": "Wrong door to kick in! This is our pad, and we got connections, if you savvy 'bout what I mean!\n",
                   "delay": "-1"
                 },
                 {
@@ -15193,7 +15207,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "Door\u0027s behind you. Use it and leave now please.",
+                  "speechText": "Door's behind you. Use it and leave now please.",
                   "delay": "-1"
                 }
               ]
@@ -15383,7 +15397,7 @@
             "reexecuteOnSameTile": "true",
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
-            "text": "Clearly Elsibet\u0027s living quarters, this room occupies the library\u0027s attic above the main building.\n\nThe ceiling follows the pitch of the roof. A narrow bed with a handmade quilt is pushed in one corder, and a very prim writing desk stands against the far wall.\n\nThe room smells faintly of paper, cedar, and lamp oil.\n\n",
+            "text": "Clearly Elsibet's living quarters, this room occupies the library's attic above the main building.\n\nThe ceiling follows the pitch of the roof. A narrow bed with a handmade quilt is pushed in one corder, and a very prim writing desk stands against the far wall.\n\nThe room smells faintly of paper, cedar, and lamp oil.\n\n",
             "alignment": "CENTER"
           }
         ],
@@ -16160,7 +16174,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don\u0027t recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
+                  "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don't recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"
@@ -17128,7 +17142,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.stat.npc.NpcSpeechEvent",
-                  "speechText": "We\u0027re done here. Stay out of trouble.",
+                  "speechText": "We're done here. Stay out of trouble.",
                   "delay": "-1"
                 },
                 {
@@ -19645,11 +19659,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.city.imogen.chest.loot"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.city.imogen.chest.loot"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -60495,7 +60511,7 @@
           "reexecuteOnSameTile": "false",
           "scoutSecretDifficulty": "-1",
           "clickMaxDistance": "1",
-          "text": "You inspect the titles on the bookshelf.\n\nThis section has a collection of literary classics. \n\nYou recognise some from the First Realm: \u0027Ashes Upon the River\u0027, \u0027The Tower at World\u0027s Noon\u0027, \u0027The Letters of Magister Hale\u0027.\n\nOthers are new to you: \u0027Usark\u0027s Journey\u0027, \u0027The Bridge of Hollow Stars\u0027, \u0027Songs for the Long Winter\u0027.",
+          "text": "You inspect the titles on the bookshelf.\n\nThis section has a collection of literary classics. \n\nYou recognise some from the First Realm: 'Ashes Upon the River', 'The Tower at World's Noon', 'The Letters of Magister Hale'.\n\nOthers are new to you: 'Usark's Journey', 'The Bridge of Hollow Stars', 'Songs for the Long Winter'.",
           "alignment": "CENTER"
         }
       },

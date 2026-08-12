@@ -4410,11 +4410,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "ichiba.domain.north.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "ichiba.domain.north.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -5055,7 +5057,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "They don\u0027t seem immediately hostile.",
+                  "flavourText": "They don't seem immediately hostile.",
                   "delay": "-1",
                   "shouldClearText": "false",
                   "alignment": "CENTER"
@@ -9353,7 +9355,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird\u0027s shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy.",
+                  "flavourText": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird's shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy.",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"

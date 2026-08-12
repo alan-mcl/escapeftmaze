@@ -1701,10 +1701,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "stygios.forest.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "stygios.forest.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -2187,7 +2190,7 @@
             "executeOnceMazeVariable": "stygios.forest.flava.4",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "text": "Out of the gloom a pack of menacing figures appear, led by a staggering, gaunt gnoll of some kind. Another growl rumbles from it\u0027s throat, and with mounting fear you realise that you are facing no ordinary foe here."
+            "text": "Out of the gloom a pack of menacing figures appear, led by a staggering, gaunt gnoll of some kind. Another growl rumbles from it's throat, and with mounting fear you realise that you are facing no ordinary foe here."
           },
           {
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",

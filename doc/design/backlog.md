@@ -138,7 +138,7 @@ completeness; they live primarily in `stufftodo.txt`.
 
 ### Ichiba Crossroads
 - Forgotten path / red moss tree; additional encounters.
-- Chest contents -> MazeScript; restore hidden-stuff tile script (see P0-4).
+- Restore hidden-stuff tile script (see P0-4).
 - Eva quest -> Gurney.
 
 ### Ichiba City

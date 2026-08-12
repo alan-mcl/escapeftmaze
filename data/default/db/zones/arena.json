@@ -1847,11 +1847,13 @@
             "scoutSecretDifficulty": "-1",
             "clickMaxDistance": "1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "clickMaxDistance": "1",
-              "lootTable": "TestLootTable"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "TestLootTable"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -1872,7 +1874,7 @@
               "events": [
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "yeah there\u0027s a chest here",
+                  "flavourText": "yeah there's a chest here",
                   "delay": "-1",
                   "shouldClearText": "true",
                   "alignment": "CENTER"

@@ -3401,10 +3401,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "hianbian.chest.2"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "hianbian.chest.2"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -5617,10 +5620,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "hianbian.chest.1"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "hianbian.chest.1"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -9976,10 +9982,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "hianbian.chest.3"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "hianbian.chest.3"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [
@@ -10163,7 +10172,7 @@
                 },
                 {
                   "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-                  "flavourText": "\nThe mantis pauses for a moment and flexes it\u0027s limbs with fearsome purpose, then flashes towards you in attack.",
+                  "flavourText": "\nThe mantis pauses for a moment and flexes it's limbs with fearsome purpose, then flashes towards you in attack.",
                   "delay": "-1",
                   "shouldClearText": "false",
                   "alignment": "CENTER"
@@ -10833,10 +10842,13 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "chestContents": {
-              "TYPE_KEY": "mclachlan.maze.map.script.Loot",
-              "reexecuteOnSameTile": "false",
-              "scoutSecretDifficulty": "-1",
-              "lootTable": "hianbian.yenluo.chest"
+              "name": "Chest.chestContents",
+              "events": [
+                {
+                  "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+                  "lootTable": "hianbian.yenluo.chest"
+                }
+              ]
             },
             "traps": {
               "PERCENTAGES": [

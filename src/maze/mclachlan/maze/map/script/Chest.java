@@ -46,7 +46,7 @@ import mclachlan.maze.ui.diygui.ChestOptionsCallback;
  */
 public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback, LockOrTrap
 {
-	private TileScript chestContents;
+	private MazeScript chestContents;
 	private PercentageTable<Trap> traps;
 	private String mazeVariable;
 	private String northTexture, southTexture, eastTexture, westTexture;
@@ -69,7 +69,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	 * @param preScript
 	 */
 	public Chest(
-		TileScript chestContents,
+		MazeScript chestContents,
 		PercentageTable<Trap> traps,
 		String mazeVariable,
 		String northTexture,
@@ -92,7 +92,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	protected Chest(Chest copy)
 	{
 		super(copy);
-		chestContents = copy.chestContents == null ? null : copy.chestContents.copyScript();
+		chestContents = copy.chestContents;
 		traps = copy.traps == null ? null : new PercentageTable<>(copy.traps);
 		mazeVariable = copy.mazeVariable;
 		northTexture = copy.northTexture;
@@ -206,7 +206,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public TileScript getChestContents()
+	public MazeScript getChestContents()
 	{
 		return chestContents;
 	}
@@ -278,7 +278,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		this.preScript = preScript;
 	}
 
-	public void setChestContents(TileScript chestContents)
+	public void setChestContents(MazeScript chestContents)
 	{
 		this.chestContents = chestContents;
 	}
@@ -471,14 +471,14 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 
 		java.util.List<MazeEvent> result = new ArrayList<>();
 
-		Point tile = maze.getTile();
-		int facing = maze.getFacing();
-
 		// chest opens
 		result.add(new MazeScriptEvent("_OPEN_CHEST_"));
 
 		// chest contents
-		result.addAll(getChestContents().execute(maze, tile, tile, facing));
+		if (getChestContents() != null)
+		{
+			result.addAll(getChestContents().getEvents());
+		}
 
 		// clean up and back to movement
 		result.add(new SetChestStateEvent(this, Chest.State.EMPTY));
