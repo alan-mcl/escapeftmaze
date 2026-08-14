@@ -35,6 +35,7 @@ public class ZoneChangeEvent extends MazeEvent
 	private String zone;
 	private Point pos;
 	private int facing;
+	private String mazeTexture;
 
 	public ZoneChangeEvent()
 	{
@@ -47,9 +48,21 @@ public class ZoneChangeEvent extends MazeEvent
 	 */
 	public ZoneChangeEvent(String zone, Point pos, int facing)
 	{
+		this(zone, pos, facing, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @param mazeTexture
+	 * 	Optional maze texture name to display during the transition instead of
+	 * 	snapshotting the current raycaster frame.
+	 */
+	public ZoneChangeEvent(String zone, Point pos, int facing, String mazeTexture)
+	{
 		this.facing = facing;
 		this.pos = pos;
 		this.zone = zone;
+		this.mazeTexture = mazeTexture;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -61,7 +74,7 @@ public class ZoneChangeEvent extends MazeEvent
 			? null
 			: maze.getCurrentZone().getUiName();
 
-		List<MazeEvent> result = maze.changeZone(zone, pos, facing);
+		List<MazeEvent> result = maze.changeZone(zone, pos, facing, mazeTexture);
 
 		String arrived = maze.getCurrentZone().getUiName();
 
@@ -112,6 +125,16 @@ public class ZoneChangeEvent extends MazeEvent
 	public void setFacing(int facing)
 	{
 		this.facing = facing;
+	}
+
+	public String getMazeTexture()
+	{
+		return mazeTexture;
+	}
+
+	public void setMazeTexture(String mazeTexture)
+	{
+		this.mazeTexture = mazeTexture;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -328,6 +328,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
 | Chest | `map/script/Chest.java` | `chestContents` and `preScript` are embedded `MazeScript`s (event lists); `traps`, textures, `mazeVariable` |
 | MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs; also embedded inline on Chest, Lever, Encounter, etc.) |
+| ZoneChangeEvent | `game/event/ZoneChangeEvent.java` | `zone`, `pos`, `facing`, optional `mazeTexture` (maze texture name to hold during transition instead of snapshotting the current raycaster frame) |
 | SetMazeVariableEvent | `map/script/SetMazeVariableEvent.java` | `mazeVariable`, `value` — assigns a maze variable string |
 | IncrementMazeVariableEvent | `map/script/IncrementMazeVariableEvent.java` | `mazeVariable`, `amount` — adds to an integer maze variable (missing starts at 0) |
 | Hidden loot | — | Object or wall-mask `mouseClickScript` (`ExecuteMazeScript`) with `scoutSecretDifficulty` for scout spot speech; click runs content |

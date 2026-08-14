@@ -434,7 +434,7 @@ public class V2SerialiserFactory
 	{
 		HashMap<Class, V2SerialiserMap<MazeEvent>> map = new HashMap<>();
 
-		map.put(ZoneChangeEvent.class, getReflectiveSerialiser(ZoneChangeEvent.class, "zone", "pos", "facing"));
+		map.put(ZoneChangeEvent.class, getReflectiveSerialiser(ZoneChangeEvent.class, "zone", "pos", "facing", "mazeTexture"));
 		map.put(CastSpellAtPartyEvent.class, getReflectiveSerialiser(CastSpellAtPartyEvent.class, "spellName", "casterLevel", "castingLevel"));
 
 		ReflectiveSerialiser encounterActorsSerialiser = getReflectiveSerialiser(EncounterActorsEvent.class,

@@ -586,6 +586,8 @@ public class Maze implements Runnable
 			// ui cleanup for the transition
 			ui.clearMessages();
 			ui.clearDialog();
+			ui.startMazeImageRendering();
+			ui.showMovementScreen();
 			ui.showBlockingScreen("screen/blank_screen", -1, null);
 
 			// start campaign
@@ -2320,9 +2322,26 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> changeZone(String zoneName, Point pos, int facing)
 	{
+		return changeZone(zoneName, pos, facing, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> changeZone(String zoneName, Point pos, int facing, String mazeTexture)
+	{
 		// todo: persistence of conditions on tiles in the old zone and the new zone
 
-		ui.startMazeImageRendering();
+		if (mazeTexture != null && !mazeTexture.isBlank())
+		{
+			ui.startMazeImageRendering(mazeTexture);
+		}
+		else
+		{
+			ui.startMazeImageRendering();
+		}
+
+		// Switch to the movement card before the slow zone load so a dismissed
+		// storyboard / blocking screen does not reveal the main menu.
+		ui.showMovementScreen();
 
 		this.zone = Database.getInstance().getZone(zoneName);
 

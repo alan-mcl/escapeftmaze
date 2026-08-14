@@ -328,7 +328,8 @@
         "facing": "1",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Gatehouse",
-        "pos": "14:30"
+        "pos": "14:30",
+        "mazeTexture": "screen.default_intro_6"
       }
     ]
   },

@@ -240,8 +240,9 @@ every frame.
   `draw()` to call `engine.render()` and blit the returned `Image`, and forwards mouse
   clicks to the engine's picking (`handleMouseClickAndReturnScript`). It can enter an
   **image-rendering mode** that blits a frozen frame (last render or a `MazeTexture`)
-  instead of calling the raycaster; `Maze.changeZone()` uses this to hold the old view
-  while the new `CrusaderEngine` is created in `setZone()`.
+  instead of calling the raycaster. `Maze.changeZone()` enters this mode and shows the
+  movement screen *before* loading the new zone, so a dismissed storyboard cannot
+  flash the main menu; it exits after `setZone()` creates the new `CrusaderEngine`.
 
 ### 3.4 Persistence
 

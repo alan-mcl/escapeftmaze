@@ -19,11 +19,13 @@
 
 package mclachlan.maze.data.v2;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.serialisers.V2SerialiserFactory;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ForcePartySplitEvent;
+import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.script.FallingDamageEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.test.support.MazeTestSupport;
@@ -122,5 +124,19 @@ public class CharacterSelectionSerialisationTest extends MazeTestSupport
 		FallingDamageEvent original = new FallingDamageEvent(new Dice(2, 6, 3));
 
 		assertRoundTrips(eventSerialiser, original);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void zoneChangeEventRoundTrip()
+	{
+		V2SerialiserMap<MazeEvent> eventSerialiser =
+			V2SerialiserFactory.getRegisteredMazeEventSerialiser(
+				db, ZoneChangeEvent.class);
+
+		assertRoundTrips(eventSerialiser,
+			new ZoneChangeEvent("Gatehouse", new Point(14, 30), 1));
+		assertRoundTrips(eventSerialiser,
+			new ZoneChangeEvent("Temple Hub", new Point(13, 8), 4, "screen.aurora"));
 	}
 }

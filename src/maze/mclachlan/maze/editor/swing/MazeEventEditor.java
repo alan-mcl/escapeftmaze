@@ -75,6 +75,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox zone;
 	private JSpinner zoneX, zoneY;
 	private JComboBox zoneFacing;
+	private JComboBox zoneMazeTexture;
 	private JComboBox spell;
 	private JSpinner casterLevel, castingLevel;
 	private JComboBox encounterTable;
@@ -238,6 +239,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				zoneX.setValue(zce.getPos().x);
 				zoneY.setValue(zce.getPos().y);
 				zoneFacing.setSelectedIndex(zce.getFacing());
+				zoneMazeTexture.setSelectedItem(
+					zce.getMazeTexture() == null ? EditorPanel.NONE : zce.getMazeTexture());
 				break;
 			case _CastSpellEvent:
 				CastSpellAtPartyEvent cse = (CastSpellAtPartyEvent)e;
@@ -534,10 +537,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				}
 				break;
 			case _ZoneChangeEvent:
+				String mazeTexture = zoneMazeTexture.getSelectedItem() == EditorPanel.NONE
+					? null
+					: (String)zoneMazeTexture.getSelectedItem();
 				this.result = new ZoneChangeEvent(
 					(String)zone.getSelectedItem(),
 					new Point((Integer)zoneX.getValue(), (Integer)zoneY.getValue()),
-					zoneFacing.getSelectedIndex());
+					zoneFacing.getSelectedIndex(),
+					mazeTexture);
 				break;
 			case _CastSpellEvent:
 				this.result = new CastSpellAtPartyEvent(
@@ -1499,13 +1506,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		zoneX = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
 		zoneY = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
 		zoneFacing = new JComboBox(FACINGS);
+		Vector<String> textures = new Vector<>(
+			Database.getInstance().getMazeTextures().keySet());
+		textures.sort(Comparator.comparing(Object::toString));
+		textures.add(0, EditorPanel.NONE);
+		zoneMazeTexture = new JComboBox(textures);
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
 			new JLabel("Zone: "), zone,
 			new JLabel("X: "), zoneX,
 			new JLabel("Y: "), zoneY,
-			new JLabel("Facing: "), zoneFacing);
+			new JLabel("Facing: "), zoneFacing,
+			new JLabel("Transition Texture: "), zoneMazeTexture);
 		return result;
 	}
 

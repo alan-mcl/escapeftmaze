@@ -1,10 +1,38 @@
 [
   {
+    "name": "temple.descend.next",
+    "events": [
+      {
+        "mazeVariable": "temple.depth",
+        "amount": "1",
+        "TYPE_KEY": "mclachlan.maze.map.script.IncrementMazeVariableEvent"
+      },
+      {
+        "mazeVariable": "temple.transition.mode",
+        "value": "from_above",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
+        "flavourText": "Stone steps descend into deeper darkness. The temple air grows heavier.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "true"
+      },
+      {
+        "facing": "0",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "temple.1",
+        "pos": "-1:-1"
+      }
+    ]
+  },
+  {
     "name": "campaign.start",
     "events": [
       {
-        "textPlacement": "CENTER",
-        "imageResource": "screen/aurora",
+        "textPlacement": "LEFT",
+        "imageResource": "screen/sunset",
         "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
         "textResource": "temple.intro.1"
       },
@@ -14,12 +42,13 @@
       },
       {
         "facing": "4",
+        "mazeTexture": "screen.sunset",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Temple Hub",
         "pos": "13:8"
       },
       {
-        "flavourText": "You arrive outside the entrance to Wasud\u0027s temple.",
+        "flavourText": "You have arrived outside the entrance to Wasud\u0027s temple.",
         "delay": "-1",
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "alignment": "CENTER",
@@ -49,34 +78,6 @@
       },
       {
         "flavourText": "Worn stone stairs spiral down into the temple depths. The air grows cold.",
-        "delay": "-1",
-        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
-        "alignment": "CENTER",
-        "shouldClearText": "true"
-      },
-      {
-        "facing": "0",
-        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
-        "zone": "temple.1",
-        "pos": "-1:-1"
-      }
-    ]
-  },
-  {
-    "name": "temple.descend.next",
-    "events": [
-      {
-        "mazeVariable": "temple.depth",
-        "amount": "1",
-        "TYPE_KEY": "mclachlan.maze.map.script.IncrementMazeVariableEvent"
-      },
-      {
-        "mazeVariable": "temple.transition.mode",
-        "value": "from_above",
-        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
-      },
-      {
-        "flavourText": "Stone steps descend into deeper darkness. The temple air grows heavier.",
         "delay": "-1",
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "alignment": "CENTER",
