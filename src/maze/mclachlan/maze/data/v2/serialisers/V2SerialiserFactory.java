@@ -1383,6 +1383,7 @@ public class V2SerialiserFactory
 			"scaleDistFromProjPlane",
 			"order",
 			"playerOrigin",
+			"metadata",
 			"portals",
 			"tiles",
 			"map");
@@ -1393,6 +1394,8 @@ public class V2SerialiserFactory
 
 		result.addCustomSerialiser("portals", new ArraySerialiser<Portal>(Portal.class, getPortalSerialiser(db)));
 		result.addCustomSerialiser("script", getZoneScriptSerialiser(db));
+		result.addCustomSerialiser("metadata",
+			new MapSerialiser<>(new DirectObjectSerialiser<>(), new DirectObjectSerialiser<>()));
 
 		return result;
 	}

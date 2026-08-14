@@ -134,6 +134,8 @@ public class InMemoryLoader extends Loader
 	@Override public InputStream getMusic(String trackName) { return null; }
 	@Override public List<String> getZoneNames() { return new ArrayList<>(); }
 	@Override public Zone getZone(String name) { return null; }
+	@Override public Map<String, String> peekZoneMetadata(String name) { return Collections.emptyMap(); }
+	@Override public Map<String, Map<String, String>> peekZoneMetadataByPrefix(String prefix) { return Collections.emptyMap(); }
 	@Override public Font getFont(String name) { return null; }
 	@Override public Map<String, PlayerCharacter> loadCharacterGuild() { return characterGuild; }
 	@Override public List<String> getSaveGames() { return new ArrayList<>(); }

@@ -2,6 +2,7 @@
 
 > Status: living document for the `temple` campaign under
 > [`data/temple/`](../../data/temple/). Agent-maintained; update as phases land.
+> Phases 0–4 done; §15 holds phase contracts for plan-mode plans (next: Phase 5).
 > Companion: [backlog.md](backlog.md), [theology.adoc](default_campaign/theology.adoc)
 > (Wasud), [architecture.md](architecture.md) (inheritance / zones).
 
@@ -87,13 +88,21 @@ loading fonts at GUI build. Hot-string namespace misses are cached in
 every UI label lookup (critical for Quick Start spell rolling).
 ## 6. Procedural floors
 
-- Engine reuse only: `MapGenZoneScript` + `Noise4jDungeonGen` (no temple-specific
-  engine forks).
+- All layout goes through the pluggable **`DungeonGen`** interface
+  (`mclachlan.dungeongen.DungeonGen`). Default campaigns:
+  `MapGenZoneScript.createDungeonGen()` → `Noise4jDungeonGen`.
+- Temple: `TempleLayoutPolicy.forDepth(depth)` picks the layout algorithm per
+  depth (all depths use Noise4j until a WFC/BSP `DungeonGen` is registered).
+  Orthogonal to `TempleDepthScaler` (content bands vs layout algorithm).
 - Temple subclass: `mclachlan.maze.campaign.temple.TempleGeneratorMazeScript`
   (decorator for walls/doors/encounters; overrides `init` for run-seed logic).
-- **Floor prototype** zone `temple.1` (blank palette shell). Later: runtime-cloned
-  shells parameterized by depth (avoid `temple.2`…`N` JSON copies).
+- **Floor prototype** zone `temple.1` (blank palette shell). Runtime gen uses
+  `TempleFloorShell.GEN_SIZE` (15×15 for testing; raise for full-size floors).
 - Dual map model: gen must keep Crusader `Map` and maze `Tile[][]` consistent.
+- Post-layout dressing (loot) is **outside** `DungeonGen` — `TempleFloorDressing`
+  after `generate()`. **Stair portals** are planned by `StairwellPlanner` (temple:
+  `Noise4jStairwellPlanner`), applied by `TempleStairwellDresser`, and linked
+  across depths via maze variables (`TempleStairLinks`).
 
 ## 7. Seeds and persistence
 
@@ -104,11 +113,16 @@ every UI label lookup (critical for Quick Start spell rolling).
 | `temple.floor.seed.<depth>` | Derived from `(runSeed, depth)`; used for Noise4j |
 | `temple.d.<depth>.enc.<i>` | Cleared-encounter mutation (boolean) |
 | `temple.d.<depth>.loot.<i>` | Once-only loot mutation |
+| `temple.d.<depth>.portal.up` | Encoded up-stair portal (`StairPortalSpec`) |
+| `temple.d.<depth>.portal.down` | Encoded down-stair portal |
+| `temple.transition.mode` | Transient entry hint: `from_hub`, `from_above`, `from_below` |
+| `temple.hub.portal.down` | Cached hub descend portal (from `Temple Hub` zone) |
 
 Pure regen-from-seed is not enough once loot/encounters matter — mutation keys
-above persist across re-entry of the same depth.
+above persist across re-entry of the same depth. Portal coords persist for the
+run so vertical transitions spawn on the paired stair tile.
 
-Helper: `mclachlan.maze.campaign.temple.TempleSeeds`.
+Helpers: `TempleSeeds`, `TempleStairLinks`.
 
 ## 8. Depth model
 
@@ -117,23 +131,22 @@ encounter/loot table names, loot placement count, foe-pack multiplier hint.
 **Orthogonal** to inherited Easy/Normal/Hard/Heroic `DifficultyLevel`. Depths
 beyond band 3 reuse band-3 tables (endless until Phase 5 quest bands).
 
-Multi-depth loop (single palette shell `temple.1`, no `temple.2`…`N` JSON):
+Multi-depth loop is **not wired yet**. The working vertical transition is hub ↔ depth 1:
 
 ```
-Hub --temple.descend.1--> depth 1 floor
-floor --temple.descend--> depth+1 (regen shell)
-floor --temple.ascend--> depth-1 floor, or Hub if leaving depth 1
+Hub --temple.descend.1--> temple.1
+temple.1 --temple.ascend.1--> Temple Hub
 ```
 
-`TempleDescendEvent` / `TempleAscendEvent` adjust `temple.depth` then
-`ZoneChangeEvent` to `temple.1` (`-1:-1`) or `Temple Hub`.
+Authored scripts use `SetMazeVariableEvent` + `ZoneChangeEvent` only. Generated-floor up stairs reuse `temple.ascend.1`. Down stairs are dressed as walls but have no portal until multi-depth returns. Layout still regens from `temple.floor.seed.N` on each visit; cleared enc/loot persist via maze variables. Display title is **`Temple Depth N`** (`TempleFloorLabels`).
 
 ## 9. Encounters and loot
 
 - Tables `temple.depth.{1,2,3}` / `.loot` reference inherited Default foe/loot
   entries by name. Scaler picks the band; decorator/dressing apply it.
-- Stairs: hub `temple.descend.1`; floors dress `temple.ascend` (near spawn) and
-  `temple.descend` (far encounter tile).
+- Stairs: **wall portals** (not floor tile scripts). Hub `temple.descend.1` →
+  `temple.1`. Generated floor up stairs: `temple.ascend.1` → Temple Hub.
+  Down-stair walls are visual only until multi-depth zone changes return.
 - Optional threat-budget picker later (may read scorers; must not modify them).
 
 ### Phase 2 playtest checklist
@@ -147,23 +160,46 @@ Automated: `TempleFloorGenTest`.
 
 ### Phase 3 playtest checklist
 
-1. Depth 1 floor has stairs **up** (hub) and **down** (deeper).
-2. Take stairs down → depth 2 layout (different seed), tougher table foes.
-3. Clear an encounter / loot on depth 2; leave and return → stays cleared/looted.
+1. Depth 1 floor has stairs **up** back to the hub.
+2. Depth 2 can still generate from seed (scaler/loot) without a zone change.
+3. Clear an encounter / loot on depth 1; leave and return → stays cleared/looted.
 4. Ascend from depth 1 → Temple Hub.
 5. Depth 4+ still generates (soft-caps to band-3 tables).
 
-Automated: `TempleDepthPhase3Test`.
+Automated: `TempleDepthPhase3Test`, `TempleStairPortalTest`, `TempleStairLinksTest`.
+
+### Phase 4 playtest checklist
+
+1. Editor: Zones → Metadata tab; edit keys; save; reload shows same metadata.
+2. Live floors are pure Noise4j layout (no authored set pieces stamped on yet).
+3. Fragment zones exist as WFC seed content (catalog peek in tests).
+
+Automated: `TempleFragmentPhase4Test`, `TempleLayoutPolicyTest`, `ZoneMetadataPeekTest`.
 ## 10. Map fragments
 
-Authored fragment zones under `data/temple/db/zones/` plus temple-only
-`fragments.json` (depthMin/Max, role, weight, maxPerFloor).
-`TempleFragmentAssembler` stamps into **Noise4j base floors** (Phase 4 hybrid:
-Noise4j rooms/corridors + authored guardian/loot/quest/flavour stamps). Roles:
-`guardian`, `loot`, `quest`, `flavour`.
+Authored fragment zones under `data/temple/db/zones/` tagged with optional
+**zone metadata** (`Zone.metadata` map in each zone JSON). No separate
+`fragments.json` — the temple catalog reads `fragment.*` keys via
+`Database.peekZoneMetadataByPrefix("fragment.")` without loading tiles/map.
 
-Noise4j alone is the Phase 2–3 floor engine; fragments layer on once depth-1
-crawl feel is solid.
+Convention keys (temple; other campaigns may use other keys):
+
+| Key | Purpose |
+|-----|---------|
+| `fragment` | `true` marks a stamp template |
+| `fragment.role` | `guardian` \| `loot` \| `quest` \| `flavour` |
+| `fragment.depthMin` / `fragment.depthMax` | Depth eligibility |
+| `fragment.weight` | Weighted pick among eligible |
+| `fragment.maxPerFloor` | Cap per zone name per floor |
+
+`TempleFragmentCatalog`, `TempleFragmentStamp`, and `TempleFragmentAssembler`
+are **WFC (or similar) inputs** — not stamped onto Noise4j floors in the live
+gen path. A future `WFC` `DungeonGen` will consume the catalog and adjacency
+metadata; until then temple floors use Noise4j only via `TempleLayoutPolicy`.
+Starter zones: `fragment.flavour.chapel`, `fragment.guardian.reliquary`,
+`fragment.quest.altar` (quest stub until Phase 5).
+
+Editor: Zones panel → **Metadata** tab (generic key/value). Full contract: §15.4.
 
 ## 11. Quest: reassemble Wasud
 
@@ -191,22 +227,176 @@ writes `data/default/`.
 
 ## 15. Phased delivery
 
-| Phase | Goal | Status |
-|-------|------|--------|
-| 0 | This design doc + backlog row | done |
-| 1 | Loadable sparse campaign: intro → hub → generating `temple.1` | done |
-| 2 | Playable depth-1 crawl + early tests | done |
-| 3 | Multi-depth + `TempleDepthScaler` + mutations | **done** — scaler bands 1–3, stairs down/up, per-depth enc/loot vars |
-| 4 | Fragments + assembler | todo |
-| 5 | Wasud quest + victory / endless | todo |
-| 6 | Full balance harness | todo |
-| 7 | Meta polish | todo |
+This campaign is built **one phase at a time**. Phases 0–3 are complete.
+Remaining work (4–7) is heavier; each gets its own **plan-mode plan** before
+implementation, using this section as the contract. Do not start a phase until
+the previous phase’s exit criteria are met (or explicitly waived).
+
+### 15.1 Working process
+
+1. Spec (this doc) states the phase goal, deliverables, and exit criteria.
+2. Before coding a remaining phase: produce a dedicated plan-mode plan scoped
+   only to that phase (files, risks, test/playtest checklist).
+3. Execute in Agent mode; keep temple-only surface area (§3 / hard constraint).
+4. Update this section’s status + any phase playtest checklist when the phase
+   exits; fold discoveries into §§6–14 as needed.
+5. Backlog **P2-28** tracks the campaign as a whole; phase detail lives here.
+
+### 15.2 Design choices locked (all phases)
+
+- Authored **hub** + generated delve floors (`DungeonGen`; Noise4j today).
+- **Run seed → derived floor seeds**; persist **mutations**, not only seeds.
+- **`TempleDepthScaler`** in the temple package; orthogonal to difficulty modes.
+- **Single generated floor zone** (`temple.1`); hub ↔ depth 1 only until
+  multi-depth zone changes return.
+- Soft-cap bands + **post-victory endless** delve (Phase 5+).
+- **Fragments** (Phase 4): catalog + stamp helpers reserved for a future WFC
+  `DungeonGen`; live layout is Noise4j-only (Phases 2–4 base gen).
+- Encounter/loot tables reference inherited Default templates by name.
+- Early connectivity + combat smoke in Phases 2–3; full metrics harness in
+  Phase 6. Temple code never writes `data/default/`.
+
+### 15.3 Status summary
+
+| Phase | Goal (one line) | Status |
+|-------|-----------------|--------|
+| 0 | Living design doc + backlog row | **done** |
+| 1 | Loadable sparse campaign: menu → intro → hub → gen floor | **done** |
+| 2 | Playable depth-1 crawl + early tests | **done** |
+| 3 | Multi-depth + scaler + mutations | **done** |
+| 4 | Fragment catalog + layout seam | **done** |
+| 5 | Wasud quest + victory / endless | **todo** — next plan |
+| 6 | Full balance harness | **todo** |
+| 7 | Meta polish (ironman, hub services, dailies) | **todo** |
+
+### 15.4 Phase contracts
+
+#### Phase 0 — Design document + backlog *(done)*
+
+**Goal:** Living campaign spec and backlog hook before any restore work.
+
+**Delivered:** this doc; backlog **P2-28**; brief architecture / AGENTS mentions.
+
+**Exit:** Spec + backlog exist; no code required beyond doc pointers.
+
+#### Phase 1 — Loadable sparse campaign *(done)*
+
+**Goal:** Select Temple; main menu works; new game / quick start → intro →
+**Temple Hub**; stairs → generating floor.
+
+**Delivered:** `data/temple/` tree (`parentCampaign=default`, `[]` stubs), hub +
+`temple.1` shell, `TempleSeeds` / `TempleGeneratorMazeScript`, Ant + launcher
+classpath for temple sources.
+
+**Exit met:** Second campaign runs; inheritance works; hub + one generated
+floor; no gameplay edits under `data/default/`.
+
+#### Phase 2 — Playable hub ↔ depth-1 crawl *(done)*
+
+**Goal:** Explore, fight, loot, return to hub (or die) on depth 1.
+
+**Delivered:** Temple depth-1 encounter/loot tables; dressing of encounters /
+loot / stairs; 31×31 indoor palette shell; Noise4j wired as floor engine;
+`TempleFloorGenTest` + playtest checklist (§9).
+
+**Exit met:** Single-floor loop playable; gen connected enough to crawl; smoke /
+connectivity tests green. (Boring Noise4j layout accepted until Phase 4.)
+
+#### Phase 3 — Multi-level descent + TempleDepthScaler *(done)*
+
+**Goal:** Vertical progress with orthogonal depth scaling and persistent
+per-depth mutations.
+
+**Delivered:** `TempleDepthScaler` bands 1–3; depth 2–3 tables; hub ↔ depth-1
+stairs (`temple.descend.1` / `temple.ascend.1`); per-depth enc/loot
+mutation keys; `TempleDepthPhase3Test`.
+
+**Exit met:** Multi-floor delve with clearer difficulty/loot ramp; re-entry
+preserves cleared/looted state; depth 4+ soft-caps to band 3.
+
+#### Phase 4 — Map fragments *(done)*
+
+**Goal:** Authored set pieces as reusable chunks; pluggable layout seam; no
+engine gen forks.
+
+**Delivered:** Shared `Zone.metadata` + V2 serialiser; streaming
+`Database.peekZoneMetadata` / `peekZoneMetadataByPrefix`; editor Metadata tab;
+`temple` fragment zones with metadata; `TempleFragmentCatalog`,
+`TempleFragmentStamp`, `TempleFragmentAssembler` (helpers for future WFC, not
+wired into live Noise4j gen); `TempleLayoutPolicy` + `MapGenZoneScript.createDungeonGen`;
+hybrid Noise4j overlay **removed** from live path; `TempleFragmentPhase4Test`,
+`TempleLayoutPolicyTest`.
+
+**Exit met:** Catalog/metadata APIs and isolated assembler tests green;
+live floors use `DungeonGen` only (Noise4j today). Next layout work: WFC
+`DungeonGen`, not more Noise4j dressing.
+
+#### Phase 5 — Quest: reassemble Wasud *(todo — next)*
+
+**Goal:** Completable campaign win, then optional endless delve.
+
+**In scope:**
+
+- Temple quest items / maze vars for body parts; depth-band placement;
+  guaranteed `quest` fragments.
+- Assembly ritual (hub and/or dedicated fragment).
+- Journal / string overlays for temple beats only.
+- Victory state; further descent remains available (balance + replay).
+
+**Depends on:** Phase 4 fragment roles + mutation/seed patterns from Phase 3.
+
+**Exit:** Player can assemble Wasud and win; optional continue deeper.
+
+#### Phase 6 — Full balance harness *(todo)*
+
+**Goal:** Reproducible combat/economy lab (feeds backlog P2-8) without
+modifying Default data.
+
+**In scope:**
+
+- Temple-configured headless runs: seeds × depths × party archetypes
+  (`HeadlessMaze` / balance patterns, temple-aware).
+- Metrics: TTK, HP drain, loot value, encounter threat by depth.
+- Ant/JUnit job, display-free; optional outlier thresholds.
+- Reports may *inform* Default balance work; temple code never writes
+  `data/default/`.
+
+**Exit:** Repeatable reports usable for temple tuning and external balance
+decisions.
+
+#### Phase 7 — Rogue-like meta polish *(todo)*
+
+**Goal:** Session meta that makes the temple feel like a finished rogue-like.
+
+**In scope:**
+
+- Ironman / single-save as temple default policy (coordinate with backlog
+  P1-5; prefer temple config/scripts over engine changes).
+- Hub services (identify, sell, heal at a cost) as economy sinks.
+- Daily / seeded challenge via `temple.run.seed`.
+- Temple-only art/audio as needed (Default dungeon textures OK indefinitely).
+- Opportunistic deeper foe AI only if P1-1 exists — not a blocker.
+
+**Exit:** Meta loop playable; ironman/daily paths documented; polish does not
+block Phases 4–6.
+
+### 15.5 Risk notes (for upcoming plans)
+
+| Area | Note |
+|------|------|
+| Phase 4 stamp | Single temple helper must update both Crusader and Tile layers; assert connectivity. |
+| Phase 5 state | Fit quest flags into the same maze-var mutation style as enc/loot. |
+| Phase 6 lab | Temple data is content-under-test; do not require Default zone loads. |
+| Dist | Keep temple out of `ant dist` until Phase 4+ feels stable enough to ship. |
 
 ## 16. Non-goals / open questions
 
 - No `V2Loader` missing-file softening (use `[]` stubs).
 - No coupling to Default story progression or Temple of the Gate.
 - GOAP / Heroic AI opportunistic only (backlog P1-1).
-- Dist packaging of temple deferred until Phase 2+ is stable.
+- Dist packaging of temple deferred until Phase 4+ is stable enough (was
+  “Phase 2+”; floors are playable, shipping wait is for fragment feel).
 - Floor prototype size is **31×31** (odd, Noise4j-friendly); enlarge further if
   delve feel needs it.
+- Any feature implemented by editing Default content or shared engine rules
+  “for temple” is out of scope unless split as a separate infra change.

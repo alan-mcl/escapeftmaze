@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
+import mclachlan.dungeongen.DungeonGenContext;
+import mclachlan.dungeongen.DungeonGenResult;
 import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;
 import mclachlan.dungeongen.noise4j.map.Grid;
 import mclachlan.maze.game.MazeEvent;
@@ -28,8 +30,6 @@ public abstract class MapGenZoneScript extends ZoneScript
 	@Override
 	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
-		DungeonGen gen = new Noise4jDungeonGen();
-
 		int dungeonLevel = getDungeonLevel(zone);
 
 		String seed = MazeVariables.get(SEED_PREFIX + zone.getName());
@@ -40,7 +40,20 @@ public abstract class MapGenZoneScript extends ZoneScript
 			MazeVariables.set(SEED_PREFIX+zone.getName(), seed);
 		}
 
-		return gen.generate(zone, Integer.parseInt(seed), dungeonLevel, decorator);
+		DungeonGen gen = createDungeonGen(zone, dungeonLevel);
+		DungeonGenResult result = gen.generate(
+			zone, Integer.parseInt(seed), dungeonLevel, decorator, DungeonGenContext.FRESH);
+		return result.events();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Subclasses pick the layout algorithm ({@link DungeonGen}). Default is
+	 * Noise4j rooms-and-corridors.
+	 */
+	protected DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
+	{
+		return new Noise4jDungeonGen();
 	}
 
 	/*-------------------------------------------------------------------------*/

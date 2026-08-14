@@ -14,6 +14,7 @@
   "scaleDistFromProjPlane": "0.65",
   "order": "0",
   "playerOrigin": "15:15",
+  "metadata": {},
   "portals": [],
   "tiles": [
     [
@@ -9703,8 +9704,6 @@
         "ceilingHeight": "0"
       }
     ],
-    "scripts": [],
-    "expandedObjects": [],
     "tiles": [
       {
         "ceilingTexture": "DUNGEON_CEILING_1",
@@ -31224,6 +31223,8 @@
         "solid": "false",
         "height": "1"
       }
-    ]
+    ],
+    "expandedObjects": [],
+    "scripts": []
   }
 }

@@ -7,6 +7,8 @@ import mclachlan.crusader.Texture;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
+import mclachlan.dungeongen.DungeonGenContext;
+import mclachlan.dungeongen.DungeonGenResult;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.MazeEvent;
@@ -19,8 +21,8 @@ import mclachlan.maze.map.Zone;
 public class LbawDungeonGen implements DungeonGen
 {
 	@Override
-	public List<MazeEvent> generate(Zone base, long seed, int dungeonLevel,
-		MapGenZoneScript.DungeonDecorator decorator)
+	public DungeonGenResult generate(Zone base, long seed, int dungeonLevel,
+		MapGenZoneScript.DungeonDecorator decorator, DungeonGenContext context)
 	{
 		MapBuilder mb = new MapBuilder(seed);
 
@@ -57,7 +59,7 @@ public class LbawDungeonGen implements DungeonGen
 
 		base.setMap(map);
 
-		return null;
+		return DungeonGenResult.of(null, base.getPlayerOrigin(), 0);
 	}
 
 	private void initWalls(

@@ -100,6 +100,16 @@ public abstract class Loader
 	public abstract List<String> getZoneNames();
 	public abstract Zone getZone(String name);
 
+	/**
+	 * Reads {@code metadata} from zone JSON without loading tiles or map.
+	 */
+	public abstract Map<String, String> peekZoneMetadata(String name);
+
+	/**
+	 * Peeks metadata for every zone whose name starts with {@code prefix}.
+	 */
+	public abstract Map<String, Map<String, String>> peekZoneMetadataByPrefix(String prefix);
+
 	public abstract Font getFont(String name);
 
 	// guild files

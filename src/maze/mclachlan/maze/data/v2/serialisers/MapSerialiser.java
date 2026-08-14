@@ -32,6 +32,11 @@ class MapSerialiser<K, V> implements V2SerialiserMap<Map<K, V>>
 	@Override
 	public Map<K, V> fromObject(Object obj, Database db)
 	{
+		if (obj == null)
+		{
+			return new HashMap<>();
+		}
+
 		Map<String, Object> map = (Map<String, Object>)obj;
 		Map<K, V> result = new HashMap<>();
 

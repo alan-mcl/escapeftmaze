@@ -30,7 +30,11 @@ The runtime is built from five major components:
 | Persistence | `maze/data` (`v1`, `v2`) | Load/save campaign data and save games |
 | Editor | `maze/editor/swing` | Swing desktop tool to author all game content |
 
-Supporting libraries: `dungeongen` (procedural dungeon generation), `jgpgoap` +
+Supporting libraries: `dungeongen` (procedural dungeon generation — pluggable
+`DungeonGen` interface with `DungeonGenContext` / `DungeonGenResult` and optional
+`StairwellPlanner` for linked stair portals; `Noise4jDungeonGen` is the default
+rooms-and-corridors impl; zone scripts call `MapGenZoneScript.createDungeonGen()`
+rather than hard-coding a generator), `jgpgoap` +
 `maze/game/goapai` (GOAP planner, currently experimental), `maze/audio`,
 `maze/util`.
 

@@ -69,8 +69,9 @@ public class TempleFloorGenTest extends MazeTestSupport
 		Point origin = zone.getPlayerOrigin();
 		assertNotNull(origin);
 
-		assertEquals(31, zone.getWidth(), "temple.1 palette shell should be 31 wide");
-		assertEquals(31, zone.getLength(), "temple.1 palette shell should be 31 long");
+		assertEquals(15, zone.getWidth(), "temple floor gen shell should be 15 wide");
+		assertEquals(15, zone.getLength(), "temple floor gen shell should be 15 long");
+		assertEquals("Temple Depth 1", zone.getName());
 
 		List<Point> encounters = TempleFloorDressing.findEncounterTiles(zone);
 		assertFalse(encounters.isEmpty(), "expected door-room encounters");

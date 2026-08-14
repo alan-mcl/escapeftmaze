@@ -57,6 +57,7 @@ public class ZonePanel extends EditorPanel
 	private JComboBox playerFieldOfView;
 	private MazeScriptPercentageTablePanel ambientScripts;
 	private MapScriptListPanel mapScripts;
+	private StringMapTablePanel metadataPanel;
 	private JSpinner order, playerOriginX, playerOriginY;
 	private Zone zone;
 
@@ -75,8 +76,16 @@ public class ZonePanel extends EditorPanel
 		result.add("Zone Script", getZoneScriptPanel());
 		result.add("Crusader Map Scripts", getMapScriptPanel());
 		result.add("Balancing Data", getBalancePanel());
+		result.add("Metadata", getMetadataPanel());
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Component getMetadataPanel()
+	{
+		metadataPanel = new StringMapTablePanel(dirtyFlag);
+		return metadataPanel;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -555,6 +564,11 @@ public class ZonePanel extends EditorPanel
 		playerOriginX.setValue(zone.getPlayerOrigin().x);
 		playerOriginY.setValue(zone.getPlayerOrigin().y);
 
+		if (metadataPanel != null)
+		{
+			metadataPanel.refresh(zone.getMetadata());
+		}
+
 		isCustomZoneScript.addActionListener(this);
 		customZoneScript.addKeyListener(this);
 		defaultZoneScriptTurns.addChangeListener(this);
@@ -883,6 +897,11 @@ public class ZonePanel extends EditorPanel
 			zone.setOrder((Integer)order.getValue());
 			zone.setPlayerOrigin(new Point(
 				(Integer)playerOriginX.getValue(), (Integer)playerOriginY.getValue()));
+
+			if (metadataPanel != null)
+			{
+				zone.setMetadata(metadataPanel.getMetadata());
+			}
 
 			if (isCustomZoneScript.isSelected())
 			{

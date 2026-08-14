@@ -17,17 +17,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.campaign.temple;
+package mclachlan.dungeongen;
 
-import java.util.List;
-import mclachlan.maze.game.MazeEvent;
+import java.awt.Point;
+import mclachlan.dungeongen.noise4j.map.Grid;
+import mclachlan.maze.map.Zone;
 
-/** Ascend one temple depth (hub when leaving depth 1). */
-public class TempleAscendEvent extends MazeEvent
+/**
+ * Picks stair portal locations for a generated layout. Campaign code supplies
+ * implementations; {@link DungeonGenContext} may carry a planner instance.
+ */
+public interface StairwellPlanner
 {
-	@Override
-	public List<MazeEvent> resolve()
-	{
-		return TempleDepthTransition.change(-1);
-	}
+	StairwellPlan planStairwells(
+		Zone zone,
+		Grid grid,
+		int depth,
+		Point layoutOrigin,
+		DungeonGenContext context);
 }

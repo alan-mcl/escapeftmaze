@@ -317,7 +317,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 
 | Class | File | Purpose / key fields |
 |-------|------|----------------------|
-| Zone | `map/Zone.java` | `name`, `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin` |
+| Zone | `map/Zone.java` | `name`, `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), `metadata` (optional `Map<String,String>` campaign/mod tags), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin` |
 | Tile | `map/Tile.java` | `scripts` (List<TileScript>), `statModifier`, `terrainType` (FAKE/URBAN/DUNGEON/WILDERNESS/WASTELAND), `terrainSubType`, `randomEncounterChance`, `randomEncounters` (EncounterTable), `restingDanger`/`restingEfficiency`; runtime `zone`/`coords`/`sector` |
 | Portal | `map/Portal.java` | `mazeVariable`, `initialState`, `from`/`to` (Point), `fromFacing`/`toFacing`, `twoWay`, lock/trap (`canForce`, `canPick`, `difficulty[]`, `keyItem`, `consumeKeyItem`), `mazeScript`, `stateChangeScript` |
 | EncounterTable | `map/EncounterTable.java` | `name`, `encounterTable` (PercentageTable<FoeEntry>) |
@@ -346,6 +346,10 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 |-------|------|----------------------|
 | GameState | `game/GameState.java` | `currentZone`, `difficultyLevel`, `playerPos` (Point), `facing`, `partyGold`, `partySupplies`, `partyNames`, `formation`, `turnNr` |
 | MazeVariables | `game/MazeVariables.java` | `Map<String,String>` of quest/door/script flags |
+
+Temple campaign stair linkage (see [temple_campaign.md](temple_campaign.md)):
+`temple.d.<depth>.portal.up|down` (encoded `StairPortalSpec`), transient
+`temple.transition.mode`, cached `temple.hub.portal.down`.
 | DifficultyLevel | `game/DifficultyLevel.java` | Difficulty preset; selects foe AI and spawn/combat modifiers |
 | PlayerParty | `stat/PlayerParty.java` | Runtime party: PCs, gold, supplies, formation |
 | PlayerTilesVisited | `game/PlayerTilesVisited.java` | Auto-map exploration per zone |
@@ -398,7 +402,7 @@ File-to-entity mapping (from
 | `startingkits.json` | StartingKit |
 | `difficultylevels.json` | DifficultyLevel |
 | `guild.json` | Map<String,PlayerCharacter> (reusable created characters) |
-| `zones/<Name>.json` | Zone (one file per zone) |
+| `zones/<Name>.json` | Zone (one file per zone). Optional top-level `metadata` map (string→string) for campaign/mod tags; query without full load via `Database.peekZoneMetadata(name)` / `peekZoneMetadataByPrefix(prefix)` (streaming JSON peek). |
 | `strings/strings-*.json` | HotString bundles: `ui`, `event`, `gamesys`, `tips`, `campaign` (flat key→value JSON maps) |
 | `strings/cold/manifest.json` | ColdStrings shard routing (prefix → shard name) |
 | `strings/cold/<shard>.json` | ColdStrings shard: map of `ColdString` (`name`, `body`) for bulk lore/readables |

@@ -19,15 +19,23 @@
 
 package mclachlan.maze.campaign.temple;
 
-import java.util.List;
-import mclachlan.maze.game.MazeEvent;
-
-/** Descend one temple depth (re-enters {@code temple.1} palette shell). */
-public class TempleDescendEvent extends MazeEvent
+/**
+ * Runtime zone naming for the procedural temple floor ({@code temple.1}).
+ */
+public final class TempleFloorLabels
 {
-	@Override
-	public List<MazeEvent> resolve()
+	public static final String FLOOR_ZONE_ID = "temple.1";
+
+	private TempleFloorLabels()
 	{
-		return TempleDepthTransition.change(+1);
+	}
+
+	public static String displayName(int depth)
+	{
+		if (depth <= 0)
+		{
+			return "Temple Depth ?";
+		}
+		return "Temple Depth " + depth;
 	}
 }

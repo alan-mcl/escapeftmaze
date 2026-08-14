@@ -81,10 +81,9 @@ class HandleKeyEvent extends MazeEvent
 
 		for (MazeEvent me : result)
 		{
-			if (me instanceof ZoneChangeEvent && !(oldZone.getName().equals(((ZoneChangeEvent)me).getZone())))
+			if (me instanceof ZoneChangeEvent zce
+				&& !oldZone.getName().equals(zce.getZone()))
 			{
-				// player is going to change zones, we do not need to handle
-				// the rest of the key implications
 				return result;
 			}
 		}

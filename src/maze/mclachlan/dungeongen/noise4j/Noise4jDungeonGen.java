@@ -5,6 +5,10 @@ import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.*;
 import mclachlan.dungeongen.DungeonGen;
+import mclachlan.dungeongen.DungeonGenContext;
+import mclachlan.dungeongen.DungeonGenResult;
+import mclachlan.dungeongen.StairwellPlan;
+import mclachlan.dungeongen.StairPortalSpec;
 import mclachlan.dungeongen.noise4j.map.Grid;
 import mclachlan.dungeongen.noise4j.map.generator.room.AbstractRoomGenerator;
 import mclachlan.dungeongen.noise4j.map.generator.room.dungeon.DungeonGenerator;
@@ -26,10 +30,11 @@ public class Noise4jDungeonGen implements DungeonGen
 	public static final int CORRIDOR_THRESHOLD = 1;
 
 	@Override
-	public List<MazeEvent> generate(
+	public DungeonGenResult generate(
 		Zone zone,
 		long seed, int dungeonLevel,
-		MapGenZoneScript.DungeonDecorator decorator)
+		MapGenZoneScript.DungeonDecorator decorator,
+		DungeonGenContext context)
 	{
 		Map baseMap = zone.getMap();
 		int width = baseMap.getWidth();
@@ -52,6 +57,11 @@ public class Noise4jDungeonGen implements DungeonGen
 
 		// random dungeon generation
 		dg.generate(grid);
+
+		if (context != null)
+		{
+			carveRestoredPortals(grid, context.getRestoredUp(), context.getRestoredDown());
+		}
 
 		// Fresh layout each generate(): drop shell leftovers / prior-run dress.
 		clearTileScripts(zone);
@@ -137,10 +147,22 @@ public class Noise4jDungeonGen implements DungeonGen
 			room.getY() + room.getHeight() / 2);
 		zone.setPlayerOrigin(playerOrigin);
 
-		List<MazeEvent> result = new ArrayList<>();
-		result.add(new MovePartyEvent(playerOrigin, CrusaderEngine.Facing.NORTH));
+		StairwellPlan stairwells = StairwellPlan.empty();
+		Point spawn = playerOrigin;
+		int spawnFacing = CrusaderEngine.Facing.NORTH;
+		if (context != null && context.getStairwellPlanner() != null)
+		{
+			stairwells = context.getStairwellPlanner().planStairwells(
+				zone, grid, dungeonLevel, playerOrigin, context);
+			spawn = stairwells.resolveSpawn(playerOrigin);
+			spawnFacing = stairwells.resolveSpawnFacing(CrusaderEngine.Facing.NORTH);
+			zone.setPlayerOrigin(spawn);
+		}
 
-		return result;
+		List<MazeEvent> result = new ArrayList<>();
+		result.add(new MovePartyEvent(spawn, spawnFacing));
+
+		return new DungeonGenResult(result, stairwells, spawn, spawnFacing);
 	}
 
 	private void initDoors(
@@ -374,6 +396,23 @@ public class Noise4jDungeonGen implements DungeonGen
 	private int getGrid(Grid grid, int x, int y)
 	{
 		return (int)(grid.get(x, y) * 10);
+	}
+
+	private void carveRestoredPortals(Grid grid, StairPortalSpec up, StairPortalSpec down)
+	{
+		carveFloor(grid, up == null ? null : up.from());
+		carveFloor(grid, up == null ? null : up.to());
+		carveFloor(grid, down == null ? null : down.from());
+		carveFloor(grid, down == null ? null : down.to());
+	}
+
+	private void carveFloor(Grid grid, Point tile)
+	{
+		if (tile == null)
+		{
+			return;
+		}
+		grid.set(tile.x, tile.y, ROOM_THRESHOLD / 10F);
 	}
 
 	private void clearTileScripts(Zone zone)

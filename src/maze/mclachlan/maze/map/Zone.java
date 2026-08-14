@@ -64,6 +64,9 @@ public class Zone extends DataObject
 	private int order;
 	private Point playerOrigin;
 
+	/** Optional campaign/mod tags (e.g. temple fragment catalog keys). */
+	private java.util.Map<String, String> metadata;
+
 	public Zone()
 	{
 	}
@@ -405,6 +408,16 @@ public class Zone extends DataObject
 	public int getWidth()
 	{
 		return width;
+	}
+
+	public java.util.Map<String, String> getMetadata()
+	{
+		return metadata != null ? metadata : Collections.emptyMap();
+	}
+
+	public void setMetadata(java.util.Map<String, String> metadata)
+	{
+		this.metadata = metadata;
 	}
 
 	public ZoneScript getScript()

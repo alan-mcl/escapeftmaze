@@ -1931,6 +1931,24 @@ public class Database
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public Map<String, String> peekZoneMetadata(String name)
+	{
+		synchronized (mutex)
+		{
+			return this.getCurrentCampaign().loader.peekZoneMetadata(name);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, Map<String, String>> peekZoneMetadataByPrefix(String prefix)
+	{
+		synchronized (mutex)
+		{
+			return this.getCurrentCampaign().loader.peekZoneMetadataByPrefix(prefix);
+		}
+	}
+
 	/// /////////////////////////////////////////// Non-campaign data
 	/// ///////////////////////////////////////////
 

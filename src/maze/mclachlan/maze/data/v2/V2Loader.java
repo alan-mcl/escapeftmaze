@@ -439,6 +439,26 @@ public class V2Loader extends Loader
 	}
 
 	@Override
+	public Map<String, String> peekZoneMetadata(String name)
+	{
+		return ZoneMetadataPeek.readMetadata(new File(getPath(ZONES) + name + ".json"));
+	}
+
+	@Override
+	public Map<String, Map<String, String>> peekZoneMetadataByPrefix(String prefix)
+	{
+		Map<String, Map<String, String>> result = new LinkedHashMap<>();
+		for (String zoneName : getZoneNames())
+		{
+			if (zoneName.startsWith(prefix))
+			{
+				result.put(zoneName, peekZoneMetadata(zoneName));
+			}
+		}
+		return result;
+	}
+
+	@Override
 	public Font getFont(String name)
 	{
 		try

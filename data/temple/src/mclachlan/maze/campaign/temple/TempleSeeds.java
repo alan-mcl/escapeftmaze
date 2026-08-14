@@ -33,6 +33,9 @@ public final class TempleSeeds
 	public static final String DEPTH = "temple.depth";
 	public static final String FLOOR_SEED_PREFIX = "temple.floor.seed.";
 	public static final String MUTATIONS_PREFIX = "temple.d.";
+	public static final String PORTAL_UP_SUFFIX = ".portal.up";
+	public static final String PORTAL_DOWN_SUFFIX = ".portal.down";
+	public static final String TRANSITION_SOURCE_DEPTH = "temple.transition.sourceDepth";
 
 	private TempleSeeds()
 	{
@@ -63,7 +66,7 @@ public final class TempleSeeds
 		String d = MazeVariables.get(DEPTH);
 		if (d == null || d.isEmpty())
 		{
-			return 1;
+			return 0;
 		}
 		return Integer.parseInt(d);
 	}
@@ -111,6 +114,18 @@ public final class TempleSeeds
 	public static String lootVar(int depth, int index)
 	{
 		return MUTATIONS_PREFIX + depth + ".loot." + index;
+	}
+
+	/** Fragment encounter / once-only mutation key. */
+	public static String fragmentVar(int depth, String zoneName, int index)
+	{
+		return MUTATIONS_PREFIX + depth + ".frag." + zoneName + "." + index;
+	}
+
+	/** Persisted stair portal encoding for a depth ({@link mclachlan.dungeongen.StairPortalSpec#encode}). */
+	public static String portalVar(int depth, boolean up)
+	{
+		return MUTATIONS_PREFIX + depth + (up ? PORTAL_UP_SUFFIX : PORTAL_DOWN_SUFFIX);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -16,10 +16,17 @@
         "facing": "4",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Temple Hub",
-        "pos": "8:8"
+        "pos": "13:8"
       },
       {
-        "flavourText": "You stand in the entrance hall of Wasud\u0027s temple. Ahead, stone stairs lead into darkness.",
+        "flavourText": "You arrive outside the entrance to Wasud\u0027s temple.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "false"
+      },
+      {
+        "flavourText": "A bloody sunset burns overhead, as it has done for all of the three days it has taken you to climb the holy mountain.\n\nTime, it seems, has stopped pending the resolution to this affair.",
         "delay": "-1",
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "alignment": "CENTER",
@@ -33,6 +40,11 @@
       {
         "mazeVariable": "temple.depth",
         "value": "1",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
+        "mazeVariable": "temple.transition.mode",
+        "value": "from_hub",
         "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
       },
       {
@@ -70,10 +82,10 @@
         "shouldClearText": "true"
       },
       {
-        "facing": "2",
+        "facing": "4",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Temple Hub",
-        "pos": "8:8"
+        "pos": "5:8"
       }
     ]
   }

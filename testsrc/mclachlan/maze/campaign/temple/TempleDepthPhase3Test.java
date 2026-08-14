@@ -22,7 +22,10 @@ package mclachlan.maze.campaign.temple;
 import java.awt.Point;
 import java.util.List;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.map.TileScript;
@@ -85,8 +88,8 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 
 		Zone depth1 = generate(db, 1);
 		assertNotNull(TempleFloorDressing.findStairsUpTile(depth1));
-		assertNotNull(TempleFloorDressing.findStairsDownTile(depth1),
-			"depth 1 should dress stairs deeper");
+		assertNotNull(TempleStairLinks.readPortal(1, false),
+			"depth 1 still places a down stair for later multi-depth work");
 
 		Zone depth2 = generate(db, 2);
 		assertNotEquals(
@@ -94,7 +97,7 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 			MazeVariables.get(TempleSeeds.FLOOR_SEED_PREFIX + "2"));
 
 		assertNotNull(TempleFloorDressing.findStairsUpTile(depth2));
-		assertNotNull(TempleFloorDressing.findStairsDownTile(depth2));
+		assertNotNull(TempleStairLinks.readPortal(2, false));
 
 		assertTrue(
 			countLoot(depth2) >= TempleDepthScaler.lootPlacements(2)
@@ -121,7 +124,7 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 		MazeVariables.set(var, "true");
 
 		Zone again = generate(db, 1);
-		Encounter againEnc = firstEncounter(again, encounters.get(0));
+		Encounter againEnc = findEncounterByVar(again, var);
 		assertNotNull(againEnc);
 		assertEquals(var, againEnc.getMazeVariable());
 		assertTrue(MazeVariables.getBoolean(var),
@@ -130,35 +133,26 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 
 	/*-------------------------------------------------------------------------*/
 	@Test
-	void ascendFromDepth1GoesToHubEvent() throws Exception
+	void hubDescendScriptTargetsTemple1() throws Exception
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
-		MazeVariables.set(TempleSeeds.DEPTH, "1");
 
-		List<mclachlan.maze.game.MazeEvent> events = new TempleAscendEvent().resolve();
-		assertEquals(1, events.size());
-		assertTrue(events.get(0) instanceof mclachlan.maze.game.event.ZoneChangeEvent);
-		mclachlan.maze.game.event.ZoneChangeEvent zce =
-			(mclachlan.maze.game.event.ZoneChangeEvent)events.get(0);
-		assertEquals("Temple Hub", zce.getZone());
-		assertEquals(0, TempleSeeds.getDepth());
+		MazeScript script = db.getMazeScript(TempleStairLinks.HUB_DESCEND_SCRIPT);
+		ZoneChangeEvent zce = findZoneChangeEvent(script);
+		assertEquals("temple.1", zce.getZone());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Test
-	void descendFromDepth1GoesToDepth2Floor() throws Exception
+	void floorAscendScriptTargetsHub() throws Exception
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
-		MazeVariables.set(TempleSeeds.DEPTH, "1");
 
-		List<mclachlan.maze.game.MazeEvent> events = new TempleDescendEvent().resolve();
-		assertEquals(1, events.size());
-		mclachlan.maze.game.event.ZoneChangeEvent zce =
-			(mclachlan.maze.game.event.ZoneChangeEvent)events.get(0);
-		assertEquals("temple.1", zce.getZone());
-		assertEquals(2, TempleSeeds.getDepth());
+		MazeScript script = db.getMazeScript(TempleStairLinks.HUB_ASCEND_SCRIPT);
+		ZoneChangeEvent zce = findZoneChangeEvent(script);
+		assertEquals(TempleStairLinks.HUB_ZONE, zce.getZone());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -169,6 +163,19 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 		Zone zone = db.getZone("temple.1");
 		zone.getScript().init(zone, 0);
 		return zone;
+	}
+
+	private static ZoneChangeEvent findZoneChangeEvent(MazeScript script)
+	{
+		for (MazeEvent event : script.getEvents())
+		{
+			if (event instanceof ZoneChangeEvent zce)
+			{
+				return zce;
+			}
+		}
+		fail("expected ZoneChangeEvent in script");
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -204,6 +211,19 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 			if (script instanceof Encounter)
 			{
 				return (Encounter)script;
+			}
+		}
+		return null;
+	}
+
+	private static Encounter findEncounterByVar(Zone zone, String mazeVar)
+	{
+		for (Point p : TempleFloorDressing.findEncounterTiles(zone))
+		{
+			Encounter enc = firstEncounter(zone, p);
+			if (enc != null && mazeVar.equals(enc.getMazeVariable()))
+			{
+				return enc;
 			}
 		}
 		return null;

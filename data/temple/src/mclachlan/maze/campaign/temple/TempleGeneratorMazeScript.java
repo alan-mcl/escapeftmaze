@@ -21,23 +21,15 @@ package mclachlan.maze.campaign.temple;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.crusader.Texture;
-import mclachlan.crusader.Wall;
-import mclachlan.dungeongen.DungeonGen;
-import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;
-import mclachlan.dungeongen.noise4j.map.Grid;
-import mclachlan.maze.data.Database;
+import mclachlan.dungeongen.DungeonGenContext;
+import mclachlan.dungeongen.DungeonGenResult;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.Encounter;
-import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.util.MazeException;
 
 /**
- * Procedural temple floor zone script. Uses existing Noise4j generation with a
- * temple-side decorator and {@link TempleSeeds} for reproducible layouts, then
- * {@link TempleFloorDressing} for stairs and loot.
+ * Procedural temple floor zone script. Layout via {@link TempleLayoutPolicy}
+ * ({@link mclachlan.dungeongen.DungeonGen}); stair portals and loot dressing after gen.
  */
 public class TempleGeneratorMazeScript extends MapGenZoneScript
 {
@@ -58,25 +50,62 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		int dungeonLevel = getDungeonLevel(zone);
 		TempleSeeds.setDepth(dungeonLevel);
 
+		TempleFloorShell.ensureGenSize(zone);
+		zone.setName(TempleFloorLabels.displayName(dungeonLevel));
+
 		int seed = TempleSeeds.floorSeed(dungeonLevel);
 
-		// Reset per-generation encounter counters (decorator is static).
 		DECORATOR.resetCounters();
 
-		DungeonGen gen = new Noise4jDungeonGen();
-		List<MazeEvent> events = gen.generate(zone, seed, dungeonLevel, DECORATOR);
-		TempleFloorDressing.dress(zone, dungeonLevel);
-		return events;
+		DungeonGenContext ctx = TempleStairLinks.buildGenContext(dungeonLevel);
+		DungeonGenResult result = createDungeonGen(zone, dungeonLevel)
+			.generate(zone, seed, dungeonLevel, DECORATOR, ctx);
+
+		TempleStairwellDresser.apply(zone, result.stairwells());
+		TempleStairLinks.persistPlan(dungeonLevel, result.stairwells());
+		zone.setPlayerOrigin(result.playerOrigin());
+
+		Set<Point> avoid = stairAvoidTiles(result.stairwells());
+		TempleFloorDressing.dress(zone, dungeonLevel, avoid);
+		TempleStairLinks.clearTransition();
+
+		return result.events();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Set<Point> stairAvoidTiles(mclachlan.dungeongen.StairwellPlan plan)
+	{
+		Set<Point> avoid = new HashSet<>();
+		if (plan == null)
+		{
+			return avoid;
+		}
+		if (plan.stairsUp() != null)
+		{
+			avoid.add(plan.stairsUp().from());
+		}
+		if (plan.stairsDown() != null)
+		{
+			avoid.add(plan.stairsDown().from());
+		}
+		return avoid;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	protected mclachlan.dungeongen.DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
+	{
+		return TempleLayoutPolicy.forDepth(dungeonLevel);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public int getDungeonLevel(Zone zone)
 	{
-		String depthVar = mclachlan.maze.game.MazeVariables.get(TempleSeeds.DEPTH);
-		if (depthVar != null && !depthVar.isEmpty())
+		int depth = TempleSeeds.getDepth();
+		if (depth > 0)
 		{
-			return Integer.parseInt(depthVar);
+			return depth;
 		}
 
 		String name = zone.getName();
@@ -106,26 +135,26 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		}
 
 		@Override
-		public Wall getRoomWall(Grid grid, int x, int y)
+		public mclachlan.crusader.Wall getRoomWall(mclachlan.dungeongen.noise4j.map.Grid grid, int x, int y)
 		{
 			return wall(null);
 		}
 
 		@Override
-		public Wall getCorridorWall(Grid grid, int x, int y)
+		public mclachlan.crusader.Wall getCorridorWall(mclachlan.dungeongen.noise4j.map.Grid grid, int x, int y)
 		{
 			return wall(null);
 		}
 
 		@Override
-		public List<Object> handlePortal(Grid grid,
+		public List<Object> handlePortal(mclachlan.dungeongen.noise4j.map.Grid grid,
 			Point from,
 			int fromFacing,
 			Point to,
 			int toFacing)
 		{
-			Wall wall = wall(
-				Database.getInstance().getMazeTexture("CITY_DOOR_1").getTexture());
+			mclachlan.crusader.Wall wall = wall(
+				mclachlan.maze.data.Database.getInstance().getMazeTexture("CITY_DOOR_1").getTexture());
 
 			Portal portal = new Portal(
 				null,
@@ -156,23 +185,22 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 			int index = encounterCounter++;
 			String mazeVar = TempleSeeds.encounterVar(dungeonLevel, index);
 			String tableName = TempleDepthScaler.encounterTableName(dungeonLevel);
-			EncounterTable table = Database.getInstance().getEncounterTables().get(tableName);
+			EncounterTable table = mclachlan.maze.data.Database.getInstance().getEncounterTables().get(tableName);
 			if (table == null)
 			{
-				// fall back to depth 1 if a deeper table is not authored yet
-				table = Database.getInstance().getEncounterTable(
+				table = mclachlan.maze.data.Database.getInstance().getEncounterTable(
 					TempleDepthScaler.encounterTableName(1));
 			}
 			if (table == null)
 			{
-				throw new MazeException("Missing temple encounter table [" + tableName + "]");
+				throw new mclachlan.maze.util.MazeException("Missing temple encounter table [" + tableName + "]");
 			}
 
 			return new Encounter(
 				table,
 				mazeVar,
-				NpcFaction.Attitude.ATTACKING,
-				Combat.AmbushStatus.NONE,
+				mclachlan.maze.stat.npc.NpcFaction.Attitude.ATTACKING,
+				mclachlan.maze.stat.combat.Combat.AmbushStatus.NONE,
 				null,
 				null,
 				null,
@@ -180,13 +208,13 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				false);
 		}
 
-		private Wall wall(Texture doorTexture)
+		private mclachlan.crusader.Wall wall(mclachlan.crusader.Texture doorTexture)
 		{
-			Texture wallTex =
-				Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture();
-			Texture[] door = doorTexture == null ? null : new Texture[]{doorTexture};
-			return new Wall(
-				new Texture[]{wallTex},
+			mclachlan.crusader.Texture wallTex =
+				mclachlan.maze.data.Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture();
+			mclachlan.crusader.Texture[] door = doorTexture == null ? null : new mclachlan.crusader.Texture[]{doorTexture};
+			return new mclachlan.crusader.Wall(
+				new mclachlan.crusader.Texture[]{wallTex},
 				door,
 				true,
 				true,
