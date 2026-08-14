@@ -55,7 +55,7 @@
         "shouldClearText": "true"
       },
       {
-        "facing": "1",
+        "facing": "0",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "temple.1",
         "pos": "-1:-1"
@@ -82,7 +82,7 @@
         "shouldClearText": "true"
       },
       {
-        "facing": "4",
+        "facing": "3",
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Temple Hub",
         "pos": "5:8"

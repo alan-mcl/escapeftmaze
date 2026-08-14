@@ -2322,16 +2322,6 @@ public class Maze implements Runnable
 	{
 		// todo: persistence of conditions on tiles in the old zone and the new zone
 
-		int newFacing;
-		if (facing == ZoneChangeEvent.Facing.UNCHANGED)
-		{
-			newFacing = this.ui.getFacing();
-		}
-		else
-		{
-			newFacing = facing;
-		}
-
 		ui.startMazeImageRendering();
 
 		this.zone = Database.getInstance().getZone(zoneName);
@@ -2339,11 +2329,13 @@ public class Maze implements Runnable
 		List<MazeEvent> result = new ArrayList<>();
 
 		// Zone scripts (e.g. Noise4j MapGen) may set playerOrigin during init.
-		addAll(result, this.zone.initZoneScript(getTurnNr()));
+		List<MazeEvent> initEvents = this.zone.initZoneScript(getTurnNr());
+		addAll(result, initEvents);
 
 		// pos (-1,-1) means "use the zone's origin after script init" — used by
 		// procedural floors so the raycaster is not created at an invalid tile.
 		Point spawnPos = resolveSpawnPos(pos, this.zone);
+		int newFacing = resolveSpawnFacing(facing, initEvents, this.ui.getFacing());
 
 		result.add(new MazeEvent()
 		{
@@ -2386,6 +2378,35 @@ public class Maze implements Runnable
 			return origin;
 		}
 		return requested == null ? new Point(0, 0) : requested;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * When a {@link ZoneChangeEvent} facing is {@link ZoneChangeEvent.Facing#UNCHANGED},
+	 * prefer a {@link MovePartyEvent} from zone-script init (generated floors spawn
+	 * facing away from the arrival stair). Otherwise keep the current facing.
+	 */
+	public static int resolveSpawnFacing(
+		int requested,
+		List<MazeEvent> initEvents,
+		int currentFacing)
+	{
+		if (requested != ZoneChangeEvent.Facing.UNCHANGED)
+		{
+			return requested;
+		}
+		if (initEvents != null)
+		{
+			for (int i = initEvents.size() - 1; i >= 0; i--)
+			{
+				if (initEvents.get(i) instanceof MovePartyEvent mpe
+					&& mpe.getFacing() != ZoneChangeEvent.Facing.UNCHANGED)
+				{
+					return mpe.getFacing();
+				}
+			}
+		}
+		return currentFacing;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -400,10 +400,9 @@ public class Noise4jDungeonGen implements DungeonGen
 
 	private void carveRestoredPortals(Grid grid, StairPortalSpec up, StairPortalSpec down)
 	{
+		// Blank-wall stairs stand on room tiles; leave the wall cell behind the mask.
 		carveFloor(grid, up == null ? null : up.from());
-		carveFloor(grid, up == null ? null : up.to());
 		carveFloor(grid, down == null ? null : down.from());
-		carveFloor(grid, down == null ? null : down.to());
 	}
 
 	private void carveFloor(Grid grid, Point tile)

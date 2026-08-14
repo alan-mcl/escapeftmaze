@@ -31,12 +31,28 @@ import mclachlan.dungeongen.noise4j.map.Grid;
 import mclachlan.maze.map.Zone;
 
 /**
- * Noise4j stair placement: corridor–room wall portals; up near entry, down far.
+ * Noise4j stair placement: blank room walls only (never corridor door junctions).
+ * Up near entry in the starting room; down on a far blank wall elsewhere.
  */
 public final class Noise4jStairwellPlanner implements StairwellPlanner
 {
 	private static final int ROOM = Noise4jDungeonGen.ROOM_THRESHOLD;
+	private static final int WALL = Noise4jDungeonGen.WALL_THRESHOLD;
 	private static final int CORRIDOR = Noise4jDungeonGen.CORRIDOR_THRESHOLD;
+
+	private static final int[] DIRECTION_SCAN = {
+		CrusaderEngine.Facing.NORTH,
+		CrusaderEngine.Facing.EAST,
+		CrusaderEngine.Facing.SOUTH,
+		CrusaderEngine.Facing.WEST
+	};
+
+	private static final int[][] DIRECTION_DELTA = {
+		{0, -1},
+		{1, 0},
+		{0, 1},
+		{-1, 0}
+	};
 
 	@Override
 	public StairwellPlan planStairwells(
@@ -49,14 +65,15 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 		StairPortalSpec up = context.getRestoredUp();
 		StairPortalSpec down = context.getRestoredDown();
 
-		List<Candidate> candidates = findCandidates(grid);
+		Set<Point> startingRoom = floodFillStartingRoom(grid, layoutOrigin);
+		List<Candidate> candidates = findBlankWallCandidates(grid);
 		if (up == null)
 		{
-			up = pickUp(layoutOrigin, candidates);
+			up = pickUp(layoutOrigin, startingRoom, candidates);
 		}
 		if (down == null && !candidates.isEmpty())
 		{
-			down = pickDown(layoutOrigin, candidates, up);
+			down = pickDown(layoutOrigin, startingRoom, candidates, up);
 		}
 
 		Point spawn = layoutOrigin;
@@ -84,18 +101,60 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static StairPortalSpec pickUp(Point origin, List<Candidate> candidates)
+	private static Set<Point> floodFillStartingRoom(Grid grid, Point origin)
 	{
-		if (candidates.isEmpty())
+		Set<Point> room = new HashSet<>();
+		if (origin == null || cell(grid, origin.x, origin.y) != ROOM)
+		{
+			return room;
+		}
+
+		ArrayDeque<Point> queue = new ArrayDeque<>();
+		queue.add(origin);
+		room.add(origin);
+
+		while (!queue.isEmpty())
+		{
+			Point p = queue.removeFirst();
+			for (int[] delta : DIRECTION_DELTA)
+			{
+				int nx = p.x + delta[0];
+				int ny = p.y + delta[1];
+				Point next = new Point(nx, ny);
+				if (room.contains(next) || cell(grid, nx, ny) != ROOM)
+				{
+					continue;
+				}
+				room.add(next);
+				queue.addLast(next);
+			}
+		}
+		return room;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static StairPortalSpec pickUp(
+		Point origin,
+		Set<Point> startingRoom,
+		List<Candidate> candidates)
+	{
+		List<Candidate> pool = filterStartingRoom(startingRoom, candidates);
+		if (pool.isEmpty())
+		{
+			pool = candidates;
+		}
+		if (pool.isEmpty())
 		{
 			return null;
 		}
-		Candidate best = candidates.get(0);
+
+		Candidate best = pool.get(0);
 		int bestDist = dist(origin, best.from);
-		for (Candidate c : candidates)
+		for (int i = 1; i < pool.size(); i++)
 		{
+			Candidate c = pool.get(i);
 			int d = dist(origin, c.from);
-			if (d < bestDist)
+			if (d < bestDist || (d == bestDist && c.facingRank() < best.facingRank()))
 			{
 				bestDist = d;
 				best = c;
@@ -107,6 +166,7 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 	/*-------------------------------------------------------------------------*/
 	private static StairPortalSpec pickDown(
 		Point origin,
+		Set<Point> startingRoom,
 		List<Candidate> candidates,
 		StairPortalSpec up)
 	{
@@ -114,22 +174,44 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 		int bestDist = -1;
 		for (Candidate c : candidates)
 		{
+			if (startingRoom.contains(c.from))
+			{
+				continue;
+			}
 			if (up != null && c.from.equals(up.from()))
 			{
 				continue;
 			}
 			int d = dist(origin, c.from);
-			if (d > bestDist)
+			if (d > bestDist || (d == bestDist && best != null && c.facingRank() < best.facingRank()))
 			{
 				bestDist = d;
-			 best = c;
+				best = c;
 			}
 		}
 		return best == null ? null : best.toSpec(StairPortalSpec.StairMask.STAIR_DOWN);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static List<Candidate> findCandidates(Grid grid)
+	private static List<Candidate> filterStartingRoom(Set<Point> startingRoom, List<Candidate> candidates)
+	{
+		if (startingRoom.isEmpty())
+		{
+			return List.of();
+		}
+		List<Candidate> result = new ArrayList<>();
+		for (Candidate c : candidates)
+		{
+			if (startingRoom.contains(c.from))
+			{
+				result.add(c);
+			}
+		}
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<Candidate> findBlankWallCandidates(Grid grid)
 	{
 		int width = grid.getWidth();
 		int height = grid.getHeight();
@@ -144,34 +226,27 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 					continue;
 				}
 
-				tryAdd(grid, result, x, y, 0, -1, CrusaderEngine.Facing.NORTH, true);
-				tryAdd(grid, result, x, y, 0, 1, CrusaderEngine.Facing.SOUTH, true);
-				tryAdd(grid, result, x, y, -1, 0, CrusaderEngine.Facing.WEST, false);
-				tryAdd(grid, result, x, y, 1, 0, CrusaderEngine.Facing.EAST, false);
+				for (int i = 0; i < DIRECTION_SCAN.length; i++)
+				{
+					int dx = DIRECTION_DELTA[i][0];
+					int dy = DIRECTION_DELTA[i][1];
+					int neighbor = cell(grid, x + dx, y + dy);
+					if (neighbor != WALL)
+					{
+						continue;
+					}
+					boolean horizontalWall = DIRECTION_SCAN[i] == CrusaderEngine.Facing.NORTH
+						|| DIRECTION_SCAN[i] == CrusaderEngine.Facing.SOUTH;
+					result.add(new Candidate(
+						new Point(x, y),
+						new Point(x + dx, y + dy),
+						DIRECTION_SCAN[i],
+						horizontalWall,
+						i));
+				}
 			}
 		}
 		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static void tryAdd(
-		Grid grid,
-		List<Candidate> result,
-		int x,
-		int y,
-		int dx,
-		int dy,
-		int fromFacing,
-		boolean horizontalWall)
-	{
-		if (cell(grid, x + dx, y + dy) == CORRIDOR)
-		{
-			result.add(new Candidate(
-				new Point(x, y),
-				new Point(x + dx, y + dy),
-				fromFacing,
-				horizontalWall));
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -187,7 +262,12 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private record Candidate(Point from, Point to, int fromFacing, boolean horizontalWall)
+	private record Candidate(
+		Point from,
+		Point to,
+		int fromFacing,
+		boolean horizontalWall,
+		int facingRank)
 	{
 		StairPortalSpec toSpec(StairPortalSpec.StairMask mask)
 		{

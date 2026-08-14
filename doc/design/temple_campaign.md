@@ -144,9 +144,12 @@ Authored scripts use `SetMazeVariableEvent` + `ZoneChangeEvent` only. Generated-
 
 - Tables `temple.depth.{1,2,3}` / `.loot` reference inherited Default foe/loot
   entries by name. Scaler picks the band; decorator/dressing apply it.
-- Stairs: **wall portals** (not floor tile scripts). Hub `temple.descend.1` →
-  `temple.1`. Generated floor up stairs: `temple.ascend.1` → Temple Hub.
-  Down-stair walls are visual only until multi-depth zone changes return.
+- Stairs: **wall portals** on **blank room walls** (solid wall behind the mask),
+  not on corridor door junctions. Hub `temple.descend.1` → `temple.1`.
+  Generated floor up stairs sit on a blank wall in the **starting room** and use
+  `temple.ascend.1` → Temple Hub. Arrival faces **away** from the stair texture
+  (into the room / hub). Down-stair walls are visual only (far room, blank wall)
+  until multi-depth zone changes return.
 - Optional threat-budget picker later (may read scorers; must not modify them).
 
 ### Phase 2 playtest checklist

@@ -20,10 +20,15 @@
 package mclachlan.maze.campaign.temple;
 
 import java.awt.Point;
+import java.util.List;
+import mclachlan.crusader.CrusaderEngine;
+import mclachlan.dungeongen.StairPortalSpec;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.MovePartyEvent;
 import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Zone;
@@ -56,18 +61,52 @@ public class TempleStairPortalTest extends MazeTestSupport
 	}
 
 	@Test
-	void enteringFromHubSpawnsAtUpPortal() throws Exception
+	void upPortalIsNotOnDoorJunction() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+
+		Zone zone = generateDepth(db, 1);
+		Portal up = findUpPortal(zone);
+		assertNotNull(up, "expected up stair portal");
+
+		for (Portal portal : zone.getPortals())
+		{
+			if ("generic door creak".equals(portal.getMazeScript()))
+			{
+				assertFalse(
+					up.getFrom().equals(portal.getFrom()) && up.getFromFacing() == portal.getFromFacing(),
+					"up stair must not share a door junction");
+				assertFalse(
+					up.getTo().equals(portal.getTo()),
+					"up stair to-tile must not be a corridor door opening");
+			}
+		}
+	}
+
+	@Test
+	void enteringFromHubSpawnsAtUpPortalFacingAway() throws Exception
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
 
 		MazeVariables.set(TempleStairLinks.TRANSITION_MODE, "from_hub");
-		Zone zone = generateDepth(db, 1);
+		Zone zone = db.getZone("temple.1");
+		MazeVariables.set(TempleSeeds.RUN_SEED, Long.toString(RUN_SEED));
+		MazeVariables.set(TempleSeeds.DEPTH, "1");
+		List<MazeEvent> initEvents = zone.getScript().init(zone, 0);
 
-		Point up = TempleFloorDressing.findStairsUpPortalFrom(zone);
-		assertNotNull(up);
-		assertEquals(up, zone.getPlayerOrigin(),
+		Portal up = findUpPortal(zone);
+		assertNotNull(up, "expected up stair portal");
+		assertEquals(up.getFrom(), zone.getPlayerOrigin(),
 			"descending from hub should spawn on up-portal tile");
+
+		MovePartyEvent move = findMoveParty(initEvents);
+		assertEquals(up.getFrom(), move.getPos());
+		assertEquals(StairPortalSpec.oppositeFacing(up.getFromFacing()), move.getFacing(),
+			"arrival should face away from the stair texture");
+		assertEquals(move.getFacing(), Maze.resolveSpawnFacing(
+			ZoneChangeEvent.Facing.UNCHANGED, initEvents, CrusaderEngine.Facing.NORTH));
 	}
 
 	@Test
@@ -79,6 +118,8 @@ public class TempleStairPortalTest extends MazeTestSupport
 		MazeScript script = db.getMazeScript(TempleStairLinks.HUB_DESCEND_SCRIPT);
 		ZoneChangeEvent zce = findZoneChange(script);
 		assertEquals("temple.1", zce.getZone());
+		assertEquals(ZoneChangeEvent.Facing.UNCHANGED, zce.getFacing(),
+			"generated floor facing comes from stair spawn, not a hardcoded compass");
 	}
 
 	@Test
@@ -89,7 +130,11 @@ public class TempleStairPortalTest extends MazeTestSupport
 
 		MazeScript script = db.getMazeScript(TempleStairLinks.HUB_ASCEND_SCRIPT);
 		ZoneChangeEvent zce = findZoneChange(script);
+		TempleStairLinks.SpawnSpec hubSpawn = TempleStairLinks.hubSpawn();
 		assertEquals(TempleStairLinks.HUB_ZONE, zce.getZone());
+		assertEquals(hubSpawn.pos(), zce.getPos());
+		assertEquals(hubSpawn.facing(), zce.getFacing(),
+			"return to hub should face away from the descend-stair texture");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -102,6 +147,19 @@ public class TempleStairPortalTest extends MazeTestSupport
 		return zone;
 	}
 
+	private static MovePartyEvent findMoveParty(List<MazeEvent> events)
+	{
+		for (MazeEvent event : events)
+		{
+			if (event instanceof MovePartyEvent mpe)
+			{
+				return mpe;
+			}
+		}
+		fail("expected MovePartyEvent");
+		return null;
+	}
+
 	private static ZoneChangeEvent findZoneChange(MazeScript script)
 	{
 		for (MazeEvent event : script.getEvents())
@@ -112,6 +170,22 @@ public class TempleStairPortalTest extends MazeTestSupport
 			}
 		}
 		fail("expected ZoneChangeEvent");
+		return null;
+	}
+
+	private static Portal findUpPortal(Zone zone)
+	{
+		if (zone.getPortals() == null)
+		{
+			return null;
+		}
+		for (Portal portal : zone.getPortals())
+		{
+			if (TempleStairLinks.HUB_ASCEND_SCRIPT.equals(portal.getMazeScript()))
+			{
+				return portal;
+			}
+		}
 		return null;
 	}
 

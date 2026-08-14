@@ -9249,7 +9249,15 @@
     "scripts": [
       {
         "affectedTiles": [
-          "150",
+          "150"
+        ],
+        "TYPE_KEY": "mclachlan.crusader.script.RandomLightingScript",
+        "minLightLevel": "32",
+        "maxLightLevel": "10",
+        "frequency": "25"
+      },
+      {
+        "affectedTiles": [
           "118"
         ],
         "TYPE_KEY": "mclachlan.crusader.script.RandomLightingScript",

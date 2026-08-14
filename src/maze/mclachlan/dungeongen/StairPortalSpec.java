@@ -53,6 +53,7 @@ public record StairPortalSpec(
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/** Facing when arriving on {@link #from()}: away from the stair-mask wall. */
 	public int spawnFacing()
 	{
 		return oppositeFacing(fromFacing);

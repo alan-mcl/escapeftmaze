@@ -30,6 +30,8 @@ import mclachlan.maze.game.GameState;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.MovePartyEvent;
+import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.Portal;
@@ -93,6 +95,14 @@ public class TempleFloorGenTest extends MazeTestSupport
 		// otherwise the raycaster spawns off-map and the floor looks ungenerated.
 		assertEquals(origin, Maze.resolveSpawnPos(new Point(-1, -1), zone));
 		assertEquals(new Point(3, 4), Maze.resolveSpawnPos(new Point(3, 4), zone));
+		assertEquals(CrusaderEngine.Facing.SOUTH, Maze.resolveSpawnFacing(
+			ZoneChangeEvent.Facing.UNCHANGED,
+			List.of(new MovePartyEvent(origin, CrusaderEngine.Facing.SOUTH)),
+			CrusaderEngine.Facing.WEST));
+		assertEquals(CrusaderEngine.Facing.EAST, Maze.resolveSpawnFacing(
+			CrusaderEngine.Facing.EAST,
+			List.of(new MovePartyEvent(origin, CrusaderEngine.Facing.SOUTH)),
+			CrusaderEngine.Facing.WEST));
 
 		assertEquals("1", MazeVariables.get(TempleSeeds.DEPTH));
 		assertNotNull(MazeVariables.get(TempleSeeds.RUN_SEED));
