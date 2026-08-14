@@ -20,7 +20,7 @@
 package mclachlan.maze.campaign.temple;
 
 /**
- * Runtime zone naming for the procedural temple floor ({@code temple.1}).
+ * Runtime display titles for the procedural temple floor ({@code temple.1}).
  */
 public final class TempleFloorLabels
 {

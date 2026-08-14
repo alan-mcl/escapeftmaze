@@ -59,6 +59,7 @@ public class ZonePanel extends EditorPanel
 	private MapScriptListPanel mapScripts;
 	private StringMapTablePanel metadataPanel;
 	private JSpinner order, playerOriginX, playerOriginY;
+	private JTextField displayName;
 	private Zone zone;
 
 	/*-------------------------------------------------------------------------*/
@@ -294,6 +295,17 @@ public class ZonePanel extends EditorPanel
 		gbc.weighty = 0.0;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 
+		result.add(new JLabel("Display Name:"), gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+		displayName = new JTextField(25);
+		displayName.addKeyListener(this);
+		result.add(displayName, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.weightx = 0.0;
 		result.add(new JLabel("Width (E-W):"), gbc);
 
 		gbc.gridx++;
@@ -481,6 +493,7 @@ public class ZonePanel extends EditorPanel
 		order.removeChangeListener(this);
 		playerOriginX.removeChangeListener(this);
 		playerOriginY.removeChangeListener(this);
+		displayName.removeKeyListener(this);
 		
 		width.setText(""+zone.getWidth());
 		length.setText(""+zone.getLength());
@@ -563,6 +576,7 @@ public class ZonePanel extends EditorPanel
 		order.setValue(zone.getOrder());
 		playerOriginX.setValue(zone.getPlayerOrigin().x);
 		playerOriginY.setValue(zone.getPlayerOrigin().y);
+		displayName.setText(zone.getDisplayName() == null ? "" : zone.getDisplayName());
 
 		if (metadataPanel != null)
 		{
@@ -583,6 +597,7 @@ public class ZonePanel extends EditorPanel
 		order.addChangeListener(this);
 		playerOriginX.addChangeListener(this);
 		playerOriginY.addChangeListener(this);
+		displayName.addKeyListener(this);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -897,6 +912,8 @@ public class ZonePanel extends EditorPanel
 			zone.setOrder((Integer)order.getValue());
 			zone.setPlayerOrigin(new Point(
 				(Integer)playerOriginX.getValue(), (Integer)playerOriginY.getValue()));
+			String display = displayName.getText() == null ? "" : displayName.getText().trim();
+			zone.setDisplayName(display.isEmpty() ? null : display);
 
 			if (metadataPanel != null)
 			{

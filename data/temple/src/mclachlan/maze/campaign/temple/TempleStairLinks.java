@@ -37,6 +37,9 @@ public final class TempleStairLinks
 	public static final String HUB_PORTAL_DOWN = "temple.hub.portal.down";
 	public static final String HUB_DESCEND_SCRIPT = "temple.descend.1";
 	public static final String HUB_ASCEND_SCRIPT = "temple.ascend.1";
+	public static final String DESCEND_NEXT_SCRIPT = "temple.descend.next";
+	public static final String ASCEND_PREV_SCRIPT = "temple.ascend.prev";
+	public static final String FLOOR_ZONE = TempleFloorLabels.FLOOR_ZONE_ID;
 	public static final String HUB_ZONE = "Temple Hub";
 
 	private static final Point FALLBACK_HUB_STAIR = new Point(5, 8);
@@ -195,5 +198,17 @@ public final class TempleStairLinks
 	private static String portalVar(int depth, boolean up)
 	{
 		return TempleSeeds.portalVar(depth, up);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String ascendScriptForDepth(int depth)
+	{
+		return depth <= 1 ? HUB_ASCEND_SCRIPT : ASCEND_PREV_SCRIPT;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String descendScriptForDepth(int depth)
+	{
+		return DESCEND_NEXT_SCRIPT;
 	}
 }

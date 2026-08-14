@@ -51,7 +51,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		TempleSeeds.setDepth(dungeonLevel);
 
 		TempleFloorShell.ensureGenSize(zone);
-		zone.setName(TempleFloorLabels.displayName(dungeonLevel));
+		zone.setDisplayName(TempleFloorLabels.displayName(dungeonLevel));
 
 		int seed = TempleSeeds.floorSeed(dungeonLevel);
 
@@ -61,7 +61,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		DungeonGenResult result = createDungeonGen(zone, dungeonLevel)
 			.generate(zone, seed, dungeonLevel, DECORATOR, ctx);
 
-		TempleStairwellDresser.apply(zone, result.stairwells());
+		TempleStairwellDresser.apply(zone, dungeonLevel, result.stairwells());
 		TempleStairLinks.persistPlan(dungeonLevel, result.stairwells());
 		zone.setPlayerOrigin(result.playerOrigin());
 

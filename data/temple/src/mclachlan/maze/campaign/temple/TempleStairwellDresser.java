@@ -40,7 +40,7 @@ public final class TempleStairwellDresser
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void apply(Zone zone, StairwellPlan plan)
+	public static void apply(Zone zone, int depth, StairwellPlan plan)
 	{
 		if (plan == null)
 		{
@@ -55,12 +55,11 @@ public final class TempleStairwellDresser
 
 		if (plan.stairsUp() != null)
 		{
-			applyPortal(zone, plan.stairsUp(), portals, TempleStairLinks.HUB_ASCEND_SCRIPT);
+			applyPortal(zone, plan.stairsUp(), portals, TempleStairLinks.ascendScriptForDepth(depth));
 		}
 		if (plan.stairsDown() != null)
 		{
-			// Visual down-stair only until multi-depth zone changes return.
-			applyStairWall(zone, plan.stairsDown());
+			applyPortal(zone, plan.stairsDown(), portals, TempleStairLinks.descendScriptForDepth(depth));
 		}
 
 		zone.setPortals(portals.toArray(new Portal[0]));

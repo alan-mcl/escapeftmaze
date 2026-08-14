@@ -67,7 +67,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-7 | code | Character creation: restrict portraits by race | Portraits filtered by race/gender. (stufftodo) | S | todo |
 | P2-8 | balance | Comprehensive combat/economy balance pass | Uses the `maze/balance/` headless tools. (stufftodo) | L | todo |
 | P2-9 | feature | Demo / training mode | (stufftodo) | M | todo |
-| P2-28 | feature | Temple of Wasud campaign (`temple`) | Sparse child of default; rogue-like delve + balance lab. Spec: [temple_campaign.md](temple_campaign.md) §15. Phases 0–4 done (layout via `DungeonGen`; portal-linked stairs via `TempleStairLinks` / `StairwellPlanner`). Next: Phase 5 Wasud quest. | XL | in-progress |
+| P2-28 | feature | Temple of Wasud campaign (`temple`) | Sparse child of default; rogue-like delve + balance lab. Spec: [temple_campaign.md](temple_campaign.md) §15. Phases 0–4 done (layout via `DungeonGen`; multi-depth stair zone changes via maze variables). Next: Phase 5 Wasud quest. | XL | in-progress |
 
 ### Editor
 

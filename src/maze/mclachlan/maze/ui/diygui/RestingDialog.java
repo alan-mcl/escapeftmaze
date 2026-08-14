@@ -176,7 +176,7 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	{
 		RestingProgressDialog dialog = new RestingProgressDialog(
 			getUiLabel("rd.resting.progress",
-				Maze.getInstance().getCurrentZone().getName()));
+				Maze.getInstance().getCurrentZone().getUiName()));
 
 		// clear this dialog
 		Maze.getInstance().getUi().clearDialog();

@@ -317,7 +317,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 
 | Class | File | Purpose / key fields |
 |-------|------|----------------------|
-| Zone | `map/Zone.java` | `name`, `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), `metadata` (optional `Map<String,String>` campaign/mod tags), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin` |
+| Zone | `map/Zone.java` | `name` (identity / file key), `displayName` (optional player-facing title; UI uses `getUiName()` which falls back to `name`), `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), `metadata` (optional `Map<String,String>` campaign/mod tags), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin` |
 | Tile | `map/Tile.java` | `scripts` (List<TileScript>), `statModifier`, `terrainType` (FAKE/URBAN/DUNGEON/WILDERNESS/WASTELAND), `terrainSubType`, `randomEncounterChance`, `randomEncounters` (EncounterTable), `restingDanger`/`restingEfficiency`; runtime `zone`/`coords`/`sector` |
 | Portal | `map/Portal.java` | `mazeVariable`, `initialState`, `from`/`to` (Point), `fromFacing`/`toFacing`, `twoWay`, lock/trap (`canForce`, `canPick`, `difficulty[]`, `keyItem`, `consumeKeyItem`), `mazeScript`, `stateChangeScript` |
 | EncounterTable | `map/EncounterTable.java` | `name`, `encounterTable` (PercentageTable<FoeEntry>) |
@@ -328,6 +328,8 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 | TileScript | `map/TileScript.java` | Abstract tile event hook (`Encounter`, `Chest`, `Lever`, `FlavourText`, ... in `map/script/`) |
 | Chest | `map/script/Chest.java` | `chestContents` and `preScript` are embedded `MazeScript`s (event lists); `traps`, textures, `mazeVariable` |
 | MazeScript | `game/MazeScript.java` | Named ordered list of `MazeEvent`s (stored in `scripts.json`; referenced from tiles, portals, NPCs; also embedded inline on Chest, Lever, Encounter, etc.) |
+| SetMazeVariableEvent | `map/script/SetMazeVariableEvent.java` | `mazeVariable`, `value` — assigns a maze variable string |
+| IncrementMazeVariableEvent | `map/script/IncrementMazeVariableEvent.java` | `mazeVariable`, `amount` — adds to an integer maze variable (missing starts at 0) |
 | Hidden loot | — | Object or wall-mask `mouseClickScript` (`ExecuteMazeScript`) with `scoutSecretDifficulty` for scout spot speech; click runs content |
 | FallingDamageEvent | `map/script/FallingDamageEvent.java` | Authored script event: `damage` (Dice); rolls once and applies bludgeoning damage to each living party member without `Stats.Modifier.FLIER` |
 | ZoneScript | `map/ZoneScript.java` | Zone-level init/end-of-turn ambient script |
@@ -353,7 +355,7 @@ Temple campaign stair linkage (see [temple_campaign.md](temple_campaign.md)):
 | DifficultyLevel | `game/DifficultyLevel.java` | Difficulty preset; selects foe AI and spawn/combat modifiers |
 | PlayerParty | `stat/PlayerParty.java` | Runtime party: PCs, gold, supplies, formation |
 | PlayerTilesVisited | `game/PlayerTilesVisited.java` | Auto-map exploration per zone |
-| Journal | `game/journal/Journal.java` | Quest/logbook/zone/npc entries |
+| Journal | `game/journal/Journal.java` | Quest/logbook/zone/npc entries. Zone journal keys and arrive/depart text use `Zone.getUiName()` (display name, falling back to identity `name`). |
 | UserConfig | `game/UserConfig.java` | `combatDelay`, `personalityChattiness`, `musicVolume`, `currentTipIndex`, `autoAddConsumables`, `extras` (Map of arbitrary keys e.g. `unlock.race.*`) |
 
 ### 4.9 User preferences (repo root)

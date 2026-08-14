@@ -139,7 +139,7 @@ public class JournalManager
 	/*-------------------------------------------------------------------------*/
 	public void zoneJournal(String text)
 	{
-		String zoneName = Maze.getInstance().getCurrentZone().getName();
+		String zoneName = Maze.getInstance().getCurrentZone().getUiName();
 
 		zoneJournal(zoneName, text);
 	}

@@ -75,7 +75,7 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 		buttonPane.add(zoomIn);
 		buttonPane.add(zoomOut);
 
-		DIYPane title = getTitlePane(zone.getName());
+		DIYPane title = getTitlePane(zone.getUiName());
 
 		close = getCloseButton();
 		close.addActionListener(this);

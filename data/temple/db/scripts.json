@@ -63,6 +63,34 @@
     ]
   },
   {
+    "name": "temple.descend.next",
+    "events": [
+      {
+        "mazeVariable": "temple.depth",
+        "amount": "1",
+        "TYPE_KEY": "mclachlan.maze.map.script.IncrementMazeVariableEvent"
+      },
+      {
+        "mazeVariable": "temple.transition.mode",
+        "value": "from_above",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
+        "flavourText": "Stone steps descend into deeper darkness. The temple air grows heavier.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "true"
+      },
+      {
+        "facing": "0",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "temple.1",
+        "pos": "-1:-1"
+      }
+    ]
+  },
+  {
     "name": "temple.main.menu",
     "events": [
       {
@@ -75,6 +103,11 @@
     "name": "temple.ascend.1",
     "events": [
       {
+        "mazeVariable": "temple.depth",
+        "value": "0",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
         "flavourText": "Stone stairs lead back up toward the temple entrance.",
         "delay": "-1",
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
@@ -86,6 +119,34 @@
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
         "zone": "Temple Hub",
         "pos": "5:8"
+      }
+    ]
+  },
+  {
+    "name": "temple.ascend.prev",
+    "events": [
+      {
+        "mazeVariable": "temple.depth",
+        "amount": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.IncrementMazeVariableEvent"
+      },
+      {
+        "mazeVariable": "temple.transition.mode",
+        "value": "from_below",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent"
+      },
+      {
+        "flavourText": "Stone stairs climb back toward the previous level.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "alignment": "CENTER",
+        "shouldClearText": "true"
+      },
+      {
+        "facing": "0",
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "temple.1",
+        "pos": "-1:-1"
       }
     ]
   }

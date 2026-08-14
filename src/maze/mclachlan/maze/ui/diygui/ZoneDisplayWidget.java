@@ -89,7 +89,7 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void setZone(Zone z)
 	{
-		this.zoneName.setText(z.getName());
+		this.zoneName.setText(z.getUiName());
 	}
 
 	/*-------------------------------------------------------------------------*/

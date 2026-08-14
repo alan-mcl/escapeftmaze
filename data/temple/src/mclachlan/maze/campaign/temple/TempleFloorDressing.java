@@ -34,7 +34,8 @@ import mclachlan.maze.map.script.Loot;
 public final class TempleFloorDressing
 {
 	public static final String ASCEND_SCRIPT = TempleStairLinks.HUB_ASCEND_SCRIPT;
-	public static final String DESCEND_SCRIPT = TempleStairLinks.HUB_DESCEND_SCRIPT;
+	public static final String ASCEND_PREV_SCRIPT = TempleStairLinks.ASCEND_PREV_SCRIPT;
+	public static final String DESCEND_SCRIPT = TempleStairLinks.DESCEND_NEXT_SCRIPT;
 
 	private TempleFloorDressing()
 	{
@@ -116,7 +117,12 @@ public final class TempleFloorDressing
 	/*-------------------------------------------------------------------------*/
 	public static Point findStairsUpPortalFrom(Zone zone)
 	{
-		return findPortalFrom(zone, ASCEND_SCRIPT);
+		Point up = findPortalFrom(zone, ASCEND_SCRIPT);
+		if (up != null)
+		{
+			return up;
+		}
+		return findPortalFrom(zone, ASCEND_PREV_SCRIPT);
 	}
 
 	/*-------------------------------------------------------------------------*/

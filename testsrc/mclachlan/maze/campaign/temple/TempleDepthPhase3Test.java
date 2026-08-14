@@ -28,6 +28,7 @@ import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.LootTable;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Encounter;
@@ -88,8 +89,10 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 
 		Zone depth1 = generate(db, 1);
 		assertNotNull(TempleFloorDressing.findStairsUpTile(depth1));
-		assertNotNull(TempleStairLinks.readPortal(1, false),
-			"depth 1 still places a down stair for later multi-depth work");
+		assertNotNull(TempleStairLinks.readPortal(1, false));
+		assertNotNull(TempleFloorDressing.findStairsDownPortalFrom(depth1));
+		assertTrue(hasPortalScript(depth1, TempleStairLinks.DESCEND_NEXT_SCRIPT,
+			TempleFloorDressing.findStairsDownPortalFrom(depth1)));
 
 		Zone depth2 = generate(db, 2);
 		assertNotEquals(
@@ -98,6 +101,9 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 
 		assertNotNull(TempleFloorDressing.findStairsUpTile(depth2));
 		assertNotNull(TempleStairLinks.readPortal(2, false));
+		assertNotNull(TempleFloorDressing.findStairsDownPortalFrom(depth2));
+		assertTrue(hasPortalScript(depth2, TempleStairLinks.ASCEND_PREV_SCRIPT,
+			TempleFloorDressing.findStairsUpPortalFrom(depth2)));
 
 		assertTrue(
 			countLoot(depth2) >= TempleDepthScaler.lootPlacements(2)
@@ -227,5 +233,21 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 			}
 		}
 		return null;
+	}
+
+	private static boolean hasPortalScript(Zone zone, String script, Point from)
+	{
+		if (zone.getPortals() == null)
+		{
+			return false;
+		}
+		for (Portal portal : zone.getPortals())
+		{
+			if (script.equals(portal.getMazeScript()) && from.equals(portal.getFrom()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

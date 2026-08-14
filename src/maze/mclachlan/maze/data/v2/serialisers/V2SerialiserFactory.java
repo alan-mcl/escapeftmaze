@@ -462,6 +462,8 @@ public class V2SerialiserFactory
 		map.put(BlockingScreenEvent.class, getReflectiveSerialiser(BlockingScreenEvent.class, "imageResource", "mode"));
 		map.put(EndGameEvent.class, getReflectiveSerialiser(EndGameEvent.class));
 		map.put(SetMazeVariableEvent.class, getReflectiveSerialiser(SetMazeVariableEvent.class, "mazeVariable", "value"));
+		map.put(IncrementMazeVariableEvent.class, getReflectiveSerialiser(
+			IncrementMazeVariableEvent.class, "mazeVariable", "amount"));
 		map.put(AdvanceToTurnOfDayEvent.class, getReflectiveSerialiser(
 			AdvanceToTurnOfDayEvent.class, "turnOfDay", "onceMazeVariable"));
 		map.put(PersonalitySpeechBubbleEvent.class, getReflectiveSerialiser(PersonalitySpeechBubbleEvent.class, "speechKey", "modal"));
@@ -1371,6 +1373,7 @@ public class V2SerialiserFactory
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(Zone.class,
 			"name",
+			"displayName",
 			"script",
 			"shadeTargetColor",
 			"transparentColor",

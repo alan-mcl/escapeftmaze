@@ -43,6 +43,8 @@ import mclachlan.maze.stat.npc.NpcManager;
 public class Zone extends DataObject
 {
 	private String name;
+	/** Player-facing title; when unset, {@link #getUiName()} falls back to {@link #getName()}. */
+	private String displayName;
 	private Map map;
 	private Tile[][] tiles;
 	private List<Portal> portals;
@@ -373,6 +375,26 @@ public class Zone extends DataObject
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getDisplayName()
+	{
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName)
+	{
+		this.displayName = displayName;
+	}
+
+	/** Player-facing title; {@link #getName()} when {@link #displayName} is unset. */
+	public String getUiName()
+	{
+		if (displayName == null || displayName.isEmpty())
+		{
+			return name;
+		}
+		return displayName;
 	}
 
 	public Tile getTile(Point p)

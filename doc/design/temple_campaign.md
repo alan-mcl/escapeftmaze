@@ -131,25 +131,27 @@ encounter/loot table names, loot placement count, foe-pack multiplier hint.
 **Orthogonal** to inherited Easy/Normal/Hard/Heroic `DifficultyLevel`. Depths
 beyond band 3 reuse band-3 tables (endless until Phase 5 quest bands).
 
-Multi-depth loop is **not wired yet**. The working vertical transition is hub ↔ depth 1:
+Multi-depth loop uses one procedural shell (`temple.1`) plus maze variables for depth:
 
 ```
-Hub --temple.descend.1--> temple.1
-temple.1 --temple.ascend.1--> Temple Hub
+Hub --temple.descend.1--> Temple Depth 1
+Temple Depth N --temple.descend.next--> Temple Depth N+1
+Temple Depth N --temple.ascend.prev--> Temple Depth N-1  (N > 1)
+Temple Depth 1 --temple.ascend.1--> Hub
 ```
 
-Authored scripts use `SetMazeVariableEvent` + `ZoneChangeEvent` only. Generated-floor up stairs reuse `temple.ascend.1`. Down stairs are dressed as walls but have no portal until multi-depth returns. Layout still regens from `temple.floor.seed.N` on each visit; cleared enc/loot persist via maze variables. Display title is **`Temple Depth N`** (`TempleFloorLabels`).
+Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `ZoneChangeEvent` only. Each transition sets `temple.depth` and a transient `temple.transition.mode` (`from_hub`, `from_above`, `from_below`). Layout regens from `temple.floor.seed.N` on each visit; cleared enc/loot and stair portal coords persist via maze variables. Zone identity stays **`temple.1`**; generation sets `displayName` to **`Temple Depth N`** (`TempleFloorLabels`) for the HUD / map title. Saves store `temple.1`.
 
 ## 9. Encounters and loot
 
 - Tables `temple.depth.{1,2,3}` / `.loot` reference inherited Default foe/loot
   entries by name. Scaler picks the band; decorator/dressing apply it.
 - Stairs: **wall portals** on **blank room walls** (solid wall behind the mask),
-  not on corridor door junctions. Hub `temple.descend.1` → `temple.1`.
-  Generated floor up stairs sit on a blank wall in the **starting room** and use
-  `temple.ascend.1` → Temple Hub. Arrival faces **away** from the stair texture
-  (into the room / hub). Down-stair walls are visual only (far room, blank wall)
-  until multi-depth zone changes return.
+  not on corridor door junctions. Hub `temple.descend.1` → depth 1.
+  Depth 1 up → `temple.ascend.1` → Temple Hub; depth 2+ up → `temple.ascend.prev`.
+  All generated floors down → `temple.descend.next`. Arrival faces **away** from
+  the stair texture (into the room / hub / deeper level). All floor transitions
+  zone-change to `temple.1` with spawn from init `MovePartyEvent`.
 - Optional threat-budget picker later (may read scorers; must not modify them).
 
 ### Phase 2 playtest checklist
@@ -163,8 +165,8 @@ Automated: `TempleFloorGenTest`.
 
 ### Phase 3 playtest checklist
 
-1. Depth 1 floor has stairs **up** back to the hub.
-2. Depth 2 can still generate from seed (scaler/loot) without a zone change.
+1. Depth 1 floor has stairs **up** back to the hub and **down** to depth 2.
+2. Depth 2 zone-changes from depth 1 via `temple.descend.next` / regen.
 3. Clear an encounter / loot on depth 1; leave and return → stays cleared/looted.
 4. Ascend from depth 1 → Temple Hub.
 5. Depth 4+ still generates (soft-caps to band-3 tables).
@@ -250,8 +252,9 @@ the previous phase’s exit criteria are met (or explicitly waived).
 - Authored **hub** + generated delve floors (`DungeonGen`; Noise4j today).
 - **Run seed → derived floor seeds**; persist **mutations**, not only seeds.
 - **`TempleDepthScaler`** in the temple package; orthogonal to difficulty modes.
-- **Single generated floor zone** (`temple.1`); hub ↔ depth 1 only until
-  multi-depth zone changes return.
+- **Single generated floor zone** (`temple.1` shell); depth via maze variables;
+  hub ↔ depth 1 and depth N ↔ N±1 via authored stair scripts. Generation sets
+  `Zone.displayName` (`Temple Depth N`); identity stays `temple.1`.
 - Soft-cap bands + **post-victory endless** delve (Phase 5+).
 - **Fragments** (Phase 4): catalog + stamp helpers reserved for a future WFC
   `DungeonGen`; live layout is Noise4j-only (Phases 2–4 base gen).

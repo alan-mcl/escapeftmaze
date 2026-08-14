@@ -1,5 +1,6 @@
 {
   "name": "Temple Hub",
+  "displayName": "Temple Courtyard",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
     "ambientScripts": {
@@ -2917,13 +2918,13 @@
         "bottomColour": "0",
         "topColour": "0",
         "ceilingImage": "sky.ichiba.flat.2",
-        "imageScale": "64",
+        "imageScale": "16",
         "ceilingHeight": "20"
       },
       {
         "type": "CYLINDER_GRADIENT",
-        "bottomColour": "-18667",
-        "topColour": "-65536",
+        "bottomColour": "-43979",
+        "topColour": "-256",
         "imageScale": "0",
         "ceilingHeight": "0"
       }
@@ -6010,7 +6011,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "3"
       },
       {
         "textures": [],
@@ -6125,7 +6126,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "3"
       },
       {
         "textures": [
@@ -6133,7 +6134,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -6178,9 +6179,11 @@
         "height": "4"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "2"
       },
       {
@@ -6235,7 +6238,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -6244,10 +6247,12 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "3"
       },
       {
         "textures": [],
@@ -6348,10 +6353,12 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "3"
       },
       {
         "textures": [],
@@ -6476,6 +6483,38 @@
         "height": "1"
       },
       {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "DUNGEON_PORTCULLIS_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
         "textures": [],
         "visible": "false",
         "solid": "false",
@@ -6486,6 +6525,89 @@
         "visible": "false",
         "solid": "false",
         "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TRANSPARENT",
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "false",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "5"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
       },
       {
         "textures": [
@@ -6555,111 +6677,6 @@
         "visible": "true",
         "solid": "true",
         "height": "5"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "2"
-      },
-      {
-        "textures": [
-          "DUNGEON_PORTCULLIS_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TRANSPARENT",
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "false",
-        "height": "2"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "JUNGLE_CLIFF_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "2"
       },
       {
         "textures": [],
@@ -6762,16 +6779,20 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "5"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "5"
       },
       {
         "textures": [],
@@ -6810,10 +6831,12 @@
         "height": "4"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "6"
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
       },
       {
         "textures": [
@@ -6985,10 +7008,12 @@
         "height": "2"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "4"
       },
       {
         "textures": [],
@@ -7794,7 +7819,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "3"
       },
       {
         "textures": [
@@ -7802,7 +7827,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "3"
       },
       {
         "textures": [],
@@ -7914,7 +7939,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -7928,7 +7953,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -8038,7 +8063,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [
@@ -8046,7 +8071,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "3"
       },
       {
         "textures": [],
@@ -8154,7 +8179,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [
@@ -8162,7 +8187,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -8189,9 +8214,11 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -8208,6 +8235,7 @@
       },
       {
         "textures": [
+          "DUNGEON_WALL_1_ARCH",
           "DUNGEON_WALL_1"
         ],
         "visible": "true",
@@ -8264,7 +8292,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [
@@ -8272,7 +8300,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "5"
+        "height": "2"
       },
       {
         "textures": [],
@@ -8299,9 +8327,11 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -8389,7 +8419,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "5"
       },
       {
         "textures": [],
@@ -8416,9 +8446,11 @@
         "height": "1"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       },
       {
@@ -8435,6 +8467,7 @@
       },
       {
         "textures": [
+          "DUNGEON_WALL_1_ARCH",
           "DUNGEON_WALL_1"
         ],
         "visible": "true",
@@ -8491,7 +8524,7 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "2"
+        "height": "5"
       },
       {
         "textures": [],
@@ -8612,10 +8645,12 @@
         "height": "2"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "4"
       },
       {
         "textures": [],
@@ -8732,10 +8767,12 @@
         "height": "2"
       },
       {
-        "textures": [],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "4"
       },
       {
         "textures": [],

@@ -114,6 +114,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField blockingScreenImage;
 	private JSpinner blockingScreenMode;
 	private JTextField setMazeVarMazeVar, setMazeVarValue;
+	private JTextField incrementMazeVarMazeVar;
+	private JSpinner incrementMazeVarAmount;
 	private JSpinner advanceToTurnOfDayTurn;
 	private JTextField advanceToTurnOfDayOnceVar;
 	private JSpinner fromX, fromY;
@@ -352,6 +354,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				SetMazeVariableEvent sme = (SetMazeVariableEvent)e;
 				setMazeVarMazeVar.setText(sme.getMazeVariable());
 				setMazeVarValue.setText(sme.getValue());
+				break;
+			case _IncrementMazeVariableEvent:
+				IncrementMazeVariableEvent ime = (IncrementMazeVariableEvent)e;
+				incrementMazeVarMazeVar.setText(ime.getMazeVariable());
+				incrementMazeVarAmount.setValue(ime.getAmount());
 				break;
 			case _AdvanceToTurnOfDayEvent:
 				AdvanceToTurnOfDayEvent atde = (AdvanceToTurnOfDayEvent)e;
@@ -668,6 +675,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _SetMazeVariableEvent:
 				this.result = new SetMazeVariableEvent(setMazeVarMazeVar.getText(), setMazeVarValue.getText());
 				break;
+			case _IncrementMazeVariableEvent:
+				this.result = new IncrementMazeVariableEvent(
+					incrementMazeVarMazeVar.getText(),
+					(Integer)incrementMazeVarAmount.getValue());
+				break;
 			case _AdvanceToTurnOfDayEvent:
 				String onceVar = advanceToTurnOfDayOnceVar.getText().trim();
 				this.result = new AdvanceToTurnOfDayEvent(
@@ -849,6 +861,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getEndGamePanel();
 			case _SetMazeVariableEvent:
 				return getSetMazeVarPanel();
+			case _IncrementMazeVariableEvent:
+				return getIncrementMazeVarPanel();
 			case _AdvanceToTurnOfDayEvent:
 				return getAdvanceToTurnOfDayPanel();
 			case _TogglePortalStateEvent:
@@ -1088,6 +1102,17 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		return dirtyGridBagCrap(
 			new JLabel("Maze Variable:"), setMazeVarMazeVar,
 			new JLabel("Value:"), setMazeVarValue);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getIncrementMazeVarPanel()
+	{
+		incrementMazeVarMazeVar = new JTextField(25);
+		incrementMazeVarAmount = new JSpinner(new SpinnerNumberModel(1, -9999, 9999, 1));
+
+		return dirtyGridBagCrap(
+			new JLabel("Maze Variable:"), incrementMazeVarMazeVar,
+			new JLabel("Amount:"), incrementMazeVarAmount);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1631,6 +1656,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "End Game";
 			case _SetMazeVariableEvent:
 				return "Set Maze Variable";
+			case _IncrementMazeVariableEvent:
+				return "Increment Maze Variable";
 			case _AdvanceToTurnOfDayEvent:
 				return "Advance To Turn Of Day";
 			case _TogglePortalStateEvent:
@@ -1765,6 +1792,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	public static final int _BlockingScreen = 15;
 	public static final int _EndGame = 16;
 	public static final int _SetMazeVariableEvent = 17;
+	public static final int _IncrementMazeVariableEvent = 29;
 	public static final int _AdvanceToTurnOfDayEvent = 28;
 	public static final int _PersonalitySpeechEvent = 18;
 	public static final int _NpcSpeechEvent = 206;
@@ -1931,6 +1959,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		types.put(NpcTakesItemEvent.class, _NpcTakesItemEvent);
 		types.put(WaitForPlayerSpeech.class, _WaitForPlayerSpeech);
 		types.put(SetMazeVariableEvent.class, _SetMazeVariableEvent);
+		types.put(IncrementMazeVariableEvent.class, _IncrementMazeVariableEvent);
 		types.put(AdvanceToTurnOfDayEvent.class, _AdvanceToTurnOfDayEvent);
 		types.put(ChangeNpcFactionAttitudeEvent.class, _ChangeNpcFactionAttitudeEvent);
 	}

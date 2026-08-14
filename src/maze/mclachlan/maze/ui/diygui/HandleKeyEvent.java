@@ -71,7 +71,6 @@ class HandleKeyEvent extends MazeEvent
 		List<MazeEvent> result = new ArrayList<>();
 
 		Maze maze = Maze.getInstance();
-		Zone oldZone = maze.getCurrentZone();
 
 		if (portal.getMazeScript() != null)
 		{
@@ -81,8 +80,7 @@ class HandleKeyEvent extends MazeEvent
 
 		for (MazeEvent me : result)
 		{
-			if (me instanceof ZoneChangeEvent zce
-				&& !oldZone.getName().equals(zce.getZone()))
+			if (me instanceof ZoneChangeEvent)
 			{
 				return result;
 			}
