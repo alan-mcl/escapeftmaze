@@ -25,6 +25,41 @@
     "TYPE_KEY": "mclachlan.maze.map.LootTable"
   },
   {
+    "name": "magus.thamiel.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "name": "Stave Of Moons",
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry"
+        },
+        {
+          "name": "Robes Of Rejuvenation",
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry"
+        },
+        {
+          "name": "Enchanted Robes (L)",
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry"
+        },
+        {
+          "name": "Bag Of Tricks",
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry"
+        },
+        {
+          "name": "Ring Pro Magic",
+          "TYPE_KEY": "mclachlan.maze.map.SingleItemLootEntry"
+        }
+      ]
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootTable"
+  },
+  {
     "name": "temple.depth.2.loot",
     "lootEntries": {
       "PERCENTAGES": [

@@ -1,5 +1,14 @@
 [
   {
+    "name": "foe.magi",
+    "scrollSpeed": "-1",
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "animationDelay": "-1",
+    "imageResources": [
+      "crusader/foe/magi"
+    ]
+  },
+  {
     "name": "screen.sunset",
     "scrollSpeed": "-1",
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",

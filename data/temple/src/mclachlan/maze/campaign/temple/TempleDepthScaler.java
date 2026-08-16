@@ -78,6 +78,16 @@ public final class TempleDepthScaler
 
 	/*-------------------------------------------------------------------------*/
 	/**
+	 * Scout difficulty for hidden storage loot on procedural floors. Depth N
+	 * targets party level N ({@code SCOUTING >= difficulty} spots the stash).
+	 */
+	public static int scoutSecretDifficulty(int depth)
+	{
+		return Math.max(1, depth);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
 	 * Asymptotic packing hint (1.0 at depth 1 → approaches ~1.5). Used for
 	 * docs/harness; encounter tables themselves carry pack size for Phase 3.
 	 */

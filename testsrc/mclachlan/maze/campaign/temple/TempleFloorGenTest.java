@@ -65,6 +65,15 @@ public class TempleFloorGenTest extends MazeTestSupport
 
 	/*-------------------------------------------------------------------------*/
 	@Test
+	void tilesVisitedKeyIsPerDepth()
+	{
+		assertEquals("temple.1#1", TempleFloorLabels.tilesVisitedKey(1));
+		assertEquals("temple.1#2", TempleFloorLabels.tilesVisitedKey(2));
+		assertEquals("temple.1", TempleFloorLabels.tilesVisitedKey(0));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
 	void generatedFloorHasEncountersStairsLootAndReachableExit() throws Exception
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
@@ -79,6 +88,8 @@ public class TempleFloorGenTest extends MazeTestSupport
 		assertEquals("temple.1", zone.getName());
 		assertEquals("Temple Depth 1", zone.getDisplayName());
 		assertEquals("Temple Depth 1", zone.getUiName());
+		assertEquals("temple.1#1", zone.getTilesVisitedKey(),
+			"auto-map key is per depth so regenerated floors do not share exploration");
 
 		List<Point> encounters = TempleFloorDressing.findEncounterTiles(zone);
 		assertFalse(encounters.isEmpty(), "expected door-room encounters");
@@ -87,7 +98,8 @@ public class TempleFloorGenTest extends MazeTestSupport
 		assertNotNull(stairs, "expected stairs-up script on a tile");
 		assertFalse(stairs.equals(origin), "stairs should not sit on the spawn tile");
 
-		assertTrue(countChestScripts(zone) >= 1, "expected at least one wall chest");
+		assertTrue(countChestScripts(zone) + TempleUsageThemeTest.countHiddenStashObjects(zone) >= 1,
+			"expected at least one wall chest or hidden storage stash");
 
 		assertNotNull(MazeVariables.get(TempleSeeds.rosterVar(1)), "foe roster should persist");
 		assertNoEncountersInStartingRoom(zone, 1);

@@ -29,7 +29,8 @@ public class PlayerTilesVisited
 {
 	/**
 	 * Map of tiles visited.<p>
-	 * KEY: Zone name <br>
+	 * KEY: {@link mclachlan.maze.map.Zone#getTilesVisitedKey()} (defaults to
+	 * zone name)<br>
 	 * VALUE: List of Points representing tiles visited in that zone.
 	 */
 	private Map<String, List<Point>> tilesVisited;
@@ -56,9 +57,9 @@ public class PlayerTilesVisited
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void visitTile(String zoneName, Point tile)
+	public void visitTile(String tilesVisitedKey, Point tile)
 	{
-		List<Point> visited = tilesVisited.computeIfAbsent(zoneName, k -> new ArrayList<>());
+		List<Point> visited = tilesVisited.computeIfAbsent(tilesVisitedKey, k -> new ArrayList<>());
 
 		if (!visited.contains(tile))
 		{
@@ -74,24 +75,21 @@ public class PlayerTilesVisited
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<Point> getTilesVisited(String zoneName)
+	public List<Point> getTilesVisited(String tilesVisitedKey)
 	{
-		if (tilesVisited.containsKey(zoneName))
+		if (tilesVisited.containsKey(tilesVisitedKey))
 		{
-			return new ArrayList<>(tilesVisited.get(zoneName));
+			return new ArrayList<>(tilesVisited.get(tilesVisitedKey));
 		}
-		else
-		{
-			return new ArrayList<>();
-		}
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void removeTileVisited(String zoneName, Point tile)
+	public void removeTileVisited(String tilesVisitedKey, Point tile)
 	{
-		if (tilesVisited.containsKey(zoneName))
+		if (tilesVisited.containsKey(tilesVisitedKey))
 		{
-			tilesVisited.get(zoneName).remove(tile);
+			tilesVisited.get(tilesVisitedKey).remove(tile);
 		}
 	}
 
@@ -102,16 +100,13 @@ public class PlayerTilesVisited
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean hasVisited(String zoneName, Point p)
+	public boolean hasVisited(String tilesVisitedKey, Point p)
 	{
-		if (tilesVisited.containsKey(zoneName))
+		if (tilesVisited.containsKey(tilesVisitedKey))
 		{
-			return tilesVisited.get(zoneName).contains(p);
+			return tilesVisited.get(tilesVisitedKey).contains(p);
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

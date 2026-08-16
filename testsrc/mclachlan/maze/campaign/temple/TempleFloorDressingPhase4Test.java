@@ -68,7 +68,7 @@ public class TempleFloorDressingPhase4Test extends MazeTestSupport
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
 
-		Zone zone = generate(db, 1);
+		Zone zone = generateWithWallChests(db, 1);
 		List<Point> chests = TempleFloorDressing.findChestTiles(zone);
 		assertFalse(chests.isEmpty());
 
@@ -113,7 +113,7 @@ public class TempleFloorDressingPhase4Test extends MazeTestSupport
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
 
-		Zone zone = generate(db, 1);
+		Zone zone = generateWithWallChests(db, 1);
 		for (Point p : TempleFloorDressing.findChestTiles(zone))
 		{
 			Chest chest = (Chest)zone.getTile(p).getScripts().stream()
@@ -132,6 +132,19 @@ public class TempleFloorDressingPhase4Test extends MazeTestSupport
 	{
 		MazeVariables.set(TempleSeeds.RUN_SEED, Long.toString(RUN_SEED));
 		MazeVariables.set(TempleSeeds.DEPTH, Integer.toString(depth));
+		Zone zone = db.getZone("temple.1");
+		zone.getScript().init(zone, 0);
+		return zone;
+	}
+
+	/** Wall-chest tests require a non-storage usage theme (storage uses hidden barrels). */
+	private static Zone generateWithWallChests(Database db, int depth)
+	{
+		MazeVariables.set(TempleSeeds.RUN_SEED, Long.toString(RUN_SEED));
+		MazeVariables.set(TempleSeeds.DEPTH, Integer.toString(depth));
+		MazeVariables.set(
+			TempleSeededPicks.pickVar(depth, TempleUsageTheme.USAGE_PURPOSE),
+			"library");
 		Zone zone = db.getZone("temple.1");
 		zone.getScript().init(zone, 0);
 		return zone;

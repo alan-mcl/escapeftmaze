@@ -2034,7 +2034,7 @@ public class Maze implements Runnable
 			return result;
 		}
 		
-		String zoneName = zone.getName();
+		String visitKey = zone.getTilesVisitedKey();
 
 		Tile t = zone.getTile(tile);
 
@@ -2046,7 +2046,7 @@ public class Maze implements Runnable
 			@Override
 			public List<MazeEvent> resolve()
 			{
-				playerTilesVisited.visitTile(zoneName, tile);
+				playerTilesVisited.visitTile(visitKey, tile);
 				return null;
 			}
 		});

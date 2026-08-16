@@ -1,1 +1,96 @@
-[]
+[
+  {
+    "levelRange": "20d1",
+    "stealthBehaviour": "1",
+    "spellBook": {
+      "spells": [
+        "Anti-Magic",
+        "Bolt Of Lightning",
+        "Call Wyrms",
+        "Freeze All",
+        "Spooks",
+        "Turncoat",
+        "Power Of The Pit"
+      ]
+    },
+    "focus": "MAGIC",
+    "experience": "1000",
+    "bodyParts": {
+      "PERCENTAGES": [
+        18,
+        33,
+        31,
+        8,
+        10
+      ],
+      "ITEMS": [
+        "human head",
+        "human torso",
+        "human hand",
+        "human leg",
+        "human foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "spellLikeAbilities": [],
+    "foeGroupBannerModifiers": "0,",
+    "unidentifiedPluralName": "?magus",
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "stats": "20000998000000000003f808000010000000000000007c0009c58ffe8678001f8,070707071414141414141414141414141414141414141414070707070707070707071414070107070707070707010101010101",
+    "cannotBeEvaded": "true",
+    "naturalWeapons": [],
+    "loot": {
+      "NAME": "magus.thamiel.loot"
+    },
+    "evasionBehaviour": "1",
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        18,
+        33,
+        31,
+        8,
+        10
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.magi"
+    },
+    "npc": "true",
+    "baseTexture": {
+      "NAME": "foe.magi"
+    },
+    "pluralName": "Magus Thamiels",
+    "types": [
+      "Outsider"
+    ],
+    "magicPointsRange": "20d20+200",
+    "race": "Human",
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "defaultAttitude": "FRIENDLY",
+    "rangedAttackTexture": {
+      "NAME": "foe.magi"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.magi"
+    },
+    "unidentifiedName": "?magus",
+    "allFoesBannerModifiers": "0,",
+    "castSpellTexture": {
+      "NAME": "foe.magi"
+    },
+    "fleeChance": "0",
+    "actionPointsRange": "20d20",
+    "name": "Magus Thamiel",
+    "identificationDifficulty": "0",
+    "hitPointsRange": "20d20+200",
+    "verticalAlignment": "BOTTOM"
+  }
+]

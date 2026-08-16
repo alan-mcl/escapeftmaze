@@ -79,6 +79,28 @@ public final class TempleEnvironmentFlavour
 			"The passages are dimly but evenly lit.",
 			"A faint ambient glow relieves the darkness."});
 
+	private static final Map<TempleUsageTheme.Theme, String[]> USAGE_LINES = Map.of(
+		TempleUsageTheme.Theme.STORAGE, new String[]{
+			"Crates and barrels are stacked in the rooms.",
+			"Someone used these chambers as a storeroom.",
+			"Dusty goods sit abandoned among the boxes."},
+		TempleUsageTheme.Theme.LIBRARY, new String[]{
+			"Shelves of books line many of the walls.",
+			"The air smells of old paper and dry leather.",
+			"This looks like it was once a library."},
+		TempleUsageTheme.Theme.MYSTERY, new String[]{
+			"Strange shrines and pillars crowd the rooms.",
+			"Something ritual was practiced in these halls.",
+			"Odd monuments stand where furniture ought to be."},
+		TempleUsageTheme.Theme.GARDEN, new String[]{
+			"Rows of plants grow under the lights.",
+			"Someone tended a garden in these earthen rooms.",
+			"Orderly beds of greenery fill the chambers."},
+		TempleUsageTheme.Theme.MIXED, new String[]{
+			"Each room seems put to a different use.",
+			"The chambers beyond do not share one purpose.",
+			"Storage, shrines, and odd clutter mix from room to room."});
+
 	private TempleEnvironmentFlavour()
 	{
 	}
@@ -89,6 +111,16 @@ public final class TempleEnvironmentFlavour
 	 * {@code encounterTile} after the zone change, not from zone-script init.
 	 */
 	public static void attachToLandingTile(Zone zone, int depth, TempleEnvironment environment)
+	{
+		attachToLandingTile(zone, depth, environment, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void attachToLandingTile(
+		Zone zone,
+		int depth,
+		TempleEnvironment environment,
+		TempleUsageTheme usageTheme)
 	{
 		Point origin = zone.getPlayerOrigin();
 		if (origin == null)
@@ -102,7 +134,7 @@ public final class TempleEnvironmentFlavour
 		}
 
 		FlavourText script = new FlavourText(
-			flavourText(depth, environment),
+			flavourText(depth, environment, usageTheme),
 			FlavourTextEvent.Alignment.CENTER);
 		script.setExecuteOnceMazeVariable(TempleSeeds.visitedVar(depth));
 		script.setReexecuteOnSameTile(true);
@@ -119,6 +151,12 @@ public final class TempleEnvironmentFlavour
 	/*-------------------------------------------------------------------------*/
 	static String flavourText(int depth, TempleEnvironment environment)
 	{
+		return flavourText(depth, environment, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	static String flavourText(int depth, TempleEnvironment environment, TempleUsageTheme usageTheme)
+	{
 		String var = TempleSeededPicks.pickVar(depth, FLAVOUR_PURPOSE);
 		String existing = MazeVariables.get(var);
 		if (existing != null && !existing.isEmpty())
@@ -128,13 +166,23 @@ public final class TempleEnvironmentFlavour
 
 		String text = rollFlavourText(
 			TempleSeededPicks.rng(depth, FLAVOUR_PURPOSE),
-			environment);
+			environment,
+			usageTheme);
 		MazeVariables.set(var, text);
 		return text;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	static String rollFlavourText(Random random, TempleEnvironment environment)
+	{
+		return rollFlavourText(random, environment, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	static String rollFlavourText(
+		Random random,
+		TempleEnvironment environment,
+		TempleUsageTheme usageTheme)
 	{
 		TempleEnvironment.Palette palette = environment.palette();
 		StringBuilder sb = new StringBuilder();
@@ -147,6 +195,16 @@ public final class TempleEnvironmentFlavour
 		{
 			sb.append(' ');
 			sb.append(pick(random, lightLines));
+		}
+
+		if (usageTheme != null)
+		{
+			String[] usageLines = USAGE_LINES.get(usageTheme.floorTheme());
+			if (usageLines != null)
+			{
+				sb.append(' ');
+				sb.append(pick(random, usageLines));
+			}
 		}
 
 		return sb.toString().trim();

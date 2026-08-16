@@ -125,6 +125,9 @@ every UI label lookup (critical for Quick Start spell rolling).
 | `temple.d.<depth>.pick.roster` | Persist-once foe-entry subset for the depth |
 | `temple.d.<depth>.pick.chest.<room>` | Persist-once chest wall slot for a room |
 | `temple.d.<depth>.pick.env` | Persist-once floor atmosphere (palette, fog, shade, light) |
+| `temple.d.<depth>.pick.usage` | Persist-once floor usage theme (`storage`, `library`, `mystery`, `garden`, `mixed`) |
+| `temple.d.<depth>.pick.usage.room.<i>` | Persist-once per-room theme when floor theme is `mixed` |
+| `temple.d.<depth>.pick.loot.container.<i>` | Persist-once barrel/crate tile for hidden storage loot |
 | `temple.d.<depth>.startRoom` | Starting room index (no encounters) |
 | `temple.d.<depth>.portal.up` | Encoded up-stair portal (`StairPortalSpec`) |
 | `temple.d.<depth>.portal.down` | Encoded down-stair portal |
@@ -135,7 +138,7 @@ Pure regen-from-seed is not enough once loot/encounters matter — mutation keys
 above persist across re-entry of the same depth. Portal coords persist for the
 run so vertical transitions spawn on the paired stair tile.
 
-Helpers: `TempleSeeds`, `TempleStairLinks`, `TempleSeededPicks`, `TempleFoeRoster`, `TempleEnvironment`.
+Helpers: `TempleSeeds`, `TempleStairLinks`, `TempleSeededPicks`, `TempleFoeRoster`, `TempleEnvironment`, `TempleUsageTheme`.
 
 ### Floor atmosphere (per depth)
 
@@ -148,7 +151,7 @@ white uncommon; red haze very rare), **shade multiplier** rolled from
 Applied during `TempleGeneratorMazeScript.init` before the raycaster is built;
 hub zone stays authored. On the **first visit** to each depth, a persist-once
 flavour line (`pick.flavour`) is rolled from the environment palette, fog colour,
-and ambient light and placed as a once-only `FlavourText` tile script on the
+ambient light, and usage theme and placed as a once-only `FlavourText` tile script on the
 spawn tile so it fires after the zone change (`temple.d.N.visited` suppresses
 repeats).
 
@@ -158,6 +161,24 @@ only (centre or corner tiles) with `RandomLightingScript` flicker; ceiling
 fittings also line corridors at equal intervals (`floor(length/4)`, minimum 4
 tiles apart). All fixtures use centre-of-tile placement. Source tiles peak at `min(ambient+8, 32)` with radial pools at
 `+4` and `+2` on neighbouring tiles.
+
+### Usage themes (generic Noise4j floors)
+
+Each generated depth picks a persist-once **`TempleUsageTheme`** (`pick.usage`)
+after atmosphere is known. This is a **post-layout dressing layer** on the
+Noise4j path only (future fragment-assembled signature levels skip it).
+
+| Theme | Palette constraint | Weight (non-DIRT) | Dressing |
+|-------|-------------------|-------------------|----------|
+| **Storage** | any | 40 | Barrels (groups of 1–4 around a tile), crates, tables, chairs, market stalls. Loot in that room is **hidden** in a barrel/crate (`ExecuteMazeScript` + `scoutSecretDifficulty` = depth), not a wall chest. |
+| **Library** | not DIRT | 15 | Bookshelf wall masks on room/corridor walls; a few chairs. |
+| **Mystery** | any | 20 | Altars/shrines, pillars (not on doors or under ceiling lights), rare ruined head; braziers as real lights (pools + flicker). |
+| **Garden** | DIRT only | 25 (+15 on DIRT) | Plants/fungus in orderly bed rows (9 objects per tile), under light pools; ceiling fittings do not block floor plants. |
+| **Mixed** | any | 25 | Per-room theme via `pick.usage.room.<i>`. |
+
+**Placement:** starting room may have clutter except on the spawn tile. Floor-standing lights (torch/brazier) block other floor objects on that tile; ceiling fittings do not, except **pillars**, which reach the ceiling and cannot share a tile with a ceiling fitting or sit in front of a door. **Crates** and **market stalls** also stay off door tiles.
+
+**Loot:** non-Storage loot rooms keep wall `Chest` scripts. Storage rooms skip chests; `TempleUsageDressing` attaches hidden loot to one placed barrel/crate using the same `temple.d.N.loot.i` mutation keys.
 
 ## 8. Depth model
 
@@ -175,7 +196,7 @@ Temple Depth N --temple.ascend.prev--> Temple Depth N-1  (N > 1)
 Temple Depth 1 --temple.ascend.1--> Hub
 ```
 
-Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `ZoneChangeEvent` only. Each transition sets `temple.depth` and a transient `temple.transition.mode` (`from_hub`, `from_above`, `from_below`). Layout regens from `temple.floor.seed.N` on each visit; cleared enc/loot and stair portal coords persist via maze variables. Zone identity stays **`temple.1`**; generation sets `displayName` to **`Temple Depth N`** (`TempleFloorLabels`) for the HUD / map title. Saves store `temple.1`.
+Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `ZoneChangeEvent` only. Each transition sets `temple.depth` and a transient `temple.transition.mode` (`from_hub`, `from_above`, `from_below`). Layout regens from `temple.floor.seed.N` on each visit; cleared enc/loot and stair portal coords persist via maze variables. Zone identity stays **`temple.1`**; generation sets `displayName` to **`Temple Depth N`** (`TempleFloorLabels`) for the HUD / map title, and `tilesVisitedKey` to **`temple.1#N`** so each depth has its own auto-map. Saves store zone identity `temple.1`.
 
 ## 9. Encounters and loot
 
@@ -185,7 +206,8 @@ Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `
 - **Encounters:** Noise4j places a script on each room-side door tile, but all
   doors into the same room share one maze variable — clearing the fight clears the
   room. The **starting room** (spawn layout origin) has doors but **no** encounter.
-- **Loot:** `TempleFloorDressing` places **chests** on blank room walls (not doors
+- **Loot:** `TempleFloorDressing` places **chests** on blank room walls in non-Storage
+  loot rooms (Storage uses hidden barrel/crate click loot). Not on doors
   or stairs), farthest rooms first, seeded via `TempleSeededPicks`. Chests hug
   the wall (`EngineObject.Placement`) with the lid facing into the room. Contents
   use `TempleChestLootEvent` so a failed independent GOP roll still grants one
@@ -316,7 +338,8 @@ start Phase 5 until Phase 4’s playable-layout exit is met (or explicitly waive
 - **`TempleDepthScaler`** in the temple package; orthogonal to difficulty modes.
 - **Single generated floor zone** (`temple.1` shell); depth via maze variables;
   hub ↔ depth 1 and depth N ↔ N±1 via authored stair scripts. Generation sets
-  `Zone.displayName` (`Temple Depth N`); identity stays `temple.1`.
+  `Zone.displayName` (`Temple Depth N`) and runtime `tilesVisitedKey`
+  (`temple.1#N`); identity stays `temple.1`.
 - Soft-cap bands + **post-victory endless** delve (Phase 5+).
 - **Fragments:** catalog + stamp helpers exist; not wired into live gen.
   Phase 4 layout iterates **Noise4j first**, then other `DungeonGen` impls via
@@ -399,12 +422,13 @@ overlay **removed** from live path; `TempleFragmentPhase4Test`,
 
 **Delivered — 4a.1 encounter / loot / roster dressing:** Room-shared encounter
 maze vars (`enc.<roomIndex>`); quiet starting room; wall chests via
-`TempleFloorDressing`; persist-once foe subset (`TempleSeededPicks`,
+`TempleFloorDressing` (non-Storage loot rooms); persist-once foe subset (`TempleSeededPicks`,
 `TempleFoeRoster`); per-floor atmosphere (`TempleEnvironment`); persist-once
-light fixtures and radial pools (`TempleLighting`); `DungeonRoom` +
+light fixtures and radial pools (`TempleLighting`); generic usage themes
+(`TempleUsageTheme`, `TempleUsageDressing`); `DungeonRoom` +
 extended `DungeonGenResult`; tests `TempleFloorDressingPhase4Test`,
 `TempleFoeRosterTest`, `TempleSeededPicksTest`, `TempleEnvironmentTest`,
-`TempleLightingTest`.
+`TempleLightingTest`, `TempleUsageThemeTest`.
 
 **Remaining — 4a.2 Iterate Noise4j topology:** Tune / extend
 `Noise4jDungeonGen` (and temple stair/dressing as needed) so a typical seed

@@ -69,6 +69,14 @@ public class Zone extends DataObject
 	/** Optional campaign/mod tags (e.g. temple fragment catalog keys). */
 	private java.util.Map<String, String> metadata;
 
+	/**
+	 * Runtime auto-map persist key. When unset, {@link #getTilesVisitedKey()}
+	 * falls back to {@link #getName()}. Not serialised — zone scripts that
+	 * regenerate a shared identity should set this each visit so each instance
+	 * has its own exploration history.
+	 */
+	private String tilesVisitedKey;
+
 	public Zone()
 	{
 	}
@@ -395,6 +403,25 @@ public class Zone extends DataObject
 			return name;
 		}
 		return displayName;
+	}
+
+	/**
+	 * Persist key for {@link mclachlan.maze.game.PlayerTilesVisited}. Defaults
+	 * to {@link #getName()}; regenerated shared-identity zones override this at
+	 * runtime so each instance keeps a separate auto-map.
+	 */
+	public String getTilesVisitedKey()
+	{
+		if (tilesVisitedKey == null || tilesVisitedKey.isEmpty())
+		{
+			return name;
+		}
+		return tilesVisitedKey;
+	}
+
+	public void setTilesVisitedKey(String tilesVisitedKey)
+	{
+		this.tilesVisitedKey = tilesVisitedKey;
 	}
 
 	public Tile getTile(Point p)

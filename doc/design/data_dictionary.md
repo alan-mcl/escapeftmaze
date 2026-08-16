@@ -317,7 +317,7 @@ Fixed-slot bag: `nrSlots` (int), `items` (List<Item>, null = empty slot).
 
 | Class | File | Purpose / key fields |
 |-------|------|----------------------|
-| Zone | `map/Zone.java` | `name` (identity / file key), `displayName` (optional player-facing title; UI uses `getUiName()` which falls back to `name`), `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), `metadata` (optional `Map<String,String>` campaign/mod tags), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin` |
+| Zone | `map/Zone.java` | `name` (identity / file key), `displayName` (optional player-facing title; UI uses `getUiName()` which falls back to `name`), `map` (crusader Map), `tiles` (Tile[][]), `portals` (List<Portal>), `script` (ZoneScript), `metadata` (optional `Map<String,String>` campaign/mod tags), rendering params (`shadeTargetColor`, `doShading`, `playerFieldOfView`, ...), `order`, `playerOrigin`. Runtime-only `tilesVisitedKey` (not serialised; defaults to `name`) is the persist key for PlayerTilesVisited when a zone script reuses one identity for multiple instances. |
 | Tile | `map/Tile.java` | `scripts` (List<TileScript>), `statModifier`, `terrainType` (FAKE/URBAN/DUNGEON/WILDERNESS/WASTELAND), `terrainSubType`, `randomEncounterChance`, `randomEncounters` (EncounterTable), `restingDanger`/`restingEfficiency`; runtime `zone`/`coords`/`sector` |
 | Portal | `map/Portal.java` | `mazeVariable`, `initialState`, `from`/`to` (Point), `fromFacing`/`toFacing`, `twoWay`, lock/trap (`canForce`, `canPick`, `difficulty[]`, `keyItem`, `consumeKeyItem`), `mazeScript`, `stateChangeScript` |
 | EncounterTable | `map/EncounterTable.java` | `name`, `encounterTable` (PercentageTable<FoeEntry>) |
@@ -355,7 +355,7 @@ Temple campaign stair linkage (see [temple_campaign.md](temple_campaign.md)):
 `temple.transition.mode`, cached `temple.hub.portal.down`.
 | DifficultyLevel | `game/DifficultyLevel.java` | Difficulty preset; selects foe AI and spawn/combat modifiers |
 | PlayerParty | `stat/PlayerParty.java` | Runtime party: PCs, gold, supplies, formation |
-| PlayerTilesVisited | `game/PlayerTilesVisited.java` | Auto-map exploration per zone |
+| PlayerTilesVisited | `game/PlayerTilesVisited.java` | Auto-map exploration keyed by `Zone.getTilesVisitedKey()` (defaults to zone `name`). Recent-trail is reset on zone change. |
 | Journal | `game/journal/Journal.java` | Quest/logbook/zone/npc entries. Zone journal keys and arrive/depart text use `Zone.getUiName()` (display name, falling back to identity `name`). |
 | UserConfig | `game/UserConfig.java` | `combatDelay`, `personalityChattiness`, `musicVolume`, `currentTipIndex`, `autoAddConsumables`, `extras` (Map of arbitrary keys e.g. `unlock.race.*`) |
 
@@ -497,7 +497,7 @@ File-to-entity mapping (from
 | `mazevariables.json` | Map<String,String> | Quest counters, portal lock states, one-shot flags |
 | `itemcaches.json` | Map<zone, Map<Point, List<Item>>> | Items left on the ground |
 | `partycamp.json` | List&lt;PartyCamp&gt; | Temporary camps: zone, tile, character names left behind (legacy singleton object loads as one-element list) |
-| `tilesvisited.json` | PlayerTilesVisited | Auto-map exploration |
+| `tilesvisited.json` | PlayerTilesVisited | Auto-map exploration (keys are `Zone.getTilesVisitedKey()`) |
 | `journals/*.json` | Journal | `quest.json`, `logbook.json`, `zone.json`, `npc.json` |
 
 ### Representative snippets

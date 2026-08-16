@@ -53,9 +53,12 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 
 		TempleFloorShell.ensureGenSize(zone);
 		zone.setDisplayName(TempleFloorLabels.displayName(dungeonLevel));
+		zone.setTilesVisitedKey(TempleFloorLabels.tilesVisitedKey(dungeonLevel));
 
 		TempleEnvironment environment = TempleEnvironment.forFloor(dungeonLevel);
 		environment.applyToCrusaderTiles(zone.getMap());
+
+		TempleUsageTheme usageTheme = TempleUsageTheme.forFloor(dungeonLevel, environment);
 
 		int seed = TempleSeeds.floorSeed(dungeonLevel);
 
@@ -76,9 +79,15 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 			Integer.toString(result.startingRoomIndex()));
 
 		Set<Point> avoid = stairAvoidTiles(result.stairwells());
-		TempleFloorDressing.dress(zone, dungeonLevel, avoid, result);
-		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment);
-		TempleLighting.dress(zone, dungeonLevel, environment, avoid, result);
+		TempleFloorDressing.dress(zone, dungeonLevel, avoid, result, usageTheme);
+		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment, usageTheme);
+		TempleLighting.DressResult lighting = TempleLighting.dress(
+			zone, dungeonLevel, environment, avoid, result);
+		if (TempleLayoutPolicy.NOISE4J.equals(TempleLayoutPolicy.generatorIdForDepth(dungeonLevel)))
+		{
+			TempleUsageDressing.dress(
+				zone, dungeonLevel, environment, usageTheme, avoid, result, lighting);
+		}
 		TempleStairLinks.clearTransition();
 
 		return result.events();

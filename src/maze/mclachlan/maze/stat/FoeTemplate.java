@@ -583,7 +583,9 @@ public class FoeTemplate extends DataObject
 
 	public ObjectAnimations getSpriteAnimations()
 	{
-		if (spriteAnimations != null && !spriteAnimations.getAnimationScripts().isEmpty())
+		if (spriteAnimations != null
+			&& spriteAnimations.getAnimationScripts() != null
+			&& !spriteAnimations.getAnimationScripts().isEmpty())
 		{
 			return spriteAnimations;
 		}
@@ -596,10 +598,7 @@ public class FoeTemplate extends DataObject
 	public void setSpriteAnimations(
 		ObjectAnimations spriteAnimations)
 	{
-		if (spriteAnimations != null)
-		{
-			this.spriteAnimations = spriteAnimations;
-		}
+		this.spriteAnimations = spriteAnimations;
 	}
 
 	public MazeScript getDeathScript()

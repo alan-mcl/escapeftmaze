@@ -67,6 +67,31 @@ public class TempleEnvironmentFlavourTest extends MazeTestSupport
 
 	/*-------------------------------------------------------------------------*/
 	@Test
+	void rollIncludesUsageThemeLine()
+	{
+		TempleEnvironment env = new TempleEnvironment(
+			TempleEnvironment.Palette.DUNGEON,
+			TempleEnvironment.FogColour.BLACK,
+			0,
+			0.7,
+			20);
+		TempleUsageTheme storage = new TempleUsageTheme(
+			TempleUsageTheme.Theme.STORAGE, TempleEnvironment.Palette.DUNGEON);
+		String text = TempleEnvironmentFlavour.rollFlavourText(new Random(1), env, storage);
+		assertTrue(
+			text.contains("Crates") || text.contains("storeroom") || text.contains("boxes"),
+			"expected storage usage line: " + text);
+
+		TempleUsageTheme library = new TempleUsageTheme(
+			TempleUsageTheme.Theme.LIBRARY, TempleEnvironment.Palette.DUNGEON);
+		text = TempleEnvironmentFlavour.rollFlavourText(new Random(2), env, library);
+		assertTrue(
+			text.contains("books") || text.contains("paper") || text.contains("library"),
+			"expected library usage line: " + text);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
 	void flavourTextPersistsPerDepth()
 	{
 		MazeVariables.clearAll();

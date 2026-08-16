@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "theftCounter": "0",
+    "inventoryTemplate": {
+      "rows": []
+    },
+    "buysAt": "0",
+    "resistThreats": "0",
+    "dead": "false",
+    "alliesOnCall": "call.wyrms.spell.5",
+    "script": {
+      "IMPL": "mclachlan.maze.campaign.temple.MagusThamiel"
+    },
+    "found": "false",
+    "guildMaster": "false",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcTemplate",
+    "resistSteal": "0",
+    "willBuyItemTypes": "",
+    "zone": "Temple Hub",
+    "resistBribes": "0",
+    "dialogue": {
+      "dialogue": [],
+      "friendlyGreeting": "Hello again friends.",
+      "neutralGreeting": "Greetings!",
+      "friendlyFarewell": "Farewell friends!",
+      "neutralFarewell": "Farewell."
+    },
+    "name": "Magus Thamiel",
+    "tile": "7:8",
+    "speechColour": "ffffda26",
+    "maxPurchasePrice": "0",
+    "foeName": "Magus Thamiel",
+    "sellsAt": "0",
+    "attitude": "FRIENDLY"
+  }
+]

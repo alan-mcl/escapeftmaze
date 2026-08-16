@@ -52,7 +52,20 @@ public final class TempleLighting
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void dress(
+	public record DressResult(FixtureType fixture, Set<Point> placedTiles)
+	{
+		public Set<Point> floorStandingTiles()
+		{
+			if (fixture == null || fixture.ceiling())
+			{
+				return Set.of();
+			}
+			return placedTiles;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static DressResult dress(
 		Zone zone,
 		int depth,
 		TempleEnvironment environment,
@@ -61,13 +74,13 @@ public final class TempleLighting
 	{
 		if (layout == null || layout.layoutGrid() == null || layout.rooms().isEmpty())
 		{
-			return;
+			return new DressResult(null, Set.of());
 		}
 
 		FixtureType fixture = pickFixture(depth);
 		if (fixture == null)
 		{
-			return;
+			return new DressResult(null, Set.of());
 		}
 
 		int ambient = environment.ambientLight();
@@ -98,6 +111,7 @@ public final class TempleLighting
 
 		registerTexture(map, fixture.textureName());
 		map.init();
+		return new DressResult(fixture, Set.copyOf(placed));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -401,7 +415,7 @@ public final class TempleLighting
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void addFlickerScripts(Map map, Set<Point> sources, int ambient, int peak)
+	static void addFlickerScripts(Map map, Set<Point> sources, int ambient, int peak)
 	{
 		int width = map.getWidth();
 		for (Point source : sources)

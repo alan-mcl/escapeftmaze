@@ -59,13 +59,13 @@ public final class TempleFloorDressing
 	/*-------------------------------------------------------------------------*/
 	public static void dress(Zone zone, int dungeonLevel)
 	{
-		dress(zone, dungeonLevel, Set.of(), null);
+		dress(zone, dungeonLevel, Set.of(), null, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static void dress(Zone zone, int dungeonLevel, Set<Point> avoidTiles)
 	{
-		dress(zone, dungeonLevel, avoidTiles, null);
+		dress(zone, dungeonLevel, avoidTiles, null, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,6 +74,17 @@ public final class TempleFloorDressing
 		int dungeonLevel,
 		Set<Point> avoidTiles,
 		DungeonGenResult layout)
+	{
+		dress(zone, dungeonLevel, avoidTiles, layout, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void dress(
+		Zone zone,
+		int dungeonLevel,
+		Set<Point> avoidTiles,
+		DungeonGenResult layout,
+		TempleUsageTheme usageTheme)
 	{
 		if (layout == null || layout.layoutGrid() == null || layout.rooms().isEmpty())
 		{
@@ -101,18 +112,46 @@ public final class TempleFloorDressing
 		avoid.addAll(doorTiles);
 
 		int lootCount = TempleDepthScaler.lootPlacements(dungeonLevel);
-		List<Integer> lootRooms = pickLootRooms(origin, rooms, startingRoom, lootCount);
+		List<LootSlot> lootRooms = pickLootSlots(dungeonLevel, origin, layout);
 		String lootTableName = TempleDepthScaler.lootTableName(dungeonLevel);
-		int i = 0;
-		for (int roomIndex : lootRooms)
+		for (LootSlot slot : lootRooms)
 		{
-			WallSlot slot = pickChestWall(dungeonLevel, roomIndex, grid, rooms, avoid, doorTiles);
-			if (slot == null)
+			if (usageTheme != null
+				&& usageTheme.themeForRoom(dungeonLevel, slot.roomIndex()) == TempleUsageTheme.Theme.STORAGE)
 			{
 				continue;
 			}
-			placeChest(zone, slot, lootTableName, TempleSeeds.lootVar(dungeonLevel, i++), dungeonLevel);
+			WallSlot wall = pickChestWall(dungeonLevel, slot.roomIndex(), grid, rooms, avoid, doorTiles);
+			if (wall == null)
+			{
+				continue;
+			}
+			placeChest(zone, wall, lootTableName, slot.lootVar(), dungeonLevel);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/** Persist-once loot room picks for wall chests or storage hidden loot. */
+	public record LootSlot(int roomIndex, String lootVar, int lootIndex)
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static List<LootSlot> pickLootSlots(int depth, Point origin, DungeonGenResult layout)
+	{
+		if (layout == null || layout.rooms().isEmpty())
+		{
+			return List.of();
+		}
+		int lootCount = TempleDepthScaler.lootPlacements(depth);
+		List<Integer> roomIndices = pickLootRooms(
+			origin, layout.rooms(), layout.startingRoomIndex(), lootCount);
+		List<LootSlot> result = new ArrayList<>(roomIndices.size());
+		for (int i = 0; i < roomIndices.size(); i++)
+		{
+			result.add(new LootSlot(roomIndices.get(i), TempleSeeds.lootVar(depth, i), i));
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -252,7 +291,7 @@ public final class TempleFloorDressing
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Set<Point> findDoorTiles(Zone zone)
+	public static Set<Point> findDoorTiles(Zone zone)
 	{
 		Set<Point> result = new HashSet<>();
 		if (zone.getPortals() == null)

@@ -38,4 +38,17 @@ public final class TempleFloorLabels
 		}
 		return "Temple Depth " + depth;
 	}
+
+	/**
+	 * Runtime auto-map persist key. Identity stays {@link #FLOOR_ZONE_ID};
+	 * each depth needs a distinct visited set.
+	 */
+	public static String tilesVisitedKey(int depth)
+	{
+		if (depth <= 0)
+		{
+			return FLOOR_ZONE_ID;
+		}
+		return FLOOR_ZONE_ID + "#" + depth;
+	}
 }

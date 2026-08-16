@@ -145,7 +145,7 @@ public class MapDisplayWidget extends DIYPanel
 			Tile tile = tiles[index];
 			mclachlan.maze.map.Tile mazeTile = zone.getTile(p);
 
-			if (!visited.hasVisited(zone.getName(), p) && filterByVisited)
+			if (!visited.hasVisited(zone.getTilesVisitedKey(), p) && filterByVisited)
 			{
 				continue;
 			}

@@ -14,6 +14,7 @@ public class ObjectAnimations extends DataObject
 
 	public ObjectAnimations()
 	{
+		this.animationScripts = new ArrayList<>();
 	}
 
 	public ObjectAnimations(String name, List<ObjectScript> animationScripts)
