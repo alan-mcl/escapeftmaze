@@ -144,12 +144,20 @@ coherent **palette** (dungeon / city / dirt wall-floor-ceiling-door
 textures from inherited Default art), **fog colour** (black common; grey and
 white uncommon; red haze very rare), **shade multiplier** rolled from
 `{0.4, 0.7, 1.0}` (shade distance fixed at `0`), and **ambient tile light**
-`{20, 26, 32}` with `32` common. Applied during `TempleGeneratorMazeScript.init`
-before the raycaster is built; hub zone stays authored. On the **first visit**
-to each depth, a persist-once flavour line (`pick.flavour`) is rolled from the
-environment palette, fog colour, and ambient light and placed as a once-only
-`FlavourText` tile script on the spawn tile so it fires after the zone change
-(`temple.d.N.visited` suppresses repeats).
+`{16, 20, 24}` with `20` common (lower baseline; fixture pools add contrast).
+Applied during `TempleGeneratorMazeScript.init` before the raycaster is built;
+hub zone stays authored. On the **first visit** to each depth, a persist-once
+flavour line (`pick.flavour`) is rolled from the environment palette, fog colour,
+and ambient light and placed as a once-only `FlavourText` tile script on the
+spawn tile so it fires after the zone change (`temple.d.N.visited` suppresses
+repeats).
+
+**Lighting (`TempleLighting`):** each depth picks one persist-once fixture type
+(`pick.light`: torch, brazier, or ceiling fitting). Torch/brazier sit in rooms
+only (centre or corner tiles) with `RandomLightingScript` flicker; ceiling
+fittings also line corridors at equal intervals (`floor(length/4)`, minimum 4
+tiles apart). All fixtures use centre-of-tile placement. Source tiles peak at `min(ambient+8, 32)` with radial pools at
+`+4` and `+2` on neighbouring tiles.
 
 ## 8. Depth model
 
@@ -392,9 +400,11 @@ overlay **removed** from live path; `TempleFragmentPhase4Test`,
 **Delivered — 4a.1 encounter / loot / roster dressing:** Room-shared encounter
 maze vars (`enc.<roomIndex>`); quiet starting room; wall chests via
 `TempleFloorDressing`; persist-once foe subset (`TempleSeededPicks`,
-`TempleFoeRoster`); per-floor atmosphere (`TempleEnvironment`); `DungeonRoom` +
+`TempleFoeRoster`); per-floor atmosphere (`TempleEnvironment`); persist-once
+light fixtures and radial pools (`TempleLighting`); `DungeonRoom` +
 extended `DungeonGenResult`; tests `TempleFloorDressingPhase4Test`,
-`TempleFoeRosterTest`, `TempleSeededPicksTest`, `TempleEnvironmentTest`.
+`TempleFoeRosterTest`, `TempleSeededPicksTest`, `TempleEnvironmentTest`,
+`TempleLightingTest`.
 
 **Remaining — 4a.2 Iterate Noise4j topology:** Tune / extend
 `Noise4jDungeonGen` (and temple stair/dressing as needed) so a typical seed

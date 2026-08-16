@@ -79,7 +79,7 @@ public class TempleEnvironmentTest extends MazeTestSupport
 
 			assertEquals(0, env.shadingDistance(), 0.001);
 			assertTrue(isShadeBand(env.shadingMultiplier()));
-			assertTrue(env.ambientLight() == 20 || env.ambientLight() == 26 || env.ambientLight() == 32);
+			assertTrue(env.ambientLight() == 16 || env.ambientLight() == 20 || env.ambientLight() == 24);
 			assertNotNull(env.validatedPalette());
 		}
 	}
@@ -102,8 +102,8 @@ public class TempleEnvironmentTest extends MazeTestSupport
 
 		assertTrue(fogCounts.get(TempleEnvironment.FogColour.BLACK) > fogCounts.get(TempleEnvironment.FogColour.RED));
 		assertTrue(fogCounts.get(TempleEnvironment.FogColour.BLACK) > fogCounts.get(TempleEnvironment.FogColour.GREY));
-		assertTrue(lightCounts.get(32) > lightCounts.get(26));
-		assertTrue(lightCounts.get(32) > lightCounts.get(20));
+		assertTrue(lightCounts.get(20) > lightCounts.get(24));
+		assertTrue(lightCounts.get(20) > lightCounts.get(16));
 	}
 
 	/*-------------------------------------------------------------------------*/

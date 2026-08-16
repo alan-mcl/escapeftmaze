@@ -69,13 +69,13 @@ public final class TempleEnvironmentFlavour
 			"The air glows with a sullen red light."});
 
 	private static final Map<Integer, String[]> LIGHT_LINES = Map.of(
-		20, new String[]{
+		16, new String[]{
 			"Your torch barely pierces the gloom.",
 			"You struggle to see more than a few steps ahead."},
-		26, new String[]{
+		20, new String[]{
 			"Flickering light casts long, uneasy shadows.",
 			"The passages feel dim and close."},
-		32, new String[]{
+		24, new String[]{
 			"The passages are dimly but evenly lit.",
 			"A faint ambient glow relieves the darkness."});
 
@@ -143,7 +143,7 @@ public final class TempleEnvironmentFlavour
 		sb.append(pick(random, FOG_LINES.get(environment.fogColour())));
 
 		String[] lightLines = LIGHT_LINES.get(environment.ambientLight());
-		if (lightLines != null && (environment.ambientLight() <= 26 || random.nextBoolean()))
+		if (lightLines != null && (environment.ambientLight() <= 20 || random.nextBoolean()))
 		{
 			sb.append(' ');
 			sb.append(pick(random, lightLines));

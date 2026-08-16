@@ -146,13 +146,13 @@ public record TempleEnvironment(
 		int roll = random.nextInt(100);
 		if (roll < 70)
 		{
-			return 32;
+			return 20;
 		}
 		if (roll < 85)
 		{
-			return 26;
+			return 16;
 		}
-		return 20;
+		return 24;
 	}
 
 	/*-------------------------------------------------------------------------*/

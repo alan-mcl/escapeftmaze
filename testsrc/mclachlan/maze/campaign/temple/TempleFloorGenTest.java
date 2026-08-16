@@ -145,6 +145,11 @@ public class TempleFloorGenTest extends MazeTestSupport
 			sample.getCeilingTexture().getName());
 		assertEquals(env.ambientLight(), sample.getLightLevel());
 
+		TempleLighting.FixtureType fixture = TempleLighting.pickFixture(1);
+		assertNotNull(fixture);
+		assertTrue(countLightObjects(zone, fixture.textureName()) >= 1,
+			"expected at least one light fixture on generated floor");
+
 		String expectedWall = env.wallTexture().getName();
 		assertTrue(
 			hasSolidWallWithTexture(map.getHorizontalWalls(), expectedWall)
@@ -215,6 +220,21 @@ public class TempleFloorGenTest extends MazeTestSupport
 			}
 		}
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int countLightObjects(Zone zone, String textureName)
+	{
+		int count = 0;
+		for (mclachlan.crusader.EngineObject obj : zone.getMap().getExpandedObjects())
+		{
+			if (obj.getNorthTexture() != null
+				&& textureName.equals(obj.getNorthTexture().getName()))
+			{
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/*-------------------------------------------------------------------------*/

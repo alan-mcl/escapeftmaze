@@ -113,7 +113,11 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "animationDelay": "120",
     "imageResources": [
-      "crusader/scene/brazier_1"
+      "crusader/scene/brazier_1",
+      "crusader/scene/brazier_2",
+      "crusader/scene/brazier_3",
+      "crusader/scene/brazier_4",
+      "crusader/scene/brazier_5"
     ]
   },
   {

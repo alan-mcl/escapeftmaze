@@ -78,6 +78,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		Set<Point> avoid = stairAvoidTiles(result.stairwells());
 		TempleFloorDressing.dress(zone, dungeonLevel, avoid, result);
 		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment);
+		TempleLighting.dress(zone, dungeonLevel, environment, avoid, result);
 		TempleStairLinks.clearTransition();
 
 		return result.events();
