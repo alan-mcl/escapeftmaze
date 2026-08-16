@@ -79,6 +79,6 @@ public abstract class MapGenZoneScript extends ZoneScript
 			int toFacing);
 
 		Encounter getEncounter(Zone zone, int x, int y,
-			int dungeonLevel);
+			int dungeonLevel, int roomIndex);
 	}
 }

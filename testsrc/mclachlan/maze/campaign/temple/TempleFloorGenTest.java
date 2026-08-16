@@ -32,13 +32,16 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.MovePartyEvent;
 import mclachlan.maze.game.event.ZoneChangeEvent;
+import mclachlan.maze.map.script.FlavourText;
+import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.script.Loot;
+import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.map.script.Encounter;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackIntention;
 import mclachlan.maze.stat.combat.Combat;
@@ -84,7 +87,10 @@ public class TempleFloorGenTest extends MazeTestSupport
 		assertNotNull(stairs, "expected stairs-up script on a tile");
 		assertFalse(stairs.equals(origin), "stairs should not sit on the spawn tile");
 
-		assertTrue(countLootScripts(zone) >= 1, "expected at least one loot script");
+		assertTrue(countChestScripts(zone) >= 1, "expected at least one wall chest");
+
+		assertNotNull(MazeVariables.get(TempleSeeds.rosterVar(1)), "foe roster should persist");
+		assertNoEncountersInStartingRoom(zone, 1);
 
 		assertTrue(canReach(zone, origin, stairs),
 			"spawn should reach stairs via open tiles/portals");
@@ -109,6 +115,106 @@ public class TempleFloorGenTest extends MazeTestSupport
 		assertEquals("1", MazeVariables.get(TempleSeeds.DEPTH));
 		assertNotNull(MazeVariables.get(TempleSeeds.RUN_SEED));
 		assertNotNull(MazeVariables.get(TempleSeeds.FLOOR_SEED_PREFIX + "1"));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void generatedFloorAppliesPersistedEnvironment() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+
+		Zone zone = generateDepth1(db);
+
+		String encoded = MazeVariables.get(
+			TempleSeededPicks.pickVar(1, TempleEnvironment.ENV_PURPOSE));
+		assertNotNull(encoded);
+		TempleEnvironment env = TempleEnvironment.decode(encoded);
+
+		assertEquals(env.fogColour().toColor(), zone.getShadeTargetColor());
+		assertEquals(0, zone.getShadingDistance(), 0.001);
+		assertEquals(env.shadingMultiplier(), zone.getShadingMultiplier(), 0.001);
+
+		Map map = zone.getMap();
+		mclachlan.crusader.Tile sample = map.getTiles()[0];
+		assertEquals(
+			Database.getInstance().getMazeTexture(env.validatedPalette().floorTexture()).getTexture().getName(),
+			sample.getFloorTexture().getName());
+		assertEquals(
+			Database.getInstance().getMazeTexture(env.validatedPalette().ceilingTexture()).getTexture().getName(),
+			sample.getCeilingTexture().getName());
+		assertEquals(env.ambientLight(), sample.getLightLevel());
+
+		String expectedWall = env.wallTexture().getName();
+		assertTrue(
+			hasSolidWallWithTexture(map.getHorizontalWalls(), expectedWall)
+				|| hasSolidWallWithTexture(map.getVerticalWalls(), expectedWall),
+			"expected at least one solid room wall with palette texture");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void generatedFloorShowsThemeFlavourOnFirstVisitOnly() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+
+		MazeVariables.clearAll();
+		MazeVariables.set(TempleSeeds.RUN_SEED, Long.toString(RUN_SEED));
+		MazeVariables.set(TempleSeeds.DEPTH, "1");
+
+		Zone zone = db.getZone("temple.1");
+		List<MazeEvent> firstInit = zone.getScript().init(zone, 0);
+		assertFalse(firstInit.stream().anyMatch(FlavourTextEvent.class::isInstance),
+			"theme flavour must wait for landing-tile encounter, not zone-script init");
+
+		FlavourText flavour = findLandingFlavour(zone);
+		assertNotNull(flavour, "expected FlavourText on the spawn tile");
+		assertFalse(flavour.getText().isBlank());
+		assertEquals(TempleSeeds.visitedVar(1), flavour.getExecuteOnceMazeVariable());
+
+		List<MazeEvent> secondInit = zone.getScript().init(zone, 0);
+		assertFalse(secondInit.stream().anyMatch(FlavourTextEvent.class::isInstance));
+		FlavourText again = findLandingFlavour(zone);
+		assertNotNull(again);
+		assertEquals(flavour.getText(), again.getText());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static FlavourText findLandingFlavour(Zone zone)
+	{
+		Point origin = zone.getPlayerOrigin();
+		if (origin == null)
+		{
+			return null;
+		}
+		Tile tile = zone.getTile(origin);
+		if (tile == null || tile.getScripts() == null)
+		{
+			return null;
+		}
+		for (TileScript script : tile.getScripts())
+		{
+			if (script instanceof FlavourText flavour)
+			{
+				return flavour;
+			}
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean hasSolidWallWithTexture(Wall[] walls, String textureName)
+	{
+		for (Wall wall : walls)
+		{
+			if (wall != null && wall.isSolid() && wall.isVisible()
+				&& textureName.equals(wall.getTexture(0).getName()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -193,7 +299,7 @@ public class TempleFloorGenTest extends MazeTestSupport
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static int countLootScripts(Zone zone)
+	private static int countChestScripts(Zone zone)
 	{
 		int n = 0;
 		Tile[][] tiles = zone.getTiles();
@@ -208,7 +314,7 @@ public class TempleFloorGenTest extends MazeTestSupport
 				}
 				for (TileScript script : tile.getScripts())
 				{
-					if (script instanceof Loot)
+					if (script instanceof Chest)
 					{
 						n++;
 					}
@@ -216,6 +322,40 @@ public class TempleFloorGenTest extends MazeTestSupport
 			}
 		}
 		return n;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void assertNoEncountersInStartingRoom(Zone zone, int depth)
+	{
+		int startRoom = Integer.parseInt(MazeVariables.get(TempleSeeds.startRoomVar(depth)));
+		for (Point p : TempleFloorDressing.findEncounterTiles(zone))
+		{
+			Encounter enc = encounterAt(zone, p);
+			assertNotNull(enc);
+			int roomIndex = encounterRoomIndex(enc.getMazeVariable());
+			assertNotEquals(startRoom, roomIndex,
+				"starting room should not host encounters at " + p);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Encounter encounterAt(Zone zone, Point tile)
+	{
+		for (TileScript script : zone.getTile(tile).getScripts())
+		{
+			if (script instanceof Encounter enc)
+			{
+				return enc;
+			}
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int encounterRoomIndex(String mazeVar)
+	{
+		int dot = mazeVar.lastIndexOf('.');
+		return Integer.parseInt(mazeVar.substring(dot + 1));
 	}
 
 	/*-------------------------------------------------------------------------*/

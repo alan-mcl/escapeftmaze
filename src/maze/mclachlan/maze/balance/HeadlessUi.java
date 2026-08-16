@@ -160,6 +160,11 @@ public class HeadlessUi implements UserInterface
 		}
 	}
 
+	public void addObject(EngineObject obj, boolean setup)
+	{
+		addObject(obj);
+	}
+
 	public void removeObject(EngineObject obj)
 	{
 		Zone zone = Maze.getInstance().getCurrentZone();

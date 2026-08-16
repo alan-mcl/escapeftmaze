@@ -62,6 +62,20 @@ public final class TempleDepthScaler
 		return 1 + contentBand(depth); // 2 / 3 / 4
 	}
 
+	/**
+	 * How many foe-entry names to pick from the depth band pool for this run.
+	 * Depth N is aimed at party level N; bands soft-cap at {@link #MAX_CONTENT_BAND}.
+	 */
+	public static int foeSubsetSize(int depth)
+	{
+		return switch (contentBand(depth))
+		{
+			case 1 -> 3;
+			case 2 -> 3;
+			default -> 4;
+		};
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Asymptotic packing hint (1.0 at depth 1 → approaches ~1.5). Used for

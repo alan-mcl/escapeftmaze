@@ -7,6 +7,7 @@ import mclachlan.crusader.*;
 import mclachlan.dungeongen.DungeonGen;
 import mclachlan.dungeongen.DungeonGenContext;
 import mclachlan.dungeongen.DungeonGenResult;
+import mclachlan.dungeongen.DungeonRoom;
 import mclachlan.dungeongen.StairwellPlan;
 import mclachlan.dungeongen.StairPortalSpec;
 import mclachlan.dungeongen.noise4j.map.Grid;
@@ -67,6 +68,21 @@ public class Noise4jDungeonGen implements DungeonGen
 		clearTileScripts(zone);
 		zone.setPortals(new Portal[0]);
 
+		List<AbstractRoomGenerator.Room> noiseRooms = dg.getRooms();
+		if (noiseRooms == null || noiseRooms.isEmpty())
+		{
+			throw new IllegalStateException(
+				"Noise4jDungeonGen produced no rooms for zone [" + zone.getName()
+					+ "] seed=" + seed);
+		}
+
+		List<DungeonRoom> rooms = toDungeonRooms(noiseRooms);
+		AbstractRoomGenerator.Room layoutRoom = Generators.randomElement(noiseRooms);
+		Point layoutOrigin = new Point(
+			layoutRoom.getX() + layoutRoom.getWidth() / 2,
+			layoutRoom.getY() + layoutRoom.getHeight() / 2);
+		int startingRoomIndex = indexOfRoom(rooms, layoutOrigin.x, layoutOrigin.y);
+
 		// create the Crusader Engine objects
 
 		// walls
@@ -75,7 +91,16 @@ public class Noise4jDungeonGen implements DungeonGen
 		List<Portal> portals = new ArrayList<>();
 
 		initWalls(grid, horizWalls, vertWalls, decorator);
-		initDoors(grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator);
+		initDoors(
+			grid,
+			zone,
+			dungeonLevel,
+			horizWalls,
+			vertWalls,
+			portals,
+			decorator,
+			rooms,
+			startingRoomIndex);
 
 		// tiles
 		Tile[] crusaderTiles = new Tile[width * length];
@@ -132,29 +157,16 @@ public class Noise4jDungeonGen implements DungeonGen
 		// Replace portals wholesale so regen cannot accumulate shell/prior doors.
 		zone.setPortals(portals.toArray(new Portal[0]));
 
-		// set the player origin (seeded — same Generators Random as the dungeon)
-		List<AbstractRoomGenerator.Room> rooms = dg.getRooms();
-		if (rooms == null || rooms.isEmpty())
-		{
-			throw new IllegalStateException(
-				"Noise4jDungeonGen produced no rooms for zone [" + zone.getName()
-					+ "] seed=" + seed);
-		}
-		AbstractRoomGenerator.Room room = Generators.randomElement(rooms);
-
-		Point playerOrigin = new Point(
-			room.getX() + room.getWidth() / 2,
-			room.getY() + room.getHeight() / 2);
-		zone.setPlayerOrigin(playerOrigin);
+		zone.setPlayerOrigin(layoutOrigin);
 
 		StairwellPlan stairwells = StairwellPlan.empty();
-		Point spawn = playerOrigin;
+		Point spawn = layoutOrigin;
 		int spawnFacing = CrusaderEngine.Facing.NORTH;
 		if (context != null && context.getStairwellPlanner() != null)
 		{
 			stairwells = context.getStairwellPlanner().planStairwells(
-				zone, grid, dungeonLevel, playerOrigin, context);
-			spawn = stairwells.resolveSpawn(playerOrigin);
+				zone, grid, dungeonLevel, layoutOrigin, context);
+			spawn = stairwells.resolveSpawn(layoutOrigin);
 			spawnFacing = stairwells.resolveSpawnFacing(CrusaderEngine.Facing.NORTH);
 			zone.setPlayerOrigin(spawn);
 		}
@@ -162,7 +174,36 @@ public class Noise4jDungeonGen implements DungeonGen
 		List<MazeEvent> result = new ArrayList<>();
 		result.add(new MovePartyEvent(spawn, spawnFacing));
 
-		return new DungeonGenResult(result, stairwells, spawn, spawnFacing);
+		return new DungeonGenResult(
+			result,
+			stairwells,
+			spawn,
+			spawnFacing,
+			rooms,
+			grid,
+			startingRoomIndex);
+	}
+
+	private static List<DungeonRoom> toDungeonRooms(List<AbstractRoomGenerator.Room> noiseRooms)
+	{
+		List<DungeonRoom> result = new ArrayList<>(noiseRooms.size());
+		for (AbstractRoomGenerator.Room room : noiseRooms)
+		{
+			result.add(new DungeonRoom(room.getX(), room.getY(), room.getWidth(), room.getHeight()));
+		}
+		return result;
+	}
+
+	private static int indexOfRoom(List<DungeonRoom> rooms, int x, int y)
+	{
+		for (int i = 0; i < rooms.size(); i++)
+		{
+			if (rooms.get(i).contains(x, y))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	private void initDoors(
@@ -171,7 +212,9 @@ public class Noise4jDungeonGen implements DungeonGen
 		int dungeonLevel, Wall[] horizWalls,
 		Wall[] vertWalls,
 		List<Portal> portals,
-		MapGenZoneScript.DungeonDecorator decorator)
+		MapGenZoneScript.DungeonDecorator decorator,
+		List<DungeonRoom> rooms,
+		int startingRoomIndex)
 	{
 		int width = grid.getWidth();
 		int height = grid.getHeight();
@@ -283,8 +326,16 @@ public class Noise4jDungeonGen implements DungeonGen
 
 					if (isEncounter)
 					{
-						Encounter encounter = decorator.getEncounter(zone, x, y, dungeonLevel);
-						zone.getTile(new Point(x, y)).getScripts().add(encounter);
+						int roomIndex = indexOfRoom(rooms, x, y);
+						if (roomIndex >= 0 && roomIndex != startingRoomIndex)
+						{
+							Encounter encounter = decorator.getEncounter(
+								zone, x, y, dungeonLevel, roomIndex);
+							if (encounter != null)
+							{
+								zone.getTile(new Point(x, y)).getScripts().add(encounter);
+							}
+						}
 					}
 				}
 			}

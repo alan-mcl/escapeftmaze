@@ -32,7 +32,6 @@ import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Encounter;
-import mclachlan.maze.map.script.Loot;
 import mclachlan.maze.test.support.MazeTestSupport;
 import mclachlan.maze.test.support.TempleCampaignHarness;
 import org.junit.jupiter.api.Test;
@@ -106,9 +105,8 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 			TempleFloorDressing.findStairsUpPortalFrom(depth2)));
 
 		assertTrue(
-			countLoot(depth2) >= TempleDepthScaler.lootPlacements(2)
-				|| countLoot(depth2) >= 1,
-			"depth 2 should dress loot");
+			countChests(depth2) >= 1,
+			"depth 2 should dress wall chests");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -185,28 +183,9 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static int countLoot(Zone zone)
+	private static int countChests(Zone zone)
 	{
-		int n = 0;
-		var tiles = zone.getTiles();
-		for (int x = 0; x < tiles.length; x++)
-		{
-			for (int y = 0; y < tiles[x].length; y++)
-			{
-				if (tiles[x][y] == null || tiles[x][y].getScripts() == null)
-				{
-					continue;
-				}
-				for (TileScript script : tiles[x][y].getScripts())
-				{
-					if (script instanceof Loot)
-					{
-						n++;
-					}
-				}
-			}
-		}
-		return n;
+		return TempleFloorDressing.findChestTiles(zone).size();
 	}
 
 	/*-------------------------------------------------------------------------*/

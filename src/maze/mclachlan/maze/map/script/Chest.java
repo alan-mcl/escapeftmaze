@@ -51,6 +51,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	private String mazeVariable;
 	private String northTexture, southTexture, eastTexture, westTexture;
 	private MazeScript preScript;
+	private int objectPlacement = EngineObject.Placement.CENTER;
 	
 	private EngineObject engineObject;
 	private Trap currentTrap;
@@ -100,6 +101,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		eastTexture = copy.eastTexture;
 		westTexture = copy.westTexture;
 		preScript = copy.preScript;
+		objectPlacement = copy.objectPlacement;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -169,7 +171,15 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		{
 			EngineObject obj = getEngineObject();
 			obj.setTileIndex(tileIndex);
-			maze.addObject(obj);
+			if (objectPlacement == EngineObject.Placement.CENTER)
+			{
+				maze.addObject(obj);
+			}
+			else
+			{
+				maze.getCurrentZone().getMap().initObjectFromTileIndex(obj, objectPlacement);
+				maze.addObject(obj, false);
+			}
 		}
 	}
 
@@ -276,6 +286,16 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	public void setPreScript(MazeScript preScript)
 	{
 		this.preScript = preScript;
+	}
+
+	public void setObjectPlacement(int objectPlacement)
+	{
+		this.objectPlacement = objectPlacement;
+	}
+
+	public int getObjectPlacement()
+	{
+		return objectPlacement;
 	}
 
 	public void setChestContents(MazeScript chestContents)

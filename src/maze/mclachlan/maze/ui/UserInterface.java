@@ -103,6 +103,9 @@ public interface UserInterface
 	void addObject(EngineObject obj);
 
 	/*-------------------------------------------------------------------------*/
+	void addObject(EngineObject obj, boolean setup);
+
+	/*-------------------------------------------------------------------------*/
 	void removeObject(EngineObject obj);
 
 	/*-------------------------------------------------------------------------*/

@@ -31,7 +31,7 @@
     "name": "campaign.start",
     "events": [
       {
-        "textPlacement": "LEFT",
+        "textPlacement": "BOTTOM_LEFT",
         "imageResource": "screen/sunset",
         "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
         "textResource": "temple.intro.1"

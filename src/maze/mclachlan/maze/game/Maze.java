@@ -1623,6 +1623,12 @@ public class Maze implements Runnable
 	{
 		this.ui.addObject(obj);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addObject(EngineObject obj, boolean setup)
+	{
+		this.ui.addObject(obj, setup);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	public void removeObject(EngineObject obj)

@@ -116,6 +116,18 @@ public final class TempleSeeds
 		return MUTATIONS_PREFIX + depth + ".loot." + index;
 	}
 
+	/** Persisted foe-entry subset for this depth ({@link TempleFoeRoster}). */
+	public static String rosterVar(int depth)
+	{
+		return TempleSeededPicks.pickVar(depth, TempleFoeRoster.ROSTER_PURPOSE);
+	}
+
+	/** Index of the quiet entry room ({@link mclachlan.dungeongen.DungeonGenResult#startingRoomIndex()}). */
+	public static String startRoomVar(int depth)
+	{
+		return MUTATIONS_PREFIX + depth + ".startRoom";
+	}
+
 	/** Fragment encounter / once-only mutation key. */
 	public static String fragmentVar(int depth, String zoneName, int index)
 	{
@@ -126,6 +138,12 @@ public final class TempleSeeds
 	public static String portalVar(int depth, boolean up)
 	{
 		return MUTATIONS_PREFIX + depth + (up ? PORTAL_UP_SUFFIX : PORTAL_DOWN_SUFFIX);
+	}
+
+	/** Set after the player has seen first-visit atmosphere flavour for a depth. */
+	public static String visitedVar(int depth)
+	{
+		return MUTATIONS_PREFIX + depth + ".visited";
 	}
 
 	/*-------------------------------------------------------------------------*/

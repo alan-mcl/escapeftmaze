@@ -1923,7 +1923,16 @@
       },
       {
         "coords": "10:8",
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "scoutSecretDifficulty": "-1",
+            "clickMaxDistance": "1",
+            "text": "A shrine dedicated to the war god Wasud stands in the middle of the courtyard.",
+            "alignment": "CENTER",
+            "reexecuteOnSameTile": "false"
+          }
+        ],
         "randomEncounters": "TestingTable",
         "statModifier": "3f800000000000000000,08080807070807",
         "terrainType": "DUNGEON",

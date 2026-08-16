@@ -781,6 +781,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void addObject(EngineObject obj, boolean setup)
+	{
+		this.raycaster.addObject(obj, setup);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void removeObject(EngineObject obj)
 	{
 		this.raycaster.removeObject(obj);

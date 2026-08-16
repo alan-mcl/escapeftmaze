@@ -21,17 +21,31 @@ package mclachlan.dungeongen;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.dungeongen.noise4j.map.Grid;
 import mclachlan.maze.game.MazeEvent;
 
 /**
- * Output of {@link DungeonGen#generate}: layout events, stair plan, spawn.
+ * Output of {@link DungeonGen#generate}: layout events, stair plan, spawn, and
+ * optional layout metadata for post-gen dressing (Noise4j today).
  */
 public record DungeonGenResult(
 	List<MazeEvent> events,
 	StairwellPlan stairwells,
 	Point playerOrigin,
-	int playerFacing)
+	int playerFacing,
+	List<DungeonRoom> rooms,
+	Grid layoutGrid,
+	int startingRoomIndex)
 {
+	public DungeonGenResult(
+		List<MazeEvent> events,
+		StairwellPlan stairwells,
+		Point playerOrigin,
+		int playerFacing)
+	{
+		this(events, stairwells, playerOrigin, playerFacing, List.of(), null, -1);
+	}
+
 	public static DungeonGenResult of(List<MazeEvent> events, Point origin, int facing)
 	{
 		return new DungeonGenResult(events, StairwellPlan.empty(), origin, facing);
