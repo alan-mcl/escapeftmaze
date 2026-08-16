@@ -1,14 +1,5 @@
 [
   {
-    "name": "screen.default_intro_6",
-    "scrollSpeed": "-1",
-    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
-    "animationDelay": "-1",
-    "imageResources": [
-      "screen/default_intro_6"
-    ]
-  },
-  {
     "name": "foe.triton.female",
     "scrollSpeed": "-1",
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
@@ -114,6 +105,15 @@
     "animationDelay": "-1",
     "imageResources": [
       "crusader/foe/gnome_warrior"
+    ]
+  },
+  {
+    "name": "objects.brazier.1",
+    "scrollSpeed": "-1",
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "animationDelay": "120",
+    "imageResources": [
+      "crusader/scene/brazier_1"
     ]
   },
   {
@@ -1489,6 +1489,15 @@
     "animationDelay": "-1",
     "imageResources": [
       "crusader/foe/the_aromatist"
+    ]
+  },
+  {
+    "name": "screen.default_intro_6",
+    "scrollSpeed": "-1",
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "animationDelay": "-1",
+    "imageResources": [
+      "screen/default_intro_6"
     ]
   },
   {

@@ -9222,23 +9222,23 @@
     ],
     "expandedObjects": [
       {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
+        "northTexture": "objects.brazier.1",
+        "southTexture": "objects.brazier.1",
+        "eastTexture": "objects.brazier.1",
+        "westTexture": "objects.brazier.1",
         "xPos": "3328",
         "yPos": "3840",
-        "lightSource": "false",
+        "lightSource": "true",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.torch.1",
-        "southTexture": "objects.torch.1",
-        "eastTexture": "objects.torch.1",
-        "westTexture": "objects.torch.1",
+        "northTexture": "objects.brazier.1",
+        "southTexture": "objects.brazier.1",
+        "eastTexture": "objects.brazier.1",
+        "westTexture": "objects.brazier.1",
         "xPos": "3328",
         "yPos": "4864",
-        "lightSource": "false",
+        "lightSource": "true",
         "verticalAlignment": "BOTTOM"
       },
       {
