@@ -111,6 +111,134 @@ public class ZoneScorer
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * BFS path from {@code from} to {@code to} over the same adjacency graph as
+	 * {@link #getNavigableTiles(Zone)}. Returns tile coords including both ends,
+	 * or empty when unreachable.
+	 */
+	public List<java.awt.Point> findPath(Zone zone, java.awt.Point from, java.awt.Point to)
+	{
+		if (from == null || to == null || from.equals(to))
+		{
+			return from == null ? List.of() : List.of(from);
+		}
+
+		Tile start = zone.getTile(from);
+		Tile goal = zone.getTile(to);
+		if (start == null || goal == null)
+		{
+			return List.of();
+		}
+
+		Map<Tile, Tile> cameFrom = new HashMap<>();
+		Deque<Tile> queue = new ArrayDeque<>();
+		Set<Tile> seen = new HashSet<>();
+		queue.add(start);
+		seen.add(start);
+
+		while (!queue.isEmpty())
+		{
+			Tile current = queue.removeFirst();
+			if (current == goal)
+			{
+				return reconstructPath(zone, cameFrom, start, goal);
+			}
+
+			for (Tile neighbour : adjacentNavigableTiles(zone, current))
+			{
+				if (!seen.contains(neighbour))
+				{
+					seen.add(neighbour);
+					cameFrom.put(neighbour, current);
+					queue.addLast(neighbour);
+				}
+			}
+		}
+
+		return List.of();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<java.awt.Point> reconstructPath(
+		Zone zone,
+		Map<Tile, Tile> cameFrom,
+		Tile start,
+		Tile goal)
+	{
+		List<java.awt.Point> path = new ArrayList<>();
+		Tile step = goal;
+		while (step != null)
+		{
+			path.add(zone.getPoint(step));
+			step = step == start ? null : cameFrom.get(step);
+		}
+		Collections.reverse(path);
+		return path;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<Tile> adjacentNavigableTiles(Zone zone, Tile t)
+	{
+		List<Tile> result = new ArrayList<>(4);
+		addIfNavigable(zone, result, zone.getTileRelativeTo(t, -1, 0, true));
+		addIfNavigable(zone, result, zone.getTileRelativeTo(t, 0, -1, true));
+		addIfNavigable(zone, result, zone.getTileRelativeTo(t, 0, 1, true));
+		addIfNavigable(zone, result, zone.getTileRelativeTo(t, 1, 0, true));
+		addPortalNeighbour(zone, t, result);
+		return result;
+	}
+
+	private void addIfNavigable(Zone zone, List<Tile> result, Tile tile)
+	{
+		if (tile != null && !result.contains(tile))
+		{
+			result.add(tile);
+		}
+	}
+
+	private void addPortalNeighbour(Zone zone, Tile t, List<Tile> result)
+	{
+		for (int facing = 0; facing < 4; facing++)
+		{
+			Portal portal = zone.getPortal(t.getCoords(), facing);
+			if (!isIntraZonePortal(portal))
+			{
+				continue;
+			}
+			Tile other = zone.getTile(portal.getTo());
+			addIfNavigable(zone, result, other);
+			other = zone.getTile(portal.getFrom());
+			addIfNavigable(zone, result, other);
+		}
+	}
+
+	/**
+	 * Same rule as {@link #walkThroughPortal}: intra-zone door portals are
+	 * walkable unless the script contains a {@link ZoneChangeEvent} (stairs).
+	 */
+	private boolean isIntraZonePortal(Portal portal)
+	{
+		if (portal == null)
+		{
+			return false;
+		}
+		String ms = portal.getMazeScript();
+		if (ms == null)
+		{
+			return true;
+		}
+		MazeScript mazeScript = Database.getInstance().getMazeScripts().get(ms);
+		for (MazeEvent e : mazeScript.getEvents())
+		{
+			if (e instanceof ZoneChangeEvent)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void getNavigableTilesRecursive(Zone zone, Tile t, List<Tile> result)
 	{
 		if (t == null)
@@ -154,23 +282,8 @@ public class ZoneScorer
 	/*-------------------------------------------------------------------------*/
 	private void walkThroughPortal(Portal portal, Zone zone, List<Tile> result)
 	{
-		if (portal != null)
+		if (portal != null && isIntraZonePortal(portal))
 		{
-			String ms = portal.getMazeScript();
-			if (ms != null)
-			{
-				MazeScript mazeScript = Database.getInstance().getMazeScripts().get(ms);
-
-				for (MazeEvent e : mazeScript.getEvents())
-				{
-					if (e instanceof ZoneChangeEvent)
-					{
-						// todo: are other event types required here?
-						return;
-					}
-				}
-			}
-
 			Tile tile = zone.getTile(portal.getTo());
 			if (!result.contains(tile))
 			{

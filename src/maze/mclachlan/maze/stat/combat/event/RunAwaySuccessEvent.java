@@ -48,6 +48,12 @@ public class RunAwaySuccessEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		if (actor.getHitPoints().getCurrent() <= 0
+			|| Maze.getInstance().getCurrentCombat() == null)
+		{
+			return null;
+		}
+
 		List<MazeEvent> result = new ArrayList<>(Maze.getInstance().actorFlees(actor));
 
 		if (actor instanceof PlayerCharacter)

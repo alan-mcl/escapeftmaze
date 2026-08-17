@@ -98,12 +98,39 @@ public final class TempleFoeRoster
 			{
 				weights.add(even);
 			}
+			sum = weights.stream().mapToInt(Integer::intValue).sum();
+		}
+
+		// Runtime roster tables drive mandatory door encounters; they must always
+		// resolve to a foe entry (unlike band tables that may sum below 100%).
+		if (sum != 100)
+		{
+			weights = normalizeTo100(weights, sum);
 		}
 
 		PercentageTable<FoeEntry> subset = new PercentageTable<>(
 			entries.toArray(new FoeEntry[0]),
 			weights.toArray(new Integer[0]),
-			sourcePool.shouldSumTo100());
+			true);
 		return new EncounterTable(runtimeName, subset);
+	}
+
+	/** Rescale subset weights to total 100 for tables that require it. */
+	private static List<Integer> normalizeTo100(List<Integer> weights, int sum)
+	{
+		List<Integer> scaled = new ArrayList<>(weights.size());
+		int scaledSum = 0;
+		for (int w : weights)
+		{
+			int pct = (w * 100) / sum;
+			scaled.add(pct);
+			scaledSum += pct;
+		}
+		int remainder = 100 - scaledSum;
+		if (remainder != 0)
+		{
+			scaled.set(0, scaled.get(0) + remainder);
+		}
+		return scaled;
 	}
 }

@@ -57,7 +57,7 @@ public final class TempleStairwellDresser
 		{
 			applyPortal(zone, plan.stairsUp(), portals, TempleStairLinks.ascendScriptForDepth(depth));
 		}
-		if (plan.stairsDown() != null)
+		if (plan.stairsDown() != null && TempleDepthScaler.hasDownStairs(depth))
 		{
 			applyPortal(zone, plan.stairsDown(), portals, TempleStairLinks.descendScriptForDepth(depth));
 		}

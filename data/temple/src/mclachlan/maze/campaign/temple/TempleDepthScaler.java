@@ -27,7 +27,13 @@ package mclachlan.maze.campaign.temple;
 public final class TempleDepthScaler
 {
 	/** Highest authored encounter/loot band under {@code data/temple/db}. */
-	public static final int MAX_CONTENT_BAND = 3;
+	public static final int MAX_CONTENT_BAND = 4;
+
+	/** Deepest Noise4j crawl floor with a down stair (boss at 5+ uses other gens). */
+	public static final int PLAYABLE_MAX_DEPTH = 4;
+
+	/** Authoring range for ambient tile magic on procedural temple floors. */
+	public static final int MAX_TILE_MAGIC = 8;
 
 	private TempleDepthScaler()
 	{
@@ -36,11 +42,18 @@ public final class TempleDepthScaler
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Soft-clamped content band for tables and dressing density.
-	 * Depth 1→1, 2→2, 3+→{@link #MAX_CONTENT_BAND}.
+	 * Depth 1→1, 2→2, …, 4+→{@link #MAX_CONTENT_BAND}.
 	 */
 	public static int contentBand(int depth)
 	{
 		return Math.min(MAX_CONTENT_BAND, Math.max(1, depth));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/** Whether procedural gen should place down stairs at this depth. */
+	public static boolean hasDownStairs(int depth)
+	{
+		return depth > 0 && depth < PLAYABLE_MAX_DEPTH;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -59,7 +72,7 @@ public final class TempleDepthScaler
 	/** How many once-only loot scripts to dress onto a floor. */
 	public static int lootPlacements(int depth)
 	{
-		return 1 + contentBand(depth); // 2 / 3 / 4
+		return 1 + contentBand(depth); // 2 / 3 / 4 / 5
 	}
 
 	/**
@@ -84,6 +97,27 @@ public final class TempleDepthScaler
 	public static int scoutSecretDifficulty(int depth)
 	{
 		return Math.max(1, depth);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Mean ambient magic per colour on general procedural floor tiles.
+	 * Depth 1→1, 2→2, …, 4+→{@link #MAX_CONTENT_BAND}.
+	 */
+	public static int meanTileMagic(int depth)
+	{
+		return contentBand(depth);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Jittered ambient magic amount for one colour: mean ±1, clamped to
+	 * {@link #MAX_TILE_MAGIC}.
+	 */
+	public static int rollTileMagicAmount(int mean, java.util.Random random)
+	{
+		int jitter = random.nextInt(3) - 1;
+		return Math.max(0, Math.min(MAX_TILE_MAGIC, mean + jitter));
 	}
 
 	/*-------------------------------------------------------------------------*/

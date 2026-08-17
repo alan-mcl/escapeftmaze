@@ -71,7 +71,7 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 		{
 			up = pickUp(layoutOrigin, startingRoom, candidates);
 		}
-		if (down == null && !candidates.isEmpty())
+		if (down == null && !candidates.isEmpty() && TempleDepthScaler.hasDownStairs(depth))
 		{
 			down = pickDown(layoutOrigin, startingRoom, candidates, up);
 		}

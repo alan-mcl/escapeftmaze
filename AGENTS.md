@@ -94,6 +94,7 @@ vendored at `oem/junit/junit-platform-console-standalone-*.jar`):
 ```bash
 ant compile-tests   # compile testsrc/ -> build/test-classes
 ant test            # run headless; writes build/test-reports
+./temple-run.sh     # headless temple depths 1–4; HTML in build/test-reports/
 ```
 
 Suite conventions (follow these when adding tests):

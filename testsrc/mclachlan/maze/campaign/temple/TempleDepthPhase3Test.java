@@ -52,13 +52,18 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 		assertEquals(1, TempleDepthScaler.contentBand(1));
 		assertEquals(2, TempleDepthScaler.contentBand(2));
 		assertEquals(3, TempleDepthScaler.contentBand(3));
-		assertEquals(3, TempleDepthScaler.contentBand(99));
+		assertEquals(4, TempleDepthScaler.contentBand(4));
+		assertEquals(4, TempleDepthScaler.contentBand(99));
 
 		assertEquals("temple.depth.1", TempleDepthScaler.encounterTableName(1));
-		assertEquals("temple.depth.3", TempleDepthScaler.encounterTableName(50));
+		assertEquals("temple.depth.4", TempleDepthScaler.encounterTableName(4));
+		assertEquals("temple.depth.4", TempleDepthScaler.encounterTableName(50));
 		assertEquals("temple.depth.2.loot", TempleDepthScaler.lootTableName(2));
 		assertEquals(2, TempleDepthScaler.lootPlacements(1));
-		assertEquals(4, TempleDepthScaler.lootPlacements(3));
+		assertEquals(5, TempleDepthScaler.lootPlacements(4));
+		assertTrue(TempleDepthScaler.hasDownStairs(1));
+		assertTrue(TempleDepthScaler.hasDownStairs(3));
+		assertFalse(TempleDepthScaler.hasDownStairs(4));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -145,6 +150,21 @@ public class TempleDepthPhase3Test extends MazeTestSupport
 		MazeScript script = db.getMazeScript(TempleStairLinks.HUB_DESCEND_SCRIPT);
 		ZoneChangeEvent zce = findZoneChangeEvent(script);
 		assertEquals("temple.1", zce.getZone());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void depth4HasUpStairsButNoDownStairs() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+
+		Zone zone = generate(db, 4);
+		assertNotNull(TempleFloorDressing.findStairsUpPortalFrom(zone));
+		assertNull(TempleFloorDressing.findStairsDownPortalFrom(zone),
+			"depth 4 should not place down stairs");
+		assertNull(TempleStairLinks.readPortal(4, false),
+			"down portal plan should not persist at playable cap");
 	}
 
 	/*-------------------------------------------------------------------------*/

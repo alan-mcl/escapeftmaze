@@ -22,6 +22,7 @@ package mclachlan.maze.test.support;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.npc.NpcManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
@@ -59,6 +60,7 @@ public abstract class MazeTestSupport
 		Maze.destroy();
 		Maze.setPerfLog(null);
 		Database.resetInstanceForTesting();
+		NpcManager.resetInstanceForTesting();
 	}
 
 	/*-------------------------------------------------------------------------*/

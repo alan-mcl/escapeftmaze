@@ -78,6 +78,8 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 			TempleSeeds.startRoomVar(dungeonLevel),
 			Integer.toString(result.startingRoomIndex()));
 
+		TempleMagicDresser.dress(zone, dungeonLevel, result);
+
 		Set<Point> avoid = stairAvoidTiles(result.stairwells());
 		TempleFloorDressing.dress(zone, dungeonLevel, avoid, result, usageTheme);
 		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment, usageTheme);

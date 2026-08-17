@@ -61,6 +61,19 @@ public class TempleFoeRosterTest extends MazeTestSupport
 		{
 			assertTrue(before.contains(entry), entry.getName() + " should be from band pool");
 		}
+		if (band.getEncounterTable().shouldSumTo100())
+		{
+			int total = roster.getEncounterTable().getPercentages().stream()
+				.mapToInt(Integer::intValue).sum();
+			assertEquals(100, total, "runtime roster should normalize to 100%");
+		}
+		else
+		{
+			int total = roster.getEncounterTable().getPercentages().stream()
+				.mapToInt(Integer::intValue).sum();
+			assertEquals(100, total,
+				"runtime roster should normalize to 100% even when band table does not");
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

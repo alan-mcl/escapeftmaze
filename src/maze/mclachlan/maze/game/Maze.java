@@ -386,6 +386,12 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static Log getLog()
+	{
+		return log;
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * Journal's the given text in the context of any current NPC or Zone
@@ -2729,8 +2735,41 @@ public class Maze implements Runnable
 		mclachlan.crusader.Map map = new mclachlan.crusader.Map();
 		map.setExpandedObjects(new ArrayList<>());
 		z.setMap(map);
+		z.setScript(new ZoneScript()
+		{
+			@Override
+			public List<MazeEvent> init(Zone zone, long turnNr)
+			{
+				return null;
+			}
+
+			@Override
+			public List<MazeEvent> endOfTurn(Zone zone, long turnNr)
+			{
+				return null;
+			}
+		});
 		this.zone = z;
 		this.playerPos = tile;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Test seam: minimal in-game bookkeeping for headless harness runs without
+	 * the full new-game flow (which clears maze variables and shows UI).
+	 */
+	public void initHarnessBookkeepingForTesting()
+	{
+		if (this.playerTilesVisited == null)
+		{
+			this.playerTilesVisited = new PlayerTilesVisited();
+		}
+		if (this.difficultyLevel == null)
+		{
+			this.difficultyLevel =
+				Database.getInstance().getDifficultyLevels().get("Normal");
+		}
+		GameTime.startGame();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2772,6 +2811,17 @@ public class Maze implements Runnable
 	public boolean isEventQueueEmptyForTesting()
 	{
 		return processor == null || processor.queue == null || processor.queue.isEmpty();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/** Test seam: queued event count (for harness progress / diagnostics). */
+	public int getEventQueueSizeForTesting()
+	{
+		if (processor == null || processor.queue == null)
+		{
+			return 0;
+		}
+		return processor.queue.size();
 	}
 
 	/*-------------------------------------------------------------------------*/

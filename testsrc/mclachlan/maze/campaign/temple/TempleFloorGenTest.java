@@ -22,8 +22,10 @@ package mclachlan.maze.campaign.temple;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
+import mclachlan.maze.balance.ZoneScorer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.GameState;
@@ -107,6 +109,14 @@ public class TempleFloorGenTest extends MazeTestSupport
 		assertTrue(canReach(zone, origin, stairs),
 			"spawn should reach stairs via open tiles/portals");
 
+		ZoneScorer scorer = new ZoneScorer();
+		Point encounter = encounters.get(0);
+		List<Point> path = scorer.findPath(zone, origin, encounter);
+		assertTrue(path.size() >= 2,
+			"findPath should reach a door-room encounter from spawn (seed " + RUN_SEED + ")");
+
+		assertNoObjectsOnDoorTiles(zone);
+
 		// Same floor seed must reproduce the same spawn (no unseeded Random).
 		Point origin2 = generateDepth1(db).getPlayerOrigin();
 		assertEquals(origin, origin2, "spawn should be deterministic for a fixed run seed");
@@ -167,6 +177,20 @@ public class TempleFloorGenTest extends MazeTestSupport
 			hasSolidWallWithTexture(map.getHorizontalWalls(), expectedWall)
 				|| hasSolidWallWithTexture(map.getVerticalWalls(), expectedWall),
 			"expected at least one solid room wall with palette texture");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Test
+	void generatedFloorTileMagicScalesWithDepth() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+
+		for (int depth = 1; depth <= TempleDepthScaler.PLAYABLE_MAX_DEPTH; depth++)
+		{
+			Zone zone = generateDepth(db, depth);
+			assertTileMagicForDepth(zone, depth);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -319,15 +343,94 @@ public class TempleFloorGenTest extends MazeTestSupport
 	/*-------------------------------------------------------------------------*/
 	private Zone generateDepth1(Database db)
 	{
+		return generateDepth(db, 1);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Zone generateDepth(Database db, int depth)
+	{
 		MazeVariables.clearAll();
 		MazeVariables.set(TempleSeeds.RUN_SEED, Long.toString(RUN_SEED));
-		MazeVariables.set(TempleSeeds.DEPTH, "1");
+		MazeVariables.set(TempleSeeds.DEPTH, Integer.toString(depth));
 
 		Zone zone = db.getZone("temple.1");
 		assertNotNull(zone);
 		assertTrue(zone.getScript() instanceof TempleGeneratorMazeScript);
 		zone.getScript().init(zone, 0);
 		return zone;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void assertNoObjectsOnDoorTiles(Zone zone)
+	{
+		Set<Point> blocked = new HashSet<>(TempleFloorDressing.findDoorTiles(zone));
+		blocked.addAll(TempleFloorDressing.findEncounterTiles(zone));
+
+		for (Point door : blocked)
+		{
+			assertFalse(TempleFloorDressing.findChestTiles(zone).contains(door),
+				"chest must not sit on door tile " + door);
+
+			int tileIndex = zone.getTileIndex(door);
+			for (EngineObject obj : zone.getMap().getExpandedObjects())
+			{
+				assertNotEquals(tileIndex, obj.getTileIndex(),
+					"floor object must not sit on door tile " + door);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void assertTileMagicForDepth(Zone zone, int depth)
+	{
+		ZoneScorer scorer = new ZoneScorer();
+		List<Tile> navigable = scorer.getNavigableTiles(zone);
+		assertFalse(navigable.isEmpty(), "depth " + depth + " should have navigable tiles");
+
+		int mean = TempleDepthScaler.meanTileMagic(depth);
+		long total = 0;
+		long count = 0;
+		boolean sawNonZero = false;
+		Set<String> signatures = new HashSet<>();
+
+		for (Tile tile : navigable)
+		{
+			int[] amounts = colourMagicAmounts(tile);
+			for (int amount : amounts)
+			{
+				assertTrue(amount >= 0 && amount <= TempleDepthScaler.MAX_TILE_MAGIC,
+					"colour magic should be 0–8 on depth " + depth);
+				if (amount > 0)
+				{
+					sawNonZero = true;
+				}
+				total += amount;
+				count++;
+			}
+			signatures.add(Arrays.toString(amounts));
+		}
+
+		assertTrue(sawNonZero, "depth " + depth + " tiles should carry ambient magic");
+		assertTrue(signatures.size() >= 2,
+			"depth " + depth + " tiles should jitter independently");
+		double average = (double)total / count;
+		assertTrue(Math.abs(average - mean) <= 1.5,
+			"depth " + depth + " average magic should cluster near mean " + mean
+				+ " (was " + average + ")");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int[] colourMagicAmounts(Tile tile)
+	{
+		return new int[] {
+			tile.getAmountRedMagic(),
+			tile.getAmountBlackMagic(),
+			tile.getAmountPurpleMagic(),
+			tile.getAmountGoldMagic(),
+			tile.getAmountWhiteMagic(),
+			tile.getAmountGreenMagic(),
+			tile.getAmountBlueMagic()
+		};
 	}
 
 	/*-------------------------------------------------------------------------*/

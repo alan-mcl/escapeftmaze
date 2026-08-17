@@ -79,5 +79,32 @@
       "SHOULD_SUM_TO_100": "false"
     },
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
+  },
+  {
+    "name": "temple.depth.4",
+    "encounterTable": {
+      "PERCENTAGES": [
+        16,
+        16,
+        14,
+        14,
+        12,
+        12,
+        8,
+        8
+      ],
+      "ITEMS": [
+        "gnome.knaves.small",
+        "moulders.small",
+        "clockwork.diggers",
+        "goldcrown.bats.1",
+        "gnoll.braves.small",
+        "bloated.spiders.medium",
+        "gnome.robbers.small",
+        "gnoll.heroes.small"
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable"
   }
 ]

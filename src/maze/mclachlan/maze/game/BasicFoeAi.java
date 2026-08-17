@@ -254,7 +254,7 @@ public class BasicFoeAi extends FoeCombatAi
 
 				count++;
 			}
-			while (sla == null || count < 20);
+			while (sla == null && count < 20);
 
 			SpellTarget spellTarget = SpellTargetUtils.getRandomLegalSpellTarget(
 				foe, sla.getSpell(), combat);
@@ -281,12 +281,19 @@ public class BasicFoeAi extends FoeCombatAi
 			// pick a random attack
 			List<AttackWith> attackWithOptions = foe.getAttackWithOptions();
 
-			AttackWith aw;
+			AttackWith aw = null;
+			int attempts = 0;
 			do
 			{
 				aw = attackWithOptions.get(Dice.nextInt(attackWithOptions.size()));
+				attempts++;
 			}
-			while (!foe.isLegalAttack(aw,engagementRange));
+			while (!foe.isLegalAttack(aw, engagementRange) && attempts < 20);
+
+			if (aw == null || !foe.isLegalAttack(aw, engagementRange))
+			{
+				return null;
+			}
 
 			// pick a random enemy group
 			List<ActorGroup> foesOf = combat.getFoesOf(foe);

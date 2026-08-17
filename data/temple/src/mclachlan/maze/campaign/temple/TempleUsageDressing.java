@@ -88,14 +88,16 @@ public final class TempleUsageDressing
 		int peak = Math.min(ambient + 8, 32);
 		Random random = TempleSeededPicks.rng(depth, PLACE_PURPOSE);
 
+		Set<Point> doorTiles = TempleFloorDressing.findDoorTiles(zone);
 		Set<Point> spawnAvoid = buildAvoid(zone, avoidTiles, lighting);
+		spawnAvoid.addAll(doorTiles);
 		Set<Point> occupiedFloor = new HashSet<>(spawnAvoid);
 		if (lighting != null)
 		{
 			occupiedFloor.addAll(lighting.floorStandingTiles());
 		}
 		occupiedFloor.addAll(TempleFloorDressing.findChestTiles(zone));
-		Set<Point> doorTiles = TempleFloorDressing.findDoorTiles(zone);
+		occupiedFloor.addAll(doorTiles);
 		Set<Point> ceilingLightTiles = lighting == null || lighting.fixture() == null
 			|| !lighting.fixture().ceiling()
 			? Set.of()

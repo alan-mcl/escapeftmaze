@@ -374,6 +374,8 @@ A JUnit 5 test suite lives in `testsrc/` (run with `ant compile-tests` / `ant
 test`). It is hermetic (synthetic in-memory fixtures via
 `mclachlan.maze.test.support.TestData`, not `data/default/`) and deterministic
 (seeded `Dice`), and includes a reusable headless engine harness
-(`HeadlessMaze`) for combat/leveling smoke tests. The legacy `*Test*` classes
+(`HeadlessMaze`) for combat/leveling smoke tests. Headless dungeon runs write a
+self-contained HTML report via `HarnessHtmlReport` (inline CSS/JS, no outside
+dependencies). The legacy `*Test*` classes
 under `maze/test/`, `maze/balance/`, `jgpgoap/`, and `crusader/client/` remain as
 standalone `main()` harnesses for manual exploration.

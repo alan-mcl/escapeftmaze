@@ -20,7 +20,9 @@
 package mclachlan.maze.test.support;
 
 import mclachlan.maze.audio.AudioPlayer;
+import mclachlan.maze.balance.HeadlessHarnessSupport;
 import mclachlan.maze.balance.HeadlessUi;
+import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
@@ -29,7 +31,6 @@ import mclachlan.maze.game.Launcher;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.UserConfig;
-import mclachlan.diygui.toolkit.DIYToolkit;
 
 import java.io.InputStream;
 
@@ -62,6 +63,12 @@ public final class TempleCampaignHarness
 
 	/*-------------------------------------------------------------------------*/
 	public static Maze bootMaze(Database db) throws Exception
+	{
+		return bootMaze(db, new HeadlessUi());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Maze bootMaze(Database db, UserInterface ui) throws Exception
 	{
 		Campaign temple = Database.getCampaigns().get("temple");
 		Maze maze = new Maze(Launcher.getConfig(), temple);
@@ -97,16 +104,14 @@ public final class TempleCampaignHarness
 		db.getDifficultyLevels();
 
 		maze.initSystems();
-		maze.initUi(new HeadlessUi());
+		maze.initUi(ui);
 		maze.initEventProcessorForTesting();
 		maze.setUserConfig(UserConfig.defaultsForTesting());
 
-		if (DIYToolkit.getInstance() == null)
-		{
-			new DIYToolkit();
-		}
+		HeadlessHarnessSupport.ensureInitialised();
 
 		MazeVariables.clearAll();
+		HeadlessHarnessSupport.prepareMaze(maze);
 		return maze;
 	}
 }

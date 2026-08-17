@@ -87,6 +87,7 @@ public final class TempleLighting
 		int peak = Math.min(ambient + 8, 32);
 		Random random = TempleSeededPicks.rng(depth, PLACE_PURPOSE);
 		Set<Point> avoid = new HashSet<>(avoidTiles);
+		avoid.addAll(TempleFloorDressing.findDoorTiles(zone));
 		avoid.addAll(TempleFloorDressing.findChestTiles(zone));
 		Set<Point> placed = new LinkedHashSet<>();
 		Map map = zone.getMap();

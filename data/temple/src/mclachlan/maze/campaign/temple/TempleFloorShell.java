@@ -26,6 +26,7 @@ import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.stat.StatModifier;
 
 /**
  * Shrinks the {@code temple.1} palette shell before Noise4j generation for faster testing.
@@ -123,7 +124,14 @@ public final class TempleFloorShell
 		{
 			tile.setTerrainType(prototype.getTerrainType());
 			tile.setTerrainSubType(prototype.getTerrainSubType());
-			tile.setStatModifier(prototype.getStatModifier());
+			if (prototype.getStatModifier() != null)
+			{
+				tile.setStatModifier(new StatModifier(prototype.getStatModifier()));
+			}
+			else
+			{
+				tile.setStatModifier(prototype.getStatModifier());
+			}
 			tile.setRandomEncounterChance(prototype.getRandomEncounterChance());
 			tile.setRestingDanger(prototype.getRestingDanger());
 			tile.setRestingEfficiency(prototype.getRestingEfficiency());

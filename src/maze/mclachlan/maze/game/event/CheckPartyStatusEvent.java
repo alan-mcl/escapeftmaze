@@ -56,6 +56,11 @@ public class CheckPartyStatusEvent extends MazeEvent
 		//
 		// check for fatigue KO on any live actors
 		//
+		if (Maze.getInstance().getParty() == null)
+		{
+			return result;
+		}
+
 		for (UnifiedActor actor : Maze.getInstance().getParty().getActors())
 		{
 			CurMaxSub hp = actor.getHitPoints();

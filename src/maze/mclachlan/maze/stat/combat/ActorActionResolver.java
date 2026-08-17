@@ -1333,7 +1333,13 @@ public class ActorActionResolver
 		UnifiedActor attacker,
 		Combat combat)
 	{
-		int foeGroupIndex = combat.getFoes().indexOf(attacker.getCombatantData().getGroup());
+		CombatantData data = attacker.getCombatantData();
+		if (data == null)
+		{
+			return ItemTemplate.WeaponRange.MELEE;
+		}
+
+		int foeGroupIndex = combat.getFoes().indexOf(data.getGroup());
 
 		if (foeGroupIndex == -1)
 		{

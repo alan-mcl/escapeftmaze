@@ -176,16 +176,26 @@ Noise4j path only (future fragment-assembled signature levels skip it).
 | **Garden** | DIRT only | 25 (+15 on DIRT) | Plants/fungus in orderly bed rows (9 objects per tile), under light pools; ceiling fittings do not block floor plants. |
 | **Mixed** | any | 25 | Per-room theme via `pick.usage.room.<i>`. |
 
-**Placement:** starting room may have clutter except on the spawn tile. Floor-standing lights (torch/brazier) block other floor objects on that tile; ceiling fittings do not, except **pillars**, which reach the ceiling and cannot share a tile with a ceiling fitting or sit in front of a door. **Crates** and **market stalls** also stay off door tiles.
+**Placement:** starting room may have clutter except on the spawn tile. **Door-front tiles** (both sides of every portal, including encounter tiles) stay clear of chests, lights, and usage props. Floor-standing lights (torch/brazier) block other floor objects on that tile; ceiling fittings do not, except **pillars**, which reach the ceiling and cannot share a tile with a ceiling fitting or sit in front of a door.
+
+**Ambient colour magic:** after layout, `TempleMagicDresser` sets all seven `*_MAGIC_GEN` modifiers on every walkable floor tile. General tiles jitter each colour independently around `TempleDepthScaler.meanTileMagic(depth)` (depth band 1–4) with ±1 noise, clamped to **0–8** (engine cap remains 13). Set-piece colour overrides are future work.
 
 **Loot:** non-Storage loot rooms keep wall `Chest` scripts. Storage rooms skip chests; `TempleUsageDressing` attaches hidden loot to one placed barrel/crate using the same `temple.d.N.loot.i` mutation keys.
 
 ## 8. Depth model
 
-`TempleDepthScaler` (temple package): maps depth → content band (1–3 soft-cap),
-encounter/loot table names, loot placement count, foe subset size, foe-pack
-multiplier hint. **Depth N targets party level N** (via band pools). **Orthogonal** to inherited Easy/Normal/Hard/Heroic `DifficultyLevel`. Depths
-beyond band 3 reuse band-3 tables (endless until Phase 5 quest bands).
+**Campaign arc (locked):** 20 generated delve floors; depth **N** targets party level **N**.
+Boss floors at depths **5, 10, 15, 20** each use a different `DungeonGen` via
+`TempleLayoutPolicy` and grant one godly body part (arms, legs, torso, head).
+Phase 5 owns quest items and assembly; this doc tracks the cadence only.
+
+**Playable today:** Noise4j crawl floors **1–4** only. Depth **4** has no down
+stairs until the depth-5 boss generator exists (`TempleDepthScaler.PLAYABLE_MAX_DEPTH`).
+
+`TempleDepthScaler` (temple package): maps depth → content band (1–4 soft-cap),
+encounter/loot table names, loot placement count, foe subset size, ambient tile
+magic mean (`meanTileMagic`), scout secret difficulty, foe-pack multiplier hint. **Depth N targets party level N** (via band pools). **Orthogonal** to inherited Easy/Normal/Hard/Heroic `DifficultyLevel`. Depths
+beyond band 4 reuse band-4 tables until more bands or Phase 5 quest bands land.
 
 Multi-depth loop uses one procedural shell (`temple.1`) plus maze variables for depth:
 
@@ -200,9 +210,9 @@ Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `
 
 ## 9. Encounters and loot
 
-- Tables `temple.depth.{1,2,3}` / `.loot` reference inherited Default foe/loot
+- Tables `temple.depth.{1,2,3,4}` / `.loot` reference inherited Default foe/loot
   entries by name. Scaler picks the band; `TempleFoeRoster` picks a
-  persist-once subset (`foeSubsetSize`: 3 / 3 / 4 for bands 1–3).
+  persist-once subset (`foeSubsetSize`: 3 / 3 / 4 / 4 for bands 1–4).
 - **Encounters:** Noise4j places a script on each room-side door tile, but all
   doors into the same room share one maze variable — clearing the fight clears the
   room. The **starting room** (spawn layout origin) has doors but **no** encounter.
@@ -215,7 +225,8 @@ Authored scripts use `SetMazeVariableEvent`, `IncrementMazeVariableEvent`, and `
 - Stairs: **wall portals** on **blank room walls** (solid wall behind the mask),
   not on corridor door junctions. Hub `temple.descend.1` → depth 1.
   Depth 1 up → `temple.ascend.1` → Temple Hub; depth 2+ up → `temple.ascend.prev`.
-  All generated floors down → `temple.descend.next`. Arrival faces **away** from
+  All generated floors down → `temple.descend.next` (when down stairs exist).
+  **No down stairs on depth 4** until boss floor at depth 5. Arrival faces **away** from
   the stair texture (into the room / hub / deeper level). All floor transitions
   zone-change to `temple.1` with spawn from init `MovePartyEvent`.
 - Optional threat-budget picker later (may read scorers; must not modify them).
@@ -304,8 +315,10 @@ seed, temple-only art as needed.
 
 Early smoke (Phase 2–3): fixed-seed connectivity + thin combat smoke.
 Full harness (Phase 6): seeds × depths × party archetypes; metrics (TTK, HP
-drain, loot, threat). Informs Default balance decisions; temple code never
-writes `data/default/`.
+drain, loot, threat). Headless dungeon runs always use a **party of 6** and
+write a self-contained HTML report (`HarnessHtmlReport`, no external
+dependencies). Informs Default balance decisions; temple code never writes
+`data/default/`.
 
 ## 14. Content pipeline
 
@@ -336,6 +349,8 @@ start Phase 5 until Phase 4’s playable-layout exit is met (or explicitly waive
 - Authored **hub** + generated delve floors (`DungeonGen`; Noise4j today).
 - **Run seed → derived floor seeds**; persist **mutations**, not only seeds.
 - **`TempleDepthScaler`** in the temple package; orthogonal to difficulty modes.
+  Content bands **1–4**; `PLAYABLE_MAX_DEPTH = 4` (no down stairs on 4).
+  Boss every 5 depths (5/10/15/20) → alternate `DungeonGen` + body part (Phase 5 quest).
 - **Single generated floor zone** (`temple.1` shell); depth via maze variables;
   hub ↔ depth 1 and depth N ↔ N±1 via authored stair scripts. Generation sets
   `Zone.displayName` (`Temple Depth N`) and runtime `tilesVisitedKey`
@@ -480,8 +495,12 @@ modifying Default data.
 **In scope:**
 
 - Temple-configured headless runs: seeds × depths × party archetypes
-  (`HeadlessMaze` / balance patterns, temple-aware).
+  (`HeadlessMaze` / balance patterns, temple-aware). **Party of 6**
+  (Hero, Paladin, Burglar, Ranger, Priest, Sorcerer) on every temple run.
 - Metrics: TTK, HP drain, loot value, encounter threat by depth.
+- After each headless dungeon run, a self-contained HTML report
+  (`build/test-reports/dungeon-run-<seed>.html` by default).
+  Rerun with `./temple-run.sh` (writes `build/test-reports/temple-floor-run-42.html`).
 - Ant/JUnit job, display-free; optional outlier thresholds.
 - Reports may *inform* Default balance work; temple code never writes
   `data/default/`.

@@ -123,5 +123,40 @@
       ]
     },
     "TYPE_KEY": "mclachlan.maze.map.LootTable"
+  },
+  {
+    "name": "temple.depth.4.loot",
+    "lootEntries": {
+      "PERCENTAGES": [
+        25,
+        20,
+        20,
+        20,
+        15
+      ],
+      "POSSIBILITIES": [
+        {
+          "NAME": "mid.level.gold",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.2.potions.healing",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.2.magic.armour",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.2.magic.weapons",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        },
+        {
+          "NAME": "batch.2.scrolls",
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry"
+        }
+      ]
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootTable"
   }
 ]

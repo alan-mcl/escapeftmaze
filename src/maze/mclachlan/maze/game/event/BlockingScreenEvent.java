@@ -49,19 +49,22 @@ public class BlockingScreenEvent extends MazeEvent
 
 		Maze.getInstance().getUi().showBlockingScreen(
 			imageResource, mode, Maze.getInstance().getEventMutex());
-		
-		synchronized(Maze.getInstance().getEventMutex())
+
+		if (Maze.getInstance().getUi().supportsAnimation())
 		{
-			try
+			synchronized(Maze.getInstance().getEventMutex())
 			{
-				Maze.getInstance().getEventMutex().wait();
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
+				try
+				{
+					Maze.getInstance().getEventMutex().wait();
+				}
+				catch (InterruptedException e)
+				{
+					throw new MazeException(e);
+				}
 			}
 		}
-		
+
 		Maze.getInstance().getUi().clearBlockingScreen();
 		
 		return null;

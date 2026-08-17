@@ -23,11 +23,13 @@ import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.ItemCacheManager;
+import mclachlan.maze.stat.PlayerParty;
 import mclachlan.maze.stat.TurnCache;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.npc.NpcManager;
+import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -77,7 +79,11 @@ public class GameTime
 		
 		// Update the current zone
 		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "Zone.endOfTurn"));
-		result.addAll(Maze.getInstance().getCurrentZone().endOfTurn(getTurnNr()));
+		Zone zone = Maze.getInstance().getCurrentZone();
+		if (zone != null)
+		{
+			result.addAll(zone.endOfTurn(getTurnNr()));
+		}
 		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "Zone.endOfTurn"));
 
 		// Refresh character options
@@ -132,12 +138,16 @@ public class GameTime
 		boolean resting = Maze.getInstance().getState() == Maze.State.RESTING;
 
 		// regen player characters
-		List<UnifiedActor> party = Maze.getInstance().getParty().getActors();
-		int max = party.size();
-		for (int i = 0; i < max; i++)
+		PlayerParty playerParty = Maze.getInstance().getParty();
+		if (playerParty != null)
 		{
-			UnifiedActor pc = party.get(i);
-			result.add(new EndOfTurnRegen(pc, resting, combat));
+			List<UnifiedActor> party = playerParty.getActors();
+			int max = party.size();
+			for (int i = 0; i < max; i++)
+			{
+				UnifiedActor pc = party.get(i);
+				result.add(new EndOfTurnRegen(pc, resting, combat));
+			}
 		}
 
 		// regen foes in combat

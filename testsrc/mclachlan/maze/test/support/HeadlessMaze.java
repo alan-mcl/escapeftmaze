@@ -20,9 +20,10 @@
 package mclachlan.maze.test.support;
 
 import java.io.InputStream;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.AudioPlayer;
+import mclachlan.maze.balance.HeadlessHarnessSupport;
 import mclachlan.maze.balance.HeadlessUi;
+import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Launcher;
 import mclachlan.maze.game.Maze;
@@ -48,6 +49,12 @@ public class HeadlessMaze
 	 */
 	public static Maze boot(Database db) throws Exception
 	{
+		return boot(db, new HeadlessUi());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Maze boot(Database db, UserInterface ui) throws Exception
+	{
 		Maze maze = new Maze(Launcher.getConfig(), Maze.getStubCampaign());
 
 		maze.initAudio(new NoOpAudioPlayer());
@@ -58,16 +65,12 @@ public class HeadlessMaze
 		db.initImpls();
 
 		maze.initSystems();
-		maze.initUi(new HeadlessUi());
+		maze.initUi(ui);
 		maze.initEventProcessorForTesting();
 
 		maze.setUserConfig(UserConfig.defaultsForTesting());
 
-		// the GUI toolkit is a process-wide singleton some widgets reach for
-		if (DIYToolkit.getInstance() == null)
-		{
-			new DIYToolkit();
-		}
+		HeadlessHarnessSupport.prepareMaze(maze);
 
 		return maze;
 	}

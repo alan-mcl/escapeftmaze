@@ -304,6 +304,10 @@ public final class TempleFloorDressing
 			{
 				result.add(portal.getFrom());
 			}
+			if (portal.getTo() != null)
+			{
+				result.add(portal.getTo());
+			}
 		}
 		return result;
 	}

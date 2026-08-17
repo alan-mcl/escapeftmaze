@@ -51,6 +51,17 @@ public class NpcManager implements GameCache
 
 	/*-------------------------------------------------------------------------*/
 	/**
+	 * Test seam: drop cached NPCs/factions so hermetic tests do not leak
+	 * campaign NPC inventories into the next Database.
+	 */
+	public static void resetInstanceForTesting()
+	{
+		instance.npcs = null;
+		instance.factions = null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
 	 * Start a game by adding all the NPCs at their initial positions.
 	 */
 	public void startGame()
@@ -174,6 +185,10 @@ public class NpcManager implements GameCache
 	private List<MazeEvent> updateNpcs(long turnNr)
 	{
 		List<MazeEvent> result = new ArrayList<>();
+		if (this.npcs == null)
+		{
+			return result;
+		}
 		Maze.log("updating NPCs...");
 		for (Npc npc : this.npcs.values())
 		{
