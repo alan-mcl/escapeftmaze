@@ -25,6 +25,7 @@ import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
+import mclachlan.dungeongen.DungeonGenPreview;
 import mclachlan.dungeongen.DungeonGenContext;
 import mclachlan.dungeongen.DungeonGenResult;
 import mclachlan.dungeongen.DungeonGens;
@@ -150,6 +151,32 @@ public class FragmentDungeonGenTest extends MazeTestSupport
 		generateBarracksTestFloor(RUN_SEED);
 		// If assembly succeeded, seal pass ran without throwing; spot-check frontier sealed.
 		assertNotNull(FragmentDungeonGen.lastAssemblyResult);
+	}
+
+	@Test
+	void fullPipelinePreviewHonorsFragmentGeneratorAndKeepsBeds() throws Exception
+	{
+		Database db = TempleCampaignHarness.bootDatabase();
+		TempleCampaignHarness.bootMaze(db);
+		MazeVariables.clearAll();
+		TempleSeeds.setDepth(1);
+
+		DungeonGenPreview.apply(
+			31,
+			DungeonGens.FRAGMENT,
+			RUN_SEED,
+			"barracks",
+			3,
+			3,
+			32);
+
+		Zone zone = db.getZone("temple.1");
+		zone.setName("temple.1_preview.test");
+
+		new TempleGeneratorMazeScript().init(zone, 0);
+
+		assertTrue(countBedObjects(zone) >= 2, "fragment stamps should keep beds");
+		DungeonGenPreview.clearAll();
 	}
 
 	/*-------------------------------------------------------------------------*/

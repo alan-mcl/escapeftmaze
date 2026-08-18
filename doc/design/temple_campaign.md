@@ -112,7 +112,11 @@ every UI label lookup (critical for Quick Start spell rolling).
   CardLayout card (Noise4j vs fragment). Seed row includes **Randomise**; map
   size spinner applies to layout-only (`ZoneShell.ensureSize`) and full pipeline
   (`MazeVariables` `dungeongen.size` → `TempleFloorShell.ensureGenSize`, cleared
-  after preview; live crawls stay 15×15).
+  after preview; live crawls stay 15×15). Full pipeline honors Tools generator,
+  seed, and fragment knobs via `DungeonGenPreview` maze variables (not campaign
+  default alone). Fragment assembly on authored barracks kit needs ~31×31 map
+  size and higher max attempts (default 32); layout-only failures show a dialog
+  instead of crashing.
 - Temple subclass: `mclachlan.maze.campaign.temple.TempleGeneratorMazeScript`
   (decorator for walls/doors/encounters; overrides `init` for run-seed logic).
   When fragment gen is selected, passes `TempleLayoutUsageTheme.usageId()` into

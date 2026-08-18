@@ -19,6 +19,7 @@
 
 package mclachlan.maze.campaign.temple;
 
+import mclachlan.dungeongen.DungeonGenPreview;
 import mclachlan.dungeongen.ZoneShell;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.Zone;
@@ -32,7 +33,7 @@ public final class TempleFloorShell
 	public static final int GEN_SIZE = 15;
 
 	/** Editor Tools override; cleared after preview generate. */
-	public static final String PREVIEW_SIZE_VAR = "dungeongen.size";
+	public static final String PREVIEW_SIZE_VAR = DungeonGenPreview.SIZE_VAR;
 
 	private TempleFloorShell()
 	{

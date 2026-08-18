@@ -34,7 +34,6 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.DataObject;
 import mclachlan.maze.editor.swing.map.MapEditorDialog;
 import mclachlan.maze.game.Campaign;
-import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.MapGenZoneScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.util.MazeException;
@@ -44,9 +43,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class DungeonGenTestPanel extends JPanel implements ActionListener, IEditorPanel
 {
-	/** Matches {@code TempleFloorShell.PREVIEW_SIZE_VAR}; editor cannot depend on temple classes. */
-	private static final String PREVIEW_SIZE_VAR = "dungeongen.size";
-
+	private static final int FRAGMENT_DEFAULT_MAP_SIZE = 31;
 	private JComboBox<String> shellZone;
 	private JComboBox<String> generator;
 	private JComboBox<String> layoutUsage;
@@ -167,7 +164,7 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 		layoutUsage = sizedCombo();
 		fragmentMinRooms = spinner(3, 1, 20);
 		fragmentTargetRooms = spinner(3, 1, 20);
-		fragmentAttempts = spinner(8, 1, 64);
+		fragmentAttempts = spinner(32, 1, 64);
 
 		dodgyGridBagShite(panel, new JLabel("Fragment usage:"), layoutUsage, gbc);
 		dodgyGridBagShite(panel, new JLabel("Min rooms:"), fragmentMinRooms, gbc);
@@ -224,6 +221,17 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 			id = DungeonGens.NOISE4J;
 		}
 		generatorCards.show(generatorCardPanel, id);
+		maybeBumpFragmentMapSize(id);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void maybeBumpFragmentMapSize(String generatorId)
+	{
+		if (DungeonGens.FRAGMENT.equals(generatorId)
+			&& ((Number)mapSize.getValue()).intValue() == 15)
+		{
+			mapSize.setValue(FRAGMENT_DEFAULT_MAP_SIZE);
+		}
 	}
 
 	@Override
@@ -260,6 +268,13 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 			throw new MazeException("Select a shell zone");
 		}
 
+		String genId = (String)generator.getSelectedItem();
+		if (genId == null || genId.isEmpty())
+		{
+			genId = DungeonGens.NOISE4J;
+		}
+		maybeBumpFragmentMapSize(genId);
+
 		int size = normaliseOddSize(((Number)mapSize.getValue()).intValue());
 		mapSize.setValue(size);
 
@@ -274,13 +289,18 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 		{
 			if (fullPipeline.isSelected() && zone.getScript() instanceof MapGenZoneScript)
 			{
-				MazeVariables.set("map.seed." + previewName, Long.toString(runSeed));
-				MazeVariables.set(PREVIEW_SIZE_VAR, Integer.toString(size));
+				DungeonGenPreview.apply(
+					size,
+					genId,
+					runSeed,
+					(String)layoutUsage.getSelectedItem(),
+					((Number)fragmentMinRooms.getValue()).intValue(),
+					((Number)fragmentTargetRooms.getValue()).intValue(),
+					((Number)fragmentAttempts.getValue()).intValue());
 				zone.getScript().init(zone, 0);
 			}
 			else
 			{
-				String genId = (String)generator.getSelectedItem();
 				DungeonGen gen = buildGenerator(genId);
 				PreviewDecorator decorator = new PreviewDecorator(zone);
 				DungeonGenContext ctx = DungeonGenContext.builder()
@@ -289,9 +309,19 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 				gen.generate(zone, runSeed, dungeonLevel, decorator, ctx);
 			}
 		}
+		catch (IllegalStateException ex)
+		{
+			JOptionPane.showMessageDialog(
+				SwingEditor.instance,
+				ex.getMessage()
+					+ "\n\nTry increasing map size (31+) or max attempts.",
+				"Fragment assembly failed",
+				JOptionPane.WARNING_MESSAGE);
+			return;
+		}
 		finally
 		{
-			MazeVariables.clear(PREVIEW_SIZE_VAR);
+			DungeonGenPreview.clearAll();
 		}
 
 		MapEditorDialog.open(SwingEditor.instance, zone);

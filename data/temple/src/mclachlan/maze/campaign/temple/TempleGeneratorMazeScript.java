@@ -61,11 +61,12 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 
 		TempleUsageTheme usageTheme = TempleUsageTheme.forFloor(dungeonLevel, environment);
 
-		int seed = TempleSeeds.floorSeed(dungeonLevel);
+		int seed = resolveFloorSeed(dungeonLevel);
 
 		DECORATOR.prepareFloor(dungeonLevel, environment);
 
 		DungeonGenContext ctx = TempleStairLinks.buildGenContext(dungeonLevel);
+		String generatorId = effectiveGeneratorId(dungeonLevel);
 		DungeonGenResult result = createDungeonGen(zone, dungeonLevel)
 			.generate(zone, seed, dungeonLevel, DECORATOR, ctx);
 
@@ -86,7 +87,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment, usageTheme);
 		TempleLighting.DressResult lighting = TempleLighting.dress(
 			zone, dungeonLevel, environment, avoid, result);
-		if (DungeonGens.NOISE4J.equals(defaultGeneratorId(dungeonLevel)))
+		if (DungeonGens.NOISE4J.equals(generatorId))
 		{
 			TempleUsageDressing.dress(
 				zone, dungeonLevel, environment, usageTheme, avoid, result, lighting);
@@ -119,13 +120,36 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 	@Override
 	protected DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
 	{
-		String id = defaultGeneratorId(dungeonLevel);
+		String id = effectiveGeneratorId(dungeonLevel);
 		if (DungeonGens.FRAGMENT.equals(id))
 		{
 			TempleLayoutUsageTheme theme = TempleLayoutUsageTheme.forFloor(dungeonLevel);
-			return new FragmentDungeonGen(FragmentDungeonGen.Options.of(theme.usageId()));
+			return new FragmentDungeonGen(
+				DungeonGenPreview.fragmentOptions(theme.usageId()));
 		}
 		return DungeonGens.create(id);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int resolveFloorSeed(int dungeonLevel)
+	{
+		Integer preview = DungeonGenPreview.previewSeed();
+		if (preview != null)
+		{
+			return preview;
+		}
+		return TempleSeeds.floorSeed(dungeonLevel);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static String effectiveGeneratorId(int dungeonLevel)
+	{
+		String preview = DungeonGenPreview.previewGeneratorId();
+		if (preview != null && !preview.isEmpty())
+		{
+			return preview;
+		}
+		return defaultGeneratorId(dungeonLevel);
 	}
 
 	private static String defaultGeneratorId(int dungeonLevel)
