@@ -19,7 +19,7 @@ public class MagusThamiel extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-			new FlavourTextEvent("A tall magi appears from the shadows near the " +
+			new FlavourTextEvent("A tall magus appears from the shadows near the " +
 				"temple door. \n\nHe looks tired and worried."),
 			new NpcSpeechEvent("Ah, I'm glad to see you. I expected some heroes to turn up.", this.npc),
 			new NpcSpeechEvent("Greetings. I am the Thamiel of the Planes. Dispatched by my " +

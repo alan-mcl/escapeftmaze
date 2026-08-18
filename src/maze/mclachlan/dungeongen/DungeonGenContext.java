@@ -35,7 +35,8 @@ public final class DungeonGenContext
 		FROM_BELOW
 	}
 
-	public static final DungeonGenContext FRESH = new DungeonGenContext(EntryMode.FRESH, -1, null, null, null, null);
+	public static final DungeonGenContext FRESH =
+		new DungeonGenContext(EntryMode.FRESH, -1, null, null, null, null, true);
 
 	private final EntryMode entryMode;
 	private final int sourceDepth;
@@ -43,6 +44,7 @@ public final class DungeonGenContext
 	private final StairPortalSpec restoredUp;
 	private final StairPortalSpec restoredDown;
 	private final StairwellPlanner stairwellPlanner;
+	private final boolean allowDownStairs;
 
 	private DungeonGenContext(
 		EntryMode entryMode,
@@ -50,7 +52,8 @@ public final class DungeonGenContext
 		Point sourcePortalFrom,
 		StairPortalSpec restoredUp,
 		StairPortalSpec restoredDown,
-		StairwellPlanner stairwellPlanner)
+		StairwellPlanner stairwellPlanner,
+		boolean allowDownStairs)
 	{
 		this.entryMode = entryMode;
 		this.sourceDepth = sourceDepth;
@@ -58,6 +61,7 @@ public final class DungeonGenContext
 		this.restoredUp = restoredUp;
 		this.restoredDown = restoredDown;
 		this.stairwellPlanner = stairwellPlanner;
+		this.allowDownStairs = allowDownStairs;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -96,6 +100,11 @@ public final class DungeonGenContext
 		return stairwellPlanner;
 	}
 
+	public boolean isAllowDownStairs()
+	{
+		return allowDownStairs;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public static final class Builder
 	{
@@ -105,6 +114,7 @@ public final class DungeonGenContext
 		private StairPortalSpec restoredUp;
 		private StairPortalSpec restoredDown;
 		private StairwellPlanner stairwellPlanner;
+		private boolean allowDownStairs = true;
 
 		public Builder entryMode(EntryMode mode)
 		{
@@ -142,11 +152,17 @@ public final class DungeonGenContext
 			return this;
 		}
 
+		public Builder allowDownStairs(boolean allow)
+		{
+			this.allowDownStairs = allow;
+			return this;
+		}
+
 		public DungeonGenContext build()
 		{
 			return new DungeonGenContext(
 				entryMode, sourceDepth, sourcePortalFrom,
-				restoredUp, restoredDown, stairwellPlanner);
+				restoredUp, restoredDown, stairwellPlanner, allowDownStairs);
 		}
 	}
 }

@@ -8,6 +8,9 @@ alwaysApply: false
 
 The editor (`SwingEditor`) reuses the runtime `Database`/V2 persistence layer.
 Static data lives in left-tab panels; save games/guild in a second top tab.
+**Tools** category (non-persisted): **DungeonGen Test** — clone a shell zone,
+run a campaign-enabled `DungeonGen` (layout-only or full zone-script pipeline),
+open result in `MapEditor` (`MapEditorDialog.open`).
 
 ## Data-type panel pattern
 

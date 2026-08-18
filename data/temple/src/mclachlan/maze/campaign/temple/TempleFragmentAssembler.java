@@ -25,6 +25,9 @@ import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
+import mclachlan.dungeongen.fragment.FragmentCatalog;
+import mclachlan.dungeongen.fragment.FragmentConnectivity;
+import mclachlan.dungeongen.fragment.FragmentStamp;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
@@ -58,8 +61,8 @@ public final class TempleFragmentAssembler
 	/*-------------------------------------------------------------------------*/
 	public static Result assemble(Zone floor, int depth, int floorSeed)
 	{
-		List<TempleFragmentCatalog.Entry> picks =
-			TempleFragmentCatalog.pickForFloor(depth, floorSeed, FLOOR_WIDE_CAP);
+		List<FragmentCatalog.Entry> picks =
+			FragmentCatalog.pickForFloor(depth, floorSeed, FLOOR_WIDE_CAP);
 		if (picks.isEmpty())
 		{
 			lastResult = new Result(List.of(), Set.of());
@@ -72,7 +75,7 @@ public final class TempleFragmentAssembler
 		Random rng = new Random(floorSeed ^ 0x5354414dL);
 		Point origin = floor.getPlayerOrigin();
 
-		for (TempleFragmentCatalog.Entry entry : picks)
+		for (FragmentCatalog.Entry entry : picks)
 		{
 			Zone fragment = Database.getInstance().getZone(entry.zoneName());
 			Point anchor = pickAnchor(floor, fragment, origin, occupied, rng);
@@ -81,8 +84,8 @@ public final class TempleFragmentAssembler
 				continue;
 			}
 
-			TempleFragmentStamp.stamp(floor, fragment, anchor.x, anchor.y);
-			Rectangle bounds = TempleFragmentStamp.bounds(anchor.x, anchor.y, fragment);
+			FragmentStamp.stamp(floor, fragment, anchor.x, anchor.y);
+			Rectangle bounds = FragmentStamp.bounds(anchor.x, anchor.y, fragment);
 			occupied.add(bounds);
 			placements.add(new Placement(entry.zoneName(), bounds));
 			addTiles(stampedTiles, bounds);
@@ -453,44 +456,6 @@ public final class TempleFragmentAssembler
 	/*-------------------------------------------------------------------------*/
 	static boolean isOpenCell(Zone zone, int x, int y)
 	{
-		Map map = zone.getMap();
-		int width = map.getWidth();
-		int length = map.getLength();
-		Wall[] horiz = map.getHorizontalWalls();
-		Wall[] vert = map.getVerticalWalls();
-
-		if (x > 0)
-		{
-			Wall w = vert[x + y * (width + 1)];
-			if (w == null || !w.isSolid())
-			{
-				return true;
-			}
-		}
-		if (x < width - 1)
-		{
-			Wall w = vert[x + y * (width + 1) + 1];
-			if (w == null || !w.isSolid())
-			{
-				return true;
-			}
-		}
-		if (y > 0)
-		{
-			Wall w = horiz[x + y * width];
-			if (w == null || !w.isSolid())
-			{
-				return true;
-			}
-		}
-		if (y < length - 1)
-		{
-			Wall w = horiz[x + (y + 1) * width];
-			if (w == null || !w.isSolid())
-			{
-				return true;
-			}
-		}
-		return false;
+		return FragmentConnectivity.isOpenCell(zone, x, y);
 	}
 }

@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.campaign.temple;
+package mclachlan.dungeongen.fragment;
 
 import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
@@ -31,14 +32,14 @@ import mclachlan.maze.map.Zone;
  * Copies a rectangular region from a fragment zone onto a live floor zone
  * (Crusader map + maze tiles). Mirrors editor paste logic without editor deps.
  */
-public final class TempleFragmentStamp
+public final class FragmentStamp
 {
 	private enum WallSide
 	{
 		NORTH, SOUTH, EAST, WEST
 	}
 
-	private TempleFragmentStamp()
+	private FragmentStamp()
 	{
 	}
 
@@ -86,6 +87,66 @@ public final class TempleFragmentStamp
 				}
 			}
 		}
+
+		stampObjects(floor, fragment, destX, destY, fragMap, floorMap);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void stampObjects(
+		Zone floor,
+		Zone fragment,
+		int destX,
+		int destY,
+		Map fragMap,
+		Map floorMap)
+	{
+		List<EngineObject> objects = fragMap.getExpandedObjects();
+		if (objects == null || objects.isEmpty())
+		{
+			return;
+		}
+
+		int floorW = floorMap.getWidth();
+		int baseImageSize = floorMap.getBaseImageSize();
+
+		for (EngineObject src : objects)
+		{
+			int fragW = fragMap.getWidth();
+			int localX = src.getGridX();
+			int localY = src.getGridY();
+			if (localX <= 0 && localY <= 0 && src.getTileIndex() >= 0)
+			{
+				localX = src.getTileIndex() % fragW;
+				localY = src.getTileIndex() / fragW;
+			}
+			if (localX < 0 || localY < 0
+				|| localX >= fragment.getWidth() || localY >= fragment.getLength())
+			{
+				continue;
+			}
+
+			int worldX = destX + localX;
+			int worldY = destY + localY;
+			if (!inBounds(floor, worldX, worldY))
+			{
+				continue;
+			}
+
+			EngineObject copy = src.copyObject();
+			int tileIndex = worldY * floorW + worldX;
+			copy.setTileIndex(tileIndex);
+			copy.setGridX(worldX);
+			copy.setGridY(worldY);
+
+			int offsetX = (worldX - localX) * baseImageSize;
+			int offsetY = (worldY - localY) * baseImageSize;
+			copy.setXPos(src.getXPos() + offsetX);
+			copy.setYPos(src.getYPos() + offsetY);
+
+			floorMap.addObject(copy);
+		}
+
+		floorMap.init();
 	}
 
 	/*-------------------------------------------------------------------------*/

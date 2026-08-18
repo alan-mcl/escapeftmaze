@@ -1,0 +1,420 @@
+{
+  "name": "fragment.barracks.corr.cross",
+  "script": {
+    "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
+    "ambientScripts": {
+      "PERCENTAGES": [],
+      "ITEMS": [],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "lightLevelDiff": "0",
+    "turnsBetweenChange": "0"
+  },
+  "shadeTargetColor": "ff000000",
+  "transparentColor": "ffffffff",
+  "doShading": "true",
+  "doLighting": "true",
+  "shadingDistance": "2.5",
+  "shadingMultiplier": "2.5",
+  "projectionPlaneOffset": "-40",
+  "playerFieldOfView": "2",
+  "scaleDistFromProjPlane": "0.65",
+  "order": "0",
+  "playerOrigin": "1:1",
+  "metadata": {
+    "fragment": "true",
+    "fragment.depthMax": "99",
+    "fragment.depthMin": "1",
+    "fragment.kind": "corridor",
+    "fragment.maxPerFloor": "99",
+    "fragment.rotate": "false",
+    "fragment.usage": "barracks",
+    "fragment.weight": "4"
+  },
+  "portals": [],
+  "tiles": [
+    [
+      {
+        "coords": "0:0",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "0:1",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "0:2",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      }
+    ],
+    [
+      {
+        "coords": "1:0",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "1:1",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "1:2",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      }
+    ],
+    [
+      {
+        "coords": "2:0",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "2:1",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      },
+      {
+        "coords": "2:2",
+        "scripts": [],
+        "statModifier": "0,",
+        "terrainType": "DUNGEON",
+        "terrainSubType": "Temple",
+        "randomEncounterChance": "0"
+      }
+    ]
+  ],
+  "map": {
+    "length": "3",
+    "width": "3",
+    "baseImageSize": "512",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "DEFAULT_SKY",
+        "bottomColour": "0",
+        "topColour": "0",
+        "imageScale": "0",
+        "ceilingHeight": "0"
+      }
+    ],
+    "tiles": [
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "DUNGEON_CEILING_1",
+        "floorTexture": "DUNGEON_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      }
+    ],
+    "horizontalWalls": [
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      }
+    ],
+    "verticalWalls": [
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "DUNGEON_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      }
+    ],
+    "expandedObjects": [],
+    "scripts": []
+  }
+}

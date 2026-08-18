@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.campaign.temple;
+package mclachlan.dungeongen;
 
 import java.awt.Point;
 import java.util.*;
@@ -71,7 +71,8 @@ public final class Noise4jStairwellPlanner implements StairwellPlanner
 		{
 			up = pickUp(layoutOrigin, startingRoom, candidates);
 		}
-		if (down == null && !candidates.isEmpty() && TempleDepthScaler.hasDownStairs(depth))
+		if (down == null && !candidates.isEmpty()
+			&& context.isAllowDownStairs() && depth > 0)
 		{
 			down = pickDown(layoutOrigin, startingRoom, candidates, up);
 		}

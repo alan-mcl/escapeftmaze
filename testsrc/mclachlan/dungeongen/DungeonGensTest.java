@@ -17,9 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.campaign.temple;
+package mclachlan.dungeongen;
 
-import mclachlan.dungeongen.DungeonGens;
 import mclachlan.dungeongen.fragment.FragmentDungeonGen;
 import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;
 import mclachlan.maze.game.Campaign;
@@ -30,49 +29,51 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Temple live floors use campaign default generator (Noise4j until cfg changes).
+ * Campaign-driven {@link DungeonGens} factory.
  */
-public class TempleLayoutPolicyTest extends MazeTestSupport
+public class DungeonGensTest extends MazeTestSupport
 {
 	@Test
-	void liveDepthsDefaultToNoise4j()
+	void defaultCampaignUsesNoise4j()
 	{
-		Campaign campaign = campaignWithDefault(DungeonGens.NOISE4J);
-		for (int depth = 1; depth <= 4; depth++)
-		{
-			assertTrue(DungeonGens.createDefault(campaign) instanceof Noise4jDungeonGen,
-				"depth " + depth);
-			assertEquals(DungeonGens.NOISE4J, campaign.getDefaultDungeonGenerator());
-		}
+		Campaign campaign = new Campaign(
+			"test",
+			"Test",
+			"",
+			null,
+			"start",
+			"Human",
+			"portrait",
+			"intro");
+		assertTrue(DungeonGens.createDefault(campaign) instanceof Noise4jDungeonGen);
+		assertEquals(DungeonGens.NOISE4J, DungeonGens.idsFor(campaign).get(0));
 	}
 
 	@Test
-	void fragmentGeneratorAvailableWhenConfigured()
+	void configuredCampaignListsBuiltInsOnly()
 	{
-		Campaign campaign = campaignWithDefault(DungeonGens.NOISE4J);
-		campaign.setDungeonGenerators(Campaign.parseCommaList("noise4j,fragment"));
-		assertTrue(DungeonGens.create(DungeonGens.FRAGMENT) instanceof FragmentDungeonGen);
-		assertEquals(DungeonGens.NOISE4J, campaign.getDefaultDungeonGenerator());
+		Campaign campaign = new Campaign(
+			"test",
+			"Test",
+			"",
+			null,
+			"start",
+			"Human",
+			"portrait",
+			"intro");
+		campaign.setDungeonGenerators(Campaign.parseCommaList("fragment,noise4j,wfc"));
+		campaign.setDefaultDungeonGenerator(DungeonGens.FRAGMENT);
+
+		assertEquals(DungeonGens.FRAGMENT, campaign.getDefaultDungeonGenerator());
+		assertEquals(
+			java.util.List.of(DungeonGens.FRAGMENT, DungeonGens.NOISE4J),
+			DungeonGens.idsFor(campaign));
+		assertTrue(DungeonGens.createDefault(campaign) instanceof FragmentDungeonGen);
 	}
 
 	@Test
 	void unknownGeneratorIdThrows()
 	{
 		assertThrows(MazeException.class, () -> DungeonGens.create("not-a-generator"));
-	}
-
-	private static Campaign campaignWithDefault(String defaultId)
-	{
-		Campaign campaign = new Campaign(
-			"temple",
-			"Temple",
-			"",
-			"default",
-			"start",
-			"Human",
-			"portrait",
-			"intro");
-		campaign.setDefaultDungeonGenerator(defaultId);
-		return campaign;
 	}
 }

@@ -42,6 +42,7 @@ public class CampaignEditorPanel extends JPanel
 	implements KeyListener, ActionListener, ChangeListener, IEditorPanel
 {
 	private JTextField displayName, defaultRace, defaultPortrait;
+	private JTextField dungeonGenerators, defaultDungeonGenerator, fragmentLayoutThemes;
 	private JTextArea description;
 	private JComboBox startingScript, introScript, parentCampaign;
 	private Campaign currentCampaign;
@@ -108,6 +109,18 @@ public class CampaignEditorPanel extends JPanel
 		parentCampaign.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Parent Campaign:"), parentCampaign, gbc);
 
+		dungeonGenerators = new JTextField(20);
+		dungeonGenerators.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Dungeon Generators:"), dungeonGenerators, gbc);
+
+		defaultDungeonGenerator = new JTextField(20);
+		defaultDungeonGenerator.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Default Generator:"), defaultDungeonGenerator, gbc);
+
+		fragmentLayoutThemes = new JTextField(20);
+		fragmentLayoutThemes.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Fragment Themes:"), fragmentLayoutThemes, gbc);
+
 		defaultPortrait = new JTextField(20);
 		defaultPortrait.addActionListener(this);
 		gbc.weightx = 0.0;
@@ -165,6 +178,10 @@ public class CampaignEditorPanel extends JPanel
 		description.setCaretPosition(0);
 		defaultPortrait.setText(c.getDefaultPortrait());
 		defaultRace.setText(c.getDefaultRace());
+		dungeonGenerators.setText(Campaign.joinCommaList(c.getDungeonGenerators()));
+		defaultDungeonGenerator.setText(
+			c.getDefaultDungeonGenerator() == null ? "" : c.getDefaultDungeonGenerator());
+		fragmentLayoutThemes.setText(Campaign.joinCommaList(c.getFragmentLayoutThemes()));
 		if (c.getParentCampaign() == null)
 		{
 			parentCampaign.setSelectedItem(EditorPanel.NONE);
@@ -198,6 +215,17 @@ public class CampaignEditorPanel extends JPanel
 		}
 		p.setProperty("parentCampaign", parent);
 
+		if (currentCampaign.getDefaultDungeonGenerator() != null)
+		{
+			p.setProperty("defaultDungeonGenerator", currentCampaign.getDefaultDungeonGenerator());
+		}
+		p.setProperty(
+			"dungeonGenerators",
+			Campaign.joinCommaList(currentCampaign.getDungeonGenerators()));
+		p.setProperty(
+			"fragmentLayoutThemes",
+			Campaign.joinCommaList(currentCampaign.getFragmentLayoutThemes()));
+
 		currentCampaign.setDisplayName(displayName.getText());
 		currentCampaign.setDescription(description.getText());
 		currentCampaign.setStartingScript((String)startingScript.getSelectedItem());
@@ -205,6 +233,11 @@ public class CampaignEditorPanel extends JPanel
 		currentCampaign.setDefaultPortrait(defaultPortrait.getText());
 		currentCampaign.setIntroScript((String)introScript.getSelectedItem());
 		currentCampaign.setParentCampaign(parent);
+		currentCampaign.setDungeonGenerators(
+			Campaign.parseCommaList(dungeonGenerators.getText()));
+		currentCampaign.setDefaultDungeonGenerator(defaultDungeonGenerator.getText());
+		currentCampaign.setFragmentLayoutThemes(
+			Campaign.parseCommaList(fragmentLayoutThemes.getText()));
 
 		try
 		{

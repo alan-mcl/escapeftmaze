@@ -67,7 +67,7 @@ identified from the source tree and are not necessarily in `stufftodo.txt`.
 | P2-7 | code | Character creation: restrict portraits by race | Portraits filtered by race/gender. (stufftodo) | S | todo |
 | P2-8 | balance | Comprehensive combat/economy balance pass | Uses the `maze/balance/` headless tools. (stufftodo) | L | todo |
 | P2-9 | feature | Demo / training mode | (stufftodo) | M | todo |
-| P2-28 | feature | Temple of Wasud campaign (`temple`) | Sparse child of default; rogue-like delve + balance lab. Spec: [temple_campaign.md](temple_campaign.md) §15. Phases 0–3 done; Phase 4 **4a.1 dressing done** + **playable depths 1–4** (band 4 tables, no down stairs on 4); Phase 6 first slice: 6-PC headless run + HTML report. Boss floors remaining. | XL | in-progress |
+| P2-28 | feature | Temple of Wasud campaign (`temple`) | Sparse child of default; rogue-like delve + balance lab. Spec: [temple_campaign.md](temple_campaign.md) §15. Phases 0–3 done; Phase 4 **4a.1 dressing done** + **playable depths 1–4** (band 4 tables, no down stairs on 4); **4b engine fragment gen** (`FragmentDungeonGen`, rotation, barracks JSON, `DungeonGens` + campaign.cfg, editor Tools tab; live still Noise4j). Phase 6 first slice: 6-PC headless run + HTML report. Boss floors remaining. | XL | in-progress |
 
 ### Editor
 

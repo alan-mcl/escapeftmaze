@@ -365,6 +365,16 @@ Temple campaign stair linkage (see [temple_campaign.md](temple_campaign.md)):
 |------|--------|-------|
 | [`user.json`](../../user.json) | UserConfig | V2 `SingletonSilo` JSON. Legacy `user.cfg` (Properties) is upgraded automatically on first load if `user.json` is absent. |
 
+### 4.10 Campaign config (`data/<campaign>/campaign.cfg`)
+
+Java Properties file loaded into [`Campaign`](../../src/maze/mclachlan/maze/game/Campaign.java). Standard keys: `displayName`, `description`, `parentCampaign`, `startingScript`, `defaultRace`, `defaultPortrait`, `introScript`. Optional dungeon-generation keys (empty / omitted = Noise4j-only implicit default):
+
+| Key | Purpose |
+|-----|---------|
+| `dungeonGenerators` | Comma-separated built-in ids exposed in editor Tools and `DungeonGens.create(id)` (`noise4j`, `fragment`; unknown ids logged and ignored) |
+| `defaultDungeonGenerator` | Live `MapGenZoneScript.createDungeonGen()` selection (`noise4j` for temple today) |
+| `fragmentLayoutThemes` | Comma-separated `fragment.usage` values for fragment assembly picks / editor combo (temple: `barracks`) |
+
 ## 5. DB File Map (`data/<campaign>/db/`)
 
 File-to-entity mapping (from
@@ -405,7 +415,7 @@ File-to-entity mapping (from
 | `startingkits.json` | StartingKit |
 | `difficultylevels.json` | DifficultyLevel |
 | `guild.json` | Map<String,PlayerCharacter> (reusable created characters) |
-| `zones/<Name>.json` | Zone (one file per zone). Optional top-level `metadata` map (string→string) for campaign/mod tags; query without full load via `Database.peekZoneMetadata(name)` / `peekZoneMetadataByPrefix(prefix)` (streaming JSON peek). |
+| `zones/<Name>.json` | Zone (one file per zone). Optional top-level `metadata` map (string→string) for campaign/mod tags; query without full load via `Database.peekZoneMetadata(name)` / `peekZoneMetadataByPrefix(prefix)` (streaming JSON peek). Temple assembly fragments use keys such as `fragment=true`, `fragment.usage`, `fragment.kind`, `fragment.start`, `fragment.rotate` (default rotate; `false` for symmetric corridors), `fragment.depthMin` / `fragment.depthMax`, `fragment.weight`, `fragment.maxPerFloor` (per source zone, shared across rotation clones). See [temple_campaign.md](temple_campaign.md) §10. |
 | `strings/strings-*.json` | HotString bundles: `ui`, `event`, `gamesys`, `tips`, `campaign` (flat key→value JSON maps) |
 | `strings/cold/manifest.json` | ColdStrings shard routing (prefix → shard name) |
 | `strings/cold/<shard>.json` | ColdStrings shard: map of `ColdString` (`name`, `body`) for bulk lore/readables |

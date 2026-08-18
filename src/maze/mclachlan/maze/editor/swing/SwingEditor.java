@@ -93,6 +93,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private ItemEnchantmentsPanel itemEnchantmentsPanel;
 	private StartingKitsPanel startingKitsPanel;
 	private ZonePanel zonePanel;
+	private DungeonGenTestPanel dungeonGenTestPanel;
 
 	private GuildPanel guildPanel;
 	private List<SaveGamePanel> saveGamePanels;
@@ -182,8 +183,11 @@ public class SwingEditor extends JFrame implements WindowListener
 		addEditorTab(EditorCategory.WORLD, "Hot Strings", getHotStringsPanel());
 		addEditorTab(EditorCategory.WORLD, "Cold Strings", getColdStringsPanel());
 
+		addEditorTab(EditorCategory.TOOLS, "DungeonGen Test", getDungeonGenTestPanel());
+
 		campaignEditorPanel.initForeignKeys();
 		campaignEditorPanel.refresh(currentCampaign);
+		getDungeonGenTestPanel().refreshCampaign(currentCampaign);
 
 		saveGamePanels = new ArrayList<>();
 		List<String> saves = Database.getInstance().getLoader().getSaveGames();
@@ -370,6 +374,15 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		zonePanel = new ZonePanel();
 		return zonePanel;
+	}
+
+	private DungeonGenTestPanel getDungeonGenTestPanel()
+	{
+		if (dungeonGenTestPanel == null)
+		{
+			dungeonGenTestPanel = new DungeonGenTestPanel();
+		}
+		return dungeonGenTestPanel;
 	}
 
 	private EditorPanel getItemTemplatesPanel()
@@ -668,6 +681,7 @@ public class SwingEditor extends JFrame implements WindowListener
 
 			campaignEditorPanel.initForeignKeys();
 			campaignEditorPanel.refresh(currentCampaign);
+		getDungeonGenTestPanel().refreshCampaign(currentCampaign);
 
 			setFrameTitle();
 		}
@@ -746,6 +760,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (editor == campaignEditorPanel)
 			{
 				campaignEditorPanel.refresh(currentCampaign);
+		getDungeonGenTestPanel().refreshCampaign(currentCampaign);
 			}
 		}
 
@@ -818,6 +833,7 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (editor == campaignEditorPanel)
 			{
 				campaignEditorPanel.refresh(currentCampaign);
+		getDungeonGenTestPanel().refreshCampaign(currentCampaign);
 			}
 		}
 
@@ -1269,6 +1285,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		ITEMS_LOOT("Items & Loot"),
 		CREATURES("Creatures"),
 		WORLD("World"),
+		TOOLS("Tools"),
 		SAVE_GAMES("Save Games");
 
 		final String label;

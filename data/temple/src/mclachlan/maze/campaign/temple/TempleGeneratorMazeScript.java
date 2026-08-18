@@ -21,15 +21,16 @@ package mclachlan.maze.campaign.temple;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.dungeongen.DungeonGenContext;
-import mclachlan.dungeongen.DungeonGenResult;
+import mclachlan.dungeongen.*;
+import mclachlan.dungeongen.fragment.FragmentDungeonGen;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.Encounter;
 
 /**
- * Procedural temple floor zone script. Layout via {@link TempleLayoutPolicy}
+ * Procedural temple floor zone script. Layout via campaign {@link DungeonGens}
  * ({@link mclachlan.dungeongen.DungeonGen}); stair portals and loot dressing after gen.
  */
 public class TempleGeneratorMazeScript extends MapGenZoneScript
@@ -85,7 +86,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		TempleEnvironmentFlavour.attachToLandingTile(zone, dungeonLevel, environment, usageTheme);
 		TempleLighting.DressResult lighting = TempleLighting.dress(
 			zone, dungeonLevel, environment, avoid, result);
-		if (TempleLayoutPolicy.NOISE4J.equals(TempleLayoutPolicy.generatorIdForDepth(dungeonLevel)))
+		if (DungeonGens.NOISE4J.equals(defaultGeneratorId(dungeonLevel)))
 		{
 			TempleUsageDressing.dress(
 				zone, dungeonLevel, environment, usageTheme, avoid, result, lighting);
@@ -116,9 +117,32 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	protected mclachlan.dungeongen.DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
+	protected DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
 	{
-		return TempleLayoutPolicy.forDepth(dungeonLevel);
+		String id = defaultGeneratorId(dungeonLevel);
+		if (DungeonGens.FRAGMENT.equals(id))
+		{
+			TempleLayoutUsageTheme theme = TempleLayoutUsageTheme.forFloor(dungeonLevel);
+			return new FragmentDungeonGen(FragmentDungeonGen.Options.of(theme.usageId()));
+		}
+		return DungeonGens.create(id);
+	}
+
+	private static String defaultGeneratorId(int dungeonLevel)
+	{
+		try
+		{
+			String id = Maze.getInstance().getCampaign().getDefaultDungeonGenerator();
+			if (id != null && !id.isEmpty())
+			{
+				return id;
+			}
+		}
+		catch (Exception e)
+		{
+			// fall through
+		}
+		return DungeonGens.NOISE4J;
 	}
 
 	/*-------------------------------------------------------------------------*/

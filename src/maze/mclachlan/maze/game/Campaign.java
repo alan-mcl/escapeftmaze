@@ -19,6 +19,7 @@
 
 package mclachlan.maze.game;
 
+import java.util.*;
 import mclachlan.maze.editor.swing.EditorPanel;
 
 /**
@@ -34,6 +35,9 @@ public class Campaign
 	private String defaultPortrait;
 	private String introScript;
 	private String parentCampaign;
+	private String defaultDungeonGenerator;
+	private List<String> dungeonGenerators = List.of();
+	private List<String> fragmentLayoutThemes = List.of();
 
 	/*-------------------------------------------------------------------------*/
 	public Campaign(
@@ -143,6 +147,64 @@ public class Campaign
 		{
 			this.parentCampaign = parentCampaign;
 		}
+	}
+
+	public String getDefaultDungeonGenerator()
+	{
+		return defaultDungeonGenerator;
+	}
+
+	public void setDefaultDungeonGenerator(String defaultDungeonGenerator)
+	{
+		this.defaultDungeonGenerator = defaultDungeonGenerator;
+	}
+
+	public List<String> getDungeonGenerators()
+	{
+		return dungeonGenerators;
+	}
+
+	public void setDungeonGenerators(List<String> dungeonGenerators)
+	{
+		this.dungeonGenerators = dungeonGenerators == null ? List.of() : List.copyOf(dungeonGenerators);
+	}
+
+	public List<String> getFragmentLayoutThemes()
+	{
+		return fragmentLayoutThemes;
+	}
+
+	public void setFragmentLayoutThemes(List<String> fragmentLayoutThemes)
+	{
+		this.fragmentLayoutThemes =
+			fragmentLayoutThemes == null ? List.of() : List.copyOf(fragmentLayoutThemes);
+	}
+
+	public static List<String> parseCommaList(String value)
+	{
+		if (value == null || value.isEmpty())
+		{
+			return List.of();
+		}
+		List<String> result = new ArrayList<>();
+		for (String part : value.split(","))
+		{
+			String trimmed = part.trim();
+			if (!trimmed.isEmpty())
+			{
+				result.add(trimmed);
+			}
+		}
+		return result;
+	}
+
+	public static String joinCommaList(List<String> values)
+	{
+		if (values == null || values.isEmpty())
+		{
+			return "";
+		}
+		return String.join(",", values);
 	}
 
 	@Override

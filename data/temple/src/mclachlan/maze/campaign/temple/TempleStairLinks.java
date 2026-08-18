@@ -125,7 +125,8 @@ public final class TempleStairLinks
 			.sourceDepth(transitionSourceDepth())
 			.restoredUp(readPortal(depth, true))
 			.restoredDown(readPortal(depth, false))
-			.stairwellPlanner(new Noise4jStairwellPlanner())
+			.allowDownStairs(TempleDepthScaler.hasDownStairs(depth))
+			.stairwellPlanner(new mclachlan.dungeongen.Noise4jStairwellPlanner())
 			.build();
 	}
 

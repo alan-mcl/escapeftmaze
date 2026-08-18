@@ -615,8 +615,13 @@ public class Database
 			String defaultRace = p.getProperty("defaultRace");
 			String defaultPortrait = p.getProperty("defaultPortrait");
 			String introScript = p.getProperty("introScript");
+			String defaultDungeonGenerator = p.getProperty("defaultDungeonGenerator");
+			List<String> dungeonGenerators =
+				Campaign.parseCommaList(p.getProperty("dungeonGenerators"));
+			List<String> fragmentLayoutThemes =
+				Campaign.parseCommaList(p.getProperty("fragmentLayoutThemes"));
 
-			result.add(new Campaign(
+			Campaign campaign = new Campaign(
 				name,
 				displayName,
 				description,
@@ -624,7 +629,11 @@ public class Database
 				startingScript,
 				defaultRace,
 				defaultPortrait,
-				introScript));
+				introScript);
+			campaign.setDefaultDungeonGenerator(defaultDungeonGenerator);
+			campaign.setDungeonGenerators(dungeonGenerators);
+			campaign.setFragmentLayoutThemes(fragmentLayoutThemes);
+			result.add(campaign);
 		}
 
 		if (result.size() == 0)

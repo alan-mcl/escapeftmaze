@@ -6,8 +6,10 @@ import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
 import mclachlan.dungeongen.DungeonGenContext;
 import mclachlan.dungeongen.DungeonGenResult;
-import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;
+import mclachlan.dungeongen.DungeonGens;
 import mclachlan.dungeongen.noise4j.map.Grid;
+import mclachlan.maze.game.Campaign;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.Encounter;
@@ -53,7 +55,21 @@ public abstract class MapGenZoneScript extends ZoneScript
 	 */
 	protected DungeonGen createDungeonGen(Zone zone, int dungeonLevel)
 	{
-		return new Noise4jDungeonGen();
+		Campaign campaign = resolveCampaign();
+		return DungeonGens.createDefault(campaign);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected Campaign resolveCampaign()
+	{
+		try
+		{
+			return Maze.getInstance().getCampaign();
+		}
+		catch (Exception e)
+		{
+			return Maze.getStubCampaign();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

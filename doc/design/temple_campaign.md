@@ -91,17 +91,29 @@ every UI label lookup (critical for Quick Start spell rolling).
 ## 6. Procedural floors
 
 - All layout goes through the pluggable **`DungeonGen`** interface
-  (`mclachlan.dungeongen.DungeonGen`). Default campaigns:
-  `MapGenZoneScript.createDungeonGen()` → `Noise4jDungeonGen`.
-- Temple: `TempleLayoutPolicy.forDepth(depth)` picks the layout algorithm per
-  depth. **Phase 4 focus:** make the live dungeon worth crawling. Iterate
+  (`mclachlan.dungeongen.DungeonGen`). Campaigns select generators via
+  `campaign.cfg` (`dungeonGenerators`, `defaultDungeonGenerator`) and
+  `MapGenZoneScript.createDungeonGen()` → `DungeonGens.createDefault(campaign)`.
+  Built-ins: **`noise4j`** (`Noise4jDungeonGen`) and **`fragment`**
+  (`FragmentDungeonGen` in `mclachlan.dungeongen.fragment`).
+- Temple live depths 1–4 still default to **Noise4j**
+  (`defaultDungeonGenerator=noise4j`). Fragment assembly is engine-generic;
+  temple supplies only data (`fragment.barracks.*` zones, `fragmentLayoutThemes`)
+  and campaign pipeline code (seeds, dressing, stairs). Switch live layout by
+  changing `defaultDungeonGenerator` or per-depth policy later.
+  **Phase 4 focus:** make the live dungeon worth crawling. Iterate
   **Noise4j first** (room/corridor topology, density, loops, dead-ends, scale),
-  then register other `DungeonGen` impls (WFC, BSP, …) behind the same policy.
-  Orthogonal to `TempleDepthScaler` (content bands vs layout algorithm).
+  then roll out fragment assembly and other `DungeonGen` impls (WFC, BSP, …)
+  via campaign config. Orthogonal to `TempleDepthScaler` (content bands vs
+  layout algorithm).
+- Editor **Tools → DungeonGen Test** previews any campaign-enabled generator on
+  a cloned shell zone (layout-only or full `ZoneScript.init` pipeline).
 - Temple subclass: `mclachlan.maze.campaign.temple.TempleGeneratorMazeScript`
   (decorator for walls/doors/encounters; overrides `init` for run-seed logic).
+  When fragment gen is selected, passes `TempleLayoutUsageTheme.usageId()` into
+  `FragmentDungeonGen.Options`.
 - **Floor prototype** zone `temple.1` (blank palette shell). Runtime gen uses
-  `TempleFloorShell.GEN_SIZE` (15×15 for testing; raise for full-size floors).
+  `TempleFloorShell.GEN_SIZE` (15×15 for testing; delegates to `ZoneShell.ensureSize`).
 - Dual map model: gen must keep Crusader `Map` and maze `Tile[][]` consistent.
 - Post-layout dressing (loot) is **outside** `DungeonGen` — `TempleFloorDressing`
   after `generate()`: wall **chests** on blank room walls (not walk-on loot).
@@ -109,7 +121,7 @@ every UI label lookup (critical for Quick Start spell rolling).
   starting room is quiet (no monsters at the first door). **Foe roster:**
   `TempleFoeRoster` clones the band table and picks a persist-once subset via
   `TempleSeededPicks` (`temple.d.<depth>.pick.roster`). **Stair portals** are
-  planned by `StairwellPlanner` (temple: `Noise4jStairwellPlanner`), applied by
+  planned by `StairwellPlanner` (engine: `Noise4jStairwellPlanner`), applied by
   `TempleStairwellDresser`, and linked across depths via maze variables
   (`TempleStairLinks`).
 
@@ -125,7 +137,8 @@ every UI label lookup (critical for Quick Start spell rolling).
 | `temple.d.<depth>.pick.roster` | Persist-once foe-entry subset for the depth |
 | `temple.d.<depth>.pick.chest.<room>` | Persist-once chest wall slot for a room |
 | `temple.d.<depth>.pick.env` | Persist-once floor atmosphere (palette, fog, shade, light) |
-| `temple.d.<depth>.pick.usage` | Persist-once floor usage theme (`storage`, `library`, `mystery`, `garden`, `mixed`) |
+| `temple.d.<depth>.pick.usage` | Persist-once floor usage theme (`storage`, `library`, `mystery`, `garden`, `mixed`) — **Noise4j dressing only** |
+| `temple.d.<depth>.pick.layout.usage` | Persist-once **layout** theme for fragment assembly (`barracks` today; later `worship`, `sanctum`, `arena`) |
 | `temple.d.<depth>.pick.usage.room.<i>` | Persist-once per-room theme when floor theme is `mixed` |
 | `temple.d.<depth>.pick.loot.container.<i>` | Persist-once barrel/crate tile for hidden storage loot |
 | `temple.d.<depth>.startRoom` | Starting room index (no encounters) |
@@ -257,9 +270,10 @@ Automated: `TempleDepthPhase3Test`, `TempleStairPortalTest`, `TempleStairLinksTe
 1. Editor: Zones → Metadata tab; edit keys; save; reload shows same metadata.
 2. Fragment zones exist as catalog seed content (peek in tests); not stamped on
    live Noise4j floors.
-3. `TempleLayoutPolicy` selects a `DungeonGen` (Noise4j today).
+3. Campaign `dungeonGenerators` / `DungeonGens` selects built-in generators
+   (Noise4j live; fragment available for editor Tools and tests).
 
-**Playable layout (in progress — 4a.1 delivered):**
+**Playable layout (in progress — 4a.1 delivered; 4b fragment gen engine lift done):**
 
 4. Room-shared encounters; quiet starting room; wall chests; seeded foe roster.
    **done** (automated: `TempleFloorDressingPhase4Test`, `TempleFoeRosterTest`,
@@ -268,10 +282,13 @@ Automated: `TempleDepthPhase3Test`, `TempleStairPortalTest`, `TempleStairLinksTe
    explore beyond the shortest path to stairs.
 6. Several fixed seeds feel different (not the same bland grid).
 7. Stairs still sit on blank walls; spawn/facing and hub ↔ N ↔ N±1 still work.
-8. After Noise4j is good enough: at least one alternate `DungeonGen` can be
-   selected via `TempleLayoutPolicy` without changing stair/mutation contracts.
+8. After Noise4j is good enough: switch `defaultDungeonGenerator` or add per-depth
+   policy without changing stair/mutation contracts.
+   **4b delivered:** engine `FragmentDungeonGen` + barracks JSON kit + editor
+   DungeonGen Test tool; live rollout still waived (Noise4j default).
 
-Automated today: `TempleFragmentPhase4Test`, `TempleLayoutPolicyTest`,
+Automated today: `TempleFragmentPhase4Test`, `FragmentDungeonGenTest`,
+`FragmentRotateTest`, `DungeonGensTest`, `TempleLayoutPolicyTest`,
 `ZoneMetadataPeekTest`, `TempleFloorGenTest`, `TempleFloorDressingPhase4Test`.
 Layout-topology tests land with Noise4j retune (4a.2+).
 
@@ -279,24 +296,79 @@ Layout-topology tests land with Noise4j retune (4a.2+).
 
 Authored fragment zones under `data/temple/db/zones/` tagged with optional
 **zone metadata** (`Zone.metadata` map in each zone JSON). No separate
-`fragments.json` — the temple catalog reads `fragment.*` keys via
-`Database.peekZoneMetadataByPrefix("fragment.")` without loading tiles/map.
+`fragments.json` — the engine catalog (`FragmentCatalog`) reads `fragment.*`
+keys via `Database.peekZoneMetadataByPrefix("fragment.")` without loading tiles/map.
+
+Two **usage** concepts stay separate:
+
+| Concept | Key / class | Purpose |
+|---------|-------------|---------|
+| Noise4j dressing theme | `temple.d.<depth>.pick.usage` / `TempleUsageTheme` | Storage, library, mystery, garden, mixed — beds, barrels, etc. on Noise4j floors |
+| Fragment layout theme | `temple.d.<depth>.pick.layout.usage` / `TempleLayoutUsageTheme` | Barracks (today); worship / sanctum / arena later — picks assembly kit for `FragmentDungeonGen` (from `campaign.fragmentLayoutThemes`) |
 
 Convention keys (temple; other campaigns may use other keys):
 
 | Key | Purpose |
 |-----|---------|
 | `fragment` | `true` marks a stamp template |
-| `fragment.role` | `guardian` \| `loot` \| `quest` \| `flavour` |
+| `fragment.role` | `guardian` \| `loot` \| `quest` \| `flavour` (catalog flavour; optional on assembly fragments) |
+| `fragment.usage` | Layout theme id (`barracks`, …) — required for assembly picks |
+| `fragment.kind` | `room` \| `corridor` — required for assembly picks |
+| `fragment.start` | `true` marks an entry / stair room |
 | `fragment.depthMin` / `fragment.depthMax` | Depth eligibility |
 | `fragment.weight` | Weighted pick among eligible |
-| `fragment.maxPerFloor` | Cap per zone name per floor |
+| `fragment.maxPerFloor` | Cap per source zone name per floor (rotation variants share the cap) |
+| `fragment.rotate` | `false` skips quarter-turn clones (default: rotate to four facings) |
 
-`TempleFragmentCatalog`, `TempleFragmentStamp`, and `TempleFragmentAssembler`
-are **reserved** — not stamped onto live Noise4j floors. Phase 4 layout work
-iterates the generator itself first; a later algorithm (WFC or similar) may
-consume the catalog. Starter zones: `fragment.flavour.chapel`,
-`fragment.guardian.reliquary`, `fragment.quest.altar` (quest stub until Phase 5).
+**Sockets** are inferred from 1-tile non-solid perimeter openings (no separate
+socket map). Opposite facings weld (`N↔S`, `E↔W`). **`FragmentRotate`**
+clones each authored assembly fragment to `#r90` / `#r180` / `#r270` variants
+in memory (walls, tiles, objects, and directional bed textures rotate with the
+geometry). Set `fragment.rotate=false` on symmetric pieces (e.g. cross junctions).
+
+Engine components (`mclachlan.dungeongen.fragment`):
+
+| Component | Role |
+|-----------|------|
+| `FragmentCatalog` | Peek metadata; filter by depth, role, usage, kind; expand rotations |
+| `FragmentRotate` | Deep-clone + 90° CW quarter turns for assembly picks |
+| `FragmentStamp` | Copy tiles, walls, and `EngineObject`s onto a floor |
+| `FragmentDungeonGen` | Socket-grow assembly `DungeonGen`; synthesizes `Grid` + `DungeonRoom`s for dressing/stairs |
+| `FragmentConnectivity` | Walkability / open-cell checks after assembly |
+
+Temple-only: `TempleFragmentAssembler` (stamp-onto-Noise4j overlay — **not** on live path).
+
+Chapel / reliquary / altar starter zones (`fragment.flavour.chapel`,
+`fragment.guardian.reliquary`, `fragment.quest.altar`) remain catalog-only
+flavour — no `fragment.usage` / `fragment.kind`, excluded from assembly.
+
+**Starter barracks kit (authored under `data/temple/db/zones/` — hand-edit in
+Swing editor as needed):**
+
+One facing per shape; rotation fills the other orientations at assembly time.
+
+Rooms (5×5 unless noted; dungeon wall/floor/ceiling; 1-tile sockets):
+
+- `fragment.barracks.room.entry` — south + east sockets; `fragment.start=true`
+- `fragment.barracks.room.dorm` — south socket; two beds
+- `fragment.barracks.room.dorm.thru` — north + south sockets; beds
+- `fragment.barracks.room.mess` — 7×5; south socket; table + chairs
+- `fragment.barracks.room.armory` — south socket; crates
+- `fragment.barracks.room.office` — south socket; desk (table + chair)
+
+Corridors (1-tile walkable; unused AABB cells solid):
+
+- `fragment.barracks.corr.straight` — 1×5; north + south sockets
+- `fragment.barracks.corr.bend` — 2×2 L; two sockets on open ends
+- `fragment.barracks.corr.tee` — 3×3 plus; north + west + east sockets
+- `fragment.barracks.corr.cross` — 3×3 plus; four sockets; `fragment.rotate=false`
+
+Regenerate starter JSON from repo root:
+`java -cp build/classes:build/default/classes:build/temple/classes:build/test-classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.campaign.temple.BarracksFragmentKitWriter`
+
+Each needs `fragment=true`, `fragment.usage=barracks`, `fragment.kind=room|corridor`,
+depth 1–99, weight, `maxPerFloor`. Live barracks floors will likely need a shell
+larger than 15×15 before `TempleLayoutPolicy.forDepth` switches off Noise4j.
 
 Editor: Zones panel → **Metadata** tab (generic key/value). Full contract: §15.4.
 
@@ -458,11 +530,20 @@ Plans for 4a should name concrete generator knobs or code changes (room
 attempts, corridor style, loops, map size via `TempleFloorShell.GEN_SIZE`,
 etc.) and a playtest seed list.
 
-**Remaining — 4b. Other generators (after 4a is good enough):** Implement
-additional `DungeonGen` classes and select them from `TempleLayoutPolicy`
-(per-depth or by experiment). Candidates: WFC (may consume the fragment
-catalog), BSP, or other room/maze hybrids. Same stair/mutation/displayName
-contracts. Do not start 4b until 4a exits or is explicitly waived.
+**Remaining — 4b live rollout (after 4a is good enough):** Switch
+`defaultDungeonGenerator=fragment` (or per-depth policy) once barracks kit is
+playtested on a larger shell. Candidates still open: WFC, BSP, or other hybrids.
+Same stair/mutation/displayName contracts.
+
+**Delivered — 4b engine fragment assembly (not live):** `FragmentDungeonGen`
+in `mclachlan.dungeongen.fragment`; grow-from-seed on shell zones; door welding
+via `DungeonDecorator.handlePortal`; seals unused sockets; BFS connectivity retry;
+synthesized `Grid` / `DungeonRoom`s + engine `Noise4jStairwellPlanner`.
+`FragmentRotate` expands authored fragments to four facings in memory;
+starter barracks kit JSON under `data/temple/db/zones/fragment.barracks.*`.
+Campaign `dungeonGenerators` / `DungeonGens`; editor **Tools → DungeonGen Test**.
+`TempleGeneratorMazeScript` already skips `TempleUsageDressing` for non-Noise4j
+gens (beds come from fragments).
 
 **Exit:** A player can spend time on a generated floor and remember it; several
 fixed seeds feel different; vertical transitions still work. Alternate gens

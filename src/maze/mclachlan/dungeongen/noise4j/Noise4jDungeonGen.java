@@ -30,6 +30,30 @@ public class Noise4jDungeonGen implements DungeonGen
 	public static final int ROOM_THRESHOLD = 5;
 	public static final int CORRIDOR_THRESHOLD = 1;
 
+	public record Options(
+		int roomGenerationAttempts,
+		int minRoomSize,
+		int maxRoomSize,
+		int tolerance)
+	{
+		public static Options defaults()
+		{
+			return new Options(500, 3, 7, 3);
+		}
+	}
+
+	private final Options options;
+
+	public Noise4jDungeonGen()
+	{
+		this(Options.defaults());
+	}
+
+	public Noise4jDungeonGen(Options options)
+	{
+		this.options = options == null ? Options.defaults() : options;
+	}
+
 	@Override
 	public DungeonGenResult generate(
 		Zone zone,
@@ -51,10 +75,10 @@ public class Noise4jDungeonGen implements DungeonGen
 		dg.setCorridorThreshold(CORRIDOR_THRESHOLD / 10F);
 		dg.setFloorThreshold(ROOM_THRESHOLD / 10F);
 
-		dg.setRoomGenerationAttempts(500);
-		dg.setMaxRoomSize(7);
-		dg.setTolerance(3); // Max difference between width and height.
-		dg.setMinRoomSize(3);
+		dg.setRoomGenerationAttempts(options.roomGenerationAttempts());
+		dg.setMaxRoomSize(options.maxRoomSize());
+		dg.setTolerance(options.tolerance());
+		dg.setMinRoomSize(options.minRoomSize());
 
 		// random dungeon generation
 		dg.generate(grid);

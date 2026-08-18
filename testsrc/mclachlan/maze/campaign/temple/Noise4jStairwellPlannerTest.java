@@ -21,6 +21,7 @@ package mclachlan.maze.campaign.temple;
 
 import java.awt.Point;
 import mclachlan.dungeongen.DungeonGenContext;
+import mclachlan.dungeongen.Noise4jStairwellPlanner;
 import mclachlan.dungeongen.StairPortalSpec;
 import mclachlan.dungeongen.StairwellPlan;
 import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;

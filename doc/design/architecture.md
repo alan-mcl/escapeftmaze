@@ -32,10 +32,18 @@ The runtime is built from five major components:
 
 Supporting libraries: `dungeongen` (procedural dungeon generation — pluggable
 `DungeonGen` interface with `DungeonGenContext` / `DungeonGenResult` and optional
-`StairwellPlanner` for linked stair portals; `Noise4jDungeonGen` is the default
-rooms-and-corridors impl; zone scripts call `MapGenZoneScript.createDungeonGen()`
-rather than hard-coding a generator), `jgpgoap` +
-`maze/game/goapai` (GOAP planner, currently experimental), `maze/audio`,
+`StairwellPlanner` for linked stair portals; built-ins registered in
+`DungeonGens`: `noise4j` (`Noise4jDungeonGen`) and `fragment`
+(`FragmentDungeonGen` in `dungeongen.fragment` — catalog/sockets/stamp/rotate
+assembly; `FragmentRotate` expands authored zones to four facings in memory).
+Campaign `campaign.cfg` lists enabled generators (`dungeonGenerators`,
+`defaultDungeonGenerator`, `fragmentLayoutThemes`). Zone scripts call
+`MapGenZoneScript.createDungeonGen()` → `DungeonGens.createDefault(campaign)`
+rather than hard-coding a generator. Temple live depths 1–4 still default to
+Noise4j; fragment assembly is data-driven via `fragment.*` zone metadata.
+Editor **Tools → DungeonGen Test** clones a shell zone and opens the result in
+`MapEditor`. See [temple_campaign.md](temple_campaign.md) §§6, 10.
+`jgpgoap` + `maze/game/goapai` (GOAP planner, currently experimental), `maze/audio`,
 `maze/util`.
 
 ## 2. Top-Level Architecture

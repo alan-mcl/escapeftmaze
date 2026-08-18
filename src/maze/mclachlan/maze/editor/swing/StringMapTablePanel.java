@@ -64,6 +64,7 @@ public class StringMapTablePanel extends JPanel
 		add(buttons);
 		add(new JLabel(
 			"Example temple fragment keys: fragment=true, fragment.role, "
+				+ "fragment.usage, fragment.kind, fragment.start, fragment.rotate, "
 				+ "fragment.depthMin, fragment.depthMax, fragment.weight, "
 				+ "fragment.maxPerFloor"));
 	}

@@ -24,6 +24,7 @@ import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
+import mclachlan.dungeongen.fragment.FragmentCatalog;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.Portal;
@@ -36,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Phase 4: fragment catalog from zone metadata; assembler helpers for future WFC.
- * Live floor layout uses {@link TempleLayoutPolicy} / Noise4j only — no stamp overlay.
+ * Live floor layout uses campaign default Noise4j — no stamp overlay.
  */
 public class TempleFragmentPhase4Test extends MazeTestSupport
 {
@@ -102,8 +103,8 @@ public class TempleFragmentPhase4Test extends MazeTestSupport
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
-		List<TempleFragmentCatalog.Entry> depth1 =
-			TempleFragmentCatalog.eligibleForDepth(1);
+		List<FragmentCatalog.Entry> depth1 =
+			FragmentCatalog.eligibleForDepth(1);
 		assertTrue(depth1.stream().noneMatch(e -> "quest".equals(e.role())));
 		assertTrue(depth1.stream().anyMatch(e -> "flavour".equals(e.role())));
 	}
@@ -113,8 +114,8 @@ public class TempleFragmentPhase4Test extends MazeTestSupport
 	{
 		Database db = TempleCampaignHarness.bootDatabase();
 		TempleCampaignHarness.bootMaze(db);
-		List<TempleFragmentCatalog.Entry> depth2 =
-			TempleFragmentCatalog.eligibleForDepth(2);
+		List<FragmentCatalog.Entry> depth2 =
+			FragmentCatalog.eligibleForDepth(2);
 		assertTrue(depth2.stream().anyMatch(e -> "quest".equals(e.role())));
 	}
 
