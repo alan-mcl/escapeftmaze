@@ -163,7 +163,7 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 
 		layoutUsage = sizedCombo();
 		fragmentMinRooms = spinner(3, 1, 20);
-		fragmentTargetRooms = spinner(3, 1, 20);
+		fragmentTargetRooms = spinner(12, 1, 20);
 		fragmentAttempts = spinner(32, 1, 64);
 
 		dodgyGridBagShite(panel, new JLabel("Fragment usage:"), layoutUsage, gbc);

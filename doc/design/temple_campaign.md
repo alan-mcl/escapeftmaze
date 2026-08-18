@@ -371,6 +371,11 @@ Corridors (1-tile walkable; unused AABB cells solid):
 - `fragment.barracks.corr.bend` — 2×2 L; two sockets on open ends
 - `fragment.barracks.corr.tee` — 3×3 plus; north + west + east sockets
 - `fragment.barracks.corr.cross` — 3×3 plus; four sockets; `fragment.rotate=false`
+- `fragment.barracks.corr.stub` — 1×2 dead-end cap; one socket; high `maxPerFloor` for sealing leftovers
+
+Assembly grows from a **random valid start** toward `targetRooms`, caps leftover
+sockets with stubs, then seals any that still do not fit. Doors weld only at
+recorded socket pairs (one portal per 1-tile opening), not whole AABB edges.
 
 Regenerate starter JSON from repo root:
 `java -cp build/classes:build/default/classes:build/temple/classes:build/test-classes:oem/jorbis/jorbis0.0.17.jar:oem/gson/gson-2.8.6.jar mclachlan.maze.campaign.temple.BarracksFragmentKitWriter`

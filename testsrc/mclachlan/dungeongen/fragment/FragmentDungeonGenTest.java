@@ -107,18 +107,9 @@ public class FragmentDungeonGenTest extends MazeTestSupport
 		assertTrue(countBedObjects(zone) >= 2, "dorm should stamp beds");
 
 		Point origin = zone.getPlayerOrigin();
-		int walkable = 0;
-		for (int y = 0; y < zone.getLength(); y++)
-		{
-			for (int x = 0; x < zone.getWidth(); x++)
-			{
-				if (FragmentConnectivity.isOpenCell(zone, x, y))
-				{
-					walkable++;
-				}
-			}
-		}
-		assertEquals(walkable, FragmentDungeonGen.countReachable(zone, origin));
+		assertEquals(
+			FragmentDungeonGen.countWalkable(zone),
+			FragmentDungeonGen.countReachable(zone, origin));
 
 		DungeonGenResult result = generateWithZone(zone);
 		assertNotNull(result.layoutGrid());

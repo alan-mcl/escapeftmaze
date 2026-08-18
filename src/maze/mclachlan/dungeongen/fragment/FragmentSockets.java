@@ -27,7 +27,7 @@ import mclachlan.maze.map.Zone;
 
 /**
  * Infers connection sockets from fragment perimeter walls (1-tile non-solid
- * openings). Rotated variants are supplied in-memory by
+ * openings on walkable cells). Rotated variants are supplied in-memory by
  * {@link FragmentRotate}.
  */
 public final class FragmentSockets
@@ -62,42 +62,147 @@ public final class FragmentSockets
 		Wall[] vert = map.getVerticalWalls();
 		List<Socket> result = new ArrayList<>();
 
-		for (int x = 0; x < w; x++)
-		{
-			if (isPassable(horiz[x + 0 * mapW]))
-			{
-				result.add(new Socket(x, 0, CrusaderEngine.Facing.NORTH));
-			}
-		}
-
-		for (int x = 0; x < w; x++)
-		{
-			int idx = map.getSouthWall((h - 1) * mapW + x);
-			if (isPassable(horiz[idx]))
-			{
-				result.add(new Socket(x, h - 1, CrusaderEngine.Facing.SOUTH));
-			}
-		}
-
-		for (int y = 0; y < h; y++)
-		{
-			int idx = map.getWestWall(y * mapW + 0);
-			if (isPassable(vert[idx]))
-			{
-				result.add(new Socket(0, y, CrusaderEngine.Facing.WEST));
-			}
-		}
-
-		for (int y = 0; y < h; y++)
-		{
-			int idx = map.getEastWall(y * mapW + (w - 1));
-			if (isPassable(vert[idx]))
-			{
-				result.add(new Socket(w - 1, y, CrusaderEngine.Facing.EAST));
-			}
-		}
+		collapseEdge(
+			result,
+			scanNorth(horiz, mapW, w, h, fragment),
+			CrusaderEngine.Facing.NORTH);
+		collapseEdge(
+			result,
+			scanSouth(horiz, map, w, h, fragment),
+			CrusaderEngine.Facing.SOUTH);
+		collapseEdge(
+			result,
+			scanWest(vert, map, w, h, fragment),
+			CrusaderEngine.Facing.WEST);
+		collapseEdge(
+			result,
+			scanEast(vert, map, w, h, fragment),
+			CrusaderEngine.Facing.EAST);
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<int[]> scanNorth(
+		Wall[] horiz,
+		int mapW,
+		int w,
+		int h,
+		Zone fragment)
+	{
+		List<int[]> coords = new ArrayList<>();
+		for (int x = 0; x < w; x++)
+		{
+			if (isSocketCell(horiz[x], fragment, x, 0))
+			{
+				coords.add(new int[]{x, 0});
+			}
+		}
+		return coords;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<int[]> scanSouth(
+		Wall[] horiz,
+		Map map,
+		int w,
+		int h,
+		Zone fragment)
+	{
+		List<int[]> coords = new ArrayList<>();
+		for (int x = 0; x < w; x++)
+		{
+			int idx = map.getSouthWall((h - 1) * map.getWidth() + x);
+			if (isSocketCell(horiz[idx], fragment, x, h - 1))
+			{
+				coords.add(new int[]{x, h - 1});
+			}
+		}
+		return coords;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<int[]> scanWest(
+		Wall[] vert,
+		Map map,
+		int w,
+		int h,
+		Zone fragment)
+	{
+		List<int[]> coords = new ArrayList<>();
+		for (int y = 0; y < h; y++)
+		{
+			int idx = map.getWestWall(y * map.getWidth());
+			if (isSocketCell(vert[idx], fragment, 0, y))
+			{
+				coords.add(new int[]{0, y});
+			}
+		}
+		return coords;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<int[]> scanEast(
+		Wall[] vert,
+		Map map,
+		int w,
+		int h,
+		Zone fragment)
+	{
+		List<int[]> coords = new ArrayList<>();
+		for (int y = 0; y < h; y++)
+		{
+			int idx = map.getEastWall(y * map.getWidth() + (w - 1));
+			if (isSocketCell(vert[idx], fragment, w - 1, y))
+			{
+				coords.add(new int[]{w - 1, y});
+			}
+		}
+		return coords;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean isSocketCell(Wall wall, Zone fragment, int x, int y)
+	{
+		return isPassable(wall)
+			&& FragmentConnectivity.isOpenCell(fragment, x, y);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void collapseEdge(
+		List<Socket> result,
+		List<int[]> coords,
+		int facing)
+	{
+		if (coords.isEmpty())
+		{
+			return;
+		}
+
+		boolean horizontal = facing == CrusaderEngine.Facing.NORTH
+			|| facing == CrusaderEngine.Facing.SOUTH;
+		coords.sort((a, b) -> horizontal
+			? Integer.compare(a[0], b[0])
+			: Integer.compare(a[1], b[1]));
+
+		int runStart = 0;
+		for (int i = 1; i <= coords.size(); i++)
+		{
+			boolean breaksRun = i == coords.size()
+				|| (horizontal
+					? coords.get(i)[0] != coords.get(i - 1)[0] + 1
+					: coords.get(i)[1] != coords.get(i - 1)[1] + 1);
+			if (!breaksRun)
+			{
+				continue;
+			}
+
+			int runEnd = i - 1;
+			int mid = (runStart + runEnd) / 2;
+			int[] pick = coords.get(mid);
+			result.add(new Socket(pick[0], pick[1], facing));
+			runStart = i;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

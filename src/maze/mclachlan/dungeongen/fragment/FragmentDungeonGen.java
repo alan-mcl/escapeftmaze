@@ -163,7 +163,7 @@ public final class FragmentDungeonGen implements DungeonGen
 				continue;
 			}
 
-			Grid grid = buildLayoutGrid(width, length, candidate);
+			Grid grid = buildLayoutGrid(width, length, candidate, zone);
 			List<DungeonRoom> rooms = candidate.rooms();
 			int startingRoomIndex = candidate.startingRoomIndex();
 			Wall[] horizWalls = zone.getMap().getHorizontalWalls();
@@ -179,12 +179,13 @@ public final class FragmentDungeonGen implements DungeonGen
 				decorator,
 				rooms,
 				startingRoomIndex,
-				width);
+				width,
+				candidate);
 			sealUnusedSockets(candidate, zone);
 			zone.setPortals(portals.toArray(new Portal[0]));
 			zone.getMap().init();
 
-			if (validateConnectivity(zone, candidate.spawn()))
+			if (validateConnectivity(zone, grid, candidate.spawn()))
 			{
 				assembly = candidate;
 				layoutGrid = grid;
@@ -196,9 +197,9 @@ public final class FragmentDungeonGen implements DungeonGen
 			lastFailureReason = "connectivity spawn="
 				+ candidate.spawn()
 				+ " reachable="
-				+ countReachable(zone, candidate.spawn())
+				+ countGridReachable(grid, zone, candidate.spawn())
 				+ " walkable="
-				+ countWalkable(zone);
+				+ countGridWalkable(grid);
 		}
 
 		if (assembly == null)
@@ -340,17 +341,19 @@ public final class FragmentDungeonGen implements DungeonGen
 		}
 
 		Zone startZone = loadFragment(startEntry);
-		int destX = (width - startZone.getWidth()) / 2;
-		int destY = margin + 1;
-		if (!fits(destX, destY, startZone, width, length, List.of(), margin))
+		int[] startPos = pickStartPosition(startZone, width, length, margin, rng);
+		if (startPos == null)
 		{
 			return null;
 		}
+		int destX = startPos[0];
+		int destY = startPos[1];
 
 		List<Placement> placements = new ArrayList<>();
 		java.util.Map<String, Integer> usedPerZone = new HashMap<>();
 		Set<SocketRef> connectedSockets = new HashSet<>();
 		List<SocketRef> frontier = new ArrayList<>();
+		List<SocketWeld> welds = new ArrayList<>();
 
 		Placement start = place(
 			floor, startEntry, startZone, destX, destY, 0, placements, usedPerZone);
@@ -358,9 +361,9 @@ public final class FragmentDungeonGen implements DungeonGen
 
 		int roomCount = 1;
 		int roomIndex = 1;
-		int safety = 128;
+		int safety = 256;
 
-		while (roomCount < minRooms && safety-- > 0)
+		while (roomCount < targetRooms && !frontier.isEmpty() && safety-- > 0)
 		{
 			boolean progress = false;
 			List<SocketRef> snapshot = new ArrayList<>(frontier);
@@ -374,93 +377,93 @@ public final class FragmentDungeonGen implements DungeonGen
 					continue;
 				}
 
-				if (roomCount < targetRooms)
+				AttachResult corridorAttach = tryAttach(
+					floor,
+					prioritizeBranchCorridors(corridors, roomCount, minRooms),
+					socket,
+					placements,
+					usedPerZone,
+					rng,
+					width,
+					length,
+					margin,
+					-1);
+				if (corridorAttach != null)
 				{
-					Placement corridor = tryAttach(
-						floor,
-						prioritizeBranchCorridors(corridors, roomCount, minRooms),
-						socket,
-						placements,
-						usedPerZone,
-						connectedSockets,
-						frontier,
-						rng,
-						width,
-						length,
-						margin,
-						-1);
-					if (corridor != null)
+					connectWeld(socket, corridorAttach, connectedSockets, frontier, welds);
+					progress = true;
+					Placement corridor = corridorAttach.placement();
+
+					for (SocketRef roomSocket : openSockets(corridor, connectedSockets))
 					{
-						frontier.remove(socket);
-						connectedSockets.add(socket);
-						progress = true;
-
-						for (SocketRef roomSocket : openSockets(corridor, connectedSockets))
+						if (roomCount >= targetRooms)
 						{
-							if (roomCount >= targetRooms)
-							{
-								break;
-							}
-							Placement room = tryAttach(
-								floor,
-								rooms,
-								roomSocket,
-								placements,
-								usedPerZone,
-								connectedSockets,
-								frontier,
-								rng,
-								width,
-								length,
-								margin,
-								roomIndex);
-							if (room != null)
-							{
-								connectedSockets.add(roomSocket);
-								roomCount++;
-								roomIndex++;
-								addFrontier(frontier, room, connectedSockets);
-								progress = true;
-							}
+							break;
 						}
-
-						addFrontier(frontier, corridor, connectedSockets);
-						continue;
+						AttachResult roomAttach = tryAttach(
+							floor,
+							rooms,
+							roomSocket,
+							placements,
+							usedPerZone,
+							rng,
+							width,
+							length,
+							margin,
+							roomIndex);
+						if (roomAttach != null)
+						{
+							connectWeld(roomSocket, roomAttach, connectedSockets, frontier, welds);
+							roomCount++;
+							roomIndex++;
+							addFrontier(frontier, roomAttach.placement(), connectedSockets);
+							progress = true;
+						}
 					}
+
+					addFrontier(frontier, corridor, connectedSockets);
+					continue;
 				}
 
-				if (roomCount < targetRooms)
+				AttachResult roomAttach = tryAttach(
+					floor,
+					rooms,
+					socket,
+					placements,
+					usedPerZone,
+					rng,
+					width,
+					length,
+					margin,
+					roomIndex);
+				if (roomAttach != null)
 				{
-					Placement room = tryAttach(
-						floor,
-						rooms,
-						socket,
-						placements,
-						usedPerZone,
-						connectedSockets,
-						frontier,
-						rng,
-						width,
-						length,
-						margin,
-						roomIndex);
-					if (room != null)
-					{
-						frontier.remove(socket);
-						connectedSockets.add(socket);
-						roomCount++;
-						roomIndex++;
-						addFrontier(frontier, room, connectedSockets);
-						progress = true;
-					}
+					connectWeld(socket, roomAttach, connectedSockets, frontier, welds);
+					roomCount++;
+					roomIndex++;
+					addFrontier(frontier, roomAttach.placement(), connectedSockets);
+					progress = true;
 				}
 			}
 
-			if (!progress && frontier.isEmpty())
+			if (!progress)
 			{
 				break;
 			}
 		}
+
+		capLeftoverSockets(
+			floor,
+			catalog,
+			placements,
+			connectedSockets,
+			frontier,
+			welds,
+			usedPerZone,
+			rng,
+			width,
+			length,
+			margin);
 
 		if (roomCount < minRooms)
 		{
@@ -502,9 +505,144 @@ public final class FragmentDungeonGen implements DungeonGen
 		return new AssemblyResult(
 			placements,
 			connectedSockets,
+			welds,
 			dungeonRooms,
 			startingRoomIndex,
 			spawn);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int[] pickStartPosition(
+		Zone startZone,
+		int width,
+		int length,
+		int margin,
+		Random rng)
+	{
+		if (testCatalogOverride != null)
+		{
+			int destX = (width - startZone.getWidth()) / 2;
+			int destY = margin + 1;
+			if (fits(destX, destY, startZone, width, length, List.of(), margin))
+			{
+				return new int[]{destX, destY};
+			}
+			return null;
+		}
+		return pickRandomStart(startZone, width, length, margin, rng);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int[] pickRandomStart(
+		Zone startZone,
+		int width,
+		int length,
+		int margin,
+		Random rng)
+	{
+		List<int[]> candidates = new ArrayList<>();
+		int fragW = startZone.getWidth();
+		int fragL = startZone.getLength();
+		for (int x = margin; x <= width - margin - fragW; x++)
+		{
+			for (int y = margin; y <= length - margin - fragL; y++)
+			{
+				if (fits(x, y, startZone, width, length, List.of(), margin))
+				{
+					candidates.add(new int[]{x, y});
+				}
+			}
+		}
+		if (candidates.isEmpty())
+		{
+			return null;
+		}
+		Collections.shuffle(candidates, rng);
+		return candidates.get(0);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void connectWeld(
+		SocketRef parent,
+		AttachResult attach,
+		Set<SocketRef> connectedSockets,
+		List<SocketRef> frontier,
+		List<SocketWeld> welds)
+	{
+		connectedSockets.add(parent);
+		connectedSockets.add(attach.childSocket());
+		welds.add(new SocketWeld(parent, attach.childSocket()));
+		frontier.remove(parent);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void capLeftoverSockets(
+		Zone floor,
+		List<FragmentCatalog.Entry> catalog,
+		List<Placement> placements,
+		Set<SocketRef> connectedSockets,
+		List<SocketRef> frontier,
+		List<SocketWeld> welds,
+		java.util.Map<String, Integer> usedPerZone,
+		Random rng,
+		int width,
+		int length,
+		int margin)
+	{
+		List<FragmentCatalog.Entry> stubs = filterStubCorridors(catalog);
+		if (stubs.isEmpty())
+		{
+			return;
+		}
+
+		boolean progress = true;
+		while (progress)
+		{
+			progress = false;
+			List<SocketRef> snapshot = new ArrayList<>(frontier);
+			Collections.shuffle(snapshot, rng);
+			for (SocketRef socket : snapshot)
+			{
+				if (connectedSockets.contains(socket))
+				{
+					frontier.remove(socket);
+					continue;
+				}
+
+				AttachResult cap = tryAttach(
+					floor,
+					stubs,
+					socket,
+					placements,
+					usedPerZone,
+					rng,
+					width,
+					length,
+					margin,
+					-1);
+				if (cap != null)
+				{
+					connectWeld(socket, cap, connectedSockets, frontier, welds);
+					addFrontier(frontier, cap.placement(), connectedSockets);
+					progress = true;
+				}
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<FragmentCatalog.Entry> filterStubCorridors(
+		List<FragmentCatalog.Entry> catalog)
+	{
+		List<FragmentCatalog.Entry> result = new ArrayList<>();
+		for (FragmentCatalog.Entry entry : catalog)
+		{
+			if (entry.sourceZoneName().contains(".corr.stub"))
+			{
+				result.add(entry);
+			}
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -547,14 +685,12 @@ public final class FragmentDungeonGen implements DungeonGen
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Placement tryAttach(
+	private static AttachResult tryAttach(
 		Zone floor,
 		List<FragmentCatalog.Entry> pool,
 		SocketRef socket,
 		List<Placement> placements,
 		java.util.Map<String, Integer> usedPerZone,
-		Set<SocketRef> connectedSockets,
-		List<SocketRef> frontier,
 		Random rng,
 		int width,
 		int length,
@@ -600,7 +736,7 @@ public final class FragmentDungeonGen implements DungeonGen
 					continue;
 				}
 
-				return place(
+				Placement placement = place(
 					floor,
 					entry,
 					fragment,
@@ -609,6 +745,12 @@ public final class FragmentDungeonGen implements DungeonGen
 					roomIndex,
 					placements,
 					usedPerZone);
+				SocketRef childRef = new SocketRef(
+					placement,
+					childSocket,
+					destX + childSocket.localX(),
+					destY + childSocket.localY());
+				return new AttachResult(placement, childRef);
 			}
 		}
 
@@ -753,7 +895,11 @@ public final class FragmentDungeonGen implements DungeonGen
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Grid buildLayoutGrid(int width, int length, AssemblyResult assembly)
+	private static Grid buildLayoutGrid(
+		int width,
+		int length,
+		AssemblyResult assembly,
+		Zone floor)
 	{
 		Grid grid = new Grid(width, length);
 		grid.fill(WALL / 10F);
@@ -763,13 +909,11 @@ public final class FragmentDungeonGen implements DungeonGen
 			float value = placement.kind() == FragmentCatalog.Kind.ROOM
 				? ROOM / 10F
 				: CORRIDOR / 10F;
+			Zone fragment = loadFragment(placement.entry());
 			Rectangle b = placement.bounds();
-			for (int x = b.x; x < b.x + b.width; x++)
+			for (Point local : FragmentConnectivity.walkableFloorCells(fragment))
 			{
-				for (int y = b.y; y < b.y + b.height; y++)
-				{
-					grid.set(x, y, value);
-				}
+				grid.set(b.x + local.x, b.y + local.y, value);
 			}
 		}
 		return grid;
@@ -786,47 +930,44 @@ public final class FragmentDungeonGen implements DungeonGen
 		MapGenZoneScript.DungeonDecorator decorator,
 		List<DungeonRoom> rooms,
 		int startingRoomIndex,
-		int width)
+		int width,
+		AssemblyResult assembly)
 	{
-		int height = grid.getHeight();
-		for (int x = 1; x < width - 1; x++)
+		for (SocketWeld weld : assembly.welds())
 		{
-			for (int y = 1; y < height - 1; y++)
+			SocketRef parent = weld.parent();
+			int[] delta = FragmentSockets.delta(parent.socket().facing());
+			int toX = parent.worldX() + delta[0];
+			int toY = parent.worldY() + delta[1];
+			boolean isEncounter = weldPortal(
+				grid,
+				zone,
+				dungeonLevel,
+				horizWalls,
+				vertWalls,
+				portals,
+				decorator,
+				rooms,
+				startingRoomIndex,
+				width,
+				parent.worldX(),
+				parent.worldY(),
+				parent.socket().facing(),
+				toX,
+				toY,
+				weld.child().socket().facing());
+
+			if (isEncounter)
 			{
-				if (gridValue(grid, x, y) != ROOM)
+				int roomIndex = indexOfRoom(rooms, parent.worldX(), parent.worldY());
+				if (roomIndex >= 0 && roomIndex != startingRoomIndex)
 				{
-					continue;
-				}
-
-				boolean isEncounter = false;
-				isEncounter |= weldPortal(
-					grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator,
-					rooms, startingRoomIndex, width,
-					x, y, CrusaderEngine.Facing.NORTH, x, y - 1, CrusaderEngine.Facing.SOUTH);
-				isEncounter |= weldPortal(
-					grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator,
-					rooms, startingRoomIndex, width,
-					x, y, CrusaderEngine.Facing.SOUTH, x, y + 1, CrusaderEngine.Facing.NORTH);
-				isEncounter |= weldPortal(
-					grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator,
-					rooms, startingRoomIndex, width,
-					x, y, CrusaderEngine.Facing.WEST, x - 1, y, CrusaderEngine.Facing.EAST);
-				isEncounter |= weldPortal(
-					grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator,
-					rooms, startingRoomIndex, width,
-					x, y, CrusaderEngine.Facing.EAST, x + 1, y, CrusaderEngine.Facing.WEST);
-
-				if (isEncounter)
-				{
-					int roomIndex = indexOfRoom(rooms, x, y);
-					if (roomIndex >= 0 && roomIndex != startingRoomIndex)
+					Encounter encounter = decorator.getEncounter(
+						zone, parent.worldX(), parent.worldY(), dungeonLevel, roomIndex);
+					if (encounter != null)
 					{
-						Encounter encounter = decorator.getEncounter(
-							zone, x, y, dungeonLevel, roomIndex);
-						if (encounter != null)
-						{
-							zone.getTile(new Point(x, y)).getScripts().add(encounter);
-						}
+						zone.getTile(new Point(parent.worldX(), parent.worldY()))
+							.getScripts().add(encounter);
 					}
 				}
 			}
@@ -852,7 +993,7 @@ public final class FragmentDungeonGen implements DungeonGen
 		int toY,
 		int toFacing)
 	{
-		if (gridValue(grid, toX, toY) != CORRIDOR)
+		if (!FragmentConnectivity.isOpenCell(zone, toX, toY))
 		{
 			return false;
 		}
@@ -958,18 +1099,25 @@ public final class FragmentDungeonGen implements DungeonGen
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static boolean validateConnectivity(Zone zone, Point start)
+	private static boolean validateConnectivity(Zone zone, Grid grid, Point start)
 	{
-		if (!FragmentConnectivity.isOpenCell(zone, start.x, start.y))
+		if (!isGridWalkable(grid, start.x, start.y))
 		{
 			return false;
 		}
-		return countReachable(zone, start) == countWalkable(zone);
+		return countGridReachable(grid, zone, start) == countGridWalkable(grid);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static int countWalkable(Zone zone)
+	static int countWalkable(Zone zone)
 	{
+		if (lastAssemblyResult != null)
+		{
+			Grid grid = buildLayoutGrid(
+				zone.getWidth(), zone.getLength(), lastAssemblyResult, zone);
+			return countGridWalkable(grid);
+		}
+
 		int count = 0;
 		for (int y = 0; y < zone.getLength(); y++)
 		{
@@ -987,6 +1135,13 @@ public final class FragmentDungeonGen implements DungeonGen
 	/*-------------------------------------------------------------------------*/
 	static int countReachable(Zone zone, Point start)
 	{
+		if (lastAssemblyResult != null)
+		{
+			Grid grid = buildLayoutGrid(
+				zone.getWidth(), zone.getLength(), lastAssemblyResult, zone);
+			return countGridReachable(grid, zone, start);
+		}
+
 		if (!FragmentConnectivity.isOpenCell(zone, start.x, start.y))
 		{
 			return 0;
@@ -1018,10 +1173,10 @@ public final class FragmentDungeonGen implements DungeonGen
 		while (!queue.isEmpty())
 		{
 			Point cur = queue.removeFirst();
-			count += enqueue(zone, cur, CrusaderEngine.Facing.NORTH, width, length, horiz, vert, seen, queue);
-			count += enqueue(zone, cur, CrusaderEngine.Facing.SOUTH, width, length, horiz, vert, seen, queue);
-			count += enqueue(zone, cur, CrusaderEngine.Facing.WEST, width, length, horiz, vert, seen, queue);
-			count += enqueue(zone, cur, CrusaderEngine.Facing.EAST, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, null, cur, CrusaderEngine.Facing.NORTH, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, null, cur, CrusaderEngine.Facing.SOUTH, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, null, cur, CrusaderEngine.Facing.WEST, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, null, cur, CrusaderEngine.Facing.EAST, width, length, horiz, vert, seen, queue);
 
 			List<Point> links = portalLinks.get(cur);
 			if (links != null)
@@ -1043,8 +1198,91 @@ public final class FragmentDungeonGen implements DungeonGen
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private static int countGridWalkable(Grid grid)
+	{
+		int count = 0;
+		for (int y = 0; y < grid.getHeight(); y++)
+		{
+			for (int x = 0; x < grid.getWidth(); x++)
+			{
+				if (isGridWalkable(grid, x, y))
+				{
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int countGridReachable(Grid grid, Zone zone, Point start)
+	{
+		if (!isGridWalkable(grid, start.x, start.y))
+		{
+			return 0;
+		}
+
+		Map map = zone.getMap();
+		int width = map.getWidth();
+		int length = map.getLength();
+		Wall[] horiz = map.getHorizontalWalls();
+		Wall[] vert = map.getVerticalWalls();
+		boolean[][] seen = new boolean[length][width];
+		ArrayDeque<Point> queue = new ArrayDeque<>();
+		queue.add(start);
+		seen[start.y][start.x] = true;
+		int count = 1;
+
+		java.util.Map<Point, List<Point>> portalLinks = new HashMap<>();
+		if (zone.getPortals() != null)
+		{
+			for (Portal portal : zone.getPortals())
+			{
+				portalLinks.computeIfAbsent(portal.getFrom(), k -> new ArrayList<>())
+					.add(portal.getTo());
+				portalLinks.computeIfAbsent(portal.getTo(), k -> new ArrayList<>())
+					.add(portal.getFrom());
+			}
+		}
+
+		while (!queue.isEmpty())
+		{
+			Point cur = queue.removeFirst();
+			count += enqueue(zone, grid, cur, CrusaderEngine.Facing.NORTH, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, grid, cur, CrusaderEngine.Facing.SOUTH, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, grid, cur, CrusaderEngine.Facing.WEST, width, length, horiz, vert, seen, queue);
+			count += enqueue(zone, grid, cur, CrusaderEngine.Facing.EAST, width, length, horiz, vert, seen, queue);
+
+			List<Point> links = portalLinks.get(cur);
+			if (links != null)
+			{
+				for (Point next : links)
+				{
+					if (next.x >= 0 && next.y >= 0 && next.x < width && next.y < length
+						&& !seen[next.y][next.x]
+						&& isGridWalkable(grid, next.x, next.y))
+					{
+						seen[next.y][next.x] = true;
+						queue.add(next);
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean isGridWalkable(Grid grid, int x, int y)
+	{
+		int value = gridValue(grid, x, y);
+		return value == ROOM || value == CORRIDOR;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private static int enqueue(
 		Zone zone,
+		Grid grid,
 		Point cur,
 		int facing,
 		int width,
@@ -1090,7 +1328,14 @@ public final class FragmentDungeonGen implements DungeonGen
 		{
 			return 0;
 		}
-		if (!FragmentConnectivity.isOpenCell(zone, nx, ny))
+		if (grid != null)
+		{
+			if (!isGridWalkable(grid, nx, ny))
+			{
+				return 0;
+			}
+		}
+		else if (!FragmentConnectivity.isOpenCell(zone, nx, ny))
 		{
 			return 0;
 		}
@@ -1203,9 +1448,20 @@ public final class FragmentDungeonGen implements DungeonGen
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static record SocketWeld(SocketRef parent, SocketRef child)
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static record AttachResult(Placement placement, SocketRef childSocket)
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static record AssemblyResult(
 		List<Placement> placements,
 		Set<SocketRef> connectedSockets,
+		List<SocketWeld> welds,
 		List<DungeonRoom> rooms,
 		int startingRoomIndex,
 		Point spawn)

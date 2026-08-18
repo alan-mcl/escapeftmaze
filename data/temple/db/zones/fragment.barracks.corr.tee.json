@@ -2,11 +2,6 @@
   "name": "fragment.barracks.corr.tee",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
-    "ambientScripts": {
-      "PERCENTAGES": [],
-      "ITEMS": [],
-      "SHOULD_SUM_TO_100": "false"
-    },
     "lightLevelDiff": "0",
     "turnsBetweenChange": "0"
   },
@@ -26,7 +21,7 @@
     "fragment.depthMax": "99",
     "fragment.depthMin": "1",
     "fragment.kind": "corridor",
-    "fragment.maxPerFloor": "99",
+    "fragment.maxPerFloor": "3",
     "fragment.usage": "barracks",
     "fragment.weight": "5"
   },
@@ -278,8 +273,8 @@
         "textures": [
           "No_WAll"
         ],
-        "visible": "true",
-        "solid": "true",
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {

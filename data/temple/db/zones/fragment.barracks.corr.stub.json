@@ -1,5 +1,5 @@
 {
-  "name": "fragment.barracks.corr.straight",
+  "name": "fragment.barracks.corr.stub",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
     "lightLevelDiff": "0",
@@ -15,15 +15,15 @@
   "playerFieldOfView": "2",
   "scaleDistFromProjPlane": "0.65",
   "order": "0",
-  "playerOrigin": "0:2",
+  "playerOrigin": "0:1",
   "metadata": {
     "fragment": "true",
     "fragment.depthMax": "99",
     "fragment.depthMin": "1",
     "fragment.kind": "corridor",
-    "fragment.maxPerFloor": "6",
+    "fragment.maxPerFloor": "99",
     "fragment.usage": "barracks",
-    "fragment.weight": "8"
+    "fragment.weight": "1"
   },
   "portals": [],
   "tiles": [
@@ -43,35 +43,11 @@
         "terrainType": "DUNGEON",
         "terrainSubType": "Temple",
         "randomEncounterChance": "0"
-      },
-      {
-        "coords": "0:2",
-        "scripts": [],
-        "statModifier": "0,",
-        "terrainType": "DUNGEON",
-        "terrainSubType": "Temple",
-        "randomEncounterChance": "0"
-      },
-      {
-        "coords": "0:3",
-        "scripts": [],
-        "statModifier": "0,",
-        "terrainType": "DUNGEON",
-        "terrainSubType": "Temple",
-        "randomEncounterChance": "0"
-      },
-      {
-        "coords": "0:4",
-        "scripts": [],
-        "statModifier": "0,",
-        "terrainType": "DUNGEON",
-        "terrainSubType": "Temple",
-        "randomEncounterChance": "0"
       }
     ]
   ],
   "map": {
-    "length": "5",
+    "length": "2",
     "width": "1",
     "baseImageSize": "512",
     "skyConfigs": [
@@ -85,36 +61,6 @@
       }
     ],
     "tiles": [
-      {
-        "ceilingTexture": "DUNGEON_CEILING_1",
-        "floorTexture": "DUNGEON_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DUNGEON_CEILING_1",
-        "floorTexture": "DUNGEON_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "DUNGEON_CEILING_1",
-        "floorTexture": "DUNGEON_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
       {
         "ceilingTexture": "DUNGEON_CEILING_1",
         "floorTexture": "DUNGEON_FLOOR_1",
@@ -155,86 +101,14 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "DUNGEON_WALL_1"
         ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
+        "visible": "true",
+        "solid": "true",
         "height": "1"
       }
     ],
     "verticalWalls": [
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "DUNGEON_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
       {
         "textures": [
           "DUNGEON_WALL_1"

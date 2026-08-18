@@ -72,6 +72,7 @@ public final class BarracksFragmentKitWriter
 		write(db, corrBend(db, wall, floor, ceiling, sky));
 		write(db, corrTee(db, wall, floor, ceiling, sky));
 		write(db, corrCross(db, wall, floor, ceiling, sky));
+		write(db, corrStub(db, wall, floor, ceiling, sky));
 
 		System.out.println("Wrote barracks fragment kit under data/temple/db/zones/");
 	}
@@ -325,6 +326,29 @@ public final class BarracksFragmentKitWriter
 				opening(2, 1, CrusaderEngine.Facing.EAST)),
 			List.of(),
 			meta(true, "corridor", false, 1, 5, 3));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Zone corrStub(
+		Database db,
+		Texture wall,
+		Texture floor,
+		Texture ceiling,
+		Texture sky)
+	{
+		return buildZone(
+			db,
+			wall,
+			floor,
+			ceiling,
+			sky,
+			"fragment.barracks.corr.stub",
+			1,
+			2,
+			lineRoom(1, 2),
+			Set.of(opening(0, 0, CrusaderEngine.Facing.NORTH)),
+			List.of(),
+			meta(true, "corridor", false, 1, 1, 99));
 	}
 
 	/*-------------------------------------------------------------------------*/

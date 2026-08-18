@@ -2,11 +2,6 @@
   "name": "fragment.barracks.room.mess",
   "script": {
     "TYPE_KEY": "mclachlan.maze.map.DefaultZoneScript",
-    "ambientScripts": {
-      "PERCENTAGES": [],
-      "ITEMS": [],
-      "SHOULD_SUM_TO_100": "false"
-    },
     "lightLevelDiff": "0",
     "turnsBetweenChange": "0"
   },
