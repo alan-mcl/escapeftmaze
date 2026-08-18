@@ -23,9 +23,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.*;
 import mclachlan.dungeongen.*;
+import mclachlan.dungeongen.fragment.FragmentCatalog;
 import mclachlan.dungeongen.fragment.FragmentDungeonGen;
 import mclachlan.dungeongen.noise4j.Noise4jDungeonGen;
 import mclachlan.maze.data.Database;
@@ -42,6 +44,9 @@ import mclachlan.maze.util.MazeException;
  */
 public class DungeonGenTestPanel extends JPanel implements ActionListener, IEditorPanel
 {
+	/** Matches {@code TempleFloorShell.PREVIEW_SIZE_VAR}; editor cannot depend on temple classes. */
+	private static final String PREVIEW_SIZE_VAR = "dungeongen.size";
+
 	private JComboBox<String> shellZone;
 	private JComboBox<String> generator;
 	private JComboBox<String> layoutUsage;
@@ -56,69 +61,66 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 	private JSpinner fragmentTargetRooms;
 	private JSpinner fragmentAttempts;
 	private JCheckBox fullPipeline;
-	private JPanel fragmentPanel;
-	private JPanel noisePanel;
+	private CardLayout generatorCards;
+	private JPanel generatorCardPanel;
 	private Campaign campaign;
 
 	public DungeonGenTestPanel()
 	{
-		setLayout(new BorderLayout(8, 8));
+		setLayout(new GridBagLayout());
+		GridBagConstraints outer = createGridBagConstraints();
+		outer.weighty = 1.0;
+		add(buildFormPanel(), outer);
 
+		outer.gridx = 1;
+		outer.weightx = 1.0;
+		add(new JLabel(), outer);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel buildFormPanel()
+	{
 		JPanel form = new JPanel(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(4, 4, 4, 4);
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
+		GridBagConstraints gbc = createGridBagConstraints();
 
-		shellZone = new JComboBox<>();
-		addRow(form, gbc, "Shell zone:", shellZone);
+		shellZone = sizedCombo();
+		dodgyGridBagShite(form, new JLabel("Shell zone:"), shellZone, gbc);
 
-		generator = new JComboBox<>();
+		generator = sizedCombo();
 		generator.addActionListener(this);
-		addRow(form, gbc, "Generator:", generator);
+		dodgyGridBagShite(form, new JLabel("Generator:"), generator, gbc);
 
-		layoutUsage = new JComboBox<>();
-		addRow(form, gbc, "Fragment usage:", layoutUsage);
-
+		JPanel seedPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 0));
 		seed = new JSpinner(new SpinnerNumberModel(42, 0, Integer.MAX_VALUE, 1));
-		addRow(form, gbc, "Seed:", seed);
+		seed.setPreferredSize(new Dimension(120, seed.getPreferredSize().height));
+		JButton randomiseSeed = new JButton("Randomise");
+		randomiseSeed.addActionListener(this);
+		seedPanel.add(seed);
+		seedPanel.add(randomiseSeed);
+		dodgyGridBagShite(form, new JLabel("Seed:"), seedPanel, gbc);
 
 		depth = new JSpinner(new SpinnerNumberModel(1, 1, 99, 1));
-		addRow(form, gbc, "Depth:", depth);
+		depth.setPreferredSize(new Dimension(80, depth.getPreferredSize().height));
+		dodgyGridBagShite(form, new JLabel("Depth:"), depth, gbc);
 
 		mapSize = new JSpinner(new SpinnerNumberModel(15, 7, 63, 2));
-		addRow(form, gbc, "Map size (odd):", mapSize);
+		mapSize.setPreferredSize(new Dimension(80, mapSize.getPreferredSize().height));
+		dodgyGridBagShite(form, new JLabel("Map size (odd):"), mapSize, gbc);
 
-		noisePanel = new JPanel(new GridLayout(0, 2, 4, 4));
-		noiseAttempts = spinner(500, 1, 5000);
-		noiseMinRoom = spinner(3, 1, 20);
-		noiseMaxRoom = spinner(7, 1, 20);
-		noiseTolerance = spinner(3, 0, 10);
-		noisePanel.add(new JLabel("Room attempts:"));
-		noisePanel.add(noiseAttempts);
-		noisePanel.add(new JLabel("Min room size:"));
-		noisePanel.add(noiseMinRoom);
-		noisePanel.add(new JLabel("Max room size:"));
-		noisePanel.add(noiseMaxRoom);
-		noisePanel.add(new JLabel("Aspect tolerance:"));
-		noisePanel.add(noiseTolerance);
-		addRow(form, gbc, "Noise4j:", noisePanel);
-
-		fragmentPanel = new JPanel(new GridLayout(0, 2, 4, 4));
-		fragmentMinRooms = spinner(3, 1, 20);
-		fragmentTargetRooms = spinner(3, 1, 20);
-		fragmentAttempts = spinner(8, 1, 64);
-		fragmentPanel.add(new JLabel("Min rooms:"));
-		fragmentPanel.add(fragmentMinRooms);
-		fragmentPanel.add(new JLabel("Target rooms:"));
-		fragmentPanel.add(fragmentTargetRooms);
-		fragmentPanel.add(new JLabel("Max attempts:"));
-		fragmentPanel.add(fragmentAttempts);
-		addRow(form, gbc, "Fragment:", fragmentPanel);
+		generatorCards = new CardLayout();
+		generatorCardPanel = new JPanel(generatorCards);
+		generatorCardPanel.setBorder(BorderFactory.createTitledBorder("Generator settings"));
+		generatorCardPanel.add(buildNoisePanel(), DungeonGens.NOISE4J);
+		generatorCardPanel.add(buildFragmentPanel(), DungeonGens.FRAGMENT);
+		gbc.gridx = 0;
+		gbc.gridy++;
+		gbc.gridwidth = 2;
+		gbc.weightx = 0.0;
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		form.add(generatorCardPanel, gbc);
 
 		fullPipeline = new JCheckBox("Run zone script init (full campaign pipeline)");
-		gbc.gridx = 0;
 		gbc.gridy++;
 		gbc.gridwidth = 2;
 		form.add(fullPipeline, gbc);
@@ -128,7 +130,54 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 		gbc.gridy++;
 		form.add(generate, gbc);
 
-		add(form, BorderLayout.NORTH);
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+		form.add(new JLabel(), gbc);
+		return form;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel buildNoisePanel()
+	{
+		JPanel panel = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+
+		noiseAttempts = spinner(500, 1, 5000);
+		noiseMinRoom = spinner(3, 1, 20);
+		noiseMaxRoom = spinner(7, 1, 20);
+		noiseTolerance = spinner(3, 0, 10);
+
+		dodgyGridBagShite(panel, new JLabel("Room attempts:"), noiseAttempts, gbc);
+		dodgyGridBagShite(panel, new JLabel("Min room size:"), noiseMinRoom, gbc);
+		dodgyGridBagShite(panel, new JLabel("Max room size:"), noiseMaxRoom, gbc);
+		dodgyGridBagShite(panel, new JLabel("Aspect tolerance:"), noiseTolerance, gbc);
+
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+		panel.add(new JLabel(), gbc);
+		return panel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel buildFragmentPanel()
+	{
+		JPanel panel = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+
+		layoutUsage = sizedCombo();
+		fragmentMinRooms = spinner(3, 1, 20);
+		fragmentTargetRooms = spinner(3, 1, 20);
+		fragmentAttempts = spinner(8, 1, 64);
+
+		dodgyGridBagShite(panel, new JLabel("Fragment usage:"), layoutUsage, gbc);
+		dodgyGridBagShite(panel, new JLabel("Min rooms:"), fragmentMinRooms, gbc);
+		dodgyGridBagShite(panel, new JLabel("Target rooms:"), fragmentTargetRooms, gbc);
+		dodgyGridBagShite(panel, new JLabel("Max attempts:"), fragmentAttempts, gbc);
+
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+		panel.add(new JLabel(), gbc);
+		return panel;
 	}
 
 	@Override
@@ -156,12 +205,12 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 			generator.setSelectedItem(defaultId);
 		}
 
-		java.util.List<String> themes = campaign.getFragmentLayoutThemes();
-		if (themes.isEmpty())
+		java.util.List<String> usages = FragmentCatalog.usageIds();
+		if (usages.isEmpty())
 		{
-			themes = java.util.List.of("barracks");
+			usages = java.util.List.of("barracks");
 		}
-		layoutUsage.setModel(new DefaultComboBoxModel<>(new Vector<>(themes)));
+		layoutUsage.setModel(new DefaultComboBoxModel<>(new Vector<>(usages)));
 
 		updateGeneratorPanels();
 	}
@@ -170,15 +219,23 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 	private void updateGeneratorPanels()
 	{
 		String id = (String)generator.getSelectedItem();
-		boolean fragment = DungeonGens.FRAGMENT.equals(id);
-		fragmentPanel.setVisible(fragment);
-		layoutUsage.setEnabled(fragment);
-		noisePanel.setVisible(!fragment);
+		if (id == null)
+		{
+			id = DungeonGens.NOISE4J;
+		}
+		generatorCards.show(generatorCardPanel, id);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		if (e.getSource() instanceof JButton button
+			&& "Randomise".equals(button.getText()))
+		{
+			seed.setValue(new Random().nextInt(Integer.MAX_VALUE));
+			return;
+		}
+
 		if (e.getSource() == generator)
 		{
 			updateGeneratorPanels();
@@ -203,33 +260,38 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 			throw new MazeException("Select a shell zone");
 		}
 
+		int size = normaliseOddSize(((Number)mapSize.getValue()).intValue());
+		mapSize.setValue(size);
+
 		String previewName = shellName + "_preview.dungeongen";
 		Zone zone = MapEditorDialog.cloneShell(shellName, previewName);
-		int size = ((Number)mapSize.getValue()).intValue();
-		if (size % 2 == 0)
-		{
-			size++;
-			mapSize.setValue(size);
-		}
 		ZoneShell.ensureSize(zone, size);
 
 		int dungeonLevel = ((Number)depth.getValue()).intValue();
 		long runSeed = ((Number)seed.getValue()).longValue();
 
-		if (fullPipeline.isSelected() && zone.getScript() instanceof MapGenZoneScript)
+		try
 		{
-			MazeVariables.set("map.seed." + previewName, Long.toString(runSeed));
-			zone.getScript().init(zone, 0);
+			if (fullPipeline.isSelected() && zone.getScript() instanceof MapGenZoneScript)
+			{
+				MazeVariables.set("map.seed." + previewName, Long.toString(runSeed));
+				MazeVariables.set(PREVIEW_SIZE_VAR, Integer.toString(size));
+				zone.getScript().init(zone, 0);
+			}
+			else
+			{
+				String genId = (String)generator.getSelectedItem();
+				DungeonGen gen = buildGenerator(genId);
+				PreviewDecorator decorator = new PreviewDecorator(zone);
+				DungeonGenContext ctx = DungeonGenContext.builder()
+					.stairwellPlanner(new Noise4jStairwellPlanner())
+					.build();
+				gen.generate(zone, runSeed, dungeonLevel, decorator, ctx);
+			}
 		}
-		else
+		finally
 		{
-			String genId = (String)generator.getSelectedItem();
-			DungeonGen gen = buildGenerator(genId);
-			PreviewDecorator decorator = new PreviewDecorator(zone);
-			DungeonGenContext ctx = DungeonGenContext.builder()
-				.stairwellPlanner(new Noise4jStairwellPlanner())
-				.build();
-			gen.generate(zone, runSeed, dungeonLevel, decorator, ctx);
+			MazeVariables.clear(PREVIEW_SIZE_VAR);
 		}
 
 		MapEditorDialog.open(SwingEditor.instance, zone);
@@ -240,6 +302,10 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 		if (DungeonGens.FRAGMENT.equals(genId))
 		{
 			String usage = (String)layoutUsage.getSelectedItem();
+			if (usage == null || usage.isEmpty())
+			{
+				throw new MazeException("Select a fragment usage");
+			}
 			FragmentDungeonGen.Options options = new FragmentDungeonGen.Options(
 				usage,
 				((Number)fragmentMinRooms.getValue()).intValue(),
@@ -259,22 +325,67 @@ public class DungeonGenTestPanel extends JPanel implements ActionListener, IEdit
 		return DungeonGens.create(genId);
 	}
 
-	private static JSpinner spinner(int value, int min, int max)
+	private static int normaliseOddSize(int size)
 	{
-		return new JSpinner(new SpinnerNumberModel(value, min, max, 1));
+		if (size < 7)
+		{
+			return 7;
+		}
+		if (size > 63)
+		{
+			return 63;
+		}
+		if (size % 2 == 0)
+		{
+			return size + 1;
+		}
+		return size;
 	}
 
-	private static void addRow(JPanel panel, GridBagConstraints gbc, String label, Component field)
+	private static JComboBox<String> sizedCombo()
+	{
+		JComboBox<String> combo = new JComboBox<>();
+		combo.setPrototypeDisplayValue("fragment.barracks.room.entry");
+		return combo;
+	}
+
+	private static JSpinner spinner(int value, int min, int max)
+	{
+		JSpinner result = new JSpinner(new SpinnerNumberModel(value, min, max, 1));
+		result.setPreferredSize(new Dimension(80, result.getPreferredSize().height));
+		return result;
+	}
+
+	private static GridBagConstraints createGridBagConstraints()
+	{
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(2, 2, 2, 2);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbc.fill = GridBagConstraints.NONE;
+		return gbc;
+	}
+
+	private static void dodgyGridBagShite(
+		JPanel panel,
+		Component label,
+		Component field,
+		GridBagConstraints gbc)
 	{
 		gbc.gridwidth = 1;
-		gbc.weightx = 0;
-		gbc.gridx = 0;
-		panel.add(new JLabel(label), gbc);
-		gbc.gridx = 1;
-		gbc.weightx = 1;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(field, gbc);
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
 		gbc.fill = GridBagConstraints.NONE;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		gbc.gridx = 0;
+		panel.add(label, gbc);
+		gbc.gridx = 1;
+		panel.add(field, gbc);
 		gbc.gridy++;
 	}
 

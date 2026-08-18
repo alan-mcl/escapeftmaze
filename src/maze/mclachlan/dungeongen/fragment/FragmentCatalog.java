@@ -223,6 +223,25 @@ public final class FragmentCatalog
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/** Distinct {@code fragment.usage} ids among assembly fragments in the catalog. */
+	public static List<String> usageIds()
+	{
+		Map<String, Map<String, String>> byPrefix =
+			Database.getInstance().peekZoneMetadataByPrefix(PREFIX);
+
+		Set<String> usages = new TreeSet<>();
+		for (Map.Entry<String, Map<String, String>> e : byPrefix.entrySet())
+		{
+			Entry entry = fromMetadata(e.getKey(), e.getValue());
+			if (entry != null && entry.isAssemblyFragment())
+			{
+				usages.add(entry.usage());
+			}
+		}
+		return List.copyOf(usages);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/** Expands authored entries into quarter-turn variants for assembly. */
 	public static List<Entry> expandRotations(List<Entry> entries)
 	{

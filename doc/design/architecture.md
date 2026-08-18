@@ -37,12 +37,14 @@ Supporting libraries: `dungeongen` (procedural dungeon generation — pluggable
 (`FragmentDungeonGen` in `dungeongen.fragment` — catalog/sockets/stamp/rotate
 assembly; `FragmentRotate` expands authored zones to four facings in memory).
 Campaign `campaign.cfg` lists enabled generators (`dungeonGenerators`,
-`defaultDungeonGenerator`, `fragmentLayoutThemes`). Zone scripts call
+`defaultDungeonGenerator`). Zone scripts call
 `MapGenZoneScript.createDungeonGen()` → `DungeonGens.createDefault(campaign)`
 rather than hard-coding a generator. Temple live depths 1–4 still default to
 Noise4j; fragment assembly is data-driven via `fragment.*` zone metadata.
 Editor **Tools → DungeonGen Test** clones a shell zone and opens the result in
-`MapEditor`. See [temple_campaign.md](temple_campaign.md) §§6, 10.
+`MapEditor` (left-packed form, generator-specific CardLayout settings, seed
+randomise, map-size override via `dungeongen.size` for full pipeline previews).
+See [temple_campaign.md](temple_campaign.md) §§6, 10.
 `jgpgoap` + `maze/game/goapai` (GOAP planner, currently experimental), `maze/audio`,
 `maze/util`.
 

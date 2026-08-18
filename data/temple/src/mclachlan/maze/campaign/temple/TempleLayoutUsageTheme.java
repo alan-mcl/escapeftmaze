@@ -20,8 +20,7 @@
 package mclachlan.maze.campaign.temple;
 
 import java.util.*;
-import mclachlan.maze.game.Campaign;
-import mclachlan.maze.game.Maze;
+import mclachlan.dungeongen.fragment.FragmentCatalog;
 import mclachlan.maze.game.MazeVariables;
 
 /**
@@ -80,18 +79,10 @@ public final class TempleLayoutUsageTheme
 	/*-------------------------------------------------------------------------*/
 	static List<String> availableUsageIds()
 	{
-		try
+		List<String> usages = FragmentCatalog.usageIds();
+		if (!usages.isEmpty())
 		{
-			Campaign campaign = Maze.getInstance().getCampaign();
-			List<String> themes = campaign.getFragmentLayoutThemes();
-			if (themes != null && !themes.isEmpty())
-			{
-				return themes;
-			}
-		}
-		catch (Exception e)
-		{
-			// fall through
+			return usages;
 		}
 		return List.of(Theme.BARRACKS.id());
 	}

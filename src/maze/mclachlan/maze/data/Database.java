@@ -618,8 +618,6 @@ public class Database
 			String defaultDungeonGenerator = p.getProperty("defaultDungeonGenerator");
 			List<String> dungeonGenerators =
 				Campaign.parseCommaList(p.getProperty("dungeonGenerators"));
-			List<String> fragmentLayoutThemes =
-				Campaign.parseCommaList(p.getProperty("fragmentLayoutThemes"));
 
 			Campaign campaign = new Campaign(
 				name,
@@ -632,7 +630,6 @@ public class Database
 				introScript);
 			campaign.setDefaultDungeonGenerator(defaultDungeonGenerator);
 			campaign.setDungeonGenerators(dungeonGenerators);
-			campaign.setFragmentLayoutThemes(fragmentLayoutThemes);
 			result.add(campaign);
 		}
 

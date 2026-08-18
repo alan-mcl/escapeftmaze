@@ -371,9 +371,10 @@ Java Properties file loaded into [`Campaign`](../../src/maze/mclachlan/maze/game
 
 | Key | Purpose |
 |-----|---------|
-| `dungeonGenerators` | Comma-separated built-in ids exposed in editor Tools and `DungeonGens.create(id)` (`noise4j`, `fragment`; unknown ids logged and ignored) |
-| `defaultDungeonGenerator` | Live `MapGenZoneScript.createDungeonGen()` selection (`noise4j` for temple today) |
-| `fragmentLayoutThemes` | Comma-separated `fragment.usage` values for fragment assembly picks / editor combo (temple: `barracks`) |
+| `dungeonGenerators` | Comma-separated built-in ids exposed in editor Tools and `DungeonGens.create(id)` (`noise4j`, `fragment`; unknown ids logged and ignored). Campaign editor: checkbox per built-in from `DungeonGens.builtInIds()`. |
+| `defaultDungeonGenerator` | Live `MapGenZoneScript.createDungeonGen()` selection (`noise4j` for temple today). Campaign editor: combo limited to checked generators. |
+
+Fragment assembly **`fragment.usage`** values are discovered from zone catalog metadata (`FragmentCatalog.usageIds()`), not campaign config.
 
 ## 5. DB File Map (`data/<campaign>/db/`)
 

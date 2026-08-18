@@ -98,8 +98,8 @@ every UI label lookup (critical for Quick Start spell rolling).
   (`FragmentDungeonGen` in `mclachlan.dungeongen.fragment`).
 - Temple live depths 1–4 still default to **Noise4j**
   (`defaultDungeonGenerator=noise4j`). Fragment assembly is engine-generic;
-  temple supplies only data (`fragment.barracks.*` zones, `fragmentLayoutThemes`)
-  and campaign pipeline code (seeds, dressing, stairs). Switch live layout by
+  temple supplies only data (`fragment.barracks.*` zones with `fragment.usage`
+  metadata) and campaign pipeline code (seeds, dressing, stairs). Switch live layout by
   changing `defaultDungeonGenerator` or per-depth policy later.
   **Phase 4 focus:** make the live dungeon worth crawling. Iterate
   **Noise4j first** (room/corridor topology, density, loops, dead-ends, scale),
@@ -107,7 +107,12 @@ every UI label lookup (critical for Quick Start spell rolling).
   via campaign config. Orthogonal to `TempleDepthScaler` (content bands vs
   layout algorithm).
 - Editor **Tools → DungeonGen Test** previews any campaign-enabled generator on
-  a cloned shell zone (layout-only or full `ZoneScript.init` pipeline).
+  a cloned shell zone (layout-only or full `ZoneScript.init` pipeline). Form
+  fields pack left like other editor tabs; generator-specific knobs sit in a
+  CardLayout card (Noise4j vs fragment). Seed row includes **Randomise**; map
+  size spinner applies to layout-only (`ZoneShell.ensureSize`) and full pipeline
+  (`MazeVariables` `dungeongen.size` → `TempleFloorShell.ensureGenSize`, cleared
+  after preview; live crawls stay 15×15).
 - Temple subclass: `mclachlan.maze.campaign.temple.TempleGeneratorMazeScript`
   (decorator for walls/doors/encounters; overrides `init` for run-seed logic).
   When fragment gen is selected, passes `TempleLayoutUsageTheme.usageId()` into
@@ -304,7 +309,7 @@ Two **usage** concepts stay separate:
 | Concept | Key / class | Purpose |
 |---------|-------------|---------|
 | Noise4j dressing theme | `temple.d.<depth>.pick.usage` / `TempleUsageTheme` | Storage, library, mystery, garden, mixed — beds, barrels, etc. on Noise4j floors |
-| Fragment layout theme | `temple.d.<depth>.pick.layout.usage` / `TempleLayoutUsageTheme` | Barracks (today); worship / sanctum / arena later — picks assembly kit for `FragmentDungeonGen` (from `campaign.fragmentLayoutThemes`) |
+| Fragment layout theme | `temple.d.<depth>.pick.layout.usage` / `TempleLayoutUsageTheme` | Barracks (today); worship / sanctum / arena later — picks assembly kit for `FragmentDungeonGen` (from `FragmentCatalog.usageIds()` on zone metadata) |
 
 Convention keys (temple; other campaigns may use other keys):
 

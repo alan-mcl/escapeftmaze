@@ -30,6 +30,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import mclachlan.dungeongen.DungeonGens;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.DataObject;
 import mclachlan.maze.game.Campaign;
@@ -42,9 +43,10 @@ public class CampaignEditorPanel extends JPanel
 	implements KeyListener, ActionListener, ChangeListener, IEditorPanel
 {
 	private JTextField displayName, defaultRace, defaultPortrait;
-	private JTextField dungeonGenerators, defaultDungeonGenerator, fragmentLayoutThemes;
 	private JTextArea description;
 	private JComboBox startingScript, introScript, parentCampaign;
+	private JComboBox<String> defaultDungeonGenerator;
+	private final Map<String, JCheckBox> generatorChecks = new LinkedHashMap<>();
 	private Campaign currentCampaign;
 
 	/*-------------------------------------------------------------------------*/
@@ -109,17 +111,20 @@ public class CampaignEditorPanel extends JPanel
 		parentCampaign.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Parent Campaign:"), parentCampaign, gbc);
 
-		dungeonGenerators = new JTextField(20);
-		dungeonGenerators.addKeyListener(this);
-		dodgyGridBagShite(result, new JLabel("Dungeon Generators:"), dungeonGenerators, gbc);
+		JPanel generatorPanel = new JPanel();
+		generatorPanel.setLayout(new BoxLayout(generatorPanel, BoxLayout.Y_AXIS));
+		for (String id : DungeonGens.builtInIds())
+		{
+			JCheckBox check = new JCheckBox(id);
+			check.addActionListener(this);
+			generatorChecks.put(id, check);
+			generatorPanel.add(check);
+		}
+		dodgyGridBagShite(result, new JLabel("Dungeon Generators:"), generatorPanel, gbc);
 
-		defaultDungeonGenerator = new JTextField(20);
-		defaultDungeonGenerator.addKeyListener(this);
+		defaultDungeonGenerator = new JComboBox<>();
+		defaultDungeonGenerator.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Default Generator:"), defaultDungeonGenerator, gbc);
-
-		fragmentLayoutThemes = new JTextField(20);
-		fragmentLayoutThemes.addKeyListener(this);
-		dodgyGridBagShite(result, new JLabel("Fragment Themes:"), fragmentLayoutThemes, gbc);
 
 		defaultPortrait = new JTextField(20);
 		defaultPortrait.addActionListener(this);
@@ -170,6 +175,11 @@ public class CampaignEditorPanel extends JPanel
 		defaultPortrait.removeActionListener(this);
 		defaultRace.removeActionListener(this);
 		parentCampaign.removeActionListener(this);
+		defaultDungeonGenerator.removeActionListener(this);
+		for (JCheckBox check : generatorChecks.values())
+		{
+			check.removeActionListener(this);
+		}
 
 		displayName.setText(c.getDisplayName());
 		startingScript.setSelectedItem(c.getStartingScript());
@@ -178,10 +188,18 @@ public class CampaignEditorPanel extends JPanel
 		description.setCaretPosition(0);
 		defaultPortrait.setText(c.getDefaultPortrait());
 		defaultRace.setText(c.getDefaultRace());
-		dungeonGenerators.setText(Campaign.joinCommaList(c.getDungeonGenerators()));
-		defaultDungeonGenerator.setText(
-			c.getDefaultDungeonGenerator() == null ? "" : c.getDefaultDungeonGenerator());
-		fragmentLayoutThemes.setText(Campaign.joinCommaList(c.getFragmentLayoutThemes()));
+
+		java.util.List<String> enabled = c.getDungeonGenerators();
+		if (enabled.isEmpty())
+		{
+			enabled = java.util.List.of(DungeonGens.NOISE4J);
+		}
+		for (Map.Entry<String, JCheckBox> entry : generatorChecks.entrySet())
+		{
+			entry.getValue().setSelected(enabled.contains(entry.getKey()));
+		}
+		refreshDefaultGeneratorCombo(c.getDefaultDungeonGenerator());
+
 		if (c.getParentCampaign() == null)
 		{
 			parentCampaign.setSelectedItem(EditorPanel.NONE);
@@ -196,11 +214,68 @@ public class CampaignEditorPanel extends JPanel
 		defaultPortrait.addActionListener(this);
 		defaultRace.addActionListener(this);
 		parentCampaign.addActionListener(this);
+		defaultDungeonGenerator.addActionListener(this);
+		for (JCheckBox check : generatorChecks.values())
+		{
+			check.addActionListener(this);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshDefaultGeneratorCombo(String preferredDefault)
+	{
+		java.util.List<String> checked = selectedGenerators();
+		if (checked.isEmpty())
+		{
+			checked = java.util.List.of(DungeonGens.NOISE4J);
+		}
+
+		String previous = preferredDefault;
+		if (previous == null || previous.isEmpty())
+		{
+			previous = (String)defaultDungeonGenerator.getSelectedItem();
+		}
+
+		defaultDungeonGenerator.setModel(new DefaultComboBoxModel<>(new Vector<>(checked)));
+		if (previous != null && checked.contains(previous))
+		{
+			defaultDungeonGenerator.setSelectedItem(previous);
+		}
+		else
+		{
+			defaultDungeonGenerator.setSelectedIndex(0);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private java.util.List<String> selectedGenerators()
+	{
+		java.util.List<String> result = new ArrayList<>();
+		for (String id : DungeonGens.builtInIds())
+		{
+			JCheckBox check = generatorChecks.get(id);
+			if (check != null && check.isSelected())
+			{
+				result.add(id);
+			}
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void commit()
 	{
+		java.util.List<String> generators = selectedGenerators();
+		if (generators.isEmpty())
+		{
+			generators = java.util.List.of(DungeonGens.NOISE4J);
+		}
+		String defaultGen = (String)defaultDungeonGenerator.getSelectedItem();
+		if (defaultGen == null || defaultGen.isEmpty())
+		{
+			defaultGen = DungeonGens.NOISE4J;
+		}
+
 		Properties p = new Properties();
 		p.setProperty("displayName", displayName.getText());
 		p.setProperty("description", description.getText());
@@ -214,17 +289,8 @@ public class CampaignEditorPanel extends JPanel
 			parent = "";
 		}
 		p.setProperty("parentCampaign", parent);
-
-		if (currentCampaign.getDefaultDungeonGenerator() != null)
-		{
-			p.setProperty("defaultDungeonGenerator", currentCampaign.getDefaultDungeonGenerator());
-		}
-		p.setProperty(
-			"dungeonGenerators",
-			Campaign.joinCommaList(currentCampaign.getDungeonGenerators()));
-		p.setProperty(
-			"fragmentLayoutThemes",
-			Campaign.joinCommaList(currentCampaign.getFragmentLayoutThemes()));
+		p.setProperty("dungeonGenerators", Campaign.joinCommaList(generators));
+		p.setProperty("defaultDungeonGenerator", defaultGen);
 
 		currentCampaign.setDisplayName(displayName.getText());
 		currentCampaign.setDescription(description.getText());
@@ -233,11 +299,8 @@ public class CampaignEditorPanel extends JPanel
 		currentCampaign.setDefaultPortrait(defaultPortrait.getText());
 		currentCampaign.setIntroScript((String)introScript.getSelectedItem());
 		currentCampaign.setParentCampaign(parent);
-		currentCampaign.setDungeonGenerators(
-			Campaign.parseCommaList(dungeonGenerators.getText()));
-		currentCampaign.setDefaultDungeonGenerator(defaultDungeonGenerator.getText());
-		currentCampaign.setFragmentLayoutThemes(
-			Campaign.parseCommaList(fragmentLayoutThemes.getText()));
+		currentCampaign.setDungeonGenerators(generators);
+		currentCampaign.setDefaultDungeonGenerator(defaultGen);
 
 		try
 		{
@@ -282,6 +345,10 @@ public class CampaignEditorPanel extends JPanel
 
 	public void actionPerformed(ActionEvent e)
 	{
+		if (generatorChecks.containsValue(e.getSource()))
+		{
+			refreshDefaultGeneratorCombo(null);
+		}
 		SwingEditor.instance.setDirty(SwingEditor.Tab.CAMPAIGN);
 	}
 

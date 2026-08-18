@@ -33,10 +33,17 @@ public final class DungeonGens
 	public static final String NOISE4J = "noise4j";
 	public static final String FRAGMENT = "fragment";
 
-	private static final Set<String> BUILT_INS = Set.of(NOISE4J, FRAGMENT);
+	private static final List<String> BUILT_IN_ORDER = List.of(NOISE4J, FRAGMENT);
+	private static final Set<String> BUILT_INS = Set.copyOf(BUILT_IN_ORDER);
 
 	private DungeonGens()
 	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static List<String> builtInIds()
+	{
+		return BUILT_IN_ORDER;
 	}
 
 	/*-------------------------------------------------------------------------*/

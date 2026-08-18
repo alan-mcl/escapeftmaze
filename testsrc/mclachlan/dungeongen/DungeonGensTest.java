@@ -72,6 +72,14 @@ public class DungeonGensTest extends MazeTestSupport
 	}
 
 	@Test
+	void builtInIdsListsRegisteredGenerators()
+	{
+		assertEquals(
+			java.util.List.of(DungeonGens.NOISE4J, DungeonGens.FRAGMENT),
+			DungeonGens.builtInIds());
+	}
+
+	@Test
 	void unknownGeneratorIdThrows()
 	{
 		assertThrows(MazeException.class, () -> DungeonGens.create("not-a-generator"));

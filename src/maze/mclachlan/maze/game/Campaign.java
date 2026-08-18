@@ -37,7 +37,6 @@ public class Campaign
 	private String parentCampaign;
 	private String defaultDungeonGenerator;
 	private List<String> dungeonGenerators = List.of();
-	private List<String> fragmentLayoutThemes = List.of();
 
 	/*-------------------------------------------------------------------------*/
 	public Campaign(
@@ -167,17 +166,6 @@ public class Campaign
 	public void setDungeonGenerators(List<String> dungeonGenerators)
 	{
 		this.dungeonGenerators = dungeonGenerators == null ? List.of() : List.copyOf(dungeonGenerators);
-	}
-
-	public List<String> getFragmentLayoutThemes()
-	{
-		return fragmentLayoutThemes;
-	}
-
-	public void setFragmentLayoutThemes(List<String> fragmentLayoutThemes)
-	{
-		this.fragmentLayoutThemes =
-			fragmentLayoutThemes == null ? List.of() : List.copyOf(fragmentLayoutThemes);
 	}
 
 	public static List<String> parseCommaList(String value)

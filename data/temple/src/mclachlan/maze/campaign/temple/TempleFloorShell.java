@@ -20,6 +20,7 @@
 package mclachlan.maze.campaign.temple;
 
 import mclachlan.dungeongen.ZoneShell;
+import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -30,6 +31,9 @@ public final class TempleFloorShell
 	/** Odd size friendly to Noise4j; raise when full 31×31 floors are desired. */
 	public static final int GEN_SIZE = 15;
 
+	/** Editor Tools override; cleared after preview generate. */
+	public static final String PREVIEW_SIZE_VAR = "dungeongen.size";
+
 	private TempleFloorShell()
 	{
 	}
@@ -37,12 +41,30 @@ public final class TempleFloorShell
 	/*-------------------------------------------------------------------------*/
 	public static void ensureGenSize(Zone zone)
 	{
-		ensureGenSize(zone, GEN_SIZE);
+		ensureGenSize(zone, resolveGenSize());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static void ensureGenSize(Zone zone, int size)
 	{
 		ZoneShell.ensureSize(zone, size);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static int resolveGenSize()
+	{
+		String override = MazeVariables.get(PREVIEW_SIZE_VAR);
+		if (override != null && !override.isEmpty())
+		{
+			try
+			{
+				return Integer.parseInt(override.trim());
+			}
+			catch (NumberFormatException e)
+			{
+				// fall through
+			}
+		}
+		return GEN_SIZE;
 	}
 }
